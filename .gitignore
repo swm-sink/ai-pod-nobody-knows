@@ -338,3 +338,6 @@ projects/nobody-knows/output/
 # Claude session state and local settings
 .claude/sessions/
 .claude/settings.local.json
+
+# Local test data (not for version control)
+.claude/test-data/
