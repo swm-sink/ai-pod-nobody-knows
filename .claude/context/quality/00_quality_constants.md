@@ -1,7 +1,30 @@
-# Quality Assurance Constants
-## Single Source of Truth for Quality Standards and Validation Requirements
+<document type="constants" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Quality Assurance Constants - Quality Standards and Validation Requirements</title>
+    <scope>quality-domain</scope>
+    <category>quality</category>
+    <mutability>read-only</mutability>
+    <validation-frequency>daily</validation-frequency>
+    <navigation>
+      <index>@NAVIGATION.md</index>
+      <related>@../../00_GLOBAL_CONSTANTS.md</related>
+    </navigation>
+  </metadata>
 
-> **CRITICAL**: Reference these values instead of duplicating across quality documentation.
+  <summary>
+    Central repository for quality thresholds, validation requirements, and measurement standards.
+    Defines minimum acceptable quality levels and enforcement procedures across all production systems.
+  </summary>
+</document>
+
+# Quality Assurance Constants
+
+## Overview
+
+<purpose>
+  This file contains all quality thresholds, validation requirements, and measurement standards.
+  All quality documentation should reference these values to ensure consistent quality enforcement.
+</purpose>
 
 ---
 
