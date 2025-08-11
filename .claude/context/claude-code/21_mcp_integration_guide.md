@@ -97,20 +97,97 @@
   </server-categories>
 </mcp-server-architecture>
 
+## Initial Setup and API Key Configuration
+
+### **CRITICAL: Environment Setup for MCP Servers**
+
+**Technical Explanation**: MCP servers run as subprocesses of Claude Code and require API keys to be available in their execution environment at startup. Claude Code does not automatically load .env files for MCP servers, requiring explicit environment configuration.
+
+**Simple Breakdown**: Think of MCP servers as assistants who need their ID badges (API keys) before entering the building. If you give them the badge after they're already at the door, it's too late - they need it when they first arrive.
+
+#### Step-by-Step Initial Setup
+
+1. **Create Your .env File**
+```bash
+# Create .env in project root with your actual API keys
+cat > .env << 'EOF'
+# MCP Server API Keys
+PERPLEXITY_API_KEY=pplx-your-actual-key-here
+ELEVENLABS_API_KEY=sk_your-actual-key-here
+GITHUB_TOKEN=ghp_your-github-token-here
+EOF
+```
+
+2. **Create Startup Script** (RECOMMENDED)
+```bash
+# Create start-claude.sh for consistent environment loading
+cat > start-claude.sh << 'EOF'
+#!/bin/bash
+if [ -f .env ]; then
+    source .env
+    echo "✓ API keys loaded from .env"
+else
+    echo "✗ .env file not found!"
+    exit 1
+fi
+claude
+EOF
+
+chmod +x start-claude.sh
+```
+
+3. **Configure MCP Servers with Environment Variables**
+```bash
+# Start Claude with loaded environment
+./start-claude.sh
+
+# Inside Claude Code, add servers with env variables
+claude mcp add-json perplexity '{
+  "command": "node",
+  "args": ["path/to/perplexity-mcp/dist/index.js"],
+  "env": {"PERPLEXITY_API_KEY": "'$PERPLEXITY_API_KEY'"}
+}'
+```
+
+#### Common Configuration Pitfalls
+
+**Issue: Empty Environment Variables**
+```bash
+# This shows the variable exists but is empty:
+echo ${#PERPLEXITY_API_KEY}  # Output: 0
+
+# Fix: Ensure .env has actual values, not empty strings
+```
+
+**Issue: Keys Not in Subprocess Environment**
+```bash
+# Keys set in shell but not passed to MCP servers
+# Fix: Use claude mcp add-json with env parameter
+```
+
+**Issue: Relative vs Absolute Paths**
+```bash
+# Use absolute paths to avoid "module not found" errors
+find $(pwd) -name "index.js" | grep perplexity
+```
+
 ## Essential MCP Servers for AI Development
 
 ### **1. GitHub MCP Server - AI Project Management**
 
 #### Installation and Setup
 ```bash
-# Install GitHub MCP server
-claude mcp add github
+# First ensure GitHub token is in environment
+source .env  # Or use ./start-claude.sh
 
-# Configure with authentication
-echo "GITHUB_TOKEN=your_token_here" >> .env
+# Install GitHub MCP server with environment
+claude mcp add-json github '{
+  "command": "github-mcp",
+  "env": {"GITHUB_TOKEN": "'$GITHUB_TOKEN'"}
+}'
 
 # Test connection
-claude mcp test github
+claude mcp list  # Should show ✓ Connected
 ```
 
 #### AI Development Integration
