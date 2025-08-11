@@ -214,7 +214,8 @@
 
 - [ ] **Server Startup**
   ```bash
-  uvicorn core.orchestration.server:app --reload
+  # Reference: SERVER_COMMANDS['start_dev'] from Operations Constants
+uvicorn core.orchestration.server:app --reload
   # Visit http://localhost:8000/docs
   ```
 

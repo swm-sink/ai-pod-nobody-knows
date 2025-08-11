@@ -40,10 +40,12 @@ cp .env.example .env
 ### Daily Operations
 ```bash
 # Start server (Traditional)
+# Reference: SERVER_COMMANDS['start_dev'] from Operations Constants
 uvicorn core.orchestration.server:app --reload
 
 # Start server (Claude Code Enhanced)
-/init && uvicorn core.orchestration.server:app --reload
+/init && # Reference: SERVER_COMMANDS['start_dev'] from Operations Constants
+uvicorn core.orchestration.server:app --reload
 
 # Run tests (Traditional)
 pytest tests/
@@ -128,6 +130,8 @@ Agent: Research the latest AI audio synthesis techniques
 
 # File operations
 @filename.py  # Reference specific files
+@NAVIGATION_INDEX.md  # Master navigation guide  
+@NAVIGATION.md  # Domain-specific navigation
 [Tab]         # Auto-complete file/folder names
 ```
 
@@ -203,6 +207,65 @@ Task: Research topic → think hard about findings → Agent: Synthesize insight
 Glob: **/*.md  # Find all markdown files
 Grep: "TODO"   # Search across codebase
 ```
+
+## @ File Hopping Navigation 🔗
+
+### Quick Navigation Patterns
+```bash
+# Master navigation
+@NAVIGATION_INDEX.md      # Complete navigation guide
+@CLAUDE.md               # Main project memory
+
+# Domain navigation  
+@foundation/NAVIGATION.md        # Learning progression
+@claude-code/NAVIGATION.md       # Claude Code mastery
+@ai-orchestration/NAVIGATION.md  # Multi-agent systems
+@elevenlabs/NAVIGATION.md        # Audio production
+@prompts_research/NAVIGATION.md  # Advanced prompting
+@operations/NAVIGATION.md        # Daily workflows
+@quality/NAVIGATION.md           # Quality standards
+
+# Learning progression chains (3-4 levels max)
+@01_project_overview.md → @02_walk_crawl_run_phases.md → @04_no_api_keys_activities.md
+@15_claude_code_introduction.md → @16_memory_management_system.md → @17_command_reference_guide.md
+@08_troubleshooting_guide.md → @09_quick_reference.md → @10_production_checklist.md
+```
+
+### Emergency Navigation
+```bash
+# When stuck
+@08_troubleshooting_guide.md  # Problem solving
+@09_quick_reference.md        # This file - quick commands
+@NAVIGATION_INDEX.md          # Master navigation guide
+
+# When lost  
+@01_project_overview.md       # Big picture
+@CLAUDE.md                    # Project memory
+@foundation/NAVIGATION.md     # Learning path
+
+# Quality issues
+@11_change_approval_requirements.md → @14_validation_workflow.md
+@12_hallucination_prevention_guide.md → @13_tdd_requirements_specification.md
+```
+
+### Multi-Level Navigation Examples
+```bash
+# Complete learning path (4 levels)
+@01_project_overview.md → @15_claude_code_introduction.md → @16_memory_management_system.md → @04_no_api_keys_activities.md
+
+# Production workflow (4 levels)  
+@10_production_checklist.md → @15_elevenlabs_overview.md → @18_elevenlabs_api_implementation.md → @23_elevenlabs_podcast_production.md
+
+# Quality assurance (3 levels)
+@11_change_approval_requirements.md → @12_hallucination_prevention_guide.md → @14_validation_workflow.md
+```
+
+### @ Reference Best Practices
+- **Keep chains short**: 3-4 levels maximum
+- **Start with entry points**: Use navigation indexes first
+- **Follow logical flows**: Connect related concepts  
+- **Use domain navigation**: Each domain has NAVIGATION.md
+- **Emergency patterns**: Quick fixes and troubleshooting
 
 ### Cost-Saving Command Combinations
 ```bash
@@ -293,7 +356,8 @@ Task: Identify quality regression points
 ### Daily Workflow
 ```bash
 # Morning startup sequence
-source venv/bin/activate && /init && uvicorn core.orchestration.server:app --reload
+source venv/bin/activate && /init && # Reference: SERVER_COMMANDS['start_dev'] from Operations Constants
+uvicorn core.orchestration.server:app --reload
 
 # Quick health check
 curl localhost:8000/health && echo "Server OK"
@@ -708,7 +772,8 @@ Add to your `.bashrc` or `.zshrc`:
 # Project shortcuts
 alias podcast="cd ~/ai-podcasts-nobody-knows"
 alias activate="source venv/bin/activate"
-alias server="uvicorn core.orchestration.server:app --reload"
+alias server="# Reference: SERVER_COMMANDS['start_dev'] from Operations Constants
+uvicorn core.orchestration.server:app --reload"
 alias test="pytest tests/ -v"
 
 # Quick checks

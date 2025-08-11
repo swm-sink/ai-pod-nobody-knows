@@ -805,12 +805,13 @@ Python process growing to 8GB+ memory usage
 ## 📚 Cross-Reference Links
 
 <cross-references>
-  <memory-issues>See File 16: Memory Management System for detailed memory optimization</memory-issues>
-  <command-problems>See File 17: Command Reference Guide for command troubleshooting</command-problems>
-  <thinking-modes>See File 19: Thinking Modes Guide for diagnostic analysis techniques</thinking-modes>
-  <hooks-issues>See File 20: Hooks Automation System for hook debugging</hooks-issues>
-  <mcp-problems>See File 21: MCP Integration Guide for MCP server troubleshooting</mcp-problems>
-  <subagent-coordination>See File 22: Subagents Guide for orchestration debugging</subagent-coordination>
+  <memory-issues>@16_memory_management_system.md for detailed memory optimization</memory-issues>
+  <command-problems>@17_command_reference_guide.md for command troubleshooting</command-problems>
+  <thinking-modes>@19_thinking_modes_guide.md for diagnostic analysis techniques</thinking-modes>
+  <hooks-issues>@20_hooks_automation_system.md for hook debugging</hooks-issues>
+  <mcp-problems>@21_mcp_integration_guide.md for MCP server troubleshooting</mcp-problems>
+  <subagent-coordination>@22_subagents_guide.md for orchestration debugging</subagent-coordination>
+  <navigation-help>@NAVIGATION.md for domain navigation, @../NAVIGATION_INDEX.md for master navigation</navigation-help>
 </cross-references>
 
 ---
