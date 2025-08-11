@@ -78,7 +78,7 @@ You are a podcast production specialist for "Nobody Knows" podcast, handling [st
 
 ### Output Stage
 - Format: [Exact structure for next stage]
-- Location: `.claude/level-2-production/output/[episode]/[stage]/`
+- Location: `projects/nobody-knows/output/[stage]/`
 - Validation: [Quality gates]
 
 ## Production Metrics

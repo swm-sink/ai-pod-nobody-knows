@@ -87,10 +87,11 @@ Update session state:
 ### Step 5: Quality Gate Decision
 
 #### If PASS (overall score ≥ 0.85):
-1. Mark episode as production-ready
-2. Update session status to "complete"
-3. Generate success report
-4. Archive session data
+1. Mark episode as quality-approved
+2. Proceed to Step 6: Audio Synthesis
+3. After audio generation, update session status to "complete"
+4. Generate success report with all outputs
+5. Archive session data
 
 #### If FAIL (overall score < 0.85):
 1. Analyze failure reasons from quality report
@@ -101,12 +102,24 @@ Update session state:
 3. Maximum 3 retries allowed
 4. Update session with retry count
 
-### Step 6: Audio Synthesis (Future)
+### Step 6: Audio Synthesis Phase
+Execute audio-synthesizer agent:
 ```
-Status: NOT_IMPLEMENTED
-Placeholder: Script marked as audio-ready
-Future: Will execute audio-synthesizer agent
+Agent: audio-synthesizer
+Input:
+  - script: {from Step 3}
+  - episode_number: {from session}
+  - topic: {from session}
+Output: projects/nobody-knows/output/audio/ep{number}_{topic}_{date}.mp3
+Budget: $2.00
+Timeout: 15 minutes
 ```
+
+Update session state:
+- Mark audio synthesis as complete
+- Record audio file path
+- Record synthesis cost
+- Update total episode cost
 
 ## Error Handling
 
@@ -126,7 +139,8 @@ Future: Will execute audio-synthesizer agent
 - Research: 30 min max
 - Script Writing: 20 min max
 - Quality Eval: 10 min max
-- Total: 60 min target
+- Audio Synthesis: 15 min max
+- Total: 75 min target
 
 ## Output Summary
 
@@ -139,7 +153,8 @@ Future: Will execute audio-synthesizer agent
   "outputs": {
     "research": "path/to/research.md",
     "script": "path/to/script.md",
-    "quality": "path/to/quality.json"
+    "quality": "path/to/quality.json",
+    "audio": "path/to/audio.mp3"
   },
   "metrics": {
     "total_time": 55,
