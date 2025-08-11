@@ -309,3 +309,7 @@ instance/
 # Ignore all .env files except .env.example
 .env*
 !.env.example
+
+# TDD Enforcement - Prevent premature implementation
+# Only allow implementation after tests are written and approved
+core/

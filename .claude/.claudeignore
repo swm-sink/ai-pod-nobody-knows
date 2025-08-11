@@ -1,0 +1,153 @@
+# .claudeignore - Files and directories Claude Code should exclude from context
+# This helps optimize context window usage and improves performance
+
+# Version Control
+.git/
+.gitignore
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+.tox/
+.hypothesis/
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Logs and Databases
+*.log
+*.sql
+*.sqlite
+*.db
+logs/
+
+# Environment and Secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# Build Artifacts
+*.dll
+*.exe
+*.o
+*.out
+target/
+bin/
+obj/
+
+# Media Files (large binaries)
+*.mp3
+*.mp4
+*.wav
+*.flac
+*.mov
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.ico
+*.svg
+*.pdf
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+.cache/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Documentation Builds
+docs/_build/
+site/
+
+# Test Coverage
+htmlcov/
+.coverage.*
+
+# Package Management
+package-lock.json
+yarn.lock
+Pipfile.lock
+
+# Output Directories (keep structure, exclude contents)
+.claude/level-2-production/output/*/*
+.claude/level-1-dev/sessions/*.json
+.claude/level-2-production/sessions/*.json
+.claude/level-3-platform-dev/sessions/*.json
+
+# Development Files
+*.orig
+*.rej
+
+# Core Directory (per TDD requirements - should not exist)
+core/
+
+# Local Configuration
+*.local
+*.local.*
+!CLAUDE.local.md
+!settings.local.json

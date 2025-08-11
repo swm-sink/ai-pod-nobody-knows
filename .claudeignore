@@ -1,0 +1,12 @@
+# Exclude common directories that consume context unnecessarily
+node_modules/
+.git/
+__pycache__/
+.pytest_cache/
+*.log
+.DS_Store
+.env
+dist/
+build/
+.venv/
+venv/
