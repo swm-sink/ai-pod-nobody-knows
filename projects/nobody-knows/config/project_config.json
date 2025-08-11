@@ -1,30 +1,27 @@
 {
   "project_name": "nobody-knows",
   "project_type": "long_series",
-  "description": "A 100-episode educational podcast series exploring complex topics with intellectual humility",
+  "description": "A 125-episode AI podcast series teaching through radical honesty about technological confusion",
   "created_at": "2025-08-10T00:00:00",
+  "series_bible": "projects/nobody-knows/series_plan/series_bible.md",
+  "episodes_master": "projects/nobody-knows/series_plan/episodes_master.json",
   
   "episode_configuration": {
-    "target_episodes": 100,
+    "target_episodes": 125,
     "episode_duration": 27,
-    "episodes_per_season": 10,
-    "total_seasons": 10,
+    "episodes_per_season": 25,
+    "total_seasons": 5,
     "release_schedule": "weekly"
   },
   
   "content_specifications": {
     "complexity_progression": true,
     "seasonal_themes": {
-      "season_1": "Foundations of Knowledge",
-      "season_2": "The Natural World",
-      "season_3": "Human Mind and Behavior",
-      "season_4": "Technology and Innovation",
-      "season_5": "Society and Culture",
-      "season_6": "The Universe and Beyond",
-      "season_7": "Life Sciences",
-      "season_8": "Philosophy and Ethics",
-      "season_9": "Future Frontiers",
-      "season_10": "Synthesis and Reflection"
+      "season_1": "The Great Admission - Establishing that confusion is not the enemy",
+      "season_2": "The Beautiful Accidents - How AI breakthroughs happened by surprise",
+      "season_3": "The Learning Curve - What we're figuring out in real-time",
+      "season_4": "The Plot Thickens - The deeper we dig, the weirder it gets",
+      "season_5": "The Next Questions - What nobody knows they don't know yet"
     },
     "episode_structure": {
       "introduction": 1.5,
@@ -36,15 +33,23 @@
   
   "brand_voice": {
     "intellectual_humility": true,
-    "tone": ["curious", "thoughtful", "engaging", "accessible"],
+    "philosophy": "Transform confusion from shame into curiosity, uncertainty from weakness into wisdom",
+    "tone": ["honest", "curious", "vulnerable", "engaging", "accessible"],
     "key_phrases": [
       "Nobody knows for certain",
-      "Current understanding suggests",
-      "Evidence points to",
-      "It's fascinating to consider",
-      "What we're learning"
+      "Even the experts are confused",
+      "Here's what will blow your mind",
+      "And here's why nobody really understands it",
+      "What we can figure out together",
+      "But that raises an even weirder question"
     ],
-    "avoid": ["absolutist", "condescending", "overly technical", "dogmatic"]
+    "avoid": ["absolutist", "condescending", "overly technical", "dogmatic", "pretentious"],
+    "recurring_segments": [
+      "Wait, What? - Listener questions that reveal universal confusion",
+      "Expert Admissions - Researchers honestly describing their bewilderment",
+      "Plot Twist - When new discoveries change everything we thought we knew",
+      "The Rabbit Hole - Following implications to their logical (and illogical) conclusions"
+    ]
   },
   
   "quality_thresholds": {
