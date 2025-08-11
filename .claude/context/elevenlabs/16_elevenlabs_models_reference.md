@@ -1,8 +1,46 @@
+<document type="reference" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>ElevenLabs Models Reference Guide (2025)</title>
+    <id>16</id>
+    <category>elevenlabs</category>
+    <phase>crawl</phase>
+    <audience>both</audience>
+    <priority>high</priority>
+    <dependencies>
+      <prerequisite>@00_elevenlabs_constants.md</prerequisite>
+      <references>@15_elevenlabs_overview.md, @17_elevenlabs_prompt_engineering.md</references>
+    </dependencies>
+    <navigation>
+      <prev>@15_elevenlabs_overview.md</prev>
+      <index>@NAVIGATION.md</index>
+      <next>@17_elevenlabs_prompt_engineering.md</next>
+    </navigation>
+  </metadata>
+
+  <summary>
+    Complete technical and practical guide to ElevenLabs voice models for 2025.
+    Includes model specifications, comparison matrices, and selection criteria for optimal podcast production.
+  </summary>
+
+  <learning-objectives>
+    <primary>Understand which ElevenLabs model to choose for different scenarios</primary>
+    <secondary>Master cost-quality tradeoffs for audio production</secondary>
+    <outcome>Confidently select optimal models for any podcast production requirement</outcome>
+  </learning-objectives>
+</document>
+
 # ElevenLabs Models Reference Guide (2025)
 
-## 🎯 Purpose of This Document
-**For You**: Understand which model to choose and why - like picking the right tool for the job
-**For AI**: Complete technical specifications for implementing the optimal model selection logic
+## Overview
+
+**Technical Explanation**: Comprehensive reference for ElevenLabs voice synthesis models, including performance characteristics, cost analysis, and optimal use cases for professional podcast production.
+
+**Simple Breakdown**: Think of this as your guide to picking the right voice tool - like choosing between a quick sketch, a detailed drawing, or a professional painting based on what you need.
+
+<purpose>
+  <for-you>Understand which model to choose and why - like picking the right tool for the job</for-you>
+  <for-ai>Complete technical specifications for implementing optimal model selection logic</for-ai>
+</purpose>
 
 ---
 

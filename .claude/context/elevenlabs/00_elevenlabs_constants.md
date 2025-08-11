@@ -1,5 +1,30 @@
+<document type="constants" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>ElevenLabs Central Configuration & Constants (2025)</title>
+    <scope>elevenlabs-domain</scope>
+    <category>elevenlabs</category>
+    <mutability>read-only</mutability>
+    <validation-frequency>bi-weekly</validation-frequency>
+    <navigation>
+      <index>@NAVIGATION.md</index>
+      <related>@../../00_GLOBAL_CONSTANTS.md</related>
+    </navigation>
+  </metadata>
+
+  <summary>
+    Central repository for ElevenLabs API specifications, model configurations, and production parameters.
+    Single source of truth for all audio generation constants and cost calculations.
+  </summary>
+</document>
+
 # ElevenLabs Central Configuration & Constants (2025)
-## Single Source of Truth - Reference This File!
+
+## Overview
+
+<purpose>
+  This file contains all ElevenLabs API constants, model specifications, and production configurations.
+  All ElevenLabs documentation should reference these values for consistency and accuracy.
+</purpose>
 
 ---
 
