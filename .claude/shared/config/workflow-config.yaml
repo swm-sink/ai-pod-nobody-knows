@@ -1,0 +1,224 @@
+# Workflow Configuration for Nobody Knows Podcast Production
+# Version: 1.0.0
+# Updated: 2025-08-11
+
+# ==================== Timing Configuration ====================
+timeouts:
+  research:
+    minutes: 30
+    description: "Maximum time for research phase using Perplexity MCP"
+  
+  script_writing:
+    minutes: 20
+    description: "Maximum time for script generation using Claude native"
+  
+  quality_evaluation:
+    minutes: 10
+    description: "Maximum time for quality assessment"
+  
+  audio_synthesis:
+    minutes: 15
+    description: "Maximum time for audio generation using ElevenLabs MCP"
+  
+  total_episode:
+    minutes: 75
+    description: "Total maximum time for complete episode production"
+
+# ==================== Cost Budgets ====================
+cost_limits:
+  research:
+    maximum: 3.00
+    target: 2.50
+    tool: "perplexity_ask"
+  
+  script_writing:
+    maximum: 2.50
+    target: 1.00
+    tool: "claude_native"
+  
+  quality_evaluation:
+    maximum: 0.50
+    target: 0.25
+    tool: "claude_native"
+  
+  audio_synthesis:
+    maximum: 2.00
+    target: 1.75
+    tool: "text_to_speech"
+  
+  total_episode:
+    maximum: 8.00
+    target: 5.50
+    alert_threshold: 6.00
+
+# ==================== Retry Configuration ====================
+retry_policy:
+  max_attempts: 3
+  backoff_seconds: [30, 60, 120]
+  
+  retry_on:
+    - "timeout"
+    - "api_error"
+    - "rate_limit"
+  
+  no_retry_on:
+    - "invalid_api_key"
+    - "insufficient_credits"
+    - "quality_gate_failure"
+
+# ==================== Quality Gates ====================
+quality_gates:
+  comprehension:
+    threshold: 0.85
+    weight: 0.30
+    description: "Audience understanding score"
+  
+  brand_consistency:
+    threshold: 0.90
+    weight: 0.35
+    description: "Nobody Knows brand alignment"
+  
+  engagement:
+    threshold: 0.80
+    weight: 0.20
+    description: "Listener engagement potential"
+  
+  technical_accuracy:
+    threshold: 0.85
+    weight: 0.15
+    description: "Factual correctness"
+  
+  overall_minimum: 0.85
+
+# ==================== File Naming Patterns ====================
+file_patterns:
+  research: "ep{episode}_research_{topic}_{date}.md"
+  script: "ep{episode}_script_{topic}_{date}.md"
+  quality: "ep{episode}_quality_{date}.json"
+  audio: "ep{episode}_{topic}_{date}.mp3"
+  session: "ep{episode}_session_{date}.json"
+  
+  date_format: "%Y%m%d_%H%M"
+  topic_sanitization: "lowercase_underscores"
+
+# ==================== MCP Tool Configuration ====================
+mcp_tools:
+  perplexity:
+    tool_name: "perplexity_ask"
+    model: "sonar-pro"
+    max_queries_per_episode: 5
+    query_strategy: "comprehensive"
+    
+  elevenlabs:
+    tool_name: "text_to_speech"
+    voice_name: "Rachel"
+    model_id: "eleven_multilingual_v2"
+    output_format: "mp3_44100_128"
+    
+    voice_settings:
+      stability: 0.5
+      similarity_boost: 0.75
+      style: 0.3
+      use_speaker_boost: true
+      speed: 1.0
+
+# ==================== Session Management ====================
+session_config:
+  auto_save: true
+  save_interval_minutes: 5
+  
+  tracking_fields:
+    - episode_number
+    - topic
+    - start_time
+    - current_phase
+    - costs_incurred
+    - outputs_generated
+    - quality_scores
+    - errors_encountered
+  
+  cleanup_policy:
+    keep_successful: 30  # days
+    keep_failed: 7       # days
+    archive_location: "archives/"
+
+# ==================== Dry Run Configuration ====================
+dry_run:
+  enabled: true
+  mock_data_path: ".claude/test-data/"
+  
+  simulated_delays:
+    research: 2  # seconds
+    script: 2
+    quality: 1
+    audio: 3
+  
+  mock_costs:
+    research: 2.50
+    script: 1.00
+    quality: 0.25
+    audio: 1.75
+
+# ==================== Monitoring & Alerts ====================
+monitoring:
+  log_level: "INFO"
+  
+  alerts:
+    cost_exceeds_target: true
+    quality_below_threshold: true
+    timeout_occurred: true
+    api_error: true
+  
+  metrics_to_track:
+    - total_episodes_produced
+    - average_cost_per_episode
+    - average_quality_score
+    - success_rate
+    - average_production_time
+
+# ==================== Feature Flags ====================
+features:
+  enable_batch_production: true
+  enable_dry_run: true
+  enable_mock_mode: true
+  enable_cost_tracking: true
+  enable_quality_gates: true
+  enable_auto_retry: false  # Initially disabled per user request
+  enable_session_recovery: true
+  enable_parallel_research: false  # Keep sequential for now
+
+# ==================== Episode Specifications ====================
+episode_specs:
+  target_duration_minutes: 27
+  word_count_range: [3900, 4100]
+  complexity_levels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  
+  segments:
+    opening: 
+      duration: 2
+      purpose: "Hook and introduction"
+    
+    segment_1:
+      duration: 6
+      purpose: "What we know"
+    
+    segment_2:
+      duration: 7
+      purpose: "Mysteries and unknowns"
+    
+    segment_3:
+      duration: 7
+      purpose: "Frontier exploration"
+    
+    segment_4:
+      duration: 3
+      purpose: "Why it matters"
+    
+    closing:
+      duration: 2
+      purpose: "Wrap-up and outro"
+
+# ==================== Notes ====================
+# This configuration drives the entire podcast production workflow
+# Update with care - changes affect all production agents
+# Test changes in dry-run mode before production use
