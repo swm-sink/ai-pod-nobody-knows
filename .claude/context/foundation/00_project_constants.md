@@ -19,6 +19,11 @@
 
 # Project Foundation Constants
 
+> **⚠️ DRY PRINCIPLE**: This file contains learning-specific constants only.
+> For episode data, see: `projects/nobody-knows/series_plan/episodes_master.json`
+> For production config, see: `projects/nobody-knows/config/project_config.json`
+> For architecture details, see: `.claude/ARCHITECTURE.md`
+
 ## Overview
 
 <purpose>
@@ -97,8 +102,8 @@ RUN_PHASE:
     - "Scale implementation"
   outcomes:
     - "Episodes under $5"
-    - "Season 1 complete"
-    - "100 episodes produced"
+    - "Production pipeline proven"
+    - "Full series production capability"
 ```
 
 ---

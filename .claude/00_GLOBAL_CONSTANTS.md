@@ -1,5 +1,10 @@
 # Global Constants and Standards
 
+> **⚠️ DRY PRINCIPLE**: This file contains ONLY constants that don't exist in primary sources.
+> For episode data, see: `projects/nobody-knows/series_plan/episodes_master.json`
+> For production config, see: `projects/nobody-knows/config/project_config.json`
+> For architecture details, see: `.claude/ARCHITECTURE.md`
+
 ## 4-Level Architecture Constants
 
 ### Level Definitions
