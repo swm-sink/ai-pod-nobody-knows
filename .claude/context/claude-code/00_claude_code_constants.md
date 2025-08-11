@@ -1,7 +1,30 @@
-# Claude Code Constants and Configuration
-## Single Source of Truth for Claude Code Features
+<document type="constants" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Claude Code Constants and Configuration</title>
+    <scope>claude-code-domain</scope>
+    <category>claude-code</category>
+    <mutability>read-only</mutability>
+    <validation-frequency>weekly</validation-frequency>
+    <navigation>
+      <index>@NAVIGATION.md</index>
+      <related>@../../00_GLOBAL_CONSTANTS.md</related>
+    </navigation>
+  </metadata>
 
-> **CRITICAL**: Reference these values instead of duplicating them across Claude Code documentation.
+  <summary>
+    Central repository for Claude Code commands, configurations, and feature specifications.
+    Single source of truth for all Claude Code documentation to reference instead of duplicating values.
+  </summary>
+</document>
+
+# Claude Code Constants and Configuration
+
+## Overview
+
+<purpose>
+  This file contains all constants, commands, and configuration values for the Claude Code domain.
+  All Claude Code documentation should reference these values rather than hardcoding them.
+</purpose>
 
 ---
 
