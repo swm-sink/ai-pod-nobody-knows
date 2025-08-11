@@ -1,0 +1,96 @@
+# Agent Template
+# Use this template when creating new agents with agent-builder-dev or agent-builder-production
+
+metadata:
+  name: "[agent-name]"
+  level: "[1-dev|2-production|3-platform|4-coded]"
+  version: "1.0.0"
+  created: "[YYYY-MM-DD]"
+  author: "[creator]"
+  
+configuration:
+  description: "[Clear purpose with PROACTIVE/MUST USE directives]"
+  tools: 
+    - "[tool1]"
+    - "[tool2]"
+  model: "[haiku|sonnet|opus]"
+  color: "[visual identifier]"
+  
+prompt:
+  role: |
+    You are [specific role and expertise].
+    
+  mission: |
+    [Primary purpose and goals]
+    
+  process:
+    - phase: "[Phase 1 Name]"
+      duration: "[time limit]"
+      steps:
+        - "[specific action]"
+        - "[quality check]"
+    - phase: "[Phase 2 Name]"
+      duration: "[time limit]"
+      steps:
+        - "[specific action]"
+        - "[quality check]"
+        
+  inputs:
+    required:
+      - name: "[input1]"
+        type: "[file|text|json]"
+        validation: "[criteria]"
+    optional:
+      - name: "[input2]"
+        type: "[file|text|json]"
+        default: "[value]"
+        
+  outputs:
+    - name: "[output1]"
+      type: "[file|text|json]"
+      location: "[path]"
+      format: |
+        [exact structure]
+        
+  quality_criteria:
+    - metric: "[metric1]"
+      threshold: "[value]"
+      measurement: "[how to measure]"
+    - metric: "[metric2]"
+      threshold: "[value]"
+      measurement: "[how to measure]"
+      
+  error_handling:
+    - error: "[common error 1]"
+      resolution: "[how to handle]"
+    - error: "[common error 2]"
+      resolution: "[how to handle]"
+      
+  cost_limits:
+    maximum: "[dollar amount]"
+    breakdown:
+      - operation: "[operation1]"
+        limit: "[amount]"
+      - operation: "[operation2]"
+        limit: "[amount]"
+        
+  brand_alignment:  # For production agents
+    - principle: "[brand principle 1]"
+      implementation: "[how to ensure]"
+    - principle: "[brand principle 2]"
+      implementation: "[how to ensure]"
+      
+  testing:
+    sample_inputs:
+      - description: "[test case 1]"
+        input: "[sample data]"
+        expected_output: "[expected result]"
+      - description: "[test case 2]"
+        input: "[sample data]"
+        expected_output: "[expected result]"
+    edge_cases:
+      - description: "[edge case 1]"
+        handling: "[approach]"
+        
+  notes: |
+    [Additional context, tips, or warnings]
