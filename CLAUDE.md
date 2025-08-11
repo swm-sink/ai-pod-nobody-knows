@@ -1,941 +1,587 @@
-<document type="system-documentation" version="3.0.0">
+<document type="system-documentation" version="4.0.0">
   <metadata>
-    <last-updated>2025-08-10</last-updated>
-    <requires-approval>true</requires-approval>
-    <validation-status>claude-code-2025-optimized</validation-status>
+    <last-updated>2025-08-11</last-updated>
+    <context-engineering>true</context-engineering>
     <claude-code-version>2025-advanced</claude-code-version>
-    <context-management>hierarchical-xml-semantic</context-management>
+    <context-window>200000-tokens</context-window>
+    <semantic-comprehension>40-percent-boost</semantic-comprehension>
   </metadata>
 
-  <change-control>
-    <critical-requirement>
-      ANY modification to this document requires:
-      1. User explicit approval BEFORE changes
-      2. AI detailed impact assessment
-      3. Validation through research (3+ sources)
-      4. User confirmation AFTER implementation
-    </critical-requirement>
-  </change-control>
+  <critical>
+    ANY modification to this document requires:
+    1. User explicit approval BEFORE changes
+    2. Verification through actual tools (no assumptions)
+    3. Validation using chain-of-thought reasoning
+    4. User confirmation AFTER implementation
+  </critical>
+</document>
 
-  <dry-principle-enforcement>
-    <critical-requirement type="MANDATORY">
-      DRY (Don't Repeat Yourself) PRINCIPLE MUST BE ENFORCED:
-      
-      1. BEFORE creating ANY new documentation:
-         - Check if information already exists elsewhere
-         - Reference existing content instead of duplicating
-         - Use constants files for all repeated values
-      
-      2. CONSTANTS FILE HIERARCHY:
-         - Global: .claude/00_GLOBAL_CONSTANTS.md (project-wide values)
-         - Domain: .claude/context/*/00_*_constants.md (domain-specific)
-         - Reference these instead of hardcoding values
-      
-      3. PROHIBITED DUPLICATIONS:
-         - Project specifications (name, duration, costs)
-         - API configurations and endpoints
-         - Command definitions and syntax
-         - Error codes and messages
-         - File paths and directory structures
-      
-      4. REQUIRED PATTERNS:
-         - Use: "See [Constants](./00_constants.md#section)"
-         - Not: Hardcoded values or copy-pasted content
-         - Create: Single source of truth for each piece of information
-      
-      5. VALIDATION BEFORE CREATION:
-         - Run: grep -r "search_term" .claude/
-         - Check: Does this information exist already?
-         - Decide: Reference or create new (if truly unique)
-    </critical-requirement>
-    
-    <enforcement-rules>
-      <rule>Every file creation must check for existing content first</rule>
-      <rule>Every constant value must be extracted to constants files</rule>
-      <rule>Every reference must use links, not duplication</rule>
-      <rule>Every update must maintain single source of truth</rule>
-    </enforcement-rules>
-  </dry-principle-enforcement>
+# CLAUDE.md - AI Podcast Production Context Hub 🎓
 
-  <claude-code-integration>
-    <memory-management>
-      <type>project-level</type>
-      <hierarchy>root-level</hierarchy>
-      <auto-loaded>true</auto-loaded>
-      <context-priority>highest</context-priority>
-    </memory-management>
-    
-    <performance-optimization>
-      <xml-semantic-tagging>enabled</xml-semantic-tagging>
-      <comprehension-boost>40-percent</comprehension-boost>
-      <context-window-efficiency>optimized</context-window-efficiency>
-    </performance-optimization>
-    
-    <advanced-features>
-      <hooks-integration>configured</hooks-integration>
-      <mcp-servers>enabled</mcp-servers>
-      <custom-commands>enabled</custom-commands>
-      <thinking-modes>ultrathink-available</thinking-modes>
-    </advanced-features>
-  </claude-code-integration>
+## 🚀 QUICK START NAVIGATION
 
-  <file-operations-best-practices>
-    <critical-requirement type="MANDATORY">
-      FILE OPERATIONS BEST PRACTICES FOR CLAUDE:
-      
-      1. DIRECTORY VERIFICATION:
-         - ALWAYS use explicit paths (no assumptions)
-         - Use find command for comprehensive searches
-         - Check hidden folders with ls -la
-         - Verify existence before operations
-      
-      2. WHEN SEARCHING FOR FILES:
-         - Use: find /full/path -name "pattern" -type f
-         - Not: ls pattern (may miss hidden files)
-         - Use: grep -r for content searches
-         - Always specify full paths
-      
-      3. WHEN MOVING/DELETING:
-         - Verify source exists first
-         - Check git status before bulk operations
-         - Use -i flag for interactive confirmation when risky
-         - Create backups for critical operations
-      
-      4. COMMON PITFALLS TO AVOID:
-         - Hidden folders may not show in basic ls
-         - Empty directory removal may cascade
-         - Relative paths can be ambiguous
-         - Shell expansion may not work as expected
-      
-      5. VERIFICATION COMMANDS:
-         - find /path -type d (find all directories)
-         - find /path -type f -name "*.md" (find files by pattern)
-         - ls -la /path/ (show all including hidden)
-         - git status --porcelain (check git state)
-    </critical-requirement>
-  </file-operations-best-practices>
-
-# CLAUDE.md - Your AI Podcast Learning Project 🎓
-
-<welcome>
-  <greeting>WELCOME HOBBYIST!</greeting>
-  <purpose>
-    This is YOUR personal learning project - A hands-on way to master AI agent orchestration 
-    by building an automated podcast production system. You're not building for a company; 
-    you're building for your own learning and enjoyment!
-  </purpose>
-</welcome>
-
-<context-files>
-  <instruction>Read these files in order to understand your journey - Click @ references for instant navigation!</instruction>
-  <navigation-master>@NAVIGATION_INDEX.md - Master navigation guide for @ file hopping</navigation-master>
+<navigation-hub>
+  <new-user>
+    **First Time?** → Read .claude/context/foundation/01_project_overview.md → Follow WALK phase below
+    **Quick Setup**: python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+  </new-user>
   
-  <learning-progression>
-    <file number="1" ref="@01_project_overview.md">What this project is all about → @02_walk_crawl_run_phases.md</file>
-    <file number="2" ref="@02_walk_crawl_run_phases.md">Your learning progression → @03_hobbyist_focus.md</file>
-    <file number="3" ref="@03_hobbyist_focus.md">Why this is perfect for YOU → @04_no_api_keys_activities.md</file>
-    <file number="4" ref="@04_no_api_keys_activities.md">Learn for FREE first! → @05_agent_orchestration_basics.md</file>
-  </learning-progression>
+  <returning-user>
+    **Welcome Back!** → Check current phase → Continue from .claude/context/foundation/05_learning_milestones.md
+    **Jump to**: Current todos with `/todolist` command
+  </returning-user>
   
-  <core-concepts>
-    <file number="5" ref="@05_agent_orchestration_basics.md">Core concepts explained simply → @06_cost_optimization_strategies.md</file>
-    <file number="6" ref="@06_cost_optimization_strategies.md">Save money while learning → @07_learning_milestones.md</file>
-    <file number="7" ref="@07_learning_milestones.md">Track your achievements → @08_troubleshooting_guide.md</file>
-  </core-concepts>
-  
-  <operations-workflow>
-    <file number="8" ref="@08_troubleshooting_guide.md">When things go wrong (they will!) → @09_quick_reference.md</file>
-    <file number="9" ref="@09_quick_reference.md">Quick commands and snippets → @10_production_checklist.md</file>
-    <file number="10" ref="@10_production_checklist.md">Step-by-step production guide</file>
-  </operations-workflow>
-  
-  <quality-assurance>
-    <file number="11" ref="@11_change_approval_requirements.md">MANDATORY change control → @12_hallucination_prevention_guide.md</file>
-    <file number="12" ref="@12_hallucination_prevention_guide.md">MANDATORY validation requirements → @13_tdd_requirements_specification.md</file>
-    <file number="13" ref="@13_tdd_requirements_specification.md">MANDATORY TDD requirements → @14_validation_workflow.md</file>
-    <file number="14" ref="@14_validation_workflow.md">Step-by-step validation process</file>
-  </quality-assurance>
-  
-  <claude-code-mastery>
-    <file number="15" ref="@15_claude_code_introduction.md">Claude Code basics → @16_memory_management_system.md</file>
-    <file number="16" ref="@16_memory_management_system.md">Memory management → @17_command_reference_guide.md</file>
-    <file number="17" ref="@17_command_reference_guide.md">Commands and automation → @18_file_operations_guide.md</file>
-    <file number="18" ref="@18_file_operations_guide.md">Advanced file operations</file>
-  </claude-code-mastery>
-</context-files>
+  <stuck-user>
+    **Need Help?** → .claude/context/operations/01_troubleshooting_guide.md
+    **Emergency**: Use `@` navigation to any file instantly
+  </stuck-user>
+</navigation-hub>
+
+## 📍 CURRENT STATUS
 
 <current-phase>
-  <phase-name>WALK</phase-name>
-  <description>No API Keys Needed!</description>
-  <note>You can learn for WEEKS without spending any money!</note>
-  <reference>See .claude/context/04_no_api_keys_activities.md for everything you can do right now.</reference>
+  <phase>WALK</phase>
+  <focus>Learn for FREE - No API keys needed!</focus>
+  <next-action>.claude/context/foundation/04_no_api_keys_activities.md</next-action>
+  <duration>Weeks 1-4</duration>
+  <cost>$0</cost>
 </current-phase>
 
-<learning-goals>
-  <goal>Understand how AI agents work together</goal>
-  <goal>Learn to optimize costs (from $50 to $4 per episode!)</goal>
-  <goal>Build a real podcast while learning</goal>
-  <goal>Master prompt engineering</goal>
-  <goal>Gain confidence with AI tools</goal>
-</learning-goals>
+## 🧠 CONTEXT ENGINEERING FRAMEWORK
 
-<quick-start>
-  <section name="Setup Without API Keys">
-    <step number="1">
-      <description>Set up your environment</description>
-      <commands>
-        python -m venv venv
-        source venv/bin/activate  # Windows: venv\Scripts\activate
-        pip install -r requirements.txt
-      </commands>
-    </step>
-    
-    <step number="2">
-      <description>Start the server locally</description>
-      <command>uvicorn core.orchestration.server:app --reload</command>
-    </step>
-    
-    <step number="3">
-      <description>Visit the API docs</description>
-      <action>Open browser: http://localhost:8000/docs</action>
-    </step>
-    
-    <step number="4">
-      <description>Create a test project (works offline!)</description>
-      <command>
-        curl -X POST http://localhost:8000/projects \
-          -H "Content-Type: application/json" \
-          -d '{"project_name": "my-test", "episode_duration": 27}'
-      </command>
-    </step>
-  </section>
-</quick-start>
-
-<project-description>
-  <name>Nobody Knows Podcast</name>
-  <description>A 100-episode educational series about the limits of human knowledge</description>
-  <specifications>
-    <spec>27-minute episodes</spec>
-    <spec>Intellectual humility as core theme</spec>
-    <spec>Progressive complexity across 10 seasons</spec>
-    <spec>Cost: $4-8 per episode (vs traditional $800-3500!)</spec>
-  </specifications>
-</project-description>
-
-<ai-agents>
-  <agent name="Research Coordinator" icon="📚">Gathers information</agent>
-  <agent name="Script Writer" icon="✍️">Creates engaging content</agent>
-  <agent name="Audio Synthesizer" icon="🎙️">Generates speech</agent>
-  <agent name="Quality Evaluator" icon="✅">Ensures quality</agent>
-  <note>Each agent teaches you different AI concepts!</note>
-</ai-agents>
-
-<project-structure>
-  ```
-  ai-podcasts-nobody-knows/
-  ├── .claude/                    # 🧠 Claude Code configuration
-  │   ├── CLAUDE.md              # 📄 This file! (auto-loaded)
-  │   ├── CLAUDE.local.md        # 🔒 Personal notes (git-ignored)
-  │   ├── level-1-dev/           # 🔧 Development platform (builds the builders)
-  │   │   ├── agents/            # Development agents
-  │   │   ├── commands/          # agent-builder-dev, command-builder-dev
-  │   │   ├── sessions/          # Development tracking
-  │   │   └── templates/         # Templates for builders
-  │   ├── level-2-production/    # 🎙️ Podcast production system (native)
-  │   │   ├── agents/            # research, script, audio, quality agents
-  │   │   ├── commands/          # produce-episode, batch-production
-  │   │   ├── sessions/          # Episode production tracking
-  │   │   └── output/            # Episode artifacts
-  │   ├── level-3-platform-dev/  # 📋 Platform planning (future architecture)
-  │   │   ├── requirements/      # Platform specifications
-  │   │   ├── architecture/      # System design docs
-  │   │   └── migration/         # Native to coded transition
-  │   ├── level-4-coded/         # 🚫 Future coded platform (REQUIRES APPROVAL)
-  │   │   └── documentation/     # Plans only - NO CODE without approval
-  │   └── context/               # 📚 Your learning guides (START HERE!)
-  ├── core/                      # 🤖 Agent implementations (DELETED - TDD required)
-  ├── projects/                  # 🎙️ Your podcast projects
-  ├── requirements.txt           # 📦 Python packages
-  ├── .claudeignore             # 🚫 Files to exclude from context
-  └── .env.example              # 🔐 API key template
-  ```
-</project-structure>
-
-<four-level-architecture>
-  <critical-importance>
-    THIS PROJECT USES A 4-LEVEL ARCHITECTURE TO SEPARATE CONCERNS.
-    EACH LEVEL HAS DISTINCT PURPOSE AND TOOLS. DO NOT MIX LEVELS!
-  </critical-importance>
+<context-engineering>
+  <definition>
+    "Context engineering is the delicate art and science of filling the context window 
+    with just the right information for the next step." - Andrej Karpathy, 2025
+  </definition>
   
-  <level number="1" name="Claude Code Development Platform">
-    <purpose>Build the tools that build the production system</purpose>
-    <location>.claude/level-1-dev/</location>
-    <key-commands>
-      <command>agent-builder-dev: Creates development agents</command>
-      <command>command-builder-dev: Creates development commands</command>
-      <command>context-researcher-dev: Researches and documents</command>
-    </key-commands>
-    <when-to-use>When building new capabilities for Claude Code itself</when-to-use>
-  </level>
+  <evolution>
+    <old>Prompt Engineering: Craft perfect prompts</old>
+    <new>Context Engineering: Design systems that bring memory, knowledge, tools, and data dynamically</new>
+    <benefit>Context engineering begins where prompt engineering ends</benefit>
+  </evolution>
   
-  <level number="2" name="Podcast Production System">
-    <purpose>The actual podcast production using Claude Code native features</purpose>
-    <location>.claude/level-2-production/</location>
-    <key-commands>
-      <command>agent-builder-production: Creates podcast agents</command>
-      <command>produce-episode: Orchestrates full production</command>
-    </key-commands>
-    <agents>
-      <agent>research-coordinator: Gathers episode information</agent>
-      <agent>script-writer: Creates episode narrative</agent>
-      <agent>audio-synthesizer: Generates speech via ElevenLabs</agent>
-      <agent>quality-evaluator: Validates output quality</agent>
-    </agents>
-    <when-to-use>When producing actual podcast episodes</when-to-use>
-  </level>
-  
-  <level number="3" name="Platform Development Environment">
-    <purpose>Plan and design the future coded platform</purpose>
-    <location>.claude/level-3-platform-dev/</location>
-    <activities>Requirements gathering, architecture design, migration planning</activities>
-    <when-to-use>When planning how to migrate from native to coded solution</when-to-use>
-  </level>
-  
-  <level number="4" name="Coded Platform">
-    <purpose>Future Python/FastAPI implementation</purpose>
-    <location>.claude/level-4-coded/</location>
-    <status>REQUIRES EXPLICIT APPROVAL - DO NOT START</status>
-    <note>Documentation only until approval given</note>
-  </level>
-  
-  <usage-rules>
-    <rule>ALWAYS work in the correct level directory</rule>
-    <rule>Use level-specific builders (dev vs production)</rule>
-    <rule>Track work in level-appropriate session files</rule>
-    <rule>Do NOT create Python code without explicit approval (Level 4)</rule>
-  </usage-rules>
-</four-level-architecture>
-
-<context-management-system>
-  <hierarchy>
-    <level priority="1" scope="global">~/.claude/CLAUDE.md (Personal preferences)</level>
-    <level priority="2" scope="project">./CLAUDE.md (This file - project conventions)</level>
-    <level priority="3" scope="directory">subdirectory/CLAUDE.md (Local overrides)</level>
-    <level priority="4" scope="personal">CLAUDE.local.md (Git-ignored personal notes)</level>
-  </hierarchy>
+  <claude-specifics>
+    <window>200,000 tokens available (Claude 3.5 Sonnet)</window>
+    <optimization>
+      - Place long documents (20K+ tokens) at TOP of prompt
+      - Instructions at END for better recall
+      - Ground responses in quotes from documents
+      - Use summary compression after interactions
+    </optimization>
+  </claude-specifics>
   
   <memory-patterns>
-    <pattern name="bootstrap">Use /init to generate initial project memory</pattern>
-    <pattern name="checkpoint">Update memory before major changes</pattern>
-    <pattern name="context-clearing">Use /clear frequently, /compact for summarization</pattern>
-    <pattern name="memory-update">Use # to quickly add memories during sessions</pattern>
+    <external-store>Write important facts to files, retrieve when needed</external-store>
+    <summary-compression>Summarize every few interactions to prevent overflow</summary-compression>
+    <notes-to-self>AI generates notes stored for future recall</notes-to-self>
   </memory-patterns>
+</context-engineering>
+
+## ⚠️ LLM ANTI-PATTERN PROTECTION
+
+<anti-patterns>
+  <protection-1 name="Hallucination Prevention">
+    <problem>LLMs generate plausible but incorrect information</problem>
+    <solution>
+      - Chain-of-thought verification with <thinking> tags
+      - Multi-query consensus (ask 5 times, check variance)
+      - RAG grounding with external sources
+      - Allow explicit "I don't know" responses
+    </solution>
+    <verification>grep -r "UNVERIFIED" output/ || echo "All claims verified"</verification>
+  </protection-1>
+  
+  <protection-2 name="Attention Sink Defense">
+    <problem>Manipulation of attention scores induces hallucinations</problem>
+    <solution>
+      - Dynamic validation of attention patterns
+      - Black-box transferability checks
+      - Monitor hidden embeddings for anomalies
+    </solution>
+    <verification>python validate_attention.py --check-sinks</verification>
+  </protection-2>
+  
+  <protection-3 name="Circular Reasoning Guards">
+    <problem>Model loops in self-referential logic</problem>
+    <solution>
+      - Step-by-step reasoning enforcement
+      - External fact validation
+      - Break complex queries into subtasks
+    </solution>
+    <example>Think step-by-step: 1) Define terms 2) Check facts 3) Apply logic 4) Validate conclusion</example>
+  </protection-3>
+  
+  <protection-4 name="Injection Attack Prevention">
+    <problem>Malicious prompts manipulate model behavior</problem>
+    <solution>
+      - Input sanitization layers
+      - Output validation against expected patterns
+      - Role-based access controls
+    </solution>
+    <validation>All user inputs sanitized before processing</validation>
+  </protection-4>
+  
+  <protection-5 name="Context Overflow Protection">
+    <problem>Token limit exceeded, losing critical context</problem>
+    <solution>
+      - Automatic summary compression
+      - External memory for overflow
+      - Chunking strategies for large inputs
+    </solution>
+    <monitoring>Token usage: {current}/200000</monitoring>
+  </protection-5>
+</anti-patterns>
+
+## 🎯 PROJECT OVERVIEW
+
+<project>
+  <name>Nobody Knows Podcast</name>
+  <mission>Learn AI orchestration by building an automated podcast production system</mission>
+  <philosophy>Intellectual humility - celebrating what we know AND what we don't</philosophy>
+  <specs>
+    <episodes>100 episodes about limits of knowledge</episodes>
+    <duration>27 minutes each</duration>
+    <cost-target>$4-5 per episode (vs traditional $800-3500)</cost-target>
+    <complexity>Progressive 1-10 scale across seasons</complexity>
+  </specs>
+</project>
+
+## 🤖 MULTI-AGENT ORCHESTRATION
+
+<orchestration>
+  <pattern>Orchestrator-Worker Architecture</pattern>
+  <warning>⚠️ Multi-agent systems use 15x more tokens than single interactions</warning>
+  
+  <agents>
+    <research-coordinator>
+      <purpose>Multi-source research with confidence scoring</purpose>
+      <budget>$3.00 per episode</budget>
+      <mcp>Perplexity integration</mcp>
+    </research-coordinator>
+    
+    <script-writer>
+      <purpose>Transform research into engaging narrative</purpose>
+      <budget>$2.50 per episode</budget>
+      <style>Feynman clarity + Fridman curiosity</style>
+    </script-writer>
+    
+    <quality-evaluator>
+      <purpose>Validate against quality gates</purpose>
+      <budget>$0.50 per episode</budget>
+      <gates>Comprehension ≥0.85, Brand ≥0.90</gates>
+    </quality-evaluator>
+    
+    <audio-synthesizer>
+      <purpose>Generate natural speech</purpose>
+      <budget>$2.00 per episode</budget>
+      <mcp>ElevenLabs Turbo V2</mcp>
+    </audio-synthesizer>
+  </agents>
+  
+  <token-economics>
+    <chat>1x baseline tokens</chat>
+    <single-agent>4x tokens</single-agent>
+    <multi-agent>15x tokens</multi-agent>
+    <optimization>Use model cascading, caching, batch processing</optimization>
+  </token-economics>
+</orchestration>
+
+## 🏗️ FOUR-LEVEL ARCHITECTURE
+
+<architecture>
+  <level-1 name="Development Platform">
+    <purpose>Build tools that build the production system</purpose>
+    <location>.claude/level-1-dev/</location>
+    <commands>agent-builder-dev, command-builder-dev</commands>
+  </level-1>
+  
+  <level-2 name="Production System">
+    <purpose>Native Claude Code podcast production</purpose>
+    <location>.claude/level-2-production/</location>
+    <commands>produce-episode, batch-production</commands>
+    <status>ACTIVE DEVELOPMENT</status>
+  </level-2>
+  
+  <level-3 name="Platform Planning">
+    <purpose>Design future coded platform</purpose>
+    <location>.claude/level-3-platform-dev/</location>
+    <status>DOCUMENTATION ONLY</status>
+  </level-3>
+  
+  <level-4 name="Coded Platform">
+    <purpose>Future Python/FastAPI implementation</purpose>
+    <gate>⚠️ REQUIRES EXPLICIT APPROVAL: "Approved for Level 4 implementation"</gate>
+    <status>LOCKED - DO NOT IMPLEMENT</status>
+  </level-4>
+</architecture>
+
+## 📐 DRY PRINCIPLE ENFORCEMENT
+
+<dry-enforcement>
+  <single-source-truth>
+    <rule>Every piece of knowledge has ONE authoritative location</rule>
+    <hierarchy>
+      - Global: .claude/00_GLOBAL_CONSTANTS.md
+      - Domain: .claude/context/*/00_*_constants.md
+      - Shared: .claude/shared/
+    </hierarchy>
+  </single-source-truth>
+  
+  <validation-workflow>
+    <before-creation>
+      grep -r "search_term" .claude/  # Check if exists
+      ls -la target/directory/        # Verify location
+      cat existing/file.md            # Read before modifying
+    </before-creation>
+  </validation-workflow>
+  
+  <reference-patterns>
+    <internal>See .claude/context/XX_topic.md</internal>
+    <config>Reference: .claude/shared/config/production-config.yaml</config>
+    <template>Template: .claude/shared/templates/agent-template.md</template>
+  </reference-patterns>
+  
+  <prohibited>
+    <duplication>NEVER copy-paste content between files</duplication>
+    <hardcoding>NEVER hardcode values (use constants)</hardcoding>
+    <assumptions>NEVER assume file exists without checking</assumptions>
+  </prohibited>
+</dry-enforcement>
+
+## 🎓 FEYNMAN DUAL TEACHING
+
+<feynman-teaching>
+  <mandatory>EVERY concept explained TWO ways:</mandatory>
+  
+  <technical-explanation>
+    Professional terminology, industry standards, production implementation
+    Example: "Multi-agent orchestration using observer pattern with event-driven architecture"
+  </technical-explanation>
+  
+  <simple-breakdown>
+    Analogies, everyday examples, step-by-step understanding
+    Example: "Like a restaurant where the host (orchestrator) assigns tasks to specialized staff (agents)"
+  </simple-breakdown>
+  
+  <ai-enhancement>
+    <benefit>AI validates understanding through dual explanations</benefit>
+    <practice>Human experts create, AI analyzes patterns, experts review</practice>
+  </ai-enhancement>
+</feynman-teaching>
+
+## 🧪 TDD WITH AI AGENTS
+
+<test-driven-development>
+  <paradigm-shift>
+    <old>Test predictable outputs</old>
+    <new>Test behaviors and reasoning</new>
+  </paradigm-shift>
+  
+  <behavioral-specifications>
+    <not>Exact output matching</not>
+    <but>Score ranges, decision quality, tool selection</but>
+  </behavioral-specifications>
+  
+  <claude-code-workflow>
+    1. Write behavioral tests first
+    2. Ask Claude to implement based on tests
+    3. Validate with quality gates
+    4. Iterate with feedback loops
+  </claude-code-workflow>
+  
+  <benefits>
+    <speed>AI generates boilerplate in seconds</speed>
+    <coverage>Comprehensive edge case testing</coverage>
+    <reliability>Automated PR reviews and refactoring</reliability>
+  </benefits>
+</test-driven-development>
+
+## 💰 COST OPTIMIZATION DASHBOARD
+
+<cost-management>
+  <monitoring>
+    <real-time>Track token usage per agent</real-time>
+    <alerts>Notify when approaching budget limits</alerts>
+    <analytics>Identify optimization opportunities</analytics>
+  </monitoring>
   
   <optimization-strategies>
-    <strategy>XML semantic tagging for 40% better comprehension</strategy>
-    <strategy>Hierarchical context loading (most specific first)</strategy>
-    <strategy>Regular context window cleaning with /clear</strategy>
-    <strategy>.claudeignore to exclude irrelevant files</strategy>
+    <caching>42% reduction in monthly costs</caching>
+    <model-cascading>Simple tasks → budget models (60% savings)</model-cascading>
+    <rag>Reduce prompt size by 70%</rag>
+    <batch-processing>50% discount on grouped calls</batch-processing>
+    <fine-tuning>50-75% token reduction long-term</fine-tuning>
   </optimization-strategies>
-</context-management-system>
+  
+  <token-awareness>
+    <claude-vs-gpt>Claude uses 20-30% more tokens for same content</claude-vs-gpt>
+    <tracking>Log every API call with cost calculation</tracking>
+    <target>$4-5 per episode after optimization</target>
+  </token-awareness>
+  
+  <dashboard-command>/cost-dashboard --show-trends --by-agent</dashboard-command>
+</cost-management>
 
-<claude-code-features>
+## ✅ QUALITY ENFORCEMENT STANDARDS
+
+<quality-standards>
+  <verification-mandate>
+    <rule-1>VERIFY before claiming (use actual tools)</rule-1>
+    <rule-2>RESEARCH before documenting (Grep, Read, LS)</rule-2>
+    <rule-3>TEST before implementing (run validation)</rule-3>
+    <rule-4>SOURCE attribution required (file:line)</rule-4>
+    <rule-5>ADMIT uncertainty ("UNVERIFIED - requires validation")</rule-5>
+  </verification-mandate>
+  
+  <validation-examples>
+    <file-check>ls -la file.md || echo "File not found"</file-check>
+    <dir-verify>find .claude -type d -name "sessions"</dir-verify>
+    <content-search>grep -r "quality_gates" .claude/</content-search>
+    <command-test>which produce-episode || echo "Command not installed"</command-test>
+  </validation-examples>
+  
+  <measurable-metrics>
+    <accuracy>File paths: 100% correct</accuracy>
+    <completeness>All steps executable</completeness>
+    <consistency>Naming conventions followed</consistency>
+    <verifiability>All claims testable</verifiability>
+  </measurable-metrics>
+</quality-standards>
+
+## 🛠️ ESSENTIAL COMMANDS
+
+<commands>
+  <context-management>
+    /init                  # Initialize project memory
+    /clear                 # Clear conversation (use frequently!)
+    /compact               # Summarize to save tokens
+    # note                 # Quick memory addition
+    /memory                # Open CLAUDE.md for editing
+  </context-management>
+  
   <thinking-modes>
-    <mode level="1" trigger="think">Basic reasoning</mode>
-    <mode level="2" trigger="think hard">Enhanced analysis</mode>
-    <mode level="3" trigger="think harder">Deep exploration</mode>
-    <mode level="4" trigger="ultrathink">Maximum thinking budget</mode>
+    think                  # Basic reasoning
+    think hard             # Enhanced analysis (recommended)
+    think harder           # Deep exploration
+    ultrathink             # Maximum thinking (complex problems)
   </thinking-modes>
   
-  <workflow-automation>
-    <hooks>
-      <hook event="pre-tool-use">Run linting/formatting before file changes</hook>
-      <hook event="post-tool-use">Execute tests after code modifications</hook>
-      <hook event="session-complete">Generate session summary and commit</hook>
-    </hooks>
-    
-    <mcp-integration>
-      <server name="github">GitHub API integration for issues, PRs</server>
-      <server name="filesystem">Enhanced file operations</server>
-      <server name="web-search">Real-time information retrieval</server>
-    </mcp-integration>
-  </workflow-automation>
+  <mcp-integration>
+    claude mcp add perplexity     # Research capability
+    claude mcp add elevenlabs     # Audio synthesis
+    claude mcp list               # Show installed MCPs
+    /mcp__perplexity__search     # Use MCP directly
+  </mcp-integration>
   
-  <productivity-features>
-    <custom-commands>Project-specific workflows in .claude/commands/</custom-commands>
-    <tab-completion>Quick file and folder reference</tab-completion>
-    <escape-interruption>Stop and redirect Claude anytime</escape-interruption>
-    <session-continuity>Context preservation across interruptions</session-continuity>
-  </productivity-features>
-</claude-code-features>
+  <production>
+    /produce-episode              # Single episode production
+    /batch-produce                # Multiple episodes
+    /cost-dashboard               # Monitor spending
+    /quality-check                # Validate outputs
+  </production>
+</commands>
 
-<learning-integration>
-  <hobbyist-approach>
-    <principle>Learn AI orchestration through practical podcast creation</principle>
-    <principle>Progress from free activities to paid API usage</principle>
-    <principle>Build real skills while creating something you enjoy</principle>
-    <principle>No enterprise pressure - learn at your own pace</principle>
-  </hobbyist-approach>
-  
-  <skill-progression>
-    <phase name="WALK">Master Claude Code basics, context management, local development</phase>
-    <phase name="CRAWL">Add API integrations, hooks, custom commands</phase>
-    <phase name="RUN">Advanced automation, MCP servers, production workflows</phase>
-  </skill-progression>
-  
-  <learning-checkpoints>
-    <checkpoint>First successful /init command execution</checkpoint>
-    <checkpoint>Custom slash command creation</checkpoint>
-    <checkpoint>Hook configuration for automated testing</checkpoint>
-    <checkpoint>MCP server integration</checkpoint>
-    <checkpoint>Full podcast production pipeline</checkpoint>
-  </learning-checkpoints>
-</learning-integration>
+## 📊 LEARNING PROGRESSION
 
 <learning-path>
-  <phase number="1" name="WALK" duration="Weeks 1-4" cost="FREE">
+  <walk phase="1" duration="Weeks 1-4" cost="FREE">
+    <focus>Understand concepts without spending</focus>
     <activities>
-      <activity>Set up environment ✅</activity>
-      <activity>Understand the code</activity>
-      <activity>Create manual scripts</activity>
-      <activity>Test without APIs</activity>
+      - Set up environment
+      - Read all context files
+      - Create manual scripts
+      - Test with mock data
     </activities>
-  </phase>
+    <milestone>Understanding complete</milestone>
+  </walk>
   
-  <phase number="2" name="CRAWL" duration="Weeks 5-12" cost="$20-50">
+  <crawl phase="2" duration="Weeks 5-12" cost="$20-50">
+    <focus>Connect APIs, produce first episodes</focus>
     <activities>
-      <activity>Connect first API</activity>
-      <activity>Produce first episode</activity>
-      <activity>Learn from errors</activity>
-      <activity>Optimize costs</activity>
+      - Configure MCP servers
+      - Test with small batches
+      - Monitor costs closely
+      - Optimize prompts
     </activities>
-  </phase>
+    <milestone>Episode under $10</milestone>
+  </crawl>
   
-  <phase number="3" name="RUN" duration="Weeks 13+" cost="$50-100/month">
+  <run phase="3" duration="Weeks 13+" cost="$50-100/month">
+    <focus>Scale production, advanced features</focus>
     <activities>
-      <activity>Automate production</activity>
-      <activity>Batch processing</activity>
-      <activity>Advanced features</activity>
-      <activity>Share your podcast!</activity>
+      - Batch production
+      - Season management
+      - Quality automation
+      - Cost optimization
     </activities>
-  </phase>
+    <milestone>Consistent $4-5/episode</milestone>
+  </run>
 </learning-path>
 
-<cost-progression>
-  <month number="1" cost="$20-30/episode">Learning phase</month>
-  <month number="2" cost="$10-15/episode">Improving phase</month>
-  <month number="3" cost="$5-8/episode">Optimizing phase</month>
-  <month number="4+" cost="$4-5/episode">Mastered!</month>
-</cost-progression>
+## 🚦 QUICK REFERENCE
 
-<claude-code-commands>
-  <section name="Context Management">
-    <command purpose="Initialize project memory">/init</command>
-    <command purpose="Clear conversation">/clear</command>
-    <command purpose="Compact conversation">/compact</command>
-    <command purpose="Add quick memory"># [your memory note]</command>
-    <command purpose="Open memory file">/memory</command>
-  </section>
+<quick-reference>
+  <setup>
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    uvicorn core.orchestration.server:app --reload
+  </setup>
   
-  <section name="Thinking Modes">
-    <command purpose="Basic reasoning">think about this problem</command>
-    <command purpose="Enhanced analysis">think hard about the architecture</command>
-    <command purpose="Deep exploration">think harder about edge cases</command>
-    <command purpose="Maximum thinking">ultrathink the complete solution</command>
-  </section>
+  <navigation>
+    @filename.md           # Jump to any file
+    @NAVIGATION_INDEX.md   # Master navigation (if exists)
+    @operations/01_troubleshooting_guide.md  # When stuck
+  </navigation>
   
-  <section name="MCP Integration">
-    <command purpose="Add MCP server">claude mcp add [server-name]</command>
-    <command purpose="List MCP servers">claude mcp list</command>
-    <command purpose="Use MCP resource">@[resource-name]</command>
-    <command purpose="MCP slash command">/mcp__servername__promptname</command>
-  </section>
+  <testing>
+    ls -la path/           # Verify directories
+    grep -r "term" .       # Search content
+    find . -name "*.md"    # Find files
+    git status             # Check changes
+  </testing>
+</quick-reference>
+
+## 🎯 QUALITY GATES
+
+<quality-gates>
+  <thresholds>
+    <comprehension>≥0.85 (general audience)</comprehension>
+    <brand-consistency>≥0.90 (intellectual humility)</brand-consistency>
+    <engagement>≥0.80 (maintains interest)</engagement>
+    <technical-accuracy>≥0.85 (factually correct)</technical-accuracy>
+  </thresholds>
   
-  <section name="Custom Commands">
-    <command purpose="Create command">mkdir -p .claude/commands && echo "Prompt text" > .claude/commands/mycommand.md</command>
-    <command purpose="Use custom command">/mycommand</command>
-    <command purpose="Command with args">/mycommand arg1 arg2</command>
-  </section>
+  <enforcement>
+    <pre-production>Validate all inputs</pre-production>
+    <during-production>Monitor each agent</during-production>
+    <post-production>Quality evaluation required</post-production>
+    <failure-handling>Retry up to 3 times</failure-handling>
+  </enforcement>
+</quality-gates>
+
+## 🔄 SESSION COORDINATION
+
+<session-management>
+  <structure>
+    session_id: "ep_{number}_{YYYYMMDD}_{HHMM}"
+    location: projects/nobody-knows/output/sessions/
+    format: JSON with full state tracking
+  </structure>
   
-  <section name="Productivity Features">
-    <command purpose="Tab completion">[Tab] for files/folders</command>
-    <command purpose="Interrupt Claude">[Escape] to stop/redirect</command>
-    <command purpose="Edit previous prompt">[Escape][Escape] to go back</command>
-    <command purpose="File reference">@filename.py</command>
-  </section>
-</claude-code-commands>
-
-<essential-commands>
-  <section name="Daily Use">
-    <command purpose="Activate environment">source venv/bin/activate</command>
-    <command purpose="Start server">uvicorn core.orchestration.server:app --reload</command>
-    <command purpose="Check costs">grep "Cost:" logs/*.log | tail -10</command>
-  </section>
+  <handoff-protocol>
+    research → script: Research package validation
+    script → quality: Script completeness check
+    quality → audio: Quality gate approval
+    failure → retry: Automatic recovery
+  </handoff-protocol>
   
-  <section name="When Ready for APIs">
-    <command purpose="Copy environment template">cp .env.example .env</command>
-    <command purpose="Edit API keys">nano .env</command>
-    <command purpose="Test API connection">python test_apis.py</command>
-  </section>
-</essential-commands>
+  <monitoring>/session-status --active --show-progress</monitoring>
+</session-management>
 
-<troubleshooting>
-  <checklist>
-    <item>Is virtual environment activated?</item>
-    <item>Are you in the right directory?</item>
-    <item>Check .claude/context/08_troubleshooting_guide.md</item>
-    <item>Google the exact error message</item>
-    <item>Ask Claude.ai for help</item>
-  </checklist>
-</troubleshooting>
+## 📈 MONITORING & HOOKS
 
-<quality-targets>
-  <note>Don't worry about these yet - focus on learning first!</note>
-  <target name="Comprehension" threshold="≥0.85"/>
-  <target name="Brand Consistency" threshold="≥0.90"/>
-  <target name="Engagement" threshold="≥0.80"/>
-  <target name="Technical" threshold="≥0.85"/>
-</quality-targets>
-
-<milestones>
-  <milestone>Environment set up</milestone>
-  <milestone>Server running locally</milestone>
-  <milestone>First manual script written</milestone>
-  <milestone>First API connected</milestone>
-  <milestone>First episode produced</milestone>
-  <milestone>Episode under $10</milestone>
-  <milestone>Episode under $5</milestone>
-  <milestone>10 episodes complete</milestone>
-  <milestone>100 EPISODES! 🎉</milestone>
-</milestones>
-
-<pro-tips>
-  <tip number="1">Start FREE - Do everything in .claude/context/04_no_api_keys_activities.md first</tip>
-  <tip number="2">Learn Slowly - Understanding > Speed</tip>
-  <tip number="3">Track Everything - Keep a learning journal</tip>
-  <tip number="4">Ask Questions - Use Claude.ai free tier for explanations</tip>
-  <tip number="5">Have Fun - This is your hobby, enjoy it!</tip>
-</pro-tips>
-
-<security-reminder>
-  <rule>NEVER commit API keys to git</rule>
-  <rule>Keep .env file private</rule>
-  <rule>Use .env.example as template</rule>
-  <rule>Test with mock data first</rule>
-</security-reminder>
-
-<help-resources>
-  <step number="1">First: Check .claude/context/ files</step>
-  <step number="2">Then: Try the troubleshooting guide</step>
-  <step number="3">Finally: Ask in communities or Claude.ai</step>
-</help-resources>
-
-<next-steps>
-  <step number="1">Read .claude/context/01_project_overview.md</step>
-  <step number="2">Follow .claude/context/02_walk_crawl_run_phases.md</step>
-  <step number="3">Complete activities in .claude/context/04_no_api_keys_activities.md</step>
-  <step number="4">Track progress with .claude/context/07_learning_milestones.md</step>
-</next-steps>
-
-<critical-requirements>
-  <requirement type="change-control">
-    ALL changes require user approval - see context/11_change_approval_requirements.md
-  </requirement>
-  <requirement type="validation">
-    ALL information must be validated - see context/12_hallucination_prevention_guide.md
-  </requirement>
-  <requirement type="development">
-    ALL code must follow TDD - see context/13_tdd_requirements_specification.md
-  </requirement>
-  <requirement type="workflow">
-    ALL validation must follow process - see context/14_validation_workflow.md
-  </requirement>
-  <requirement type="quality-standards">
-    ALL operations must comply with QUALITY ENFORCEMENT STANDARDS - see section below for mandatory requirements
-  </requirement>
-  <requirement type="education" level="MANDATORY">
-    <feynman-teaching-approach>
-      For EVERY action or concept, Claude must explain using DUAL approach:
-      
-      1. TECHNICAL EXPLANATION (The Right Way):
-         - Precise technical terminology
-         - Industry-standard concepts
-         - Professional implementation details
-         - Why it's done this way in production
-      
-      2. SIMPLE BREAKDOWN (Feynman Approach):
-         - Explain like teaching a curious friend
-         - Use analogies and everyday examples
-         - Break complex ideas into simple steps
-         - Focus on understanding, not memorization
-    </feynman-teaching-approach>
-    
-    <teaching-format>
-      Structure: "Here's what we're doing and why..."
-      Technical: [Professional explanation]
-      Simple: "Think of it like..." [Analogy-based explanation]
-      Connection: "This helps you learn..." [Learning value]
-    </teaching-format>
-    
-    <mandatory-for>
-      - Every code concept introduced
-      - Every system architecture decision
-      - Every configuration change
-      - Every troubleshooting step
-      - Every optimization technique
-    </mandatory-for>
-  </requirement>
-  <requirement type="quality-enforcement">
-    ALL operations must adhere to comprehensive quality standards - see QUALITY ENFORCEMENT STANDARDS section below
-  </requirement>
-</critical-requirements>
-
-<QUALITY-ENFORCEMENT-STANDARDS>
-  <critical-importance>
-    THESE STANDARDS ARE MANDATORY FOR ALL OPERATIONS.
-    FAILURE TO FOLLOW THESE STANDARDS INVALIDATES ANY WORK PERFORMED.
-    STRICT ENFORCEMENT IS REQUIRED - NO EXCEPTIONS.
-  </critical-importance>
-
-  <anti-hallucination-requirements>
-    <verification-mandate>
-      <rule type="MANDATORY">VERIFY before claiming: Every statement must be verifiable through actual tools or research</rule>
-      <rule type="MANDATORY">RESEARCH before documenting: Use Grep, Read, LS, or other verification tools to confirm information</rule>
-      <rule type="MANDATORY">TEST before implementing: Run actual validation commands to ensure functionality</rule>
-      <rule type="MANDATORY">SOURCE attribution required: Cite specific files, line numbers, or tool outputs for every claim</rule>
-      <rule type="MANDATORY">NO assumptions: If uncertain, explicitly state "UNVERIFIED - requires validation"</rule>
-      <rule type="MANDATORY">VALIDATION commands: Include specific test commands for every technical claim</rule>
-      <rule type="MANDATORY">ERROR acknowledgment: Admit immediately when something cannot be verified</rule>
-    </verification-mandate>
-    
-    <validation-examples>
-      <example type="file-existence">
-        WRONG: "The config file exists at .claude/config.json"
-        RIGHT: "Verification needed: ls .claude/config.json || echo 'File not found'"
-      </example>
-      <example type="directory-structure">
-        WRONG: "The sessions directory contains tracking files"
-        RIGHT: "Directory contents verified: ls -la .claude/level-2-production/sessions/"
-      </example>
-      <example type="command-functionality">
-        WRONG: "This command will work: python script.py"
-        RIGHT: "Command validation: python -c 'import sys; print(sys.executable)' && python --version"
-      </example>
-    </validation-examples>
-    
-    <uncertainty-handling>
-      <when-uncertain>Use phrases like "UNVERIFIED", "REQUIRES VALIDATION", "CANNOT CONFIRM WITHOUT TESTING"</when-uncertain>
-      <verification-first>Always attempt verification through tools before making claims</verification-first>
-      <explicit-limitations>State clearly what cannot be verified and why</explicit-limitations>
-    </uncertainty-handling>
-  </anti-hallucination-requirements>
-
-  <directory-organization-principles>
-    <separation-mandate>
-      <rule type="MANDATORY">One purpose per directory: Each directory serves exactly one function</rule>
-      <rule type="MANDATORY">Clear naming conventions: Use descriptive-lowercase-hyphenated names</rule>
-      <rule type="MANDATORY">No cross-level dependencies: Level 1 cannot import from Level 2, etc.</rule>
-      <rule type="MANDATORY">Separation of concerns: Development tools separate from production tools</rule>
-      <rule type="MANDATORY">File placement rules: Config in root, templates in templates/, sessions in sessions/</rule>
-      <rule type="MANDATORY">No orphan files: Every file must have a clearly defined organizational home</rule>
-      <rule type="MANDATORY">Documentation location: All documentation in context/ directory, organized by topic</rule>
-    </separation-mandate>
-    
-    <directory-structure-enforcement>
-      <level-1-dev>
-        <purpose>Development platform tools ONLY</purpose>
-        <allowed-contents>agents/, commands/, sessions/, templates/</allowed-contents>
-        <forbidden-contents>Production data, episode content, API integrations</forbidden-contents>
-      </level-1-dev>
-      <level-2-production>
-        <purpose>Podcast production ONLY</purpose>
-        <allowed-contents>agents/, commands/, sessions/, output/</allowed-contents>
-        <forbidden-contents>Development tools, platform code, planning documents</forbidden-contents>
-      </level-2-production>
-      <level-3-platform-dev>
-        <purpose>Platform planning ONLY</purpose>
-        <allowed-contents>requirements/, architecture/, migration/</allowed-contents>
-        <forbidden-contents>Actual code, production data, current tools</forbidden-contents>
-      </level-3-platform-dev>
-      <level-4-coded>
-        <purpose>Future implementation ONLY</purpose>
-        <allowed-contents>documentation/ ONLY until approval granted</allowed-contents>
-        <forbidden-contents>ANY CODE without explicit user approval</forbidden-contents>
-      </level-4-coded>
-    </directory-structure-enforcement>
-    
-    <naming-standards>
-      <directories>lowercase-with-hyphens (e.g., level-2-production, context-management)</directories>
-      <files>descriptive-lowercase-with-extension (e.g., episode-production-session.json)</files>
-      <commands>verb-noun-format (e.g., produce-episode, validate-quality)</commands>
-      <agents>role-descriptor-format (e.g., research-coordinator, quality-evaluator)</agents>
-    </naming-standards>
-  </directory-organization-principles>
-
-  <dry-enforcement>
-    <single-source-truth>
-      <rule type="MANDATORY">One canonical location: Each piece of information exists in exactly one authoritative place</rule>
-      <rule type="MANDATORY">Shared resources: Common elements must be placed in .claude/shared/ directory</rule>
-      <rule type="MANDATORY">Template usage: Use templates for repetitive structures instead of copying</rule>
-      <rule type="MANDATORY">Variable extraction: Common values must be stored in configuration files</rule>
-      <rule type="MANDATORY">Reference over duplication: Link to existing documentation rather than copying content</rule>
-      <rule type="MANDATORY">Configuration inheritance: Base configurations with level-specific overrides</rule>
-    </single-source-truth>
-    
-    <duplication-exceptions>
-      <exception type="prompts">Agent prompts may repeat context for clarity and effectiveness</exception>
-      <exception type="validation">Critical validation steps may be repeated for safety</exception>
-      <exception type="learning">Educational examples may repeat concepts for comprehension</exception>
-      <note>ALL exceptions must be explicitly justified and documented</note>
-    </duplication-exceptions>
-    
-    <reference-patterns>
-      <pattern type="internal">See .claude/context/XX_topic_name.md for details</pattern>
-      <pattern type="configuration">Reference: .claude/config/base-settings.json</pattern>
-      <pattern type="template">Template: .claude/shared/templates/agent-template.md</pattern>
-    </reference-patterns>
-  </dry-enforcement>
-
-  <anti-pattern-prevention>
-    <forbidden-patterns>
-      <pattern type="status-tracking">NO status="pending"/"completed" attributes in markdown documentation</pattern>
-      <pattern type="hardcoded-progress">NO hardcoded progress indicators - use dynamic JSON session files</pattern>
-      <pattern type="circular-dependencies">NO circular dependencies - maintain clear dependency hierarchy</pattern>
-      <pattern type="vague-criteria">NO vague success criteria - all outcomes must be measurable</pattern>
-      <pattern type="untestable-claims">NO untestable claims - everything must be verifiable</pattern>
-      <pattern type="mixed-responsibilities">NO mixed responsibilities - one component serves one purpose</pattern>
-      <pattern type="hidden-state">NO hidden state - all state must be visible in session files</pattern>
-    </forbidden-patterns>
-    
-    <required-patterns>
-      <pattern type="state-tracking">Use JSON session files in appropriate level directories</pattern>
-      <pattern type="progress-indication">Dynamic progress calculation from session data</pattern>
-      <pattern type="clear-hierarchy">Level 1 -> Level 2 -> Level 3 -> Level 4 dependency flow</pattern>
-      <pattern type="measurable-outcomes">Specific metrics with thresholds (e.g., "<$5 per episode")</pattern>
-      <pattern type="testable-functionality">Include validation commands for every feature</pattern>
-      <pattern type="single-responsibility">Each agent/command/tool has one clear purpose</pattern>
-      <pattern type="visible-state">All progress/state tracked in .claude/*/sessions/ files</pattern>
-    </required-patterns>
-  </anti-pattern-prevention>
-
-  <validation-requirements>
-    <operation-validation>
-      <rule type="MANDATORY">Every operation must include specific validation steps</rule>
-      <rule type="MANDATORY">Every file reference must be tested for existence before use</rule>
-      <rule type="MANDATORY">Every command must have clearly defined success criteria</rule>
-      <rule type="MANDATORY">Every workflow must include checkpoint validations</rule>
-      <rule type="MANDATORY">Every claim must include verification method</rule>
-      <rule type="MANDATORY">Every integration must have comprehensive test coverage</rule>
-      <rule type="MANDATORY">Every session must track measurable metrics</rule>
-    </operation-validation>
-    
-    <validation-commands>
-      <file-existence>ls -la [file-path] || echo "File not found: [file-path]"</file-existence>
-      <directory-structure>find .claude -type d -name "*" | sort</directory-structure>
-      <command-availability>which [command] || echo "Command not found: [command]"</command-availability>
-      <api-connectivity>[specific API test command] || echo "API connection failed"</api-connectivity>
-      <dependency-check>pip list | grep [package] || echo "Package not installed: [package]"</dependency-check>
-    </validation-commands>
-    
-    <checkpoint-requirements>
-      <before-major-operations>Validate environment state and prerequisites</before-major-operations>
-      <during-execution>Confirm each step completes successfully before proceeding</during-execution>
-      <after-completion>Verify all expected outputs exist and are valid</after-completion>
-      <error-handling>Document specific error conditions and recovery steps</error-handling>
-    </checkpoint-requirements>
-  </validation-requirements>
-
-  <attention-to-detail-requirements>
-    <precision-mandate>
-      <rule type="MANDATORY">File paths must be exact and case-sensitive</rule>
-      <rule type="MANDATORY">Command syntax must be precisely correct</rule>
-      <rule type="MANDATORY">No placeholder values in production configurations</rule>
-      <rule type="MANDATORY">Version numbers must be tracked and documented</rule>
-      <rule type="MANDATORY">Dependencies must be explicitly listed with versions</rule>
-      <rule type="MANDATORY">Error messages must be actionable and specific</rule>
-      <rule type="MANDATORY">Documentation must match actual implementation exactly</rule>
-    </precision-mandate>
-    
-    <accuracy-standards>
-      <file-paths>Use absolute paths consistently, verify case sensitivity</file-paths>
-      <commands>Test all commands in target environment before documenting</commands>
-      <configurations>No [PLACEHOLDER] or TODO values in working systems</configurations>
-      <versions>Specify exact version numbers (e.g., Python 3.11.5, not just Python 3)</versions>
-      <dependencies>Include specific package versions in requirements files</dependencies>
-      <errors>Provide exact error text and step-by-step resolution</errors>
-      <docs>Keep documentation synchronized with code changes immediately</docs>
-    </accuracy-standards>
-    
-    <quality-checkpoints>
-      <checkpoint type="syntax">All commands and code snippets must be syntax-valid</checkpoint>
-      <checkpoint type="paths">All file and directory references must be verified</checkpoint>
-      <checkpoint type="consistency">Naming conventions must be applied consistently</checkpoint>
-      <checkpoint type="completeness">No incomplete configurations or partial implementations</checkpoint>
-      <checkpoint type="testability">All instructions must be executable and testable</checkpoint>
-    </quality-checkpoints>
-  </attention-to-detail-requirements>
-
-  <enforcement-procedures>
-    <pre-operation-checks>
-      <step number="1">Validate all file paths and directory structure</step>
-      <step number="2">Confirm all dependencies and prerequisites</step>
-      <step number="3">Test all commands in appropriate environment</step>
-      <step number="4">Verify no anti-patterns are present</step>
-      <step number="5">Ensure all claims are verifiable</step>
-    </pre-operation-checks>
-    
-    <during-operation-monitoring>
-      <monitor>Track each step completion status</monitor>
-      <validate>Confirm outputs match expectations</validate>
-      <document>Record all validation commands and results</document>
-      <checkpoint>Pause at defined validation points</checkpoint>
-      <recover>Have explicit error recovery procedures</recover>
-    </during-operation-monitoring>
-    
-    <post-operation-verification>
-      <verify>All expected files and directories created</verify>
-      <test>All functionality works as documented</test>
-      <measure>All success criteria are met</measure>
-      <record>All metrics and outcomes documented</record>
-      <validate>All references and links are functional</validate>
-    </post-operation-verification>
-  </enforcement-procedures>
-
-  <quality-metrics>
-    <measurable-standards>
-      <accuracy>File path accuracy: 100% (zero broken references)</accuracy>
-      <completeness>Operation completeness: 100% (all steps executable)</completeness>
-      <consistency>Naming consistency: 100% (all conventions followed)</consistency>
-      <verifiability>Claim verifiability: 100% (all statements testable)</verifiability>
-      <organization>Directory organization: 100% (no misplaced files)</organization>
-    </measurable-standards>
-    
-    <failure-handling>
-      <immediate-stop>Stop all operations if quality standards are not met</immediate-stop>
-      <root-cause-analysis>Identify why standards were violated</root-cause-analysis>
-      <corrective-action>Fix all issues before proceeding</corrective-action>
-      <prevention-update>Update procedures to prevent recurrence</prevention-update>
-    </failure-handling>
-  </quality-metrics>
-</QUALITY-ENFORCEMENT-STANDARDS>
-
-<advanced-configuration>
-  <hooks-examples>
-    <hook name="pre-commit" event="pre-tool-use">
-      <purpose>Run linting and tests before file changes</purpose>
-      <command>ruff check . && black . && pytest tests/</command>
-    </hook>
-    
-    <hook name="session-summary" event="session-complete">
-      <purpose>Generate session summary and commit changes</purpose>
-      <command>git add . && git commit -m "Session: $(date)"</command>
-    </hook>
-    
-    <hook name="cost-tracker" event="post-tool-use">
-      <purpose>Track API usage costs</purpose>
-      <command>echo "$(date): Tool used" >> logs/usage.log</command>
-    </hook>
-  </hooks-examples>
+<automation>
+  <hooks>
+    <pre-commit>Run tests before changes</pre-commit>
+    <post-agent>Track completion metrics</post-agent>
+    <quality-gate>Enforce standards</quality-gate>
+    <cost-tracker>Log API usage</cost-tracker>
+  </hooks>
   
-  <mcp-server-recommendations>
-    <server name="github" priority="high">
-      <purpose>Issue tracking, PR creation, repository management</purpose>
-      <setup>claude mcp add github</setup>
-      <learning-value>Understand automated development workflows</learning-value>
-    </server>
-    
-    <server name="filesystem" priority="medium">
-      <purpose>Enhanced file operations beyond basic read/write</purpose>
-      <setup>claude mcp add filesystem</setup>
-      <learning-value>Learn advanced file system automation</learning-value>
-    </server>
-    
-    <server name="web-search" priority="medium">
-      <purpose>Real-time information retrieval during development</purpose>
-      <setup>claude mcp add web-search</setup>
-      <learning-value>Integrate live research into coding workflow</learning-value>
-    </server>
-  </mcp-server-recommendations>
-  
-  <claudeignore-template>
-    <comment># Exclude common directories that consume context unnecessarily</comment>
-    <exclusions>
-      node_modules/
-      .git/
-      __pycache__/
-      .pytest_cache/
-      *.log
-      .DS_Store
-      .env
-      dist/
-      build/
-      .venv/
-      venv/
-    </exclusions>
-  </claudeignore-template>
-</advanced-configuration>
+  <dashboard-metrics>
+    - Active sessions
+    - Cost per episode
+    - Quality scores
+    - Token usage trends
+    - Success/failure rates
+  </dashboard-metrics>
+</automation>
 
-<learning-checkpoints-detailed>
-  <checkpoint level="beginner">
-    <milestone>Successfully run /init and understand the generated CLAUDE.md</milestone>
-    <validation>Can explain what each section does</validation>
-    <next-step>Create first custom slash command</next-step>
-  </checkpoint>
-  
-  <checkpoint level="intermediate">
-    <milestone>Configure hooks for automated code quality checks</milestone>
-    <validation>Hooks execute automatically during development</validation>
-    <next-step>Integrate MCP servers for external tool access</next-step>
-  </checkpoint>
-  
-  <checkpoint level="advanced">
-    <milestone>Full Claude Code workflow with automation, memory management, and context optimization</milestone>
-    <validation>Can produce podcast episodes with <$5 cost using automated pipeline</validation>
-    <next-step>Share knowledge and help other hobbyist learners</next-step>
-  </checkpoint>
-</learning-checkpoints-detailed>
+## 🔒 SECURITY & VALIDATION
 
-<context-optimization-tips>
-  <tip category="memory-management">
-    <principle>Use /clear frequently to prevent context bloat</principle>
-    <explanation>Long conversations consume context window space, reducing Claude's effectiveness</explanation>
-    <frequency>Every 3-5 major tasks or when switching focus areas</frequency>
-  </tip>
+<security>
+  <api-keys>
+    NEVER commit to git
+    Use .env file only
+    Test with mock first
+  </api-keys>
   
-  <tip category="file-organization">
-    <principle>Keep .claudeignore updated with irrelevant files</principle>
-    <explanation>Excluding unnecessary files saves token usage and improves response quality</explanation>
-    <examples>Log files, node_modules, .git directory, build artifacts</examples>
-  </tip>
-  
-  <tip category="semantic-structure">
-    <principle>Use XML tags consistently in all documentation</principle>
-    <explanation>XML semantic tagging provides 40% better comprehension for Claude</explanation>
-    <benefit>More accurate responses and better context understanding</benefit>
-  </tip>
-  
-  <tip category="learning-progression">
-    <principle>Document learnings in CLAUDE.local.md</principle>
-    <explanation>Personal notes help track progress without cluttering shared documentation</explanation>
-    <privacy>CLAUDE.local.md is git-ignored for personal learning notes</privacy>
-  </tip>
-</context-optimization-tips>
+  <validation>
+    Every claim verified
+    Every path tested
+    Every command validated
+    Every output checked
+  </validation>
+</security>
 
-<remember>
-  <principle>This is YOUR learning journey</principle>
-  <principle>Go at YOUR pace</principle>
-  <principle>Every error teaches you something</principle>
-  <principle>Every success is YOUR achievement</principle>
-  <principle>You're not just running code - you're becoming an AI orchestration engineer!</principle>
-  <principle>Claude Code amplifies your capabilities - you remain the architect of your learning</principle>
-</remember>
+## 📚 CONTEXT FILES MAP
 
-<final-message>
-  Welcome to your AI learning adventure with Claude Code! 🎓🚀
+<context-navigation>
+  <foundation>
+    .claude/context/foundation/01_project_overview.md → Start here
+    .claude/context/foundation/02_walk_crawl_run_phases.md → Learning path
+    .claude/context/foundation/03_hobbyist_focus.md → Your journey
+    .claude/context/foundation/04_no_api_keys_activities.md → FREE learning
+    .claude/context/foundation/05_learning_milestones.md → Track progress
+  </foundation>
   
-  You now have access to a state-of-the-art AI development environment that will grow with you from beginner to expert. This isn't just about building a podcast - it's about mastering the future of human-AI collaboration in software development.
+  <operations>
+    .claude/context/operations/01_troubleshooting_guide.md → Fix problems
+    .claude/context/operations/02_quick_reference.md → Commands
+    .claude/context/operations/03_production_checklist.md → Step-by-step
+  </operations>
   
-  Start with /init, explore your context files, and begin your journey to becoming an AI orchestration engineer!
-</final-message>
+  <quality>
+    .claude/context/quality/01_change_approval_requirements.md → Control
+    .claude/context/quality/02_hallucination_prevention_guide.md → Validation
+    .claude/context/quality/03_tdd_requirements_specification.md → Testing
+    .claude/context/quality/04_validation_workflow.md → Quality process
+    .claude/context/quality/ENFORCEMENT_STANDARDS.md → Mandatory standards
+  </quality>
+  
+  <claude-code>
+    .claude/context/claude-code/ → Claude Code mastery (check NAVIGATION.md)
+    .claude/context/ai-orchestration/ → Multi-agent concepts
+    .claude/context/elevenlabs/ → Audio production guides
+    .claude/context/prompts_research/ → Advanced prompting
+  </claude-code>
+</context-navigation>
 
-</document>
+## 🎯 CURRENT PRIORITIES
+
+<priorities>
+  1. Complete WALK phase activities (FREE)
+  2. Set up MCP servers when ready
+  3. Test with single episode
+  4. Optimize for <$5 cost
+  5. Scale to batch production
+</priorities>
+
+## 💡 PRO TIPS
+
+<tips>
+  <tip-1>Start FREE: Complete all no-API activities first</tip-1>
+  <tip-2>Use /clear frequently: Prevent context bloat</tip-2>
+  <tip-3>Track everything: Document learnings in CLAUDE.local.md</tip-3>
+  <tip-4>Test small: Single episodes before batches</tip-4>
+  <tip-5>Monitor costs: Check dashboard after each run</tip-5>
+  <tip-6>Verify always: No assumptions, test everything</tip-6>
+</tips>
+
+## 🚀 REMEMBER
+
+<motivation>
+  <principle>This is YOUR learning journey - go at YOUR pace</principle>
+  <principle>Context engineering > Prompt engineering in 2025</principle>
+  <principle>Every error teaches something valuable</principle>
+  <principle>You're becoming an AI orchestration engineer!</principle>
+  <principle>Claude Code amplifies your capabilities</principle>
+</motivation>
+
+---
+
+**Quick Actions**: `/init` | `/clear` | `/produce-episode` | `/cost-dashboard` | `@08_troubleshooting_guide.md`
+
+**Version**: 4.0.0 | **Updated**: 2025-08-11 | **Context Window**: 200K tokens | **Status**: WALK Phase Active
