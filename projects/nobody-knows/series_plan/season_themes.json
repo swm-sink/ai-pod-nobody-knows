@@ -1,0 +1,182 @@
+{
+  "seasons": {
+    "season_1": {
+      "number": 1,
+      "title": "The Great Admission",
+      "theme": "Establishing that confusion is not the enemy—ignorance is",
+      "episodes": "1-25",
+      "complexity_range": "1-4",
+      "focus_areas": [
+        "Normalizing confusion about AI",
+        "Expert vulnerability and admissions",
+        "Social psychology of fake comprehension",
+        "Foundation concepts through honest uncertainty",
+        "Breaking down the mystique of AI expertise"
+      ],
+      "tone_emphasis": [
+        "Reassuring vulnerability",
+        "Excited discovery",
+        "Honest admission",
+        "Accessible wonder"
+      ],
+      "narrative_arc": "From shame about not understanding to celebration of confusion as the first step to learning",
+      "key_revelations": [
+        "Even the experts are making it up",
+        "Nobody fully understands transformers",
+        "AI companies hire philosophers because they're confused too",
+        "The entire field is built on beautiful accidents"
+      ],
+      "production_notes": {
+        "pacing": "Slower, more foundational",
+        "technical_depth": "Light to moderate",
+        "analogies": "Heavy use of everyday examples",
+        "guest_types": "Researchers willing to admit confusion"
+      }
+    },
+    "season_2": {
+      "number": 2,
+      "title": "The Beautiful Accidents",
+      "theme": "How the most important AI breakthroughs happened by surprise",
+      "episodes": "26-50",
+      "complexity_range": "3-5",
+      "focus_areas": [
+        "Accidental discoveries in AI history",
+        "Unintended emergent behaviors",
+        "Serendipity in research",
+        "When bugs become features",
+        "The role of chance in innovation"
+      ],
+      "tone_emphasis": [
+        "Delighted surprise",
+        "Historical storytelling",
+        "Detective-like investigation",
+        "Celebration of accidents"
+      ],
+      "narrative_arc": "From planned research to accidental breakthroughs, showing how AI development is more discovery than invention",
+      "key_revelations": [
+        "GPT-1 was never expected to work",
+        "Attention mechanism was an accident",
+        "Most breakthroughs surprised their creators",
+        "Scaling laws work for mysterious reasons"
+      ],
+      "production_notes": {
+        "pacing": "More dynamic, story-driven",
+        "technical_depth": "Moderate to deep",
+        "analogies": "Historical parallels and scientific discovery stories",
+        "guest_types": "Researchers involved in accidental breakthroughs"
+      }
+    },
+    "season_3": {
+      "number": 3,
+      "title": "The Learning Curve",
+      "theme": "What we're figuring out in real-time (and what we're still guessing at)",
+      "episodes": "51-75",
+      "complexity_range": "4-6",
+      "focus_areas": [
+        "Current research frontiers",
+        "Real-time discoveries",
+        "Active debates in the field",
+        "Mechanistic interpretability efforts",
+        "What we're learning from failures"
+      ],
+      "tone_emphasis": [
+        "Active investigation",
+        "Real-time discovery",
+        "Collaborative exploration",
+        "Scientific excitement"
+      ],
+      "narrative_arc": "Following the bleeding edge of AI research as it happens, showing the messy process of scientific discovery",
+      "key_revelations": [
+        "In-context learning baffles creators",
+        "AI benchmarks keep breaking",
+        "Red teaming reveals how little we know",
+        "AI memory works nothing like human memory"
+      ],
+      "production_notes": {
+        "pacing": "Fast-paced, current events focused",
+        "technical_depth": "Deep but accessible",
+        "analogies": "Scientific method and research process",
+        "guest_types": "Active researchers at the frontier"
+      }
+    },
+    "season_4": {
+      "number": 4,
+      "title": "The Plot Thickens",
+      "theme": "The deeper we dig, the weirder it gets",
+      "episodes": "76-100",
+      "complexity_range": "5-8",
+      "focus_areas": [
+        "Philosophical implications",
+        "Consciousness and AI",
+        "Emergent behaviors we don't understand",
+        "Recursive self-improvement",
+        "AI developing its own goals"
+      ],
+      "tone_emphasis": [
+        "Mind-bending wonder",
+        "Philosophical depth",
+        "Speculative exploration",
+        "Awed confusion"
+      ],
+      "narrative_arc": "From technical mysteries to existential questions, exploring the truly weird implications of AI",
+      "key_revelations": [
+        "AI might be developing theory of mind",
+        "Consciousness debate gets messier with AI",
+        "AIs developing their own languages",
+        "Self-improvement loops nobody planned"
+      ],
+      "production_notes": {
+        "pacing": "Contemplative, mind-expanding",
+        "technical_depth": "Deep with philosophical layers",
+        "analogies": "Thought experiments and philosophical paradoxes",
+        "guest_types": "Philosophers, cognitive scientists, AI ethicists"
+      }
+    },
+    "season_5": {
+      "number": 5,
+      "title": "The Next Questions",
+      "theme": "What nobody knows they don't know yet",
+      "episodes": "101-125",
+      "complexity_range": "6-9",
+      "focus_areas": [
+        "Unknown unknowns",
+        "Future implications",
+        "Questions we haven't thought to ask",
+        "Post-AGI considerations",
+        "Human identity in AI age"
+      ],
+      "tone_emphasis": [
+        "Visionary speculation",
+        "Humble uncertainty",
+        "Profound questioning",
+        "Transformative possibility"
+      ],
+      "narrative_arc": "From current mysteries to future unknowns, preparing listeners for a world where the questions keep evolving",
+      "key_revelations": [
+        "Democracy unprepared for AI",
+        "Scientific method meets its match",
+        "AI becoming truly alien intelligence",
+        "The questions keep evolving faster than answers"
+      ],
+      "production_notes": {
+        "pacing": "Expansive, future-oriented",
+        "technical_depth": "Variable, concept-dependent",
+        "analogies": "Science fiction becoming reality",
+        "guest_types": "Futurists, ethicists, visionary researchers"
+      }
+    }
+  },
+  "progression_strategy": {
+    "complexity": "Gradual increase from seasons 1-5",
+    "technical_depth": "Light → Moderate → Deep → Philosophical → Speculative",
+    "audience_journey": "Confused beginner → Informed questioner → Sophisticated thinker → Philosophy explorer → Future navigator",
+    "emotional_arc": "Relief (not alone) → Excitement (discovery) → Wonder (complexity) → Awe (implications) → Wisdom (uncertainty)"
+  },
+  "cross_season_themes": [
+    "Intellectual humility as strength",
+    "Confusion as catalyst for learning",
+    "Expert vulnerability",
+    "Collective discovery",
+    "Embracing uncertainty"
+  ]
+}

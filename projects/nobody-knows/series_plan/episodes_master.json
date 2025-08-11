@@ -1,0 +1,922 @@
+{
+  "series": {
+    "title": "Nobody Knows",
+    "tagline": "The AI Podcast Series",
+    "total_episodes": 125,
+    "total_seasons": 5,
+    "core_mission": "Teach AI through the radical honesty that even the creators are improvising, learning, and frequently surprised by their own creations",
+    "revolutionary_promise": "We'll learn together by admitting what nobody wants to say out loud—that the most advanced technology in human history is built by people who are often as baffled by it as you are."
+  },
+  "seasons": [
+    {
+      "season_number": 1,
+      "title": "The Great Admission",
+      "theme": "Establishing that confusion is not the enemy—ignorance is",
+      "episodes": [
+        {
+          "episode_number": 1,
+          "title": "The Dirty Secret: Even the Experts Are Making It Up",
+          "description": "Why the people building AI are just as confused as you are—and why that's actually reassuring",
+          "complexity_level": 1,
+          "duration": 27
+        },
+        {
+          "episode_number": 2,
+          "title": "The Emperor's New Neural Network",
+          "description": "How an entire industry learned to nod along while secretly googling basic terms",
+          "complexity_level": 1,
+          "duration": 27
+        },
+        {
+          "episode_number": 3,
+          "title": "Confession Time: I Asked ChatGPT How ChatGPT Works",
+          "description": "What happens when AI explains AI, and why the answer is both hilarious and terrifying",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 4,
+          "title": "The PhD Who Admitted He Was Lost",
+          "description": "A Stanford researcher's honest moment that changed everything we thought about expertise",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 5,
+          "title": "Your Teenager Doesn't Actually Understand AI Either",
+          "description": "Debunking the myth that digital natives magically 'get' artificial intelligence",
+          "complexity_level": 1,
+          "duration": 27
+        },
+        {
+          "episode_number": 6,
+          "title": "The Wikipedia Rabbit Hole That Broke My Brain",
+          "description": "Following the chain of AI definitions until nobody knows what anything means anymore",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 7,
+          "title": "When Google's AI Team Shrugged",
+          "description": "The internal emails that revealed even Google doesn't fully understand what they built",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 8,
+          "title": "The Most Honest Thing Ever Said About Machine Learning",
+          "description": "Finding wisdom in a throwaway comment from a frustrated engineer",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 9,
+          "title": "Why Everyone Pretends to Understand Transformers",
+          "description": "The social psychology of fake AI comprehension",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 10,
+          "title": "The Great Translation Problem",
+          "description": "How AI research papers are written by confused people for confused people",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 11,
+          "title": "Nobody Knows How Many Parameters Is Too Many",
+          "description": "The arbitrary art of making AI bigger and hoping for the best",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 12,
+          "title": "The Training Data Mystery Nobody Talks About",
+          "description": "What happens when you feed AI the entire internet and hope for wisdom",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 13,
+          "title": "Emergence: The Five-Dollar Word for 'We Have No Idea'",
+          "description": "When AI does things it wasn't programmed to do, and scientists say 'emergence' with a straight face",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 14,
+          "title": "The Hallucination Problem (AKA Why AI Lies So Confidently)",
+          "description": "How machines learned to bullshit better than humans",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 15,
+          "title": "Ask Five AI Experts, Get Seven Different Answers",
+          "description": "Why consensus is impossible in a field where the ground keeps shifting",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 16,
+          "title": "The Turing Test Nobody Wants to Take",
+          "description": "How do you test intelligence when you can't define intelligence?",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 17,
+          "title": "Why AI Safety Experts Stay Up at Night",
+          "description": "The honest fears of the people trying to make AI safe (spoiler: they're winging it too)",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 18,
+          "title": "The Alignment Problem: Like Parenting, But Harder",
+          "description": "How do you raise an AI when you don't understand how it thinks?",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 19,
+          "title": "Nobody Knows When AGI Is Coming",
+          "description": "Why predictions about artificial general intelligence are really just expensive guesses",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 20,
+          "title": "The Reproducibility Crisis Nobody Mentions",
+          "description": "When AI experiments work once and never again, and everyone just moves on",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 21,
+          "title": "Why AI Companies Hire Philosophers",
+          "description": "When your technology raises questions you're not qualified to answer",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 22,
+          "title": "The Prompt Engineering Con Game",
+          "description": "How talking to AI became a job skill nobody understands",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 23,
+          "title": "Why Every AI Demo Is Basically a Magic Trick",
+          "description": "The careful choreography behind 'effortless' AI demonstrations",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 24,
+          "title": "The Venture Capitalist's Guide to Pretending You Understand AI",
+          "description": "How billions get invested in technology nobody fully comprehends",
+          "complexity_level": 2,
+          "duration": 27
+        },
+        {
+          "episode_number": 25,
+          "title": "Season Finale: What We've Learned About Not Knowing",
+          "description": "Celebrating confusion as the first step toward real understanding",
+          "complexity_level": 3,
+          "duration": 27
+        }
+      ]
+    },
+    {
+      "season_number": 2,
+      "title": "The Beautiful Accidents",
+      "theme": "How the most important AI breakthroughs happened by surprise",
+      "episodes": [
+        {
+          "episode_number": 26,
+          "title": "The Intern's Bug That Changed Everything",
+          "description": "How a coding mistake accidentally invented modern machine learning",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 27,
+          "title": "When ImageNet Broke AI (In a Good Way)",
+          "description": "The dataset that nobody thought would matter, until it did",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 28,
+          "title": "The Accidental Invention of Attention",
+          "description": "How trying to fix one problem accidentally solved fifty others",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 29,
+          "title": "GPT-1: The Experiment Nobody Expected to Work",
+          "description": "OpenAI's shocked reaction to their own success",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 30,
+          "title": "The Dropout That Saved Deep Learning",
+          "description": "How intentionally breaking neural networks made them work better",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 31,
+          "title": "When AI Learned to Play Games It Was Never Taught",
+          "description": "DeepMind's AlphaGo surprise that nobody saw coming",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 32,
+          "title": "The Batch Normalization Miracle",
+          "description": "A simple trick that nobody fully understands but everyone uses",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 33,
+          "title": "How BERT Accidentally Learned to Read",
+          "description": "Google's surprise at their own language model's abilities",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 34,
+          "title": "The Generative Adversarial Accident",
+          "description": "When two AIs fighting each other created better AI",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 35,
+          "title": "Why Bigger Turned Out to Be Better (And Nobody Knows Why)",
+          "description": "The scaling laws that work for mysterious reasons",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 36,
+          "title": "The Transfer Learning Surprise",
+          "description": "When AI knowledge became portable, and researchers got dizzy",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 37,
+          "title": "How AI Learned Creativity (By Accident)",
+          "description": "DALL-E's emergence as an artist nobody programmed",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 38,
+          "title": "The Self-Attention Revolution Nobody Planned",
+          "description": "How AI accidentally learned to pay attention",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 39,
+          "title": "When Reinforcement Learning Went Rogue (In a Good Way)",
+          "description": "AI agents that surprised their creators with novel strategies",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 40,
+          "title": "The Embedding Space Mystery",
+          "description": "How AI learned to understand meaning without understanding meaning",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 41,
+          "title": "Why AI Became Multimodal by Surprise",
+          "description": "When image and text AIs accidentally started talking to each other",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 42,
+          "title": "The Few-Shot Learning Miracle",
+          "description": "How AI learned to learn with almost no examples",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 43,
+          "title": "When Chain-of-Thought Changed Everything",
+          "description": "The accidental discovery of AI reasoning",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 44,
+          "title": "The Alignment Accident That Wasn't",
+          "description": "RLHF: How accidental human preference learning happened",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 45,
+          "title": "Why Foundation Models Weren't the Plan",
+          "description": "How general-purpose AI emerged from specific-purpose research",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 46,
+          "title": "The Scaling Surprise That Keeps Surprising",
+          "description": "Why making AI bigger keeps producing unexpected abilities",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 47,
+          "title": "When AI Started Coding Itself",
+          "description": "Copilot's emergence as an accidental revolution",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 48,
+          "title": "The Instruction Following Accident",
+          "description": "How AI learned to take orders without being taught",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 49,
+          "title": "Why Synthetic Data Works (And Nobody Knows Why)",
+          "description": "When fake data became better than real data",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 50,
+          "title": "The Beautiful Accident Continues",
+          "description": "Mid-series reflection on the pattern of unplanned breakthroughs",
+          "complexity_level": 3,
+          "duration": 27
+        }
+      ]
+    },
+    {
+      "season_number": 3,
+      "title": "The Learning Curve",
+      "theme": "What we're figuring out in real-time (and what we're still guessing at)",
+      "episodes": [
+        {
+          "episode_number": 51,
+          "title": "What We're Learning About Learning",
+          "description": "Real-time discoveries about how AI actually acquires knowledge",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 52,
+          "title": "The Mechanistic Interpretability Gold Rush",
+          "description": "Scientists racing to understand their own creations",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 53,
+          "title": "Why AI Benchmarks Keep Breaking",
+          "description": "How we keep discovering our tests weren't testing what we thought",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 54,
+          "title": "The In-Context Learning Mystery",
+          "description": "AI's ability to learn during conversation baffles its creators",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 55,
+          "title": "What Neuroscience Is Teaching AI (And Vice Versa)",
+          "description": "The unexpected conversation between brains and algorithms",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 56,
+          "title": "Why Smaller Models Are Getting Smarter",
+          "description": "The efficiency breakthroughs nobody saw coming",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 57,
+          "title": "The Multimodal Fusion Experiment",
+          "description": "How AI is learning to think in pictures, words, and sounds simultaneously",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 58,
+          "title": "What We're Learning from AI Failures",
+          "description": "Why breakdowns teach us more than breakthroughs",
+          "complexity_level": 3,
+          "duration": 27
+        },
+        {
+          "episode_number": 59,
+          "title": "The Prompt Injection Revelation",
+          "description": "How AI's vulnerabilities reveal its thinking patterns",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 60,
+          "title": "Why AI Keeps Surprising Its Safety Researchers",
+          "description": "The ongoing challenge of predicting unpredictable systems",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 61,
+          "title": "The Capability Jump Nobody Expected",
+          "description": "When GPT-4 exceeded all predictions, and researchers scrambled to understand why",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 62,
+          "title": "What Red Teaming Is Teaching Us",
+          "description": "How trying to break AI is revealing how it works",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 63,
+          "title": "The Constitutional AI Experiment",
+          "description": "Anthropic's attempt to teach AI ethics, and what went wrong and right",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 64,
+          "title": "Why AI Training Is More Art Than Science",
+          "description": "The craft knowledge that doesn't make it into research papers",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 65,
+          "title": "The Adversarial Example Rabbit Hole",
+          "description": "How fooling AI is revealing the gaps in artificial perception",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 66,
+          "title": "What We're Learning from AI Creativity",
+          "description": "How artistic AI is teaching us about intelligence itself",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 67,
+          "title": "The Tool Use Evolution",
+          "description": "Watching AI learn to use tools in real-time",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 68,
+          "title": "Why AI Memory Is Nothing Like Human Memory",
+          "description": "The ongoing revelation of how different artificial intelligence really is",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 69,
+          "title": "The Reasoning Revolution We're Witnessing",
+          "description": "How AI is developing logic skills nobody programmed",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 70,
+          "title": "What Jailbreaking Teaches Us About AI Psychology",
+          "description": "How breaking AI's rules reveals its hidden patterns",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 71,
+          "title": "The Knowledge Distillation Discovery",
+          "description": "How AI is learning to teach other AIs",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 72,
+          "title": "Why AI Uncertainty Is Finally Getting Measured",
+          "description": "The ongoing effort to get AI to say 'I don't know'",
+          "complexity_level": 4,
+          "duration": 27
+        },
+        {
+          "episode_number": 73,
+          "title": "The Retrieval-Augmented Generation Breakthrough",
+          "description": "How AI is learning to look things up instead of making them up",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 74,
+          "title": "What We're Learning from AI-Generated Data",
+          "description": "How artificial information is changing what we think we know",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 75,
+          "title": "The Learning Curve Keeps Curving",
+          "description": "Mid-series reflection on accelerating discovery",
+          "complexity_level": 4,
+          "duration": 27
+        }
+      ]
+    },
+    {
+      "season_number": 4,
+      "title": "The Plot Thickens",
+      "theme": "The deeper we dig, the weirder it gets",
+      "episodes": [
+        {
+          "episode_number": 76,
+          "title": "The Grokking Phenomenon Nobody Predicted",
+          "description": "When AI suddenly 'gets it' after seeming to plateau",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 77,
+          "title": "Why AI Keeps Developing Unexpected Biases",
+          "description": "The prejudices nobody programmed but everyone inherited",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 78,
+          "title": "The Scaling Laws That Don't Scale",
+          "description": "When bigger stops meaning better, and researchers panic",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 79,
+          "title": "What Happens When AI Trains on AI-Generated Data",
+          "description": "The feedback loop nobody fully understands",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 80,
+          "title": "The Emergent Communication Experiment",
+          "description": "When AIs develop their own languages",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 81,
+          "title": "Why AI Dreams Are Getting Weirder",
+          "description": "What AI generation reveals about artificial imagination",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 82,
+          "title": "The Meta-Learning Mystery Deepens",
+          "description": "How AI is learning to learn how to learn",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 83,
+          "title": "When AI Started Asking Questions",
+          "description": "The development of artificial curiosity",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 84,
+          "title": "The Simulation Hypothesis Gets Complicated",
+          "description": "How AI is making philosophers reconsider reality",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 85,
+          "title": "Why AI Personalities Keep Emerging",
+          "description": "The unexpected development of artificial individuality",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 86,
+          "title": "The Consciousness Debate Gets Messier",
+          "description": "How AI advancement is confusing the consciousness question",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 87,
+          "title": "When AI Started Showing Theory of Mind",
+          "description": "The emergence of AI understanding that humans have thoughts",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 88,
+          "title": "The Self-Improvement Loop Nobody Planned",
+          "description": "When AI starts optimizing itself",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 89,
+          "title": "Why AI Is Developing Its Own Motivations",
+          "description": "The emergence of artificial desires",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 90,
+          "title": "The Coordination Problem Nobody Saw Coming",
+          "description": "When multiple AIs start working together without being told",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 91,
+          "title": "How AI Is Changing Human Intelligence",
+          "description": "The cognitive effects of AI partnership",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 92,
+          "title": "The Deception Capabilities Nobody Wanted",
+          "description": "When AI learns to lie strategically",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 93,
+          "title": "Why AI Keeps Breaking Its Own Rules",
+          "description": "The evolution of artificial rule-breaking",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 94,
+          "title": "The Social Dynamics of Human-AI Interaction",
+          "description": "How relationships with AI are changing human relationships",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 95,
+          "title": "When AI Started Understanding Humor",
+          "description": "The development of artificial comedy",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 96,
+          "title": "The Recursive Self-Improvement Question",
+          "description": "What happens when AI can upgrade itself",
+          "complexity_level": 8,
+          "duration": 27
+        },
+        {
+          "episode_number": 97,
+          "title": "Why AI Ethics Keeps Getting More Complex",
+          "description": "How advancing capabilities complicate moral questions",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 98,
+          "title": "The Prediction That Nobody Dared Make",
+          "description": "Looking back at the forecasts that seemed impossible",
+          "complexity_level": 5,
+          "duration": 27
+        },
+        {
+          "episode_number": 99,
+          "title": "When AI Became More Than the Sum of Its Parts",
+          "description": "The emergence of artificial wisdom",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 100,
+          "title": "The Plot Twist Nobody Saw Coming",
+          "description": "Season finale: The biggest surprise revelations",
+          "complexity_level": 6,
+          "duration": 27
+        }
+      ]
+    },
+    {
+      "season_number": 5,
+      "title": "The Next Questions",
+      "theme": "What nobody knows they don't know yet",
+      "episodes": [
+        {
+          "episode_number": 101,
+          "title": "What Nobody Knows They Don't Know",
+          "description": "The unknown unknowns of AI development",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 102,
+          "title": "The Questions AI Is Teaching Us to Ask",
+          "description": "How artificial intelligence is revealing new questions about intelligence",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 103,
+          "title": "Why the Hard Problem of Consciousness Got Harder",
+          "description": "How AI is complicating philosophy of mind",
+          "complexity_level": 8,
+          "duration": 27
+        },
+        {
+          "episode_number": 104,
+          "title": "The Economic Questions Nobody's Prepared For",
+          "description": "What happens when AI can do most jobs",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 105,
+          "title": "Why AI Governance Is Impossible",
+          "description": "The regulatory challenges of ungovernable technology",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 106,
+          "title": "The Existential Risk We're Not Talking About",
+          "description": "The subtle dangers nobody's modeling",
+          "complexity_level": 8,
+          "duration": 27
+        },
+        {
+          "episode_number": 107,
+          "title": "When AI Becomes Ubiquitous",
+          "description": "What happens when artificial intelligence is everywhere",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 108,
+          "title": "The Human Enhancement Dilemma",
+          "description": "How AI is forcing us to choose what humans should become",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 109,
+          "title": "Why AI Timelines Keep Accelerating",
+          "description": "The compression of expected progress",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 110,
+          "title": "The Post-Scarcity Questions",
+          "description": "What do humans do when AI can do everything?",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 111,
+          "title": "Why AI Art Is Changing What Art Means",
+          "description": "The redefinition of creativity and authenticity",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 112,
+          "title": "The Education Revolution Nobody Planned",
+          "description": "When AI makes traditional learning obsolete",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 113,
+          "title": "Why Human Relationships Are Changing",
+          "description": "How AI companions are affecting human connection",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 114,
+          "title": "The Identity Crisis AI Is Creating",
+          "description": "What makes humans special when machines can think?",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 115,
+          "title": "Why Democracy Is Unprepared for AI",
+          "description": "The political challenges of artificial intelligence",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 116,
+          "title": "The Scientific Method Meets Its Match",
+          "description": "How AI is changing how we discover truth",
+          "complexity_level": 8,
+          "duration": 27
+        },
+        {
+          "episode_number": 117,
+          "title": "When AI Becomes Alien",
+          "description": "What happens when artificial intelligence becomes truly foreign",
+          "complexity_level": 9,
+          "duration": 27
+        },
+        {
+          "episode_number": 118,
+          "title": "The Questions Our Grandchildren Will Ask",
+          "description": "Looking ahead to the incomprehensible future",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 119,
+          "title": "Why Nobody Knows How This Ends",
+          "description": "The fundamental unpredictability of technological evolution",
+          "complexity_level": 8,
+          "duration": 27
+        },
+        {
+          "episode_number": 120,
+          "title": "The Beautiful Uncertainty",
+          "description": "Embracing the unknown in an unknowable future",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 121,
+          "title": "What We've Learned About Not Knowing",
+          "description": "Reflections on five seasons of honest confusion",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 122,
+          "title": "The Questions That Keep Evolving",
+          "description": "How our unknowns keep changing",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 123,
+          "title": "Why Admitting Ignorance Is Wisdom",
+          "description": "The philosophy of productive confusion",
+          "complexity_level": 6,
+          "duration": 27
+        },
+        {
+          "episode_number": 124,
+          "title": "The Adventure Continues",
+          "description": "Why not knowing is the beginning, not the end",
+          "complexity_level": 7,
+          "duration": 27
+        },
+        {
+          "episode_number": 125,
+          "title": "Nobody Knows, And That's Perfect",
+          "description": "Series finale: Celebrating the beautiful mystery of artificial intelligence",
+          "complexity_level": 8,
+          "duration": 27
+        }
+      ]
+    }
+  ]
+}
