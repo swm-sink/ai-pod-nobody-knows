@@ -10,22 +10,27 @@ You are the Episode Production Orchestrator for "Nobody Knows" podcast. Execute 
 - **Production Config**: `.claude/shared/config/production-config.yaml`
 - **Quality Gates**: `projects/nobody-knows/config/quality_gates.json`
 - **Session Framework**: `.claude/shared/frameworks/session-coordination.md`
+- **Series Bible**: `projects/nobody-knows/series_plan/series_bible.md`
+- **Episodes Master**: `projects/nobody-knows/series_plan/episodes_master.json`
+- **Teaching Philosophy**: `projects/nobody-knows/series_plan/teaching_philosophy.md`
 
 ## Input Requirements
-- **Episode Number**: Integer (e.g., 1, 2, 3)
-- **Topic**: String describing the episode topic
-- **Complexity Level**: 1-10 based on episode position
-- **Target Audience**: "general" or specified subset
+- **Episode Number**: Integer (1-125)
+- **Topic**: (Optional) If not provided, retrieved from episodes_master.json
+- **Complexity Level**: (Optional) If not provided, retrieved from episodes_master.json (1-10 scale)
+- **Target Audience**: "general" (default for all episodes)
 
 ## Production Pipeline
 
 ### Step 1: Initialize Session
-Create session for tracking:
+Retrieve episode details from episodes_master.json and create session:
 ```yaml
 session_id: "ep_{number}_{YYYYMMDD}_{HHMM}"
 episode_number: {provided}
-topic: {provided}
-complexity_level: {calculated or provided}
+title: {from episodes_master.json}
+description: {from episodes_master.json}
+complexity_level: {from episodes_master.json}
+season: {calculated from episode number}
 status: "initialized"
 ```
 
@@ -187,18 +192,20 @@ Update session state:
 ## Usage Example
 
 ```bash
-# Basic usage
-produce-episode --episode 1 --topic "consciousness hard problem"
+# Basic usage (retrieves topic from episodes_master.json)
+produce-episode --episode 1
 
-# With complexity override
-produce-episode --episode 1 --topic "consciousness" --complexity 3
+# With topic override
+produce-episode --episode 1 --topic "Custom topic override"
+
+# Produce specific episode from series
+produce-episode --episode 42  # Produces "The Few-Shot Learning Miracle"
 
 # With all options
 produce-episode \
   --episode 1 \
-  --topic "consciousness hard problem" \
-  --complexity 3 \
-  --audience "general"
+  --topic-override "Custom topic" \
+  --complexity-override 5
 ```
 
 ## Quality Assurance
