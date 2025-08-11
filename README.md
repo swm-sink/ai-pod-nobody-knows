@@ -1,80 +1,111 @@
-<document type="project-documentation" version="2.0.0">
-  <metadata>
-    <project-name>AI Podcasts - Nobody Knows</project-name>
-    <last-updated>2025-08-10</last-updated>
-    <requires-approval>true</requires-approval>
-    <validation-status>updated-for-tdd-rebuild</validation-status>
-  </metadata>
-
-  <change-approval-notice>
-    <critical>
-      ANY modifications to this project documentation require:
-      1. User explicit approval BEFORE changes
-      2. AI detailed impact assessment
-      3. Validation through technical verification
-      4. User confirmation AFTER implementation
-    </critical>
-  </change-approval-notice>
-
 # AI Podcasts - Nobody Knows 🎙️
 
-<project-overview>
-  <description>
-    A hobbyist learning project for mastering AI agent orchestration by building 
-    an automated podcast production system. Designed to create the "Nobody Knows" 
-    100-episode educational podcast series while teaching AI concepts through 
-    practical application.
-  </description>
-  
-  <target-audience>Individual hobbyist learners (not enterprise)</target-audience>
-  <approach>Progressive learning through hands-on podcast creation</approach>
-</project-overview>
+**A solo hobby project using Claude Code's native capabilities to produce an automated podcast series**
 
-## 🌟 Features
+---
 
-- **Multi-Project Architecture**: Supports multiple podcast series with isolated configurations
-- **AI Agent Orchestration**: Coordinates specialized agents for research, writing, and synthesis
-- **Cross-Project Learning**: ChromaDB-powered memory system for pattern recognition and optimization
-- **Quality-Driven Production**: Automated quality evaluation with customizable thresholds
-- **Cost-Efficient**: Optimized to produce episodes at ~$8 each using AI APIs
-- **Brand Voice Consistency**: Intellectual humility and engaging educational content
-- **FastAPI Integration**: RESTful API for production management and monitoring
+## 📋 Documentation Status
+- **This Document**: Up-to-date and accurate (v2.0.0)
+- **Last Updated**: 2025-08-11
+- **Previous Issues**: See PROJECT_AUDIT_INCONSISTENCIES.md for historical context
 
-## 🏗️ Architecture
+---
+
+## 🎯 What This Project Actually Is
+
+This is a **Native Claude Code implementation** that uses AI agents to automatically produce a 100-episode podcast series called "Nobody Knows" - exploring complex topics with intellectual humility.
+
+### Key Points:
+- **NOT a Python application** (no FastAPI, no server)
+- **NOT a REST API** (uses Claude Code commands)
+- **Uses MCP servers** for external integrations
+- **Solo hobby project** (not enterprise/multi-project)
+- **Simple approach** (avoiding over-engineering)
+
+---
+
+## 🏗️ Four-Level Architecture
+
+**Technical:** Hierarchical separation with strict dependency management and approval gates  
+**Simple:** Like building levels in a video game - you must complete each before unlocking the next
+
+```
+Level 1: Development Platform (COMPLETE)
+├── Purpose: Build tools that build the production system
+├── Location: .claude/level-1-dev/
+├── Status: ✅ Agent builders and command builders ready
+└── Learning: Meta-programming and tool creation
+
+Level 2: Native Claude Code Production (CURRENT FOCUS) 🎯
+├── Purpose: Actual podcast production using Claude's built-in AI
+├── Location: .claude/level-2-production/
+├── Components:
+│   ├── Claude Code AI (script writing & quality evaluation)
+│   ├── Perplexity MCP (web research)
+│   └── ElevenLabs MCP (audio synthesis)
+├── Status: ⏳ Phase 7 - Testing after restart
+└── Learning: Production system design and reliability
+
+Level 3: Platform Planning (DOCUMENTATION ONLY)
+├── Purpose: Design and document future platform
+├── Location: .claude/level-3-platform-dev/
+├── Status: 📝 Planning phase only - no code
+└── Learning: Architectural planning and migration strategy
+
+Level 4: Coded Python Platform (LOCKED 🔒)
+├── Purpose: Future FastAPI implementation
+├── Technologies: OpenRouter + Langfuse
+├── Status: ⚠️ REQUIRES EXPLICIT USER APPROVAL
+├── Gate: User must say "Approved for Level 4 implementation"
+└── Learning: Enterprise patterns and observability
+```
+
+---
+
+## 📁 Real File Structure
 
 ```
 ai-podcasts-nobody-knows/
-├── .claude/                 # Claude Code configuration
-│   ├── CLAUDE.md           # System documentation for Claude
-│   └── context/           # 14 learning context files
-├── core/                   # Shared infrastructure (DELETED - TDD rebuild needed)
-│   ├── agents/            # AI agent implementations (to be rebuilt)
-│   ├── orchestration/     # Workflow management (to be rebuilt)
-│   └── memory/            # ChromaDB integration (to be rebuilt)
-├── projects/              # Project-specific configurations
-│   └── nobody-knows/      # Primary podcast project
-├── shared/                # Shared resources
-└── requirements.txt       # Python dependencies
+├── .env                           # API keys (git-ignored)
+├── .mcp.json                      # MCP configuration (git-ignored)
+├── CLAUDE.md                      # Master system prompt (v5.0.0)
+├── PROJECT_STATUS_HANDOVER.md     # Complete project context
+├── PROJECT_AUDIT_INCONSISTENCIES.md # Documentation issues
+│
+├── .claude/                       # Claude Code configuration
+│   ├── level-1-dev/              # Development platform
+│   │   ├── agents/               # Agent builders
+│   │   └── commands/             # Command builders
+│   │
+│   ├── level-2-production/       # Production system
+│   │   ├── agents/               # Agent definitions (Markdown)
+│   │   │   ├── research-coordinator.md
+│   │   │   ├── script-writer.md
+│   │   │   ├── quality-evaluator.md
+│   │   │   └── audio-synthesizer.md
+│   │   └── commands/
+│   │       └── produce-episode.md
+│   │
+│   └── mcp-servers/              # Local MCP installations (git-ignored)
+│       ├── elevenlabs-mcp/       # Python-based MCP
+│       └── perplexity-mcp/       # Node.js-based MCP
+│
+└── projects/nobody-knows/         # Output directory
+    ├── config/                   # Project configuration
+    └── output/                   # Generated episodes
 ```
 
-<current-status>
-  <code-status>All Python code deleted for TDD rebuild</code-status>
-  <documentation-status>Enhanced with XML semantic tagging</documentation-status>
-  <learning-phase>WALK - No API keys needed</learning-phase>
-</current-status>
+---
 
-## 🚀 Quick Start
+## 🚀 Actual Setup Instructions
 
 ### Prerequisites
+- Claude Code installed
+- Python 3.11+ (for ElevenLabs MCP)
+- Node.js (for Perplexity MCP)
+- API keys for Perplexity and ElevenLabs
 
-- Python 3.11+
-- API keys for:
-  - Anthropic (Claude)
-  - Perplexity
-  - ElevenLabs
-  - OpenAI (optional)
-
-### Installation
+### Installation Steps
 
 1. **Clone the repository**
 ```bash
@@ -82,237 +113,238 @@ git clone https://github.com/yourusername/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 ```
 
-2. **Create virtual environment**
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Configure environment**
+2. **Set up API keys**
 ```bash
 cp .env.example .env
-# Edit .env with your API keys
+# Edit .env with your API keys:
+# PERPLEXITY_API_KEY=pplx-YOUR-KEY
+# ELEVENLABS_API_KEY=sk_YOUR-KEY
 ```
 
-5. **Start the FastAPI server**
+3. **MCPs are already installed locally** (in .claude/mcp-servers/)
+   - Already configured in .mcp.json
+   - Git-ignored for security
+
+4. **Restart Claude Code** to load MCPs
+
+5. **Verify MCPs are loaded**
 ```bash
-uvicorn core.orchestration.server:app --reload
+claude mcp list
+# Should show: elevenlabs, perplexity
 ```
 
-The API will be available at `http://localhost:8000`
-
-## 📝 Usage
-
-### Creating a Project
-
+6. **Test the setup**
 ```bash
-curl -X POST http://localhost:8000/projects \
-  -H "Content-Type: application/json" \
-  -d '{
-    "project_name": "my-podcast",
-    "project_type": "long_series",
-    "episode_duration": 27
-  }'
+python3 .claude/scripts/test_mcps.py
 ```
-
-### Producing an Episode
-
-```bash
-curl -X POST http://localhost:8000/produce/episode \
-  -H "Content-Type: application/json" \
-  -d '{
-    "project_name": "nobody-knows",
-    "topic": "The Nature of Consciousness",
-    "episode_number": 1,
-    "complexity_level": "intermediate"
-  }'
-```
-
-### Batch Production
-
-```bash
-curl -X POST http://localhost:8000/produce/batch \
-  -H "Content-Type: application/json" \
-  -d '{
-    "project_name": "nobody-knows",
-    "episodes": [
-      {"topic": "Topic 1", "episode_number": 1},
-      {"topic": "Topic 2", "episode_number": 2}
-    ]
-  }'
-```
-
-## 🤖 Claude Code Commands
-
-When using Claude Code, you have access to custom commands:
-
-- `/project:create [name] [type] [duration]` - Create new project
-- `/autoproduce [project] [topic] [episode_number]` - Produce single episode
-- `/batch:produce [project] [csv_file]` - Batch production from CSV
-- `/quality:check [project] [episode_file]` - Evaluate episode quality
-- `/system:optimize [focus_area]` - Run cross-project optimization
-
-## 🎯 The "Nobody Knows" Project
-
-The flagship project is a 100-episode educational podcast series featuring:
-
-### Season Structure (10 episodes each)
-1. **Foundations of Knowledge** - Epistemology and learning
-2. **The Natural World** - Physics, chemistry, earth sciences
-3. **Human Mind and Behavior** - Psychology and neuroscience
-4. **Technology and Innovation** - Computing and engineering
-5. **Society and Culture** - Anthropology and sociology
-6. **The Universe and Beyond** - Astronomy and cosmology
-7. **Life Sciences** - Biology and evolution
-8. **Philosophy and Ethics** - Moral questions and reasoning
-9. **Future Frontiers** - Emerging sciences and possibilities
-10. **Synthesis and Reflection** - Connecting all themes
-
-### Quality Standards
-- **Comprehension**: ≥ 0.85 (Clear explanations)
-- **Brand Consistency**: ≥ 0.90 (Intellectual humility)
-- **Engagement**: ≥ 0.80 (Maintains interest)
-- **Technical**: ≥ 0.85 (Proper structure)
-
-## 🔧 Configuration
-
-### Project Configuration
-Each project has its own configuration in `projects/[name]/config/`:
-- `project_config.json` - Main settings
-- `brand_voice.md` - Voice and tone guidelines
-- `quality_gates.json` - Quality thresholds
-- `episode_structure.md` - Episode format template
-
-### Environment Variables
-Key settings in `.env`:
-```env
-ANTHROPIC_API_KEY=your_key
-PERPLEXITY_API_KEY=your_key
-ELEVENLABS_API_KEY=your_key
-CHROMA_PERSIST_DIRECTORY=./chroma_db
-MAX_COST_PER_EPISODE=8.00
-```
-
-## 📊 Monitoring
-
-### API Endpoints
-- `GET /health` - System health check
-- `GET /status` - Overall system status
-- `GET /projects` - List all projects
-- `GET /production/{task_id}/status` - Production task status
-
-### Cost Tracking
-The system tracks costs per episode:
-- Research: ~$5.00 (Perplexity)
-- Script Writing: ~$1.00 (Claude)
-- Audio Synthesis: ~$2.00 (ElevenLabs v3)
-- **Total Target**: $8.00 per episode
-
-## 🧠 AI Agents
-
-### Research Coordinator
-- Uses Perplexity API for comprehensive research
-- Manages multiple information sources
-- Caches results for efficiency
-
-### Script Writer
-- Generates brand-consistent scripts
-- Applies intellectual humility principles
-- Ensures progressive complexity
-
-### Audio Synthesizer
-- Integrates with ElevenLabs v3
-- Natural conversation generation
-- Cost-optimized with 80% discount (through June 2025)
-
-### Quality Evaluator
-- Validates against quality thresholds
-- Provides improvement recommendations
-- Ensures brand consistency
-
-## 🔄 Development Workflow
-
-### Phase 1: Walk (Foundation)
-✅ Project structure setup
-✅ Agent architecture implementation
-✅ FastAPI server creation
-✅ ChromaDB integration
-
-### Phase 2: Crawl (Single Project)
-✅ "Nobody Knows" configuration
-✅ Episode production pipeline
-✅ Quality evaluation system
-✅ Cost tracking
-
-### Phase 3: Run (Multi-Project)
-- Cross-project optimization
-- Batch production optimization
-- Advanced monitoring dashboard
-- Production deployment
-
-## 🧪 Testing
-
-Run tests with:
-```bash
-pytest tests/ -v
-```
-
-Format and lint code:
-```bash
-black . && ruff check .
-```
-
-## 📈 Performance
-
-- **Production Time**: ~5-10 minutes per episode
-- **Quality Score**: Average 0.88/1.0
-- **Cost Efficiency**: $8 per 27-minute episode
-- **Scalability**: Handles multiple projects concurrently
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Built with Claude Code assistance
-- Powered by Anthropic, Perplexity, and ElevenLabs APIs
-- Inspired by the pursuit of knowledge with intellectual humility
-
-## 📞 Support
-
-For questions or issues:
-- Open an issue on GitHub
-- Check the documentation in `.claude/CLAUDE.md`
-- Review the API documentation at `/docs` when server is running
 
 ---
 
-*"Nobody knows everything, but together we can learn anything."*
+## 📝 Actual Usage
 
-<validation-notes>
-  <documentation-update>
-    README updated to reflect current hobbyist learning focus 
-    and TDD code deletion as of 2025-08-10
-  </documentation-update>
-  
-  <architecture-status>
-    Architecture diagrams updated to show deleted code status 
-    and need for TDD rebuild
-  </architecture-status>
-</validation-notes>
+### Producing an Episode (Claude Code Commands)
 
-</document>
+```bash
+# Test with dry run first
+claude /produce-episode --topic "consciousness" --episode 1 --dry-run
+
+# Actual production
+claude /produce-episode --topic "consciousness" --episode 1
+```
+
+### Available Commands
+- `/produce-episode` - Main production orchestrator
+- More commands in `.claude/level-2-production/commands/`
+
+### NOT Available (Despite README.md claims):
+- ❌ No REST API endpoints
+- ❌ No curl commands
+- ❌ No FastAPI server
+- ❌ No localhost:8000
+
+---
+
+## 💰 Actual Costs
+
+### Target Budget (Solo/Hobby)
+- **Per Episode**: <$5.00
+- **Daily Limit**: $10.00
+- **Alert at**: $4.00
+
+### API Costs
+- **Perplexity**: Research (~$2-3)
+- **ElevenLabs**: Audio synthesis (~$1-2)
+- **Claude Code**: Built-in (no extra cost)
+
+---
+
+## 🤖 Actual AI Agents
+
+All agents are Markdown files in `.claude/level-2-production/agents/`:
+
+1. **research-coordinator.md**
+   - Uses Perplexity MCP for web research
+   - Outputs to projects/nobody-knows/output/research/
+
+2. **script-writer.md**
+   - Uses Claude Code natively
+   - Applies Feynman + Fridman style
+   - Outputs to projects/nobody-knows/output/scripts/
+
+3. **quality-evaluator.md**
+   - Uses Claude Code natively
+   - Validates against quality gates
+   - Outputs to projects/nobody-knows/output/quality/
+
+4. **audio-synthesizer.md**
+   - Uses ElevenLabs MCP
+   - Generates MP3 audio
+   - Outputs to projects/nobody-knows/output/audio/
+
+---
+
+## 🎯 The "Nobody Knows" Podcast
+
+100 episodes exploring the limits of human knowledge with intellectual humility.
+
+### Quality Standards
+- **Comprehension**: ≥0.85
+- **Brand Consistency**: ≥0.90
+- **Engagement**: ≥0.80
+- **Technical Accuracy**: ≥0.85
+
+### Season Structure
+10 seasons × 10 episodes = 100 episodes total
+(See season1_topics.csv for episode topics)
+
+---
+
+## 🔧 Configuration
+
+### API Keys
+- `.env` - Contains API keys (git-ignored)
+- `.env.example` - Template for others
+
+### MCP Configuration
+- `.mcp.json` - MCP server config (git-ignored)
+- `.mcp.json.example` - Template for others
+
+### Project Config
+- `projects/nobody-knows/config/project_config.json`
+- `projects/nobody-knows/config/quality_gates.json`
+
+---
+
+## ⚠️ What This Project Is NOT
+
+- ❌ **NOT a Python web application**
+- ❌ **NOT a FastAPI server**
+- ❌ **NOT using ChromaDB**
+- ❌ **NOT a REST API**
+- ❌ **NOT multi-project**
+- ❌ **NOT using pytest**
+- ❌ **NOT enterprise software**
+
+---
+
+## 🚶‍♂️ WALK-CRAWL-RUN Learning Progression
+
+**Technical:** Progressive complexity introduction with cost-gated milestones  
+**Simple:** Like learning to cook - first read recipes, then try simple dishes, finally create feasts
+
+### 🚶 WALK Phase (Weeks 1-4) - Current Phase 🎯
+- **Cost:** FREE - No API keys needed
+- **Focus:** Understanding concepts without spending money
+- **Activities:**
+  - ✅ Set up environment
+  - ✅ Read all context files  
+  - ✅ Create agent/command structures
+  - ⏳ Test with mock data
+- **Status:** Phase 6 complete, Phase 7 pending restart
+
+### 🐾 CRAWL Phase (Weeks 5-12)
+- **Cost:** $20-50 total
+- **Focus:** Connect APIs, produce first episodes
+- **Activities:**
+  - Configure MCP servers (done)
+  - Test with small batches
+  - Monitor costs closely
+  - Optimize prompts
+- **Status:** Ready after Phase 7-8 testing
+
+### 🏃 RUN Phase (Weeks 13+)
+- **Cost:** $50-100/month
+- **Focus:** Scale production
+- **Activities:**
+  - Batch production
+  - Season management
+  - Quality automation
+  - Cost optimization
+- **Status:** Future phase
+
+---
+
+## 🚦 Current Project Status
+
+### ✅ Completed Phases
+- **Phase 1-3:** Foundation Architecture ✅
+- **Phase 4:** CLAUDE.md Restoration (v5.0.0) ✅
+- **Phase 5:** API Key Configuration (.env) ✅
+- **Phase 6:** MCP Installation & Setup ✅
+
+### ⏳ Current Phase
+- **Phase 7:** Test Native Claude Code (PENDING RESTART)
+  - 7.1: Verify MCPs available after restart
+  - 7.2: Test research agent with Perplexity
+  - 7.3: Test audio agent with ElevenLabs
+  - 7.4: Test script writer with Claude native
+  - 7.5: Test quality evaluator
+
+### 📝 Next Phase
+- **Phase 8:** Simple Integration
+  - 8.1: Update agents to use MCP tools
+  - 8.2: Test episode production end-to-end
+  - 8.3: Verify costs are under $5/episode
+
+### 🔒 Future (Requires Approval)
+- **Level 3:** Documentation only
+- **Level 4:** Python/FastAPI with OpenRouter + Langfuse
+- **⚠️ GATE:** DO NOT implement Level 4 without explicit "Approved for Level 4 implementation"
+
+---
+
+## 📚 Key Documentation
+
+- `CLAUDE.md` - Master system prompt (v5.0.0)
+- `PROJECT_STATUS_HANDOVER.md` - Complete project context
+- `PROJECT_AUDIT_INCONSISTENCIES.md` - Issues found in docs
+- `.claude/config/simple-setup.md` - Simplified approach
+
+---
+
+## 🤝 Contributing
+
+This is a solo hobby project, but if you want to use it:
+
+1. Copy `.env.example` to `.env` and add your API keys
+2. Copy `.mcp.json.example` to `.mcp.json` and update paths
+3. Install MCPs locally in `.claude/mcp-servers/`
+4. Follow the setup instructions above
+
+---
+
+## 📄 License
+
+No license file exists yet (README.md incorrectly claims MIT)
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with Claude Code's native capabilities
+- Uses Perplexity and ElevenLabs via MCP
+- Philosophy: "Nobody knows everything, but together we can learn anything"
+
+---
+
+**This document reflects the ACTUAL state of the project as of 2025-08-11**
