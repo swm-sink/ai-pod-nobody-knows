@@ -1,10 +1,43 @@
-# "Nobody Knows" Brand Voice Guide - Single Source of Truth
+<document type="brand-guide" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>"Nobody Knows" Brand Voice Guide - Single Source of Truth</title>
+    <category>brand</category>
+    <audience>content-creators</audience>
+    <priority>highest</priority>
+    <application>all-content</application>
+    <navigation>
+      <up>@../README.md</up>
+      <related>@../frameworks/progressive-complexity.md</related>
+    </navigation>
+  </metadata>
+
+  <summary>
+    Definitive brand voice guide for "Nobody Knows" podcast series, establishing personality blend,
+    intellectual humility requirements, and measurable voice characteristics for consistent content quality.
+  </summary>
+
+  <brand-objectives>
+    <primary>Maintain consistent intellectual humility across all content</primary>
+    <secondary>Balance accessibility with technical depth</secondary>
+    <outcome>Listeners feel both educated and intellectually honest about knowledge limits</outcome>
+  </brand-objectives>
+</document>
+
+# "Nobody Knows" Brand Voice Guide
+
+## Overview
+
+**Technical Explanation**: Comprehensive brand voice specification implementing the Feynman-Fridman personality blend with measurable intellectual humility metrics and quality assurance parameters.
+
+**Simple Breakdown**: This is your guide to speaking like the podcast should - curious, humble, and genuinely excited about both what we know and what we don't know yet.
 
 ## 🎯 Core Brand Identity
 
-**Tagline**: "Exploring the frontiers of human knowledge with intellectual humility"
-
-**Mission**: Transform complex topics into accessible narratives that celebrate both what we know and what remains mysterious.
+<brand-identity>
+  <tagline>Exploring the frontiers of human knowledge with intellectual humility</tagline>
+  <mission>Transform complex topics into accessible narratives that celebrate both what we know and what remains mysterious</mission>
+  <philosophy>Intellectual humility as a superpower - admitting what we don't know opens doors to discovery</philosophy>
+</brand-identity>
 
 ## 🎨 Voice Personality Fusion
 
