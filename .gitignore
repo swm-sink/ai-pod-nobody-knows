@@ -332,4 +332,9 @@ core/
 .claude/logs/
 .claude/cache/
 .claude/**/logs/
-.claude/level-2-production/output/
+# Production outputs should be in projects/, not .claude/
+projects/nobody-knows/output/
+
+# Claude session state and local settings
+.claude/sessions/
+.claude/settings.local.json
