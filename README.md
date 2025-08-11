@@ -6,7 +6,7 @@
 
 ## 🎯 What This Is
 
-An automated podcast production system using **Claude Code's native AI capabilities** to create a 100-episode series called "Nobody Knows" - exploring the frontiers of human knowledge with intellectual humility.
+An automated podcast production system using **Claude Code's native AI capabilities** to create a 125-episode AI-focused series called "Nobody Knows" - teaching AI through radical honesty about technological confusion. (See `projects/nobody-knows/series_plan/episodes_master.json` for complete episode list)
 
 ### Built With:
 - **Claude Code agents** for orchestration and content creation
