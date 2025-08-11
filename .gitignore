@@ -300,6 +300,9 @@ pyvenv.cfg
 *.backup
 *.bkp
 *~
+*.backup.*
+README.md.backup.*
+requirements.txt.backup.*
 
 # Session files
 *.session
