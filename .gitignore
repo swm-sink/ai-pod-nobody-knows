@@ -239,6 +239,15 @@ docs/generated/
 .claude/CLAUDE.local.md
 CLAUDE.local.md
 
+# MCP Servers (project-local installations)
+.claude/mcp-servers/
+mcp-servers/
+**/elevenlabs-mcp/
+**/perplexity-mcp/
+node_modules/
+.mcp.json
+*.mcp.json
+
 # Production data
 production_data/
 production_logs/
@@ -313,3 +322,11 @@ instance/
 # TDD Enforcement - Prevent premature implementation
 # Only allow implementation after tests are written and approved
 core/
+# Claude-specific safe ignores
+.claude/config/mcp-config.json
+.claude/config/*.local.*
+.claude/mocks/
+.claude/logs/
+.claude/cache/
+.claude/**/logs/
+.claude/level-2-production/output/
