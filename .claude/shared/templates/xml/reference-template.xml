@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="{DOMAIN}" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>{TITLE}</title>
+        <claude-optimization>true</claude-optimization>
+        <estimated-time>{ESTIMATED_TIME}</estimated-time>
+    </metadata>
+    
+    <content>
+        <section type="reference" id="overview">
+            <technical-explanation>
+                {TECHNICAL_OVERVIEW}
+                
+                Should provide:
+                - Precise technical specifications
+                - Professional terminology and definitions
+                - System requirements and constraints
+                - Integration considerations
+            </technical-explanation>
+            <simple-explanation>
+                {SIMPLE_OVERVIEW}
+                
+                Should explain:
+                - What this reference covers in plain language
+                - When you would need this information
+                - How it fits into the bigger picture
+            </simple-explanation>
+        </section>
+        
+        <section type="reference" id="quick-reference">
+            <instructions>
+                <step validation-command="{VALIDATION_COMMAND_1}">
+                    {QUICK_ACTION_1}
+                </step>
+                <step validation-command="{VALIDATION_COMMAND_2}">
+                    {QUICK_ACTION_2}
+                </step>
+                <!-- Add more quick reference items -->
+            </instructions>
+            
+            <examples>
+                <example type="basic">
+                    <scenario>{COMMON_USE_CASE}</scenario>
+                    <implementation>{IMPLEMENTATION_CODE}</implementation>
+                    <explanation>{WHY_THIS_WORKS}</explanation>
+                </example>
+            </examples>
+        </section>
+        
+        <section type="troubleshooting" id="common-issues">
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>{COMMON_ERROR_SCENARIO}</scenario>
+                    <implementation>{ERROR_MESSAGE_OR_SYMPTOM}</implementation>
+                    <explanation>{SOLUTION_AND_PREVENTION}</explanation>
+                </example>
+            </examples>
+            
+            <validation>
+                <validation-command>{DIAGNOSTIC_COMMAND}</validation-command>
+                <success-criteria>{EXPECTED_OUTPUT}</success-criteria>
+            </validation>
+        </section>
+        
+        <section type="advanced" id="advanced-usage">
+            <technical-explanation>
+                Advanced configuration options, optimization techniques, and integration patterns.
+            </technical-explanation>
+            <simple-explanation>
+                Power-user features and advanced techniques for when you need more control.
+            </simple-explanation>
+            
+            <examples>
+                <example type="advanced">
+                    <scenario>{ADVANCED_SCENARIO}</scenario>
+                    <implementation>{ADVANCED_IMPLEMENTATION}</implementation>
+                    <explanation>{ADVANCED_EXPLANATION}</explanation>
+                </example>
+            </examples>
+        </section>
+    </content>
+    
+    <cross-references>
+        <reference file="{RELATED_GUIDE}.xml" section="overview" type="related">
+            Related learning guide or tutorial
+        </reference>
+        <reference file="{CONSTANTS_FILE}.xml" section="constants" type="prerequisite">
+            Required constants or configuration values
+        </reference>
+        <!-- Add more references as needed -->
+    </cross-references>
+</document>

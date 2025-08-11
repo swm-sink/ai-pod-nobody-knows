@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="learning-guide" domain="{DOMAIN}" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>{TITLE}</title>
+        <phase>{PHASE}</phase>
+        <skill-level>{SKILL_LEVEL}</skill-level>
+        <claude-optimization>true</claude-optimization>
+        <learning-outcomes>
+            <outcome>{LEARNING_OUTCOME_1}</outcome>
+            <outcome>{LEARNING_OUTCOME_2}</outcome>
+            <!-- Add more outcomes as needed -->
+        </learning-outcomes>
+        <prerequisites>
+            <prerequisite>{PREREQUISITE_1}</prerequisite>
+            <!-- Add more prerequisites as needed -->
+        </prerequisites>
+        <estimated-time>{ESTIMATED_TIME}</estimated-time>
+    </metadata>
+    
+    <content>
+        <section type="introduction" id="overview">
+            <technical-explanation>
+                {TECHNICAL_EXPLANATION}
+                
+                Technical aspects should include:
+                - Industry-standard terminology
+                - Professional implementation details
+                - Architectural patterns and best practices
+                - Performance and scalability considerations
+            </technical-explanation>
+            <simple-explanation>
+                {SIMPLE_EXPLANATION}
+                
+                Simple breakdown should include:
+                - Analogies and everyday examples
+                - Step-by-step explanations
+                - Focus on understanding over memorization
+                - Concrete examples of abstract concepts
+            </simple-explanation>
+        </section>
+        
+        <section type="implementation" id="hands-on">
+            <instructions>
+                <step number="1" validation-command="{VALIDATION_COMMAND_1}">
+                    {IMPLEMENTATION_STEP_1}
+                </step>
+                <step number="2" validation-command="{VALIDATION_COMMAND_2}">
+                    {IMPLEMENTATION_STEP_2}
+                </step>
+                <!-- Add more steps as needed -->
+            </instructions>
+            
+            <examples>
+                <example type="basic">
+                    <scenario>{BASIC_SCENARIO}</scenario>
+                    <implementation>{BASIC_IMPLEMENTATION}</implementation>
+                    <explanation>{BASIC_EXPLANATION}</explanation>
+                </example>
+                <example type="advanced">
+                    <scenario>{ADVANCED_SCENARIO}</scenario>
+                    <implementation>{ADVANCED_IMPLEMENTATION}</implementation>
+                    <explanation>{ADVANCED_EXPLANATION}</explanation>
+                </example>
+            </examples>
+            
+            <validation>
+                <validation-command>{VALIDATION_COMMAND}</validation-command>
+                <success-criteria>{SUCCESS_CRITERIA}</success-criteria>
+            </validation>
+        </section>
+        
+        <section type="troubleshooting" id="common-issues">
+            <technical-explanation>
+                Common technical challenges and their systematic resolution approaches.
+            </technical-explanation>
+            <simple-explanation>
+                What to do when things don't work as expected - like troubleshooting steps for everyday problems.
+            </simple-explanation>
+            
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>Common mistake or anti-pattern</scenario>
+                    <implementation>Incorrect approach to avoid</implementation>
+                    <explanation>Why this approach causes problems and how to fix it</explanation>
+                </example>
+            </examples>
+        </section>
+        
+        <section type="advanced" id="next-steps">
+            <technical-explanation>
+                Advanced concepts, optimization techniques, and integration with other systems.
+            </technical-explanation>
+            <simple-explanation>
+                Next steps in your learning journey and how this knowledge connects to bigger concepts.
+            </simple-explanation>
+        </section>
+    </content>
+    
+    <cross-references>
+        <reference file="{RELATED_FILE_1}.xml" section="{SECTION_ID}" type="related">
+            Related concept or prerequisite knowledge
+        </reference>
+        <reference file="{ADVANCED_FILE_1}.xml" section="{SECTION_ID}" type="advanced">
+            Advanced topics building on this knowledge
+        </reference>
+        <!-- Add more references as needed -->
+    </cross-references>
+</document>

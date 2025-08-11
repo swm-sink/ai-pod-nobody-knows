@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="navigation" domain="{DOMAIN}" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>{TITLE}</title>
+        <claude-optimization>true</claude-optimization>
+    </metadata>
+    
+    <content>
+        <section type="navigation" id="overview">
+            <technical-explanation>
+                {TECHNICAL_OVERVIEW}
+                
+                Should provide:
+                - Domain scope and boundaries
+                - Learning path progression
+                - Dependency relationships
+                - Content organization rationale
+            </technical-explanation>
+            <simple-explanation>
+                {SIMPLE_OVERVIEW}
+                
+                Should explain:
+                - What this domain covers
+                - How the content is organized
+                - Where to start based on your goals
+                - How topics connect to each other
+            </simple-explanation>
+        </section>
+        
+        <section type="navigation" id="quick-start">
+            <instructions>
+                <step number="1" validation-command="{VALIDATION_1}">
+                    {QUICK_START_STEP_1}
+                </step>
+                <step number="2" validation-command="{VALIDATION_2}">
+                    {QUICK_START_STEP_2}
+                </step>
+                <!-- Add more quick start steps -->
+            </instructions>
+            
+            <navigation-links>
+                <link priority="high">
+                    <title>{HIGH_PRIORITY_TITLE}</title>
+                    <file>{HIGH_PRIORITY_FILE}.xml</file>
+                    <description>{HIGH_PRIORITY_DESCRIPTION}</description>
+                </link>
+                <!-- Add more quick start links -->
+            </navigation-links>
+        </section>
+        
+        <section type="navigation" id="learning-paths">
+            <technical-explanation>
+                Structured learning progression with prerequisites and dependencies.
+            </technical-explanation>
+            <simple-explanation>
+                Step-by-step paths through the content based on what you want to learn.
+            </simple-explanation>
+            
+            <navigation-links>
+                <link priority="high">
+                    <title>Beginner Path: {BEGINNER_TITLE}</title>
+                    <file>{BEGINNER_FILE}.xml</file>
+                    <description>Start here if you're new to {DOMAIN_TOPIC}</description>
+                </link>
+                <link priority="medium">
+                    <title>Intermediate Path: {INTERMEDIATE_TITLE}</title>
+                    <file>{INTERMEDIATE_FILE}.xml</file>
+                    <description>Continue here when you've mastered the basics</description>
+                </link>
+                <link priority="medium">
+                    <title>Advanced Path: {ADVANCED_TITLE}</title>
+                    <file>{ADVANCED_FILE}.xml</file>
+                    <description>Deep dive topics for experienced practitioners</description>
+                </link>
+            </navigation-links>
+        </section>
+        
+        <section type="navigation" id="reference-materials">
+            <technical-explanation>
+                Quick reference materials, troubleshooting guides, and technical specifications.
+            </technical-explanation>
+            <simple-explanation>
+                Resources to come back to when you need to look something up quickly.
+            </simple-explanation>
+            
+            <navigation-links>
+                <link priority="high">
+                    <title>{REFERENCE_TITLE_1}</title>
+                    <file>{REFERENCE_FILE_1}.xml</file>
+                    <description>{REFERENCE_DESCRIPTION_1}</description>
+                </link>
+                <link priority="medium">
+                    <title>{REFERENCE_TITLE_2}</title>
+                    <file>{REFERENCE_FILE_2}.xml</file>
+                    <description>{REFERENCE_DESCRIPTION_2}</description>
+                </link>
+                <!-- Add more reference links -->
+            </navigation-links>
+        </section>
+        
+        <section type="navigation" id="troubleshooting">
+            <technical-explanation>
+                Common issues, diagnostic procedures, and resolution strategies.
+            </technical-explanation>
+            <simple-explanation>
+                What to check when things don't work as expected.
+            </simple-explanation>
+            
+            <navigation-links>
+                <link priority="high">
+                    <title>Common Issues</title>
+                    <file>{TROUBLESHOOTING_FILE}.xml</file>
+                    <description>Most frequent problems and their solutions</description>
+                </link>
+            </navigation-links>
+            
+            <validation>
+                <validation-command>{SYSTEM_CHECK_COMMAND}</validation-command>
+                <success-criteria>All systems operational</success-criteria>
+            </validation>
+        </section>
+    </content>
+    
+    <cross-references>
+        <reference file="../{RELATED_DOMAIN}/navigation.xml" type="related">
+            Related domain navigation
+        </reference>
+        <reference file="constants.xml" section="constants" type="prerequisite">
+            Domain constants and configuration
+        </reference>
+        <!-- Add cross-domain references -->
+    </cross-references>
+</document>
