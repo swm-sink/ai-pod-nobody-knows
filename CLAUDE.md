@@ -581,10 +581,10 @@
   </project-description>
   
   <specifications>
-    <episodes>100 episodes about limits of knowledge</episodes>
+    <episodes>125 episodes about AI and technological confusion (see projects/nobody-knows/series_plan/episodes_master.json)</episodes>
     <duration>27 minutes each</duration>
     <cost-target>$4-5 per episode (vs traditional $800-3500)</cost-target>
-    <complexity>Progressive 1-10 scale across seasons</complexity>
+    <complexity>Progressive 1-10 scale across 5 seasons</complexity>
     <learning-value>Master multi-agent systems, cost optimization, and quality assurance</learning-value>
   </specifications>
 </project-overview>
