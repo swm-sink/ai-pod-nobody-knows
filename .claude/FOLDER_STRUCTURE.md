@@ -5,49 +5,128 @@
 ```
 .claude/
 ├── FOLDER_STRUCTURE.md        # This file - explains organization
-├── settings.local.json         # User-specific Claude Code settings
+├── NAVIGATION_INDEX.md        # Master navigation guide
+├── README.md                  # .claude directory overview
+├── 00_GLOBAL_CONSTANTS.md     # Project-wide constants
+├── CLAUDE.local.md            # Local settings documentation
+├── settings.local.json        # User-specific Claude Code settings
 ├── .claudeignore              # Files to exclude from context
 │
 ├── shared/                    # Resources used across ALL levels
-│   ├── templates/             # Reusable templates
 │   ├── brand/                 # Brand voice, guidelines
-│   └── quality-gates/         # Quality thresholds, metrics
+│   │   └── brand_voice.md    
+│   ├── quality-gates/         # Quality thresholds, metrics
+│   │   ├── FILE_REFERENCE_VALIDATION.md
+│   │   ├── VALIDATION_CHECKLIST.md
+│   │   └── WORKFLOW_TEST_REPORT.md
+│   └── templates/             # Reusable templates
+│       └── episode_structure.md
 │
 ├── context/                   # Documentation & learning guides (ALL levels)
-│   ├── foundation/            # Project basics
-│   ├── ai-orchestration/      # AI concepts
-│   ├── claude-code/           # Claude Code features
-│   ├── operations/            # Operational guides
-│   └── quality/               # Quality requirements
+│   ├── foundation/            # Project basics (6 files)
+│   │   ├── 00_project_constants.md
+│   │   ├── 01_project_overview.md
+│   │   ├── 02_walk_crawl_run_phases.md
+│   │   ├── 03_hobbyist_focus.md
+│   │   ├── 04_no_api_keys_activities.md
+│   │   ├── 05_learning_milestones.md
+│   │   └── NAVIGATION.md
+│   │
+│   ├── ai-orchestration/      # AI concepts (3 files)
+│   │   ├── 01_agent_orchestration_basics.md
+│   │   ├── 02_cost_optimization_strategies.md
+│   │   └── NAVIGATION.md
+│   │
+│   ├── claude-code/           # Claude Code features (13 files + cookbook)
+│   │   ├── 00_claude_code_constants.md
+│   │   ├── 15_claude_code_introduction.md through 25_thinking_modes_optimization.md
+│   │   ├── agents-cookbook/   # Agent examples
+│   │   └── NAVIGATION.md
+│   │
+│   ├── operations/            # Operational guides (5 files)
+│   │   ├── 00_operations_constants.md
+│   │   ├── 01_troubleshooting_guide.md
+│   │   ├── 02_quick_reference.md
+│   │   ├── 03_production_checklist.md
+│   │   └── NAVIGATION.md
+│   │
+│   ├── quality/               # Quality requirements (6 files)
+│   │   ├── 00_quality_constants.md
+│   │   ├── 01_change_approval_requirements.md
+│   │   ├── 02_hallucination_prevention_guide.md
+│   │   ├── 03_tdd_requirements_specification.md
+│   │   ├── 04_validation_workflow.md
+│   │   ├── TDD_ENFORCEMENT.md
+│   │   └── NAVIGATION.md
+│   │
+│   ├── elevenlabs/            # ElevenLabs integration (12 files)
+│   │   ├── 00_elevenlabs_constants.md
+│   │   ├── 15_elevenlabs_overview.md through 24_elevenlabs_troubleshooting.md
+│   │   ├── README.md
+│   │   └── NAVIGATION.md
+│   │
+│   ├── prompts_research/      # Prompt engineering research (10 files)
+│   │   ├── 15_podcast_prompt_engineering.md through 23_comprehensive_context_roadmap.md
+│   │   └── NAVIGATION.md
+│   │
+│   └── README.md              # Context directory overview
 │
 ├── level-1-dev/               # Development Platform (builds the builders)
 │   ├── agents/                # Agents that help development
+│   │   ├── test-agent.md
+│   │   └── file-validator.md
 │   ├── commands/              # Commands for building tools
 │   │   ├── agent-builder-dev.md
 │   │   ├── command-builder-dev.md
-│   │   └── context-researcher-dev.md
+│   │   ├── context-researcher-dev.md
+│   │   ├── session-manager.md
+│   │   ├── test-workflow.md
+│   │   └── validate-project-structure.md
 │   ├── sessions/              # Development work tracking
-│   └── templates/             # Templates for builders
+│   │   ├── development-session-template.json
+│   │   └── test_session_20250811_1430.json
+│   ├── templates/             # Templates for builders
+│   │   ├── agent-template.yaml
+│   │   └── command-template.yaml
+│   ├── workflows/             # Development workflows
+│   │   ├── core-workflows.md
+│   │   ├── developer-experience.md
+│   │   ├── level-1-overview.md
+│   │   ├── quality-integration.md
+│   │   └── README.md
+│   ├── quality/               # Development quality checks
+│   │   └── validation-checklist.md
+│   ├── test-agent-builder.md
+│   ├── test-command-builder.md
+│   └── test-context-researcher.md
 │
 ├── level-2-production/        # Podcast Production System
 │   ├── agents/                # Production agents (research, script, etc.)
+│   │   ├── research-coordinator.md
+│   │   └── research-coordinator-tests.md
 │   ├── commands/              # Production commands
 │   │   ├── agent-builder-production.md
 │   │   ├── command-builder-production.md
-│   │   ├── produce-episode.md (TBD)
-│   │   └── [legacy commands moved here]
-│   ├── sessions/              # Episode production tracking
-│   └── output/                # Generated episodes
-│       └── episode_XXX/       # Per-episode artifacts
+│   │   ├── autoproduce.md
+│   │   ├── batch_produce.md
+│   │   ├── project_create.md
+│   │   ├── quality_check.md
+│   │   └── system_optimize.md
+│   └── sessions/              # Episode production tracking
+│       └── episode-session-template.json
 │
 ├── level-3-platform-dev/      # Platform Planning & Design
-│   ├── requirements/          # System requirements docs
-│   ├── architecture/          # Technical design docs
-│   ├── migration/             # Native-to-coded migration plans
-│   └── testing/               # Test strategies
+│   └── openrouter/            # OpenRouter integration docs
+│       ├── 00_openrouter_constants.md
+│       ├── 25_openrouter_overview.md
+│       ├── 26_openrouter_api_integration.md
+│       ├── 27_openrouter_model_routing.md
+│       ├── 28_openrouter_cost_optimization.md
+│       ├── 29_openrouter_production_patterns.md
+│       └── NAVIGATION.md
 │
 └── level-4-coded/             # Future Coded Platform (NO CODE YET)
-    └── documentation/         # Plans only - requires approval
+    └── [Reserved for future Python implementation]
 ```
 
 ## Key Principles
@@ -72,6 +151,14 @@
 - Production tools end with `-production`
 - No ambiguity about which level you're in
 
+### 5. Consistent Numbering
+- 00-09: Constants and foundations
+- 10-29: Core concepts and features
+- 30-49: Implementation guides
+- 50-69: Advanced topics
+- 70-89: Troubleshooting and reference
+- 90-99: Meta documentation
+
 ## What Goes Where?
 
 ### Creating a new development tool?
@@ -91,22 +178,35 @@
 ### Want to write Python code?
 → STOP! Get approval first. Document plan in `level-4-coded/documentation/`
 
-## Common Files
+## File Statistics
 
-### Root Level (.claude/)
-- `FOLDER_STRUCTURE.md` - This guide
-- `settings.local.json` - Your Claude Code settings
-- `.claudeignore` - Exclude patterns
+- **Total Files**: ~100 markdown files
+- **Total Directories**: 28 (after cleanup from 61)
+- **Constants Files**: 7 (properly scoped)
+- **NAVIGATION Files**: 8 (hierarchical)
+- **Empty Directories Removed**: 33
 
-### Each Level Has
-- `agents/` - Level-specific agents
-- `commands/` - Level-specific commands  
-- `sessions/` - Work tracking
-- `templates/` - Level-specific templates
+## Recent Cleanup Summary
 
-## Remember
-1. **Always check which level you're working in**
-2. **Use the right builder for your level**
-3. **Don't create Python code without approval (Level 4)**
-4. **Keep shared resources in `shared/`**
-5. **Document everything in `context/`**
+### Completed Actions
+✅ Removed 33 empty directories
+✅ Consolidated duplicate ElevenLabs files
+✅ Fixed file numbering inconsistencies
+✅ Moved context folder to correct location
+✅ Created OpenRouter documentation in level-3
+✅ Moved CLAUDE.md to project root
+✅ Added file operations best practices
+
+### DRY Principle Enforcement
+- All constants centralized in 00_*_constants.md files
+- No duplicate information across files
+- All values reference constants
+- Cross-references use links, not duplication
+
+## Navigation Tips
+
+1. **Use @ References**: All files support `@filename.md` quick navigation
+2. **Start with NAVIGATION_INDEX.md**: Master guide to all content
+3. **Follow Constants**: Always check 00_*_constants.md first
+4. **Check NAVIGATION.md**: Each context folder has its own guide
+5. **Use Find Command**: `find .claude -name "pattern"` for searches
