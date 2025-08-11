@@ -19,7 +19,7 @@
   </claude-code-features>
   
   <learning-integration>
-    <prerequisites>File 01 (Project Overview)</prerequisites>
+    <prerequisites>@01_project_overview.md (Project Overview)</prerequisites>
     <learning-outcomes>
       <outcome>Master progressive AI orchestration skill development</outcome>
       <outcome>Understand when and how to add Claude Code acceleration</outcome>
@@ -27,7 +27,8 @@
     </learning-outcomes>
     <hands-on-activities>15</hands-on-activities>
     <feynman-explanation-required>true</feynman-explanation-required>
-    <cross-references>File 15 (Claude Code intro), Files 04-07 (phase activities)</cross-references>
+    <cross-references>@15_claude_code_introduction.md (Claude Code intro), @04_no_api_keys_activities.md → @07_learning_milestones.md (phase activities)</cross-references>
+    <navigation>@NAVIGATION.md for domain navigation, @../NAVIGATION_INDEX.md for master navigation</navigation>
   </learning-integration>
 
   <change-approval-notice>
@@ -70,7 +71,8 @@
   <synergy-principle>Each Claude Code feature directly supports AI orchestration learning</synergy-principle>
 </dual-learning-framework>
 
-<phase number="1" name="WALK" duration="Weeks 1-4" cost="FREE">
+<phase number="1" name="WALK" duration="LEARNING_PHASES['WALK']['duration']" cost="LEARNING_PHASES['WALK']['cost']">
+  <reference>See Global Constants for all phase specifications</reference>
   <phase-description>
     Master AI orchestration fundamentals without spending money. Optional Claude Code introduction.
   </phase-description>
@@ -227,7 +229,7 @@
 
 ---
 
-<phase number="3" name="RUN" duration="Weeks 13+" cost="$50-100/month">
+<phase number="3" name="RUN" duration="LEARNING_PHASES['RUN']['duration']" cost="LEARNING_PHASES['RUN']['cost']">
   <phase-description>
     Expert AI orchestration with full development automation and optimization
   </phase-description>
@@ -250,7 +252,7 @@
   <prerequisites>
     <requirement>Successful manual production of 5+ episodes</requirement>
     <requirement>Deep understanding of agent orchestration patterns</requirement>
-    <requirement>Budget for regular API usage ($50-100/month)</requirement>
+    <requirement>Budget for regular API usage (LEARNING_PHASES['RUN']['cost'])</requirement>
     <requirement>Comfortable with Claude Code automation (Files 15-20 complete)</requirement>
   </prerequisites>
   

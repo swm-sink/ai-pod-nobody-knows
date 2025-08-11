@@ -19,7 +19,7 @@
   </claude-code-features>
   
   <learning-integration>
-    <prerequisites>Files 01-02 (understanding dual-learning system)</prerequisites>
+    <prerequisites>@01_project_overview.md → @02_walk_crawl_run_phases.md (understanding dual-learning system)</prerequisites>
     <learning-outcomes>
       <outcome>Embrace hobbyist mindset for both AI orchestration and Claude Code</outcome>
       <outcome>Understand Claude Code as personal learning accelerator</outcome>
@@ -27,7 +27,8 @@
     </learning-outcomes>
     <hands-on-activities>0</hands-on-activities>
     <feynman-explanation-required>true</feynman-explanation-required>
-    <cross-references>File 15 (Claude Code intro), Files 04-05 (hands-on learning)</cross-references>
+    <cross-references>@15_claude_code_introduction.md (Claude Code intro), @04_no_api_keys_activities.md → @05_agent_orchestration_basics.md (hands-on learning)</cross-references>
+    <navigation>@NAVIGATION.md for domain navigation, @../NAVIGATION_INDEX.md for master navigation</navigation>
   </learning-integration>
 
   <change-approval-notice>

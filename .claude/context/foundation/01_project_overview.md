@@ -27,7 +27,8 @@
     </learning-outcomes>
     <hands-on-activities>0</hands-on-activities>
     <feynman-explanation-required>true</feynman-explanation-required>
-    <cross-references>Files 02-03 (foundation), File 15 (Claude Code intro)</cross-references>
+    <cross-references>@02_walk_crawl_run_phases.md → @03_hobbyist_focus.md (foundation), @15_claude_code_introduction.md (Claude Code intro)</cross-references>
+    <navigation>@NAVIGATION.md for domain navigation, @../NAVIGATION_INDEX.md for master navigation</navigation>
   </learning-integration>
 
   <change-approval-notice>
@@ -86,7 +87,8 @@
   
   <goal number="2" category="optimization">
     <name>Practice Cost Optimization</name>
-    <description>Produce content at $4-8 per episode vs traditional $800-3500</description>
+    <description>Produce content at COST_TARGETS['target_cost'] vs COST_TARGETS['traditional_production']</description>
+    <reference>See Global Constants for all cost specifications</reference>
   </goal>
   
   <goal number="3" category="methodology">
@@ -101,10 +103,11 @@
 </learning-goals>
 
 <project-concept>
-  <podcast-name>Nobody Knows</podcast-name>
+  <podcast-name>See PROJECT['name'] in Global Constants</podcast-name>
   <concept-details>
     <episodes>100-episode educational series exploring human knowledge limits</episodes>
-    <format>27-minute episodes with intellectual humility as core theme</format>
+    <format>EPISODE_SPECS['duration_minutes']-minute episodes with PROJECT['theme'] as core theme</format>
+    <reference>See Global Constants for all episode and project specifications</reference>
     <structure>Progressive complexity across 10 seasons</structure>
     <design>Each episode stands alone but builds on previous knowledge</design>
   </concept-details>

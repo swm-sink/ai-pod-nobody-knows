@@ -96,6 +96,8 @@ claude /init
 #### Start the Server (No APIs Needed!)
 ```bash
 # This works completely offline:
+# Reference from Operations Constants
+# Use: SERVER_COMMANDS['start_dev']
 uvicorn core.orchestration.server:app --reload
 
 # Visit in browser:
