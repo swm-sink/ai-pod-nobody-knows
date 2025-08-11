@@ -1,7 +1,30 @@
+<document type="domain-index" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Foundation Documentation - Your Learning Journey Starts Here</title>
+    <category>foundation</category>
+    <audience>hobbyist</audience>
+    <priority>highest</priority>
+    <file-count>6</file-count>
+    <navigation>
+      <up>@../README.md</up>
+      <index>@NAVIGATION.md</index>
+      <next>@01_project_overview.md</next>
+    </navigation>
+  </metadata>
+
+  <summary>
+    Foundation documentation establishes what you're learning (AI orchestration), how you'll learn it 
+    (progressive phases), and why it works (hobbyist-friendly approach). Start here for complete beginners.
+  </summary>
+</document>
+
 # Foundation Documentation
 ## Your Learning Journey Starts Here
 
-> **DRY Compliance**: All specifications reference [00_project_constants.md](./00_project_constants.md) instead of duplicating values.
+<dry-compliance>
+  **DRY Compliance**: All specifications reference @00_project_constants.md instead of duplicating values.
+  This ensures consistency and maintainability across all foundation documentation.
+</dry-compliance>
 
 ---
 
