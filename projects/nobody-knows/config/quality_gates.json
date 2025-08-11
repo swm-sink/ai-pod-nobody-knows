@@ -1,0 +1,141 @@
+{
+  "quality_gates": {
+    "comprehension": {
+      "threshold": 0.85,
+      "weight": 0.25,
+      "description": "Content clarity and ease of understanding",
+      "metrics": {
+        "flesch_reading_ease": {
+          "min": 60,
+          "max": 80,
+          "target": 70
+        },
+        "flesch_kincaid_grade": {
+          "min": 8,
+          "max": 12,
+          "target": 10
+        },
+        "average_sentence_length": {
+          "min": 15,
+          "max": 25,
+          "target": 20
+        }
+      }
+    },
+    
+    "brand_consistency": {
+      "threshold": 0.90,
+      "weight": 0.30,
+      "description": "Alignment with brand voice and intellectual humility",
+      "metrics": {
+        "humility_phrases_per_1000_words": {
+          "min": 3,
+          "target": 5
+        },
+        "questions_per_1000_words": {
+          "min": 2,
+          "target": 4
+        },
+        "avoided_terms_count": {
+          "max": 2,
+          "target": 0
+        }
+      }
+    },
+    
+    "engagement": {
+      "threshold": 0.80,
+      "weight": 0.25,
+      "description": "Ability to maintain listener interest",
+      "metrics": {
+        "hook_effectiveness": {
+          "min": 0.75,
+          "target": 0.90
+        },
+        "sentence_variety": {
+          "min": 0.70,
+          "target": 0.85
+        },
+        "engagement_phrases_count": {
+          "min": 5,
+          "target": 8
+        }
+      }
+    },
+    
+    "technical": {
+      "threshold": 0.85,
+      "weight": 0.20,
+      "description": "Technical quality and structure",
+      "metrics": {
+        "duration_accuracy": {
+          "tolerance_minutes": 2,
+          "target_duration": 27
+        },
+        "structure_compliance": {
+          "has_introduction": true,
+          "has_main_segments": true,
+          "has_conclusion": true,
+          "has_transitions": true
+        },
+        "audio_quality": {
+          "min_clarity": 0.90,
+          "consistent_volume": true,
+          "natural_pacing": true
+        }
+      }
+    }
+  },
+  
+  "overall_requirements": {
+    "minimum_overall_score": 0.85,
+    "all_thresholds_must_pass": true,
+    "allow_retry_on_failure": true,
+    "max_retries": 3
+  },
+  
+  "failure_actions": {
+    "below_comprehension": [
+      "Simplify complex sentences",
+      "Add more explanations",
+      "Reduce jargon"
+    ],
+    "below_brand_consistency": [
+      "Add intellectual humility phrases",
+      "Remove absolutist language",
+      "Increase questioning tone"
+    ],
+    "below_engagement": [
+      "Strengthen opening hook",
+      "Add more variety to sentence structure",
+      "Include more engaging transitions"
+    ],
+    "below_technical": [
+      "Adjust script length",
+      "Fix structural issues",
+      "Improve audio synthesis settings"
+    ]
+  },
+  
+  "bonus_criteria": {
+    "cross_references": {
+      "description": "References to other episodes",
+      "bonus_points": 0.02
+    },
+    "source_diversity": {
+      "description": "Multiple perspectives included",
+      "bonus_points": 0.03
+    },
+    "memorable_quotes": {
+      "description": "Quotable moments created",
+      "bonus_points": 0.02
+    }
+  },
+  
+  "reporting": {
+    "generate_quality_report": true,
+    "include_recommendations": true,
+    "track_improvement_over_time": true,
+    "alert_on_consistent_failures": true
+  }
+}
