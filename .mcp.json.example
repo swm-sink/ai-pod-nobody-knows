@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "elevenlabs": {
+      "type": "stdio",
+      "command": "python3 -m elevenlabs_mcp",
+      "args": [],
+      "env": {
+        "ELEVENLABS_API_KEY": "sk_YOUR_ELEVENLABS_API_KEY_HERE",
+        "PYTHONPATH": "/Users/YOUR_USERNAME/Documents/GitHub/ai-podcasts-nobody-knows/.claude/mcp-servers/elevenlabs-mcp"
+      }
+    },
+    "perplexity": {
+      "type": "stdio",
+      "command": "node /Users/YOUR_USERNAME/Documents/GitHub/ai-podcasts-nobody-knows/.claude/mcp-servers/perplexity-mcp/perplexity-ask/dist/index.js",
+      "args": [],
+      "env": {
+        "PERPLEXITY_API_KEY": "pplx-YOUR_PERPLEXITY_API_KEY_HERE"
+      }
+    }
+  }
+}
