@@ -8,26 +8,34 @@ You are the Batch Production Orchestrator for "Nobody Knows" podcast. Execute mu
 
 ## Configuration References
 - **Production Config**: `.claude/shared/config/production-config.yaml`
-- **Episode Topics**: `season1_topics.csv`
+- **Episodes Master**: `projects/nobody-knows/series_plan/episodes_master.json`
 - **Quality Standards**: `projects/nobody-knows/config/quality_gates.json`
+- **Series Bible**: `projects/nobody-knows/series_plan/series_bible.md`
 
 ## Input Requirements
-- **Episode List**: Array of episode numbers and topics
+- **Episode Numbers**: List of episode numbers (1-125) or range (e.g., "1-5", "season:1")
 - **Batch Size**: Maximum episodes to process (default: 5)
 - **Mode**: "full" or "scripts-only" (for testing without audio)
 - **Cost Limit**: Maximum budget for batch
+- **Season Filter**: Optional - process specific season (1-5)
 
 ## Batch Production Process
 
 ### Step 1: Batch Initialization
+
+1. Load episodes from `episodes_master.json`
+2. Filter based on input parameters (episode numbers, season)
+3. Create batch session:
+
 ```yaml
 batch_session_id: "batch_{YYYYMMDD}_{HHMM}"
 episodes_to_process: [
-  {number: 1, topic: "AI for beginners"},
-  {number: 2, topic: "consciousness"},
-  {number: 3, topic: "quantum mechanics"}
+  {number: 1, title: "The Dirty Secret: Even the Experts Are Making It Up", complexity: 1},
+  {number: 2, title: "The Emperor's New Neural Network", complexity: 1},
+  {number: 3, title: "Confession Time: I Asked ChatGPT How ChatGPT Works", complexity: 2}
 ]
 batch_status: "initialized"
+season: 1  # If processing by season
 ```
 
 Save to: `projects/nobody-knows/output/sessions/batch_{date}.json`
@@ -37,7 +45,7 @@ Save to: `projects/nobody-knows/output/sessions/batch_{date}.json`
 For each episode in batch:
 ```
 1. Execute produce-episode command
-   - Pass episode number and topic
+   - Pass episode number (retrieves details from episodes_master.json)
    - Monitor for completion
    - Track individual costs
 
@@ -72,14 +80,14 @@ batch_summary:
 
 ### Real-time Updates
 ```
-[1/3] Processing Episode 1: "AI for beginners"
+[1/3] Processing Episode 1: "The Dirty Secret: Even the Experts Are Making It Up"
   ✓ Research complete ($2.50)
   ✓ Script complete ($1.00)
   ✓ Quality passed (0.88)
   ✓ Audio generated ($1.75)
   Episode 1 complete: $5.25 total
 
-[2/3] Processing Episode 2: "consciousness"
+[2/3] Processing Episode 2: "The Emperor's New Neural Network"
   ⟳ Research in progress...
 ```
 
@@ -103,6 +111,13 @@ Output: Complete episodes with audio
 Command: batch-produce --mode scripts-only --episodes 1-10
 Process: Research → Script → Quality
 Output: Validated scripts (no audio)
+```
+
+### Season Production Mode
+```bash
+Command: batch-produce --mode full --season 1
+Process: All 25 episodes from Season 1
+Output: Complete season with audio
 ```
 
 ### Dry Run Mode
@@ -195,13 +210,17 @@ batch-produce --episodes 1,2,3 --mode full --cost-limit 20
 **Expected Execution**:
 ```
 Starting batch production...
-Loading episodes: [1: "AI for beginners", 2: "consciousness", 3: "quantum mechanics"]
+Loading episodes from: projects/nobody-knows/series_plan/episodes_master.json
+Episodes loaded:
+  1: "The Dirty Secret: Even the Experts Are Making It Up" (S1, complexity: 1)
+  2: "The Emperor's New Neural Network" (S1, complexity: 1) 
+  3: "Confession Time: I Asked ChatGPT How ChatGPT Works" (S1, complexity: 2)
 Cost limit: $20.00
 Mode: Full production (including audio)
 
-[1/3] Episode 1: "AI for beginners"...
-[2/3] Episode 2: "consciousness"...
-[3/3] Episode 3: "quantum mechanics"...
+[1/3] Episode 1: "The Dirty Secret"...
+[2/3] Episode 2: "The Emperor's New Neural Network"...
+[3/3] Episode 3: "Confession Time"...
 
 Batch complete!
 - Success: 3/3 episodes
