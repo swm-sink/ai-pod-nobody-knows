@@ -1,7 +1,30 @@
-# Project Foundation Constants
-## Single Source of Truth for Learning Structure and Project Fundamentals
+<document type="constants" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Project Foundation Constants</title>
+    <scope>foundation-domain</scope>
+    <category>foundation</category>
+    <mutability>read-only</mutability>
+    <validation-frequency>weekly</validation-frequency>
+    <navigation>
+      <index>@NAVIGATION.md</index>
+      <related>@../../00_GLOBAL_CONSTANTS.md</related>
+    </navigation>
+  </metadata>
 
-> **CRITICAL**: Reference these values instead of duplicating across foundation documentation.
+  <summary>
+    Central repository for learning structure constants, phase definitions, and educational philosophy.
+    Single source of truth to eliminate duplication across foundation documentation.
+  </summary>
+</document>
+
+# Project Foundation Constants
+
+## Overview
+
+<purpose>
+  This file contains all constants, configurations, and reference values for the foundation learning domain.
+  All foundation documentation should reference these values rather than hardcoding them.
+</purpose>
 
 ---
 
