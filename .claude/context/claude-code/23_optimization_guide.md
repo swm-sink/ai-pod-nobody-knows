@@ -291,7 +291,7 @@ async def parallel_podcast_production(episode_config):
 /task Evidence Agent: "Locate 2-3 peer-reviewed sources from 2020-2025"
 
 ## Script Production (Sequential but Optimized)
-/task Script Agent: "Using research results, create 27-minute script following brand voice guidelines"
+/task Script Agent: "Using research results, create EPISODE_SPECS['duration_minutes']-minute  # See Global Constants script following brand voice guidelines"
   - Input: All research results from parallel batch
   - Optimization: Pre-loaded templates and style guides
   - Target: Complete in <8 minutes
@@ -477,7 +477,7 @@ async def optimized_batch_processing():
 Total: 110 seconds
 
 # Consolidated single request:
-"Research quantum consciousness including key concepts, accessible analogies, scientific accuracy verification, and suggested 27-minute episode structure"
+"Research quantum consciousness including key concepts, accessible analogies, scientific accuracy verification, and suggested EPISODE_SPECS['duration_minutes']-minute  # See Global Constants episode structure"
 Total: 45 seconds (60% faster!)
 ```
 
@@ -498,12 +498,12 @@ Total: 45 seconds (60% faster!)
 
 ```markdown
 # Token-Heavy Pattern (Avoid)
-Please research quantum consciousness by looking into the philosophical implications of the observer effect in quantum mechanics, particularly as it relates to consciousness and measurement problem, and provide detailed explanations of each concept with examples and analogies that would be suitable for a general audience in a 27-minute educational podcast episode about the limits of human knowledge.
+Please research quantum consciousness by looking into the philosophical implications of the observer effect in quantum mechanics, particularly as it relates to consciousness and measurement problem, and provide detailed explanations of each concept with examples and analogies that would be suitable for a general audience in a EPISODE_SPECS['duration_minutes']-minute  # See Global Constants educational podcast episode about the limits of human knowledge.
 
 Tokens: ~85
 
 # Token-Efficient Pattern (Preferred)
-Research quantum consciousness for 27-min podcast:
+Research quantum consciousness for EPISODE_SPECS['duration_minutes']-min  # See Global Constants podcast:
 - Observer effect + consciousness connection
 - Measurement problem implications  
 - 3 accessible analogies
@@ -790,7 +790,7 @@ $(python .claude/scripts/generate_recommendations.py)
       3. Implement parallel processing throughout
       4. Achieve sub-5-minute full episode script generation
     </steps>
-    <success-criteria>Complete 27-min script in <5 minutes, quality >0.85</success-criteria>
+    <success-criteria>Complete EPISODE_SPECS['duration_minutes']-min  # See Global Constants script in <5 minutes, quality >0.85</success-criteria>
   </activity>
 
   <activity id="10" difficulty="expert">
@@ -842,7 +842,7 @@ $(python .claude/scripts/generate_recommendations.py)
 
   <target category="throughput">
     <metric>Script Generation Speed</metric>
-    <current-baseline>15-20 minutes for 27-min episode</current-baseline>
+    <current-baseline>15-20 minutes for EPISODE_SPECS['duration_minutes']-min  # See Global Constants episode</current-baseline>
     <optimized-target>&lt;8 minutes</optimized-target>
     <expert-target>&lt;5 minutes</expert-target>
   </target>

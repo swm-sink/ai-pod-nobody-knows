@@ -116,7 +116,7 @@ if [[ $FILE_PATH == *"script"* ]] && [[ $FILE_TYPE == ".md" ]]; then
     WORD_COUNT=$(wc -w < "$FILE_PATH")
     if [ $WORD_COUNT -lt 4000 ] || [ $WORD_COUNT -gt 4500 ]; then
         echo "⚠️ Word count outside target range (4000-4500): $WORD_COUNT words"
-        echo "   Target: 27 minutes at 150 words/minute"
+        echo "   Target: EPISODE_SPECS['duration_minutes'] minutes  # See Global Constants at 150 words/minute"
         exit 1  # Prevent save
     fi
     

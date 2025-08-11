@@ -303,7 +303,7 @@ class AIProjectFileProcessor:
         suggestions = []
         content_lower = content.lower()
         
-        # Brand voice analysis for "Nobody Knows" podcast
+        # Brand voice analysis for "PROJECT['name']  # See Global Constants" podcast
         intellectual_humility_phrases = [
             "we don't fully understand", "remains mysterious", "we might wonder",
             "it's possible that", "current limitations", "nobody knows",

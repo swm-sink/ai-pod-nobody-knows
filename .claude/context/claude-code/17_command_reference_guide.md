@@ -66,7 +66,7 @@
 ### **Built-in Commands (Available Immediately)**
 
 <built-in-commands>
-  <command name="/init">
+  <command name="CONTEXT_MANAGEMENT['init']['command']">  <!-- Reference from constants -->
     <purpose>Initialize Claude Code for your AI project</purpose>
     <usage>claude /init</usage>
     <ai-project-benefit>Creates CLAUDE.md with AI agent project structure</ai-project-benefit>
@@ -131,7 +131,7 @@ Usage: /test-script-agent [research-file]
 - Execute script generation
 - Check brand voice score ≥ 0.90
 - Validate engagement metrics ≥ 0.80
-- Verify 27-minute target duration
+- Verify EPISODE_SPECS['duration_minutes']-minute  # See Global Constants target duration
 - Update script patterns in memory
 - Identify improvement opportunities
 
@@ -177,7 +177,7 @@ Example: /quality-check episodes/ep001-consciousness/" > .claude/commands/qualit
 #### `/brand-voice-analysis`
 ```bash
 # Create brand consistency command
-echo "Analyze content for 'Nobody Knows' brand voice consistency and intellectual humility.
+echo "Analyze content for 'PROJECT['name']  # See Global Constants' brand voice consistency and intellectual humility.
 
 Usage: /brand-voice-analysis [content-file]
 - Evaluate intellectual humility presence
@@ -457,7 +457,7 @@ Example: /smart-optimization ep001" > .claude/commands/smart-optimization.md
 
 ```bash
 # Create a command specific to your AI agents
-echo "Test our specific podcast production orchestration with 'Nobody Knows' brand requirements and cost constraints.
+echo "Test our specific podcast production orchestration with 'PROJECT['name']  # See Global Constants' brand requirements and cost constraints.
 
 Context: 4-agent system (Research, Script, Audio, Quality)
 Brand: Intellectual humility, curiosity, accessibility
@@ -466,7 +466,7 @@ Targets: 27 min duration, <$5 cost, >0.85 quality
 Usage: /test-podcast-system [topic]
 - Initialize episode context with brand requirements
 - Execute research with source diversity requirements
-- Generate script with Nobody Knows voice patterns
+- Generate script with PROJECT['name']  # See Global Constants voice patterns
 - Simulate audio with timing validation
 - Evaluate quality against podcast-specific criteria
 - Generate cost-quality optimization report
