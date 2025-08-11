@@ -1,0 +1,311 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+.pdm-python
+.pdm-build/
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ChromaDB specific
+chroma_db/
+.chroma/
+*.chroma.sqlite3
+chromadb_data/
+chroma_collections/
+
+# Vector embeddings cache
+embeddings_cache/
+*.embeddings.cache
+.embeddings/
+
+# AI/ML Model files
+models/
+*.h5
+*.pkl
+*.pth
+*.ckpt
+*.pt
+*.safetensors
+checkpoints/
+model_weights/
+
+# Dataset files
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.feather
+datasets/
+*.db
+
+# Audio files (keep samples in repo if needed)
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+audio_output/
+audio_cache/
+
+# Cache files
+.cache/
+*.cache
+cache/
+tmp/
+temp/
+
+# Log files
+logs/
+*.log
+*.log.*
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Project specific
+episodes_output/
+transcripts/
+*.transcript.json
+*.episode.json
+
+# API keys and secrets
+secrets/
+*.key
+*.pem
+*.crt
+credentials.json
+service-account.json
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Test outputs
+test_output/
+test_results/
+
+# Monitoring and metrics
+metrics/
+prometheus_data/
+grafana_data/
+
+# Documentation builds
+docs/_build/
+docs/generated/
+
+# Local Claude configuration (personal settings)
+.claude/CLAUDE.local.md
+CLAUDE.local.md
+
+# Production data
+production_data/
+production_logs/
+
+# Ruff
+.ruff_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Memory databases
+memory_store/
+*.memory.db
+
+# Cost tracking
+cost_reports/
+*.cost.json
+
+# Quality reports
+quality_reports/
+*.quality.json
+
+# Batch processing
+batch_queue/
+batch_results/
+
+# Multi-project temporary files
+projects/*/temp/
+projects/*/cache/
+projects/*/output/
+
+# Lock files (except poetry.lock if using poetry)
+*.lock
+!poetry.lock
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python virtual environments
+bin/
+include/
+lib/
+lib64/
+share/
+pyvenv.cfg
+
+# Backup files
+*.backup
+*.bkp
+*~
+
+# Session files
+*.session
+*.session.lock
+
+# Development databases
+*.sqlite
+*.sqlite3
+*.db
+!example.db
+
+# FastAPI
+*.pid
+instance/
+
+# Ignore all .env files except .env.example
+.env*
+!.env.example
