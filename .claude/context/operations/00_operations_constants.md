@@ -1,7 +1,30 @@
-# Operations Constants
-## Single Source of Truth for Production Operations and System Management
+<document type="constants" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Operations Constants - Production Operations and System Management</title>
+    <scope>operations-domain</scope>
+    <category>operations</category>
+    <mutability>read-only</mutability>
+    <validation-frequency>weekly</validation-frequency>
+    <navigation>
+      <index>@NAVIGATION.md</index>
+      <related>@../../00_GLOBAL_CONSTANTS.md</related>
+    </navigation>
+  </metadata>
 
-> **CRITICAL**: Reference these values instead of duplicating across operations documentation.
+  <summary>
+    Central repository for production operations constants, environment configurations, and system management values.
+    Single source of truth for all operations documentation to prevent duplication and ensure consistency.
+  </summary>
+</document>
+
+# Operations Constants
+
+## Overview
+
+<purpose>
+  This file contains all constants, commands, and configuration values for production operations and system management.
+  All operations documentation should reference these values rather than hardcoding them.
+</purpose>
 
 ---
 
