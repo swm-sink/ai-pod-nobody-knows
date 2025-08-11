@@ -1,7 +1,43 @@
+<document type="framework" version="3.1.0" enhanced="2025-08-11">
+  <metadata>
+    <title>Progressive Complexity Framework</title>
+    <category>content-framework</category>
+    <audience>content-creators</audience>
+    <priority>high</priority>
+    <application>episode-planning</application>
+    <navigation>
+      <up>@../README.md</up>
+      <related>@analogy-system.md</related>
+    </navigation>
+  </metadata>
+
+  <summary>
+    Educational framework ensuring content builds understanding layer by layer, never overwhelming 
+    listeners while respecting their intelligence. Provides 10-level complexity scale for systematic 
+    knowledge progression.
+  </summary>
+
+  <framework-objectives>
+    <primary>Create systematic knowledge progression that builds understanding</primary>
+    <secondary>Prevent cognitive overload while maintaining intellectual respect</secondary>
+    <outcome>Listeners can confidently progress from beginner to advanced concepts</outcome>
+  </framework-objectives>
+</document>
+
 # Progressive Complexity Framework
 
 ## Overview
-This framework ensures content builds understanding layer by layer, never overwhelming listeners while respecting their intelligence.
+
+**Technical Explanation**: Systematic educational framework implementing cognitive load theory and scaffolded learning principles to ensure optimal knowledge transfer and retention.
+
+**Simple Breakdown**: Think of this as building a staircase of understanding - each step supports the next, and no one has to make impossible leaps to reach higher levels.
+
+<framework-principles>
+  <principle name="Layer-by-Layer Building">Content builds understanding incrementally, never overwhelming</principle>
+  <principle name="Respect Intelligence">Assumes listeners are smart, just not yet familiar with the domain</principle>
+  <principle name="Safe Progression">Each level provides solid foundation for the next</principle>
+  <principle name="Cognitive Load Management">Manages mental capacity through strategic complexity introduction</principle>
+</framework-principles>
 
 ## Complexity Levels (1-10 Scale)
 
