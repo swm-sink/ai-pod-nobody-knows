@@ -137,21 +137,46 @@ Agent: Research the latest AI audio synthesis techniques
 
 ### MCP Server Commands
 ```bash
-# Add MCP server
-claude mcp add github
-claude mcp add filesystem
-claude mcp add web-search
+# CRITICAL: Load environment first!
+source .env  # Or use ./start-claude.sh
 
-# List active servers
+# Quick status check
+/mcp  # Shorthand for claude mcp list
 claude mcp list
+
+# Add MCP servers with environment variables
+claude mcp add-json perplexity '{
+  "command": "node",
+  "args": ["/path/to/perplexity-mcp/dist/index.js"],
+  "env": {"PERPLEXITY_API_KEY": "'$PERPLEXITY_API_KEY'"}
+}'
+
+claude mcp add-json elevenlabs '{
+  "command": "python3",
+  "args": ["-m", "elevenlabs_mcp"],
+  "env": {"ELEVENLABS_API_KEY": "'$ELEVENLABS_API_KEY'"}
+}'
+
+# Remove and re-add servers (for troubleshooting)
+claude mcp remove perplexity
+claude mcp remove elevenlabs
+
+# Test specific server
+claude mcp get perplexity
+
+# Common MCP servers
+claude mcp add github       # GitHub integration
+claude mcp add filesystem   # Advanced file operations
+claude mcp add web-search   # Web searching
 
 # Use MCP resources
 @github-issues
 @web-search-results
 
-# MCP slash commands
+# MCP slash commands (if available)
 /mcp__github__create_issue
 /mcp__web__search
+/mcp__perplexity__ask
 ```
 
 ### Hook & Automation Commands

@@ -588,28 +588,103 @@ Subagents giving conflicting results or not communicating
 #### Problem: "MCP servers not responding or giving errors"
 ```
 MCP server connection failed or timeout errors
+Failed to connect to elevenlabs
+Failed to connect to perplexity
 ```
 
 **Solutions:**
 1. **MCP Diagnostics**:
    ```bash
-   # Check MCP server status
-   /mcp status --all-servers
+   # Check MCP server status (use /mcp for shorthand)
+   claude mcp list
+   /mcp
    
-   # Test specific MCP server
-   /mcp test github --verbose
-   
-   # Restart problematic MCP server
-   /mcp restart filesystem-server
+   # Test if API keys are in environment
+   echo "Perplexity key exists: $(if [ -n "$PERPLEXITY_API_KEY" ]; then echo 'Yes'; else echo 'No'; fi)"
+   echo "ElevenLabs key exists: $(if [ -n "$ELEVENLABS_API_KEY" ]; then echo 'Yes'; else echo 'No'; fi)"
    ```
 
-2. **MCP Configuration Fixes**:
-   ```python
-   # Validate MCP configuration
-   /mcp validate-config
+2. **API Key Configuration Issues** (MOST COMMON):
    
-   # Reset MCP server with fresh config
-   /mcp reconfigure github --auth-refresh
+   **Technical Explanation**: MCP servers run as subprocesses and need API keys in their execution environment. Claude Code doesn't automatically load .env files for MCP servers.
+   
+   **Simple Breakdown**: It's like giving someone a locked box but forgetting to give them the key - the MCP servers need the API keys when they start, not after.
+   
+   **Step-by-Step Fix**:
+   ```bash
+   # 1. Create .env file with your API keys
+   cat > .env << 'EOF'
+   PERPLEXITY_API_KEY=pplx-your-actual-key-here
+   ELEVENLABS_API_KEY=sk_your-actual-key-here
+   EOF
+   
+   # 2. Load the API keys into your current shell
+   source .env
+   
+   # 3. Verify keys are loaded
+   echo "Perplexity: ${PERPLEXITY_API_KEY:0:10}..."
+   echo "ElevenLabs: ${ELEVENLABS_API_KEY:0:10}..."
+   
+   # 4. Remove old MCP configurations
+   claude mcp remove elevenlabs
+   claude mcp remove perplexity
+   
+   # 5. Re-add with environment variables
+   claude mcp add-json elevenlabs '{
+     "command": "python3",
+     "args": ["-m", "elevenlabs_mcp"],
+     "env": {"ELEVENLABS_API_KEY": "'$ELEVENLABS_API_KEY'"}
+   }'
+   
+   claude mcp add-json perplexity '{
+     "command": "node",
+     "args": ["/full/path/to/perplexity-mcp/dist/index.js"],
+     "env": {"PERPLEXITY_API_KEY": "'$PERPLEXITY_API_KEY'"}
+   }'
+   
+   # 6. Check status
+   claude mcp list
+   ```
+   
+   **Permanent Solution - Create Startup Script**:
+   ```bash
+   # Create start-claude.sh
+   cat > start-claude.sh << 'EOF'
+   #!/bin/bash
+   # Load API keys and start Claude Code
+   
+   if [ -f .env ]; then
+       source .env
+       echo "✓ API keys loaded from .env"
+   else
+       echo "✗ .env file not found!"
+       exit 1
+   fi
+   
+   # Start Claude Code with environment
+   claude
+   EOF
+   
+   chmod +x start-claude.sh
+   
+   # Always start Claude with:
+   ./start-claude.sh
+   ```
+
+3. **Common MCP Issues and Fixes**:
+   ```bash
+   # Issue: Empty environment variable (exists but no value)
+   # Check: echo "Length: ${#PERPLEXITY_API_KEY}"
+   # Fix: Make sure .env has actual values, not empty strings
+   
+   # Issue: MCP server path incorrect
+   # Fix: Use absolute paths in MCP configuration
+   find ~ -name "perplexity-mcp" -type d 2>/dev/null
+   
+   # Issue: Python/Node not found
+   # Fix: Ensure correct executables
+   which python3
+   which node
    ```
 
 ### Hook Execution Errors
