@@ -22,6 +22,8 @@
   ↓ (What to do first)
 @05_learning_milestones.md
   ↓ (How to track progress)
+@06_architecture_phases.md
+  ↓ (System architecture alignment)
 ```
 
 ### **Quick Navigation Patterns**

@@ -77,11 +77,11 @@ grep -c "shared/\|projects/nobody-knows" quality-evaluator.md
 
 ### All Agents Output Correctly
 ```bash
-# Verify no outputs in .claude
-ls .claude/level-2-production/output/
-# Should be minimal/empty
+# Verify NO output directories exist in .claude
+ls .claude/level-2-production/
+# Should NOT have output/ or sessions/ directories
 
-# Verify outputs in projects
+# Verify outputs are in correct project location
 ls projects/nobody-knows/output/
 # Shows: research/ scripts/ quality/ audio/ sessions/ archives/
 ```

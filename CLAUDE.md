@@ -1089,8 +1089,46 @@
   <principle>Every step includes technical and simple explanations for deep learning</principle>
 </learning-motivation>
 
+## 📋 SESSION HANDOVER MANAGEMENT
+
+<session-handover-management>
+  <trigger-conditions>
+    <user-request>When user says: "create session handover", "project status", "handover", or "status report"</user-request>
+    <automatic>At end of significant work sessions or milestones</automatic>
+  </trigger-conditions>
+  
+  <handover-creation>
+    <command>/session-handover</command>
+    <location>.claude/sessions/handover_{YYYYMMDD}_{HHMM}.md</location>
+    <format>
+      - Current Phase and Status
+      - Recent Changes (last session)
+      - Pending Tasks (from TodoList)
+      - Critical Decisions Made
+      - Next Steps Recommended
+      - MCP Status (loaded/configured)
+      - Cost Summary (if production active)
+    </format>
+  </handover-creation>
+  
+  <educational-value>
+    **Technical:** Session persistence enables context preservation across Claude restarts and team handoffs
+    **Simple:** Like writing detailed notes before leaving work so you (or someone else) can pick up exactly where you left off
+    **Learning:** This teaches professional documentation practices and knowledge transfer techniques
+  </educational-value>
+  
+  <implementation>
+    When triggered, create comprehensive markdown document including:
+    1. System state snapshot
+    2. Configuration status
+    3. Recent file changes
+    4. Active todo items
+    5. Recommendations for next session
+  </implementation>
+</session-handover-management>
+
 ---
 
-**Quick Actions**: `/init` | `/clear` | `/produce-episode` | `/cost-dashboard` | `@operations/01_troubleshooting_guide.md`
+**Quick Actions**: `/init` | `/clear` | `/produce-episode` | `/cost-dashboard` | `/session-handover` | `@operations/01_troubleshooting_guide.md`
 
 **Version**: 5.0.0 | **Updated**: 2025-08-11 | **Master System Prompt**: Active | **Education**: Mandatory Dual Explanations

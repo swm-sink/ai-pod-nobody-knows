@@ -53,17 +53,17 @@ ELEVENLABS_API_KEY=sk_50caa9b149cb87deffeeec4483de8de13ebd7f97fac88cd2
 ```bash
 # Development (low limits, verbose logging)
 ENVIRONMENT=development
-MAX_COST_PER_EPISODE=2.00
+MAX_COST_PER_EPISODE=5.00
 LOG_LEVEL=DEBUG
 
 # Staging (production-like, moderate limits)
 ENVIRONMENT=staging
-MAX_COST_PER_EPISODE=4.00
+MAX_COST_PER_EPISODE=6.00
 LOG_LEVEL=INFO
 
 # Production (optimized, strict limits)
 ENVIRONMENT=production
-MAX_COST_PER_EPISODE=5.00
+MAX_COST_PER_EPISODE=8.00
 LOG_LEVEL=WARNING
 ```
 

@@ -4,23 +4,15 @@
 
 ---
 
-## 📋 Documentation Status
-- **This Document**: Up-to-date and accurate (v2.0.0)
-- **Last Updated**: 2025-08-11
-- **Previous Issues**: See PROJECT_AUDIT_INCONSISTENCIES.md for historical context
+## 🎯 What This Is
 
----
+An automated podcast production system using **Claude Code's native AI capabilities** to create a 100-episode series called "Nobody Knows" - exploring the frontiers of human knowledge with intellectual humility.
 
-## 🎯 What This Project Actually Is
-
-This is a **Native Claude Code implementation** that uses AI agents to automatically produce a 100-episode podcast series called "Nobody Knows" - exploring complex topics with intellectual humility.
-
-### Key Points:
-- **NOT a Python application** (no FastAPI, no server)
-- **NOT a REST API** (uses Claude Code commands)
-- **Uses MCP servers** for external integrations
-- **Solo hobby project** (not enterprise/multi-project)
-- **Simple approach** (avoiding over-engineering)
+### Built With:
+- **Claude Code agents** for orchestration and content creation
+- **MCP integrations** for research (Perplexity) and audio (ElevenLabs)
+- **Level-based architecture** for progressive development
+- **Solo hobby focus** keeping things simple and learnable
 
 ---
 
@@ -69,8 +61,7 @@ ai-podcasts-nobody-knows/
 ├── .env                           # API keys (git-ignored)
 ├── .mcp.json                      # MCP configuration (git-ignored)
 ├── CLAUDE.md                      # Master system prompt (v5.0.0)
-├── PROJECT_STATUS_HANDOVER.md     # Complete project context
-├── PROJECT_AUDIT_INCONSISTENCIES.md # Documentation issues
+├── README.md                      # This file
 │
 ├── .claude/                       # Claude Code configuration
 │   ├── level-1-dev/              # Development platform
@@ -154,13 +145,10 @@ claude /produce-episode --topic "consciousness" --episode 1
 
 ### Available Commands
 - `/produce-episode` - Main production orchestrator
-- More commands in `.claude/level-2-production/commands/`
-
-### NOT Available (Despite README.md claims):
-- ❌ No REST API endpoints
-- ❌ No curl commands
-- ❌ No FastAPI server
-- ❌ No localhost:8000
+- `/test-episode-dry-run` - Test without API calls
+- `/batch-produce` - Multiple episodes
+- `/session-handover` - Create status documentation
+- More in `.claude/level-2-production/commands/`
 
 ---
 
@@ -235,17 +223,6 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 
 ---
 
-## ⚠️ What This Project Is NOT
-
-- ❌ **NOT a Python web application**
-- ❌ **NOT a FastAPI server**
-- ❌ **NOT using ChromaDB**
-- ❌ **NOT a REST API**
-- ❌ **NOT multi-project**
-- ❌ **NOT using pytest**
-- ❌ **NOT enterprise software**
-
----
 
 ## 🚶‍♂️ WALK-CRAWL-RUN Learning Progression
 
@@ -315,10 +292,10 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 
 ## 📚 Key Documentation
 
-- `CLAUDE.md` - Master system prompt (v5.0.0)
-- `PROJECT_STATUS_HANDOVER.md` - Complete project context
-- `PROJECT_AUDIT_INCONSISTENCIES.md` - Issues found in docs
-- `.claude/config/simple-setup.md` - Simplified approach
+- `CLAUDE.md` - Master system prompt with educational requirements
+- `.claude/README.md` - Technical details and structure
+- `.claude/sessions/` - Project status and handovers
+- `.claude/context/foundation/` - Core concepts and phases
 
 ---
 
