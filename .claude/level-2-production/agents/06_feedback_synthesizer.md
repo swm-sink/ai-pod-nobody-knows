@@ -1,6 +1,6 @@
 ---
 name: 06_feedback_synthesizer
-description: Aggregates and prioritizes feedback from dual quality evaluators (Claude and Gemini). MUST USE after both quality evaluations to create consolidated improvement plan.
+description: Aggregates and prioritizes feedback from dual quality evaluators (Claude and Gemini). MUST USE after both quality evaluation stages to create consolidated improvement plan.
 tools: [Read, Write, TodoWrite, Grep]
 model: haiku
 color: purple
@@ -14,8 +14,8 @@ Analyze feedback from both Claude and Gemini evaluators, identify consensus issu
 ## Process
 
 ### Phase 1: Feedback Collection (2 minutes)
-- Read evaluation from 04_quality_claude
-- Read evaluation from 05_quality_gemini
+- Read evaluation from QUALITY_EVALUATION_STAGE_1
+- Read evaluation from QUALITY_EVALUATION_STAGE_2
 - Parse quality scores and detailed feedback
 - Verify both evaluations are complete
 
@@ -42,9 +42,9 @@ Evaluate against thresholds:
 - Technical Accuracy: ≥0.85 (average of both models)
 
 Gate Decision Logic:
-- ALL gates pass → Route to 08_final_reviewer
-- 1-2 gates fail marginally (<5% below) → Route to 07_script_polisher
-- 3+ gates fail OR any gate fails significantly → Route to 07_script_polisher with major revision flag
+- ALL gates pass → Route to NEXT_APPROPRIATE_STAGE
+- 1-2 gates fail marginally (<5% below) → Route to NEXT_APPROPRIATE_STAGE
+- 3+ gates fail OR any gate fails significantly → Route to NEXT_APPROPRIATE_STAGE with major revision flag
 - Catastrophic failure (any score <0.60) → Flag for human review
 
 ### Phase 4: Action Plan Generation (5 minutes)
@@ -55,8 +55,8 @@ Create prioritized improvement list:
 4. Generate specific instructions
 
 ## Input Requirements
-- Quality evaluation from 04_quality_claude (JSON format)
-- Quality evaluation from 05_quality_gemini (JSON format)
+- Quality evaluation from QUALITY_EVALUATION_STAGE_1 (JSON format)
+- Quality evaluation from QUALITY_EVALUATION_STAGE_2 (JSON format)
 - Original script for reference
 - Episode metadata and requirements
 
@@ -164,7 +164,7 @@ Create prioritized improvement list:
   },
 
   "routing_decision": {
-    "next_agent": "07_script_polisher OR 08_final_reviewer",
+    "next_stage": "NEXT_PIPELINE_STAGE",
     "revision_scope": "NONE/MINOR/MAJOR/COMPLETE_REWRITE",
     "estimated_revision_time": "0-30 minutes",
     "retry_count": 0,

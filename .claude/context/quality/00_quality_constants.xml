@@ -165,8 +165,8 @@
         </constant>
         <constant>
           <name>SCALE_CAPACITY_TARGET</name>
-          <value>100</value>
-          <description>System must handle production of 100 episodes</description>
+          <value>125</value>
+          <description>System must handle production of 125 episodes</description>
         </constant>
       </constants>
     </section>

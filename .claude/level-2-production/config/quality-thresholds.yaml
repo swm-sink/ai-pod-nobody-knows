@@ -6,17 +6,17 @@ thresholds:
     minimum: 0.85
     target: 0.90
     description: "General audience understanding level"
-    
+
   brand_consistency:
     minimum: 0.90
     target: 0.95
     description: "Alignment with intellectual humility brand"
-    
+
   engagement:
     minimum: 0.80
     target: 0.85
     description: "Audience interest and engagement"
-    
+
   technical_accuracy:
     minimum: 0.85
     target: 0.90
@@ -26,11 +26,11 @@ brand_metrics:
   intellectual_humility:
     minimum_percentage: 5.0
     target_percentage: 8.0
-    
+
   question_density:
     minimum_per_1000_words: 3.0
     target_per_1000_words: 5.0
-    
+
   overconfidence_markers:
     maximum_count: 2
     penalty_per_occurrence: 0.1

@@ -108,9 +108,9 @@ def extract_agent_dependencies(agent_file: str) -> List[str]:
         return dependencies
     
     with open(agent_file, 'r') as f:
-        content = f.read().lower()
+        lines = f.readlines()
         
-        # Look for references to other agents
+        # Look for references to other agents, excluding name declaration
         agent_patterns = [
             r'01_research_coordinator',
             r'02_episode_planner', 
@@ -123,9 +123,16 @@ def extract_agent_dependencies(agent_file: str) -> List[str]:
             r'09_audio_synthesizer'
         ]
         
-        for pattern in agent_patterns:
-            if re.search(pattern, content):
-                dependencies.append(pattern)
+        for i, line in enumerate(lines):
+            line_lower = line.lower()
+            # Skip name declaration line and description line
+            if line.startswith('name:') or line.startswith('description:'):
+                continue
+                
+            for pattern in agent_patterns:
+                if re.search(pattern, line_lower):
+                    if pattern not in dependencies:
+                        dependencies.append(pattern)
     
     return dependencies
 

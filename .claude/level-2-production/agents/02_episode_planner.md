@@ -400,7 +400,7 @@ def save_planning_state(blueprint, session_id):
         "brand_metrics_planned": blueprint["narrative_elements"]["brand_voice_validation"],
         "segment_count": len(blueprint["segments"]),
         "total_duration_planned": blueprint["validation"]["timing_check"]["total_duration"],
-        "next_agent": "03_script_writer",
+        "next_stage": "NEXT_PIPELINE_STAGE",
         "planning_cost": 0.50
     }
 

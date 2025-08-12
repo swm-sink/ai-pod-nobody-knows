@@ -245,8 +245,8 @@
                 </constant>
                 <constant>
                     <name>MILESTONE_PROJECT_COMPLETE</name>
-                    <value>100</value>
-                    <description>Project complete milestone: 100 episodes achieved</description>
+                    <value>125</value>
+                    <description>Project complete milestone: 125 episodes achieved</description>
                 </constant>
             </constants>
 

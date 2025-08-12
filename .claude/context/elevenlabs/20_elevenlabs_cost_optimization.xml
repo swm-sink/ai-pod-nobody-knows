@@ -54,7 +54,7 @@ def select_cost_optimal_model(content_type, budget_remaining):
     # Use Turbo for production ($0.50/1K)
     return "eleven_turbo_v2_5"
                     </code>
-                    <savings>Up to 60% through optimal model selection</savings>
+                    <savings>ESTIMATED: Up to 60% through optimal model selection</savings>
                 </strategy>
 
                 <strategy name="content-optimization">
@@ -312,8 +312,8 @@ class CostTracker:
                 </ai-production>
 
                 <savings>
-                    <percentage>99.5% cost reduction</percentage>
-                    <roi>100 episodes = $80,000 saved</roi>
+                    <percentage>THEORETICAL: 99.5% cost reduction vs traditional production</percentage>
+                    <roi>THEORETICAL CALCULATION ONLY: 125 episodes = significant savings vs traditional methods</roi>
                 </savings>
             </cost-comparison>
         </section>
@@ -324,7 +324,7 @@ class CostTracker:
                     Immediate: Sign up for annual billing (save 16%)
                 </step>
                 <step validation-command="echo 'Verifying v3 discount availability'">
-                    Use v3 model while discounted (save 60% until June 2025)
+                    Use v3 model while discounted (PROJECTED: save 60% until June 2025)
                 </step>
                 <step validation-command="echo 'Implementing caching system'">
                     Implement basic caching for intros/outros and common segments
@@ -345,7 +345,7 @@ class CostTracker:
                     </actions>
                 </phase>
 
-                <phase name="next-level" savings="50-60%">
+                <phase name="next-level" savings="ESTIMATED: 50-60%">
                     <actions>
                         <action>Silence optimization with SSML</action>
                         <action>Hybrid model strategy</action>

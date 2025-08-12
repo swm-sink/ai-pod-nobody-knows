@@ -142,8 +142,8 @@ Generate complete production-ready package:
 5. Quality Check 2: ✅ 05_quality_gemini
 6. Synthesis: ✅ 06_feedback_synthesizer
 7. Polish: [✅/⏭️] 07_script_polisher
-8. Final Review: ✅ 08_final_reviewer
-9. Ready for: → 09_audio_synthesizer
+8. Final Review: ✅ CURRENT_AGENT
+9. Ready for: → AUDIO_SYNTHESIS_STAGE
 
 ### Session Information
 - Session ID: [session_id]
@@ -155,7 +155,7 @@ Generate complete production-ready package:
 Script approved for audio synthesis.
 No further revisions permitted without restarting quality pipeline.
 
-Authorized by: 08_final_reviewer
+Authorized by: CURRENT_AGENT
 Timestamp: [ISO timestamp]
 Confidence: HIGH
 ```
@@ -182,7 +182,7 @@ Confidence: HIGH
 5. **Engagement**: Will listeners stay for the full 27 minutes?
 
 ## Handoff Protocol
-Once approved, the script is LOCKED. The production package is handed to 09_audio_synthesizer with:
+Once approved, the script is LOCKED. The production package is handed to AUDIO_SYNTHESIS_STAGE with:
 - Complete script (no modifications allowed)
 - All synthesis parameters
 - Quality certification
