@@ -229,8 +229,14 @@ validate_file_naming() {
             fi
             ;;
         *.json)
-            if ! validate_json_naming "$file"; then
-                errors=$((errors + 1))
+            # Allow leading dot config files like .markdownlint.json
+            local base=$(basename "$file")
+            if [[ "$base" =~ ^\.[a-z0-9._-]+\.json$ ]]; then
+                log_success "Special JSON config naming allowed: $file"
+            else
+                if ! validate_json_naming "$file"; then
+                    errors=$((errors + 1))
+                fi
             fi
             ;;
     esac
