@@ -96,19 +96,19 @@
 
 <navigation-hub>
   <new-user>
-    **First Time?** → Read .claude/context/foundation/01_project_overview.xml → Follow WALK phase below
+    **First Time?** → Read @context/foundation/01_project_overview.xml → Follow WALK phase below
     **Quick Setup**: python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
     **Learning Note**: Every command will be explained technically AND simply
   </new-user>
 
   <returning-user>
-    **Welcome Back!** → Check current phase → Continue from .claude/context/foundation/05_learning_milestones.xml
+    **Welcome Back!** → Check current phase → Continue from @context/foundation/05_learning_milestones.xml
     **Jump to**: Current todos with `/todolist` command
     **Context**: System will teach you about each step you take
   </returning-user>
 
   <stuck-user>
-    **Need Help?** → .claude/context/operations/01_troubleshooting_guide.xml
+    **Need Help?** → @context/operations/01_troubleshooting_guide.xml
     **Emergency**: Use `@` navigation to any file instantly
     **Learning**: Each troubleshooting step will include educational explanations
   </stuck-user>
@@ -119,7 +119,7 @@
 <current-phase>
   <phase>WALK</phase>
   <focus>Learn for FREE - No API keys needed!</focus>
-  <next-action>.claude/context/foundation/04_no_api_keys_activities.xml</next-action>
+  <next-action>@context/foundation/04_no_api_keys_activities.xml</next-action>
   <duration>Weeks 1-4</duration>
   <cost>$0</cost>
   <learning-emphasis>Every activity includes technical and simple explanations</learning-emphasis>
@@ -242,7 +242,7 @@
 
 ## 🛡️ FILE OPERATIONS BEST PRACTICES
 
-See: [File Operations Best Practices](.claude/context/operations/file-operations-best-practices.xml)
+See: @context/operations/file-operations-best-practices.xml
 
 **Technical:** File operation safety prevents data loss, corruption, and system instability
 **Simple:** Like double-checking before cutting paper - measure twice, cut once
@@ -250,7 +250,7 @@ See: [File Operations Best Practices](.claude/context/operations/file-operations
 
 ## 🚫 ANTI-PATTERN PREVENTION
 
-See: [Anti-Pattern Prevention](.claude/context/quality/anti-patterns.xml)
+See: @context/quality/anti-patterns.xml
 
 **Technical:** Preventing anti-patterns is essential for system reliability and maintainability
 **Simple:** Like following safety rules to prevent accidents before they happen
@@ -299,7 +299,7 @@ See: [Anti-Pattern Prevention](.claude/context/quality/anti-patterns.xml)
 
 ## ⚠️ LLM ANTI-PATTERN PROTECTION
 
-See: [LLM Protections Framework](.claude/context/quality/llm-protections.xml)
+See: @context/quality/llm-protections.xml
 
 **Technical:** Comprehensive protection against common AI failure modes and adversarial conditions
 **Simple:** Like having safety protocols to prevent accidents in a laboratory
@@ -316,8 +316,8 @@ See: [LLM Protections Framework](.claude/context/quality/llm-protections.xml)
   </project-description>
 
   <specifications>
-    <episodes>125 episodes about AI and technological confusion (see projects/nobody-knows/series_plan/episodes_master.json)</episodes>
-    <duration>27 minutes each</duration>
+    <episodes>Total episodes defined in projects/nobody-knows/series_plan/episodes_master.json</episodes>
+    <duration>Episode duration defined in configuration</duration>
     <cost-target>$4-5 per episode (vs traditional $800-3500)</cost-target>
     <complexity>Progressive 1-10 scale across 5 seasons</complexity>
     <learning-value>Master multi-agent systems, cost optimization, and quality assurance</learning-value>
@@ -326,7 +326,7 @@ See: [LLM Protections Framework](.claude/context/quality/llm-protections.xml)
 
 ## 🤖 ENHANCED MULTI-AGENT ORCHESTRATION (v2.0)
 
-See: [Multi-Agent Orchestration Framework](.claude/context/agents/multi-agent-orchestration.xml)
+See: @context/agents/multi-agent-orchestration.xml
 
 **Technical:** Enhanced 9-agent pipeline with dual-model quality validation and iterative refinement loops
 **Simple:** Like a factory assembly line with multiple quality checkpoints - each station specializes, two inspectors verify, and problems get fixed before moving forward
@@ -670,35 +670,35 @@ See: [Multi-Agent Orchestration Framework](.claude/context/agents/multi-agent-or
 
 <context-navigation>
   <foundation>
-    <file>.claude/context/foundation/01_project_overview.xml</file>
+    <file>@context/foundation/01_project_overview.xml</file>
     <purpose>Start here</purpose>
     <learning-value>Understand project scope and learning objectives</learning-value>
 
-    <file>.claude/context/foundation/02_walk_crawl_run_phases.xml</file>
+    <file>@context/foundation/02_walk_crawl_run_phases.xml</file>
     <purpose>Learning path</purpose>
     <learning-value>Progressive skill development strategy</learning-value>
 
-    <file>.claude/context/foundation/04_no_api_keys_activities.xml</file>
+    <file>@context/foundation/04_no_api_keys_activities.xml</file>
     <purpose>FREE learning</purpose>
     <learning-value>Cost-free skill building activities</learning-value>
   </foundation>
 
   <operations>
-    <file>.claude/context/operations/01_troubleshooting_guide.xml</file>
+    <file>@context/operations/01_troubleshooting_guide.xml</file>
     <purpose>Fix problems</purpose>
     <learning-value>Systematic problem-solving methodology</learning-value>
 
-    <file>.claude/context/operations/02_quick_reference.xml</file>
+    <file>@context/operations/02_quick_reference.xml</file>
     <purpose>Commands</purpose>
     <learning-value>Essential tool usage patterns</learning-value>
   </operations>
 
   <quality>
-    <file>.claude/context/quality/ENFORCEMENT_STANDARDS.xml</file>
+    <file>@context/quality/ENFORCEMENT_STANDARDS.xml</file>
     <purpose>Mandatory standards</purpose>
     <learning-value>Quality assurance principles and practices</learning-value>
 
-    <file>.claude/context/quality/03_tdd_requirements_specification.xml</file>
+    <file>@context/quality/03_tdd_requirements_specification.xml</file>
     <purpose>Testing</purpose>
     <learning-value>Test-driven development with AI systems</learning-value>
   </quality>
@@ -859,10 +859,13 @@ See: [Multi-Agent Orchestration Framework](.claude/context/agents/multi-agent-or
         - Commands (level-*/commands/*.md) - Claude Code command format requirement
         - CLAUDE.md - Master system prompt (this file)
         - README.md files - Standard documentation entry points
-        - NAVIGATION_INDEX.md - Navigation hub for @ file hopping
+        - NAVIGATION.md files - Navigation indexes for directory structures
+        - NAVIGATION_INDEX.md - Main navigation hub for @ file hopping
+        - Context index files (**/context/*/NAVIGATION.md) - Context organization indexes
         - Session handover files - Temporary operational documents
       </exceptions>
       <rationale>These files must remain in .md format for Claude Code compatibility or standard conventions</rationale>
+      <details>See @context/quality/05_file_format_policy.xml for comprehensive format rules</details>
     </markdown-format>
   </format-rules>
 

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline-error-recovery-design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <title>Pipeline Error Recovery State Machine Design</title>
+    <version>1.0.0</version>
+    <created>2025-08-12</created>
+    <type>system-design</type>
+    <domain>level-2-production</domain>
+    <purpose>Comprehensive error recovery system for 9-agent podcast production pipeline</purpose>
+  </metadata>
+
+  <overview>
+    <technical-description>Finite state machine with deterministic transitions for handling pipeline failures, implementing retry logic, rollback procedures, and escalation protocols</technical-description>
+    <simple-explanation>Like a flowchart that shows exactly what to do when something breaks - try again, go back, or ask for help</simple-explanation>
+    <learning-value>This teaches you how to build systems that can recover from failures automatically</learning-value>
+  </overview>
+
+  <state-machine-definition>
+    <states>
+      <state id="IDLE">
+        <description>Pipeline waiting to start or between episodes</description>
+        <transitions>
+          <transition to="INITIALIZING" trigger="start_episode"/>
+          <transition to="IDLE" trigger="reset"/>
+        </transitions>
+      </state>
+
+      <state id="INITIALIZING">
+        <description>Setting up session, validating prerequisites</description>
+        <transitions>
+          <transition to="PROCESSING" trigger="init_success"/>
+          <transition to="INIT_ERROR" trigger="init_failure"/>
+        </transitions>
+      </state>
+
+      <state id="PROCESSING">
+        <description>Active agent processing in pipeline</description>
+        <transitions>
+          <transition to="CHECKPOINT" trigger="agent_complete"/>
+          <transition to="AGENT_ERROR" trigger="agent_failure"/>
+          <transition to="QUALITY_GATE_FAILED" trigger="quality_failure"/>
+        </transitions>
+      </state>
+
+      <state id="CHECKPOINT">
+        <description>Saving state between agent handoffs</description>
+        <transitions>
+          <transition to="PROCESSING" trigger="next_agent"/>
+          <transition to="COMPLETED" trigger="pipeline_complete"/>
+          <transition to="CHECKPOINT_ERROR" trigger="save_failure"/>
+        </transitions>
+      </state>
+
+      <state id="AGENT_ERROR">
+        <description>Individual agent has failed</description>
+        <transitions>
+          <transition to="RETRYING" trigger="retry_attempt"/>
+          <transition to="ROLLBACK" trigger="max_retries_exceeded"/>
+          <transition to="HUMAN_ESCALATION" trigger="critical_error"/>
+        </transitions>
+      </state>
+
+      <state id="QUALITY_GATE_FAILED">
+        <description>Quality threshold not met</description>
+        <transitions>
+          <transition to="REVISING" trigger="revision_possible"/>
+          <transition to="ROLLBACK" trigger="revision_impossible"/>
+          <transition to="HUMAN_ESCALATION" trigger="repeated_failure"/>
+        </transitions>
+      </state>
+
+      <state id="RETRYING">
+        <description>Attempting to retry failed operation</description>
+        <transitions>
+          <transition to="PROCESSING" trigger="retry_success"/>
+          <transition to="AGENT_ERROR" trigger="retry_failure"/>
+        </transitions>
+      </state>
+
+      <state id="REVISING">
+        <description>Running revision cycle for quality improvement</description>
+        <transitions>
+          <transition to="PROCESSING" trigger="revision_complete"/>
+          <transition to="QUALITY_GATE_FAILED" trigger="revision_failed"/>
+        </transitions>
+      </state>
+
+      <state id="ROLLBACK">
+        <description>Reverting to last known good state</description>
+        <transitions>
+          <transition to="CHECKPOINT" trigger="rollback_success"/>
+          <transition to="HUMAN_ESCALATION" trigger="rollback_failure"/>
+        </transitions>
+      </state>
+
+      <state id="HUMAN_ESCALATION">
+        <description>Requires human intervention</description>
+        <transitions>
+          <transition to="PROCESSING" trigger="human_resolution"/>
+          <transition to="TERMINATED" trigger="human_abort"/>
+        </transitions>
+      </state>
+
+      <state id="COMPLETED">
+        <description>Episode successfully produced</description>
+        <transitions>
+          <transition to="IDLE" trigger="reset"/>
+        </transitions>
+      </state>
+
+      <state id="TERMINATED">
+        <description>Pipeline terminated due to unrecoverable error</description>
+        <transitions>
+          <transition to="IDLE" trigger="reset"/>
+        </transitions>
+      </state>
+
+      <state id="INIT_ERROR">
+        <description>Initialization failed</description>
+        <transitions>
+          <transition to="INITIALIZING" trigger="retry_init"/>
+          <transition to="TERMINATED" trigger="abort"/>
+        </transitions>
+      </state>
+
+      <state id="CHECKPOINT_ERROR">
+        <description>Failed to save checkpoint</description>
+        <transitions>
+          <transition to="CHECKPOINT" trigger="retry_save"/>
+          <transition to="HUMAN_ESCALATION" trigger="persistent_failure"/>
+        </transitions>
+      </state>
+    </states>
+
+    <error-classifications>
+      <classification level="1">
+        <name>Transient Errors</name>
+        <description>Temporary failures that may succeed on retry</description>
+        <examples>Network timeout, API rate limit, temporary file lock</examples>
+        <recovery>Automatic retry with exponential backoff</recovery>
+        <max-retries>3</max-retries>
+      </classification>
+
+      <classification level="2">
+        <name>Quality Failures</name>
+        <description>Output doesn't meet quality thresholds</description>
+        <examples>Low engagement score, brand consistency failure, comprehension issues</examples>
+        <recovery>Revision cycle with enhanced prompts</recovery>
+        <max-revisions>2</max-revisions>
+      </classification>
+
+      <classification level="3">
+        <name>Configuration Errors</name>
+        <description>Missing or invalid configuration</description>
+        <examples>Missing API keys, invalid file paths, wrong permissions</examples>
+        <recovery>Rollback and human notification</recovery>
+        <escalation>Immediate</escalation>
+      </classification>
+
+      <classification level="4">
+        <name>Critical Failures</name>
+        <description>Unrecoverable system errors</description>
+        <examples>Out of memory, disk full, corrupted data</examples>
+        <recovery>Human escalation required</recovery>
+        <notification>Urgent</notification>
+      </classification>
+    </error-classifications>
+
+    <recovery-strategies>
+      <strategy name="Exponential Backoff">
+        <description>Progressively longer waits between retries</description>
+        <formula>wait_time = base_delay * (2 ^ attempt_number)</formula>
+        <base-delay>5 seconds</base-delay>
+        <max-delay>60 seconds</max-delay>
+      </strategy>
+
+      <strategy name="Circuit Breaker">
+        <description>Stop trying after repeated failures</description>
+        <threshold>5 failures in 10 minutes</threshold>
+        <cooldown>5 minutes</cooldown>
+      </strategy>
+
+      <strategy name="Checkpoint Restoration">
+        <description>Return to last known good state</description>
+        <checkpoint-frequency>After each successful agent</checkpoint-frequency>
+        <state-preserved>Session data, costs, quality scores</state-preserved>
+      </strategy>
+
+      <strategy name="Graceful Degradation">
+        <description>Continue with reduced functionality</description>
+        <example>Skip optional enhancements if they fail</example>
+        <priority>Core functionality over nice-to-haves</priority>
+      </strategy>
+    </recovery-strategies>
+  </state-machine-definition>
+
+  <implementation-requirements>
+    <session-state-management>
+      <location>.claude/level-2-production/sessions/</location>
+      <structure>
+        <![CDATA[
+{
+  "session_id": "ep_001_20250812_1430",
+  "current_state": "PROCESSING",
+  "current_agent": "03_script_writer",
+  "retry_count": 0,
+  "checkpoints": [
+    {
+      "agent": "01_research_coordinator",
+      "timestamp": "2025-08-12T14:35:00Z",
+      "state_file": "checkpoint_01.json"
+    }
+  ],
+  "error_log": [],
+  "quality_scores": {},
+  "recovery_state": null
+}
+        ]]>
+      </structure>
+    </session-state-management>
+
+    <error-detection>
+      <agent-level>
+        <method>Exit code monitoring</method>
+        <method>Output validation</method>
+        <method>Quality gate checking</method>
+        <method>Timeout detection</method>
+      </agent-level>
+
+      <pipeline-level>
+        <method>Session state monitoring</method>
+        <method>Handoff validation</method>
+        <method>Progress tracking</method>
+        <method>Resource monitoring</method>
+      </pipeline-level>
+    </error-detection>
+
+    <recovery-procedures>
+      <procedure name="Agent Retry">
+        <steps>
+          <step>Save current state to recovery file</step>
+          <step>Log error with full context</step>
+          <step>Wait according to backoff strategy</step>
+          <step>Restore input state</step>
+          <step>Re-invoke agent with same parameters</step>
+          <step>Validate output meets requirements</step>
+        </steps>
+      </procedure>
+
+      <procedure name="Quality Revision">
+        <steps>
+          <step>Analyze quality gate failure reasons</step>
+          <step>Enhance prompts based on failure type</step>
+          <step>Invoke script polisher with feedback</step>
+          <step>Re-run quality evaluation</step>
+          <step>Compare scores for improvement</step>
+        </steps>
+      </procedure>
+
+      <procedure name="Pipeline Rollback">
+        <steps>
+          <step>Identify last successful checkpoint</step>
+          <step>Restore session state from checkpoint</step>
+          <step>Clear failed agent outputs</step>
+          <step>Reset retry counters</step>
+          <step>Resume from checkpoint agent</step>
+        </steps>
+      </procedure>
+
+      <procedure name="Human Escalation">
+        <steps>
+          <step>Generate comprehensive error report</step>
+          <step>Save full pipeline state</step>
+          <step>Create recovery instructions</step>
+          <step>Notify human operator</step>
+          <step>Wait for human intervention</step>
+        </steps>
+      </procedure>
+    </recovery-procedures>
+  </implementation-requirements>
+
+  <monitoring-and-alerting>
+    <metrics>
+      <metric>Error rate by agent</metric>
+      <metric>Retry success rate</metric>
+      <metric>Mean time to recovery</metric>
+      <metric>Quality gate pass rate</metric>
+      <metric>Human escalation frequency</metric>
+    </metrics>
+
+    <alerting-thresholds>
+      <threshold>More than 3 retries for single agent</threshold>
+      <threshold>Quality gate failure after 2 revisions</threshold>
+      <threshold>Pipeline stuck for >30 minutes</threshold>
+      <threshold>Critical resource exhaustion</threshold>
+    </alerting-thresholds>
+
+    <logging-requirements>
+      <log-level>INFO for normal operations</log-level>
+      <log-level>WARN for retries and revisions</log-level>
+      <log-level>ERROR for failures and escalations</log-level>
+      <retention>30 days for error logs</retention>
+    </logging-requirements>
+  </monitoring-and-alerting>
+
+  <testing-scenarios>
+    <scenario>Agent timeout during research</scenario>
+    <scenario>Quality gate failure in script evaluation</scenario>
+    <scenario>API rate limit during audio synthesis</scenario>
+    <scenario>Disk full during file writing</scenario>
+    <scenario>Network failure during MCP calls</scenario>
+    <scenario>Corrupted session state file</scenario>
+    <scenario>Multiple consecutive failures</scenario>
+  </testing-scenarios>
+
+  <success-criteria>
+    <criterion>95% of transient errors recovered automatically</criterion>
+    <criterion>80% of quality failures resolved through revision</criterion>
+    <criterion>100% of critical errors escalated appropriately</criterion>
+    <criterion>Zero data loss during recovery procedures</criterion>
+    <criterion>All checkpoints restorable</criterion>
+  </success-criteria>
+</pipeline-error-recovery-design>
