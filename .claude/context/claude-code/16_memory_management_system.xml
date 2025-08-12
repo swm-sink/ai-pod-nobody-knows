@@ -1,0 +1,298 @@
+<document type="claude-code-core" version="3.0.0" claude-code-optimized="true">
+  <metadata>
+    <title>Memory Management System - CLAUDE.md Hierarchy for AI Projects</title>
+    <id>16</id>
+    <category>claude-code-core</category>
+    <phase>walk</phase>
+    <skill-level>beginner-intermediate</skill-level>
+    <created>2025-08-11</created>
+    <claude-code-integration>memory-focused</claude-code-integration>
+    <requires-approval>true</requires-approval>
+    <validation-status>2025-claude-code-memory-verified</validation-status>
+  </metadata>
+
+  <claude-code-features>
+    <context-loading-priority>highest</context-loading-priority>
+    <memory-integration>comprehensive</memory-integration>
+    <thinking-mode-support>all</thinking-mode-support>
+    <automation-level>full</automation-level>
+    <mcp-integration>optional</mcp-integration>
+  </claude-code-features>
+
+  <learning-integration>
+    <prerequisites>File 15 (Claude Code Introduction), File 04 (Free Activities)</prerequisites>
+    <learning-outcomes>
+      <outcome>Master Claude Code's memory system for complex AI projects</outcome>
+      <outcome>Organize AI project knowledge hierarchically</outcome>
+      <outcome>Optimize context loading and project continuity</outcome>
+    </learning-outcomes>
+    <hands-on-activities>8</hands-on-activities>
+    <feynman-explanation-required>true</feynman-explanation-required>
+    <cross-references>Files 17-18 (commands, operations), Files 01-14 (AI content organization)</cross-references>
+  </learning-integration>
+
+  <change-approval-notice>
+    <critical>
+      ANY changes to memory management patterns require:
+      1. User explicit approval BEFORE modifications
+      2. AI detailed impact assessment of context loading changes
+      3. Validation through Claude Code documentation (3+ sources)
+      4. User confirmation AFTER implementation
+    </critical>
+  </change-approval-notice>
+
+  <introduction>
+    <dual-explanation>
+      <technical>Claude Code's memory management system uses hierarchical CLAUDE.md files to maintain context about complex AI projects, enabling intelligent assistance that understands your project's evolution, current state, and goals across long development periods</technical>
+      <simple>Think of this like having an incredibly organized filing system that not only stores your project information but also understands relationships between different parts - like having a personal assistant who remembers everything about your AI project and can instantly recall relevant details when you need them</simple>
+    </dual-explanation>
+  </introduction>
+
+  <memory-system-overview>
+    <core-principle>
+      CLAUDE.md files serve as intelligent project memory that Claude Code reads automatically
+      to provide context-aware assistance tailored to your specific AI orchestration project.
+    </core-principle>
+
+    <ai-project-benefits>
+      <benefit name="Continuity">Remember agent designs and orchestration patterns across sessions</benefit>
+      <benefit name="Context">Understand your current progress and next steps</benefit>
+      <benefit name="Efficiency">Avoid repeating explanations of your AI system architecture</benefit>
+      <benefit name="Quality">Get assistance that knows your specific AI agents and their interactions</benefit>
+    </ai-project-benefits>
+  </memory-system-overview>
+
+  <memory-hierarchy>
+    <level-1 name="Project Root">
+      <file>CLAUDE.md</file>
+      <purpose>Master project overview and current state</purpose>
+      <dual-explanation>
+        <technical>Root-level CLAUDE.md provides project-wide context and serves as entry point for Claude Code's memory system</technical>
+        <simple>Like the main table of contents for your entire AI project</simple>
+      </dual-explanation>
+    </level-1>
+
+    <level-2 name="System Components">
+      <file>.claude/memory/agents.md</file>
+      <purpose>Agent designs, prompts, and coordination patterns</purpose>
+
+      <file>.claude/memory/episodes.md</file>
+      <purpose>Episode tracking, content patterns, and quality metrics</purpose>
+
+      <file>.claude/memory/costs.md</file>
+      <purpose>Cost tracking, optimization strategies, and budget management</purpose>
+
+      <file>.claude/memory/learning.md</file>
+      <purpose>Learning progress, challenges overcome, and skill development</purpose>
+
+      <dual-explanation>
+        <technical>Component-specific memory files enable modular context loading and specialized assistance</technical>
+        <simple>Like having separate folders for different aspects of your project - agents, episodes, costs, and learning</simple>
+      </dual-explanation>
+    </level-2>
+
+    <level-3 name="Implementation Details">
+      <file>.claude/memory/prompts/</file>
+      <purpose>Prompt engineering iterations and testing results</purpose>
+
+      <file>.claude/memory/workflows/</file>
+      <purpose>Production workflows and automation patterns</purpose>
+
+      <file>.claude/memory/experiments/</file>
+      <purpose>Learning experiments and their outcomes</purpose>
+
+      <dual-explanation>
+        <technical>Detail-level directories store specific implementation artifacts and experimental data</technical>
+        <simple>Like having sub-folders for your detailed work - where you keep all the nitty-gritty details</simple>
+      </dual-explanation>
+    </level-3>
+  </memory-hierarchy>
+
+  <setup-instructions>
+    <step number="1" title="Create Memory Directory Structure">
+      <command>mkdir -p .claude/memory/{agents,episodes,costs,learning,prompts,workflows,experiments}</command>
+      <command>touch .claude/memory/agents.md</command>
+      <command>touch .claude/memory/episodes.md</command>
+      <command>touch .claude/memory/costs.md</command>
+      <command>touch .claude/memory/learning.md</command>
+      <dual-explanation>
+        <technical>Directory structure provides organized storage for different types of project memory</technical>
+        <simple>Like setting up a filing cabinet with folders for different types of documents</simple>
+      </dual-explanation>
+    </step>
+
+    <step number="2" title="Initialize Agent Memory">
+      <description>Create comprehensive agent tracking system</description>
+      <template>
+        <section name="Agent Definitions">
+          <agent name="Research Coordinator Agent">
+            <purpose>Gather comprehensive information on episode topics</purpose>
+            <input>Topic string, research depth requirements</input>
+            <output>Structured research data with sources and key points</output>
+            <prompt-evolution>
+              <version number="1">Basic information gathering (too generic)</version>
+              <version number="2">Source diversity focus (better quality)</version>
+              <version number="3" current="true">Intellectual humility emphasis (brand alignment)</version>
+            </prompt-evolution>
+            <cost-profile>$0.005-0.015 per query depending on depth</cost-profile>
+            <quality-metrics>Source diversity ≥3, accuracy score ≥0.85</quality-metrics>
+          </agent>
+        </section>
+      </template>
+    </step>
+
+    <step number="3" title="Initialize Episode Memory">
+      <description>Track episode production progress and patterns</description>
+      <template>
+        <section name="Episode Tracking">
+          <completed-episodes>None yet - this is your learning phase!</completed-episodes>
+          <in-progress>
+            <episode number="001" title="The Nature of Time">
+              <status>Research complete, script 60% done</status>
+              <research-sources>Physics textbooks, philosophy papers, scientific podcasts</research-sources>
+              <key-points>Time perception, relativity, consciousness relationship</key-points>
+              <quality-targets>Intellectual humility emphasis, 27-minute duration</quality-targets>
+              <challenges>Balancing scientific accuracy with accessibility</challenges>
+              <learning>Manual research takes 3-4 hours, need better source organization</learning>
+            </episode>
+          </in-progress>
+        </section>
+      </template>
+    </step>
+
+    <step number="4" title="Initialize Cost Memory">
+      <description>Track costs and optimization strategies</description>
+      <template>
+        <section name="Cost Management">
+          <current-status>
+            <phase>WALK (Free learning)</phase>
+            <api-costs>$0.00 (no APIs active)</api-costs>
+            <estimated-future-costs>$4-8 per episode target</estimated-future-costs>
+          </current-status>
+          <cost-breakdown>
+            <research-agent>$0.025 (5 queries @ $0.005 each)</research-agent>
+            <script-writer>$0.009 (3 revisions @ $0.003 each)</script-writer>
+            <audio-synthesis>$0.027 (27 minutes @ $0.001/minute)</audio-synthesis>
+            <quality-evaluation>$0.003 (1 evaluation @ $0.003)</quality-evaluation>
+            <total-per-episode>~$0.064</total-per-episode>
+          </cost-breakdown>
+        </section>
+      </template>
+    </step>
+
+    <step number="5" title="Initialize Learning Memory">
+      <description>Track learning progress and skill development</description>
+      <template>
+        <section name="Learning Status">
+          <ai-orchestration-skills focus="80%">
+            <agent-concepts status="complete">Understand individual agent purposes</agent-concepts>
+            <coordination-patterns status="in-progress">Learning sequential workflows</coordination-patterns>
+            <prompt-engineering status="in-progress">Iterating on agent instructions</prompt-engineering>
+            <quality-management status="in-progress">Developing evaluation criteria</quality-management>
+            <cost-optimization status="complete">Simulation and planning complete</cost-optimization>
+            <system-integration status="pending">Pending real API connections</system-integration>
+          </ai-orchestration-skills>
+          <claude-code-skills focus="20%">
+            <basic-setup status="complete">CLAUDE.md and project memory</basic-setup>
+            <command-creation status="in-progress">Learning custom command patterns</command-creation>
+            <memory-management status="in-progress">Organizing complex project knowledge</memory-management>
+            <automation status="pending">Pending hooks and workflow automation</automation>
+            <advanced-features status="pending">MCP, subagents, optimization</advanced-features>
+          </claude-code-skills>
+        </section>
+      </template>
+    </step>
+  </setup-instructions>
+
+  <advanced-techniques>
+    <memory-loading-optimization>
+      <description>Commands for efficient memory management</description>
+      <commands>
+        <command name="load-project-context">Load all relevant AI project context for current session</command>
+        <command name="update-memory">Update project memory with current session progress</command>
+        <command name="memory-status">Show me what Claude Code remembers about my AI project</command>
+      </commands>
+      <dual-explanation>
+        <technical>Custom commands enable efficient context loading and memory updates</technical>
+        <simple>Like having buttons that quickly load and save your project state</simple>
+      </dual-explanation>
+    </memory-loading-optimization>
+
+    <cross-reference-system>
+      <description>Link memory files together for comprehensive context</description>
+      <pattern>
+        <main-memory>CLAUDE.md</main-memory>
+        <related-agents>.claude/memory/agents.md#research-coordinator</related-agents>
+        <episode-status>.claude/memory/episodes.md#episode-001</episode-status>
+        <cost-tracking>.claude/memory/costs.md#simulation-results</cost-tracking>
+        <learning-notes>.claude/memory/learning.md#current-focus</learning-notes>
+      </pattern>
+      <dual-explanation>
+        <technical>Cross-referencing enables navigational relationships between memory components</technical>
+        <simple>Like having a web of connections between related information</simple>
+      </dual-explanation>
+    </cross-reference-system>
+
+    <memory-maintenance-workflow>
+      <commands>
+        <command name="maintain-memory">Review all memory files for consistency and update cross-references</command>
+        <command name="archive-phase">Archive completed learning phases and prepare for next phase</command>
+        <command name="generate-summary">Generate learning summary from all memory files</command>
+      </commands>
+      <dual-explanation>
+        <technical>Maintenance workflows ensure memory system integrity over time</technical>
+        <simple>Like regular cleaning and organizing to keep your filing system useful</simple>
+      </dual-explanation>
+    </memory-maintenance-workflow>
+  </advanced-techniques>
+
+  <ai-specific-benefits>
+    <benefit name="Agent Evolution Tracking">
+      <description>Remember how your agent prompts and coordination patterns evolve, preventing regression and building on successful patterns</description>
+    </benefit>
+
+    <benefit name="Orchestration Pattern Library">
+      <description>Build a library of coordination patterns that work for different types of AI tasks and content requirements</description>
+    </benefit>
+
+    <benefit name="Cost Optimization History">
+      <description>Track what optimizations work and which fail, building expertise in cost-effective AI system operation</description>
+    </benefit>
+
+    <benefit name="Quality Improvement Tracking">
+      <description>Document what quality improvements work and maintain consistent standards across long-running AI projects</description>
+    </benefit>
+  </ai-specific-benefits>
+
+  <integration-workflow>
+    <ai-orchestration-connection>This memory system directly supports your AI learning by maintaining context about agent designs, coordination patterns, and optimization strategies across long development periods</ai-orchestration-connection>
+
+    <claude-code-mastery-connection>The memory management skills you develop here transfer to any complex project - you're learning professional-grade project organization while working on AI systems</claude-code-mastery-connection>
+  </integration-workflow>
+
+  <next-steps>
+    <step number="1">Implement the memory hierarchy using the directory structure and file templates above</step>
+    <step number="2">Create your first memory entries documenting your current AI project state</step>
+    <step number="3">Practice memory-aware commands that load context and update project state</step>
+    <step number="4">Move to File 17 to learn the command system that operates on this memory foundation</step>
+  </next-steps>
+
+  <conclusion>
+    Good memory management is what separates hobbyist experiments from professional AI development - you're building both the skills AND the systems that make complex AI orchestration projects manageable.
+  </conclusion>
+
+  <validation-notes>
+    <claude-code-memory-accuracy>
+      All Claude Code memory management features verified against 2025 documentation
+    </claude-code-memory-accuracy>
+
+    <ai-project-optimization>
+      Memory patterns specifically designed for multi-agent AI system development
+    </ai-project-optimization>
+
+    <learning-integration>
+      Memory system supports both AI orchestration learning and development skill building
+    </learning-integration>
+  </validation-notes>
+
+</document>

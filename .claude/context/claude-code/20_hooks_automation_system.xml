@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="learning-guide" domain="claude-code" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>Hooks Automation System - Automate AI Development Workflows</title>
+        <phase>run</phase>
+        <skill-level>advanced</skill-level>
+        <claude-optimization>true</claude-optimization>
+        <learning-outcomes>
+            <outcome>Master Claude Code hooks for AI development workflow automation</outcome>
+            <outcome>Build sophisticated quality gates and automated processes</outcome>
+            <outcome>Create event-driven development workflows for AI projects</outcome>
+        </learning-outcomes>
+        <prerequisites>
+            <prerequisite>Files 17-19 (commands, file operations, thinking modes)</prerequisite>
+        </prerequisites>
+        <estimated-time>4-5 hours</estimated-time>
+    </metadata>
+
+    <content>
+        <section type="introduction" id="overview">
+            <technical-explanation>
+                Claude Code's hooks system provides event-driven automation that triggers custom workflows based on development activities, enabling sophisticated quality gates, automated testing, cost monitoring, and workflow optimization specifically designed for complex AI orchestration projects.
+
+                Hooks transform manual AI development workflows into automated, event-driven processes that ensure quality, track metrics, and optimize operations without requiring constant manual intervention - critical for complex multi-agent orchestration systems.
+            </technical-explanation>
+            <simple-explanation>
+                Think of hooks like having a smart assistant who watches what you're doing and automatically performs helpful tasks at just the right moment - like automatically checking quality when you save a script, tracking costs when you call an API, or running tests when you change agent code.
+
+                It's like having guardrails and helpers that work automatically without you having to remember to use them - ensuring quality and tracking costs in the background while you focus on creative work.
+            </simple-explanation>
+        </section>
+
+        <section type="implementation" id="hook-types">
+            <instructions>
+                <step number="1" validation-command="mkdir -p .claude/hooks">
+                    Create hooks directory structure
+                </step>
+                <step number="2" validation-command="touch .claude/hooks/pre-save-script.sh && chmod +x .claude/hooks/pre-save-script.sh">
+                    Create executable script quality validation hook
+                </step>
+                <step number="3" validation-command="touch .claude/hooks/post-command-capture.sh && chmod +x .claude/hooks/post-command-capture.sh">
+                    Create command result capture hook
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>Automated script quality validation before saving</scenario>
+                    <implementation>
+#!/bin/bash
+# .claude/hooks/pre-save-script.sh
+# Automatically validates episode scripts before saving
+
+FILE_PATH=$1
+FILE_TYPE=$(echo $FILE_PATH | grep -o '\.[^.]*$')
+
+# Check if it's a script file
+if [[ $FILE_PATH == *"script"* ]] && [[ $FILE_TYPE == ".md" ]]; then
+    echo "🔍 Running script quality validation..."
+
+    # Check word count for 27-minute target
+    WORD_COUNT=$(wc -w &lt; "$FILE_PATH")
+    if [ $WORD_COUNT -lt 4000 ] || [ $WORD_COUNT -gt 4500 ]; then
+        echo "⚠️ Word count outside target range (4000-4500): $WORD_COUNT words"
+        exit 1  # Prevent save
+    fi
+
+    # Check for brand voice indicators
+    if ! grep -q "nobody knows\|we don't fully understand\|remains mysterious" "$FILE_PATH"; then
+        echo "⚠️ Missing intellectual humility indicators"
+        exit 1
+    fi
+
+    echo "✅ Script quality validation passed"
+fi
+                    </implementation>
+                    <explanation>This hook automatically validates script quality before saving, checking word count for duration targets and ensuring brand voice consistency. It prevents saving files that don't meet quality standards, acting as an automated quality gate.</explanation>
+                </example>
+
+                <example type="advanced">
+                    <scenario>Production pipeline quality gates with comprehensive validation</scenario>
+                    <implementation>
+#!/usr/bin/env python3
+# .claude/hooks/production_quality_gate.py
+# Comprehensive quality validation for episode production
+
+import json
+import sys
+from pathlib import Path
+
+class ProductionQualityGate:
+    def __init__(self, episode_dir):
+        self.episode_dir = Path(episode_dir)
+        self.quality_thresholds = {
+            "research_sources": 3,
+            "script_quality": 0.85,
+            "brand_consistency": 0.90,
+            "cost_limit": 8.00
+        }
+        self.results = []
+
+    def validate_episode(self):
+        """Run all quality validations"""
+        # Check research quality
+        if not self.validate_research():
+            return False
+        # Check script quality
+        if not self.validate_script():
+            return False
+        # Check cost limits
+        if not self.validate_costs():
+            return False
+        return True
+                    </implementation>
+                    <explanation>This advanced hook creates comprehensive quality gates that validate multiple aspects of episode production, from research diversity to cost limits, ensuring professional standards before content advances in the pipeline.</explanation>
+                </example>
+            </examples>
+
+            <validation>
+                <validation-command>ls -la .claude/hooks/ && find .claude/hooks/ -executable -type f</validation-command>
+                <success-criteria>Hooks directory exists with executable hook scripts</success-criteria>
+            </validation>
+        </section>
+
+        <section type="implementation" id="automation-workflows">
+            <instructions>
+                <step number="1" validation-command="mkdir -p .claude/scripts .claude/logs">
+                    Create automation support directories
+                </step>
+                <step number="2" validation-command="touch .claude/logs/cost_tracking.csv">
+                    Initialize cost tracking log file
+                </step>
+                <step number="3" validation-command="echo 'timestamp,file,cost' > .claude/logs/cost_tracking.csv">
+                    Add header to cost tracking CSV
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>Automated cost tracking after content generation</scenario>
+                    <implementation>
+#!/bin/bash
+# .claude/hooks/post-save-cost.sh
+# Tracks costs after saving AI-generated content
+
+FILE_PATH=$1
+TIMESTAMP=$(date +%Y-%m-%d_%H:%M:%S)
+
+# Check if it's generated content
+if [[ $FILE_PATH == *"generated"* ]] || [[ $FILE_PATH == *"output"* ]]; then
+    # Extract cost metadata if present
+    if grep -q "COST:" "$FILE_PATH"; then
+        COST=$(grep "COST:" "$FILE_PATH" | cut -d: -f2 | tr -d ' $')
+
+        # Log to cost tracking file
+        echo "$TIMESTAMP,$FILE_PATH,$COST" >> .claude/logs/cost_tracking.csv
+
+        # Check budget threshold
+        DAILY_TOTAL=$(awk -F',' '{sum+=$3} END {print sum}' .claude/logs/cost_tracking.csv)
+        if (( $(echo "$DAILY_TOTAL > 10" | bc -l) )); then
+            echo "⚠️ Daily budget warning: $DAILY_TOTAL spent today"
+        fi
+    fi
+fi
+                    </implementation>
+                    <explanation>This hook automatically tracks costs when AI-generated content is saved, maintaining a running cost log and alerting when daily budgets are exceeded, enabling real-time cost management.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="troubleshooting" id="common-issues">
+            <technical-explanation>
+                Common hooks challenges include permission issues, path resolution problems, and hook execution order conflicts that can cause automation failures or inconsistent behavior.
+            </technical-explanation>
+            <simple-explanation>
+                What to do when your automated helpers stop working properly - like fixing permission problems or ensuring hooks run in the right order.
+            </simple-explanation>
+
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>Hooks that don't handle errors gracefully</scenario>
+                    <implementation>
+# BAD: Hook that fails silently or crashes workflow
+#!/bin/bash
+QUALITY_SCORE=$(some_command_that_might_fail)
+if [ $QUALITY_SCORE -lt 0.85 ]; then
+    exit 1  # Abrupt failure without explanation
+fi
+
+# GOOD: Hook with proper error handling and user feedback
+#!/bin/bash
+if ! QUALITY_SCORE=$(some_command_that_might_fail 2>&1); then
+    echo "❌ Quality analysis failed: $QUALITY_SCORE"
+    echo "💡 Try running manual quality check first"
+    exit 1
+fi
+
+if [ $QUALITY_SCORE -lt 0.85 ]; then
+    echo "⚠️ Quality score too low: $QUALITY_SCORE &lt; 0.85"
+    echo "💡 Review content and improve before proceeding"
+    exit 1
+fi
+                    </implementation>
+                    <explanation>Hooks should provide clear feedback when they fail, explaining what went wrong and suggesting next steps. Silent failures or cryptic errors make automation harder to debug and trust.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="advanced" id="intelligent-automation">
+            <technical-explanation>
+                Advanced hook patterns include conditional logic, learning systems, and adaptive automation that evolves based on project patterns and success metrics, creating increasingly intelligent development workflows.
+            </technical-explanation>
+            <simple-explanation>
+                Power-user techniques for creating smart automation that learns from your project patterns and gets better over time, automatically adapting to your specific workflow needs.
+            </simple-explanation>
+
+            <examples>
+                <example type="advanced">
+                    <scenario>Learning hooks that adapt based on success patterns</scenario>
+                    <implementation>
+#!/bin/bash
+# .claude/hooks/adaptive-quality-gate.sh
+# Quality gate that learns from successful episodes
+
+EPISODE_DIR=$1
+HISTORICAL_DATA=".claude/memory/episode_quality_patterns.json"
+
+# Load historical success patterns
+if [ -f "$HISTORICAL_DATA" ]; then
+    SUCCESSFUL_PATTERNS=$(jq '.successful_patterns' "$HISTORICAL_DATA")
+
+    # Apply learned thresholds instead of static ones
+    LEARNED_THRESHOLD=$(echo "$SUCCESSFUL_PATTERNS" | jq '.average_quality_score')
+    WORD_COUNT_SWEET_SPOT=$(echo "$SUCCESSFUL_PATTERNS" | jq '.optimal_word_count')
+
+    echo "🧠 Applying learned quality standards:"
+    echo "   Quality threshold: $LEARNED_THRESHOLD (learned from successful episodes)"
+    echo "   Word count target: $WORD_COUNT_SWEET_SPOT (optimal from history)"
+
+    # Use learned parameters for validation
+    # ... validation logic using learned thresholds ...
+else
+    echo "📚 No learning data yet, using default standards"
+    # ... use default thresholds ...
+fi
+                    </implementation>
+                    <explanation>This advanced pattern creates hooks that learn from successful episodes, gradually improving their validation criteria based on what actually works well for your specific project, leading to more intelligent and adaptive automation.</explanation>
+                </example>
+            </examples>
+        </section>
+    </content>
+
+    <cross-references>
+        <reference file="17_command_reference_guide.xml" section="overview" type="prerequisite">
+            Command system that hooks can trigger and enhance
+        </reference>
+        <reference file="18_file_operations_guide.xml" section="overview" type="related">
+            File operations that hooks can automate and validate
+        </reference>
+        <reference file="21_mcp_integration_guide.xml" section="overview" type="advanced">
+            MCP integrations that hooks can manage automatically
+        </reference>
+    </cross-references>
+</document>

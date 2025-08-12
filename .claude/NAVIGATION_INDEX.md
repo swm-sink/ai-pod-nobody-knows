@@ -1,212 +1,175 @@
 # Claude Code Navigation Index - @ File Hopping Guide
 
-<document type="navigation-index" version="3.0.0" claude-code-optimized="true">
-  <metadata>
-    <purpose>Master navigation index for @ file hopping across all documentation</purpose>
-    <max-levels>4</max-levels>
-    <created>2025-08-11</created>
-    <navigation-optimized>true</navigation-optimized>
-  </metadata>
-  
-  <navigation-philosophy>
-    <principle>@ references provide instant file hopping for seamless navigation</principle>
-    <principle>Keep hopping chains to 3-4 levels maximum for mental clarity</principle>
-    <principle>Use @ for internal files, traditional links for external resources</principle>
-  </navigation-philosophy>
-</document>
+**Purpose**: Master navigation index for @ file hopping across all documentation
+**Max Levels**: 4
+**Created**: 2025-08-11
+**Navigation Optimized**: true
+
+## Navigation Philosophy
+
+- @ references provide instant file hopping for seamless navigation
+- Keep hopping chains to 3-4 levels maximum for mental clarity
+- Use @ for internal files, traditional links for external resources
 
 ## Quick Navigation Patterns 🚀
 
-### **Level 1: Core Entry Points** 
-```
-@CLAUDE.md              → Main project memory (start here)
-@00_GLOBAL_CONSTANTS.md → All project constants
-@FOLDER_STRUCTURE.md    → Directory organization
-@README.md              → Documentation overview
-```
+### Level 1: Core Entry Points
 
-### **Level 2: Domain Navigation**
-```
-Foundation Learning:
-@01_project_overview.md → @02_walk_crawl_run_phases.md → @03_hobbyist_focus.md → @04_no_api_keys_activities.md
+- **@CLAUDE.md** - Main project memory (start here)
+- **@00_GLOBAL_CONSTANTS.xml** - All project constants
+- **@FOLDER_STRUCTURE.xml** - Directory organization
+- **@README.md** - Documentation overview
 
-Claude Code Mastery:
-@15_claude_code_introduction.md → @16_memory_management_system.md → @17_command_reference_guide.md → @18_file_operations_guide.md
+### Level 2: Domain Navigation
 
-Production Workflow:
-@08_troubleshooting_guide.md → @09_quick_reference.md → @10_production_checklist.md
+**Foundation Learning:**
+@01_project_overview.xml → @02_walk_crawl_run_phases.xml → @03_hobbyist_focus.xml → @04_no_api_keys_activities.xml
 
-Quality Assurance:
-@11_change_approval_requirements.md → @12_hallucination_prevention_guide.md → @13_tdd_requirements_specification.md → @14_validation_workflow.md
-```
+**Claude Code Mastery:**
+@15_claude_code_introduction.xml → @16_memory_management_system.xml → @17_command_reference_guide.xml → @18_file_operations_guide.xml
 
-### **Level 3: Specialized Navigation**
-```
-ElevenLabs Integration:
-@15_elevenlabs_overview.md → @16_elevenlabs_models_reference.md → @17_elevenlabs_prompt_engineering.md → @18_elevenlabs_api_implementation.md
+**Production Workflow:**
+@01_troubleshooting_guide.xml → @02_quick_reference.xml → @03_production_checklist.xml
 
-AI Orchestration:
-@05_agent_orchestration_basics.md → @06_cost_optimization_strategies.md
+**Quality Assurance:**
+@01_change_approval_requirements.xml → @02_hallucination_prevention_guide.xml → @03_tdd_requirements_specification.xml → @04_validation_workflow.xml
 
-Advanced Claude Code:
-@19_thinking_modes_guide.md → @20_hooks_automation_system.md → @21_mcp_integration_guide.md → @22_subagents_guide.md
-```
+### Level 3: Specialized Navigation
 
-### **Level 4: Deep Dive Navigation**
-```
-Complete Learning Path:
-@01_project_overview.md → @15_claude_code_introduction.md → @16_memory_management_system.md → @17_command_reference_guide.md
+**ElevenLabs Integration:**
+@15_elevenlabs_overview.xml → @16_elevenlabs_models_reference.xml → @17_elevenlabs_prompt_engineering.xml → @18_elevenlabs_api_implementation.xml
 
-Production Pipeline:
-@08_troubleshooting_guide.md → @15_elevenlabs_overview.md → @16_elevenlabs_models_reference.md → @10_production_checklist.md
+**AI Orchestration:**
+@agent_orchestration_basics.xml → @cost_optimization_strategies.xml
 
-Quality Chain:
-@12_hallucination_prevention_guide.md → @13_tdd_requirements_specification.md → @14_validation_workflow.md → @11_change_approval_requirements.md
-```
+**Advanced Claude Code:**
+@19_thinking_modes_guide.xml → @20_hooks_automation_system.xml → @21_mcp_integration_guide.xml → @22_subagents_guide.xml
+
+### Level 4: Deep Dive Navigation
+
+**Complete Learning Path:**
+@01_project_overview.xml → @15_claude_code_introduction.xml → @16_memory_management_system.xml → @17_command_reference_guide.xml
+
+**Production Pipeline:**
+@01_troubleshooting_guide.xml → @15_elevenlabs_overview.xml → @16_elevenlabs_models_reference.xml → @03_production_checklist.xml
+
+**Quality Chain:**
+@02_hallucination_prevention_guide.xml → @03_tdd_requirements_specification.xml → @04_validation_workflow.xml → @01_change_approval_requirements.xml
 
 ## Navigation by Learning Phase 📚
 
-### **WALK Phase (Free Learning)**
-```
-Start: @01_project_overview.md
-Next: @02_walk_crawl_run_phases.md
-Then: @04_no_api_keys_activities.md
-Tools: @15_claude_code_introduction.md
-```
+### WALK Phase (Free Learning)
+- **Start:** @01_project_overview.xml
+- **Next:** @02_walk_crawl_run_phases.xml
+- **Then:** @04_no_api_keys_activities.xml
+- **Tools:** @15_claude_code_introduction.xml
 
-### **CRAWL Phase (First APIs)**
-```
-Setup: @15_elevenlabs_overview.md
-Config: @16_elevenlabs_models_reference.md
-Costs: @06_cost_optimization_strategies.md
-Production: @10_production_checklist.md
-```
+### CRAWL Phase (First APIs)
+- **Setup:** @15_elevenlabs_overview.xml
+- **Config:** @16_elevenlabs_models_reference.xml
+- **Costs:** @context/ai-orchestration/cost_optimization_strategies.xml
+- **Production:** @context/operations/03_production_checklist.xml
 
-### **RUN Phase (Full Automation)**
-```
-Advanced: @20_hooks_automation_system.md
-Integration: @21_mcp_integration_guide.md
-Scale: @22_subagents_guide.md
-Optimize: @23_optimization_guide.md
-```
+### RUN Phase (Full Automation)
+- **Advanced:** @20_hooks_automation_system.xml
+- **Integration:** @21_mcp_integration_guide.xml
+- **Scale:** @22_subagents_guide.xml
+- **Optimize:** @23_optimization_guide.xml
 
 ## Navigation by Task Type 🎯
 
-### **Problem Solving**
-```
-Issue: @08_troubleshooting_guide.md
-Quick Fix: @09_quick_reference.md
-Validation: @14_validation_workflow.md
-Prevention: @12_hallucination_prevention_guide.md
-```
+### Problem Solving
+- **Issue:** @01_troubleshooting_guide.xml
+- **Quick Fix:** @02_quick_reference.xml
+- **Validation:** @04_validation_workflow.xml
+- **Prevention:** @02_hallucination_prevention_guide.xml
 
-### **Development Work**
-```
-Setup: @17_command_reference_guide.md
-Files: @18_file_operations_guide.md
-Think: @19_thinking_modes_guide.md
-Automate: @20_hooks_automation_system.md
-```
+### Development Work
+- **Setup:** @17_command_reference_guide.xml
+- **Files:** @18_file_operations_guide.xml
+- **Think:** @19_thinking_modes_guide.xml
+- **Automate:** @20_hooks_automation_system.xml
 
-### **Production Pipeline**
-```
-Plan: @10_production_checklist.md
-Audio: @15_elevenlabs_overview.md
-Quality: @11_change_approval_requirements.md
-Cost: @06_cost_optimization_strategies.md
-```
+### Production Pipeline
+- **Plan:** @03_production_checklist.xml
+- **Audio:** @15_elevenlabs_overview.xml
+- **Quality:** @01_change_approval_requirements.xml
+- **Cost:** @cost_optimization_strategies.xml
 
 ## Domain Navigation Hubs 🧭
 
-### **Complete Navigation System**
-```
-Master Navigation: @NAVIGATION_INDEX.md
-Project Memory: @CLAUDE.md
+### Complete Navigation System
+- **Master Navigation:** @NAVIGATION_INDEX.md
+- **Project Memory:** @CLAUDE.md
 
-Domain-Specific Navigation:
-Foundation: @foundation/NAVIGATION.md
-Claude Code: @claude-code/NAVIGATION.md  
-AI Orchestration: @ai-orchestration/NAVIGATION.md
-ElevenLabs: @elevenlabs/NAVIGATION.md
-Prompts Research: @prompts_research/NAVIGATION.md
-Operations: @operations/NAVIGATION.md
-Quality: @quality/NAVIGATION.md
-```
+### Domain-Specific Navigation
+- **Foundation:** @foundation/NAVIGATION.md
+- **Claude Code:** @claude-code/NAVIGATION.md
+- **AI Orchestration:** @ai-orchestration/NAVIGATION.md
+- **ElevenLabs:** @elevenlabs/NAVIGATION.md
+- **Prompts Research:** @prompts_research/NAVIGATION.md
+- **Operations:** @operations/NAVIGATION.md
+- **Quality:** @quality/NAVIGATION.md
 
 ## Constants Navigation 🔧
 
-### **Quick Constants Access**
-```
-Global: @00_GLOBAL_CONSTANTS.md
-Foundation: @foundation/00_project_constants.md
-Claude Code: @claude-code/00_claude_code_constants.md
-AI Orchestration: @ai-orchestration/* (no constants file)
-ElevenLabs: @elevenlabs/00_elevenlabs_constants.md
-Prompts Research: @prompts_research/* (no constants file)
-Quality: @quality/00_quality_constants.md
-Operations: @operations/00_operations_constants.md
-```
+### Quick Constants Access
+- **Global:** @00_GLOBAL_CONSTANTS.xml
+- **Foundation:** @foundation/00_project_constants.xml
+- **Claude Code:** @claude-code/00_claude_code_constants.xml
+- **AI Orchestration:** @ai-orchestration/* (no constants file)
+- **ElevenLabs:** @elevenlabs/00_elevenlabs_constants.xml
+- **Prompts Research:** @prompts_research/* (no constants file)
+- **Quality:** @quality/00_quality_constants.xml
+- **Operations:** @operations/00_operations_constants.xml
 
 ## Specialized Navigation Chains 🔗
 
-### **API Integration Chain**
-```
-@15_elevenlabs_overview.md → @17_elevenlabs_prompt_engineering.md → @18_elevenlabs_api_implementation.md → @22_elevenlabs_mcp_integration.md
-```
+### API Integration Chain
+@15_elevenlabs_overview.xml → @17_elevenlabs_prompt_engineering.xml → @18_elevenlabs_api_implementation.xml → @22_elevenlabs_mcp_integration.xml
 
-### **Learning Progression Chain** 
-```
-@01_project_overview.md → @02_walk_crawl_run_phases.md → @07_learning_milestones.md → @03_hobbyist_focus.md
-```
+### Learning Progression Chain
+@01_project_overview.xml → @02_walk_crawl_run_phases.xml → @05_learning_milestones.xml → @03_hobbyist_focus.xml
 
-### **Quality Assurance Chain**
-```
-@12_hallucination_prevention_guide.md → @13_tdd_requirements_specification.md → @14_validation_workflow.md → @11_change_approval_requirements.md
-```
+### Quality Assurance Chain
+@02_hallucination_prevention_guide.xml → @03_tdd_requirements_specification.xml → @04_validation_workflow.xml → @01_change_approval_requirements.xml
 
-### **Claude Code Mastery Chain**
-```
-@15_claude_code_introduction.md → @16_memory_management_system.md → @17_command_reference_guide.md → @18_file_operations_guide.md
-```
+### Claude Code Mastery Chain
+@15_claude_code_introduction.xml → @16_memory_management_system.xml → @17_command_reference_guide.xml → @18_file_operations_guide.xml
 
 ## Emergency Navigation 🚨
 
-### **Quick Fixes**
-```
-Stuck: @08_troubleshooting_guide.md
-Commands: @09_quick_reference.md
-Memory: @16_memory_management_system.md
-Validation: @14_validation_workflow.md
-```
+### Quick Fixes
+- **Stuck:** @01_troubleshooting_guide.xml
+- **Commands:** @02_quick_reference.xml
+- **Memory:** @16_memory_management_system.xml
+- **Validation:** @04_validation_workflow.xml
 
-### **Quality Issues**
-```
-Accuracy: @12_hallucination_prevention_guide.md
-Testing: @13_tdd_requirements_specification.md
-Process: @14_validation_workflow.md
-Approval: @11_change_approval_requirements.md
-```
+### Quality Issues
+- **Accuracy:** @02_hallucination_prevention_guide.xml
+- **Testing:** @03_tdd_requirements_specification.xml
+- **Process:** @04_validation_workflow.xml
+- **Approval:** @01_change_approval_requirements.xml
 
 ## Usage Guidelines 📋
 
-### **@ Reference Best Practices**
-- **Use @ for internal files**: `@filename.md` for navigation within the project
-- **Use full paths for precision**: `@context/foundation/01_project_overview.md` when needed
-- **Chain logically**: Connect related concepts in learning sequences
-- **Keep chains short**: Maximum 3-4 hops for clarity
+### @ Reference Best Practices
+- Use @ for internal files: @filename.xml for navigation within the project
+- Use full paths for precision: @context/foundation/01_project_overview.xml when needed
+- Chain logically: Connect related concepts in learning sequences
+- Keep chains short: Maximum 3-4 hops for clarity
 
-### **Navigation Efficiency**
+### Navigation Efficiency
 - Start with the most relevant entry point for your current task
 - Follow logical progressions rather than jumping randomly
 - Use constants files as navigation hubs for related information
 - Bookmark frequently used navigation chains
 
-### **Context Management**
-- Clear context (`/clear`) after long navigation sessions
+### Context Management
+- Clear context (/clear) after long navigation sessions
 - Use navigation patterns to maintain mental models
 - Reference this index when lost in the documentation
 - Update navigation patterns as you discover better paths
 
----
-
-**Pro Tip**: This index itself is navigable! Use `@NAVIGATION_INDEX.md` from anywhere to return to this master navigation guide.
+## Pro Tip
+**This index itself is navigable!** Use @NAVIGATION_INDEX.md from anywhere to return to this master navigation guide.

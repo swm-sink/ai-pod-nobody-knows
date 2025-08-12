@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="project-configuration">
+  <metadata>
+    <title>Episode Structure Template - Nobody Knows Podcast</title>
+    <domain>shared</domain>
+    <subdomain>templates</subdomain>
+    <version>1.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <project>nobody-knows</project>
+    <config-type>episode-structure</config-type>
+    <requires-approval>true</requires-approval>
+    <critical>Changes affect all episode production</critical>
+  </metadata>
+
+  <content>
+    <change-approval-notice>
+      <critical>
+        ANY modifications to episode structure require:
+        1. User explicit approval BEFORE changes (affects production workflow)
+        2. AI detailed impact assessment of structural changes
+        3. Validation through podcast format research
+        4. User confirmation AFTER implementation
+      </critical>
+    </change-approval-notice>
+
+    <structure-objectives>
+      <primary>Standardize 27-minute episode format</primary>
+      <secondary>Ensure consistent quality and flow</secondary>
+      <outcome>Repeatable structure for all 100 episodes</outcome>
+    </structure-objectives>
+
+    <section id="standard-episode-format">
+      <title>Standard 27-Minute Episode Format</title>
+
+      <pre-episode>
+        <title>Pre-Episode</title>
+        <cold-open duration="15-30 seconds" optional="true">
+          <description>Intriguing quote or question from the episode</description>
+          <purpose>Sets the tone and hooks the listener</purpose>
+        </cold-open>
+      </pre-episode>
+
+      <introduction duration="1.5 minutes">
+        <title>Introduction</title>
+
+        <welcome duration="15 seconds">
+          <content>Podcast name and episode number</content>
+          <content>Host introduction (if needed)</content>
+        </welcome>
+
+        <hook duration="30 seconds">
+          <content>Thought-provoking question</content>
+          <content>Surprising fact or statistic</content>
+          <content>Personal connection to topic</content>
+        </hook>
+
+        <episode-preview duration="45 seconds">
+          <content>What we'll explore today</content>
+          <content>Why this matters</content>
+          <content>Journey we'll take together</content>
+        </episode-preview>
+      </introduction>
+
+      <main-content duration="24 minutes">
+        <title>Main Content</title>
+
+        <segment id="foundation" number="1" duration="8 minutes">
+          <title>Foundation</title>
+
+          <setup duration="2 minutes">
+            <content>Context and background</content>
+            <content>Why this topic matters now</content>
+            <content>Common understanding or misconceptions</content>
+          </setup>
+
+          <core-concepts duration="4 minutes">
+            <content>Key definitions and ideas</content>
+            <content>Historical perspective</content>
+            <content>Current mainstream understanding</content>
+          </core-concepts>
+
+          <first-complexity-layer duration="2 minutes">
+            <content>Introduce nuance</content>
+            <content>Challenge assumptions</content>
+            <content>Pose deeper questions</content>
+          </first-complexity-layer>
+
+          <transition duration="15 seconds" />
+        </segment>
+
+        <segment id="exploration" number="2" duration="8 minutes">
+          <title>Exploration</title>
+
+          <multiple-perspectives duration="3 minutes">
+            <content>Different scientific viewpoints</content>
+            <content>Cultural interpretations</content>
+            <content>Ongoing debates</content>
+          </multiple-perspectives>
+
+          <evidence-research duration="3 minutes">
+            <content>What studies show</content>
+            <content>What evidence suggests</content>
+            <content>What remains uncertain</content>
+          </evidence-research>
+
+          <real-world-implications duration="2 minutes">
+            <content>Practical applications</content>
+            <content>How this affects daily life</content>
+            <content>Future possibilities</content>
+          </real-world-implications>
+
+          <transition duration="15 seconds" />
+        </segment>
+
+        <segment id="synthesis" number="3" duration="8 minutes">
+          <title>Synthesis</title>
+
+          <connections duration="3 minutes">
+            <content>Links to other fields</content>
+            <content>Broader patterns</content>
+            <content>Unexpected relationships</content>
+          </connections>
+
+          <deeper-questions duration="3 minutes">
+            <content>Philosophical implications</content>
+            <content>Ethical considerations</content>
+            <content>Frontiers of knowledge</content>
+          </deeper-questions>
+
+          <personal-reflection duration="2 minutes">
+            <content>What this means for us</content>
+            <content>How to think about this</content>
+            <content>Invitation to explore further</content>
+          </personal-reflection>
+        </segment>
+      </main-content>
+
+      <conclusion duration="1.5 minutes">
+        <title>Conclusion</title>
+
+        <summary duration="30 seconds">
+          <content>Key takeaways (not definitive answers)</content>
+          <content>Most intriguing discoveries</content>
+        </summary>
+
+        <open-questions duration="30 seconds">
+          <content>What we still don't know</content>
+          <content>Questions for reflection</content>
+          <content>Areas of active research</content>
+        </open-questions>
+
+        <call-to-action duration="15 seconds">
+          <content>Encourage curiosity</content>
+          <content>Suggest further exploration</content>
+          <content>Community engagement</content>
+        </call-to-action>
+
+        <closing duration="15 seconds">
+          <content>Thank you to listeners</content>
+          <content>Next episode teaser (if applicable)</content>
+          <content>Signature sign-off</content>
+        </closing>
+      </conclusion>
+    </section>
+
+    <section id="pacing-guidelines">
+      <title>Pacing Guidelines</title>
+
+      <energy-flow>
+        <title>Energy Flow</title>
+        <flow-stage stage="start">Start with medium energy (introduction)</flow-stage>
+        <flow-stage stage="build">Build to high engagement (segment 1 climax)</flow-stage>
+        <flow-stage stage="moderate">Moderate for complex ideas (segment 2)</flow-stage>
+        <flow-stage stage="rise">Rise again for synthesis (segment 3)</flow-stage>
+        <flow-stage stage="landing">Gentle landing (conclusion)</flow-stage>
+      </energy-flow>
+
+      <question-distribution>
+        <title>Question Distribution</title>
+        <section name="introduction">1-2 questions</section>
+        <section name="segment-1">2-3 questions</section>
+        <section name="segment-2">2-3 questions</section>
+        <section name="segment-3">3-4 questions</section>
+        <section name="conclusion">1-2 questions</section>
+        <total>9-14 questions per episode</total>
+      </question-distribution>
+
+      <intellectual-humility-markers>
+        <title>Intellectual Humility Markers</title>
+        <section name="introduction">1 phrase</section>
+        <section name="each-segment">2-3 phrases</section>
+        <section name="conclusion">1-2 phrases</section>
+        <total>8-11 phrases per episode</total>
+      </intellectual-humility-markers>
+    </section>
+
+    <section id="complexity-progression">
+      <title>Complexity Progression by Season</title>
+
+      <season-group id="seasons-1-3" name="Building Foundations">
+        <characteristics>
+          <characteristic>Simpler vocabulary</characteristic>
+          <characteristic>More explanations</characteristic>
+          <characteristic>Shorter conceptual jumps</characteristic>
+          <characteristic>More repetition of key ideas</characteristic>
+        </characteristics>
+      </season-group>
+
+      <season-group id="seasons-4-7" name="Developing Depth">
+        <characteristics>
+          <characteristic>Introduce technical terms with context</characteristic>
+          <characteristic>Reference earlier episodes</characteristic>
+          <characteristic>Explore contradictions</characteristic>
+          <characteristic>Less hand-holding</characteristic>
+        </characteristics>
+      </season-group>
+
+      <season-group id="seasons-8-10" name="Advanced Integration">
+        <characteristics>
+          <characteristic>Assume foundational knowledge</characteristic>
+          <characteristic>Cross-disciplinary connections</characteristic>
+          <characteristic>Abstract thinking</characteristic>
+          <characteristic>Philosophical depth</characteristic>
+        </characteristics>
+      </season-group>
+    </section>
+
+    <section id="special-episode-formats">
+      <title>Special Episode Formats</title>
+
+      <special-format id="interview" name="Interview Format" frequency="Occasional">
+        <structure>
+          <introduction duration="2 minutes" />
+          <guest-introduction duration="1 minute" />
+          <conversation-segments duration="20 minutes" />
+          <synthesis-reflection duration="3 minutes" />
+          <conclusion duration="1 minute" />
+        </structure>
+      </special-format>
+
+      <special-format id="deep-dive" name="Deep Dive Format">
+        <structure>
+          <introduction duration="1 minute">Shorter introduction</introduction>
+          <topic-exploration duration="24 minutes">Single topic exploration</topic-exploration>
+          <conclusion duration="2 minutes">Extended conclusion</conclusion>
+        </structure>
+      </special-format>
+
+      <special-format id="season-finale" name="Season Finale Format">
+        <structure>
+          <introduction duration="2 minutes">Introduction with season recap</introduction>
+          <synthesis duration="20 minutes">Synthesis of season themes</synthesis>
+          <looking-ahead duration="3 minutes">Looking ahead</looking-ahead>
+          <conclusion duration="2 minutes">Extended conclusion</conclusion>
+        </structure>
+      </special-format>
+    </section>
+
+    <section id="quality-checkpoints">
+      <title>Quality Checkpoints</title>
+      <note>Before finalizing any episode:</note>
+
+      <checklist>
+        <checkpoint>Does the introduction hook within 30 seconds?</checkpoint>
+        <checkpoint>Are complex ideas built up gradually?</checkpoint>
+        <checkpoint>Do transitions flow naturally?</checkpoint>
+        <checkpoint>Is intellectual humility present throughout?</checkpoint>
+        <checkpoint>Are questions distributed evenly?</checkpoint>
+        <checkpoint>Does the conclusion inspire further thought?</checkpoint>
+        <checkpoint>Is the pacing appropriate for the content?</checkpoint>
+        <checkpoint>Will listeners feel both informed and curious?</checkpoint>
+      </checklist>
+    </section>
+
+    <section id="structural-philosophy">
+      <title>Structural Philosophy</title>
+      <principle>
+        Each episode is a complete journey that can stand alone while contributing
+        to the larger series narrative. The structure should feel natural and
+        conversational, never forced or formulaic.
+      </principle>
+    </section>
+
+    <section id="validation-notes">
+      <title>Validation Notes</title>
+
+      <validation id="episode-format">
+        <description>
+          27-minute format validated from podcast industry standards
+          and attention span research (2025-08-10)
+        </description>
+      </validation>
+
+      <validation id="structure-design">
+        <description>
+          Three-segment structure validated from educational content
+          best practices and narrative flow research
+        </description>
+      </validation>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../frameworks/progressive-complexity.xml">Progressive Complexity Framework</reference>
+    <reference target="../quality-gates/validation-checklist.xml">Quality Validation</reference>
+    <reference target="../../context/foundation/brand-voice.xml">Brand Voice Guidelines</reference>
+  </cross-references>
+</document>

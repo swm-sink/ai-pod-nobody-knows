@@ -12,12 +12,12 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 **Purpose**: Understand the project, learning approach, and get started without any costs
 
 **Files**:
-- [00_project_constants.md](./foundation/00_project_constants.md) - ⭐ Foundation specifications
-- [01_project_overview.md](./foundation/01_project_overview.md) - What this project is about
-- [02_walk_crawl_run_phases.md](./foundation/02_walk_crawl_run_phases.md) - Learning progression  
-- [03_hobbyist_focus.md](./foundation/03_hobbyist_focus.md) - Why this works for individuals
-- [04_no_api_keys_activities.md](./foundation/04_no_api_keys_activities.md) - Learn for FREE first!
-- [07_learning_milestones.md](./foundation/07_learning_milestones.md) - Track your progress
+- [00_project_constants.xml](./foundation/00_project_constants.xml) - ⭐ Foundation specifications
+- [01_project_overview.xml](./foundation/01_project_overview.xml) - What this project is about
+- [02_walk_crawl_run_phases.xml](./foundation/02_walk_crawl_run_phases.xml) - Learning progression
+- [03_hobbyist_focus.xml](./foundation/03_hobbyist_focus.xml) - Why this works for individuals
+- [04_no_api_keys_activities.xml](./foundation/04_no_api_keys_activities.xml) - Learn for FREE first!
+- [05_learning_milestones.xml](./foundation/05_learning_milestones.xml) - Track your progress
 
 **Learning Path**: Read in order (01→02→03→04) for complete understanding
 
@@ -27,8 +27,8 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 **Purpose**: Learn to coordinate multiple AI agents for complex tasks
 
 **Files**:
-- [05_agent_orchestration_basics.md](./ai-orchestration/05_agent_orchestration_basics.md) - How agents work together
-- [06_cost_optimization_strategies.md](./ai-orchestration/06_cost_optimization_strategies.md) - Reduce costs by 99%
+- [agent-orchestration-basics.xml](./ai-orchestration/agent-orchestration-basics.xml) - How agents work together
+- [cost-optimization-strategies.xml](./ai-orchestration/cost-optimization-strategies.xml) - Reduce costs by 99%
 
 **Learning Path**: Master these concepts before implementing production systems
 
@@ -39,50 +39,50 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 
 **Directory**: [elevenlabs/](./elevenlabs/) - Complete implementation guide (10 files)
 
-**Constants**: [00_elevenlabs_constants.md](./elevenlabs/00_elevenlabs_constants.md) ⭐
+**Constants**: [00_elevenlabs_constants.xml](./elevenlabs/00_elevenlabs_constants.xml) ⭐
 
 **Key Files**:
 - [README.md](./elevenlabs/README.md) - Navigation and learning paths
-- [15_elevenlabs_overview.md](./elevenlabs/15_elevenlabs_overview.md) - What ElevenLabs is and why use it
-- [20_elevenlabs_cost_optimization.md](./elevenlabs/20_elevenlabs_cost_optimization.md) - Achieve $4-8/episode
+- [15_elevenlabs_overview.xml](./elevenlabs/15_elevenlabs_overview.xml) - What ElevenLabs is and why use it
+- [20_elevenlabs_cost_optimization.xml](./elevenlabs/20_elevenlabs_cost_optimization.xml) - Achieve $4-8/episode
 
 ---
 
-### 🛠️ Claude Code Platform (Development Acceleration)  
+### 🛠️ Claude Code Platform (Development Acceleration)
 **Purpose**: Modern AI development tools that make you faster and more effective
 
-**Constants**: [00_claude_code_constants.md](./claude-code/00_claude_code_constants.md) ⭐
+**Constants**: [00_claude_code_constants.xml](./claude-code/00_claude_code_constants.xml) ⭐
 
 **Key Files** (10 total, files 15-24):
-- [15_claude_code_introduction.md](./claude-code/15_claude_code_introduction.md) - Start here
-- [17_command_reference_guide.md](./claude-code/17_command_reference_guide.md) - Essential commands
-- [19_thinking_modes_guide.md](./claude-code/19_thinking_modes_guide.md) - Enhanced reasoning
-- [21_mcp_integration_guide.md](./claude-code/21_mcp_integration_guide.md) - External tool integration
+- [15_claude_code_introduction.xml](./claude-code/15_claude_code_introduction.xml) - Start here
+- [17_command_reference_guide.xml](./claude-code/17_command_reference_guide.xml) - Essential commands
+- [19_thinking_modes_guide.xml](./claude-code/19_thinking_modes_guide.xml) - Enhanced reasoning
+- [21_mcp_integration_guide.xml](./claude-code/21_mcp_integration_guide.xml) - External tool integration
 
 ---
 
 ### ✅ Quality Assurance (Production Standards)
 **Purpose**: Ensure professional quality and prevent errors
 
-**Constants**: [00_quality_constants.md](./quality/00_quality_constants.md) ⭐
+**Constants**: [00_quality_constants.xml](./quality/00_quality_constants.xml) ⭐
 
 **Files**:
-- [11_change_approval_requirements.md](./quality/11_change_approval_requirements.md) - MANDATORY approval process
-- [12_hallucination_prevention_guide.md](./quality/12_hallucination_prevention_guide.md) - MANDATORY validation
-- [13_tdd_requirements_specification.md](./quality/13_tdd_requirements_specification.md) - MANDATORY test-driven development
-- [14_validation_workflow.md](./quality/14_validation_workflow.md) - Step-by-step validation process
+- [01_change_approval_requirements.xml](./quality/01_change_approval_requirements.xml) - MANDATORY approval process
+- [02_hallucination_prevention_guide.xml](./quality/02_hallucination_prevention_guide.xml) - MANDATORY validation
+- [03_tdd_requirements_specification.xml](./quality/03_tdd_requirements_specification.xml) - MANDATORY test-driven development
+- [04_validation_workflow.xml](./quality/04_validation_workflow.xml) - Step-by-step validation process
 
 ---
 
 ### ⚙️ Operations (System Management)
 **Purpose**: Deploy, monitor, and maintain your production system
 
-**Constants**: [00_operations_constants.md](./operations/00_operations_constants.md) ⭐
+**Constants**: [00_operations_constants.xml](./operations/00_operations_constants.xml) ⭐
 
 **Files**:
-- [08_troubleshooting_guide.md](./operations/08_troubleshooting_guide.md) - Fix common problems  
-- [09_quick_reference.md](./operations/09_quick_reference.md) - Command cheatsheet
-- [10_production_checklist.md](./operations/10_production_checklist.md) - Deployment guide
+- [01_troubleshooting_guide.xml](./operations/01_troubleshooting_guide.xml) - Fix common problems
+- [02_quick_reference.xml](./operations/02_quick_reference.xml) - Command cheatsheet
+- [03_production_checklist.xml](./operations/03_production_checklist.xml) - Deployment guide
 
 ---
 
@@ -90,8 +90,8 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 **Purpose**: Advanced prompt engineering and research methods
 
 **Files**:
-- [15_podcast_prompt_engineering.md](./prompts_research/15_podcast_prompt_engineering.md) - Specialized podcast prompting
-- [16_claude4_prompt_engineering.md](./prompts_research/16_claude4_prompt_engineering.md) - Claude 4 techniques
+- [15_podcast_prompt_engineering.xml](./prompts_research/15_podcast_prompt_engineering.xml) - Specialized podcast prompting
+- [16_claude4_prompt_engineering.xml](./prompts_research/16_claude4_prompt_engineering.xml) - Claude 4 techniques
 
 ---
 
@@ -108,7 +108,7 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 3. Quality: All 4 guides
 4. Operations: Troubleshooting→Quick Reference
 
-### Development Platform Focus  
+### Development Platform Focus
 1. Complete beginner path
 2. Claude Code: Introduction→Commands→Thinking Modes
 3. ElevenLabs: Overview→Models (for context)
@@ -127,7 +127,7 @@ All documentation follows strict DRY (Don't Repeat Yourself) principles. Constan
 ### Constants Hierarchy
 ```
 Global Constants (project-wide)
-├── Foundation Constants (learning structure)  
+├── Foundation Constants (learning structure)
 ├── ElevenLabs Constants (voice synthesis)
 ├── Claude Code Constants (development platform)
 ├── Quality Constants (standards)
@@ -135,8 +135,8 @@ Global Constants (project-wide)
 ```
 
 ### Reference Patterns Used
-- **Specifications**: `See [Constants](./domain/00_domain_constants.md#section)`
-- **Cross-links**: `Reference: [Guide Name](./category/file.md)`  
+- **Specifications**: `See [Constants](./domain/00_domain_constants.xml#section)`
+- **Cross-links**: `Reference: [Guide Name](./category/file.xml)`
 - **Values**: `PROJECT['name']` instead of hardcoded text
 - **Commands**: `SERVER_COMMANDS['start_dev']` instead of copy-paste
 
@@ -148,7 +148,7 @@ Global Constants (project-wide)
 - ✅ **Centralized**: Project name, episode count, duration, cost targets
 - ❌ **No longer duplicated**: Scattered across 19+ files
 
-### Commands & Configuration  
+### Commands & Configuration
 - ✅ **Centralized**: Server commands, API endpoints, file paths
 - ❌ **No longer duplicated**: Copy-pasted in multiple guides
 
@@ -157,7 +157,7 @@ Global Constants (project-wide)
 - ❌ **No longer duplicated**: Inconsistent descriptions across files
 
 ### Quality Standards
-- ✅ **Centralized**: Thresholds, validation criteria, approval requirements  
+- ✅ **Centralized**: Thresholds, validation criteria, approval requirements
 - ❌ **No longer duplicated**: Conflicting standards and processes
 
 ---
@@ -165,12 +165,12 @@ Global Constants (project-wide)
 ## ⚡ Quick Navigation
 
 ### Looking for...
-- **Project specs** → [Global Constants](../00_GLOBAL_CONSTANTS.md)
-- **Learning structure** → [Foundation Constants](./foundation/00_project_constants.md)
-- **Voice synthesis** → [ElevenLabs Constants](./elevenlabs/00_elevenlabs_constants.md)
-- **Development tools** → [Claude Code Constants](./claude-code/00_claude_code_constants.md)
-- **Quality standards** → [Quality Constants](./quality/00_quality_constants.md)
-- **System commands** → [Operations Constants](./operations/00_operations_constants.md)
+- **Project specs** → [Global Constants](../00_GLOBAL_CONSTANTS.xml)
+- **Learning structure** → [Foundation Constants](./foundation/00_project_constants.xml)
+- **Voice synthesis** → [ElevenLabs Constants](./elevenlabs/00_elevenlabs_constants.xml)
+- **Development tools** → [Claude Code Constants](./claude-code/00_claude_code_constants.xml)
+- **Quality standards** → [Quality Constants](./quality/00_quality_constants.xml)
+- **System commands** → [Operations Constants](./operations/00_operations_constants.xml)
 
 ### Common Tasks
 - **Get started** → Foundation 01-04
@@ -196,7 +196,7 @@ Global Constants (project-wide)
 ### Before Refactoring
 ```markdown
 File A: "27-minute episodes cost $4-8"
-File B: "Episode duration: 27 minutes, target cost $4-8"  
+File B: "Episode duration: 27 minutes, target cost $4-8"
 File C: "For our 27-minute podcast costing $4-8..."
 ```
 **Problem**: Update requires changing 19+ files

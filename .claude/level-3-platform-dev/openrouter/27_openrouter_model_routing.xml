@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <title>OpenRouter Model Routing Guide</title>
+    <type>reference</type>
+    <version>2025.1</version>
+    <last-updated>2025-01-11</last-updated>
+    <domain>level-3-platform-dev</domain>
+    <purpose>Intelligent model selection and routing strategies for OpenRouter</purpose>
+    <scope>Dynamic routing, fallback chains, and optimization patterns</scope>
+    <optimization-focus>Task-specific model selection for cost and quality balance</optimization-focus>
+  </metadata>
+
+  <executive-summary>
+    <description>
+      Comprehensive guide for intelligent model selection using OpenRouter's routing capabilities.
+      Covers dynamic routing strategies, task-specific model selection, fallback chains, and
+      performance optimization patterns for podcast production workflows.
+    </description>
+  </executive-summary>
+
+  <dynamic-routing-strategies>
+    <technical-explanation>
+      OpenRouter's intelligent routing system enables dynamic model selection based on task requirements,
+      cost constraints, and quality targets through algorithmic decision-making and performance optimization.
+    </technical-explanation>
+    <simple-explanation>
+      Smart system that automatically picks the best AI model for each task by considering what you need
+      (speed, quality, cost) and choosing the model that gives you the best results for your situation.
+    </simple-explanation>
+    <routing-philosophy>
+      Optimal model selection requires balancing quality requirements with cost constraints while
+      maintaining reliability through intelligent fallback mechanisms and performance monitoring.
+    </routing-philosophy>
+  </dynamic-routing-strategies>
+
+  <model-categories>
+    <tier id="premium" name="Tier 1: Premium Models (Highest Quality)">
+      <technical-explanation>
+        Premium models provide highest quality output through advanced reasoning capabilities
+        and extensive training, justified for critical content creation phases.
+      </technical-explanation>
+      <simple-explanation>
+        The best and most expensive AI models - use these when you need the highest quality
+        output and are willing to pay more for it.
+      </simple-explanation>
+      <models>
+        <model name="anthropic/claude-3-opus">
+          <strengths>Deep reasoning, creativity</strengths>
+          <cost-per-million>$15 input / $75 output</cost-per-million>
+          <use-case>Final script writing</use-case>
+          <quality-score>9.5/10</quality-score>
+        </model>
+        <model name="openai/gpt-4">
+          <strengths>Broad knowledge, consistency</strengths>
+          <cost-per-million>$30 input / $60 output</cost-per-million>
+          <use-case>Complex analysis</use-case>
+          <quality-score>9.2/10</quality-score>
+        </model>
+        <model name="google/gemini-pro-1.5">
+          <strengths>Multimodal, long context</strengths>
+          <cost-per-million>$7 input / $21 output</cost-per-million>
+          <use-case>Research synthesis</use-case>
+          <quality-score>8.8/10</quality-score>
+        </model>
+      </models>
+    </tier>
+
+    <tier id="balanced" name="Tier 2: Balanced Models (Quality/Cost)">
+      <technical-explanation>
+        Balanced models optimize quality-cost ratios for production workflows requiring
+        good performance without premium pricing overhead.
+      </technical-explanation>
+      <simple-explanation>
+        Good quality models at reasonable prices - the sweet spot for most tasks where
+        you want quality but don't need the absolute best.
+      </simple-explanation>
+      <models>
+        <model name="anthropic/claude-3-sonnet">
+          <strengths>Efficient reasoning</strengths>
+          <cost-per-million>$3 input / $15 output</cost-per-million>
+          <use-case>Script drafts</use-case>
+          <quality-score>8.2/10</quality-score>
+        </model>
+        <model name="openai/gpt-4-turbo">
+          <strengths>Fast, capable</strengths>
+          <cost-per-million>$10 input / $30 output</cost-per-million>
+          <use-case>Quality checks</use-case>
+          <quality-score>8.5/10</quality-score>
+        </model>
+        <model name="mistralai/mixtral-8x7b">
+          <strengths>Open source, reliable</strengths>
+          <cost-per-million>$0.6 input / $0.6 output</cost-per-million>
+          <use-case>Research</use-case>
+          <quality-score>7.8/10</quality-score>
+        </model>
+      </models>
+    </tier>
+
+    <tier id="efficiency" name="Tier 3: Efficiency Models (Cost-Optimized)">
+      <technical-explanation>
+        Cost-optimized models provide acceptable quality for high-volume tasks where
+        budget constraints require maximum efficiency over premium quality.
+      </technical-explanation>
+      <simple-explanation>
+        Cheap models that still do a good job - use these when you need to save money
+        and can accept slightly lower quality for basic tasks.
+      </simple-explanation>
+      <models>
+        <model name="anthropic/claude-instant">
+          <strengths>Quick responses</strengths>
+          <cost-per-million>$0.8 input / $2.4 output</cost-per-million>
+          <use-case>Summaries</use-case>
+          <quality-score>7.2/10</quality-score>
+        </model>
+        <model name="openai/gpt-3.5-turbo">
+          <strengths>Versatile, cheap</strengths>
+          <cost-per-million>$0.5 input / $1.5 output</cost-per-million>
+          <use-case>Basic tasks</use-case>
+          <quality-score>7.0/10</quality-score>
+        </model>
+        <model name="meta-llama/llama-3-70b">
+          <strengths>Free tier available</strengths>
+          <cost-per-million>$0.8 input / $0.8 output</cost-per-million>
+          <use-case>Bulk processing</use-case>
+          <quality-score>6.8/10</quality-score>
+        </model>
+      </models>
+    </tier>
+  </model-categories>
+
+  <routing-suffixes>
+    <suffix name=":online" purpose="Web-Enhanced">
+      <technical-explanation>
+        Integrates real-time web search results into model context for current information
+        and fact-checking capabilities beyond training data cutoffs.
+      </technical-explanation>
+      <simple-explanation>
+        Adds live internet search to the AI model so it can find current information
+        and check facts in real-time instead of relying only on old training data.
+      </simple-explanation>
+      <implementation>
+        <model-example>anthropic/claude-3-sonnet:online</model-example>
+        <use-cases>
+          <use-case>Current events research</use-case>
+          <use-case>Real-time fact-checking</use-case>
+          <use-case>Recent scientific developments</use-case>
+        </use-cases>
+      </implementation>
+    </suffix>
+
+    <suffix name=":nitro" purpose="Speed-Optimized">
+      <technical-explanation>
+        Prioritizes lowest latency providers and optimized inference configurations
+        for real-time applications requiring rapid response times.
+      </technical-explanation>
+      <simple-explanation>
+        Makes the AI respond as fast as possible by using the quickest servers
+        and settings - like choosing the express lane at the store.
+      </simple-explanation>
+      <implementation>
+        <model-example>openai/gpt-4-turbo:nitro</model-example>
+        <use-cases>
+          <use-case>Real-time interactions</use-case>
+          <use-case>Quick iterations during editing</use-case>
+          <use-case>Interactive quality checks</use-case>
+        </use-cases>
+      </implementation>
+    </suffix>
+
+    <suffix name=":floor" purpose="Cost-Optimized">
+      <technical-explanation>
+        Routes to cheapest available provider for maximum cost efficiency while
+        maintaining baseline quality standards for budget-conscious applications.
+      </technical-explanation>
+      <simple-explanation>
+        Always picks the cheapest option available - like shopping at the discount store
+        instead of the premium boutique when you need to save money.
+      </simple-explanation>
+      <implementation>
+        <model-example>mistralai/mixtral-8x7b:floor</model-example>
+        <use-cases>
+          <use-case>Bulk processing tasks</use-case>
+          <use-case>Initial draft generation</use-case>
+          <use-case>High-volume research</use-case>
+        </use-cases>
+      </implementation>
+    </suffix>
+
+    <suffix name=":extended" purpose="Long Context">
+      <technical-explanation>
+        Enables maximum context window utilization for processing large documents
+        and maintaining conversation context across extended interactions.
+      </technical-explanation>
+      <simple-explanation>
+        Allows the AI to remember and process much more information at once - like
+        having a bigger notepad to write down all the details.
+      </simple-explanation>
+      <implementation>
+        <model-example>google/gemini-pro-1.5:extended</model-example>
+        <use-cases>
+          <use-case>Full episode script processing</use-case>
+          <use-case>Comprehensive research synthesis</use-case>
+          <use-case>Long-form content analysis</use-case>
+        </use-cases>
+      </implementation>
+    </suffix>
+  </routing-suffixes>
+
+  <task-specific-routing>
+    <routing-pattern id="research-phase">
+      <title>Research Phase Routing</title>
+      <technical-explanation>
+        Research routing optimizes for information gathering efficiency with cost constraints
+        based on complexity levels and budget allocation strategies.
+      </technical-explanation>
+      <simple-explanation>
+        Different research tasks need different levels of AI intelligence - simple lookups
+        use cheap models, complex analysis uses smarter (more expensive) models.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class ResearchRouter:
+    def route_research_task(self, complexity, budget_remaining):
+        """Smart routing for research tasks"""
+
+        if complexity == "simple":
+            # Simple lookups and summaries
+            return "meta-llama/llama-3-70b:floor"
+
+        elif complexity == "moderate":
+            # Standard research with synthesis
+            if budget_remaining > 2.00:
+                return "anthropic/claude-instant"
+            else:
+                return "mistralai/mixtral-8x7b:floor"
+
+        else:  # complex
+            # Deep research requiring reasoning
+            if budget_remaining > 5.00:
+                return "anthropic/claude-3-sonnet:online"
+            else:
+                return "openai/gpt-4-turbo"
+        ]]>
+      </implementation>
+      <routing-logic>
+        <simple-complexity>Use cheapest models for basic information gathering</simple-complexity>
+        <moderate-complexity>Balance cost with capability based on budget</moderate-complexity>
+        <complex-complexity>Prioritize reasoning capability with web access when budget allows</complex-complexity>
+      </routing-logic>
+    </routing-pattern>
+
+    <routing-pattern id="script-generation">
+      <title>Script Generation Routing</title>
+      <technical-explanation>
+        Progressive quality improvement through iterative drafting with increasing model
+        sophistication for refinement and polish phases.
+      </technical-explanation>
+      <simple-explanation>
+        Start with cheaper models for first drafts, then use better models for revisions
+        and final polish - like writing a rough draft before creating the final version.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class ScriptRouter:
+    def route_script_task(self, draft_number, quality_target):
+        """Progressive quality improvement through drafts"""
+
+        routing_map = {
+            1: {  # First draft
+                "high": "anthropic/claude-3-sonnet",
+                "medium": "openai/gpt-3.5-turbo",
+                "low": "mistralai/mixtral-8x7b"
+            },
+            2: {  # Revision
+                "high": "anthropic/claude-3-opus",
+                "medium": "anthropic/claude-3-sonnet",
+                "low": "openai/gpt-3.5-turbo"
+            },
+            3: {  # Final polish
+                "high": "anthropic/claude-3-opus",
+                "medium": "openai/gpt-4-turbo",
+                "low": "anthropic/claude-3-sonnet"
+            }
+        }
+
+        return routing_map.get(draft_number, {}).get(
+            quality_target,
+            "openai/gpt-3.5-turbo"
+        )
+        ]]>
+      </implementation>
+      <draft-progression>
+        <draft-1>Initial content creation with appropriate model for target quality</draft-1>
+        <draft-2>Enhanced revision using higher-tier models for improvement</draft-2>
+        <draft-3>Final polish with premium models for maximum quality</draft-3>
+      </draft-progression>
+    </routing-pattern>
+
+    <routing-pattern id="quality-evaluation">
+      <title>Quality Evaluation Routing</title>
+      <technical-explanation>
+        Specialized routing based on evaluation type requirements optimizing for
+        specific analytical capabilities and response speed needs.
+      </technical-explanation>
+      <simple-explanation>
+        Different types of quality checks need different AI capabilities - fact-checking
+        needs web access, style checking needs creativity understanding.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class QualityRouter:
+    def route_evaluation_task(self, evaluation_type):
+        """Route based on evaluation requirements"""
+
+        routes = {
+            "factual_accuracy": "openai/gpt-4:online",  # Web search for fact-check
+            "dialogue_quality": "anthropic/claude-3-sonnet",  # Nuanced evaluation
+            "technical_review": "openai/gpt-4-turbo",  # Comprehensive analysis
+            "quick_check": "openai/gpt-3.5-turbo:nitro",  # Fast validation
+            "brand_consistency": "anthropic/claude-instant"  # Style check
+        }
+
+        return routes.get(evaluation_type, "openai/gpt-3.5-turbo")
+        ]]>
+      </implementation>
+      <evaluation-mapping>
+        <factual-accuracy>Web-enabled models for real-time fact verification</factual-accuracy>
+        <dialogue-quality>Creative models for natural conversation assessment</dialogue-quality>
+        <technical-review>Comprehensive models for detailed analysis</technical-review>
+        <quick-check>Fast models for rapid validation cycles</quick-check>
+        <brand-consistency>Efficient models for style and tone checking</brand-consistency>
+      </evaluation-mapping>
+    </routing-pattern>
+  </task-specific-routing>
+
+  <fallback-chains>
+    <chain id="reliability-first" priority="Reliability">
+      <technical-explanation>
+        Reliability-optimized fallback chain prioritizing consistent availability
+        and proven uptime records for mission-critical production workflows.
+      </technical-explanation>
+      <simple-explanation>
+        Chain of backup models focused on staying online and working consistently -
+        like having multiple backup plans that rarely fail.
+      </simple-explanation>
+      <chain-sequence>
+        <primary>openai/gpt-4-turbo (Most reliable)</primary>
+        <fallback-1>anthropic/claude-3-sonnet (Excellent fallback)</fallback-1>
+        <fallback-2>openai/gpt-3.5-turbo (Always available)</fallback-2>
+        <fallback-3>mistralai/mixtral-8x7b (Open source backup)</fallback-3>
+      </chain-sequence>
+    </chain>
+
+    <chain id="quality-first" priority="Quality">
+      <technical-explanation>
+        Quality-focused chain maximizing output quality through premium model selection
+        with gradual degradation to maintain acceptable quality standards.
+      </technical-explanation>
+      <simple-explanation>
+        Chain focused on getting the best quality output possible - starts with
+        the best models and gradually falls back to still-good models.
+      </simple-explanation>
+      <chain-sequence>
+        <primary>anthropic/claude-3-opus (Highest quality)</primary>
+        <fallback-1>openai/gpt-4 (Excellent alternative)</fallback-1>
+        <fallback-2>anthropic/claude-3-sonnet (Good quality/cost)</fallback-2>
+        <fallback-3>openai/gpt-4-turbo (Fast quality option)</fallback-3>
+      </chain-sequence>
+    </chain>
+
+    <chain id="cost-first" priority="Cost">
+      <technical-explanation>
+        Cost-optimized chain minimizing expenses while maintaining acceptable quality
+        baseline through strategic low-cost model selection.
+      </technical-explanation>
+      <simple-explanation>
+        Chain focused on saving money - starts with the cheapest models that still
+        do good work and only goes more expensive if needed.
+      </simple-explanation>
+      <chain-sequence>
+        <primary>meta-llama/llama-3-70b:floor (Cheapest)</primary>
+        <fallback-1>mistralai/mixtral-8x7b:floor (Very affordable)</fallback-1>
+        <fallback-2>openai/gpt-3.5-turbo (Reliable and cheap)</fallback-2>
+        <fallback-3>anthropic/claude-instant (Good value)</fallback-3>
+      </chain-sequence>
+    </chain>
+  </fallback-chains>
+
+  <intelligent-routing-logic>
+    <adaptive-router>
+      <technical-explanation>
+        Machine learning-based routing system that adapts model selection based on
+        historical performance data and real-time constraint optimization.
+      </technical-explanation>
+      <simple-explanation>
+        Smart system that learns from experience which models work best for different
+        tasks and automatically gets better at choosing over time.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class AdaptiveRouter:
+    def __init__(self):
+        self.performance_history = {}
+        self.cost_tracker = {}
+
+    def select_model(self, task_type, constraints):
+        """Intelligently select model based on multiple factors"""
+
+        factors = self.calculate_factors(task_type, constraints)
+
+        # Weight different factors
+        score_weights = {
+            "quality": constraints.get("quality_weight", 0.4),
+            "cost": constraints.get("cost_weight", 0.3),
+            "speed": constraints.get("speed_weight", 0.2),
+            "reliability": constraints.get("reliability_weight", 0.1)
+        }
+
+        best_model = None
+        best_score = -1
+
+        for model in self.get_available_models():
+            score = self.calculate_model_score(model, factors, score_weights)
+            if score > best_score:
+                best_score = score
+                best_model = model
+
+        return best_model
+        ]]>
+      </implementation>
+      <scoring-factors>
+        <quality-weight>40% - Output quality importance</quality-weight>
+        <cost-weight>30% - Budget constraint importance</cost-weight>
+        <speed-weight>20% - Response time importance</speed-weight>
+        <reliability-weight>10% - Uptime and consistency importance</reliability-weight>
+      </scoring-factors>
+    </adaptive-router>
+
+    <context-aware-router>
+      <technical-explanation>
+        Context-sensitive routing system that selects models based on input size
+        and context window requirements for optimal processing efficiency.
+      </technical-explanation>
+      <simple-explanation>
+        Smart system that picks models based on how much text you're processing -
+        uses models with bigger "memory" for longer documents.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class ContextAwareRouter:
+    def __init__(self):
+        self.context_limits = {
+            "openai/gpt-3.5-turbo": 4096,
+            "openai/gpt-4-turbo": 128000,
+            "anthropic/claude-3-opus": 200000,
+            "google/gemini-pro-1.5:extended": 1000000
+        }
+
+    def route_by_context(self, input_tokens):
+        """Select model based on context requirements"""
+
+        suitable_models = []
+        for model, limit in self.context_limits.items():
+            if input_tokens < limit * 0.8:  # 80% safety margin
+                suitable_models.append(model)
+
+        # Return cheapest suitable model
+        return self.get_cheapest_model(suitable_models)
+        ]]>
+      </implementation>
+      <context-strategy>
+        <safety-margin>80% of maximum context to prevent overflow</safety-margin>
+        <model-selection>Cheapest model among suitable options</model-selection>
+        <escalation>Automatic upgrade to larger context models when needed</escalation>
+      </context-strategy>
+    </context-aware-router>
+  </intelligent-routing-logic>
+
+  <production-routing-patterns>
+    <episode-production-pipeline>
+      <technical-explanation>
+        Budget-aware routing system that allocates model costs across production phases
+        while maintaining quality standards within episode budget constraints.
+      </technical-explanation>
+      <simple-explanation>
+        Smart budgeting system that manages how much money to spend on AI for each
+        part of making an episode while staying within the total budget.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class EpisodeProductionRouter:
+    def __init__(self, episode_budget=4.00):
+        self.budget = episode_budget
+        self.spent = 0.0
+
+    def get_research_model(self):
+        """Route research phase"""
+        budget_available = self.budget - self.spent
+
+        if budget_available > 3.00:
+            return "anthropic/claude-instant"
+        elif budget_available > 2.00:
+            return "mistralai/mixtral-8x7b"
+        else:
+            return "meta-llama/llama-3-70b:floor"
+
+    def get_script_model(self, draft_num):
+        """Route script generation"""
+        budget_available = self.budget - self.spent
+
+        if draft_num == 1 and budget_available > 2.50:
+            return "anthropic/claude-3-sonnet"
+        elif draft_num == 2 and budget_available > 1.50:
+            return "anthropic/claude-3-opus"
+        else:
+            return "openai/gpt-3.5-turbo"
+
+    def get_quality_model(self):
+        """Route quality evaluation"""
+        budget_available = self.budget - self.spent
+
+        if budget_available > 1.00:
+            return "openai/gpt-4-turbo:nitro"
+        else:
+            return "openai/gpt-3.5-turbo:nitro"
+        ]]>
+      </implementation>
+      <budget-allocation>
+        <research-phase>20-30% of episode budget</research-phase>
+        <script-generation>50-60% of episode budget</script-generation>
+        <quality-evaluation>10-20% of episode budget</quality-evaluation>
+        <contingency>5-10% buffer for retries and revisions</contingency>
+      </budget-allocation>
+    </episode-production-pipeline>
+
+    <ab-testing-router>
+      <technical-explanation>
+        A/B testing framework for comparing model performance across different routing
+        strategies with statistical analysis for optimization insights.
+      </technical-explanation>
+      <simple-explanation>
+        Testing system that tries different AI models for similar tasks to see which ones
+        work better, like trying two different recipes to see which tastes better.
+      </simple-explanation>
+      <implementation>
+        <![CDATA[
+class ABTestRouter:
+    def __init__(self):
+        self.test_groups = {
+            "A": "anthropic/claude-3-sonnet",
+            "B": "openai/gpt-4-turbo"
+        }
+        self.results = {"A": [], "B": []}
+
+    def route_for_test(self, test_id):
+        """Route requests for A/B testing"""
+        import hashlib
+
+        # Deterministic assignment based on test_id
+        group = "A" if int(hashlib.md5(test_id.encode()).hexdigest(), 16) % 2 == 0 else "B"
+        return self.test_groups[group]
+
+    def record_result(self, group, quality_score, cost):
+        """Track results for analysis"""
+        self.results[group].append({
+            "quality": quality_score,
+            "cost": cost
+        })
+        ]]>
+      </implementation>
+      <testing-methodology>
+        <deterministic-assignment>Consistent model assignment based on test ID</deterministic-assignment>
+        <result-tracking>Quality scores and costs tracked for statistical analysis</result-tracking>
+        <performance-comparison>A/B performance metrics for optimization insights</performance-comparison>
+      </testing-methodology>
+    </ab-testing-router>
+  </production-routing-patterns>
+
+  <monitoring-optimization>
+    <performance-tracker>
+      <technical-explanation>
+        Comprehensive performance monitoring system tracking routing decisions and outcomes
+        for data-driven optimization and model selection refinement.
+      </technical-explanation>
+      <simple-explanation>
+        System that keeps track of which AI models work best for different tasks so
+        you can learn from experience and make better choices in the future.
+      </simple-explanation>
+      <tracked-metrics>
+        <latency>Response time performance per model</latency>
+        <cost>Actual costs incurred per request</cost>
+        <quality>Output quality scores per task type</quality>
+        <reliability>Success rates and error frequencies</reliability>
+      </tracked-metrics>
+      <optimization-insights>
+        <best-performers>Identify top-performing models per task</best-performers>
+        <cost-effectiveness>Calculate value ratios for optimization</cost-effectiveness>
+        <trend-analysis>Track performance changes over time</trend-analysis>
+        <recommendation-engine>Suggest optimal routing strategies</recommendation-engine>
+      </optimization-insights>
+    </performance-tracker>
+  </monitoring-optimization>
+
+  <best-practices>
+    <practice id="conservative-start">Start Conservative: Begin with cheaper models, upgrade based on quality needs</practice>
+    <practice id="continuous-monitoring">Monitor Continuously: Track performance per model per task type</practice>
+    <practice id="wise-fallbacks">Use Fallbacks Wisely: Don't cascade through too many models</practice>
+    <practice id="cache-decisions">Cache Routing Decisions: Reuse successful routing patterns</practice>
+    <practice id="regular-testing">Test Regularly: Models improve over time, re-evaluate routing</practice>
+    <practice id="budget-awareness">Budget Awareness: Always track cumulative costs</practice>
+    <practice id="quality-gates">Quality Gates: Set minimum quality thresholds</practice>
+    <practice id="document-decisions">Document Decisions: Log why specific routes were chosen</practice>
+  </best-practices>
+
+  <key-takeaways>
+    <technical>
+      <takeaway>Dynamic routing strategies optimize cost-quality trade-offs through intelligent model selection</takeaway>
+      <takeaway>Task-specific routing patterns improve efficiency by matching model capabilities to requirements</takeaway>
+      <takeaway>Fallback chains ensure reliability while maintaining quality standards across different priorities</takeaway>
+      <takeaway>Performance monitoring enables data-driven optimization of routing strategies over time</takeaway>
+    </technical>
+    <simple>
+      <takeaway>Smart routing saves money by using the right AI model for each specific task</takeaway>
+      <takeaway>Different tasks need different models - research needs cheap, writing needs creative</takeaway>
+      <takeaway>Backup plans keep your system working even when preferred models are unavailable</takeaway>
+      <takeaway>Tracking which models work best helps you make better choices in the future</takeaway>
+    </simple>
+  </key-takeaways>
+
+  <cross-references>
+    <reference type="overview" target="25_openrouter_overview.xml"/>
+    <reference type="api-integration" target="26_openrouter_api_integration.xml"/>
+    <reference type="cost-optimization" target="28_openrouter_cost_optimization.xml"/>
+    <reference type="production-patterns" target="29_openrouter_production_patterns.xml"/>
+    <reference type="level-4-architecture" target="../foundation/architecture-phases.xml"/>
+  </cross-references>
+</reference>

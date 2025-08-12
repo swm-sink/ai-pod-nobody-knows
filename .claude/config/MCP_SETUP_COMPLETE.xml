@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentation xmlns="http://schema.claude.ai/documentation"
+               type="setup-completion"
+               version="1.0">
+  <metadata>
+    <title>MCP Setup Complete!</title>
+    <date>2025-08-11</date>
+    <status>Successfully installed and configured</status>
+    <icon>✅</icon>
+  </metadata>
+
+  <installation-summary>
+    <what-we-did>
+      <task>
+        <title>Removed Unnecessary MCP</title>
+        <status>✅</status>
+        <description>Removed Atlassian MCP (not needed for this project)</description>
+      </task>
+
+      <task>
+        <title>Installed Official MCPs Locally</title>
+        <status>✅</status>
+        <components>
+          <component>ElevenLabs MCP (Python-based) in .claude/mcp-servers/elevenlabs-mcp/</component>
+          <component>Perplexity MCP (Node.js-based) in .claude/mcp-servers/perplexity-mcp/</component>
+        </components>
+      </task>
+
+      <task>
+        <title>Security Implementation</title>
+        <status>✅</status>
+        <measures>
+          <measure>Added to .gitignore (won't be committed)</measure>
+          <measure>API keys stored securely</measure>
+          <measure>Created .mcp.json.example for others</measure>
+        </measures>
+      </task>
+
+      <task>
+        <title>Configuration Files</title>
+        <status>✅</status>
+        <files>
+          <file name=".mcp.json">Your actual configuration (git-ignored)</file>
+          <file name=".mcp.json.example">Template for others (safe to commit)</file>
+        </files>
+      </task>
+
+      <task>
+        <title>Testing</title>
+        <status>✅</status>
+        <validations>
+          <validation>Both MCP modules load successfully</validation>
+          <validation>Configuration file valid</validation>
+          <validation>API keys properly set</validation>
+        </validations>
+      </task>
+    </what-we-did>
+  </installation-summary>
+
+  <activation-instructions>
+    <title>To Activate MCPs in Claude Code:</title>
+
+    <option priority="recommended">
+      <title>Option 1: Restart Claude Code (Recommended)</title>
+      <code>
+# The .mcp.json in project root will be automatically loaded
+# Just restart Claude Code and the MCPs should be available
+      </code>
+    </option>
+
+    <option>
+      <title>Option 2: Manual Reload (if needed)</title>
+      <commands>
+        <command>
+# From project directory
+cd /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows
+
+# Check if MCPs are loaded
+claude mcp list
+
+# If not showing, may need to restart Claude Code application
+        </command>
+      </commands>
+    </option>
+  </activation-instructions>
+
+  <available-mcp-tools>
+    <mcp-provider name="Perplexity">
+      <tool name="perplexity_search">Web search with Sonar model</tool>
+      <tool name="perplexity_ask">Direct question answering</tool>
+    </mcp-provider>
+
+    <mcp-provider name="ElevenLabs">
+      <tool name="elevenlabs_text_to_speech">Generate audio from text</tool>
+      <tool name="elevenlabs_list_voices">Get available voices</tool>
+    </mcp-provider>
+  </available-mcp-tools>
+
+  <file-structure>
+    <directory-tree>
+ai-podcasts-nobody-knows/
+├── .mcp.json                    # Your config (git-ignored)
+├── .mcp.json.example           # Template for others
+├── .env                        # API keys (git-ignored)
+├── .env.example               # API key template
+└── .claude/
+    ├── mcp-servers/           # Git-ignored
+    │   ├── elevenlabs-mcp/   # Installed ✅
+    │   └── perplexity-mcp/   # Installed ✅
+    └── scripts/
+        └── test_mcps.py      # Test script
+    </directory-tree>
+  </file-structure>
+
+  <testing-setup>
+    <title>Testing Your Setup:</title>
+    <test-commands>
+      <command purpose="test-mcps">
+# Test MCPs are working
+python3 .claude/scripts/test_mcps.py
+      </command>
+
+      <command purpose="verify-availability">
+# After Claude Code restart, verify MCPs available
+claude mcp list
+      </command>
+    </test-commands>
+  </testing-setup>
+
+  <security-checklist>
+    <security-item status="✅">.mcp.json is git-ignored</security-item>
+    <security-item status="✅">.claude/mcp-servers/ is git-ignored</security-item>
+    <security-item status="✅">API keys are never hardcoded</security-item>
+    <security-item status="✅">Example files don't contain real keys</security-item>
+    <security-item status="✅">No Atlassian MCP in this project</security-item>
+  </security-checklist>
+
+  <next-steps>
+    <step priority="1">Restart Claude Code to load the MCPs</step>
+    <step priority="2">Verify with `claude mcp list`</step>
+    <step priority="3">Start using in your agents:
+      <usage>Research agent can use Perplexity</usage>
+      <usage>Audio agent can use ElevenLabs</usage>
+      <usage>Script/Quality use native Claude Code</usage>
+    </step>
+  </next-steps>
+
+  <troubleshooting>
+    <title>If MCPs don't appear after restart:</title>
+    <troubleshooting-steps>
+      <step>Check you're in project directory</step>
+      <step>Verify .mcp.json exists in project root</step>
+      <step>Check API keys are correct</step>
+      <step>Look at Claude Code logs for errors</step>
+    </troubleshooting-steps>
+  </troubleshooting>
+
+  <final-status>
+    <status>Ready for use after Claude Code restart</status>
+    <security>All sensitive data protected</security>
+    <simplicity>Solo project setup complete</simplicity>
+  </final-status>
+</documentation>

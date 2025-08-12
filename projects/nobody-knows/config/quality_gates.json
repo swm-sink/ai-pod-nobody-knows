@@ -22,7 +22,7 @@
         }
       }
     },
-    
+
     "brand_consistency": {
       "threshold": 0.90,
       "weight": 0.30,
@@ -42,7 +42,7 @@
         }
       }
     },
-    
+
     "engagement": {
       "threshold": 0.80,
       "weight": 0.25,
@@ -62,7 +62,7 @@
         }
       }
     },
-    
+
     "technical": {
       "threshold": 0.85,
       "weight": 0.20,
@@ -86,14 +86,14 @@
       }
     }
   },
-  
+
   "overall_requirements": {
     "minimum_overall_score": 0.85,
     "all_thresholds_must_pass": true,
     "allow_retry_on_failure": true,
     "max_retries": 3
   },
-  
+
   "failure_actions": {
     "below_comprehension": [
       "Simplify complex sentences",
@@ -116,7 +116,7 @@
       "Improve audio synthesis settings"
     ]
   },
-  
+
   "bonus_criteria": {
     "cross_references": {
       "description": "References to other episodes",
@@ -131,7 +131,7 @@
       "bonus_points": 0.02
     }
   },
-  
+
   "reporting": {
     "generate_quality_report": true,
     "include_recommendations": true,

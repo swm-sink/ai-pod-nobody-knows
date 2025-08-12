@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="constants" domain="quality" version="3.1.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+
+  <metadata>
+    <title>Quality Assurance Constants</title>
+    <claude-optimization>true</claude-optimization>
+  </metadata>
+
+  <content>
+    <section type="constants" id="content-quality-thresholds">
+      <technical-explanation>
+        Content quality thresholds define minimum acceptable performance levels across accuracy, comprehension, engagement, brand consistency, and technical quality dimensions. These quantitative measures enable automated quality gates and consistent evaluation.
+      </technical-explanation>
+      <simple-explanation>
+        Like report card grades for different aspects of podcast quality - each area has a minimum score needed to pass, helping ensure every episode meets consistent standards.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>CONTENT_ACCURACY_THRESHOLD</name>
+          <value>0.95</value>
+          <description>Minimum accuracy threshold - no hallucinated facts allowed</description>
+        </constant>
+        <constant>
+          <name>CONTENT_COMPREHENSION_THRESHOLD</name>
+          <value>0.85</value>
+          <description>Minimum comprehension threshold - content must be clearly understandable</description>
+        </constant>
+        <constant>
+          <name>CONTENT_ENGAGEMENT_THRESHOLD</name>
+          <value>0.80</value>
+          <description>Minimum engagement threshold - content must hold listener attention</description>
+        </constant>
+        <constant>
+          <name>BRAND_CONSISTENCY_THRESHOLD</name>
+          <value>0.90</value>
+          <description>Minimum brand consistency threshold - must match voice and tone</description>
+        </constant>
+        <constant>
+          <name>TECHNICAL_QUALITY_THRESHOLD</name>
+          <value>0.85</value>
+          <description>Minimum technical quality threshold - audio and production standards</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="validation-score-ranges">
+      <technical-explanation>
+        Validation score ranges provide standardized interpretation of quality measurements, enabling consistent categorization of content quality from minimum passing to perfect scores.
+      </technical-explanation>
+      <simple-explanation>
+        Like a grading scale that tells you what different scores mean - from "needs work" to "perfect" - so everyone understands what the numbers represent.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>VALIDATION_MINIMUM_PASSING</name>
+          <value>0.80</value>
+          <description>Minimum passing score for validation</description>
+        </constant>
+        <constant>
+          <name>VALIDATION_TARGET_SCORE</name>
+          <value>0.85</value>
+          <description>Target quality score to aim for</description>
+        </constant>
+        <constant>
+          <name>VALIDATION_EXCELLENT_SCORE</name>
+          <value>0.90</value>
+          <description>Excellent quality score threshold</description>
+        </constant>
+        <constant>
+          <name>VALIDATION_PERFECT_SCORE</name>
+          <value>0.95</value>
+          <description>Perfect quality score threshold</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="mandatory-compliance-requirements">
+      <technical-explanation>
+        Mandatory compliance requirements define non-negotiable standards for change approval, hallucination prevention, TDD compliance, and DRY principle adherence. These requirements ensure system reliability and maintainability.
+      </technical-explanation>
+      <simple-explanation>
+        Like safety rules that can't be broken - these are the absolute requirements that must always be followed to keep the system working properly and safely.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>CHANGE_APPROVAL_SCOPE</name>
+          <value>ALL_CONTENT_MODIFICATIONS</value>
+          <description>All content modifications require change approval process</description>
+        </constant>
+        <constant>
+          <name>HALLUCINATION_PREVENTION_SOURCES_MIN</name>
+          <value>3</value>
+          <description>Minimum number of independent sources for fact verification</description>
+        </constant>
+        <constant>
+          <name>TDD_COVERAGE_MINIMUM</name>
+          <value>0.80</value>
+          <description>Minimum test coverage requirement</description>
+        </constant>
+        <constant>
+          <name>TDD_TEST_FIRST_REQUIRED</name>
+          <value>true</value>
+          <description>Tests must be written before code implementation</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="test-coverage-standards">
+      <technical-explanation>
+        Test coverage standards define minimum coverage requirements and testing framework specifications for different test types including unit, integration, and quality validation tests.
+      </technical-explanation>
+      <simple-explanation>
+        Like inspection requirements for different parts of a building - different areas need different types of testing, but all must meet minimum standards to ensure safety and reliability.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>UNIT_TEST_COVERAGE_MINIMUM</name>
+          <value>0.80</value>
+          <description>Minimum coverage for unit tests</description>
+        </constant>
+        <constant>
+          <name>UNIT_TEST_FRAMEWORK</name>
+          <value>pytest</value>
+          <description>Required framework for unit testing</description>
+        </constant>
+        <constant>
+          <name>INTEGRATION_TEST_SCOPE</name>
+          <value>API_CONNECTIONS</value>
+          <description>Integration tests must cover all API connections</description>
+        </constant>
+        <constant>
+          <name>TEST_NAMING_PATTERN</name>
+          <value>test_[function]_[scenario]</value>
+          <description>Required naming pattern for test functions</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="error-severity-classification">
+      <technical-explanation>
+        Error severity classification defines response time requirements and approval processes for different error levels, from critical system failures to cosmetic improvements.
+      </technical-explanation>
+      <simple-explanation>
+        Like emergency response levels - critical errors get immediate attention like calling 911, while minor issues are like scheduling a routine appointment.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>CRITICAL_ERROR_RESPONSE_TIME</name>
+          <value>IMMEDIATE</value>
+          <description>Response time for critical errors affecting system or safety</description>
+        </constant>
+        <constant>
+          <name>HIGH_ERROR_RESPONSE_TIME</name>
+          <value>SAME_SESSION</value>
+          <description>Response time for high priority functionality issues</description>
+        </constant>
+        <constant>
+          <name>MEDIUM_ERROR_RESPONSE_TIME</name>
+          <value>NEXT_SESSION</value>
+          <description>Response time for minor functionality issues</description>
+        </constant>
+        <constant>
+          <name>LOW_ERROR_RESPONSE_TIME</name>
+          <value>FUTURE_ITERATION</value>
+          <description>Response time for cosmetic or enhancement requests</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="quality-measurement-standards">
+      <technical-explanation>
+        Quality measurement standards define audio quality requirements, content standards, technical performance targets, and system reliability metrics for consistent evaluation.
+      </technical-explanation>
+      <simple-explanation>
+        Like detailed specifications for what "good quality" means in each area - clear audio, accurate content, fast performance, and reliable operation.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>AUDIO_QUALITY_STANDARD</name>
+          <value>PROFESSIONAL_PODCAST_STANDARD</value>
+          <description>Audio must meet professional podcast production standards</description>
+        </constant>
+        <constant>
+          <name>EPISODE_DURATION_TOLERANCE</name>
+          <value>0.05</value>
+          <description>Maximum deviation from target episode duration (5%)</description>
+        </constant>
+        <constant>
+          <name>SYSTEM_UPTIME_TARGET</name>
+          <value>0.99</value>
+          <description>Target system uptime percentage</description>
+        </constant>
+        <constant>
+          <name>RESPONSE_TIME_TARGET</name>
+          <value>5</value>
+          <description>Maximum acceptable response time in seconds</description>
+        </constant>
+        <constant>
+          <name>SCALE_CAPACITY_TARGET</name>
+          <value>100</value>
+          <description>System must handle production of 100 episodes</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="monitoring-and-reporting">
+      <technical-explanation>
+        Monitoring and reporting constants define measurement frequencies, reporting formats, and quality indicator thresholds for continuous system health assessment.
+      </technical-explanation>
+      <simple-explanation>
+        Like scheduling regular check-ups and defining what the results mean - when to check different things and how to interpret whether everything is healthy.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>REAL_TIME_MONITORING</name>
+          <value>SYSTEM_PERFORMANCE_ERRORS</value>
+          <description>System performance and errors monitored in real-time</description>
+        </constant>
+        <constant>
+          <name>DAILY_MONITORING</name>
+          <value>QUALITY_SCORES_COST_TRACKING</value>
+          <description>Quality scores and cost tracking monitored daily</description>
+        </constant>
+        <constant>
+          <name>WEEKLY_MONITORING</name>
+          <value>TREND_ANALYSIS_IMPROVEMENTS</value>
+          <description>Trend analysis and improvements reviewed weekly</description>
+        </constant>
+        <constant>
+          <name>MONTHLY_MONITORING</name>
+          <value>OVERALL_SYSTEM_HEALTH</value>
+          <description>Overall system health assessed monthly</description>
+        </constant>
+      </constants>
+    </section>
+
+    <section type="constants" id="validation-workflow-steps">
+      <technical-explanation>
+        Validation workflow steps define the sequential process for content validation, code validation, and system validation to ensure comprehensive quality assurance.
+      </technical-explanation>
+      <simple-explanation>
+        Like assembly line quality checks - each step must be completed in order to ensure everything meets standards before moving to the next stage.
+      </simple-explanation>
+
+      <constants>
+        <constant>
+          <name>CONTENT_VALIDATION_STEP_COUNT</name>
+          <value>5</value>
+          <description>Number of steps in content validation workflow</description>
+        </constant>
+        <constant>
+          <name>CODE_VALIDATION_STEP_COUNT</name>
+          <value>6</value>
+          <description>Number of steps in code validation workflow</description>
+        </constant>
+        <constant>
+          <name>SYSTEM_VALIDATION_STEP_COUNT</name>
+          <value>5</value>
+          <description>Number of steps in system validation workflow</description>
+        </constant>
+        <constant>
+          <name>USER_APPROVAL_REQUIRED</name>
+          <value>true</value>
+          <description>User approval required for all validation workflows</description>
+        </constant>
+      </constants>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference file="../../global-constants.xml" section="constants" type="prerequisite">Global project constants and standards</reference>
+    <reference file="01_change_approval_requirements.xml" section="approval-workflow" type="related">Change approval workflow implementation</reference>
+    <reference file="02_hallucination_prevention_guide.xml" section="validation-workflow" type="related">Fact verification and validation processes</reference>
+    <reference file="03_tdd_requirements_specification.xml" section="quality-requirements" type="related">Test-driven development quality standards</reference>
+  </cross-references>
+
+</document>

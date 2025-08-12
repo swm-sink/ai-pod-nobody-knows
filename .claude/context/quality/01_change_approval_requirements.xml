@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="quality" version="1.0.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+
+  <metadata>
+    <title>Change Approval Requirements</title>
+    <phase>walk</phase>
+    <skill-level>beginner</skill-level>
+    <claude-optimization>true</claude-optimization>
+    <learning-outcomes>
+      <outcome>Understand change control and approval workflows</outcome>
+      <outcome>Learn impact assessment techniques</outcome>
+      <outcome>Master rollback and validation procedures</outcome>
+    </learning-outcomes>
+    <prerequisites>
+      <prerequisite>Basic understanding of project structure</prerequisite>
+      <prerequisite>Familiarity with Git version control</prerequisite>
+    </prerequisites>
+    <estimated-time>30 minutes</estimated-time>
+  </metadata>
+
+  <content>
+    <section type="introduction" id="change-control-principle">
+      <technical-explanation>
+        Change control is a formal process that ensures all modifications to a system undergo systematic evaluation, approval, and validation before implementation. This prevents unauthorized changes, reduces risk, and maintains system integrity through structured governance.
+      </technical-explanation>
+      <simple-explanation>
+        Think of change control like getting permission before making changes to someone else's house - you explain what you want to do, why it's needed, get approval, and then make sure the work was done properly.
+      </simple-explanation>
+    </section>
+
+    <section type="implementation" id="approval-workflow">
+      <technical-explanation>
+        The mandatory approval workflow implements a six-step process: Change Request, Impact Assessment, User Review, Implementation, Validation, and User Confirmation. This ensures comprehensive evaluation and user control at every stage.
+      </technical-explanation>
+      <simple-explanation>
+        Like following a recipe with checkpoints - request what you want to cook, check if you have ingredients, get permission to use the kitchen, cook the meal, taste it, and make sure everyone's happy with the result.
+      </simple-explanation>
+
+      <instructions>
+        <step number="1" validation-command="echo 'Change request acknowledged'">Request specific change from user</step>
+        <step number="2" validation-command="grep -c 'impact.*assessment' assessment.md">Provide detailed impact analysis before implementation</step>
+        <step number="3" validation-command="grep 'APPROVE\|MODIFY\|REJECT\|DEFER' user_decision.txt">Wait for user review and decision</step>
+        <step number="4" validation-command="git log --oneline -n 1 | grep 'approved'">Implement only if approved</step>
+        <step number="5" validation-command="./validate_implementation.sh">Validate implementation meets requirements</step>
+        <step number="6" validation-command="grep 'confirmed' user_feedback.txt">Obtain user confirmation of satisfaction</step>
+      </instructions>
+    </section>
+
+    <section type="reference" id="change-categories">
+      <technical-explanation>
+        Changes are categorized into three levels based on impact scope and risk: Critical (core functionality), Significant (user experience), and Minor (small improvements). Each category has specific requirements for assessment depth and approval rigor.
+      </technical-explanation>
+      <simple-explanation>
+        Like sorting mail into different priorities - some changes are urgent and need careful handling (critical), some are important but not urgent (significant), and some are routine updates (minor).
+      </simple-explanation>
+
+      <examples>
+        <example type="basic">
+          <scenario>Critical Change: Modifying agent logic that affects episode production</scenario>
+          <implementation>Requires detailed impact assessment, alternative approaches, rollback plan, and comprehensive testing</implementation>
+          <explanation>This could break the entire production system, so maximum caution is needed</explanation>
+        </example>
+        <example type="intermediate">
+          <scenario>Significant Change: Updating documentation structure</scenario>
+          <implementation>Requires impact assessment, user approval, and recommended testing</implementation>
+          <explanation>Affects user experience but won't break core functionality</explanation>
+        </example>
+        <example type="basic">
+          <scenario>Minor Change: Fixing typos in documentation</scenario>
+          <implementation>Brief explanation needed, user approval still required, can be batched</implementation>
+          <explanation>Low risk but consistency in approval process is maintained</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="implementation" id="assessment-template">
+      <technical-explanation>
+        The AI assessment template provides a structured format for impact analysis covering: Change Summary, Benefits Analysis, Risk Analysis, Alternatives, and Implementation Plan. This ensures comprehensive evaluation across all critical dimensions.
+      </technical-explanation>
+      <simple-explanation>
+        Like filling out a detailed form before making any changes - what, why, who's affected, what could go right, what could go wrong, other options, and step-by-step plan.
+      </simple-explanation>
+
+      <validation>
+        <validation-command>grep -E "(Change Summary|Benefits|Risk|Alternatives|Implementation)" assessment.md</validation-command>
+        <validation-command>wc -l assessment.md | awk '$1 >= 50 {print "Assessment complete"}'</validation-command>
+        <success-criteria>All assessment sections completed</success-criteria>
+        <success-criteria>Risk analysis includes specific mitigation strategies</success-criteria>
+        <success-criteria>At least two alternative approaches provided</success-criteria>
+        <success-criteria>Rollback procedure clearly documented</success-criteria>
+      </validation>
+    </section>
+
+    <section type="troubleshooting" id="rollback-procedures">
+      <technical-explanation>
+        Rollback procedures define systematic approaches for handling rejection, implementation failures, and user-requested reversions. Each scenario has specific actions to maintain system stability and user control.
+      </technical-explanation>
+      <simple-explanation>
+        Like having an "undo" plan ready - if something goes wrong or the user changes their mind, we know exactly how to put everything back the way it was.
+      </simple-explanation>
+
+      <examples>
+        <example type="basic">
+          <scenario>User Rejects Assessment</scenario>
+          <implementation>AI acknowledges, asks for clarification, suggests modified approach, no implementation occurs</implementation>
+          <explanation>User maintains full control over what changes happen</explanation>
+        </example>
+        <example type="intermediate">
+          <scenario>Implementation Fails</scenario>
+          <implementation>AI stops work immediately, reports details, suggests remediation, user decides next steps</implementation>
+          <explanation>Safety first - stop and ask for help rather than making things worse</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="advanced" id="claude-code-automation">
+      <technical-explanation>
+        Claude Code automation enhancements integrate hooks, thinking modes, and subagent delegation to automate approval workflows while maintaining human oversight. Pre-change hooks trigger impact assessments, post-change hooks validate implementations.
+      </technical-explanation>
+      <simple-explanation>
+        Like having smart assistants that automatically handle the paperwork and routine checks, but still require your approval for important decisions.
+      </simple-explanation>
+
+      <examples>
+        <example type="advanced">
+          <scenario>Automated Impact Assessment</scenario>
+          <implementation>Pre-change hook detects complexity, selects appropriate thinking mode, delegates to specialized subagent</implementation>
+          <explanation>System automatically uses more brainpower for complex changes, like calling in experts for difficult problems</explanation>
+        </example>
+        <example type="advanced">
+          <scenario>GitHub Integration</scenario>
+          <implementation>Automatically creates issues for change tracking, updates status throughout approval process</implementation>
+          <explanation>Like having a secretary who keeps track of all your change requests and their progress</explanation>
+        </example>
+      </examples>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference file="02_hallucination_prevention_guide.xml" section="validation" type="related">Validation techniques for preventing AI hallucinations during change assessment</reference>
+    <reference file="03_tdd_requirements_specification.xml" section="implementation" type="prerequisite">Test-Driven Development requirements for code changes</reference>
+    <reference file="../operations/01_troubleshooting_guide.xml" section="emergency" type="related">Emergency procedures and troubleshooting</reference>
+    <reference file="../claude-code/21_mcp_integration_guide.xml" section="github" type="advanced">GitHub MCP integration for automated change tracking</reference>
+  </cross-references>
+
+</document>

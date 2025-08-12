@@ -4,12 +4,12 @@
         <title>{TITLE}</title>
         <claude-optimization>true</claude-optimization>
     </metadata>
-    
+
     <content>
         <section type="navigation" id="overview">
             <technical-explanation>
                 {TECHNICAL_OVERVIEW}
-                
+
                 Should provide:
                 - Domain scope and boundaries
                 - Learning path progression
@@ -18,7 +18,7 @@
             </technical-explanation>
             <simple-explanation>
                 {SIMPLE_OVERVIEW}
-                
+
                 Should explain:
                 - What this domain covers
                 - How the content is organized
@@ -26,7 +26,7 @@
                 - How topics connect to each other
             </simple-explanation>
         </section>
-        
+
         <section type="navigation" id="quick-start">
             <instructions>
                 <step number="1" validation-command="{VALIDATION_1}">
@@ -37,7 +37,7 @@
                 </step>
                 <!-- Add more quick start steps -->
             </instructions>
-            
+
             <navigation-links>
                 <link priority="high">
                     <title>{HIGH_PRIORITY_TITLE}</title>
@@ -47,7 +47,7 @@
                 <!-- Add more quick start links -->
             </navigation-links>
         </section>
-        
+
         <section type="navigation" id="learning-paths">
             <technical-explanation>
                 Structured learning progression with prerequisites and dependencies.
@@ -55,7 +55,7 @@
             <simple-explanation>
                 Step-by-step paths through the content based on what you want to learn.
             </simple-explanation>
-            
+
             <navigation-links>
                 <link priority="high">
                     <title>Beginner Path: {BEGINNER_TITLE}</title>
@@ -74,7 +74,7 @@
                 </link>
             </navigation-links>
         </section>
-        
+
         <section type="navigation" id="reference-materials">
             <technical-explanation>
                 Quick reference materials, troubleshooting guides, and technical specifications.
@@ -82,7 +82,7 @@
             <simple-explanation>
                 Resources to come back to when you need to look something up quickly.
             </simple-explanation>
-            
+
             <navigation-links>
                 <link priority="high">
                     <title>{REFERENCE_TITLE_1}</title>
@@ -97,7 +97,7 @@
                 <!-- Add more reference links -->
             </navigation-links>
         </section>
-        
+
         <section type="navigation" id="troubleshooting">
             <technical-explanation>
                 Common issues, diagnostic procedures, and resolution strategies.
@@ -105,7 +105,7 @@
             <simple-explanation>
                 What to check when things don't work as expected.
             </simple-explanation>
-            
+
             <navigation-links>
                 <link priority="high">
                     <title>Common Issues</title>
@@ -113,14 +113,14 @@
                     <description>Most frequent problems and their solutions</description>
                 </link>
             </navigation-links>
-            
+
             <validation>
                 <validation-command>{SYSTEM_CHECK_COMMAND}</validation-command>
                 <success-criteria>All systems operational</success-criteria>
             </validation>
         </section>
     </content>
-    
+
     <cross-references>
         <reference file="../{RELATED_DOMAIN}/navigation.xml" type="related">
             Related domain navigation

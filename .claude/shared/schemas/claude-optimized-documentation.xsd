@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="https://ai-podcasts-nobody-knows.com/claude-docs"
            xmlns:tns="https://ai-podcasts-nobody-knows.com/claude-docs"
            elementFormDefault="qualified">
 
   <!-- Root document element -->
   <xs:element name="document" type="tns:DocumentType"/>
-  
+
   <!-- Document type definition -->
   <xs:complexType name="DocumentType">
     <xs:sequence>

@@ -1,0 +1,178 @@
+<document type="reference-guide" id="06" version="3.0.0" claude-code-optimized="true">
+  <metadata>
+    <title>Architecture &amp; Phases Alignment</title>
+    <created>2025-08-11</created>
+    <category>foundation</category>
+    <phase>all</phase>
+    <skill-level>intermediate</skill-level>
+    <claude-code-integration>architecture-overview</claude-code-integration>
+    <requires-approval>false</requires-approval>
+    <validation-status>architecture-alignment-verified-2025</validation-status>
+  </metadata>
+
+  <claude-code-features>
+    <context-loading-priority>high</context-loading-priority>
+    <memory-integration>enabled</memory-integration>
+    <thinking-mode-support>basic</thinking-mode-support>
+    <automation-level>reference</automation-level>
+    <mcp-integration>architecture-aware</mcp-integration>
+  </claude-code-features>
+
+  <learning-integration>
+    <prerequisites>Files 01-05 (foundation understanding)</prerequisites>
+    <learning-outcomes>
+      <outcome>Understand system architecture progression</outcome>
+      <outcome>Map learning phases to implementation levels</outcome>
+      <outcome>Navigate project structure effectively</outcome>
+    </learning-outcomes>
+    <hands-on-activities>0</hands-on-activities>
+    <feynman-explanation-required>true</feynman-explanation-required>
+    <cross-references>All foundation files, Level documentation</cross-references>
+  </learning-integration>
+
+  <content>
+    <section name="visual-overview">
+      <title>Visual Overview</title>
+
+      <architecture-diagram>
+LEVELS (System Architecture)          PHASES (Implementation Steps)         WALK-CRAWL-RUN (Learning Journey)
+─────────────────────────────         ─────────────────────────────        ─────────────────────────────────
+
+Level 1: Development Platform  ────→  Phase 1-3: Foundation         ────→  WALK: Learn concepts (FREE)
+   ↓                                   Phase 4: CLAUDE.md restore            - Weeks 1-4
+   ↓                                   Phase 5: API configuration            - No API costs
+   ↓                                   Phase 6: MCP installation             - Mock testing
+   ↓                                        ↓
+Level 2: Production System     ────→  Phase 7: Test Native Code    ────→  CRAWL: First episodes ($20-50)
+   ↓                          🎯       Phase 8: Integration                  - Weeks 5-12
+   ↓                                        ↓                                - Real API calls
+   ↓                                   [CHECKPOINT]                          - Small batches
+   ↓                                        ↓
+Level 3: Platform Planning     ────→  Documentation Only           ────→  RUN: Scale production ($50-100/mo)
+   ↓                                        ↓                                - Weeks 13+
+   ↓                                   [APPROVAL GATE]                       - Batch production
+   ↓                                        ↓                                - Full automation
+Level 4: Coded Platform       ────→   Future Python/FastAPI        ────→  [REQUIRES EXPLICIT APPROVAL]
+   🔒                                  with OpenRouter/Langfuse
+      </architecture-diagram>
+
+      <technical-explanation>This diagram shows the hierarchical relationship between system architecture levels, implementation phases, and learning progression, creating a structured path from concept learning to production deployment.</technical-explanation>
+
+      <simple-breakdown>Think of this like building a house - you start with blueprints (Level 1), build the foundation and structure (Level 2), plan future additions (Level 3), and eventually build those additions (Level 4). Each level has specific steps and learning goals.</simple-breakdown>
+    </section>
+
+    <section name="current-position">
+      <title>Current Position</title>
+      <status>You Are Here: Level 2, Phase 7, WALK Phase (transitioning to CRAWL)</status>
+    </section>
+
+    <section name="key-relationships">
+      <title>Key Relationships</title>
+
+      <subsection name="level-phase-mapping">
+        <title>Level ↔ Phase Mapping</title>
+        <mapping>
+          <level number="1">completed via Phases 1-6</level>
+          <level number="2">active via Phases 7-8 (current)</level>
+          <level number="3">is documentation only (no phases)</level>
+          <level number="4">locked pending approval (future phases)</level>
+        </mapping>
+      </subsection>
+
+      <subsection name="phase-learning-mapping">
+        <title>Phase ↔ Learning Mapping</title>
+        <mapping>
+          <phase-group name="Phases 1-6">WALK phase (concept learning)</phase-group>
+          <phase-group name="Phases 7-8">WALK→CRAWL transition (first tests)</phase-group>
+          <phase-group name="Future phases">CRAWL→RUN (scaling up)</phase-group>
+        </mapping>
+      </subsection>
+    </section>
+
+    <section name="important-gates">
+      <title>Important Gates</title>
+
+      <gate number="1" status="NOW">
+        <name>MCP Restart Gate</name>
+        <requirement>Must restart Claude Code before Phase 7</requirement>
+      </gate>
+
+      <gate number="2" status="upcoming">
+        <name>Production Gate</name>
+        <requirement>Complete Phase 8 before regular production</requirement>
+      </gate>
+
+      <gate number="3" status="locked">
+        <name>Level 4 Gate</name>
+        <requirement>Requires explicit "Approved for Level 4 implementation"</requirement>
+      </gate>
+    </section>
+
+    <section name="cost-progression">
+      <title>Cost Progression</title>
+
+      <progression-diagram>
+WALK  ($0)    → CRAWL ($20-50 total) → RUN ($50-100/month)
+Phases 1-6    → Phases 7-8+          → Ongoing production
+      </progression-diagram>
+
+      <technical-explanation>Cost progression follows learning phases, with free concept learning transitioning to small-scale testing, then scaling to production volumes with corresponding cost increases.</technical-explanation>
+
+      <simple-breakdown>Like learning to drive - first you study the manual for free, then practice with small amounts of gas money, finally drive regularly with normal fuel costs.</simple-breakdown>
+    </section>
+
+    <section name="learning-outcomes-by-level">
+      <title>Learning Outcomes by Level</title>
+
+      <level number="1" status="completed" title="Development Platform">
+        <learning-outcomes>
+          <outcome>Meta-programming concepts</outcome>
+          <outcome>Tool creation patterns</outcome>
+          <outcome>Command architecture</outcome>
+        </learning-outcomes>
+      </level>
+
+      <level number="2" status="current" title="Production System">
+        <learning-outcomes>
+          <outcome>Multi-agent orchestration</outcome>
+          <outcome>MCP integration</outcome>
+          <outcome>Cost optimization</outcome>
+          <outcome>Quality assurance</outcome>
+        </learning-outcomes>
+      </level>
+
+      <level number="3" status="future" title="Platform Planning">
+        <learning-outcomes>
+          <outcome>System design documentation</outcome>
+          <outcome>Migration planning</outcome>
+          <outcome>Architecture evolution</outcome>
+        </learning-outcomes>
+      </level>
+
+      <level number="4" status="locked" title="Coded Platform">
+        <learning-outcomes>
+          <outcome>FastAPI implementation</outcome>
+          <outcome>Observability (Langfuse)</outcome>
+          <outcome>Multi-model routing (OpenRouter)</outcome>
+        </learning-outcomes>
+      </level>
+    </section>
+  </content>
+
+  <validation-notes>
+    <architecture-alignment>
+      System architecture and learning phases validated for coherent progression
+      and clear milestone definitions (2025-08-11)
+    </architecture-alignment>
+
+    <cost-modeling>
+      Cost progression validated against typical AI development learning curves
+      and hobby-to-production scaling patterns (2025-08-11)
+    </cost-modeling>
+
+    <gate-requirements>
+      Approval gates and checkpoints designed to prevent premature complexity
+      introduction and ensure solid foundation building
+    </gate-requirements>
+  </validation-notes>
+</document>

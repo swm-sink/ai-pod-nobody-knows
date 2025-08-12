@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="enforcement-standard">
+  <metadata>
+    <title>DRY Principle Enforcement</title>
+    <domain>quality</domain>
+    <version>1.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <enforcement-level>MANDATORY</enforcement-level>
+  </metadata>
+
+  <content>
+    <section id="core-principle">
+      <title>DRY (Don't Repeat Yourself) Principle</title>
+      <mandate>DRY PRINCIPLE MUST BE ENFORCED EVERYWHERE</mandate>
+
+      <technical-explanation>
+        DRY principle reduces maintenance burden, prevents inconsistencies, and centralizes truth
+      </technical-explanation>
+      <simple-explanation>
+        Like having one address book instead of writing addresses everywhere - update once, works everywhere
+      </simple-explanation>
+
+      <learning-value>
+        Understanding DRY principle is essential for maintainable, scalable systems
+      </learning-value>
+    </section>
+
+    <section id="before-creating">
+      <title>Before Creating Documentation</title>
+      <process>
+        <step number="1">Check if information already exists elsewhere</step>
+        <step number="2">Reference existing content instead of duplicating</step>
+        <step number="3">Use constants files for all repeated values</step>
+      </process>
+      <verification-command>grep -r "search_term" .claude/</verification-command>
+    </section>
+
+    <section id="constants-hierarchy">
+      <title>Constants File Hierarchy</title>
+      <structure>
+        <level type="global">
+          <path>.claude/00_GLOBAL_CONSTANTS.xml</path>
+          <purpose>Project-wide values</purpose>
+        </level>
+        <level type="domain">
+          <path>.claude/context/*/00_*_constants.xml</path>
+          <purpose>Domain-specific values</purpose>
+        </level>
+        <level type="shared">
+          <path>.claude/shared/</path>
+          <purpose>Common templates, configurations</purpose>
+        </level>
+      </structure>
+      <reference-requirement>Reference these instead of hardcoding values</reference-requirement>
+    </section>
+
+    <section id="prohibited-duplications">
+      <title>Prohibited Duplications</title>
+      <prohibited-items>
+        <item>Project specifications (name, duration, costs)</item>
+        <item>API configurations and endpoints</item>
+        <item>Command definitions and syntax</item>
+        <item>Error codes and messages</item>
+        <item>File paths and directory structures</item>
+        <item>Quality gate thresholds</item>
+        <item>Agent configurations</item>
+      </prohibited-items>
+    </section>
+
+    <section id="required-patterns">
+      <title>Required Patterns</title>
+      <patterns>
+        <use>See [Constants](./00_constants.xml#section)</use>
+        <avoid>Hardcoded values or copy-pasted content</avoid>
+        <create>Single source of truth for each piece of information</create>
+      </patterns>
+    </section>
+
+    <section id="validation-process">
+      <title>Validation Before Creation</title>
+      <steps>
+        <command>grep -r "search_term" .claude/</command>
+        <question>Does this information exist already?</question>
+        <decision>Reference existing or create new (if truly unique)</decision>
+      </steps>
+    </section>
+
+    <section id="enforcement-rules">
+      <title>Enforcement Rules</title>
+      <rules>
+        <rule>Every file creation must check for existing content first</rule>
+        <rule>Every constant value must be extracted to constants files</rule>
+        <rule>Every reference must use links, not duplication</rule>
+        <rule>Every update must maintain single source of truth</rule>
+      </rules>
+    </section>
+
+    <section id="duplication-exceptions">
+      <title>Duplication Exceptions</title>
+      <exceptions>
+        <exception type="prompts">
+          <description>Agent prompts may repeat context for clarity and effectiveness</description>
+        </exception>
+        <exception type="validation">
+          <description>Critical validation steps may be repeated for safety</description>
+        </exception>
+        <exception type="learning">
+          <description>Educational examples may repeat concepts for comprehension</description>
+        </exception>
+      </exceptions>
+      <note>ALL exceptions must be explicitly justified and documented</note>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../quality/ENFORCEMENT_STANDARDS.xml">Quality Enforcement Standards</reference>
+    <reference target="../../00_GLOBAL_CONSTANTS.xml">Global Constants</reference>
+    <reference target="../quality/anti-patterns.xml">Anti-Pattern Prevention</reference>
+  </cross-references>
+</document>

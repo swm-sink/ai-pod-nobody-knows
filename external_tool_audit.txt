@@ -1,0 +1,68 @@
+# EXTERNAL TOOL AUDIT REPORT
+# Generated: 2025-08-12
+# System Audit Specialist - External Tool Dependency Analysis
+
+## EXTERNAL TOOL CATALOG
+
+### EXTERNAL TOOL #1: perplexity_ask
+- **Agent Using:** 01_research_coordinator.md
+- **Declaration Line:** 4
+- **Tool Type:** MCP (Model Context Protocol)
+- **Provider:** Perplexity AI
+- **Approval Status:** APPROVED (mcp__* pattern compliance)
+- **Usage Frequency:** Multiple calls per agent execution
+- **Dependency Level:** CRITICAL - Required for research operations
+- **Configuration Required:** MCP Server setup for Perplexity
+- **Fallback Available:** No direct fallback, research workflow depends on this
+
+### EXTERNAL TOOL #2: text_to_speech  
+- **Agent Using:** 09_audio_synthesizer.md
+- **Declaration Line:** 4
+- **Tool Type:** MCP (Model Context Protocol)
+- **Provider:** ElevenLabs
+- **Approval Status:** APPROVED (mcp__* pattern compliance)
+- **Usage Frequency:** Single call per episode production
+- **Dependency Level:** CRITICAL - Required for audio generation
+- **Configuration Required:** MCP Server setup for ElevenLabs
+- **Fallback Available:** No fallback, audio synthesis depends on this
+
+## EXTERNAL DEPENDENCY ANALYSIS
+
+### MCP SERVER REQUIREMENTS
+1. **Perplexity MCP Server**
+   - Required for: Research Coordinator agent
+   - Setup Command: claude mcp add perplexity
+   - API Key Required: Yes
+   - Cost Impact: Per-query pricing
+   
+2. **ElevenLabs MCP Server**  
+   - Required for: Audio Synthesizer agent
+   - Setup Command: claude mcp add elevenlabs
+   - API Key Required: Yes
+   - Cost Impact: Per-character pricing
+
+### COMPLIANCE VERIFICATION
+- **Pattern Compliance:** Both tools follow mcp__* or approved external patterns
+- **Security Assessment:** Both are approved external MCP providers
+- **Documentation Status:** Both have proper MCP integration documentation
+- **Error Handling:** Both have fallback error handling in agent code
+
+### RISK ASSESSMENT
+- **Single Point of Failure:** Each external tool is critical to its agent
+- **Cost Control:** Both tools have usage-based pricing models
+- **Rate Limiting:** Both providers have rate limits that need management
+- **Availability:** Dependent on external provider uptime
+
+## RECOMMENDATIONS
+1. Implement cost monitoring for external tool usage
+2. Add retry logic with exponential backoff for external calls
+3. Consider caching strategies for expensive external operations
+4. Monitor external provider status and outages
+5. Document fallback procedures for external tool failures
+
+## EXTERNAL TOOL SUMMARY
+Total External Tools: 2
+MCP Tools: 2 (100%)
+Critical Dependencies: 2 (100%)
+Approved Tools: 2 (100%)
+Compliance Rate: 100%

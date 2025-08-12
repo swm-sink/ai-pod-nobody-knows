@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="architecture-specification" version="1.0.0">
+  <metadata>
+    <title>Observability Architecture for Level 4 Implementation</title>
+    <description>Complete observability design that will be implemented in Level 4 coded platform</description>
+    <purpose>Planning document for future Python/FastAPI implementation</purpose>
+    <last-updated>2025-08-12</last-updated>
+  </metadata>
+
+  <executive-summary>
+    <overview>
+      This document defines the observability architecture that will be implemented when Level 4
+      (the coded Python/FastAPI platform) is built. It extends the current Level 2 Claude Code
+      implementation with full programmatic control and comprehensive metrics.
+    </overview>
+    <key-differences>
+      <level-2>Manual tracking of MCP costs and pipeline stages in Claude Code</level-2>
+      <level-3>This planning and documentation phase</level-3>
+      <level-4>Full implementation with native SDK, streaming, and real-time analytics</level-4>
+    </key-differences>
+  </executive-summary>
+
+  <implementation-architecture>
+    <core-components>
+      <component name="LangfuseClient">
+        <purpose>Singleton client managing all observability operations</purpose>
+        <implementation>Python class with async support</implementation>
+        <features>
+          - Connection pooling
+          - Automatic retry logic
+          - Batch trace submission
+          - Metric aggregation
+        </features>
+      </component>
+
+      <component name="TraceManager">
+        <purpose>Manages trace lifecycle and span relationships</purpose>
+        <implementation>Context manager pattern for automatic span closure</implementation>
+        <features>
+          - Hierarchical span tracking
+          - Automatic error capture
+          - Duration calculation
+          - Metadata enrichment
+        </features>
+      </component>
+
+      <component name="MetricsCollector">
+        <purpose>Aggregates and calculates production metrics</purpose>
+        <implementation>Background task with periodic flush</implementation>
+        <features>
+          - Token counting
+          - Cost calculation
+          - Quality scoring
+          - Performance percentiles
+        </features>
+      </component>
+
+      <component name="CostOptimizer">
+        <purpose>Real-time cost optimization decisions</purpose>
+        <implementation>Rule engine with ML predictions</implementation>
+        <features>
+          - Model selection optimization
+          - Budget enforcement
+          - Cost forecasting
+          - Efficiency recommendations
+        </features>
+      </component>
+    </core-components>
+
+    <integration-patterns>
+      <pattern name="Decorator Pattern">
+        <usage>Agent function instrumentation</usage>
+        <example>
+          <![CDATA[
+@observe_agent("research", budget=3.00)
+async def research_coordinator(topic: str) -> Dict:
+    # Automatic tracing, no manual instrumentation needed
+    return research_result
+          ]]>
+        </example>
+      </pattern>
+
+      <pattern name="Context Manager">
+        <usage>Span management</usage>
+        <example>
+          <![CDATA[
+async with trace.span("research_phase") as span:
+    span.set_input({"topic": topic})
+    result = await research(topic)
+    span.set_output(result)
+    span.score("completeness", 0.92)
+          ]]>
+        </example>
+      </pattern>
+
+      <pattern name="Event Streaming">
+        <usage>Real-time metric updates</usage>
+        <example>
+          <![CDATA[
+async for event in trace.stream():
+    await websocket.send_json({
+        "type": "metric_update",
+        "data": event.to_dict()
+    })
+          ]]>
+        </example>
+      </pattern>
+    </integration-patterns>
+  </implementation-architecture>
+
+  <data-flow>
+    <flow-description>
+      Level 4 implementation will capture data at every stage of episode production,
+      streaming it to Langfuse for real-time analysis and historical tracking.
+    </flow-description>
+
+    <stages>
+      <stage order="1" name="Request Initiation">
+        <action>Create root trace with episode metadata</action>
+        <data>Episode number, topic, complexity, timestamp</data>
+      </stage>
+
+      <stage order="2" name="Agent Execution">
+        <action>Each agent creates child span with metrics</action>
+        <data>Tokens, cost, duration, quality scores</data>
+      </stage>
+
+      <stage order="3" name="Quality Evaluation">
+        <action>LLM-as-Judge scores added to trace</action>
+        <data>Detailed scores, pass/fail decision, recommendations</data>
+      </stage>
+
+      <stage order="4" name="Completion">
+        <action>Trace closed with final metrics</action>
+        <data>Total cost, duration, success status, outputs</data>
+      </stage>
+
+      <stage order="5" name="Analysis">
+        <action>Metrics aggregated for dashboards</action>
+        <data>Trends, patterns, optimization opportunities</data>
+      </stage>
+    </stages>
+  </data-flow>
+
+  <metric-taxonomy>
+    <category name="Cost Metrics">
+      <metric name="token_usage" type="counter" unit="tokens"/>
+      <metric name="api_cost" type="gauge" unit="USD"/>
+      <metric name="cost_per_episode" type="histogram" unit="USD"/>
+      <metric name="budget_utilization" type="gauge" unit="percentage"/>
+    </category>
+
+    <category name="Quality Metrics">
+      <metric name="overall_quality" type="gauge" unit="score(0-1)"/>
+      <metric name="brand_consistency" type="gauge" unit="score(0-1)"/>
+      <metric name="comprehension" type="gauge" unit="score(0-1)"/>
+      <metric name="engagement" type="gauge" unit="score(0-1)"/>
+      <metric name="pass_rate" type="gauge" unit="percentage"/>
+    </category>
+
+    <category name="Performance Metrics">
+      <metric name="episode_duration" type="histogram" unit="seconds"/>
+      <metric name="agent_latency" type="histogram" unit="milliseconds"/>
+      <metric name="retry_count" type="counter" unit="count"/>
+      <metric name="success_rate" type="gauge" unit="percentage"/>
+      <metric name="throughput" type="gauge" unit="episodes/hour"/>
+    </category>
+
+    <category name="System Metrics">
+      <metric name="memory_usage" type="gauge" unit="MB"/>
+      <metric name="cpu_utilization" type="gauge" unit="percentage"/>
+      <metric name="api_availability" type="gauge" unit="percentage"/>
+      <metric name="cache_hit_rate" type="gauge" unit="percentage"/>
+    </category>
+  </metric-taxonomy>
+
+  <implementation-roadmap>
+    <phase number="1" name="Foundation">
+      <duration>Week 1</duration>
+      <deliverables>
+        - Core Langfuse client implementation
+        - Basic trace/span management
+        - Cost tracking functionality
+      </deliverables>
+    </phase>
+
+    <phase number="2" name="Agent Integration">
+      <duration>Week 2</duration>
+      <deliverables>
+        - Agent decorators
+        - Metric extraction
+        - Error handling
+      </deliverables>
+    </phase>
+
+    <phase number="3" name="Quality System">
+      <duration>Week 3</duration>
+      <deliverables>
+        - LLM-as-Judge implementation
+        - Score aggregation
+        - Threshold enforcement
+      </deliverables>
+    </phase>
+
+    <phase number="4" name="Analytics">
+      <duration>Week 4</duration>
+      <deliverables>
+        - Dashboard integration
+        - Trend analysis
+        - Optimization recommendations
+      </deliverables>
+    </phase>
+  </implementation-roadmap>
+
+  <technology-stack>
+    <language>Python 3.11+</language>
+    <framework>FastAPI</framework>
+    <async>asyncio + aiohttp</async>
+    <observability>Langfuse SDK</observability>
+    <database>PostgreSQL (metrics storage)</database>
+    <cache>Redis (trace buffering)</cache>
+    <streaming>WebSockets</streaming>
+    <deployment>Docker + Kubernetes</deployment>
+  </technology-stack>
+
+  <api-endpoints>
+    <endpoint method="POST" path="/api/v1/episodes">
+      <description>Initiate episode production with tracing</description>
+      <tracing>Creates root trace</tracing>
+    </endpoint>
+
+    <endpoint method="GET" path="/api/v1/episodes/{id}/trace">
+      <description>Retrieve trace for episode</description>
+      <tracing>Reads from Langfuse</tracing>
+    </endpoint>
+
+    <endpoint method="GET" path="/api/v1/metrics">
+      <description>Aggregate metrics endpoint</description>
+      <tracing>Queries Langfuse analytics</tracing>
+    </endpoint>
+
+    <endpoint method="WS" path="/ws/traces">
+      <description>Real-time trace streaming</description>
+      <tracing>Streams live updates</tracing>
+    </endpoint>
+  </api-endpoints>
+
+  <configuration>
+    <environment-variables>
+      <var name="LANGFUSE_PUBLIC_KEY" required="true"/>
+      <var name="LANGFUSE_SECRET_KEY" required="true"/>
+      <var name="LANGFUSE_HOST" default="https://cloud.langfuse.com"/>
+      <var name="TRACE_BATCH_SIZE" default="20"/>
+      <var name="TRACE_FLUSH_INTERVAL" default="0.5"/>
+      <var name="METRICS_RETENTION_DAYS" default="90"/>
+    </environment-variables>
+
+    <feature-flags>
+      <flag name="ENABLE_STREAMING" default="true"/>
+      <flag name="ENABLE_COST_OPTIMIZATION" default="true"/>
+      <flag name="ENABLE_QUALITY_GATES" default="true"/>
+      <flag name="ENABLE_AUTO_RETRY" default="true"/>
+    </feature-flags>
+  </configuration>
+
+  <monitoring-dashboards>
+    <dashboard name="Production Overview">
+      <panels>
+        - Episode success rate (time series)
+        - Cost per episode (histogram)
+        - Quality scores (gauge)
+        - Active traces (counter)
+      </panels>
+    </dashboard>
+
+    <dashboard name="Agent Performance">
+      <panels>
+        - Agent latency (percentiles)
+        - Token usage by agent (pie chart)
+        - Error rates (time series)
+        - Retry patterns (heatmap)
+      </panels>
+    </dashboard>
+
+    <dashboard name="Cost Analysis">
+      <panels>
+        - Cumulative spend (area chart)
+        - Cost by model (stacked bar)
+        - Budget utilization (gauge)
+        - Optimization opportunities (table)
+      </panels>
+    </dashboard>
+  </monitoring-dashboards>
+
+  <benefits-over-level-2>
+    <benefit name="Complete Visibility">
+      Track every token, every API call, every decision - not just MCP costs
+    </benefit>
+    <benefit name="Real-time Analytics">
+      Stream metrics as they happen instead of batch session file analysis
+    </benefit>
+    <benefit name="Automated Optimization">
+      System self-optimizes based on observed patterns
+    </benefit>
+    <benefit name="Programmatic Control">
+      Full API access to all metrics and traces
+    </benefit>
+    <benefit name="Historical Analysis">
+      Query months of production data for insights
+    </benefit>
+  </benefits-over-level-2>
+
+  <migration-from-level-2>
+    <step order="1">
+      Continue using Level 2 session files as backup
+    </step>
+    <step order="2">
+      Import historical session data into Langfuse
+    </step>
+    <step order="3">
+      Run Level 2 and Level 4 in parallel initially
+    </step>
+    <step order="4">
+      Validate metric accuracy between systems
+    </step>
+    <step order="5">
+      Cutover to Level 4 as primary
+    </step>
+    <step order="6">
+      Maintain Level 2 for emergency fallback
+    </step>
+  </migration-from-level-2>
+
+  <success-criteria>
+    <criterion>100% trace coverage of production pipeline</criterion>
+    <criterion>Less than 1% observability overhead on costs</criterion>
+    <criterion>Real-time dashboard updates within 500ms</criterion>
+    <criterion>30% reduction in production costs through optimization</criterion>
+    <criterion>90% reduction in debugging time for failures</criterion>
+  </success-criteria>
+</document>

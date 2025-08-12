@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <title>Enhanced Multi-Agent Podcast Production Pipeline</title>
+    <version>2.0.0</version>
+    <last-updated>2025-01-12</last-updated>
+    <type>production-workflow</type>
+    <domain>level-2-production</domain>
+    <purpose>Complete 9-agent production pipeline with dual quality validation</purpose>
+    <optimization>Dual-model quality assessment with iterative refinement</optimization>
+  </metadata>
+
+  <executive-summary>
+    <description>
+      This document describes the complete 9-agent production pipeline with dual quality validation
+      (Claude + Gemini), feedback synthesis, and iterative refinement capabilities for producing
+      high-quality podcast episodes at scale.
+    </description>
+    <key-features>
+      <feature>Dual AI model quality validation (Claude + Gemini)</feature>
+      <feature>Automated feedback synthesis and prioritization</feature>
+      <feature>Iterative script refinement with quality gates</feature>
+      <feature>Cost-optimized with FREE Gemini tier integration</feature>
+      <feature>Production-ready with full error handling</feature>
+    </key-features>
+  </executive-summary>
+
+  <pipeline-architecture>
+    <flow-diagram>
+      <![CDATA[
+      START
+        ↓
+      01_research_coordinator ($2.00)
+        ↓
+      02_episode_planner ($0.50)
+        ↓
+      03_script_writer ($2.00)
+        ↓
+        ├─→ 04_quality_claude ($0.75)
+        └─→ 05_quality_gemini (FREE)
+             ↓
+      06_feedback_synthesizer ($0.25)
+        ↓
+      [Quality Gate Check]
+        ├─[PASS]→ 08_final_reviewer ($0.50)
+        └─[FAIL]→ 07_script_polisher ($1.00)
+                    ↓
+                  [Re-evaluate - Loop max 2 times]
+                    ↓
+               08_final_reviewer ($0.50)
+                    ↓
+      09_audio_synthesizer ($2.00)
+        ↓
+      END
+      ]]>
+    </flow-diagram>
+  </pipeline-architecture>
+
+  <agent-specifications>
+    <agent id="01_research_coordinator">
+      <purpose>Multi-source research with confidence scoring</purpose>
+      <model>Sonnet</model>
+      <budget>$2.00</budget>
+      <tools>Perplexity MCP, WebSearch, Grep, Read, Write</tools>
+      <input>Episode topic and requirements</input>
+      <output>Comprehensive research package with sources and insights</output>
+      <handoff>02_episode_planner</handoff>
+    </agent>
+
+    <agent id="02_episode_planner">
+      <purpose>Structure episode blueprint with segments and timing</purpose>
+      <model>Haiku</model>
+      <budget>$0.50</budget>
+      <tools>Read, Write, TodoWrite</tools>
+      <input>Research package from 01_research_coordinator</input>
+      <output>Detailed episode structure with narrative flow</output>
+      <handoff>03_script_writer</handoff>
+    </agent>
+
+    <agent id="03_script_writer">
+      <purpose>Transform research and plan into engaging narrative</purpose>
+      <model>Sonnet</model>
+      <budget>$2.00</budget>
+      <tools>Read, Write, MultiEdit</tools>
+      <input>Episode blueprint and research package</input>
+      <output>Complete 27-minute script draft</output>
+      <handoff>04_quality_claude AND 05_quality_gemini (parallel)</handoff>
+    </agent>
+
+    <agent id="04_quality_claude">
+      <purpose>Primary quality validation using Claude's strengths</purpose>
+      <model>Sonnet</model>
+      <budget>$0.75</budget>
+      <tools>Read, Write, Grep, TodoWrite</tools>
+      <focus-areas>
+        <area>Brand voice consistency</area>
+        <area>Narrative flow and engagement</area>
+        <area>Intellectual humility metrics</area>
+        <area>Question density analysis</area>
+      </focus-areas>
+      <input>Script from 03_script_writer</input>
+      <output>Detailed quality report with scores (0-1 scale)</output>
+      <handoff>06_feedback_synthesizer</handoff>
+    </agent>
+
+    <agent id="05_quality_gemini">
+      <purpose>Secondary validation using Gemini CLI</purpose>
+      <model>Gemini 2.5 Pro (via CLI)</model>
+      <budget>FREE (personal account tier)</budget>
+      <tools>Bash, Read, Write, TodoWrite</tools>
+      <implementation>
+        <![CDATA[
+        # Direct bash execution - no wrapper script needed
+        gemini -p "@script.md [structured evaluation prompt]" > evaluation.json
+        ]]>
+      </implementation>
+      <focus-areas>
+        <area>Factual accuracy verification</area>
+        <area>Technical correctness</area>
+        <area>Audience comprehension</area>
+        <area>Cross-reference validation</area>
+      </focus-areas>
+      <input>Script from 03_script_writer</input>
+      <output>Independent quality assessment JSON</output>
+      <handoff>06_feedback_synthesizer</handoff>
+    </agent>
+
+    <agent id="06_feedback_synthesizer">
+      <purpose>Aggregate feedback and determine routing</purpose>
+      <model>Haiku</model>
+      <budget>$0.25</budget>
+      <tools>Read, Write, TodoWrite, Grep</tools>
+      <decision-logic>
+        <rule condition="all_gates_pass">Route to 08_final_reviewer</rule>
+        <rule condition="minor_issues">Route to 07_script_polisher</rule>
+        <rule condition="major_issues">Route to 07_script_polisher with extensive revision</rule>
+      </decision-logic>
+      <input>Reports from 04_quality_claude and 05_quality_gemini</input>
+      <output>Consolidated feedback with prioritized actions</output>
+      <handoff>07_script_polisher OR 08_final_reviewer</handoff>
+    </agent>
+
+    <agent id="07_script_polisher">
+      <purpose>Implement feedback and refine script</purpose>
+      <model>Sonnet</model>
+      <budget>$1.00</budget>
+      <tools>Read, MultiEdit, Write, TodoWrite</tools>
+      <process>
+        <step>Address critical issues</step>
+        <step>Enhance brand voice elements</step>
+        <step>Smooth transitions and flow</step>
+        <step>Optimize pacing</step>
+      </process>
+      <input>Script plus consolidated feedback</input>
+      <output>Polished script</output>
+      <handoff>Quality re-evaluation OR 08_final_reviewer</handoff>
+    </agent>
+
+    <agent id="08_final_reviewer">
+      <purpose>Final quality checkpoint and production readiness</purpose>
+      <model>Haiku</model>
+      <budget>$0.50</budget>
+      <tools>Read, Edit, Write, TodoWrite</tools>
+      <validation>
+        <check>Timing within 27 minutes ±1</check>
+        <check>All quality gates passed</check>
+        <check>Brand voice consistent</check>
+        <check>Production metadata complete</check>
+      </validation>
+      <input>Final script (from 06 or 07)</input>
+      <output>Production-ready script with metadata</output>
+      <handoff>09_audio_synthesizer</handoff>
+    </agent>
+
+    <agent id="09_audio_synthesizer">
+      <purpose>Generate natural speech using ElevenLabs</purpose>
+      <model>ElevenLabs Turbo V2</model>
+      <budget>$2.00</budget>
+      <tools>ElevenLabs MCP</tools>
+      <input>Production-ready script with metadata</input>
+      <output>Final 27-minute audio file (MP3)</output>
+      <handoff>Episode complete</handoff>
+    </agent>
+  </agent-specifications>
+
+  <quality-gates>
+    <thresholds>
+      <gate name="comprehension">
+        <minimum>0.85</minimum>
+        <target>0.90</target>
+        <weight>0.25</weight>
+      </gate>
+      <gate name="brand_consistency">
+        <minimum>0.90</minimum>
+        <target>0.95</target>
+        <weight>0.30</weight>
+      </gate>
+      <gate name="engagement">
+        <minimum>0.80</minimum>
+        <target>0.85</target>
+        <weight>0.20</weight>
+      </gate>
+      <gate name="technical_accuracy">
+        <minimum>0.85</minimum>
+        <target>0.92</target>
+        <weight>0.25</weight>
+      </gate>
+    </thresholds>
+
+    <brand-metrics>
+      <metric name="intellectual_humility">
+        <target>5 phrases per episode</target>
+        <minimum>3 phrases per episode</minimum>
+      </metric>
+      <metric name="question_density">
+        <target>4 per 1000 words</target>
+        <minimum>2 per 1000 words</minimum>
+      </metric>
+      <metric name="feynman_analogies">
+        <target>5 per episode</target>
+        <minimum>3 per episode</minimum>
+      </metric>
+    </brand-metrics>
+  </quality-gates>
+
+  <cost-management>
+    <budget-breakdown>
+      <base-path description="No revisions needed">
+        <total>$7.00</total>
+        <breakdown>
+          <agent>01_research: $2.00</agent>
+          <agent>02_planning: $0.50</agent>
+          <agent>03_writing: $2.00</agent>
+          <agent>04_quality_claude: $0.75</agent>
+          <agent>05_quality_gemini: FREE</agent>
+          <agent>06_synthesis: $0.25</agent>
+          <agent>08_final_review: $0.50</agent>
+          <agent>09_audio: $2.00</agent>
+        </breakdown>
+      </base-path>
+
+      <revision-path description="One revision cycle">
+        <total>$8.00</total>
+        <additional>
+          <agent>07_polishing: $1.00</agent>
+        </additional>
+      </revision-path>
+    </budget-breakdown>
+
+    <cost-controls>
+      <maximum-per-episode>$8.00</maximum-per-episode>
+      <alert-threshold>$7.50</alert-threshold>
+      <automatic-halt>$8.50</automatic-halt>
+    </cost-controls>
+  </cost-management>
+
+  <gemini-cli-integration>
+    <setup>
+      <![CDATA[
+      # Install Gemini CLI
+      npm install -g @google-gemini/cli
+
+      # Authenticate with Google account
+      gemini auth login
+
+      # Verify setup
+      gemini --version
+      ]]>
+    </setup>
+
+    <execution-strategy>
+      <approach>Direct bash execution within agent</approach>
+      <benefits>
+        <benefit>No wrapper scripts to maintain</benefit>
+        <benefit>Dynamic prompt construction</benefit>
+        <benefit>Inline error handling</benefit>
+        <benefit>Simplified debugging</benefit>
+      </benefits>
+      <example>
+        <![CDATA[
+        # Direct execution in 05_quality_gemini agent
+        SCRIPT_FILE="/tmp/episode_script_$(date +%s).md"
+        cat > "$SCRIPT_FILE" << 'EOF'
+        [SCRIPT_CONTENT]
+        EOF
+
+        gemini -p "@$SCRIPT_FILE [evaluation prompt]" > evaluation.json
+        ]]>
+      </example>
+    </execution-strategy>
+  </gemini-cli-integration>
+
+  <session-management>
+    <session-structure>
+      <![CDATA[
+      .claude/level-2-production/sessions/
+      ├── ep_001_20250112_1430/
+      │   ├── session_metadata.json
+      │   ├── research_output.json
+      │   ├── episode_plan.yaml
+      │   ├── script_draft.md
+      │   ├── claude_evaluation.json
+      │   ├── gemini_evaluation.json
+      │   ├── synthesis_report.json
+      │   ├── final_script.md
+      │   └── production_log.json
+      ]]>
+    </session-structure>
+
+    <handoff-protocol>
+      <step>Validate input completeness</step>
+      <step>Process according to agent role</step>
+      <step>Generate structured output</step>
+      <step>Update session tracking</step>
+      <step>Signal next agent(s)</step>
+    </handoff-protocol>
+  </session-management>
+
+  <error-handling>
+    <retry-policies>
+      <policy type="api_failures">
+        <strategy>Exponential backoff</strategy>
+        <intervals>1s, 2s, 4s, 8s</intervals>
+      </policy>
+      <policy type="quality_failures">
+        <strategy>Iterative revision</strategy>
+        <max-attempts>3</max-attempts>
+      </policy>
+      <policy type="timeout">
+        <strategy>Save and resume</strategy>
+        <max-duration>45 minutes</max-duration>
+      </policy>
+      <policy type="cost_overrun">
+        <strategy>Immediate halt</strategy>
+        <threshold>$8.50</threshold>
+      </policy>
+    </retry-policies>
+
+    <failure-recovery>
+      <scenario type="partial_failure">Save progress, retry failed agent</scenario>
+      <scenario type="quality_deadlock">After 3 attempts, escalate to human</scenario>
+      <scenario type="system_error">Full diagnostic report with session state</scenario>
+      <scenario type="api_limits">Queue for retry with backoff</scenario>
+    </failure-recovery>
+  </error-handling>
+
+  <monitoring-metrics>
+    <kpis>
+      <kpi name="quality_pass_rate">
+        <target>95% first-attempt pass</target>
+      </kpi>
+      <kpi name="average_quality_score">
+        <target>&gt;0.88 across all metrics</target>
+      </kpi>
+      <kpi name="production_time">
+        <target>&lt;30 minutes per episode</target>
+      </kpi>
+      <kpi name="cost_per_episode">
+        <target>$7.00 average</target>
+      </kpi>
+      <kpi name="revision_rate">
+        <target>&lt;20% of episodes</target>
+      </kpi>
+    </kpis>
+  </monitoring-metrics>
+
+  <production-commands>
+    <single-episode>
+      <![CDATA[
+      # Start production for episode 1
+      claude workflows run enhanced_production_pipeline \
+        --episode 1 \
+        --topic "What is Intelligence?" \
+        --complexity 2
+      ]]>
+    </single-episode>
+
+    <batch-production>
+      <![CDATA[
+      # Produce episodes 1-5
+      claude workflows batch enhanced_production_pipeline \
+        --episodes 1-5 \
+        --parallel 2
+      ]]>
+    </batch-production>
+
+    <quality-re-evaluation>
+      <![CDATA[
+      # Re-run quality checks on existing script
+      claude agents run 04_quality_claude \
+        --input scripts/episode_001.md \
+        --session ep_001_revision
+      ]]>
+    </quality-re-evaluation>
+  </production-commands>
+
+  <best-practices>
+    <quality-optimization>
+      <practice>Always run dual evaluation (Claude + Gemini)</practice>
+      <practice>Review synthesizer feedback before auto-routing</practice>
+      <practice>Preserve script strengths during polishing</practice>
+      <practice>Validate brand metrics in final review</practice>
+    </quality-optimization>
+
+    <cost-efficiency>
+      <practice>Optimize prompts to reduce token usage</practice>
+      <practice>Cache research for related episodes</practice>
+      <practice>Use Haiku for simpler tasks</practice>
+      <practice>Leverage Gemini's free tier fully</practice>
+    </cost-efficiency>
+
+    <reliability>
+      <practice>Save session state after each agent</practice>
+      <practice>Implement graceful degradation</practice>
+      <practice>Monitor API rate limits</practice>
+      <practice>Maintain comprehensive audit logs</practice>
+    </reliability>
+  </best-practices>
+
+  <continuous-improvement>
+    <weekly-reviews>
+      <task>Analyze quality trends</task>
+      <task>Review revision patterns</task>
+      <task>Identify common issues</task>
+      <task>Update agent prompts</task>
+    </weekly-reviews>
+
+    <monthly-optimization>
+      <task>Refine quality thresholds</task>
+      <task>Adjust agent prompts</task>
+      <task>Optimize token usage</task>
+      <task>Update cost allocations</task>
+    </monthly-optimization>
+
+    <quarterly-assessment>
+      <task>Review pipeline architecture</task>
+      <task>Evaluate new model capabilities</task>
+      <task>Consider workflow improvements</task>
+      <task>Update documentation</task>
+    </quarterly-assessment>
+  </continuous-improvement>
+</workflow>

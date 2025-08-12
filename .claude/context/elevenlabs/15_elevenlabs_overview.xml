@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="elevenlabs" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>ElevenLabs Overview &amp; Capabilities (2025)</title>
+        <claude-optimization>true</claude-optimization>
+        <estimated-time>30-45 minutes</estimated-time>
+    </metadata>
+
+    <content>
+        <section type="reference" id="overview">
+            <technical-explanation>
+                ElevenLabs is a leading AI voice synthesis platform that converts text to natural speech using advanced neural networks, offering voice cloning, multilingual support, and real-time streaming capabilities. The platform provides various models optimized for different use cases, from high-speed generation to premium quality output.
+
+                Should provide comprehensive understanding of ElevenLabs' position as the market leader in AI voice synthesis with over 60% Fortune 500 adoption and processing capabilities exceeding 1 million hours annually.
+            </technical-explanation>
+            <simple-explanation>
+                Think of ElevenLabs like having an incredible voice actor friend who can speak in any voice, any emotion, any language, and never gets tired. It's an AI that can turn your written podcast scripts into professional-quality audio instantly.
+
+                This is what makes your podcast project economically viable - traditional production costs $800-3500 per episode, while ElevenLabs enables sub-$5 episode production, a 99% cost reduction.
+            </simple-explanation>
+        </section>
+
+        <section type="reference" id="quick-reference">
+            <instructions>
+                <step validation-command="echo 'ElevenLabs model comparison' > elevenlabs-test.txt">
+                    Reference ELEVENLABS_MODELS in constants for model specifications
+                </step>
+                <step validation-command="echo 'Budget model selection' >> elevenlabs-test.txt">
+                    Check BUDGET_MODEL and QUALITY_MODEL constants for recommendations
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>Model selection for podcast production</scenario>
+                    <implementation>
+# Quick model selection reference
+from constants import ELEVENLABS_MODELS, BUDGET_MODEL, QUALITY_MODEL
+
+# For speed and budget
+fast_model = ELEVENLABS_MODELS['flash_v2_5']
+print(f"Use {fast_model['name']} for {fast_model['best_for']}")
+
+# For quality (with current discount)
+quality = ELEVENLABS_MODELS['v3_alpha']
+print(f"v3 cost: {quality['cost_per_1k_chars']}")
+
+# Cost calculation for 27-minute episodes
+from constants import calculate_episode_cost, EPISODE_COSTS
+for model, cost in EPISODE_COSTS.items():
+    print(f"{model}: ${cost:.2f}")
+                    </implementation>
+                    <explanation>ElevenLabs offers multiple models with different speed/quality/cost trade-offs. Flash v2.5 provides fast, budget-friendly synthesis while v3 Alpha offers premium quality. All specifications are maintained in constants to ensure consistency.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="core-capabilities">
+            <examples>
+                <example type="basic">
+                    <scenario>ElevenLabs integration architecture for podcast production</scenario>
+                    <implementation>
+# Podcast production pipeline architecture
+Script Generation → ElevenLabs API → Audio Files → Distribution
+                         ↓
+                 Uses configuration from:
+                 - PODCAST_CONFIG (episode structure)
+                 - VOICE_IDS (voice selection)
+                 - ELEVENLABS_MODELS (model choice)
+                 - MCP_CONFIG (integration capabilities)
+
+# Core capabilities utilized:
+1. Text-to-Speech (TTS): Convert scripts to natural speech
+2. Voice Cloning: Create custom podcast host voices
+3. Voice Design: Generate voices from descriptions (v3 feature)
+4. Real-time Streaming: For interactive content
+5. Multi-language Support: For international episodes
+                    </implementation>
+                    <explanation>ElevenLabs integrates into podcast production as the audio synthesis layer, taking structured scripts and producing high-quality voice audio using configurable models, voices, and settings optimized for podcast content.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="troubleshooting" id="common-issues">
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>Hardcoding model specifications instead of using constants</scenario>
+                    <implementation>
+# BAD: Hardcoded model specs that become outdated
+model = "eleven_flash_v2_5"
+cost_per_1k = 0.00025  # This will become wrong when pricing changes
+
+# GOOD: Reference constants that stay updated
+from constants import ELEVENLABS_MODELS, EPISODE_COSTS
+model = ELEVENLABS_MODELS['flash_v2_5']['api_name']
+episode_cost = EPISODE_COSTS['flash_v2_5']
+                    </implementation>
+                    <explanation>ElevenLabs pricing and model availability change frequently. Using constants ensures your code remains accurate and maintainable, while hardcoded values quickly become outdated and cause errors.</explanation>
+                </example>
+            </examples>
+
+            <validation>
+                <validation-command>grep -r "ELEVENLABS_MODELS" .claude/context/elevenlabs/</validation-command>
+                <success-criteria>Constants are properly referenced throughout ElevenLabs documentation</success-criteria>
+            </validation>
+        </section>
+
+        <section type="advanced" id="advanced-usage">
+            <technical-explanation>
+                Advanced ElevenLabs integration includes MCP server setup for Claude Code integration, WebSocket streaming for real-time applications, voice management workflows, and cost optimization strategies using model cascading and caching.
+            </technical-explanation>
+            <simple-explanation>
+                Power-user features for professional podcast production including real-time voice generation, custom voice creation, and integration with Claude Code for automated workflows.
+            </simple-explanation>
+
+            <examples>
+                <example type="advanced">
+                    <scenario>2025 advanced features for podcast production</scenario>
+                    <implementation>
+# 2025 Key Features for podcast production:
+
+# 1. v3 Model with limited-time discount
+v3_model = ELEVENLABS_MODELS['v3_alpha']
+if datetime.now() < datetime.fromisoformat(v3_model['discount_ends']):
+    print(f"v3 discounted until {v3_model['discount_ends']}")
+
+# 2. Free Studio Access for podcast generation
+studio_access = MCP_CONFIG['elevenlabs']['features']['studio_access']
+
+# 3. MCP Integration for Claude Code automation
+mcp_capabilities = MCP_CONFIG['elevenlabs']['capabilities']
+
+# 4. Burst Capacity for high-volume production
+burst_multiplier = RATE_LIMITS['burst_capacity_multiplier']  # 3x during peaks
+                    </implementation>
+                    <explanation>2025 brings significant improvements including discounted premium models, free studio access, seamless Claude Code integration, and burst capacity for high-volume podcast production, making professional-quality synthesis more accessible and efficient.</explanation>
+                </example>
+            </examples>
+        </section>
+    </content>
+
+    <cross-references>
+        <reference file="00_elevenlabs_constants.xml" section="constants" type="prerequisite">
+            All ElevenLabs specifications and configuration values
+        </reference>
+        <reference file="18_elevenlabs_api_implementation.xml" section="overview" type="related">
+            Technical implementation details and code examples
+        </reference>
+        <reference file="22_elevenlabs_mcp_integration.xml" section="overview" type="advanced">
+            Claude Code MCP server integration for automation
+        </reference>
+    </cross-references>
+</document>

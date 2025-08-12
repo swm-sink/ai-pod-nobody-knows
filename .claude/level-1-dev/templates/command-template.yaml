@@ -8,7 +8,7 @@ metadata:
   created: "[YYYY-MM-DD]"
   author: "[creator]"
   type: "[orchestration|utility|analysis|generation]"
-  
+
 specification:
   purpose: "[What this command accomplishes]"
   trigger: "/[command-name] [arguments]"
@@ -17,14 +17,14 @@ specification:
       description: "[What arguments represent]"
       required: true
       format: "[expected format]"
-      
+
 workflow:
   initialization:
     - action: "[setup step 1]"
       validation: "[check]"
     - action: "[setup step 2]"
       validation: "[check]"
-      
+
   stages:
     - stage: "[Stage 1 Name]"
       agent: "[agent to use or 'direct']"
@@ -45,7 +45,7 @@ workflow:
           location: "[where saved]"
           format: "[structure]"
       cost_limit: "[dollar amount]"
-      
+
     - stage: "[Stage 2 Name]"
       agent: "[agent to use]"
       depends_on: "[previous stage]"
@@ -62,12 +62,12 @@ workflow:
         - name: "[output name]"
           location: "[where saved]"
       cost_limit: "[dollar amount]"
-      
+
   finalization:
     - action: "[cleanup step 1]"
     - action: "[archive results]"
     - action: "[generate report]"
-    
+
 orchestration:
   execution_mode: "[sequential|parallel|mixed]"
   parallelism:
@@ -76,7 +76,7 @@ orchestration:
   dependencies:
     - stage: "[stage name]"
       requires: "[other stage]"
-      
+
 error_recovery:
   retry_strategy:
     max_attempts: 3
@@ -88,7 +88,7 @@ error_recovery:
       fallback: "[alternative]"
   save_progress: true
   resume_capability: true
-  
+
 monitoring:
   tracking:
     - metric: "cost"
@@ -105,7 +105,7 @@ monitoring:
       frequency: "per_stage"
     - type: "summary"
       frequency: "on_complete"
-      
+
 integration:
   session_management:
     track_in_session: true
@@ -116,20 +116,20 @@ integration:
   quality_tracking:
     record_metrics: true
     aggregate_scores: true
-    
+
 success_criteria:
   - criterion: "[measurable outcome 1]"
     verification: "[how to verify]"
   - criterion: "[measurable outcome 2]"
     verification: "[how to verify]"
-    
+
 cost_budget:
   total_limit: "[dollar amount]"
   breakdown:
     - operation: "[operation type]"
       limit: "[amount]"
   alert_at_percentage: 80
-  
+
 testing:
   test_cases:
     - name: "[test 1]"
@@ -139,6 +139,6 @@ testing:
       input: "[test data]"
       expected: "[result]"
   dry_run_mode: true
-  
+
 notes: |
   [Additional context, best practices, warnings]

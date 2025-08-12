@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference">
+  <metadata>
+    <title>File Operations Best Practices</title>
+    <domain>operations</domain>
+    <version>1.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <criticality>MANDATORY</criticality>
+  </metadata>
+
+  <content>
+    <section id="core-principle">
+      <title>File Operations Principle</title>
+      <mandate>ALL file operations must be verified, safe, and educational</mandate>
+
+      <technical-explanation>
+        File operation safety prevents data loss, corruption, and system instability
+      </technical-explanation>
+      <simple-explanation>
+        Like double-checking before cutting paper - measure twice, cut once
+      </simple-explanation>
+    </section>
+
+    <section id="directory-verification">
+      <title>Directory Verification</title>
+      <requirements>
+        <requirement>ALWAYS use explicit paths (no assumptions)</requirement>
+        <requirement>Use find command for comprehensive searches</requirement>
+        <requirement>Check hidden folders with ls -la</requirement>
+        <requirement>Verify existence before operations</requirement>
+      </requirements>
+
+      <educational-example>
+        <technical-explanation>
+          Explicit path verification prevents relative path ambiguity in different execution contexts
+        </technical-explanation>
+        <simple-explanation>
+          Like giving someone the full street address instead of "the house near the store"
+        </simple-explanation>
+        <command>ls -la /full/absolute/path/</command>
+        <learning>Absolute paths work from anywhere, relative paths depend on where you are</learning>
+      </educational-example>
+    </section>
+
+    <section id="file-search">
+      <title>File Search Procedures</title>
+      <best-practices>
+        <use>find /full/path -name "pattern" -type f</use>
+        <avoid>ls pattern (may miss hidden files)</avoid>
+        <use>grep -r for content searches</use>
+        <always>Always specify full paths</always>
+      </best-practices>
+
+      <educational-example>
+        <technical-explanation>
+          find command provides comprehensive filesystem traversal with type filtering
+        </technical-explanation>
+        <simple-explanation>
+          Like having a search dog that can find specific types of items in every corner
+        </simple-explanation>
+        <command>find /Users/user/project -name "*.md" -type f</command>
+        <learning>find searches everything, ls only shows what's visible in current directory</learning>
+      </educational-example>
+    </section>
+
+    <section id="move-delete-safety">
+      <title>Move and Delete Safety</title>
+      <requirements>
+        <requirement>Verify source exists first</requirement>
+        <requirement>Check git status before bulk operations</requirement>
+        <requirement>Use -i flag for interactive confirmation when risky</requirement>
+        <requirement>Create backups for critical operations</requirement>
+      </requirements>
+
+      <safety-commands>
+        <verification>ls -la source_file || echo "Source not found"</verification>
+        <git-check>git status --porcelain</git-check>
+        <backup>cp important_file important_file.backup.$(date +%Y%m%d)</backup>
+      </safety-commands>
+
+      <educational-example>
+        <technical-explanation>
+          Interactive confirmation prevents accidental destructive operations in production
+        </technical-explanation>
+        <simple-explanation>
+          Like asking "Are you sure?" before permanently deleting family photos
+        </simple-explanation>
+        <command>rm -i potentially_important_file</command>
+        <learning>-i flag makes commands ask before doing potentially dangerous things</learning>
+      </educational-example>
+    </section>
+
+    <section id="common-pitfalls">
+      <title>Common Pitfalls Prevention</title>
+      <pitfalls>
+        <pitfall>Hidden folders may not show in basic ls</pitfall>
+        <pitfall>Empty directory removal may cascade</pitfall>
+        <pitfall>Relative paths can be ambiguous</pitfall>
+        <pitfall>Shell expansion may not work as expected</pitfall>
+      </pitfalls>
+
+      <educational-solution>
+        <technical-explanation>
+          Hidden files (starting with .) are excluded by default in ls for security
+        </technical-explanation>
+        <simple-explanation>
+          Like secret files that are only visible when you specifically look for them
+        </simple-explanation>
+        <command>ls -la to see ALL files including hidden ones</command>
+        <learning>Many config files are hidden to prevent accidental modification</learning>
+      </educational-solution>
+    </section>
+
+    <section id="verification-commands">
+      <title>Verification Commands</title>
+      <commands>
+        <command purpose="Find directories">find /path -type d</command>
+        <command purpose="Search file patterns">find /path -type f -name "*.md"</command>
+        <command purpose="Show all including hidden">ls -la /path/</command>
+        <command purpose="Check git state">git status --porcelain</command>
+      </commands>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../quality/ENFORCEMENT_STANDARDS.xml">Enforcement Standards</reference>
+    <reference target="../quality/validation_requirements.xml">Validation Requirements</reference>
+    <reference target="./01_troubleshooting_guide.xml">Troubleshooting Guide</reference>
+  </cross-references>
+</document>

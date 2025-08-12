@@ -4,28 +4,28 @@
         <title>{TITLE}</title>
         <claude-optimization>true</claude-optimization>
     </metadata>
-    
+
     <content>
         <section type="constants" id="primary-constants">
             <technical-explanation>
                 {TECHNICAL_DESCRIPTION}
-                
+
                 Should define:
                 - System-wide configuration values
-                - Quality thresholds and limits  
+                - Quality thresholds and limits
                 - API endpoints and constraints
                 - File naming conventions
                 - Validation criteria
             </technical-explanation>
             <simple-explanation>
                 {SIMPLE_DESCRIPTION}
-                
+
                 Should explain:
                 - What these values control
                 - Why they're set to these specific values
                 - When you might need to reference them
             </simple-explanation>
-            
+
             <constants>
                 <constant>
                     <name>{CONSTANT_NAME_1}</name>
@@ -40,7 +40,7 @@
                 <!-- Add more constants as needed -->
             </constants>
         </section>
-        
+
         <section type="constants" id="quality-gates">
             <technical-explanation>
                 Quality assurance thresholds and validation criteria for automated systems.
@@ -48,7 +48,7 @@
             <simple-explanation>
                 The standards that determine if something is "good enough" to proceed.
             </simple-explanation>
-            
+
             <constants>
                 <constant>
                     <name>QUALITY_THRESHOLD</name>
@@ -57,13 +57,13 @@
                 </constant>
                 <!-- Add quality-related constants -->
             </constants>
-            
+
             <validation>
                 <validation-command>{QUALITY_CHECK_COMMAND}</validation-command>
                 <success-criteria>All values within acceptable ranges</success-criteria>
             </validation>
         </section>
-        
+
         <section type="constants" id="system-limits">
             <technical-explanation>
                 System resource limits, timeouts, and operational constraints.
@@ -71,7 +71,7 @@
             <simple-explanation>
                 Boundaries that keep the system running smoothly and prevent resource exhaustion.
             </simple-explanation>
-            
+
             <constants>
                 <constant>
                     <name>MAX_RETRIES</name>
@@ -86,7 +86,7 @@
                 <!-- Add system limit constants -->
             </constants>
         </section>
-        
+
         <section type="constants" id="file-naming">
             <technical-explanation>
                 Standardized file naming conventions and directory structures.
@@ -94,7 +94,7 @@
             <simple-explanation>
                 Consistent naming rules so everyone knows where to find things.
             </simple-explanation>
-            
+
             <constants>
                 <constant>
                     <name>SESSION_FILENAME_PATTERN</name>
@@ -105,7 +105,7 @@
             </constants>
         </section>
     </content>
-    
+
     <cross-references>
         <reference file="{RELATED_GUIDE}.xml" section="implementation" type="related">
             Implementation guide that uses these constants

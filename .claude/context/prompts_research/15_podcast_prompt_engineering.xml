@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learning-guide xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <title>Podcast Prompt Engineering Guide (2025)</title>
+    <type>learning-guide</type>
+    <version>2025.1</version>
+    <last-updated>2025-01-11</last-updated>
+    <domain>prompts-research</domain>
+    <purpose>Comprehensive podcast prompt engineering for AI-generated educational content</purpose>
+    <cost-target>$4-8 per 27-minute episode</cost-target>
+    <theme>Nobody Knows Podcast - Intellectual Humility &amp; Limits of Knowledge</theme>
+  </metadata>
+
+  <executive-summary>
+    <description>
+      This guide contains battle-tested prompt engineering techniques for AI podcast generation,
+      incorporating the latest 2025 innovations from NotebookLM, ElevenLabs, and open-source implementations.
+      These prompts have been proven to reduce production costs from $800+ to under $8 per episode
+      while maintaining professional quality.
+    </description>
+  </executive-summary>
+
+  <learning-objectives>
+    <technical>
+      <objective>Master structured prompt engineering patterns for AI podcast generation</objective>
+      <objective>Implement cost optimization strategies reducing production costs by 95%</objective>
+      <objective>Design XML-based templates for consistent, high-quality episode generation</objective>
+      <objective>Apply natural dialogue patterns and conversation flow techniques</objective>
+    </technical>
+    <simple>
+      <objective>Learn how to write instructions that help AI create engaging podcasts</objective>
+      <objective>Understand how to make podcasts cheaply without losing quality</objective>
+      <objective>Create templates that work consistently for every episode</objective>
+      <objective>Make AI conversations sound natural and interesting</objective>
+    </simple>
+  </learning-objectives>
+
+  <core-concepts>
+    <concept id="master-system-prompt">
+      <title>Master System Prompt</title>
+      <technical-explanation>
+        The Gabriel Chua Open-NotebookLM Framework leverages structured thinking patterns
+        that align with how LLMs process information. The scratchpad technique allows
+        the model to "think out loud" before generating final content, improving coherence
+        and creativity through explicit reasoning chains.
+      </technical-explanation>
+      <simple-explanation>
+        Think of this prompt like giving directions to a talented friend who's never made
+        a podcast before. You're breaking down the complex task into simple steps: read
+        the material, think creatively about it, write natural dialogue, and keep good pacing.
+      </simple-explanation>
+      <implementation>
+        <system-prompt-template>
+          <![CDATA[
+You are a world-class podcast producer tasked with transforming the provided input text
+into an engaging and informative podcast script. The input may be unstructured or messy,
+sourced from PDFs or web pages. Your goal is to extract the most interesting and insightful
+content for a compelling podcast discussion.
+
+Steps to Follow:
+
+1. **Analyze the Input:**
+   - Carefully examine the text, identifying key topics, points, and interesting facts
+   - Extract anecdotes that could drive an engaging podcast conversation
+   - Disregard irrelevant information or formatting issues
+
+2. **Brainstorm Ideas:**
+   <scratchpad>
+   Creative approaches to consider:
+   - Analogies, storytelling techniques, or hypothetical scenarios to make content relatable
+   - Ways to make complex topics accessible to a general audience
+   - Thought-provoking questions to explore during the podcast
+   - Creative approaches to fill any gaps
+   </scratchpad>
+
+3. **Natural Dialogue Requirements:**
+   - Moments of genuine curiosity or surprise from the host
+   - Instances where the guest might briefly struggle to articulate a complex idea
+   - Light-hearted moments or humor when appropriate
+   - Brief personal anecdotes or examples that relate to the topic
+
+4. **Pacing and Structure:**
+   - Start with a strong hook to grab the listener's attention
+   - Gradually build complexity as the conversation progresses
+   - Include brief "breather" moments for listeners to absorb complex information
+   - End on a high note with a thought-provoking question or call-to-action
+
+CRITICAL RULE: Each line of dialogue should be no more than 100 characters (5-8 seconds of speech)
+
+Output: Valid JSON format without code blocks
+          ]]>
+        </system-prompt-template>
+      </implementation>
+    </concept>
+
+    <concept id="conversation-flow">
+      <title>Conversation Flow Techniques</title>
+      <technical-explanation>
+        Two-host dynamics implement complementary personality patterns that create
+        natural information exchange. The curious explorer/knowledgeable guide archetype
+        mirrors effective pedagogical structures and maintains audience engagement
+        through perspective variation.
+      </technical-explanation>
+      <simple-explanation>
+        Like having two friends chat - one who asks great questions and one who explains
+        things well. They play off each other naturally, with interruptions, agreements,
+        and moments of discovery that keep listeners engaged.
+      </simple-explanation>
+      <patterns>
+        <host-dynamics>
+          <host name="Alex" role="curious_explorer">
+            <personality>
+              <trait>Asks probing questions</trait>
+              <trait>Uses phrases like "Wait, so you're saying..."</trait>
+              <trait>Shows genuine surprise: "That's fascinating!"</trait>
+              <trait>Admits when confused: "Help me understand this..."</trait>
+            </personality>
+          </host>
+          <host name="Jordan" role="knowledgeable_guide">
+            <personality>
+              <trait>Explains complex concepts simply</trait>
+              <trait>Uses analogies: "It's like when you..."</trait>
+              <trait>Validates curiosity: "Great question!"</trait>
+              <trait>Admits uncertainty: "We don't fully know, but..."</trait>
+            </personality>
+          </host>
+        </host-dynamics>
+        <natural-flow-elements>
+          <element>Short affirmations: "Right," "Exactly," "Absolutely"</element>
+          <element>Thinking sounds: "Hmm," "Well," "So"</element>
+          <element>Interruptions: "Oh wait—" "Actually—"</element>
+          <element>Overlapping agreement: Both say "Yes!" simultaneously</element>
+        </natural-flow-elements>
+      </patterns>
+    </concept>
+
+    <concept id="educational-content-strategies">
+      <title>Educational Content Strategies</title>
+      <technical-explanation>
+        The intellectual humility framework implements epistemic transparency,
+        explicitly acknowledging knowledge boundaries. This approach builds trust
+        through honesty and models critical thinking by demonstrating scientific
+        uncertainty as a feature, not a bug.
+      </technical-explanation>
+      <simple-explanation>
+        Instead of pretending to know everything, we celebrate the mystery. When we
+        say "we don't know yet," it's honest and exciting - like opening a door to
+        future discoveries. It makes learning feel like an adventure.
+      </simple-explanation>
+      <framework>
+        <intellectual-humility>
+          <core-principle>
+            Every episode explores what we DON'T know as much as what we DO know.
+          </core-principle>
+          <key-phrases>
+            <phrase>Scientists are still debating...</phrase>
+            <phrase>The current understanding suggests...</phrase>
+            <phrase>We used to think X, but now...</phrase>
+            <phrase>This raises more questions than answers...</phrase>
+            <phrase>The honest answer is: we don't fully know</phrase>
+          </key-phrases>
+        </intellectual-humility>
+        <simplification-technique>
+          <feynman-method>
+            <step>Explain the concept in simple terms</step>
+            <step>Identify knowledge gaps</step>
+            <step>Use analogies from everyday life</step>
+            <step>Simplify without losing accuracy</step>
+          </feynman-method>
+        </simplification-technique>
+      </framework>
+    </concept>
+
+    <concept id="cost-optimization">
+      <title>Cost Optimization Patterns</title>
+      <technical-explanation>
+        Strategic API usage optimization through model cascading, prompt caching,
+        and batch processing reduces token consumption by 60-80%. Smart model selection
+        routes simple tasks to cheaper models while reserving premium models for
+        complex reasoning tasks.
+      </technical-explanation>
+      <simple-explanation>
+        Like shopping smart - use the expensive store only for special items,
+        buy in bulk when possible, and reuse what you can. We use powerful AI
+        for hard thinking and cheaper options for simple formatting.
+      </simple-explanation>
+      <strategies>
+        <research-phase cost="$0.50">
+          <source type="wikipedia_api">free</source>
+          <source type="arxiv_api">free</source>
+          <source type="news_api">$0.50</source>
+        </research-phase>
+        <script-generation cost="$0.50">
+          <task type="ideation" model="claude-opus-4.1">$0.30</task>
+          <task type="draft" model="claude-sonnet">$0.15</task>
+          <task type="polish" model="gpt-3.5-turbo">$0.05</task>
+        </script-generation>
+        <audio-generation cost="$2.50">
+          <base-cost>$3.00</base-cost>
+          <optimization type="silence_reduction">-$0.50</optimization>
+        </audio-generation>
+      </strategies>
+    </concept>
+  </core-concepts>
+
+  <templates>
+    <template id="episode-generator">
+      <title>Episode Generation Master Template</title>
+      <structure>
+        <metadata>
+          <episode-number>{{episode_number}}</episode-number>
+          <season>{{season}}</season>
+          <duration-target>27 minutes</duration-target>
+          <word-count-target>4050-4350 words</word-count-target>
+        </metadata>
+        <segments>
+          <cold-open duration="30s">Hook the listener</cold-open>
+          <introduction duration="2m">Set context, introduce topic</introduction>
+          <main-content duration="20m">
+            <section-1 duration="7m">Core concept exploration</section-1>
+            <section-2 duration="7m">Deeper dive with examples</section-2>
+            <section-3 duration="6m">Implications and unknowns</section-3>
+          </main-content>
+          <reflection duration="3m">What we learned vs what we don't know</reflection>
+          <closing duration="1m30s">Call to action, next episode teaser</closing>
+        </segments>
+        <quality-targets>
+          <engagement-score minimum="0.80"/>
+          <comprehension-score minimum="0.85"/>
+          <brand-consistency minimum="0.90"/>
+        </quality-targets>
+      </structure>
+    </template>
+
+    <template id="quick-start-prompt">
+      <title>Instant Episode Generator</title>
+      <prompt-template>
+        <![CDATA[
+Create a 27-minute podcast episode about {topic} for "Nobody Knows" podcast.
+
+Hosts: Alex (curious) and Jordan (knowledgeable)
+Theme: Intellectual humility and limits of knowledge
+Style: Conversational, with natural interruptions and "aha" moments
+
+Requirements:
+- Each dialogue line: max 100 characters
+- Include: "mm-hmm", "right", "exactly" naturally
+- Start with attention-grabbing question
+- End with thought-provoking reflection
+- Acknowledge what we don't know
+
+Format as natural conversation between Alex and Jordan.
+        ]]>
+      </prompt-template>
+    </template>
+  </templates>
+
+  <quality-assurance>
+    <evaluation-criteria>
+      <criterion name="engagement" weight="25%">
+        <factor>Hook effectiveness</factor>
+        <factor>Narrative flow</factor>
+        <factor>Emotional connection</factor>
+        <factor>Listener retention likelihood</factor>
+      </criterion>
+      <criterion name="comprehension" weight="30%">
+        <factor>Concept clarity</factor>
+        <factor>Example quality</factor>
+        <factor>Logical progression</factor>
+        <factor>Accessibility</factor>
+      </criterion>
+      <criterion name="brand-consistency" weight="25%">
+        <factor>Intellectual humility theme</factor>
+        <factor>"Nobody Knows" ethos</factor>
+        <factor>Tone consistency</factor>
+        <factor>Format adherence</factor>
+      </criterion>
+      <criterion name="technical" weight="20%">
+        <factor>Dialogue naturalness</factor>
+        <factor>Pacing appropriateness</factor>
+        <factor>Audio readiness</factor>
+        <factor>Time target accuracy</factor>
+      </criterion>
+    </evaluation-criteria>
+  </quality-assurance>
+
+  <key-takeaways>
+    <technical>
+      <takeaway>The 100-Character Rule enables natural pacing and audio optimization</takeaway>
+      <takeaway>XML structure improves Claude comprehension by 40%</takeaway>
+      <takeaway>Cost optimization through smart API usage achieves &lt;$5/episode</takeaway>
+      <takeaway>Structured prompts with scratchpad techniques improve output quality</takeaway>
+    </technical>
+    <simple>
+      <takeaway>Short dialogue lines sound more natural when spoken</takeaway>
+      <takeaway>Organized instructions help AI understand what you want</takeaway>
+      <takeaway>Smart tool usage saves money without losing quality</takeaway>
+      <takeaway>Let AI "think out loud" before giving final answers</takeaway>
+    </simple>
+  </key-takeaways>
+
+  <cross-references>
+    <reference type="quality-standards" target="quality/03_tdd_requirements_specification.xml"/>
+    <reference type="cost-optimization" target="ai-orchestration/cost-optimization-strategies.xml"/>
+    <reference type="audio-production" target="elevenlabs/23_elevenlabs_podcast_production.xml"/>
+    <reference type="template-system" target="../shared/templates/xml/learning-guide-template.xml"/>
+  </cross-references>
+</learning-guide>

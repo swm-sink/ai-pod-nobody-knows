@@ -15,5 +15,3 @@ If you discover a vulnerability or a leaked secret, please open a private issue 
 - Install pre-commit hooks: `pip install -r dev-requirements.txt && pre-commit install`.
 - Hooks include basic hygiene and `detect-secrets` scanning against the committed baseline.
 - Update the baseline when adding new legitimate tokens: `detect-secrets scan > .secrets.baseline && git add .secrets.baseline`.
-
-

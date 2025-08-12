@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentation xmlns="http://schema.claude.ai/documentation"
+               type="configuration-guide"
+               version="1.0">
+  <metadata>
+    <title>Settings Files Guide - IMPORTANT</title>
+    <importance>critical</importance>
+  </metadata>
+
+  <critical-requirement>
+    <title>CRITICAL: Only ONE Settings File</title>
+    <warning>⚠️</warning>
+
+    <correct-configuration>
+      <location>.claude/settings.local.json</location>
+      <purpose>Store local Claude Code permissions</purpose>
+      <git-status>IGNORED (in .gitignore)</git-status>
+      <rule>There should be ONLY ONE settings file</rule>
+    </correct-configuration>
+  </critical-requirement>
+
+  <forbidden-files>
+    <title>DO NOT CREATE</title>
+    <forbidden-list>
+      <file>/settings.local.json</file>
+      <description>root directory</description>
+
+      <file>/settings.json</file>
+      <description>root directory</description>
+
+      <file>/.claude/settings.json</file>
+      <description>non-local version</description>
+
+      <file>Any other variants</file>
+      <description>all other naming patterns</description>
+    </forbidden-list>
+  </forbidden-files>
+
+  <other-json-files>
+    <title>Other JSON Files (NOT Settings)</title>
+    <description>These JSON files serve different purposes:</description>
+
+    <json-file>
+      <filename>.mcp.json</filename>
+      <purpose>MCP server configuration (root)</purpose>
+    </json-file>
+
+    <json-file>
+      <filename>.claude/config/mcp-config.json</filename>
+      <purpose>MCP integration config</purpose>
+    </json-file>
+
+    <json-file>
+      <filename>.claude/shared/templates/sessions/*.json</filename>
+      <purpose>Session templates</purpose>
+    </json-file>
+
+    <json-file>
+      <filename>.claude/test-data/*.json</filename>
+      <purpose>Test/mock data</purpose>
+    </json-file>
+  </other-json-files>
+
+  <why-this-matters>
+    <title>Why This Matters</title>
+    <consequences>
+      <consequence>Configuration conflicts</consequence>
+      <consequence>Git tracking issues</consequence>
+      <consequence>Permission confusion</consequence>
+      <consequence>Claude Code errors</consequence>
+    </consequences>
+    <description>Multiple settings files cause these serious problems</description>
+  </why-this-matters>
+
+  <verification>
+    <title>Verification</title>
+    <description>To verify only one settings file exists:</description>
+    <command>
+find . -name "*settings*.json" -o -name "*local*.json" | grep -v node_modules
+# Should ONLY show: ./.claude/settings.local.json
+    </command>
+  </verification>
+
+  <key-reminder>
+    <emphasis>Remember: ONE settings file in .claude/ directory only!</emphasis>
+  </key-reminder>
+</documentation>

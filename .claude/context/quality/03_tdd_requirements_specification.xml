@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="quality" version="1.0.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+
+  <metadata>
+    <title>Test-Driven Development Requirements Specification</title>
+    <phase>walk</phase>
+    <skill-level>intermediate</skill-level>
+    <claude-optimization>true</claude-optimization>
+    <learning-outcomes>
+      <outcome>Master the Red-Green-Refactor TDD cycle</outcome>
+      <outcome>Implement comprehensive test strategies and patterns</outcome>
+      <outcome>Build automated testing workflows with Claude Code</outcome>
+      <outcome>Establish quality metrics and enforcement mechanisms</outcome>
+    </learning-outcomes>
+    <prerequisites>
+      <prerequisite>Basic understanding of testing concepts</prerequisite>
+      <prerequisite>Python and pytest familiarity</prerequisite>
+      <prerequisite>Git workflow knowledge</prerequisite>
+    </prerequisites>
+    <estimated-time>60 minutes</estimated-time>
+  </metadata>
+
+  <content>
+    <section type="introduction" id="tdd-mandate">
+      <technical-explanation>
+        Test-Driven Development (TDD) implements a disciplined approach where tests drive code design through the Red-Green-Refactor cycle. This methodology ensures comprehensive test coverage, promotes clean design, and maintains regression safety through automated validation.
+      </technical-explanation>
+      <simple-explanation>
+        TDD is like building with blueprints that you create as you go - first you decide what you want to build (test), then you build just enough to make it work (code), then you clean it up (refactor). This way you always know your building is solid.
+      </simple-explanation>
+    </section>
+
+    <section type="implementation" id="tdd-cycle">
+      <technical-explanation>
+        The TDD cycle consists of three phases: RED (write failing test), GREEN (implement minimal code to pass), and REFACTOR (improve code quality). Each phase has specific duration constraints and rules to maintain discipline and prevent over-engineering.
+      </technical-explanation>
+      <simple-explanation>
+        Like a traffic light for coding - RED means stop and write a test that fails, GREEN means go and make it pass with simple code, YELLOW (refactor) means slow down and clean up your code while keeping tests passing.
+      </simple-explanation>
+
+      <instructions>
+        <step number="1" validation-command="pytest new_test.py | grep FAILED">Write a failing test (RED phase) - 5-10 minutes maximum</step>
+        <step number="2" validation-command="pytest new_test.py | grep PASSED">Write minimal code to pass (GREEN phase) - 5-10 minutes maximum</step>
+        <step number="3" validation-command="pytest all_tests.py &amp;&amp; check_code_quality.sh">Refactor while keeping tests passing - 10-15 minutes maximum</step>
+      </instructions>
+
+      <examples>
+        <example type="basic">
+          <scenario>RED Phase: Write failing test for user validation</scenario>
+          <implementation>def test_user_should_be_invalid_when_email_missing(): assert not is_valid_user({"name": "John"})</implementation>
+          <explanation>Test fails because is_valid_user() doesn't exist yet - this is exactly what we want in RED phase</explanation>
+        </example>
+        <example type="basic">
+          <scenario>GREEN Phase: Minimal implementation</scenario>
+          <implementation>def is_valid_user(user): return "email" in user</implementation>
+          <explanation>Just enough code to make the test pass - no more, no less</explanation>
+        </example>
+        <example type="basic">
+          <scenario>REFACTOR Phase: Clean up code</scenario>
+          <implementation>def is_valid_user(user): """Validate user has required email field.""" return user.get("email") is not None</implementation>
+          <explanation>Improve readability and robustness while keeping tests passing</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="reference" id="test-structure">
+      <technical-explanation>
+        The testing pyramid allocates tests across three levels: 50% unit tests (fast, isolated), 30% integration tests (component interactions), and 20% end-to-end tests (full workflows). This distribution optimizes for speed, reliability, and comprehensive coverage.
+      </technical-explanation>
+      <simple-explanation>
+        Like a pyramid of different types of tests - lots of fast unit tests at the bottom (like checking individual LEGO pieces), fewer integration tests in the middle (checking how pieces fit together), and just a few slow end-to-end tests at the top (checking the whole model works).
+      </simple-explanation>
+
+      <examples>
+        <example type="basic">
+          <scenario>Unit Test: Test individual agent initialization</scenario>
+          <implementation>def test_research_agent_initializes_with_valid_config(): agent = ResearchAgent(config); assert agent.is_configured</implementation>
+          <explanation>Fast test that checks one small piece in isolation</explanation>
+        </example>
+        <example type="intermediate">
+          <scenario>Integration Test: Test agent coordination</scenario>
+          <implementation>def test_agents_pass_data_correctly(): research_data = research_agent.execute(); script = script_agent.process(research_data); assert script.contains_research_points</implementation>
+          <explanation>Tests how different components work together</explanation>
+        </example>
+        <example type="advanced">
+          <scenario>E2E Test: Test full episode production</scenario>
+          <implementation>def test_complete_episode_production(): episode = produce_episode("AI Ethics"); assert episode.duration_minutes == 27; assert episode.quality_score >= 0.85</implementation>
+          <explanation>Tests the entire system working together from start to finish</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="reference" id="naming-conventions">
+      <technical-explanation>
+        Test naming follows the pattern: test_[unit]_[should]_[expected_behavior]_[when]_[condition]. This convention provides clear documentation of test intent and makes failure diagnosis straightforward.
+      </technical-explanation>
+      <simple-explanation>
+        Test names tell a story about what should happen - like writing a sentence that explains "when I do X, Y should happen". This makes it easy to understand what went wrong when a test fails.
+      </simple-explanation>
+
+      <examples>
+        <example type="basic">
+          <scenario>Good Test Name</scenario>
+          <implementation>test_research_agent_should_return_error_when_api_unavailable()</implementation>
+          <explanation>Clearly states what's being tested, what should happen, and under what conditions</explanation>
+        </example>
+        <example type="anti-pattern">
+          <scenario>Bad Test Name</scenario>
+          <implementation>test_agent() or test_1() or test_works()</implementation>
+          <explanation>Vague names make it impossible to understand what the test is checking</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="implementation" id="quality-requirements">
+      <technical-explanation>
+        Test quality requirements ensure Independence (tests don't affect each other), Repeatability (consistent results), Clarity (obvious intent), and Speed (fast execution). These characteristics enable reliable automated testing and effective debugging.
+      </technical-explanation>
+      <simple-explanation>
+        Good tests are like good experiments - they work the same way every time, don't interfere with each other, make it obvious what they're testing, and give you results quickly so you're not waiting around.
+      </simple-explanation>
+
+      <validation>
+        <validation-command>pytest tests/unit/ -v --tb=short | grep "100ms"</validation-command>
+        <validation-command>pytest tests/integration/ -v --tb=short | grep "1s"</validation-command>
+        <validation-command>pytest tests/ -x --tb=no | grep "FAILED" || echo "All tests independent"</validation-command>
+        <success-criteria>Unit tests execute in &lt; 100ms each</success-criteria>
+        <success-criteria>Integration tests execute in &lt; 1 second each</success-criteria>
+        <success-criteria>E2E tests execute in &lt; 10 seconds each</success-criteria>
+        <success-criteria>Full test suite completes in &lt; 5 minutes</success-criteria>
+        <success-criteria>Tests pass in any order and in parallel</success-criteria>
+      </validation>
+    </section>
+
+    <section type="advanced" id="claude-code-automation">
+      <technical-explanation>
+        Claude Code automation enhances TDD through hooks-based enforcement, thinking mode escalation for test design complexity, subagent delegation for comprehensive test generation, and automated coverage monitoring with MCP integration for analytics tracking.
+      </technical-explanation>
+      <simple-explanation>
+        Claude Code acts like a smart assistant that automatically helps with TDD - it stops you from breaking the rules, uses more brainpower for complex tests, assigns specialists to generate comprehensive tests, and tracks how well you're doing over time.
+      </simple-explanation>
+
+      <examples>
+        <example type="advanced">
+          <scenario>Automated TDD Enforcement Hook</scenario>
+          <implementation>Pre-commit hook detects production code changes → Checks for corresponding failing tests → Blocks commit if no tests exist → Delegates to test generation subagent</implementation>
+          <explanation>Like having a guard that won't let you submit code without proper tests</explanation>
+        </example>
+        <example type="advanced">
+          <scenario>Thinking Mode Escalation for Test Design</scenario>
+          <implementation>Simple functions use default mode → Complex integrations use "think hard" → Critical system functions use "ultrathink" for comprehensive test scenarios</implementation>
+          <explanation>Like automatically calling in more experts when dealing with harder problems</explanation>
+        </example>
+        <example type="advanced">
+          <scenario>Parallel Test Generation Subagents</scenario>
+          <implementation>Multiple specialized agents generate different test aspects simultaneously: unit tests, integration tests, edge cases, performance tests</implementation>
+          <explanation>Like having a team of specialists each working on different parts of testing at the same time</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="reference" id="testing-patterns">
+      <technical-explanation>
+        Standard testing patterns include Arrange-Act-Assert (setup-execute-verify), Given-When-Then (behavior specification), and Test Fixtures (shared test infrastructure). These patterns provide consistent structure and improve test maintainability.
+      </technical-explanation>
+      <simple-explanation>
+        Testing patterns are like templates that make writing good tests easier - they give you a consistent way to organize your tests so they're easy to read and understand.
+      </simple-explanation>
+
+      <examples>
+        <example type="basic">
+          <scenario>Arrange-Act-Assert Pattern</scenario>
+          <implementation># Arrange: agent = ResearchAgent(config) # Act: result = agent.execute() # Assert: assert result.success</implementation>
+          <explanation>Clear three-part structure: set up what you need, do the action, check the result</explanation>
+        </example>
+        <example type="intermediate">
+          <scenario>Test Fixtures for Reusable Setup</scenario>
+          <implementation>@pytest.fixture def configured_agent(): return Agent(test_mode=True) # Used in multiple tests</implementation>
+          <explanation>Like having a factory that creates the same setup for multiple tests</explanation>
+        </example>
+      </examples>
+    </section>
+
+    <section type="troubleshooting" id="common-mistakes">
+      <technical-explanation>
+        Common TDD mistakes include writing implementation before tests (violates test-first principle), testing implementation details rather than behavior (creates brittle tests), writing overly large tests (difficult debugging), and ignoring failing tests (accumulates technical debt).
+      </technical-explanation>
+      <simple-explanation>
+        Common mistakes are like bad habits that make TDD less effective - writing code before tests is like building without a plan, testing how something works internally makes tests break when you improve the code, and ignoring broken tests is like ignoring warning lights in your car.
+      </simple-explanation>
+
+      <examples>
+        <example type="anti-pattern">
+          <scenario>Mistake: Writing Code First</scenario>
+          <implementation>WRONG: Write function → Write test CORRECT: Write failing test → Write minimal code to pass</implementation>
+          <explanation>Writing code first leads to untestable designs and missed edge cases</explanation>
+        </example>
+        <example type="anti-pattern">
+          <scenario>Mistake: Testing Implementation Details</scenario>
+          <implementation>WRONG: assert agent._internal_method_called() CORRECT: assert agent.result.contains_expected_data</implementation>
+          <explanation>Testing internal details makes tests fragile when you refactor</explanation>
+        </example>
+      </examples>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference file="01_change_approval_requirements.xml" section="implementation" type="prerequisite">Change approval workflow for code modifications</reference>
+    <reference file="02_hallucination_prevention_guide.xml" section="validation-workflow" type="related">Validation techniques applicable to test verification</reference>
+    <reference file="../operations/01_troubleshooting_guide.xml" section="debugging" type="related">Systematic debugging approaches for test failures</reference>
+    <reference file="../claude-code/19_thinking_modes_guide.xml" section="escalation" type="advanced">Thinking mode escalation for complex test scenarios</reference>
+    <reference file="../claude-code/20_hooks_automation_system.xml" section="pre-commit" type="advanced">Automated hook integration for TDD enforcement</reference>
+  </cross-references>
+
+</document>

@@ -5,12 +5,12 @@
         <claude-optimization>true</claude-optimization>
         <estimated-time>{ESTIMATED_TIME}</estimated-time>
     </metadata>
-    
+
     <content>
         <section type="reference" id="overview">
             <technical-explanation>
                 {TECHNICAL_OVERVIEW}
-                
+
                 Should provide:
                 - Precise technical specifications
                 - Professional terminology and definitions
@@ -19,14 +19,14 @@
             </technical-explanation>
             <simple-explanation>
                 {SIMPLE_OVERVIEW}
-                
+
                 Should explain:
                 - What this reference covers in plain language
                 - When you would need this information
                 - How it fits into the bigger picture
             </simple-explanation>
         </section>
-        
+
         <section type="reference" id="quick-reference">
             <instructions>
                 <step validation-command="{VALIDATION_COMMAND_1}">
@@ -37,7 +37,7 @@
                 </step>
                 <!-- Add more quick reference items -->
             </instructions>
-            
+
             <examples>
                 <example type="basic">
                     <scenario>{COMMON_USE_CASE}</scenario>
@@ -46,7 +46,7 @@
                 </example>
             </examples>
         </section>
-        
+
         <section type="troubleshooting" id="common-issues">
             <examples>
                 <example type="anti-pattern">
@@ -55,13 +55,13 @@
                     <explanation>{SOLUTION_AND_PREVENTION}</explanation>
                 </example>
             </examples>
-            
+
             <validation>
                 <validation-command>{DIAGNOSTIC_COMMAND}</validation-command>
                 <success-criteria>{EXPECTED_OUTPUT}</success-criteria>
             </validation>
         </section>
-        
+
         <section type="advanced" id="advanced-usage">
             <technical-explanation>
                 Advanced configuration options, optimization techniques, and integration patterns.
@@ -69,7 +69,7 @@
             <simple-explanation>
                 Power-user features and advanced techniques for when you need more control.
             </simple-explanation>
-            
+
             <examples>
                 <example type="advanced">
                     <scenario>{ADVANCED_SCENARIO}</scenario>
@@ -79,7 +79,7 @@
             </examples>
         </section>
     </content>
-    
+
     <cross-references>
         <reference file="{RELATED_GUIDE}.xml" section="overview" type="related">
             Related learning guide or tutorial

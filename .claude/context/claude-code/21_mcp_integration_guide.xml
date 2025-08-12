@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="learning-guide" domain="claude-code" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>MCP Integration Guide - Connect AI Agents to External Systems</title>
+        <phase>run</phase>
+        <skill-level>advanced</skill-level>
+        <claude-optimization>true</claude-optimization>
+        <learning-outcomes>
+            <outcome>Master MCP servers for AI agent external integrations</outcome>
+            <outcome>Build sophisticated AI monitoring and tracking systems</outcome>
+            <outcome>Create seamless AI workflow automation across platforms</outcome>
+        </learning-outcomes>
+        <prerequisites>
+            <prerequisite>Files 16-20 (Claude Code core features, hooks automation)</prerequisite>
+        </prerequisites>
+        <estimated-time>5-6 hours</estimated-time>
+    </metadata>
+
+    <content>
+        <section type="introduction" id="overview">
+            <technical-explanation>
+                Model Context Protocol (MCP) is Claude Code's standardized interface for connecting Claude to external systems, databases, APIs, and services, enabling AI agents to interact with GitHub, filesystems, web services, and custom tools while maintaining security boundaries and providing structured resource access for complex AI orchestration workflows.
+
+                MCP transforms Claude Code from a local development tool into a connected AI platform that can orchestrate complex workflows across multiple external systems, enabling sophisticated AI agent monitoring, tracking, and automation.
+            </technical-explanation>
+            <simple-explanation>
+                Think of MCP as universal adapters that let your AI agents connect to different tools and services - like having smart plugs that let you connect any device to any power source. Instead of your AI being limited to just reading and writing files, MCP servers let it check GitHub issues, search the web in real-time, access databases, and use specialized tools.
+
+                It's like giving your AI assistant access to the internet and all your tools, but in a controlled and secure way.
+            </simple-explanation>
+        </section>
+
+        <section type="implementation" id="initial-setup">
+            <instructions>
+                <step number="1" validation-command="touch .env && echo 'PERPLEXITY_API_KEY=test' >> .env">
+                    Create .env file with API keys for MCP servers
+                </step>
+                <step number="2" validation-command="cat > start-claude.sh << 'EOF'
+#!/bin/bash
+if [ -f .env ]; then
+    source .env
+    echo '✓ API keys loaded from .env'
+    claude
+else
+    echo '✗ .env file not found!'
+    exit 1
+fi
+EOF">
+                    Create startup script for environment loading
+                </step>
+                <step number="3" validation-command="chmod +x start-claude.sh">
+                    Make startup script executable
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>Setting up Perplexity MCP server for research</scenario>
+                    <implementation>
+# 1. Create .env with actual API key
+echo "PERPLEXITY_API_KEY=pplx-your-actual-key-here" > .env
+
+# 2. Start Claude with environment loaded
+./start-claude.sh
+
+# 3. Add Perplexity server
+claude mcp add perplexity
+
+# 4. Test the connection
+claude "search for latest AI research using perplexity"
+                    </implementation>
+                    <explanation>This sets up the Perplexity MCP server which allows your AI agents to perform real-time research using Perplexity's search capabilities, crucial for keeping episode research current and comprehensive.</explanation>
+                </example>
+
+                <example type="advanced">
+                    <scenario>Custom MCP server for podcast analytics</scenario>
+                    <implementation>
+# Create custom podcast analytics MCP server
+claude mcp add-json podcast-analytics '{
+  "command": "python3",
+  "args": [".claude/mcp-servers/podcast_analytics.py"],
+  "env": {
+    "ANALYTICS_DB_PATH": "./podcast_analytics.db",
+    "QUALITY_THRESHOLD": "0.85"
+  }
+}'
+
+# Use the custom server
+claude "analyze episode quality trends using podcast-analytics"
+                    </implementation>
+                    <explanation>This demonstrates creating a custom MCP server specifically for podcast analytics, allowing AI agents to access specialized analysis tools and databases tailored to your specific project needs.</explanation>
+                </example>
+            </examples>
+
+            <validation>
+                <validation-command>ls .env start-claude.sh && claude mcp list</validation-command>
+                <success-criteria>Environment file exists, startup script is executable, MCP servers are listed</success-criteria>
+            </validation>
+        </section>
+
+        <section type="implementation" id="essential-servers">
+            <instructions>
+                <step number="1" validation-command="claude mcp add perplexity">
+                    Add Perplexity for real-time research capabilities
+                </step>
+                <step number="2" validation-command="claude mcp add github">
+                    Add GitHub for version control integration
+                </step>
+                <step number="3" validation-command="claude mcp add filesystem">
+                    Add filesystem for enhanced file operations
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>GitHub integration for project management</scenario>
+                    <implementation>
+# Add GitHub MCP server
+export GITHUB_TOKEN="your-github-token"
+claude mcp add github
+
+# Create issues for episode production
+claude "create GitHub issue for episode 001 production with checklist"
+
+# Track development progress
+claude "check status of podcast production issues"
+
+# Automated documentation updates
+claude "update README with latest episode status from GitHub issues"
+                    </implementation>
+                    <explanation>GitHub MCP integration allows AI agents to manage project issues, track progress, and automate documentation updates, creating a seamless connection between AI development and project management.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="troubleshooting" id="common-issues">
+            <technical-explanation>
+                Common MCP integration challenges include environment variable loading failures, server startup issues, API key configuration problems, and resource access permission conflicts.
+            </technical-explanation>
+            <simple-explanation>
+                What to do when your AI agents can't connect to external services - like fixing API key problems or ensuring servers start properly.
+            </simple-explanation>
+
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>API keys not available to MCP servers</scenario>
+                    <implementation>
+# BAD: Setting API keys after Claude Code starts
+claude mcp add perplexity
+export PERPLEXITY_API_KEY="key"  # Too late - server already started
+
+# GOOD: Load environment before starting Claude
+# In start-claude.sh:
+#!/bin/bash
+source .env  # Load API keys first
+claude       # Then start Claude Code
+
+# Or use explicit environment in server config
+claude mcp add-json perplexity '{
+  "command": "node",
+  "args": ["perplexity-server.js"],
+  "env": {"PERPLEXITY_API_KEY": "your-key-here"}
+}'
+                    </implementation>
+                    <explanation>MCP servers need API keys available in their environment when they start. Setting environment variables after servers are running won't work - they need to be available from the beginning.</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="advanced" id="workflow-automation">
+            <technical-explanation>
+                Advanced MCP patterns include workflow orchestration across multiple services, automated monitoring systems, and intelligent routing that selects appropriate MCP servers based on context and requirements.
+            </technical-explanation>
+            <simple-explanation>
+                Power-user techniques for creating sophisticated workflows that automatically use the right external services for each task, monitor progress across platforms, and optimize performance.
+            </simple-explanation>
+
+            <examples>
+                <example type="advanced">
+                    <scenario>Multi-service episode production workflow</scenario>
+                    <implementation>
+# Automated episode production across multiple MCP servers
+claude "Create comprehensive episode production workflow:
+
+1. Use perplexity to research latest developments in consciousness
+2. Use github to create production issue with research checklist
+3. Use filesystem to organize research files properly
+4. Generate script using research data
+5. Use elevenlabs to create audio preview
+6. Update github issue with progress and quality metrics
+7. Use filesystem to archive completed episode materials"
+
+# This single command orchestrates:
+# - Real-time research (Perplexity MCP)
+# - Project management (GitHub MCP)
+# - File organization (Filesystem MCP)
+# - Audio synthesis (ElevenLabs MCP)
+# - Progress tracking (GitHub MCP)
+# - Content archival (Filesystem MCP)
+                    </implementation>
+                    <explanation>This demonstrates advanced MCP orchestration where a single AI request triggers a complex workflow across multiple external services, each MCP server contributing its specialized capabilities to create a comprehensive production process.</explanation>
+                </example>
+            </examples>
+        </section>
+    </content>
+
+    <cross-references>
+        <reference file="20_hooks_automation_system.xml" section="overview" type="prerequisite">
+            Automation hooks that can trigger MCP workflows
+        </reference>
+        <reference file="22_subagents_guide.xml" section="overview" type="advanced">
+            Subagents that can leverage MCP integrations
+        </reference>
+        <reference file="../elevenlabs/22_elevenlabs_mcp_integration.xml" section="overview" type="related">
+            ElevenLabs-specific MCP server implementation
+        </reference>
+    </cross-references>
+</document>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="architecture-framework">
+  <metadata>
+    <title>Enhanced Multi-Agent Orchestration (v2.0)</title>
+    <domain>agents</domain>
+    <version>2.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <complexity>Advanced</complexity>
+  </metadata>
+
+  <content>
+    <section id="architecture">
+      <title>Enhanced 9-Agent Pipeline Architecture</title>
+      <technical-explanation>
+        Enhanced 9-agent pipeline with dual-model quality validation and iterative refinement loops
+      </technical-explanation>
+      <simple-explanation>
+        Like a factory assembly line with multiple quality checkpoints - each station specializes, two inspectors verify, and problems get fixed before moving forward
+      </simple-explanation>
+      <learning-value>
+        This teaches advanced distributed systems, consensus algorithms, and production-grade quality assurance
+      </learning-value>
+
+      <cost-warning>⚠️ Multi-agent systems use 15x more tokens than single interactions</cost-warning>
+      <cost-explanation>
+        <technical>Token multiplication occurs due to context sharing and inter-agent communication overhead</technical>
+        <simple>Like group conversations using more words than talking to yourself</simple>
+        <learning>Understanding token economics is crucial for cost-effective AI deployment</learning>
+      </cost-explanation>
+    </section>
+
+    <section id="agents">
+      <title>Agent Definitions</title>
+
+      <agent id="01-research-coordinator">
+        <purpose>Multi-source research with confidence scoring</purpose>
+        <budget>$2.00 per episode</budget>
+        <mcp>Perplexity integration</mcp>
+        <learning-value>Teaches information aggregation and source verification</learning-value>
+      </agent>
+
+      <agent id="02-episode-planner">
+        <purpose>Structure episode blueprint with timing and segments</purpose>
+        <budget>$0.50 per episode</budget>
+        <model>Haiku for efficiency</model>
+        <learning-value>Demonstrates content architecture and narrative structure design</learning-value>
+      </agent>
+
+      <agent id="03-script-writer">
+        <purpose>Transform research into engaging narrative</purpose>
+        <budget>$2.00 per episode</budget>
+        <style>Feynman clarity + Fridman curiosity</style>
+        <learning-value>Shows natural language generation and style transfer</learning-value>
+      </agent>
+
+      <agent id="04-quality-claude">
+        <purpose>Primary quality validation focusing on brand and narrative</purpose>
+        <budget>$0.75 per episode</budget>
+        <gates>Brand voice, engagement, flow</gates>
+        <learning-value>Teaches nuanced content evaluation and brand consistency</learning-value>
+      </agent>
+
+      <agent id="05-quality-gemini">
+        <purpose>Secondary validation via Gemini CLI for factual accuracy</purpose>
+        <budget>FREE (personal Google account)</budget>
+        <implementation>Direct bash execution: gemini -p "@script.md [prompt]"</implementation>
+        <learning-value>Shows multi-model validation and consensus building</learning-value>
+      </agent>
+
+      <agent id="06-feedback-synthesizer">
+        <purpose>Aggregate dual evaluations and prioritize improvements</purpose>
+        <budget>$0.25 per episode</budget>
+        <decision>Route to polish OR final review based on quality gates</decision>
+        <learning-value>Demonstrates decision trees and automated routing logic</learning-value>
+      </agent>
+
+      <agent id="07-script-polisher">
+        <purpose>Implement feedback and refine script to excellence</purpose>
+        <budget>$1.00 per episode (conditional)</budget>
+        <process>Surgical edits preserving strengths</process>
+        <learning-value>Teaches iterative refinement and quality improvement patterns</learning-value>
+      </agent>
+
+      <agent id="08-final-reviewer">
+        <purpose>Final quality checkpoint and production readiness</purpose>
+        <budget>$0.50 per episode</budget>
+        <validation>All gates passed, timing verified, metadata complete</validation>
+        <learning-value>Shows production gatekeeping and release management</learning-value>
+      </agent>
+
+      <agent id="09-audio-synthesizer">
+        <purpose>Generate natural speech using ElevenLabs</purpose>
+        <budget>$2.00 per episode</budget>
+        <mcp>ElevenLabs Turbo V2</mcp>
+        <learning-value>Covers text-to-speech optimization and audio pipeline management</learning-value>
+      </agent>
+    </section>
+
+    <section id="gemini-cli-integration">
+      <title>Gemini CLI Integration</title>
+
+      <setup>
+        <technical-explanation>
+          Gemini CLI provides independent validation through 1M token context window
+        </technical-explanation>
+        <simple-explanation>
+          Like getting a second opinion from a different expert doctor
+        </simple-explanation>
+        <installation>npm install -g @google-gemini/cli</installation>
+        <authentication>gemini auth login (use personal Google account)</authentication>
+      </setup>
+
+      <execution>
+        <description>No wrapper script needed - Direct bash execution in agent</description>
+        <example>
+          # Within 05_quality_gemini agent
+          gemini -p "@script.md Evaluate for accuracy, comprehension, engagement" > eval.json
+        </example>
+        <benefits>Dynamic prompts, inline error handling, simplified debugging</benefits>
+      </execution>
+
+      <cost-optimization>
+        <free-tier>1000 requests/day with personal account</free-tier>
+        <context>1 million tokens per request</context>
+        <usage>Secondary validation at zero cost</usage>
+      </cost-optimization>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../foundation/02_walk_crawl_run_phases.xml">Project Phases</reference>
+    <reference target="../quality/llm-protections.xml">LLM Protections</reference>
+    <reference target="../operations/cost-optimization.xml">Cost Optimization</reference>
+  </cross-references>
+</document>

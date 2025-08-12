@@ -1,0 +1,22 @@
+{
+  "archive_path": ".claude/archive/2025-01-11_original_markdown/",
+  "files_archived": 246,
+  "checksum_file": ".claude/archive/2025-01-11_original_markdown/checksums.txt",
+  "archive_size_mb": "3.4",
+  "verification_status": "PASSED",
+  "sample_files_verified": [
+    "mcp-servers/perplexity-mcp/perplexity-ask/node_modules/minimatch/README.md",
+    "mcp-servers/perplexity-mcp/perplexity-ask/node_modules/gopd/CHANGELOG.md",
+    "mcp-servers/perplexity-mcp/perplexity-ask/node_modules/has-tostringtag/CHANGELOG.md",
+    "context/claude-code/18_file_operations_guide.md",
+    "mcp-servers/perplexity-mcp/README.md"
+  ],
+  "timestamp": "2025-08-11T19:53:00-04:00",
+  "discrepancy_note": "Found 246 files instead of expected 244 - difference of +2 files",
+  "validation_details": {
+    "checksum_count": 246,
+    "sample_verification": "5/5 files matched original checksums",
+    "directory_structure": "Complete hierarchy preserved",
+    "no_corruption_detected": true
+  }
+}

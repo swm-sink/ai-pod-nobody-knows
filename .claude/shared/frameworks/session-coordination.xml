@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="framework">
+  <metadata>
+    <title>Session Coordination Framework</title>
+    <domain>shared</domain>
+    <subdomain>frameworks</subdomain>
+    <version>1.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <purpose>Agent coordination and state management</purpose>
+  </metadata>
+
+  <content>
+    <section id="overview">
+      <title>Framework Overview</title>
+      <description>
+        This framework ensures seamless coordination between agents through shared session state,
+        enabling the podcast production pipeline to maintain context, track progress, and handle failures gracefully.
+      </description>
+    </section>
+
+    <section id="session-structure">
+      <title>Session Structure</title>
+
+      <subsection id="identification">
+        <title>Session Identification</title>
+        <structure>
+          <session-id>ep_{number}_{YYYYMMDD}_{HHMM}</session-id>
+          <episode-number>1</episode-number>
+          <topic>consciousness_hard_problem</topic>
+          <complexity-level>3</complexity-level>
+          <target-audience>general</target-audience>
+          <created-at>2024-08-11T14:30:00Z</created-at>
+          <status>in_progress</status>
+        </structure>
+      </subsection>
+
+      <subsection id="state-management">
+        <title>Session State Management</title>
+
+        <state-transitions>
+          <flow>INITIALIZED → RESEARCHING → WRITING → EVALUATING → SYNTHESIZING → COMPLETE</flow>
+          <failure-handling>Each stage can transition to FAILED → RETRY</failure-handling>
+        </state-transitions>
+
+        <file-structure>
+          <location>projects/nobody-knows/output/sessions/</location>
+          <naming>ep{number}_session_{date}.json</naming>
+        </file-structure>
+      </subsection>
+
+      <subsection id="state-schema">
+        <title>Session State Schema</title>
+        <schema>
+          <session-info>
+            <session-id>ep_001_20240811_1430</session-id>
+            <episode>
+              <number>1</number>
+              <topic>The Hard Problem of Consciousness</topic>
+              <complexity-target>3</complexity-target>
+              <duration-target>27</duration-target>
+            </episode>
+          </session-info>
+
+          <pipeline-state>
+            <current-stage>writing</current-stage>
+            <completed-stages>["research"]</completed-stages>
+            <pending-stages>["evaluation", "synthesis"]</pending-stages>
+            <failed-attempts>0</failed-attempts>
+            <retry-count>0</retry-count>
+          </pipeline-state>
+
+          <agent-outputs>
+            <research-coordinator>
+              <status>complete</status>
+              <output-file>projects/nobody-knows/output/research/ep001_research_consciousness_20240811.md</output-file>
+              <execution-time>1680</execution-time>
+              <cost>0.00</cost>
+              <quality-score>0.92</quality-score>
+            </research-coordinator>
+
+            <script-writer>
+              <status>in_progress</status>
+              <start-time>2024-08-11T14:58:00Z</start-time>
+              <estimated-completion>2024-08-11T15:18:00Z</estimated-completion>
+            </script-writer>
+
+            <quality-evaluator>
+              <status>pending</status>
+            </quality-evaluator>
+
+            <audio-synthesizer>
+              <status>not_implemented</status>
+            </audio-synthesizer>
+          </agent-outputs>
+
+          <quality-metrics>
+            <research-quality>0.92</research-quality>
+            <script-quality>null</script-quality>
+            <overall-quality>null</overall-quality>
+            <brand-consistency>null</brand-consistency>
+          </quality-metrics>
+
+          <cost-tracking>
+            <research>0.00</research>
+            <writing>0.00</writing>
+            <evaluation>0.00</evaluation>
+            <synthesis>0.00</synthesis>
+            <total>0.00</total>
+            <budget>9.00</budget>
+            <within-budget>true</within-budget>
+          </cost-tracking>
+
+          <timestamps>
+            <created>2024-08-11T14:30:00Z</created>
+            <last-updated>2024-08-11T14:58:00Z</last-updated>
+            <research-completed>2024-08-11T14:58:00Z</research-completed>
+            <writing-started>2024-08-11T14:58:00Z</writing-started>
+          </timestamps>
+        </schema>
+      </subsection>
+    </section>
+
+    <section id="coordination-protocol">
+      <title>Agent Coordination Protocol</title>
+
+      <subsection id="session-initialization">
+        <title>Session Initialization</title>
+        <function name="initialize_session">
+          <parameters>
+            <param>episode_number</param>
+            <param>topic</param>
+            <param>complexity_level</param>
+          </parameters>
+          <process>
+            <step>Generate session ID</step>
+            <step>Create session structure</step>
+            <step>Initialize pipeline state</step>
+            <step>Save session state</step>
+            <step>Return session ID</step>
+          </process>
+        </function>
+      </subsection>
+
+      <subsection id="handoff-protocols">
+        <title>Agent Handoff Protocols</title>
+
+        <handoff from="research_coordinator" to="script_writer">
+          <data>
+            <research-package>path/to/research.md</research-package>
+            <complexity-assessment>3</complexity-assessment>
+            <key-narratives>["list", "of", "narratives"]</key-narratives>
+            <confidence-scores>{...}</confidence-scores>
+          </data>
+          <validation>
+            <package-complete>true</package-complete>
+            <quality-threshold-met>true</quality-threshold-met>
+            <ready-for-script>true</ready-for-script>
+          </validation>
+        </handoff>
+
+        <handoff from="script_writer" to="quality_evaluator">
+          <data>
+            <script-file>path/to/script.md</script-file>
+            <word-count>4000</word-count>
+            <estimated-duration>27.5</estimated-duration>
+            <complexity-level>3</complexity-level>
+          </data>
+          <validation>
+            <script-complete>true</script-complete>
+            <format-valid>true</format-valid>
+            <ready-for-evaluation>true</ready-for-evaluation>
+          </validation>
+        </handoff>
+
+        <handoff from="quality_evaluator" to="audio_synthesizer">
+          <data>
+            <validated-script>path/to/script.md</validated-script>
+            <quality-report>path/to/quality.json</quality-report>
+            <approval-status>PASS</approval-status>
+          </data>
+          <validation>
+            <quality-gates-passed>true</quality-gates-passed>
+            <audio-ready>true</audio-ready>
+            <synthesis-approved>true</synthesis-approved>
+          </validation>
+        </handoff>
+      </subsection>
+
+      <subsection id="state-update">
+        <title>State Update Mechanism</title>
+        <function name="update_session_state">
+          <parameters>
+            <param>session_id</param>
+            <param>agent_name</param>
+            <param>update</param>
+          </parameters>
+          <process>
+            <step>Load current session state</step>
+            <step>Update agent-specific data</step>
+            <step>Update pipeline state if complete</step>
+            <step>Update timestamps</step>
+            <step>Update cost tracking</step>
+            <step>Save updated session state</step>
+          </process>
+        </function>
+      </subsection>
+    </section>
+
+    <section id="error-handling">
+      <title>Error Handling</title>
+
+      <subsection id="failure-recovery">
+        <title>Failure Recovery</title>
+        <function name="handle_agent_failure">
+          <parameters>
+            <param>session_id</param>
+            <param>agent_name</param>
+            <param>error</param>
+          </parameters>
+          <process>
+            <step>Record failure status and error</step>
+            <step>Increment failed attempts counter</step>
+            <step>Determine retry strategy (max 3 retries)</step>
+            <step>Either retry agent or escalate failure</step>
+            <step>Save updated session state</step>
+          </process>
+        </function>
+      </subsection>
+
+      <subsection id="quality-failures">
+        <title>Quality Gate Failures</title>
+        <function name="handle_quality_failure">
+          <parameters>
+            <param>session_id</param>
+            <param>quality_report</param>
+          </parameters>
+          <process>
+            <step>Analyze failure type from quality report</step>
+            <step>Route back to appropriate stage with feedback</step>
+            <step>Set specific adjustments needed</step>
+            <step>Update pipeline state accordingly</step>
+          </process>
+          <failure-types>
+            <brand-consistency>Return to script_writer with feedback</brand-consistency>
+            <technical>Return to script_writer for duration adjustment</technical>
+          </failure-types>
+        </function>
+      </subsection>
+    </section>
+
+    <section id="monitoring">
+      <title>Session Monitoring</title>
+
+      <subsection id="progress-tracking">
+        <title>Progress Tracking</title>
+        <function name="get_session_progress">
+          <returns>
+            <progress-percentage>Calculated from completed stages</progress-percentage>
+            <current-stage>Current pipeline stage</current-stage>
+            <estimated-completion>Time estimate</estimated-completion>
+            <cost-so-far>Running total</cost-so-far>
+            <quality-status>Current metrics</quality-status>
+          </returns>
+        </function>
+      </subsection>
+
+      <subsection id="dashboard">
+        <title>Session Dashboard</title>
+        <dashboard-data>
+          <active-sessions>List of in-progress sessions</active-sessions>
+          <completed-today>Count of finished episodes</completed-today>
+          <failed-today>Count of failures</failed-today>
+          <average-time>Minutes per episode</average-time>
+          <average-cost>Dollars per episode</average-cost>
+          <quality-average>Average quality score</quality-average>
+        </dashboard-data>
+      </subsection>
+    </section>
+
+    <section id="agent-implementation">
+      <title>Implementation in Agents</title>
+
+      <implementation id="standard-pattern">
+        <title>Standard Agent Pattern</title>
+        <at-start>
+          <step>Load session state</step>
+          <step>Validate ready for stage</step>
+        </at-start>
+
+        <during-processing>
+          <step>Update session progress to "in_progress"</step>
+        </during-processing>
+
+        <on-completion>
+          <step>Update session state with results</step>
+          <step>Include output file path</step>
+          <step>Record actual cost</step>
+          <step>Include quality metrics</step>
+        </on-completion>
+
+        <on-failure>
+          <step>Call handle_agent_failure with error details</step>
+        </on-failure>
+      </implementation>
+    </section>
+
+    <section id="session-commands">
+      <title>Session Commands</title>
+
+      <commands>
+        <command name="init">
+          <syntax>claude-code session init --episode 1 --topic "consciousness" --complexity 3</syntax>
+          <purpose>Initialize new session</purpose>
+        </command>
+
+        <command name="status">
+          <syntax>claude-code session status ep_001_20240811_1430</syntax>
+          <purpose>Check session status</purpose>
+        </command>
+
+        <command name="resume">
+          <syntax>claude-code session resume ep_001_20240811_1430</syntax>
+          <purpose>Resume failed session</purpose>
+        </command>
+
+        <command name="dashboard">
+          <syntax>claude-code session dashboard</syntax>
+          <purpose>View session dashboard</purpose>
+        </command>
+      </commands>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../quality-gates/production-pipeline.xml">Production Pipeline</reference>
+    <reference target="../../context/agents/multi-agent-orchestration.xml">Multi-Agent Orchestration</reference>
+    <reference target="../../context/operations/cost-optimization.xml">Cost Optimization</reference>
+  </cross-references>
+</document>

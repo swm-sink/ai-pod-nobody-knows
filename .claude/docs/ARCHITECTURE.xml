@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentation xmlns="http://schema.claude.ai/documentation"
+               type="system-architecture"
+               version="1.0">
+  <metadata>
+    <title>System Architecture - Sources of Truth</title>
+    <last-updated>2025-08-11</last-updated>
+    <principle>DRY (Don't Repeat Yourself) - One source of truth for everything</principle>
+    <icon>🏗️</icon>
+  </metadata>
+
+  <critical-requirement>
+    <title>DRY Principle Enforcement</title>
+    <description>This document defines the SINGLE sources of truth for all system data. Any duplication violates the DRY principle and creates maintenance debt.</description>
+  </critical-requirement>
+
+  <primary-sources-of-truth>
+    <source id="episode-data">
+      <name>Episode Data</name>
+      <location>projects/nobody-knows/series_plan/episodes_master.json</location>
+      <contains>
+        <item>All 125 episode titles</item>
+        <item>Episode descriptions</item>
+        <item>Complexity levels</item>
+        <item>Season organization</item>
+      </contains>
+      <rules>
+        <rule type="forbidden">DO NOT duplicate episode data anywhere else</rule>
+        <rule type="required">All commands and agents should read from this file dynamically</rule>
+      </rules>
+    </source>
+
+    <source id="production-config">
+      <name>Production Configuration</name>
+      <location>projects/nobody-knows/config/project_config.json</location>
+      <contains>
+        <item>Budget limits</item>
+        <item>Quality thresholds</item>
+        <item>Technical settings</item>
+        <item>API limits</item>
+      </contains>
+      <rules>
+        <rule type="forbidden">DO NOT hardcode these values in commands or agents</rule>
+        <rule type="required">Commands should read configuration at runtime</rule>
+      </rules>
+    </source>
+
+    <source id="philosophy-brand-voice">
+      <name>Philosophy &amp; Brand Voice</name>
+      <location>projects/nobody-knows/series_plan/series_bible.md</location>
+      <contains>
+        <item>Teaching philosophy</item>
+        <item>Brand voice</item>
+        <item>Narrative approach</item>
+        <item>Recurring segments</item>
+      </contains>
+      <rules>
+        <rule type="forbidden">DO NOT duplicate philosophy statements across documentation</rule>
+        <rule type="required">Agents should reference for content generation</rule>
+      </rules>
+    </source>
+
+    <source id="teaching-methodology">
+      <name>Teaching Methodology</name>
+      <location>projects/nobody-knows/series_plan/teaching_philosophy.md</location>
+      <contains>
+        <item>Educational principles</item>
+        <item>Episode structure</item>
+        <item>Pedagogical strategies</item>
+      </contains>
+      <rules>
+        <rule type="forbidden">DO NOT recreate teaching approaches in individual agents</rule>
+        <rule type="required">Script writers and quality evaluators should reference</rule>
+      </rules>
+    </source>
+
+    <source id="season-structure">
+      <name>Season Structure</name>
+      <location>projects/nobody-knows/series_plan/season_themes.json</location>
+      <contains>
+        <item>Season themes</item>
+        <item>Complexity progression</item>
+        <item>Production notes</item>
+      </contains>
+      <rules>
+        <rule type="forbidden">DO NOT hardcode season information elsewhere</rule>
+        <rule type="required">Batch production and planning tools should reference</rule>
+      </rules>
+    </source>
+  </primary-sources-of-truth>
+
+  <data-flow-architecture>
+    <description>Read-only data flow from primary sources to operational consumers</description>
+    <ascii-diagram>
+┌─────────────────────────────────────┐
+│     PRIMARY SOURCES (Truth)         │
+├─────────────────────────────────────┤
+│ • episodes_master.json              │ ← Episode details
+│ • project_config.json               │ ← Production settings
+│ • series_bible.md                   │ ← Philosophy
+│ • teaching_philosophy.md            │ ← Pedagogy
+│ • season_themes.json                │ ← Season structure
+└──────────────┬──────────────────────┘
+               │
+               ↓ READ ONLY
+┌─────────────────────────────────────┐
+│    OPERATIONAL FILES (Consumers)    │
+├─────────────────────────────────────┤
+│ Commands:                           │
+│ • produce-episode.md                │ → Reads episode from master
+│ • batch-produce.md                  │ → Reads episodes from master
+│                                     │
+│ Agents:                             │
+│ • research-coordinator.md           │ → References config
+│ • script-writer.md                  │ → References philosophy
+│ • quality-evaluator.md              │ → References quality gates
+│ • audio-synthesizer.md              │ → References audio config
+└─────────────────────────────────────┘
+    </ascii-diagram>
+  </data-flow-architecture>
+
+  <anti-patterns>
+    <title>Anti-Patterns to Avoid</title>
+
+    <anti-pattern>
+      <title>Hardcoded Values</title>
+      <bad-example>
+        <description>In some random file</description>
+        <code>The podcast has 125 episodes across 5 seasons...</code>
+        <reason>WRONG: Hardcoded</reason>
+      </bad-example>
+      <good-example>
+        <description>In documentation</description>
+        <code>See episodes_master.json for episode details</code>
+        <reason>RIGHT: Reference source</reason>
+      </good-example>
+    </anti-pattern>
+
+    <anti-pattern>
+      <title>Duplicated Constants</title>
+      <bad-example>
+        <description>Python code</description>
+        <code>TOTAL_EPISODES = 125  # WRONG: Duplicated constant</code>
+      </bad-example>
+      <good-example>
+        <description>Dynamic loading</description>
+        <code># Read from source
+import json
+with open('projects/nobody-knows/series_plan/episodes_master.json') as f:
+    episodes_data = json.load(f)
+    total_episodes = len(episodes_data['episodes'])</code>
+      </good-example>
+    </anti-pattern>
+  </anti-patterns>
+
+  <quick-reference-guide>
+    <reference-table>
+      <row>
+        <data-type>Episode titles/descriptions</data-type>
+        <source-file>episodes_master.json</source-file>
+        <location>projects/nobody-knows/series_plan/</location>
+      </row>
+      <row>
+        <data-type>Episode count (125)</data-type>
+        <source-file>episodes_master.json</source-file>
+        <location>Count array length</location>
+      </row>
+      <row>
+        <data-type>Season count (5)</data-type>
+        <source-file>episodes_master.json</source-file>
+        <location>Count seasons array</location>
+      </row>
+      <row>
+        <data-type>Budget limits</data-type>
+        <source-file>project_config.json</source-file>
+        <location>projects/nobody-knows/config/</location>
+      </row>
+      <row>
+        <data-type>Quality thresholds</data-type>
+        <source-file>project_config.json</source-file>
+        <location>.quality_thresholds section</location>
+      </row>
+      <row>
+        <data-type>Brand voice</data-type>
+        <source-file>series_bible.md</source-file>
+        <location>projects/nobody-knows/series_plan/</location>
+      </row>
+      <row>
+        <data-type>Teaching approach</data-type>
+        <source-file>teaching_philosophy.md</source-file>
+        <location>projects/nobody-knows/series_plan/</location>
+      </row>
+      <row>
+        <data-type>Season themes</data-type>
+        <source-file>season_themes.json</source-file>
+        <location>projects/nobody-knows/series_plan/</location>
+      </row>
+    </reference-table>
+  </quick-reference-guide>
+
+  <information-finder>
+    <question>Where do I find episode topics?</question>
+    <answer>projects/nobody-knows/series_plan/episodes_master.json</answer>
+
+    <question>What's the budget per episode?</question>
+    <answer>projects/nobody-knows/config/project_config.json → .cost_management.budget_per_episode</answer>
+
+    <question>What's our brand voice?</question>
+    <answer>projects/nobody-knows/series_plan/series_bible.md</answer>
+
+    <question>How many episodes total?</question>
+    <answer>Count episodes in episodes_master.json (currently 125)</answer>
+
+    <question>What are the quality thresholds?</question>
+    <answer>projects/nobody-knows/config/project_config.json → .quality_thresholds</answer>
+  </information-finder>
+
+  <maintenance-rules>
+    <rule>Before adding any constant: Check if it already exists in a source file</rule>
+    <rule>Before hardcoding a value: Ask "Should this be read from a source?"</rule>
+    <rule>When updating episode data: Only update episodes_master.json</rule>
+    <rule>When changing configuration: Only update project_config.json</rule>
+    <rule>When refining philosophy: Only update series_bible.md</rule>
+  </maintenance-rules>
+
+  <documentation-guidelines>
+    <category name="high-level">
+      <title>High-Level Documentation (README, CLAUDE.md)</title>
+      <acceptable>Brief mentions for clarity (e.g., "125-episode AI series")</acceptable>
+      <requirement>Include reference to source files</requirement>
+      <example>This system produces a 125-episode podcast series (see episodes_master.json)</example>
+    </category>
+
+    <category name="operational">
+      <title>Operational Documentation (Commands, Agents)</title>
+      <requirement>MUST read from source files</requirement>
+      <forbidden>Hardcoded values</forbidden>
+      <example>Commands should load episode data at runtime</example>
+    </category>
+
+    <category name="constants">
+      <title>Constants Files</title>
+      <purpose>Only for values that don't exist elsewhere</purpose>
+      <requirement>Add comments pointing to authoritative sources</requirement>
+      <deprecate>Any constants that duplicate source data</deprecate>
+    </category>
+  </documentation-guidelines>
+
+  <benefits>
+    <benefit>Single Point of Update: Change data in ONE place only</benefit>
+    <benefit>No Sync Issues: Can't have conflicting values</benefit>
+    <benefit>Clear Hierarchy: Obvious where to find information</benefit>
+    <benefit>Flexible Production: Easy to work with episode subsets</benefit>
+    <benefit>Maintainable: Future changes are simple</benefit>
+    <benefit>Testable: Clear data contracts</benefit>
+    <benefit>Educational: Demonstrates proper system design</benefit>
+  </benefits>
+
+  <new-contributor-guide>
+    <first-time>
+      <step>Start by reading this file to understand the architecture</step>
+      <step>Check the source files listed above for authoritative data</step>
+      <step>Never duplicate data - always reference the sources</step>
+      <step>When in doubt, ask: "Where is the single source of truth for this?"</step>
+    </first-time>
+
+    <making-changes>
+      <step>Identify which source file owns the data</step>
+      <step>Make changes only in that source file</step>
+      <step>Ensure consumers read the updated data dynamically</step>
+      <step>Update this document if adding new sources of truth</step>
+    </making-changes>
+  </new-contributor-guide>
+</documentation>

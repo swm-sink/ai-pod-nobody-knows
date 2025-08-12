@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <title>Quality Evaluator Agent Templates (2025)</title>
+    <type>reference</type>
+    <version>2025.1</version>
+    <last-updated>2025-01-11</last-updated>
+    <domain>prompts-research</domain>
+    <purpose>Quality evaluation templates for podcast content assessment</purpose>
+    <framework>Multi-criteria scoring with LLM-as-judge</framework>
+    <benchmark>Achieving 0.90+ quality scores consistently</benchmark>
+  </metadata>
+
+  <executive-summary>
+    <description>
+      This document contains comprehensive quality evaluator templates that assess podcast scripts,
+      audio, and overall production quality. These templates implement 2025's best practices including
+      LLM-as-judge frameworks, weighted scoring rubrics, and automated feedback generation proven
+      to maintain consistent quality above 0.90.
+    </description>
+  </executive-summary>
+
+  <core-templates>
+    <template id="master-quality-evaluator">
+      <title>Master Quality Assessment Prompt</title>
+      <technical-explanation>
+        This evaluator implements a multi-stage assessment process that mirrors human expert evaluation
+        while maintaining consistency through defined rubrics and weighted scoring, essential for
+        maintaining quality at scale.
+      </technical-explanation>
+      <simple-explanation>
+        Think of this like a teacher grading a paper—checking if facts are right, if it's interesting
+        to read, if it's clearly written, and if it follows the assignment guidelines, then combining
+        all those scores into a final grade.
+      </simple-explanation>
+      <template-content>
+        <![CDATA[
+<quality_evaluator_system>
+  <role>
+    You are a senior podcast quality evaluator with expertise in educational
+    content, audience engagement, and production standards. You provide
+    objective, actionable feedback based on established criteria while
+    maintaining high standards for accuracy, engagement, and brand consistency.
+  </role>
+
+  <expertise>
+    <evaluation_skills>
+      - Multi-dimensional quality assessment
+      - Objective scoring with justification
+      - Pattern recognition across episodes
+      - Constructive feedback generation
+    </evaluation_skills>
+
+    <domain_knowledge>
+      - Educational content effectiveness
+      - Podcast engagement metrics
+      - Audio production standards
+      - Brand consistency evaluation
+    </domain_knowledge>
+
+    <assessment_framework>
+      - 15-point criteria system
+      - Weighted scoring methodology
+      - Confidence level assignment
+      - Improvement prioritization
+    </assessment_framework>
+  </expertise>
+
+  <evaluation_principles>
+    <objectivity>
+      Base scores on defined rubrics, not preferences
+      Provide evidence for each assessment
+      Acknowledge evaluation limitations
+    </objectivity>
+
+    <constructiveness>
+      Identify specific strengths to maintain
+      Suggest concrete improvements
+      Prioritize feedback by impact
+    </constructiveness>
+  </evaluation_principles>
+</quality_evaluator_system>
+        ]]>
+      </template-content>
+    </template>
+
+    <template id="comprehensive-evaluation">
+      <title>2025 Best Practice Evaluation Framework</title>
+      <technical-explanation>
+        State-of-the-art quality evaluation system with weighted criteria, threshold validation,
+        and automated feedback generation for scalable quality assurance.
+      </technical-explanation>
+      <simple-explanation>
+        Like having a systematic checklist that covers all aspects of quality, with each item
+        weighted by importance, and automatic recommendations for improvement.
+      </simple-explanation>
+      <template-content>
+        <![CDATA[
+<quality_evaluation_task>
+  <content_to_evaluate>
+    {{content}}
+  </content_to_evaluate>
+
+  <evaluation_framework>
+    <step_1>
+      Initial assessment across all criteria
+      Score each dimension 1-5
+      Note initial impressions
+    </step_1>
+
+    <step_2>
+      Deep dive into each criterion
+      Gather supporting evidence
+      Identify specific examples
+    </step_2>
+
+    <step_3>
+      Apply weighted scoring
+      Calculate overall score
+      Determine pass/fail status
+    </step_3>
+
+    <step_4>
+      Generate actionable feedback
+      Prioritize improvements
+      Suggest specific changes
+    </step_4>
+  </evaluation_framework>
+
+  <output_requirements>
+    <scores>
+      Provide numerical scores with justification
+    </scores>
+    <feedback>
+      One clear strength to maintain
+      One priority improvement with specific suggestion
+    </feedback>
+    <recommendation>
+      PASS (>85%) or REVISE (<85%) with reasoning
+    </recommendation>
+  </output_requirements>
+</quality_evaluation_task>
+        ]]>
+      </template-content>
+    </template>
+  </core-templates>
+
+  <scoring-framework>
+    <criteria-system id="15-point-evaluation">
+      <title>Comprehensive 15-Point Evaluation Criteria</title>
+      <criteria-categories>
+        <category name="content-quality" weight="40%">
+          <criterion name="factual_accuracy" weight="15%">
+            <scale>
+              <score level="5">All facts verified, sources cited</score>
+              <score level="4">Minor inaccuracies, easily corrected</score>
+              <score level="3">Some unverified claims</score>
+              <score level="2">Multiple errors found</score>
+              <score level="1">Significant inaccuracies</score>
+            </scale>
+          </criterion>
+          <criterion name="depth_of_content" weight="10%">
+            <scale>
+              <score level="5">Comprehensive coverage with nuance</score>
+              <score level="4">Good depth, minor gaps</score>
+              <score level="3">Adequate coverage</score>
+              <score level="2">Surface-level treatment</score>
+              <score level="1">Insufficient depth</score>
+            </scale>
+          </criterion>
+          <criterion name="intellectual_humility" weight="15%">
+            <scale>
+              <score level="5">Consistently acknowledges unknowns</score>
+              <score level="4">Usually acknowledges limits</score>
+              <score level="3">Sometimes mentions uncertainty</score>
+              <score level="2">Rarely admits unknowns</score>
+              <score level="1">Presents speculation as fact</score>
+            </scale>
+          </criterion>
+        </category>
+
+        <category name="engagement" weight="25%">
+          <criterion name="hook_effectiveness" weight="8%">
+            <scale>
+              <score level="5">Instantly captivating opening</score>
+              <score level="4">Strong, interesting start</score>
+              <score level="3">Adequate hook</score>
+              <score level="2">Weak opening</score>
+              <score level="1">No clear hook</score>
+            </scale>
+          </criterion>
+          <criterion name="narrative_flow" weight="9%">
+            <scale>
+              <score level="5">Seamless, compelling progression</score>
+              <score level="4">Good flow, minor bumps</score>
+              <score level="3">Generally coherent</score>
+              <score level="2">Disjointed sections</score>
+              <score level="1">No clear structure</score>
+            </scale>
+          </criterion>
+          <criterion name="emotional_journey" weight="8%">
+            <scale>
+              <score level="5">Rich emotional arc throughout</score>
+              <score level="4">Good emotional moments</score>
+              <score level="3">Some emotional engagement</score>
+              <score level="2">Limited emotional content</score>
+              <score level="1">Emotionally flat</score>
+            </scale>
+          </criterion>
+        </category>
+
+        <category name="clarity" weight="20%">
+          <criterion name="concept_explanation" weight="10%">
+            <scale>
+              <score level="5">Crystal clear, perfect analogies</score>
+              <score level="4">Well explained, minor confusion</score>
+              <score level="3">Generally understandable</score>
+              <score level="2">Often confusing</score>
+              <score level="1">Unclear throughout</score>
+            </scale>
+          </criterion>
+          <criterion name="language_accessibility" weight="10%">
+            <scale>
+              <score level="5">Perfect for target audience</score>
+              <score level="4">Mostly accessible</score>
+              <score level="3">Some jargon issues</score>
+              <score level="2">Too technical/simple</score>
+              <score level="1">Wrong level throughout</score>
+            </scale>
+          </criterion>
+        </category>
+
+        <category name="technical-quality" weight="15%">
+          <criterion name="dialogue_naturalness" weight="5%">
+            <scale>
+              <score level="5">Completely natural conversation</score>
+              <score level="4">Mostly natural, occasional stiffness</score>
+              <score level="3">Adequate dialogue</score>
+              <score level="2">Often sounds scripted</score>
+              <score level="1">Robotic dialogue</score>
+            </scale>
+          </criterion>
+          <criterion name="pacing" weight="5%">
+            <scale>
+              <score level="5">Perfect rhythm and timing</score>
+              <score level="4">Good pacing, minor issues</score>
+              <score level="3">Generally well-paced</score>
+              <score level="2">Pacing problems</score>
+              <score level="1">Poor pacing throughout</score>
+            </scale>
+          </criterion>
+          <criterion name="timing_accuracy" weight="5%">
+            <scale>
+              <score level="5">Within 30 seconds of target</score>
+              <score level="4">Within 1 minute</score>
+              <score level="3">Within 2 minutes</score>
+              <score level="2">3-5 minutes off</score>
+              <score level="1">More than 5 minutes off</score>
+            </scale>
+          </criterion>
+        </category>
+      </criteria-categories>
+    </criteria-system>
+
+    <score-interpretation>
+      <grade level="A" range="90-100%">Excellent quality - exceeds requirements</grade>
+      <grade level="B" range="80-89%">Good quality - meets all requirements</grade>
+      <grade level="C" range="70-79%">Satisfactory - meets basic requirements</grade>
+      <grade level="D" range="60-69%">Needs improvement - below standards</grade>
+      <grade level="F" range="0-59%">Poor quality - requires major revision</grade>
+    </score-interpretation>
+  </scoring-framework>
+
+  <llm-as-judge>
+    <implementation id="automated-judge">
+      <title>LLM-as-Judge Implementation</title>
+      <technical-explanation>
+        Implement scalable quality assessment using Claude as an expert judge with low temperature
+        settings for consistency and evidence-based scoring requirements.
+      </technical-explanation>
+      <simple-explanation>
+        Like having an AI expert who consistently grades content using the same standards,
+        always explaining their reasoning and providing specific examples.
+      </simple-explanation>
+      <judge-configuration>
+        <model>claude-opus-4.1</model>
+        <temperature>0.3</temperature>
+        <role>expert_evaluator</role>
+      </judge-configuration>
+      <template-content>
+        <![CDATA[
+<llm_judge_task>
+  <role>
+    You are an expert judge evaluating podcast content quality.
+    You must be objective, consistent, and provide evidence-based scoring.
+  </role>
+
+  <content_to_judge>
+    {{content}}
+  </content_to_judge>
+
+  <evaluation_criteria>
+    {{formatted_criteria}}
+  </evaluation_criteria>
+
+  <scoring_instructions>
+    For each criterion:
+    1. Read the content carefully
+    2. Compare against the rubric
+    3. Select appropriate score (1-5)
+    4. Provide specific evidence from content
+    5. Suggest one improvement if score < 5
+  </scoring_instructions>
+
+  <output_format>
+    <criterion name="[name]">
+      <score>[1-5]</score>
+      <evidence>[Quote or description from content]</evidence>
+      <reasoning>[Why this score was assigned]</reasoning>
+      <improvement>[Specific suggestion if needed]</improvement>
+    </criterion>
+  </output_format>
+
+  <calibration_examples>
+    {{calibration_examples}}
+  </calibration_examples>
+</llm_judge_task>
+        ]]>
+      </template-content>
+    </implementation>
+
+    <prometheus-framework>
+      <title>Prometheus-Style Open Evaluation</title>
+      <description>Open-source LLM evaluation comparable to GPT-4</description>
+      <components>
+        <reference-answer>The ideal response that would score 5/5</reference-answer>
+        <score-rubric>Detailed scoring criteria for each point level</score-rubric>
+        <evaluation-steps>
+          <step>Compare response to reference</step>
+          <step>Identify gaps and strengths</step>
+          <step>Apply rubric systematically</step>
+          <step>Assign score with justification</step>
+        </evaluation-steps>
+      </components>
+      <use-cases>
+        <case>Scripts</case>
+        <case>Research briefs</case>
+        <case>Audio transcripts</case>
+        <case>Production notes</case>
+      </use-cases>
+    </prometheus-framework>
+  </llm-as-judge>
+
+  <assessment-rubrics>
+    <rubric id="script-quality">
+      <title>Script Quality Assessment Rubric</title>
+      <criteria>
+        <criterion name="opening_hook">
+          <excellent>Immediately grabs attention, poses intriguing question</excellent>
+          <good>Interesting start, clear topic introduction</good>
+          <satisfactory>Adequate opening, sets context</satisfactory>
+          <poor>Weak or missing hook</poor>
+        </criterion>
+        <criterion name="dialogue_authenticity">
+          <excellent>Sounds completely natural, includes fillers, interruptions</excellent>
+          <good>Mostly natural with good flow</good>
+          <satisfactory>Some stiffness but generally okay</satisfactory>
+          <poor>Sounds scripted and unnatural</poor>
+        </criterion>
+        <criterion name="educational_value">
+          <excellent>Teaches complex concepts clearly, memorable</excellent>
+          <good>Good explanations, mostly clear</good>
+          <satisfactory>Basic information conveyed</satisfactory>
+          <poor>Confusing or inaccurate teaching</poor>
+        </criterion>
+        <criterion name="intellectual_humility">
+          <excellent>Consistently acknowledges unknowns, embraces uncertainty</excellent>
+          <good>Usually mentions knowledge limits</good>
+          <satisfactory>Some acknowledgment of uncertainty</satisfactory>
+          <poor>Presents everything as certain</poor>
+        </criterion>
+        <criterion name="narrative_structure">
+          <excellent>Compelling arc with clear acts, satisfying conclusion</excellent>
+          <good>Good structure with minor pacing issues</good>
+          <satisfactory>Basic structure present</satisfactory>
+          <poor>Disjointed or no clear structure</poor>
+        </criterion>
+      </criteria>
+    </rubric>
+
+    <rubric id="audio-quality">
+      <title>Audio Quality Assessment Rubric</title>
+      <voice-performance>
+        <excellent>
+          <trait>Natural intonation and emotion</trait>
+          <trait>Clear articulation</trait>
+          <trait>Appropriate pacing</trait>
+          <trait>Distinct character voices</trait>
+        </excellent>
+        <good>
+          <trait>Generally natural delivery</trait>
+          <trait>Mostly clear speech</trait>
+          <trait>Good pacing with minor issues</trait>
+        </good>
+        <poor>
+          <trait>Robotic or monotone</trait>
+          <trait>Unclear articulation</trait>
+          <trait>Poor pacing</trait>
+        </poor>
+      </voice-performance>
+      <technical-quality>
+        <excellent>
+          <trait>Consistent audio levels</trait>
+          <trait>No artifacts or glitches</trait>
+          <trait>Smooth transitions</trait>
+          <trait>Professional sound</trait>
+        </excellent>
+        <good>
+          <trait>Minor level variations</trait>
+          <trait>Occasional small artifacts</trait>
+          <trait>Generally smooth</trait>
+        </good>
+        <poor>
+          <trait>Significant level issues</trait>
+          <trait>Noticeable artifacts</trait>
+          <trait>Jarring transitions</trait>
+        </poor>
+      </technical-quality>
+    </rubric>
+  </assessment-rubrics>
+
+  <feedback-generation>
+    <framework id="constructive-feedback">
+      <title>Constructive Feedback Framework</title>
+      <structure>
+        <sandwich-method>true</sandwich-method>
+        <specificity>high</specificity>
+        <actionability>required</actionability>
+        <tone>encouraging yet honest</tone>
+      </structure>
+      <template-content>
+        <![CDATA[
+<feedback_generation>
+  <opening_positive>
+    Start with strongest element:
+    "The {{strength_area}} was excellent, particularly..."
+  </opening_positive>
+
+  <constructive_criticism>
+    <priority_1>
+      Issue: {{main_issue}}
+      Impact: Why this matters for quality
+      Solution: Specific steps to improve
+      Example: How it could be better
+    </priority_1>
+
+    <priority_2>
+      Issue: {{secondary_issue}}
+      Quick fix: Simple adjustment needed
+    </priority_2>
+  </constructive_criticism>
+
+  <closing_encouragement>
+    Overall assessment: {{overall_quality}}
+    Potential seen: What could make this excellent
+    Next steps: Clear action items
+  </closing_encouragement>
+</feedback_generation>
+        ]]>
+      </template-content>
+    </framework>
+
+    <feedback-templates>
+      <template type="accuracy_issue">
+        The claim about {{topic}} needs verification.
+        Current: "{{current_claim}}"
+        Suggested: "{{corrected_claim}}"
+        Source: {{reliable_source}}
+      </template>
+      <template type="engagement_improvement">
+        The section on {{topic}} could be more engaging.
+        Try: Adding a relatable analogy or surprising fact
+        Example: "It's like when you..."
+      </template>
+      <template type="pacing_adjustment">
+        The pacing between minutes {{start}}-{{end}} feels rushed.
+        Consider: Adding a breather moment or transition
+        Example: "Let's pause and think about what this means..."
+      </template>
+      <template type="humility_reminder">
+        The explanation of {{topic}} sounds too certain.
+        Add phrases like: "Current research suggests..." or
+        "Scientists are still debating..."
+      </template>
+    </feedback-templates>
+
+    <improvement-prioritization>
+      <high-impact-easy>
+        <description>Quick fixes with big results</description>
+        <examples>
+          <example>Add uncertainty acknowledgments</example>
+          <example>Fix factual errors</example>
+          <example>Improve opening hook</example>
+        </examples>
+        <action>Do immediately</action>
+      </high-impact-easy>
+      <high-impact-hard>
+        <description>Major improvements requiring effort</description>
+        <examples>
+          <example>Restructure narrative arc</example>
+          <example>Rewrite unclear sections</example>
+          <example>Add missing research</example>
+        </examples>
+        <action>Plan for revision</action>
+      </high-impact-hard>
+      <low-impact-easy>
+        <description>Nice-to-have quick adjustments</description>
+        <examples>
+          <example>Add more filler words</example>
+          <example>Adjust minor timing</example>
+          <example>Polish transitions</example>
+        </examples>
+        <action>Do if time permits</action>
+      </low-impact-easy>
+    </improvement-prioritization>
+  </feedback-generation>
+
+  <quality-gates>
+    <automated-decision-system>
+      <title>Pass/Fail Decision System</title>
+      <thresholds>
+        <must-pass>
+          <criterion name="factual_accuracy">0.90</criterion>
+          <criterion name="brand_consistency">0.85</criterion>
+          <criterion name="no_harmful_content">1.00</criterion>
+        </must-pass>
+        <should-pass>
+          <criterion name="engagement">0.80</criterion>
+          <criterion name="clarity">0.85</criterion>
+          <criterion name="dialogue_quality">0.75</criterion>
+        </should-pass>
+        <overall-minimum>0.85</overall-minimum>
+      </thresholds>
+      <decisions>
+        <decision type="FAIL">
+          <condition>Any must-pass criterion below threshold</condition>
+          <action>Must fix before release</action>
+        </decision>
+        <decision type="REVISE">
+          <condition>Overall quality below standard</condition>
+          <action>Improve weak areas</action>
+        </decision>
+        <decision type="PASS">
+          <condition>All thresholds met</condition>
+          <action>Approved for release</action>
+        </decision>
+      </decisions>
+    </automated-decision-system>
+  </quality-gates>
+
+  <performance-tracking>
+    <metrics-dashboard>
+      <title>Quality Metrics Dashboard</title>
+      <targets>
+        <target name="episode_quality">0.90</target>
+        <target name="consistency">0.85</target>
+        <target name="improvement_rate">0.02</target>
+      </targets>
+      <tracked-metrics>
+        <metric>Overall quality score</metric>
+        <metric>Sub-scores by category</metric>
+        <metric>Revision requirements</metric>
+        <metric>Trend analysis</metric>
+        <metric>Consistent strengths</metric>
+        <metric>Recurring issues</metric>
+      </tracked-metrics>
+    </metrics-dashboard>
+  </performance-tracking>
+
+  <evaluation-examples>
+    <example id="high-quality-episode">
+      <title>High-Quality Episode Evaluation</title>
+      <episode>42: The Fermi Paradox</episode>
+      <scores>
+        <factual-accuracy>4.8/5.0</factual-accuracy>
+        <engagement>4.9/5.0</engagement>
+        <clarity>4.7/5.0</clarity>
+        <brand-consistency>5.0/5.0</brand-consistency>
+        <dialogue-naturalness>4.8/5.0</dialogue-naturalness>
+        <intellectual-humility>5.0/5.0</intellectual-humility>
+      </scores>
+      <overall-score>0.94 (A)</overall-score>
+      <strengths>
+        <strength>Perfect embodiment of "Nobody Knows" theme</strength>
+        <strength>Exceptional hook: "The universe is talking. Is anyone listening?"</strength>
+        <strength>Natural dialogue with authentic reactions</strength>
+      </strengths>
+      <minor-improvements>
+        <improvement>Drake Equation explanation slightly rushed (minute 12-13)</improvement>
+        <improvement>One uncited statistic about exoplanet discovery rate</improvement>
+      </minor-improvements>
+      <decision>PASS - Excellent Quality</decision>
+    </example>
+
+    <example id="revision-needed">
+      <title>Episode Requiring Revision</title>
+      <episode>Draft: Quantum Computing</episode>
+      <scores>
+        <factual-accuracy>3.2/5.0</factual-accuracy>
+        <engagement>4.0/5.0</engagement>
+        <clarity>2.8/5.0</clarity>
+        <brand-consistency>3.5/5.0</brand-consistency>
+      </scores>
+      <overall-score>0.68 (D)</overall-score>
+      <critical-issues>
+        <issue type="accuracy">Incorrect explanation of superposition</issue>
+        <issue type="clarity">Technical jargon without explanation</issue>
+        <issue type="humility">Too certain about disputed claims</issue>
+      </critical-issues>
+      <revision-requirements>
+        <requirement>Fact-check with physics sources (2 hours)</requirement>
+        <requirement>Simplify technical sections (1 hour)</requirement>
+        <requirement>Add uncertainty acknowledgments (30 minutes)</requirement>
+      </revision-requirements>
+      <decision>REVISE - Multiple criteria below threshold</decision>
+    </example>
+  </evaluation-examples>
+
+  <quick-start-templates>
+    <template id="rapid-quality-check">
+      <title>Quick Evaluation Template</title>
+      <template-content>
+        <![CDATA[
+Evaluate this podcast content:
+{{content}}
+
+Rate 1-5 on:
+- Accuracy
+- Engagement
+- Clarity
+- Brand fit
+
+Provide:
+- Overall score
+- One strength
+- One improvement
+- Pass/Revise decision
+        ]]>
+      </template-content>
+    </template>
+
+    <template id="comprehensive-evaluation">
+      <title>Detailed Evaluation Template</title>
+      <template-content>
+        <![CDATA[
+<comprehensive_evaluation>
+  <content>{{content}}</content>
+
+  <evaluate_all_criteria>
+    - All 15 criteria with scores
+    - Evidence for each score
+    - Weighted overall calculation
+  </evaluate_all_criteria>
+
+  <generate_feedback>
+    - Top 3 strengths
+    - Top 3 improvements
+    - Specific revision guidance
+  </generate_feedback>
+
+  <quality_gate_check>
+    - Pass/Fail decision
+    - If fail, requirements for passing
+  </quality_gate_check>
+</comprehensive_evaluation>
+        ]]>
+      </template-content>
+    </template>
+  </quick-start-templates>
+
+  <best-practices>
+    <principle id="consistency">Use same rubrics across all episodes</principle>
+    <principle id="evidence-based">Always cite specific examples</principle>
+    <principle id="constructive">Focus on actionable improvements</principle>
+    <principle id="balanced">Acknowledge strengths alongside weaknesses</principle>
+    <principle id="objective">Base on criteria, not preferences</principle>
+    <principle id="efficient">Prioritize high-impact feedback</principle>
+    <principle id="trackable">Monitor trends over time</principle>
+  </best-practices>
+
+  <key-takeaways>
+    <technical>
+      <takeaway>Multi-criteria weighted scoring provides objective, consistent quality assessment</takeaway>
+      <takeaway>LLM-as-judge frameworks enable scalable evaluation with human-level consistency</takeaway>
+      <takeaway>Automated quality gates prevent sub-standard content from reaching production</takeaway>
+      <takeaway>Performance tracking identifies trends and enables continuous improvement</takeaway>
+    </technical>
+    <simple>
+      <takeaway>Good evaluation systems check multiple aspects of quality, not just one thing</takeaway>
+      <takeaway>AI can be trained to evaluate content consistently like a good teacher</takeaway>
+      <takeaway>Automatic quality checks catch problems before listeners hear them</takeaway>
+      <takeaway>Tracking quality over time helps you get better at making content</takeaway>
+    </simple>
+  </key-takeaways>
+
+  <cross-references>
+    <reference type="script-templates" target="18_script_writer_templates.xml"/>
+    <reference type="research-templates" target="17_research_agent_templates.xml"/>
+    <reference type="production-optimization" target="21_production_optimization.xml"/>
+    <reference type="quality-standards" target="../quality/04_validation_workflow.xml"/>
+  </cross-references>
+</reference>

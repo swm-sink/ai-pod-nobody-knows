@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="elevenlabs" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>ElevenLabs API Implementation Guide (Python SDK 2025)</title>
+        <claude-optimization>true</claude-optimization>
+        <estimated-time>30 minutes</estimated-time>
+        <phase>crawl</phase>
+        <priority>high</priority>
+    </metadata>
+
+    <content>
+        <section type="reference" id="overview">
+            <technical-explanation>
+                Comprehensive Python SDK implementation guide for ElevenLabs API integration, covering synchronous and asynchronous patterns, rate limit management, error handling, voice management, and production-ready podcast generation systems.
+
+                Provides:
+                - Complete SDK installation and configuration procedures
+                - Production-ready API client patterns with error handling
+                - Rate limiting and concurrent processing implementations
+                - Voice management and cloning workflows
+                - Cost tracking and usage monitoring systems
+                - Comprehensive testing frameworks
+            </technical-explanation>
+            <simple-explanation>
+                Step-by-step guide to integrate ElevenLabs into your Python project - from "Hello World" to production. Think of an API like ordering at a restaurant: you (client) look at the menu (documentation), tell the waiter (API) what you want, the kitchen (ElevenLabs servers) prepares it, and the waiter brings your food (audio data).
+
+                Explains:
+                - How to install and set up the ElevenLabs Python SDK
+                - How to make your first API call and generate audio
+                - How to handle errors and rate limits properly
+                - How to process multiple episodes efficiently
+            </simple-explanation>
+        </section>
+
+        <section type="reference" id="getting-started">
+            <instructions>
+                <step validation-command="pip show elevenlabs">
+                    Install ElevenLabs SDK: pip install elevenlabs[all]
+                </step>
+                <step validation-command="test -f .env">
+                    Create environment file: echo "ELEVENLABS_API_KEY=your_key" > .env
+                </step>
+                <step validation-command="grep -q '.env' .gitignore">
+                    Add to gitignore: echo ".env" >> .gitignore
+                </step>
+                <step validation-command="python -c 'from elevenlabs import ElevenLabs; print(\"Import successful\")'">
+                    Test installation: Import ElevenLabs successfully
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="basic">
+                    <scenario>First API call and audio generation</scenario>
+                    <implementation>
+from elevenlabs import ElevenLabs
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
+
+# Initialize client
+client = ElevenLabs(
+    api_key=os.getenv("ELEVENLABS_API_KEY")
+)
+
+# Your first generation!
+audio = client.generate(
+    text="Hello, this is my first AI-generated audio!",
+    voice="Rachel",
+    model="eleven_turbo_v2_5"
+)
+
+# Save to file
+with open("output.mp3", "wb") as f:
+    f.write(audio)
+                    </implementation>
+                    <explanation>Basic setup and first generation - establishes connection and creates audio file</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="core-patterns">
+            <technical-explanation>
+                Three fundamental API patterns: simple generation for testing, advanced generation with full control for production, and batch processing for scaling operations. Each pattern includes proper error handling and configuration management.
+            </technical-explanation>
+            <simple-explanation>
+                Three ways to use the API: simple (for testing), advanced (for production), and batch (for many episodes at once).
+            </simple-explanation>
+
+            <patterns>
+                <pattern name="simple-generation">
+                    <use-case>Basic audio generation for testing and development</use-case>
+                    <code language="python">
+def generate_simple_audio(text, voice="Rachel"):
+    """Basic audio generation - good for testing"""
+    try:
+        audio = client.generate(
+            text=text,
+            voice=voice,
+            model="eleven_turbo_v2_5"
+        )
+        return audio
+    except Exception as e:
+        print(f"Generation failed: {e}")
+        return None
+                    </code>
+                </pattern>
+
+                <pattern name="advanced-generation">
+                    <use-case>Production-quality generation with full control</use-case>
+                    <code language="python">
+def generate_podcast_audio(
+    text,
+    voice_id="21m00Tcm4TlvDq8ikWAM",  # Rachel
+    emotion="neutral"
+):
+    """Production-quality generation with full control"""
+    # Configure voice settings
+    voice_settings = {
+        "stability": 0.65,
+        "similarity_boost": 0.75,
+        "style": 0.30,
+        "use_speaker_boost": True
+    }
+
+    # Add emotional tags for v3
+    if emotion == "excited":
+        text = f"[excited tone] {text}"
+    elif emotion == "thoughtful":
+        text = f"[thoughtful, slower] {text}"
+
+    try:
+        audio = client.text_to_speech.convert(
+            text=text,
+            voice_id=voice_id,
+            model_id="eleven_turbo_v2_5",
+            voice_settings=voice_settings,
+            output_format="mp3_44100_128"  # High quality
+        )
+        return audio
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+                    </code>
+                </pattern>
+
+                <pattern name="batch-processing">
+                    <use-case>Generate multiple episodes efficiently with retry logic</use-case>
+                    <code language="python">
+def batch_generate_episodes(episodes):
+    """Generate multiple episodes efficiently"""
+    results = []
+
+    for episode in episodes:
+        # Generate with retry logic
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                audio = generate_podcast_audio(
+                    text=episode['script'],
+                    voice_id=episode['voice_id']
+                )
+                results.append({
+                    'episode': episode['number'],
+                    'audio': audio,
+                    'success': True
+                })
+                break
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    results.append({
+                        'episode': episode['number'],
+                        'error': str(e),
+                        'success': False
+                    })
+                else:
+                    time.sleep(2 ** attempt)  # Exponential backoff
+
+    return results
+                    </code>
+                </pattern>
+            </patterns>
+        </section>
+
+        <section type="reference" id="async-implementation">
+            <technical-explanation>
+                Asynchronous implementation patterns for scalable operations, including basic async generation, concurrent processing with rate limiting, and production-ready async clients with semaphore-based concurrency control.
+            </technical-explanation>
+            <simple-explanation>
+                How to generate many audio files at the same time instead of one after another - like having multiple workers instead of just one.
+            </simple-explanation>
+
+            <examples>
+                <example type="basic-async">
+                    <scenario>Basic asynchronous audio generation</scenario>
+                    <implementation>
+import asyncio
+from elevenlabs.client import AsyncElevenLabs
+
+async def generate_async(text, voice="Rachel"):
+    """Async generation for concurrent processing"""
+    async with AsyncElevenLabs(api_key=api_key) as client:
+        audio = await client.generate(
+            text=text,
+            voice=voice,
+            model="eleven_turbo_v2_5"
+        )
+        return audio
+
+# Run multiple generations concurrently
+async def batch_generate_async(texts):
+    tasks = [generate_async(text) for text in texts]
+    results = await asyncio.gather(*tasks)
+    return results
+                    </implementation>
+                    <explanation>Concurrent generation allows multiple API calls to run simultaneously, dramatically reducing total processing time</explanation>
+                </example>
+
+                <example type="production-async">
+                    <scenario>Production async client with rate limiting</scenario>
+                    <implementation>
+import asyncio
+from asyncio import Semaphore
+
+class ElevenLabsAsyncClient:
+    def __init__(self, api_key, max_concurrent=5):
+        self.client = AsyncElevenLabs(api_key=api_key)
+        self.semaphore = Semaphore(max_concurrent)
+        self.request_count = 0
+
+    async def generate_with_limit(self, text, **kwargs):
+        """Generate with concurrency limiting"""
+        async with self.semaphore:
+            self.request_count += 1
+            print(f"Request {self.request_count}: Generating...")
+
+            try:
+                audio = await self.client.generate(
+                    text=text,
+                    **kwargs
+                )
+                return audio
+            except Exception as e:
+                print(f"Request {self.request_count} failed: {e}")
+                raise
+                    </implementation>
+                    <explanation>Semaphore controls maximum concurrent requests to respect API rate limits and prevent overwhelming the service</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="voice-management">
+            <technical-explanation>
+                Voice management operations including voice discovery, filtering by criteria, custom voice cloning, and voice metadata management for production podcast systems.
+            </technical-explanation>
+            <simple-explanation>
+                How to find, choose, and even create custom voices for your podcast - like having a casting director for AI voices.
+            </simple-explanation>
+
+            <operations>
+                <operation name="list-voices">
+                    <code language="python">
+def get_available_voices():
+    """Fetch all voices you can use"""
+    voices = client.voices.get_all()
+
+    voice_list = []
+    for voice in voices.voices:
+        voice_list.append({
+            'id': voice.voice_id,
+            'name': voice.name,
+            'category': voice.category,
+            'description': voice.description,
+            'languages': voice.languages
+        })
+
+    return voice_list
+                    </code>
+                </operation>
+
+                <operation name="filter-voices">
+                    <code language="python">
+def find_voices(language="en", category="narrative"):
+    voices = get_available_voices()
+    filtered = [
+        v for v in voices
+        if language in v.get('languages', [])
+        and v.get('category') == category
+    ]
+    return filtered
+                    </code>
+                </operation>
+
+                <operation name="clone-voice">
+                    <code language="python">
+def clone_voice(name, audio_files):
+    """Create a custom voice from audio samples"""
+    try:
+        voice = client.voices.add(
+            name=name,
+            files=audio_files,
+            description="Custom cloned voice for podcast"
+        )
+        return voice.voice_id
+    except Exception as e:
+        print(f"Voice cloning failed: {e}")
+        return None
+                    </code>
+                </operation>
+            </operations>
+        </section>
+
+        <section type="reference" id="rate-limit-management">
+            <technical-explanation>
+                Comprehensive rate limit management including tier-specific limits, intelligent rate limiting algorithms, request tracking with sliding windows, and automated backoff strategies.
+            </technical-explanation>
+            <simple-explanation>
+                How to avoid getting blocked by the API for making too many requests too fast - like learning to wait your turn in line.
+            </simple-explanation>
+
+            <rate-limits>
+                <tier name="free" concurrent="2" per-minute="10"/>
+                <tier name="starter" concurrent="3" per-minute="30"/>
+                <tier name="creator" concurrent="5" per-minute="100"/>
+                <tier name="pro" concurrent="10" per-minute="300"/>
+                <tier name="scale" concurrent="15" per-minute="1000"/>
+            </rate-limits>
+
+            <examples>
+                <example type="smart-rate-limiter">
+                    <scenario>Intelligent rate limiting with sliding window</scenario>
+                    <implementation>
+import time
+from collections import deque
+from threading import Lock
+
+class RateLimiter:
+    def __init__(self, max_requests_per_minute=100):
+        self.max_requests = max_requests_per_minute
+        self.requests = deque()
+        self.lock = Lock()
+
+    def wait_if_needed(self):
+        """Wait if we're hitting rate limits"""
+        with self.lock:
+            now = time.time()
+
+            # Remove requests older than 1 minute
+            while self.requests and self.requests[0] < now - 60:
+                self.requests.popleft()
+
+            # If at limit, wait
+            if len(self.requests) >= self.max_requests:
+                sleep_time = 60 - (now - self.requests[0]) + 0.1
+                print(f"Rate limit reached. Waiting {sleep_time:.1f}s...")
+                time.sleep(sleep_time)
+
+            # Record this request
+            self.requests.append(now)
+                    </implementation>
+                    <explanation>Sliding window rate limiter tracks requests over time and automatically waits when approaching limits</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="error-handling">
+            <technical-explanation>
+                Production-grade error handling system with error classification, recovery strategies, exponential backoff, and intelligent retry logic for different error types.
+            </technical-explanation>
+            <simple-explanation>
+                How to handle problems when the API doesn't work - like having a backup plan when things go wrong.
+            </simple-explanation>
+
+            <error-types>
+                <error type="rate_limit" status="429" recovery="Wait and retry with backoff"/>
+                <error type="authentication" status="401" recovery="Check API key"/>
+                <error type="quota_exceeded" status="402" recovery="Upgrade plan or wait for reset"/>
+                <error type="server_error" status="500" recovery="ElevenLabs server issue, retry later"/>
+                <error type="network_error" status="timeout" recovery="Check internet connection"/>
+            </error-types>
+
+            <examples>
+                <example type="comprehensive-handler">
+                    <scenario>Production-ready error handling with recovery</scenario>
+                    <implementation>
+from enum import Enum
+
+class ErrorType(Enum):
+    RATE_LIMIT = "rate_limit"
+    AUTH = "authentication"
+    QUOTA = "quota_exceeded"
+    SERVER = "server_error"
+    NETWORK = "network_error"
+    INVALID = "invalid_request"
+
+def handle_api_error(error):
+    """Intelligent error handling with recovery strategies"""
+    error_str = str(error).lower()
+
+    if "429" in error_str or "too_many" in error_str:
+        return ErrorType.RATE_LIMIT, "Wait and retry with backoff"
+    elif "401" in error_str or "unauthorized" in error_str:
+        return ErrorType.AUTH, "Check API key"
+    elif "quota" in error_str or "limit" in error_str:
+        return ErrorType.QUOTA, "Upgrade plan or wait for reset"
+    elif "500" in error_str or "502" in error_str:
+        return ErrorType.SERVER, "ElevenLabs server issue, retry later"
+    elif "timeout" in error_str or "connection" in error_str:
+        return ErrorType.NETWORK, "Check internet connection"
+    else:
+        return ErrorType.INVALID, "Check request parameters"
+
+def safe_generate(text, max_retries=3, **kwargs):
+    """Production-ready generation with full error handling"""
+    for attempt in range(max_retries):
+        try:
+            return client.generate(text, **kwargs)
+        except Exception as e:
+            error_type, solution = handle_api_error(e)
+
+            if error_type == ErrorType.AUTH:
+                raise Exception(f"Authentication failed: {solution}")
+            elif error_type == ErrorType.QUOTA:
+                raise Exception(f"Quota exceeded: {solution}")
+            elif attempt < max_retries - 1:
+                wait_time = 2 ** attempt
+                print(f"Attempt {attempt + 1} failed: {error_type.value}")
+                print(f"Solution: {solution}")
+                print(f"Retrying in {wait_time}s...")
+                time.sleep(wait_time)
+            else:
+                raise Exception(f"Max retries reached. Last error: {e}")
+                    </implementation>
+                    <explanation>Comprehensive error classification and recovery with exponential backoff for transient errors</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="podcast-production-class">
+            <technical-explanation>
+                Complete podcast production system implementation with script processing, intelligent chunking, rate limiting integration, audio combining, and episode management.
+            </technical-explanation>
+            <simple-explanation>
+                A complete system that takes a podcast script and turns it into a finished audio file automatically.
+            </simple-explanation>
+
+            <examples>
+                <example type="production-class">
+                    <scenario>Complete podcast production system</scenario>
+                    <implementation>
+class PodcastProducer:
+    """Complete podcast production system"""
+
+    def __init__(self, api_key, voice_id=None):
+        self.client = ElevenLabs(api_key=api_key)
+        self.voice_id = voice_id or "21m00Tcm4TlvDq8ikWAM"  # Rachel
+        self.rate_limiter = RateLimiter(100)
+
+    def process_script(self, script):
+        """Process script for optimal generation"""
+        # Split into chunks if too long
+        max_chars = 5000
+        if len(script) > max_chars:
+            chunks = self._split_script(script, max_chars)
+        else:
+            chunks = [script]
+        return chunks
+
+    def _split_script(self, script, max_chars):
+        """Smart script splitting on sentence boundaries"""
+        sentences = script.split('. ')
+        chunks = []
+        current_chunk = ""
+
+        for sentence in sentences:
+            if len(current_chunk) + len(sentence) < max_chars:
+                current_chunk += sentence + ". "
+            else:
+                chunks.append(current_chunk.strip())
+                current_chunk = sentence + ". "
+
+        if current_chunk:
+            chunks.append(current_chunk.strip())
+        return chunks
+
+    def generate_episode(self, script, episode_num):
+        """Generate complete episode"""
+        print(f"Generating Episode {episode_num}...")
+
+        # Process script
+        chunks = self.process_script(script)
+        audio_parts = []
+
+        # Generate each chunk
+        for i, chunk in enumerate(chunks):
+            print(f"  Part {i+1}/{len(chunks)}...")
+
+            self.rate_limiter.wait_if_needed()
+
+            try:
+                audio = self.client.text_to_speech.convert(
+                    text=chunk,
+                    voice_id=self.voice_id,
+                    model_id="eleven_turbo_v2_5",
+                    voice_settings={
+                        "stability": 0.65,
+                        "similarity_boost": 0.75
+                    }
+                )
+                audio_parts.append(audio)
+            except Exception as e:
+                print(f"  Error on part {i+1}: {e}")
+                raise
+
+        # Combine and save
+        combined = self._combine_audio(audio_parts)
+        filename = f"episode_{episode_num:03d}.mp3"
+        with open(filename, "wb") as f:
+            f.write(combined)
+
+        print(f"Episode {episode_num} complete: {filename}")
+        return filename
+                    </implementation>
+                    <explanation>Production system handles script processing, chunking, rate limiting, and episode generation automatically</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="troubleshooting" id="common-issues">
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>Missing API key or incorrect configuration</scenario>
+                    <implementation>Authentication errors or 401 responses</implementation>
+                    <explanation>Verify API key is set correctly in environment variables and not committed to code</explanation>
+                </example>
+
+                <example type="anti-pattern">
+                    <scenario>Rate limit exceeded errors</scenario>
+                    <implementation>429 "Too Many Requests" responses</implementation>
+                    <explanation>Implement proper rate limiting with RateLimiter class and respect tier limits</explanation>
+                </example>
+
+                <example type="anti-pattern">
+                    <scenario>Large scripts failing or timing out</scenario>
+                    <implementation>Requests failing on long text inputs</implementation>
+                    <explanation>Split large scripts into chunks at sentence boundaries, maximum 5000 characters per chunk</explanation>
+                </example>
+            </examples>
+
+            <validation>
+                <validation-command>python -c "from elevenlabs import ElevenLabs; client = ElevenLabs(); print('Client initialized')"</validation-command>
+                <success-criteria>ElevenLabs client initializes without errors and can connect to API</success-criteria>
+            </validation>
+        </section>
+
+        <section type="advanced" id="advanced-usage">
+            <technical-explanation>
+                Advanced implementation patterns including cost tracking systems, usage monitoring, comprehensive testing frameworks, and production deployment considerations.
+            </technical-explanation>
+            <simple-explanation>
+                Professional techniques for monitoring costs, testing your system, and making sure everything works reliably in production.
+            </simple-explanation>
+
+            <examples>
+                <example type="advanced">
+                    <scenario>Usage tracking and cost monitoring</scenario>
+                    <implementation>
+class UsageTracker:
+    def __init__(self):
+        self.requests = []
+        self.characters = 0
+        self.cost = 0.0
+
+    def track_request(self, text, model="eleven_turbo_v2_5"):
+        """Track usage and calculate costs"""
+        char_count = len(text)
+        self.characters += char_count
+
+        # Cost per 1000 characters
+        costs = {
+            "eleven_flash_v2_5": 0.25,
+            "eleven_turbo_v2_5": 0.50,
+            "eleven_v3_alpha": 0.20  # With discount
+        }
+
+        cost = (char_count / 1000) * costs.get(model, 0.50)
+        self.cost += cost
+
+        self.requests.append({
+            'timestamp': time.time(),
+            'characters': char_count,
+            'cost': cost,
+            'model': model
+        })
+
+        return cost
+
+    def get_summary(self):
+        """Get usage summary"""
+        return {
+            'total_requests': len(self.requests),
+            'total_characters': self.characters,
+            'total_cost': round(self.cost, 2),
+            'average_cost': round(self.cost / len(self.requests), 2) if self.requests else 0
+        }
+                    </implementation>
+                    <explanation>Comprehensive usage tracking enables cost monitoring and optimization for production systems</explanation>
+                </example>
+            </examples>
+        </section>
+    </content>
+
+    <cross-references>
+        <reference file="00_elevenlabs_constants.xml" section="api-configuration" type="prerequisite">
+            API endpoints, model IDs, and configuration constants
+        </reference>
+        <reference file="16_elevenlabs_models_reference.xml" section="model-comparison" type="prerequisite">
+            Model capabilities and selection criteria
+        </reference>
+        <reference file="17_elevenlabs_prompt_engineering.xml" section="technical-implementation" type="related">
+            Prompt engineering techniques for API integration
+        </reference>
+        <reference file="20_elevenlabs_cost_optimization.xml" section="api-efficiency" type="related">
+            API cost optimization strategies
+        </reference>
+        <reference file="22_elevenlabs_mcp_integration.xml" section="sdk-integration" type="application">
+            MCP server integration patterns
+        </reference>
+    </cross-references>
+</document>

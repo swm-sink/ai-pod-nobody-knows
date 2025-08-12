@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="framework">
+  <metadata>
+    <title>Audio Optimization Framework for ElevenLabs Turbo V2</title>
+    <domain>shared</domain>
+    <subdomain>frameworks</subdomain>
+    <version>1.0</version>
+    <last-updated>2025-08-11</last-updated>
+    <purpose>TTS-optimized script formatting</purpose>
+  </metadata>
+
+  <content>
+    <section id="overview">
+      <title>Framework Overview</title>
+      <description>
+        This framework ensures all scripts are optimized for ElevenLabs Turbo V2 TTS synthesis,
+        requiring zero post-processing while maintaining natural speech patterns.
+      </description>
+    </section>
+
+    <section id="text-formatting">
+      <title>Text Formatting Requirements</title>
+
+      <subsection id="numbers">
+        <title>Numbers and Quantities</title>
+        <rule>Spell out completely</rule>
+        <examples>
+          <correct>"twenty twenty-five"</correct>
+          <incorrect>"2025"</incorrect>
+          <correct>"one hundred and forty-five"</correct>
+          <incorrect>"145"</incorrect>
+        </examples>
+      </subsection>
+
+      <subsection id="percentages">
+        <title>Percentages and Fractions</title>
+        <rule>Spell out with "percent"</rule>
+        <examples>
+          <correct>"ninety-nine percent"</correct>
+          <incorrect>"99%"</incorrect>
+          <correct>"one half", "three quarters"</correct>
+          <incorrect>"1/2", "3/4"</incorrect>
+        </examples>
+      </subsection>
+
+      <subsection id="abbreviations">
+        <title>Abbreviations and Acronyms</title>
+        <rule>Expand all abbreviations</rule>
+        <examples>
+          <correct>"application programming interface"</correct>
+          <incorrect>"API"</incorrect>
+          <correct>"artificial intelligence"</correct>
+          <note>Exception: well-known like "AI" can be kept if used consistently</note>
+        </examples>
+      </subsection>
+
+      <subsection id="symbols">
+        <title>Symbols and Special Characters</title>
+        <rule>Describe all symbols</rule>
+        <examples>
+          <correct>"leads to", "approximately", "equals"</correct>
+          <incorrect>"→", "≈", "="</incorrect>
+          <correct>"degrees Celsius", "dollars"</correct>
+          <incorrect>"°C", "$"</incorrect>
+        </examples>
+      </subsection>
+    </section>
+
+    <section id="ssml-integration">
+      <title>SSML Integration</title>
+
+      <subsection id="approved-elements">
+        <title>Approved Elements</title>
+        <elements>
+          <element type="pause">
+            <short>&lt;break time="0.3s" /&gt; <!-- Brief pause --></short>
+            <medium>&lt;break time="0.5s" /&gt; <!-- Medium pause --></medium>
+            <long>&lt;break time="0.7s" /&gt; <!-- Long pause --></long>
+            <maximum>&lt;break time="1.0s" /&gt; <!-- Maximum pause --></maximum>
+          </element>
+
+          <element type="emphasis">
+            <prosody>&lt;prosody rate="95%" pitch="+2%" volume="medium"&gt;emphasized content&lt;/prosody&gt;</prosody>
+          </element>
+
+          <element type="pronunciation">
+            <phoneme>&lt;phoneme alphabet="cmu" ph="pronunciation"&gt;word&lt;/phoneme&gt;</phoneme>
+            <note>Use sparingly</note>
+          </element>
+        </elements>
+      </subsection>
+
+      <subsection id="usage-guidelines">
+        <title>Usage Guidelines</title>
+        <guidelines>
+          <pause-frequency>Maximum 3-4 break tags per segment</pause-frequency>
+          <pause-placement>
+            <item>After complex concepts for processing time</item>
+            <item>At natural comma breaks</item>
+            <item>Before major topic transitions</item>
+          </pause-placement>
+          <emphasis>Use prosody only for genuinely important points</emphasis>
+        </guidelines>
+      </subsection>
+    </section>
+
+    <section id="speech-patterns">
+      <title>Natural Speech Patterns</title>
+
+      <subsection id="sentence-structure">
+        <title>Sentence Structure</title>
+        <limits>
+          <maximum-length>25 words (hard limit)</maximum-length>
+          <average-length>15 words (target)</average-length>
+          <variety-pattern>Mix short (5-10), medium (10-20), long (20-25)</variety-pattern>
+        </limits>
+      </subsection>
+
+      <subsection id="contractions">
+        <title>Contractions for Natural Flow</title>
+        <strategy>
+          <usage>we'll, you're, can't, won't, that's, it's, there's</usage>
+          <frequency>Every 100-150 words</frequency>
+          <purpose>Maintain conversational tone</purpose>
+        </strategy>
+      </subsection>
+
+      <subsection id="conversational-markers">
+        <title>Conversational Markers</title>
+        <frequency>Every 300-400 words</frequency>
+        <types>
+          <acknowledgments>Right, Exactly</acknowledgments>
+          <transitions>Now, So, But here's the thing</transitions>
+          <engagement>You know what's fascinating?</engagement>
+        </types>
+      </subsection>
+    </section>
+
+    <section id="forbidden-elements">
+      <title>Forbidden Elements (Will Break TTS)</title>
+
+      <subsection id="meta-directions">
+        <title>Meta-Directions</title>
+        <forbidden>
+          <item>[pause], [emphasis], [music]</item>
+          <item>(aside), (laughs), (sighs)</item>
+          <item>Stage directions of any kind</item>
+        </forbidden>
+      </subsection>
+
+      <subsection id="unpronounceable">
+        <title>Unpronounceable Notation</title>
+        <forbidden>
+          <item>Mathematical symbols: ∑, ∫, √</item>
+          <item>Arrows: →, ←, ↔</item>
+          <item>Brackets: [ ], { }, &lt; &gt;</item>
+          <item>Special characters: @, #, &amp;</item>
+        </forbidden>
+      </subsection>
+
+      <subsection id="problematic-abbreviations">
+        <title>Problematic Abbreviations</title>
+        <forbidden>
+          <item>e.g., i.e., etc., vs.</item>
+          <item>Dr., Mr., Ms., Prof.</item>
+          <item>Units: km, kg, cm (spell out)</item>
+        </forbidden>
+      </subsection>
+    </section>
+
+    <section id="experience-optimization">
+      <title>Audio Experience Optimization</title>
+
+      <subsection id="cognitive-load">
+        <title>Cognitive Load Management</title>
+        <guidelines>
+          <new-concepts>Maximum 1 per 90 seconds</new-concepts>
+          <processing-time>5-10 seconds between complex ideas</processing-time>
+          <reinforcement>Repeat key terms 3 times with variations</reinforcement>
+        </guidelines>
+      </subsection>
+
+      <subsection id="attention-management">
+        <title>Attention Management</title>
+        <guidelines>
+          <curiosity-hooks>Every 2-3 minutes</curiosity-hooks>
+          <energy-variation>Alternate high/low intensity</energy-variation>
+          <reset-points>Clear transitions between segments</reset-points>
+        </guidelines>
+      </subsection>
+
+      <subsection id="memory-friendly">
+        <title>Memory-Friendly Design</title>
+        <guidelines>
+          <no-visual>Everything must work audio-only</no-visual>
+          <sequential>Linear progression without "looking back"</sequential>
+          <repetition>Key concepts reinforced naturally</repetition>
+        </guidelines>
+      </subsection>
+    </section>
+
+    <section id="script-formatting">
+      <title>Script Formatting for TTS</title>
+
+      <template id="opening-pattern">
+        <title>Opening Pattern</title>
+        <format>
+Episode [Number]: [Title]
+
+&lt;break time="0.5s" /&gt;
+
+[Hook sentence one.] [Hook sentence two.] [Hook sentence three with question?]
+
+&lt;break time="0.7s" /&gt;
+
+Let's explore...
+        </format>
+      </template>
+
+      <template id="segment-transitions">
+        <title>Segment Transitions</title>
+        <format>
+&lt;break time="0.7s" /&gt;
+
+This brings us to an interesting point. &lt;break time="0.3s" /&gt;
+
+[New segment content...]
+        </format>
+      </template>
+
+      <template id="emphasis-pattern">
+        <title>Emphasis Pattern</title>
+        <format>
+This is &lt;prosody rate="95%" pitch="+2%"&gt;particularly fascinating&lt;/prosody&gt; because...
+        </format>
+      </template>
+    </section>
+
+    <section id="quality-checklist">
+      <title>Quality Checklist</title>
+
+      <checklist id="pre-production">
+        <title>Pre-Production</title>
+        <item>All numbers spelled out</item>
+        <item>All abbreviations expanded</item>
+        <item>All symbols described</item>
+        <item>No forbidden elements</item>
+      </checklist>
+
+      <checklist id="speech-patterns-check">
+        <title>Speech Patterns</title>
+        <item>Sentences under 25 words</item>
+        <item>Natural contractions included</item>
+        <item>Conversational markers present</item>
+        <item>SSML tags used sparingly</item>
+      </checklist>
+
+      <checklist id="audio-experience-check">
+        <title>Audio Experience</title>
+        <item>Works without visual aids</item>
+        <item>Sequential information flow</item>
+        <item>Appropriate processing time</item>
+        <item>Attention management included</item>
+      </checklist>
+    </section>
+
+    <section id="integration-notes">
+      <title>Integration Notes</title>
+
+      <integration id="script-writer">
+        <title>For Script-Writer Agent</title>
+        <steps>
+          <step>Apply formatting during script generation</step>
+          <step>Use SSML tags strategically</step>
+          <step>Maintain natural speech patterns</step>
+          <step>Check against forbidden elements</step>
+        </steps>
+      </integration>
+
+      <integration id="quality-evaluator">
+        <title>For Quality-Evaluator Agent</title>
+        <steps>
+          <step>Validate TTS compatibility</step>
+          <step>Check SSML usage frequency</step>
+          <step>Verify natural speech patterns</step>
+          <step>Ensure audio-only clarity</step>
+        </steps>
+      </integration>
+
+      <integration id="audio-synthesizer">
+        <title>For Audio-Synthesizer Agent (Future)</title>
+        <steps>
+          <step>Direct ElevenLabs Turbo V2 input</step>
+          <step>No post-processing required</step>
+          <step>Consistent quality output</step>
+          <step>Natural speech synthesis</step>
+        </steps>
+      </integration>
+    </section>
+  </content>
+
+  <cross-references>
+    <reference target="../quality-gates/audio-quality.xml">Audio Quality Gates</reference>
+    <reference target="../../context/agents/multi-agent-orchestration.xml">Agent Integration</reference>
+    <reference target="session-coordination.xml">Session Coordination</reference>
+  </cross-references>
+</document>

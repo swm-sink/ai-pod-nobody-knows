@@ -7,19 +7,19 @@ timeouts:
   research:
     minutes: 30
     description: "Maximum time for research phase using Perplexity MCP"
-  
+
   script_writing:
     minutes: 20
     description: "Maximum time for script generation using Claude native"
-  
+
   quality_evaluation:
     minutes: 10
     description: "Maximum time for quality assessment"
-  
+
   audio_synthesis:
     minutes: 15
     description: "Maximum time for audio generation using ElevenLabs MCP"
-  
+
   total_episode:
     minutes: 75
     description: "Total maximum time for complete episode production"
@@ -30,22 +30,22 @@ cost_limits:
     maximum: 3.00
     target: 2.50
     tool: "perplexity_ask"
-  
+
   script_writing:
     maximum: 2.50
     target: 1.00
     tool: "claude_native"
-  
+
   quality_evaluation:
     maximum: 0.50
     target: 0.25
     tool: "claude_native"
-  
+
   audio_synthesis:
     maximum: 2.00
     target: 1.75
     tool: "text_to_speech"
-  
+
   total_episode:
     maximum: 8.00
     target: 5.50
@@ -55,12 +55,12 @@ cost_limits:
 retry_policy:
   max_attempts: 3
   backoff_seconds: [30, 60, 120]
-  
+
   retry_on:
     - "timeout"
     - "api_error"
     - "rate_limit"
-  
+
   no_retry_on:
     - "invalid_api_key"
     - "insufficient_credits"
@@ -72,22 +72,22 @@ quality_gates:
     threshold: 0.85
     weight: 0.30
     description: "Audience understanding score"
-  
+
   brand_consistency:
     threshold: 0.90
     weight: 0.35
     description: "Nobody Knows brand alignment"
-  
+
   engagement:
     threshold: 0.80
     weight: 0.20
     description: "Listener engagement potential"
-  
+
   technical_accuracy:
     threshold: 0.85
     weight: 0.15
     description: "Factual correctness"
-  
+
   overall_minimum: 0.85
 
 # ==================== File Naming Patterns ====================
@@ -97,7 +97,7 @@ file_patterns:
   quality: "ep{episode}_quality_{date}.json"
   audio: "ep{episode}_{topic}_{date}.mp3"
   session: "ep{episode}_session_{date}.json"
-  
+
   date_format: "%Y%m%d_%H%M"
   topic_sanitization: "lowercase_underscores"
 
@@ -108,13 +108,13 @@ mcp_tools:
     model: "sonar-pro"
     max_queries_per_episode: 5
     query_strategy: "comprehensive"
-    
+
   elevenlabs:
     tool_name: "text_to_speech"
     voice_name: "Rachel"
     model_id: "eleven_multilingual_v2"
     output_format: "mp3_44100_128"
-    
+
     voice_settings:
       stability: 0.5
       similarity_boost: 0.75
@@ -126,7 +126,7 @@ mcp_tools:
 session_config:
   auto_save: true
   save_interval_minutes: 5
-  
+
   tracking_fields:
     - episode_number
     - topic
@@ -136,7 +136,7 @@ session_config:
     - outputs_generated
     - quality_scores
     - errors_encountered
-  
+
   cleanup_policy:
     keep_successful: 30  # days
     keep_failed: 7       # days
@@ -146,13 +146,13 @@ session_config:
 dry_run:
   enabled: true
   mock_data_path: ".claude/test-data/"
-  
+
   simulated_delays:
     research: 2  # seconds
     script: 2
     quality: 1
     audio: 3
-  
+
   mock_costs:
     research: 2.50
     script: 1.00
@@ -162,13 +162,13 @@ dry_run:
 # ==================== Monitoring & Alerts ====================
 monitoring:
   log_level: "INFO"
-  
+
   alerts:
     cost_exceeds_target: true
     quality_below_threshold: true
     timeout_occurred: true
     api_error: true
-  
+
   metrics_to_track:
     - total_episodes_produced
     - average_cost_per_episode
@@ -192,28 +192,28 @@ episode_specs:
   target_duration_minutes: 27
   word_count_range: [3900, 4100]
   complexity_levels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  
+
   segments:
-    opening: 
+    opening:
       duration: 2
       purpose: "Hook and introduction"
-    
+
     segment_1:
       duration: 6
       purpose: "What we know"
-    
+
     segment_2:
       duration: 7
       purpose: "Mysteries and unknowns"
-    
+
     segment_3:
       duration: 7
       purpose: "Frontier exploration"
-    
+
     segment_4:
       duration: 3
       purpose: "Why it matters"
-    
+
     closing:
       duration: 2
       purpose: "Wrap-up and outro"

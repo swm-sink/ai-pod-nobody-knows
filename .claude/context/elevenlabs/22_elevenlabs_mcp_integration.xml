@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference" domain="elevenlabs" version="3.0" xmlns="https://ai-podcasts-nobody-knows.com/claude-docs">
+    <metadata>
+        <title>ElevenLabs MCP Integration Guide (2025)</title>
+        <claude-optimization>true</claude-optimization>
+        <estimated-time>25 minutes</estimated-time>
+        <phase>crawl</phase>
+        <priority>high</priority>
+    </metadata>
+
+    <content>
+        <section type="reference" id="overview">
+            <technical-explanation>
+                Model Context Protocol (MCP) integration for ElevenLabs enabling direct API access through Claude Code interface, eliminating manual API implementation while providing comprehensive voice generation, transcription, and voice management capabilities through standardized protocol interfaces.
+
+                Provides:
+                - Complete MCP server installation and configuration procedures
+                - Direct Claude Desktop integration with environment variable management
+                - Advanced custom command creation and workflow automation
+                - Bidirectional communication patterns with progress tracking
+                - Production-ready podcast integration configurations
+                - Troubleshooting and debugging methodologies
+            </technical-explanation>
+            <simple-explanation>
+                Connect ElevenLabs directly to Claude Code for seamless voice generation without writing code. Model Context Protocol (MCP) is like USB for AI: plug in any service (ElevenLabs, GitHub, etc.), AI assistants can use it immediately, no complex integration needed, works with Claude Desktop, Cursor, and Windsurf.
+
+                Explains:
+                - How to install and configure the ElevenLabs MCP server
+                - How to use voice generation directly from Claude conversations
+                - How to create custom commands for podcast production
+                - How to troubleshoot common integration issues
+            </simple-explanation>
+        </section>
+
+        <section type="reference" id="installation-setup">
+            <instructions>
+                <step validation-command="npm list -g @elevenlabs/mcp-server">
+                    Install MCP Server: npm install -g @elevenlabs/mcp-server
+                </step>
+                <step validation-command="test -f ~/Library/Application\ Support/Claude/claude_desktop_config.json">
+                    Configure Claude Desktop with MCP server settings
+                </step>
+                <step validation-command="echo $ELEVENLABS_API_KEY">
+                    Set API key in environment variables
+                </step>
+                <step validation-command="ps aux | grep mcp-server">
+                    Verify MCP server is running after Claude restart
+                </step>
+            </instructions>
+
+            <examples>
+                <example type="installation">
+                    <scenario>Installing official ElevenLabs MCP server</scenario>
+                    <implementation>
+# Official ElevenLabs MCP server
+npm install -g @elevenlabs/mcp-server
+
+# Or clone from GitHub
+git clone https://github.com/elevenlabs/elevenlabs-mcp
+cd elevenlabs-mcp
+npm install
+                    </implementation>
+                    <explanation>Official MCP server provides direct integration with all ElevenLabs API capabilities</explanation>
+                </example>
+
+                <example type="configuration">
+                    <scenario>Claude Desktop MCP configuration</scenario>
+                    <implementation>
+// ~/Library/Application Support/Claude/claude_desktop_config.json
+{
+  "mcpServers": {
+    "elevenlabs": {
+      "command": "npx",
+      "args": ["@elevenlabs/mcp-server"],
+      "env": {
+        "ELEVENLABS_API_KEY": "your_api_key_here"  # pragma: allowlist secret
+      }
+    }
+  }
+}
+                    </implementation>
+                    <explanation>Configuration enables Claude Desktop to communicate with ElevenLabs through MCP protocol</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="mcp-capabilities">
+            <technical-explanation>
+                MCP server exposes comprehensive ElevenLabs functionality including text-to-speech generation, voice cloning, transcription services, voice design, outbound calling, voice library management, and usage monitoring through standardized function interfaces.
+            </technical-explanation>
+            <simple-explanation>
+                All the things you can do with ElevenLabs directly from Claude conversations - generate audio, create voices, transcribe files, and more.
+            </simple-explanation>
+
+            <available-functions>
+                <function name="text_to_speech">Generate audio from text</function>
+                <function name="voice_clone">Create custom voice from samples</function>
+                <function name="transcribe">Convert audio/video to text</function>
+                <function name="voice_design">Create AI voice from description</function>
+                <function name="outbound_call">Make phone calls with AI voice</function>
+                <function name="list_voices">Get available voices</function>
+                <function name="get_usage">Check API usage and credits</function>
+            </available-functions>
+
+            <examples>
+                <example type="direct-commands">
+                    <scenario>Natural language commands through Claude interface</scenario>
+                    <implementation>
+// In Claude, you can now say:
+"Generate audio saying 'Welcome to the podcast' using Rachel's voice"
+"Transcribe this audio file: /path/to/recording.mp3"
+"Create a voice that sounds warm and intellectual"
+"Call this number and order pizza"
+                    </implementation>
+                    <explanation>Natural language interface eliminates need for API code while providing full ElevenLabs functionality</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="podcast-production-integration">
+            <technical-explanation>
+                Podcast-specific MCP configuration with default voice settings, model selection, output format optimization, and caching strategies for efficient episode production workflows through Claude interface.
+            </technical-explanation>
+            <simple-explanation>
+                Set up MCP specifically for podcast production with all the right defaults and settings for your show.
+            </simple-explanation>
+
+            <examples>
+                <example type="podcast-workflow">
+                    <scenario>Automated episode generation through Claude</scenario>
+                    <implementation>
+# Claude can now execute this workflow directly:
+
+1. User: "Generate Episode 1 audio"
+2. Claude via MCP:
+   - Reads script from file
+   - Selects appropriate voice
+   - Generates audio chunks
+   - Combines into episode
+   - Saves to project folder
+
+# No code writing needed!
+                    </implementation>
+                    <explanation>Complete automation of podcast production through natural language commands</explanation>
+                </example>
+
+                <example type="podcast-config">
+                    <scenario>Podcast-optimized MCP configuration</scenario>
+                    <implementation>
+{
+  "mcpServers": {
+    "elevenlabs": {
+      "command": "npx",
+      "args": ["@elevenlabs/mcp-server"],
+      "env": {
+        "ELEVENLABS_API_KEY": "your_key",  # pragma: allowlist secret
+        "DEFAULT_VOICE": "Rachel",
+        "DEFAULT_MODEL": "eleven_turbo_v2_5",
+        "OUTPUT_FORMAT": "mp3_44100_128",
+        "PODCAST_MODE": "true"
+      }
+    }
+  }
+}
+                    </implementation>
+                    <explanation>Podcast-specific configuration optimizes settings for consistent, high-quality episode production</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="advanced-features">
+            <technical-explanation>
+                Advanced MCP patterns including custom command creation, bidirectional communication with progress tracking, Python integration for hybrid workflows, and real-time feedback systems for complex production environments.
+            </technical-explanation>
+            <simple-explanation>
+                Professional features for complex podcast production including custom commands, progress tracking, and integration with other tools.
+            </simple-explanation>
+
+            <examples>
+                <example type="custom-commands">
+                    <scenario>Custom podcast production commands</scenario>
+                    <implementation>
+// File: .claude/mcp/podcast_commands.js
+
+export const commands = {
+  'generate_episode': async (params) => {
+    const { script, episode_num, voice } = params;
+
+    // Use ElevenLabs MCP to generate
+    const audio = await mcp.elevenlabs.textToSpeech({
+      text: script,
+      voice: voice || 'Rachel',
+      model: 'eleven_turbo_v2_5'
+    });
+
+    // Save with episode number
+    const filename = `episode_${episode_num}.mp3`;
+    await fs.writeFile(filename, audio);
+
+    return `Episode ${episode_num} generated: ${filename}`;
+  },
+
+  'batch_generate': async (params) => {
+    const { episodes } = params;
+    const results = [];
+
+    for (const ep of episodes) {
+      const result = await commands.generate_episode(ep);
+      results.push(result);
+    }
+
+    return results;
+  }
+};
+                    </implementation>
+                    <explanation>Custom commands extend MCP functionality with podcast-specific workflows and batch operations</explanation>
+                </example>
+
+                <example type="python-integration">
+                    <scenario>Python integration with MCP commands</scenario>
+                    <implementation>
+# Your Python code can trigger MCP commands
+
+import subprocess
+import json
+
+def call_mcp_elevenlabs(command, params):
+    """Call ElevenLabs via MCP from Python"""
+    mcp_request = {
+        'command': command,
+        'params': params
+    }
+
+    result = subprocess.run(
+        ['claude', 'mcp', 'elevenlabs', json.dumps(mcp_request)],
+        capture_output=True,
+        text=True
+    )
+
+    return json.loads(result.stdout)
+
+# Generate audio via MCP
+audio_result = call_mcp_elevenlabs('text_to_speech', {
+    'text': 'Hello from Python via MCP!',
+    'voice': 'Rachel'
+})
+                    </implementation>
+                    <explanation>Hybrid workflows combine Python automation with MCP capabilities for complex production systems</explanation>
+                </example>
+
+                <example type="progress-tracking">
+                    <scenario>Real-time progress updates during generation</scenario>
+                    <implementation>
+// MCP server with progress updates
+const mcpServer = {
+  textToSpeech: async (params, callback) => {
+    const chunks = splitIntoChunks(params.text);
+    const results = [];
+
+    for (let i = 0; i < chunks.length; i++) {
+      // Send progress update to Claude
+      callback({
+        type: 'progress',
+        current: i + 1,
+        total: chunks.length
+      });
+
+      const audio = await generateChunk(chunks[i]);
+      results.push(audio);
+    }
+
+    return combineAudio(results);
+  }
+};
+                    </implementation>
+                    <explanation>Progress tracking provides real-time feedback during long-running generation tasks</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="reference" id="project-specific-setup">
+            <technical-explanation>
+                Project-specific MCP configuration for "Nobody Knows" podcast including voice selection, model optimization, caching strategies, and custom slash commands for streamlined production workflows.
+            </technical-explanation>
+            <simple-explanation>
+                Customized setup specifically for your "Nobody Knows" podcast with all the right settings and shortcuts.
+            </simple-explanation>
+
+            <examples>
+                <example type="project-config">
+                    <scenario>Enhanced MCP configuration for Nobody Knows podcast</scenario>
+                    <implementation>
+// Enhanced MCP configuration for your podcast
+{
+  "mcpServers": {
+    "elevenlabs": {
+      "command": "npx",
+      "args": ["@elevenlabs/mcp-server"],
+      "env": {
+        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
+        "PROJECT_NAME": "nobody_knows_podcast",
+        "DEFAULT_VOICE": "Rachel",
+        "BACKUP_VOICE": "Antoni",
+        "MODEL_PRODUCTION": "eleven_v3_alpha",
+        "MODEL_DRAFT": "eleven_flash_v2_5",
+        "CACHE_ENABLED": "true",
+        "CACHE_DIR": "./projects/nobody_knows/cache"
+      }
+    }
+  }
+}
+                    </implementation>
+                    <explanation>Project-specific configuration optimizes MCP for Nobody Knows podcast production requirements</explanation>
+                </example>
+
+                <example type="custom-commands">
+                    <scenario>Custom slash commands for podcast production</scenario>
+                    <implementation>
+// Custom commands for your podcast
+/generate-episode &lt;number&gt; - Generate specific episode
+/test-voices &lt;text&gt; - Test different voices
+/check-costs - Show current spending
+/batch-generate &lt;start&gt; &lt;end&gt; - Generate multiple episodes
+                    </implementation>
+                    <explanation>Custom slash commands provide quick access to frequently used podcast production operations</explanation>
+                </example>
+            </examples>
+        </section>
+
+        <section type="troubleshooting" id="common-issues">
+            <examples>
+                <example type="anti-pattern">
+                    <scenario>MCP server not starting or responding</scenario>
+                    <implementation>Server fails to initialize or respond to commands</implementation>
+                    <explanation>Check API key configuration, ensure environment variables are set correctly, verify network connectivity</explanation>
+                </example>
+
+                <example type="anti-pattern">
+                    <scenario>Commands not working in Claude interface</scenario>
+                    <implementation>MCP functions not available or not responding</implementation>
+                    <explanation>Restart Claude Desktop to reload MCP configuration, verify MCP server is running and accessible</explanation>
+                </example>
+
+                <example type="anti-pattern">
+                    <scenario>Slow response times or timeouts</scenario>
+                    <implementation>MCP commands taking too long or timing out</implementation>
+                    <explanation>Check network connection, verify rate limits, consider chunking large requests for better performance</explanation>
+                </example>
+            </examples>
+
+            <troubleshooting-guide>
+                <issue name="server_not_starting">
+                    <check>Is API key set correctly?</check>
+                    <fix>Export ELEVENLABS_API_KEY or add to config</fix>
+                </issue>
+
+                <issue name="commands_not_working">
+                    <check>Is MCP server running?</check>
+                    <fix>Restart Claude Desktop</fix>
+                </issue>
+
+                <issue name="slow_response">
+                    <check>Network connection?</check>
+                    <fix>Check rate limits and connection</fix>
+                </issue>
+
+                <issue name="no_audio_output">
+                    <check>Permissions and paths?</check>
+                    <fix>Ensure write permissions for output directory</fix>
+                </issue>
+            </troubleshooting-guide>
+
+            <validation>
+                <validation-command>claude mcp status</validation-command>
+                <success-criteria>MCP server running and ElevenLabs functions available in Claude interface</success-criteria>
+            </validation>
+        </section>
+
+        <section type="advanced" id="advanced-usage">
+            <technical-explanation>
+                Advanced MCP integration patterns including future feature preparation, streaming audio support, voice training workflows, real-time conversion capabilities, and multi-voice conversation systems for next-generation podcast production.
+            </technical-explanation>
+            <simple-explanation>
+                Cutting-edge features and future capabilities that will make podcast production even more powerful and automated.
+            </simple-explanation>
+
+            <future-features>
+                <feature name="streaming-audio">Real-time audio generation and streaming</feature>
+                <feature name="voice-training">Interactive voice training through MCP</feature>
+                <feature name="real-time-conversion">Live voice conversion capabilities</feature>
+                <feature name="multi-voice-conversations">Automated multi-speaker dialogue</feature>
+                <feature name="transcription-sync">Automatic transcription synchronization</feature>
+            </future-features>
+
+            <examples>
+                <example type="advanced">
+                    <scenario>Future-proof MCP configuration</scenario>
+                    <implementation>
+// Future-proof configuration
+{
+  "mcpServers": {
+    "elevenlabs": {
+      "version": "2.0",  // Ready for v2
+      "features": {
+        "streaming": true,
+        "voice_training": true,
+        "real_time": true
+      }
+    }
+  }
+}
+                    </implementation>
+                    <explanation>Future-ready configuration prepares for next-generation MCP features and capabilities</explanation>
+                </example>
+            </examples>
+
+            <pro-tips>
+                <tip>Use Environment Variables: Don't hardcode API keys in configuration</tip>
+                <tip>Enable Caching: MCP can cache common responses for efficiency</tip>
+                <tip>Monitor Usage: MCP tracks API calls automatically for cost management</tip>
+                <tip>Batch Operations: MCP handles concurrency well for multiple requests</tip>
+                <tip>Custom Shortcuts: Create project-specific commands for streamlined workflows</tip>
+            </pro-tips>
+        </section>
+    </content>
+
+    <cross-references>
+        <reference file="00_elevenlabs_constants.xml" section="api-configuration" type="prerequisite">
+            API keys and configuration constants for MCP setup
+        </reference>
+        <reference file="18_elevenlabs_api_implementation.xml" section="sdk-integration" type="prerequisite">
+            API implementation patterns that complement MCP integration
+        </reference>
+        <reference file="21_elevenlabs_voice_management.xml" section="voice-selection" type="related">
+            Voice management techniques applicable to MCP workflows
+        </reference>
+        <reference file="23_elevenlabs_podcast_production.xml" section="automation" type="application">
+            MCP integration in complete podcast production workflows
+        </reference>
+    </cross-references>
+</document>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elevenlabs-function-reference version="1.0" last-updated="2025-01-12">
+  <metadata>
+    <purpose>Precise function signatures and parameters for ElevenLabs MCP operations</purpose>
+    <scope>Exact function names, parameters, types, and ranges for agent implementation</scope>
+    <note>This supplements 22_elevenlabs_mcp_integration.xml with operational details</note>
+  </metadata>
+
+  <!-- EXACT FUNCTION SIGNATURES AS THEY APPEAR IN CLAUDE CODE -->
+  <mcp-functions>
+
+    <!-- TEXT TO SPEECH -->
+    <function>
+      <exact-name>mcp__ElevenLabs__text_to_speech</exact-name>
+      <parameters>
+        <param name="text" type="string" required="true" max-length="5000"/>
+        <param name="voice_id" type="string" required="false" default="cgSgspJ2msm6clMCkdW9"/>
+        <param name="voice_name" type="string" required="false" note="Alternative to voice_id"/>
+        <param name="model_id" type="string" required="false" default="eleven_multilingual_v2">
+          <option>eleven_flash_v2_5</option>
+          <option>eleven_flash_v2</option>
+          <option>eleven_turbo_v2_5</option>
+          <option>eleven_turbo_v2</option>
+          <option>eleven_multilingual_v2</option>
+          <option>eleven_monolingual_v1</option>
+        </param>
+        <param name="stability" type="float" required="false" default="0.5" min="0" max="1"/>
+        <param name="similarity_boost" type="float" required="false" default="0.75" min="0" max="1"/>
+        <param name="style" type="float" required="false" default="0" min="0" max="1"/>
+        <param name="use_speaker_boost" type="boolean" required="false" default="true"/>
+        <param name="speed" type="float" required="false" default="1.0" min="0.7" max="1.2"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+        <param name="language" type="string" required="false" default="en"/>
+        <param name="output_format" type="string" required="false" default="mp3_44100_128">
+          <formats>
+            <format value="mp3_22050_32" tier="Free"/>
+            <format value="mp3_44100_32" tier="Free"/>
+            <format value="mp3_44100_64" tier="Free"/>
+            <format value="mp3_44100_96" tier="Free"/>
+            <format value="mp3_44100_128" tier="Free"/>
+            <format value="mp3_44100_192" tier="Creator+"/>
+            <format value="pcm_8000" tier="Free"/>
+            <format value="pcm_16000" tier="Free"/>
+            <format value="pcm_22050" tier="Free"/>
+            <format value="pcm_24000" tier="Free"/>
+            <format value="pcm_44100" tier="Pro+"/>
+            <format value="ulaw_8000" tier="Free" note="Twilio compatible"/>
+            <format value="alaw_8000" tier="Free"/>
+            <format value="opus_48000_32" tier="Free"/>
+            <format value="opus_48000_64" tier="Free"/>
+            <format value="opus_48000_96" tier="Free"/>
+            <format value="opus_48000_128" tier="Free"/>
+            <format value="opus_48000_192" tier="Free"/>
+          </formats>
+        </param>
+      </parameters>
+      <returns>Path to generated audio file</returns>
+    </function>
+
+    <!-- SPEECH TO TEXT -->
+    <function>
+      <exact-name>mcp__ElevenLabs__speech_to_text</exact-name>
+      <parameters>
+        <param name="input_file_path" type="string" required="true"/>
+        <param name="language_code" type="string" required="false" note="ISO 639-3"/>
+        <param name="diarize" type="boolean" required="false" default="false"/>
+        <param name="save_transcript_to_file" type="boolean" required="false" default="true"/>
+        <param name="return_transcript_to_client_directly" type="boolean" required="false" default="false"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+      </parameters>
+      <returns>Transcribed text content</returns>
+    </function>
+
+    <!-- VOICE CLONE -->
+    <function>
+      <exact-name>mcp__ElevenLabs__voice_clone</exact-name>
+      <parameters>
+        <param name="name" type="string" required="true"/>
+        <param name="files" type="array[string]" required="true" min="1" max="25"/>
+        <param name="description" type="string" required="false"/>
+      </parameters>
+      <audio-requirements>
+        <instant-clone>1-2 minutes clear audio, no reverb/noise</instant-clone>
+        <professional-clone>30 min minimum, 2-3 hours optimal</professional-clone>
+        <formats>MP3, WAV, M4A, WEBM, MP4, FLAC</formats>
+      </audio-requirements>
+      <returns>Voice ID of cloned voice</returns>
+    </function>
+
+    <!-- TEXT TO SOUND EFFECTS -->
+    <function>
+      <exact-name>mcp__ElevenLabs__text_to_sound_effects</exact-name>
+      <parameters>
+        <param name="text" type="string" required="true"/>
+        <param name="duration_seconds" type="float" required="false" default="2" min="0.5" max="5"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+        <param name="output_format" type="string" required="false" default="mp3_44100_128"/>
+      </parameters>
+      <returns>Path to generated sound effect</returns>
+    </function>
+
+    <!-- SEARCH VOICES -->
+    <function>
+      <exact-name>mcp__ElevenLabs__search_voices</exact-name>
+      <parameters>
+        <param name="search" type="string" required="false"/>
+        <param name="sort" type="enum" required="false" default="name">
+          <option>name</option>
+          <option>created_at_unix</option>
+        </param>
+        <param name="sort_direction" type="enum" required="false" default="desc">
+          <option>asc</option>
+          <option>desc</option>
+        </param>
+      </parameters>
+      <returns>List of voices with IDs and descriptions</returns>
+    </function>
+
+    <!-- GET VOICE -->
+    <function>
+      <exact-name>mcp__ElevenLabs__get_voice</exact-name>
+      <parameters>
+        <param name="voice_id" type="string" required="true"/>
+      </parameters>
+      <returns>Voice details including settings</returns>
+    </function>
+
+    <!-- LIST MODELS -->
+    <function>
+      <exact-name>mcp__ElevenLabs__list_models</exact-name>
+      <parameters/>
+      <returns>Available models with capabilities</returns>
+    </function>
+
+    <!-- CREATE AGENT -->
+    <function>
+      <exact-name>mcp__ElevenLabs__create_agent</exact-name>
+      <parameters>
+        <param name="name" type="string" required="true"/>
+        <param name="first_message" type="string" required="true"/>
+        <param name="system_prompt" type="string" required="true"/>
+        <param name="voice_id" type="string" required="false" default="cgSgspJ2msm6clMCkdW9"/>
+        <param name="language" type="string" required="false" default="en"/>
+        <param name="llm" type="string" required="false" default="gemini-2.0-flash-001"/>
+        <param name="temperature" type="float" required="false" default="0.5" min="0" max="1"/>
+        <param name="max_tokens" type="integer" required="false"/>
+        <param name="asr_quality" type="string" required="false" default="high"/>
+        <param name="model_id" type="string" required="false" default="eleven_turbo_v2"/>
+        <param name="optimize_streaming_latency" type="integer" required="false" default="3" min="0" max="4"/>
+        <param name="stability" type="float" required="false" default="0.5" min="0" max="1"/>
+        <param name="similarity_boost" type="float" required="false" default="0.8" min="0" max="1"/>
+        <param name="turn_timeout" type="integer" required="false" default="7"/>
+        <param name="max_duration_seconds" type="integer" required="false" default="300"/>
+        <param name="record_voice" type="boolean" required="false" default="true"/>
+        <param name="retention_days" type="integer" required="false" default="730"/>
+      </parameters>
+      <returns>Agent ID</returns>
+    </function>
+
+    <!-- LIST AGENTS -->
+    <function>
+      <exact-name>mcp__ElevenLabs__list_agents</exact-name>
+      <parameters/>
+      <returns>List of available agents</returns>
+    </function>
+
+    <!-- GET AGENT -->
+    <function>
+      <exact-name>mcp__ElevenLabs__get_agent</exact-name>
+      <parameters>
+        <param name="agent_id" type="string" required="true"/>
+      </parameters>
+      <returns>Agent details</returns>
+    </function>
+
+    <!-- ADD KNOWLEDGE BASE TO AGENT -->
+    <function>
+      <exact-name>mcp__ElevenLabs__add_knowledge_base_to_agent</exact-name>
+      <parameters>
+        <param name="agent_id" type="string" required="true"/>
+        <param name="knowledge_base_name" type="string" required="true"/>
+        <param name="url" type="string" required="false"/>
+        <param name="input_file_path" type="string" required="false"/>
+        <param name="text" type="string" required="false"/>
+      </parameters>
+      <allowed-file-types>epub, pdf, docx, txt, html</allowed-file-types>
+      <returns>Success status</returns>
+    </function>
+
+    <!-- GET CONVERSATION -->
+    <function>
+      <exact-name>mcp__ElevenLabs__get_conversation</exact-name>
+      <parameters>
+        <param name="conversation_id" type="string" required="true"/>
+      </parameters>
+      <returns>Conversation details with transcript</returns>
+    </function>
+
+    <!-- LIST CONVERSATIONS -->
+    <function>
+      <exact-name>mcp__ElevenLabs__list_conversations</exact-name>
+      <parameters>
+        <param name="agent_id" type="string" required="false"/>
+        <param name="cursor" type="string" required="false"/>
+        <param name="call_start_before_unix" type="integer" required="false"/>
+        <param name="call_start_after_unix" type="integer" required="false"/>
+        <param name="page_size" type="integer" required="false" default="30" min="1" max="100"/>
+        <param name="max_length" type="integer" required="false" default="10000"/>
+      </parameters>
+      <returns>Paginated conversation list</returns>
+    </function>
+
+    <!-- SPEECH TO SPEECH -->
+    <function>
+      <exact-name>mcp__ElevenLabs__speech_to_speech</exact-name>
+      <parameters>
+        <param name="input_file_path" type="string" required="true"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+        <param name="voice_name" type="string" required="false" default="Adam"/>
+      </parameters>
+      <returns>Path to transformed audio</returns>
+    </function>
+
+    <!-- TEXT TO VOICE (Voice Design) -->
+    <function>
+      <exact-name>mcp__ElevenLabs__text_to_voice</exact-name>
+      <parameters>
+        <param name="voice_description" type="string" required="true"/>
+        <param name="text" type="string" required="false" note="Auto-generated if not provided"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+      </parameters>
+      <note>Creates 3 voice previews with variations</note>
+      <returns>Generated voice IDs and preview file paths</returns>
+    </function>
+
+    <!-- CREATE VOICE FROM PREVIEW -->
+    <function>
+      <exact-name>mcp__ElevenLabs__create_voice_from_preview</exact-name>
+      <parameters>
+        <param name="generated_voice_id" type="string" required="true" note="From text_to_voice"/>
+        <param name="voice_name" type="string" required="true"/>
+        <param name="voice_description" type="string" required="true"/>
+      </parameters>
+      <returns>Created voice ID</returns>
+    </function>
+
+    <!-- ISOLATE AUDIO -->
+    <function>
+      <exact-name>mcp__ElevenLabs__isolate_audio</exact-name>
+      <parameters>
+        <param name="input_file_path" type="string" required="true"/>
+        <param name="output_directory" type="string" required="false" default="$HOME/Desktop"/>
+      </parameters>
+      <returns>Path to isolated audio</returns>
+    </function>
+
+    <!-- CHECK SUBSCRIPTION -->
+    <function>
+      <exact-name>mcp__ElevenLabs__check_subscription</exact-name>
+      <parameters/>
+      <returns>Subscription status and usage</returns>
+    </function>
+
+    <!-- SEARCH VOICE LIBRARY -->
+    <function>
+      <exact-name>mcp__ElevenLabs__search_voice_library</exact-name>
+      <parameters>
+        <param name="page" type="integer" required="false" default="0"/>
+        <param name="page_size" type="integer" required="false" default="10" min="1" max="100"/>
+        <param name="search" type="string" required="false"/>
+      </parameters>
+      <returns>Voice library search results</returns>
+    </function>
+
+    <!-- LIST PHONE NUMBERS -->
+    <function>
+      <exact-name>mcp__ElevenLabs__list_phone_numbers</exact-name>
+      <parameters/>
+      <returns>Available phone numbers</returns>
+    </function>
+
+    <!-- MAKE OUTBOUND CALL -->
+    <function>
+      <exact-name>mcp__ElevenLabs__make_outbound_call</exact-name>
+      <parameters>
+        <param name="agent_id" type="string" required="true"/>
+        <param name="agent_phone_number_id" type="string" required="true"/>
+        <param name="to_number" type="string" required="true" format="E.164"/>
+      </parameters>
+      <returns>Call status information</returns>
+    </function>
+
+    <!-- PLAY AUDIO -->
+    <function>
+      <exact-name>mcp__ElevenLabs__play_audio</exact-name>
+      <parameters>
+        <param name="input_file_path" type="string" required="true"/>
+      </parameters>
+      <supported-formats>WAV, MP3</supported-formats>
+      <returns>Playback status</returns>
+    </function>
+  </mcp-functions>
+
+  <!-- VOICE SETTINGS OPTIMIZATION PROFILES -->
+  <voice-settings-profiles>
+    <profile name="natural-narration">
+      <use-case>Podcast narration, audiobooks</use-case>
+      <stability>0.5</stability>
+      <similarity_boost>0.75</similarity_boost>
+      <style>0</style>
+      <use_speaker_boost>true</use_speaker_boost>
+    </profile>
+
+    <profile name="consistent-character">
+      <use-case>Character voices, brand consistency</use-case>
+      <stability>0.8</stability>
+      <similarity_boost>0.9</similarity_boost>
+      <style>0.2</style>
+      <use_speaker_boost>true</use_speaker_boost>
+    </profile>
+
+    <profile name="expressive-performance">
+      <use-case>Dynamic content, emotional scenes</use-case>
+      <stability>0.3</stability>
+      <similarity_boost>0.6</similarity_boost>
+      <style>0.5</style>
+      <use_speaker_boost>false</use_speaker_boost>
+    </profile>
+
+    <profile name="cost-optimized">
+      <use-case>Draft reviews, testing</use-case>
+      <model>eleven_flash_v2</model>
+      <output_format>mp3_22050_32</output_format>
+      <stability>0.5</stability>
+      <similarity_boost>0.5</similarity_boost>
+    </profile>
+  </voice-settings-profiles>
+
+  <!-- MODEL SPECIFICATIONS -->
+  <model-specifications>
+    <model id="eleven_flash_v2_5">
+      <latency>75ms</latency>
+      <languages>32</languages>
+      <cost-multiplier>0.5</cost-multiplier>
+      <use-case>Fast drafts, real-time</use-case>
+    </model>
+
+    <model id="eleven_turbo_v2_5">
+      <latency>150ms</latency>
+      <languages>32</languages>
+      <cost-multiplier>1.0</cost-multiplier>
+      <use-case>Balanced production</use-case>
+    </model>
+
+    <model id="eleven_multilingual_v2">
+      <latency>300ms</latency>
+      <languages>29</languages>
+      <cost-multiplier>1.5</cost-multiplier>
+      <use-case>Premium quality</use-case>
+    </model>
+  </model-specifications>
+
+  <!-- CREDIT USAGE CALCULATIONS -->
+  <credit-calculations>
+    <formula>characters * model_multiplier = credits</formula>
+    <free-tier-credits>10000/month</free-tier-credits>
+    <approximate-duration>
+      <calculation>10000 credits ≈ 10-15 minutes audio</calculation>
+      <calculation>1000 characters ≈ 1 minute speech</calculation>
+    </approximate-duration>
+  </credit-calculations>
+
+  <!-- QUALITY GATES FOR AGENTS -->
+  <quality-gates>
+    <audio-quality>
+      <minimum-sample-rate>44100</minimum-sample-rate>
+      <minimum-bitrate>128</minimum-bitrate>
+      <format-production>mp3_44100_128</format-production>
+      <format-draft>mp3_22050_32</format-draft>
+    </audio-quality>
+
+    <voice-consistency>
+      <stability-range min="0.4" max="0.6" recommended="0.5"/>
+      <similarity-range min="0.7" max="0.8" recommended="0.75"/>
+    </voice-consistency>
+  </quality-gates>
+
+  <!-- ERROR CODES AND HANDLING -->
+  <error-handling>
+    <error code="rate_limit_exceeded">
+      <cause>Too many requests</cause>
+      <solution>Implement exponential backoff</solution>
+    </error>
+
+    <error code="insufficient_credits">
+      <cause>Monthly limit reached</cause>
+      <solution>Upgrade tier or wait for reset</solution>
+    </error>
+
+    <error code="voice_not_found">
+      <cause>Invalid voice_id</cause>
+      <solution>Use search_voices to find valid ID</solution>
+    </error>
+
+    <error code="timeout">
+      <cause>Voice design or isolation taking too long</cause>
+      <solution>Increase timeout, retry operation</solution>
+    </error>
+  </error-handling>
+
+  <cross-references>
+    <reference file="22_elevenlabs_mcp_integration.xml">For MCP setup and configuration</reference>
+    <reference file="00_elevenlabs_constants.xml">For API keys and constants</reference>
+    <reference file="23_elevenlabs_podcast_production.xml">For production workflows</reference>
+  </cross-references>
+</elevenlabs-function-reference>

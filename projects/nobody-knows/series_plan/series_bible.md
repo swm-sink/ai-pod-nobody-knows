@@ -13,7 +13,7 @@
 ### **Season 1: "The Great Admission" (Episodes 1-25)**
 *Establishing that confusion is not the enemy—ignorance is*
 
-### **Season 2: "The Beautiful Accidents" (Episodes 26-50)** 
+### **Season 2: "The Beautiful Accidents" (Episodes 26-50)**
 *How the most important AI breakthroughs happened by surprise*
 
 ### **Season 3: "The Learning Curve" (Episodes 51-75)**
