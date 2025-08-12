@@ -247,6 +247,7 @@ mcp-servers/
 node_modules/
 .mcp.json
 *.mcp.json
+!.mcp.json.example
 
 # Production data
 production_data/

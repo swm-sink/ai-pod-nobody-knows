@@ -118,13 +118,19 @@ cp .env.example .env
 
 4. **Restart Claude Code** to load MCPs
 
-5. **Verify MCPs are loaded**
+5. **Install dev hooks (recommended)**
+```bash
+python3 -m pip install -r dev-requirements.txt
+pre-commit install
+```
+
+6. **Verify MCPs are loaded**
 ```bash
 claude mcp list
 # Should show: elevenlabs, perplexity
 ```
 
-6. **Test the setup**
+7. **Test the setup**
 ```bash
 python3 .claude/scripts/test_mcps.py
 ```
