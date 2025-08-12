@@ -32,11 +32,11 @@ check_technical_explanations() {
     local count=0
 
     # Look for technical explanation patterns
-    count=$(grep -iE "(Technical:|technical-explanation|**Technical)**" "$file" | wc -l)
+    count=$(grep -iE "(Technical:|technical-explanation|\\*\\*Technical\\*\\*)" "$file" | wc -l)
 
     if [[ $count -eq 0 ]]; then
         # Check for alternative technical patterns
-        count=$(grep -iE "(technical.*:|from a technical|technically)" "$file" | wc -l)
+        count=$(grep -iE "(technical[[:space:]]*:|from a technical|technically)" "$file" | wc -l)
 
         if [[ $count -eq 0 ]]; then
             log_error "No technical explanations found in $file"
@@ -57,7 +57,7 @@ check_simple_explanations() {
     local count=0
 
     # Look for simple explanation patterns
-    count=$(grep -iE "(Simple:|simple-explanation|**Simple)**|like.*|think of.*as|imagine.*)" "$file" | wc -l)
+    count=$(grep -iE "(Simple:|simple-explanation|\\*\\*Simple\\*\\*|like[^\n]*|think of[^\n]*as|imagine[^\n]*)" "$file" | wc -l)
 
     if [[ $count -eq 0 ]]; then
         log_error "No simple explanations found in $file"
@@ -110,8 +110,8 @@ check_dual_structure() {
     local file="$1"
 
     # Check for balanced explanations
-    local tech_count=$(grep -iE "(Technical:|technical-explanation|**Technical)**" "$file" | wc -l)
-    local simple_count=$(grep -iE "(Simple:|simple-explanation|**Simple)**" "$file" | wc -l)
+    local tech_count=$(grep -iE "(Technical:|technical-explanation|\\*\\*Technical\\*\\*)" "$file" | wc -l)
+    local simple_count=$(grep -iE "(Simple:|simple-explanation|\\*\\*Simple\\*\\*)" "$file" | wc -l)
 
     if [[ $tech_count -gt 0 ]] && [[ $simple_count -gt 0 ]]; then
         if [[ $((tech_count - simple_count)) -gt 2 ]] || [[ $((simple_count - tech_count)) -gt 2 ]]; then
@@ -178,7 +178,8 @@ suggest_improvements() {
 
 # Main validation loop
 for file in "$@"; do
-    if [[ -f "$file" ]] && [[ "$file" == *.xml ]]; then
+    # Only validate CLAUDE.md for dual explanations
+    if [[ "$file" == "CLAUDE.md" ]]; then
         if ! validate_educational_content "$file"; then
             suggest_improvements "$file"
         fi

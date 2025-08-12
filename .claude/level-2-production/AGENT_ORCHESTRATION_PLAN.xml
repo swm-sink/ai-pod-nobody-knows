@@ -10,9 +10,14 @@
   </metadata>
 
   <orchestration-philosophy>
-    <technical-description>Sequential agent architecture with strict handoff protocols, validation gates, and rollback capabilities</technical-description>
+    <technical-explanation>Sequential agent architecture with strict handoff protocols, validation gates, and rollback capabilities</technical-explanation>
     <simple-explanation>Like a factory assembly line where each specialist does their job perfectly before passing work to the next specialist</simple-explanation>
     <learning-value>This teaches distributed system coordination, quality assurance, and production reliability patterns</learning-value>
+    <teaching-format>
+      <technical>Technical: Sequential orchestration with explicit validation gates and rollback ensures deterministic behavior across agent boundaries.</technical>
+      <simple>Simple: Think of it like a baton pass in a relay—each runner finishes their stretch cleanly before handing off so the team doesn’t drop the baton.</simple>
+      <connection>Connection: This helps you learn how to structure multi-step AI workflows that are reliable, testable, and easy to recover when errors occur.</connection>
+    </teaching-format>
   </orchestration-philosophy>
 
   <agent-roles>
@@ -160,7 +165,7 @@
         <command>find .claude/level-2-production/sessions -type d | sort</command>
         <command>ls -la .claude/level-2-production/sessions/</command>
         <command>python3 -c "import json; print('Valid JSON:', json.load(open('.claude/level-2-production/sessions/templates/session_template.json')))"</command>
-        <command>touch .claude/level-2-production/sessions/active/test.tmp && rm .claude/level-2-production/sessions/active/test.tmp</command>
+        <command><![CDATA[touch .claude/level-2-production/sessions/active/test.tmp && rm .claude/level-2-production/sessions/active/test.tmp]]></command>
       </validation-commands>
       <handoff-package>
         <deliverable>Complete sessions directory structure</deliverable>
