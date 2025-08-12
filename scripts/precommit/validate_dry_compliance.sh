@@ -21,7 +21,7 @@ log_warning() {
     WARNING_COUNT=$((WARNING_COUNT + 1))
 }
 
-# Function to log success  
+# Function to log success
 log_success() {
     echo "✅ $1"
 }
@@ -30,33 +30,33 @@ log_success() {
 check_hardcoded_specs() {
     local file="$1"
     local violations=0
-    
+
     # Skip constants files and archives
     if [[ "$file" == *"constants"* ]] || [[ "$file" == *"/archive/"* ]]; then
         return 0
     fi
-    
+
     # Check for hardcoded episode count
     if grep -q "125 episodes\|125-episode\|total.*125" "$file"; then
         log_error "Hardcoded episode count in $file"
         echo "    Use PROJECT['total_episodes'] or EPISODE_SPECS['total_episodes'] instead"
         violations=$((violations + 1))
     fi
-    
+
     # Check for hardcoded duration
     if grep -q "27 minutes\|27-minute" "$file"; then
-        log_error "Hardcoded episode duration in $file"  
+        log_error "Hardcoded episode duration in $file"
         echo "    Use EPISODE_SPECS['duration_minutes'] instead"
         violations=$((violations + 1))
     fi
-    
+
     # Check for hardcoded cost targets
     if grep -qE "\$[0-9]+-?[0-9]*\s*(per\s*episode|episode)" "$file"; then
         log_error "Hardcoded cost targets in $file"
         echo "    Use COST_TARGETS['target_cost'] or COST_TARGETS['maximum_cost'] instead"
         violations=$((violations + 1))
     fi
-    
+
     # Check for hardcoded project name
     if grep -q "Nobody Knows Podcast\|ai-podcasts-nobody-knows" "$file"; then
         # Allow in certain contexts
@@ -65,7 +65,7 @@ check_hardcoded_specs() {
             echo "    Consider using PROJECT['name'] if this is a specification"
         fi
     fi
-    
+
     return $violations
 }
 
@@ -73,10 +73,10 @@ check_hardcoded_specs() {
 check_duplicate_patterns() {
     local file="$1"
     local temp_patterns=$(mktemp)
-    
+
     # Extract common patterns that might be duplicated
     grep -oE "(API.*key|environment.*variable|installation.*step)" "$file" 2>/dev/null > "$temp_patterns" || true
-    
+
     if [[ -s "$temp_patterns" ]]; then
         # Check if these patterns appear in multiple files
         while read -r pattern; do
@@ -87,7 +87,7 @@ check_duplicate_patterns() {
             fi
         done < "$temp_patterns"
     fi
-    
+
     rm -f "$temp_patterns"
     return 0
 }
@@ -95,15 +95,15 @@ check_duplicate_patterns() {
 # Function to check for missing constants references
 check_missing_constants_refs() {
     local file="$1"
-    
+
     # Skip constants files themselves
     if [[ "$file" == *"constants"* ]]; then
         return 0
     fi
-    
+
     # Look for values that should reference constants
     local missing_refs=0
-    
+
     # Check for hardcoded API endpoints
     if grep -qE "https?://[a-zA-Z0-9.-]+\.(com|org|net)" "$file"; then
         if ! grep -q "API_ENDPOINTS\|constants" "$file"; then
@@ -111,7 +111,7 @@ check_missing_constants_refs() {
             echo "    Consider using API_ENDPOINTS constants"
         fi
     fi
-    
+
     # Check for hardcoded file paths
     if grep -qE "\./[a-zA-Z0-9/_.-]+\.(xml|md|json|yaml)" "$file"; then
         if ! grep -q "FILE_PATHS\|constants" "$file"; then
@@ -119,19 +119,19 @@ check_missing_constants_refs() {
             echo "    Consider using FILE_PATHS constants for frequently referenced files"
         fi
     fi
-    
+
     return $missing_refs
 }
 
 # Function to check for proper constants linking
 check_constants_linking() {
     local file="$1"
-    
+
     # Skip constants files
     if [[ "$file" == *"constants"* ]] || [[ "$file" == *"/archive/"* ]]; then
         return 0
     fi
-    
+
     # Check if file references constants appropriately
     if grep -qE "(see.*constants|reference.*constants|[Cc]onstants.*file)" "$file"; then
         log_success "Proper constants reference found in $file"
@@ -142,24 +142,24 @@ check_constants_linking() {
             echo "    Add reference like: See [Constants](./00_domain_constants.xml#section)"
         fi
     fi
-    
+
     return 0
 }
 
 # Function to validate XML namespace consistency
 check_xml_namespace_consistency() {
     local file="$1"
-    
+
     if [[ "$file" == *.xml ]]; then
         # Check for consistent namespace usage
         local namespaces=$(grep -o 'xmlns="[^"]*"' "$file" 2>/dev/null | sort -u | wc -l)
-        
+
         if [[ $namespaces -gt 1 ]]; then
             log_warning "Multiple XML namespaces in $file"
             echo "    Consider standardizing on single namespace"
             grep -n 'xmlns=' "$file"
         fi
-        
+
         # Check for our standard namespace
         if grep -q '<document.*type=' "$file"; then
             if ! grep -q 'xmlns="https://ai-podcasts-nobody-knows.com/claude-docs"' "$file"; then
@@ -168,19 +168,19 @@ check_xml_namespace_consistency() {
             fi
         fi
     fi
-    
+
     return 0
 }
 
 # Function to check for template compliance
 check_template_compliance() {
     local file="$1"
-    
+
     # Skip templates and archives
     if [[ "$file" == *"/templates/"* ]] || [[ "$file" == *"/archive/"* ]]; then
         return 0
     fi
-    
+
     # Context XML files should have standard structure
     if [[ "$file" == *"/context/"* ]] && [[ "$file" == *.xml ]]; then
         if ! grep -q '<metadata>' "$file"; then
@@ -188,14 +188,14 @@ check_template_compliance() {
             echo "    Context files should include <metadata> section"
             return 1
         fi
-        
+
         if ! grep -q '<title>' "$file"; then
             log_error "Missing title in $file"
             echo "    Add <title> element in metadata section"
             return 1
         fi
     fi
-    
+
     return 0
 }
 
@@ -203,27 +203,27 @@ check_template_compliance() {
 validate_dry_compliance() {
     local file="$1"
     local file_errors=0
-    
+
     echo "Checking DRY compliance for: $file"
-    
+
     # Run all DRY checks
     if ! check_hardcoded_specs "$file"; then
         file_errors=$((file_errors + 1))
     fi
-    
+
     check_duplicate_patterns "$file"
-    check_missing_constants_refs "$file" 
+    check_missing_constants_refs "$file"
     check_constants_linking "$file"
     check_xml_namespace_consistency "$file"
-    
+
     if ! check_template_compliance "$file"; then
         file_errors=$((file_errors + 1))
     fi
-    
+
     if [[ $file_errors -eq 0 ]]; then
         log_success "DRY compliance passed for $file"
     fi
-    
+
     return $file_errors
 }
 
@@ -251,7 +251,7 @@ else
     echo ""
     echo "DRY Principle Requirements:"
     echo "  🚫 No hardcoded episode counts, durations, or costs"
-    echo "  ✅ Use constants: PROJECT['name'], EPISODE_SPECS['duration_minutes']"  
+    echo "  ✅ Use constants: PROJECT['name'], EPISODE_SPECS['duration_minutes']"
     echo "  ✅ Reference constants files with proper links"
     echo "  ✅ Extract common patterns to shared templates"
     echo "  ✅ Use consistent XML namespaces and metadata"
