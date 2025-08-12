@@ -27,9 +27,9 @@ run_test() {
     local test_name="$1"
     local test_command="$2"
     local expected_result="$3"
-    
+
     echo -n "Testing: $test_name... "
-    
+
     if eval "$test_command"; then
         if [ "$expected_result" = "pass" ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
