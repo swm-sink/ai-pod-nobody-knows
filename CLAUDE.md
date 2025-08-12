@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file -->
+
 <document type="system-documentation" version="5.0.0">
   <metadata>
     <last-updated>2025-08-11</last-updated>
@@ -21,7 +23,7 @@
   <critical>
     THIS IS THE MASTER SYSTEM PROMPT - ALL REQUIREMENTS ARE MANDATORY
     FAILURE TO FOLLOW ANY REQUIREMENT INVALIDATES THE WORK PERFORMED
-    NO RELIANCE ON EXTERNAL CONTEXT LOADING - ALL CRITICAL REQUIREMENTS EMBEDDED HERE
+    RELIANCE ON EXTERNAL CONTEXT LOADING - YOU MUST STRICTLY FOLLOW THE SYSTEM PROMPT AND THEN DYNAMICALLY LOAD LINKED CONTEXT AS APPROPRIATE [TO UPDATE THIS]
   </critical>
 </document>
 
@@ -96,19 +98,19 @@
 
 <navigation-hub>
   <new-user>
-    **First Time?** → Read @context/foundation/01_project_overview.xml → Follow WALK phase below
+    **First Time?** → Read .claude/context/foundation/01_project_overview.xml → Follow WALK phase below
     **Quick Setup**: python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
     **Learning Note**: Every command will be explained technically AND simply
   </new-user>
 
   <returning-user>
-    **Welcome Back!** → Check current phase → Continue from @context/foundation/05_learning_milestones.xml
+    **Welcome Back!** → Check current phase → Continue from .claude/context/foundation/05_learning_milestones.xml
     **Jump to**: Current todos with `/todolist` command
     **Context**: System will teach you about each step you take
   </returning-user>
 
   <stuck-user>
-    **Need Help?** → @context/operations/01_troubleshooting_guide.xml
+    **Need Help?** → .claude/context/operations/01_troubleshooting_guide.xml
     **Emergency**: Use `@` navigation to any file instantly
     **Learning**: Each troubleshooting step will include educational explanations
   </stuck-user>
@@ -119,7 +121,7 @@
 <current-phase>
   <phase>WALK</phase>
   <focus>Learn for FREE - No API keys needed!</focus>
-  <next-action>@context/foundation/04_no_api_keys_activities.xml</next-action>
+  <next-action>.claude/context/foundation/04_no_api_keys_activities.xml</next-action>
   <duration>Weeks 1-4</duration>
   <cost>$0</cost>
   <learning-emphasis>Every activity includes technical and simple explanations</learning-emphasis>
@@ -242,7 +244,7 @@
 
 ## 🛡️ FILE OPERATIONS BEST PRACTICES
 
-See: @context/operations/file-operations-best-practices.xml
+See: [File Operations Best Practices](.claude/context/operations/file-operations-best-practices.xml)
 
 **Technical:** File operation safety prevents data loss, corruption, and system instability
 **Simple:** Like double-checking before cutting paper - measure twice, cut once
@@ -250,7 +252,7 @@ See: @context/operations/file-operations-best-practices.xml
 
 ## 🚫 ANTI-PATTERN PREVENTION
 
-See: @context/quality/anti-patterns.xml
+See: [Anti-Pattern Prevention](.claude/context/quality/anti-patterns.xml)
 
 **Technical:** Preventing anti-patterns is essential for system reliability and maintainability
 **Simple:** Like following safety rules to prevent accidents before they happen
@@ -299,7 +301,7 @@ See: @context/quality/anti-patterns.xml
 
 ## ⚠️ LLM ANTI-PATTERN PROTECTION
 
-See: @context/quality/llm-protections.xml
+See: [LLM Protections Framework](.claude/context/quality/llm-protections.xml)
 
 **Technical:** Comprehensive protection against common AI failure modes and adversarial conditions
 **Simple:** Like having safety protocols to prevent accidents in a laboratory
@@ -316,8 +318,8 @@ See: @context/quality/llm-protections.xml
   </project-description>
 
   <specifications>
-    <episodes>Total episodes defined in projects/nobody-knows/series_plan/episodes_master.json</episodes>
-    <duration>Episode duration defined in configuration</duration>
+    <episodes>PROJECTED_EPISODES (see projects/nobody-knows/series_plan/episodes_master.json)</episodes>
+    <duration>PROJECTED_DURATION_MINUTES minutes each</duration>
     <cost-target>$4-5 per episode (vs traditional $800-3500)</cost-target>
     <complexity>Progressive 1-10 scale across 5 seasons</complexity>
     <learning-value>Master multi-agent systems, cost optimization, and quality assurance</learning-value>
@@ -326,7 +328,7 @@ See: @context/quality/llm-protections.xml
 
 ## 🤖 ENHANCED MULTI-AGENT ORCHESTRATION (v2.0)
 
-See: @context/agents/multi-agent-orchestration.xml
+See: [Multi-Agent Orchestration Framework](.claude/context/agents/multi-agent-orchestration.xml)
 
 **Technical:** Enhanced 9-agent pipeline with dual-model quality validation and iterative refinement loops
 **Simple:** Like a factory assembly line with multiple quality checkpoints - each station specializes, two inspectors verify, and problems get fixed before moving forward
@@ -670,35 +672,35 @@ See: @context/agents/multi-agent-orchestration.xml
 
 <context-navigation>
   <foundation>
-    <file>@context/foundation/01_project_overview.xml</file>
+    <file>.claude/context/foundation/01_project_overview.xml</file>
     <purpose>Start here</purpose>
     <learning-value>Understand project scope and learning objectives</learning-value>
 
-    <file>@context/foundation/02_walk_crawl_run_phases.xml</file>
+    <file>.claude/context/foundation/02_walk_crawl_run_phases.xml</file>
     <purpose>Learning path</purpose>
     <learning-value>Progressive skill development strategy</learning-value>
 
-    <file>@context/foundation/04_no_api_keys_activities.xml</file>
+    <file>.claude/context/foundation/04_no_api_keys_activities.xml</file>
     <purpose>FREE learning</purpose>
     <learning-value>Cost-free skill building activities</learning-value>
   </foundation>
 
   <operations>
-    <file>@context/operations/01_troubleshooting_guide.xml</file>
+    <file>.claude/context/operations/01_troubleshooting_guide.xml</file>
     <purpose>Fix problems</purpose>
     <learning-value>Systematic problem-solving methodology</learning-value>
 
-    <file>@context/operations/02_quick_reference.xml</file>
+    <file>.claude/context/operations/02_quick_reference.xml</file>
     <purpose>Commands</purpose>
     <learning-value>Essential tool usage patterns</learning-value>
   </operations>
 
   <quality>
-    <file>@context/quality/ENFORCEMENT_STANDARDS.xml</file>
+    <file>.claude/context/quality/ENFORCEMENT_STANDARDS.xml</file>
     <purpose>Mandatory standards</purpose>
     <learning-value>Quality assurance principles and practices</learning-value>
 
-    <file>@context/quality/03_tdd_requirements_specification.xml</file>
+    <file>.claude/context/quality/03_tdd_requirements_specification.xml</file>
     <purpose>Testing</purpose>
     <learning-value>Test-driven development with AI systems</learning-value>
   </quality>
@@ -865,7 +867,7 @@ See: @context/agents/multi-agent-orchestration.xml
         - Session handover files - Temporary operational documents
       </exceptions>
       <rationale>These files must remain in .md format for Claude Code compatibility or standard conventions</rationale>
-      <details>See @context/quality/05_file_format_policy.xml for comprehensive format rules</details>
+      <details>See .claude/context/quality/FILE_FORMAT_POLICY.xml for comprehensive format rules</details>
     </markdown-format>
   </format-rules>
 
