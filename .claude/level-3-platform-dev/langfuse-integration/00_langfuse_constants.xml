@@ -138,13 +138,13 @@
   <sampling-rules>
     <rule name="sample_all_errors" condition="error" rate="1.0"/>
     <rule name="sample_high_cost" condition="cost > 7.00" rate="1.0"/>
-    <rule name="sample_low_quality" condition="quality < 0.80" rate="1.0"/>
+    <rule name="sample_low_quality" condition="quality &lt; 0.80" rate="1.0"/>
     <rule name="sample_success" condition="success" rate="0.1"/>
   </sampling-rules>
 
   <alerting-thresholds>
     <alert name="cost_overrun" condition="cost > max_episode_cost" severity="critical"/>
-    <alert name="quality_degradation" condition="quality < 0.80" severity="high"/>
+    <alert name="quality_degradation" condition="quality &lt; 0.80" severity="high"/>
     <alert name="high_retry_rate" condition="retry_rate > 0.3" severity="medium"/>
     <alert name="slow_production" condition="duration > 90 minutes" severity="low"/>
   </alerting-thresholds>

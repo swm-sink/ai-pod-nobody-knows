@@ -10,26 +10,6 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Model Context Protocol (MCP) integration for ElevenLabs enabling direct API access through Claude Code interface, eliminating manual API implementation while providing comprehensive voice generation, transcription, and voice management capabilities through standardized protocol interfaces.
-
-                Provides:
-                - Complete MCP server installation and configuration procedures
-                - Direct Claude Desktop integration with environment variable management
-                - Advanced custom command creation and workflow automation
-                - Bidirectional communication patterns with progress tracking
-                - Production-ready podcast integration configurations
-                - Troubleshooting and debugging methodologies
-            </technical-explanation>
-            <simple-explanation>
-                Connect ElevenLabs directly to Claude Code for seamless voice generation without writing code. Model Context Protocol (MCP) is like USB for AI: plug in any service (ElevenLabs, GitHub, etc.), AI assistants can use it immediately, no complex integration needed, works with Claude Desktop, Cursor, and Windsurf.
-
-                Explains:
-                - How to install and configure the ElevenLabs MCP server
-                - How to use voice generation directly from Claude conversations
-                - How to create custom commands for podcast production
-                - How to troubleshoot common integration issues
-            </simple-explanation>
         </section>
 
         <section type="reference" id="installation-setup">
@@ -85,12 +65,6 @@ npm install
         </section>
 
         <section type="reference" id="mcp-capabilities">
-            <technical-explanation>
-                MCP server exposes comprehensive ElevenLabs functionality including text-to-speech generation, voice cloning, transcription services, voice design, outbound calling, voice library management, and usage monitoring through standardized function interfaces.
-            </technical-explanation>
-            <simple-explanation>
-                All the things you can do with ElevenLabs directly from Claude conversations - generate audio, create voices, transcribe files, and more.
-            </simple-explanation>
 
             <available-functions>
                 <function name="text_to_speech">Generate audio from text</function>
@@ -118,12 +92,6 @@ npm install
         </section>
 
         <section type="reference" id="podcast-production-integration">
-            <technical-explanation>
-                Podcast-specific MCP configuration with default voice settings, model selection, output format optimization, and caching strategies for efficient episode production workflows through Claude interface.
-            </technical-explanation>
-            <simple-explanation>
-                Set up MCP specifically for podcast production with all the right defaults and settings for your show.
-            </simple-explanation>
 
             <examples>
                 <example type="podcast-workflow">
@@ -169,12 +137,6 @@ npm install
         </section>
 
         <section type="reference" id="advanced-features">
-            <technical-explanation>
-                Advanced MCP patterns including custom command creation, bidirectional communication with progress tracking, Python integration for hybrid workflows, and real-time feedback systems for complex production environments.
-            </technical-explanation>
-            <simple-explanation>
-                Professional features for complex podcast production including custom commands, progress tracking, and integration with other tools.
-            </simple-explanation>
 
             <examples>
                 <example type="custom-commands">
@@ -257,7 +219,7 @@ const mcpServer = {
     const chunks = splitIntoChunks(params.text);
     const results = [];
 
-    for (let i = 0; i < chunks.length; i++) {
+    for (let i = 0; i &lt; chunks.length; i++) {
       // Send progress update to Claude
       callback({
         type: 'progress',
@@ -279,12 +241,6 @@ const mcpServer = {
         </section>
 
         <section type="reference" id="project-specific-setup">
-            <technical-explanation>
-                Project-specific MCP configuration for "Nobody Knows" podcast including voice selection, model optimization, caching strategies, and custom slash commands for streamlined production workflows.
-            </technical-explanation>
-            <simple-explanation>
-                Customized setup specifically for your "Nobody Knows" podcast with all the right settings and shortcuts.
-            </simple-explanation>
 
             <examples>
                 <example type="project-config">
@@ -317,10 +273,10 @@ const mcpServer = {
                     <scenario>Custom slash commands for podcast production</scenario>
                     <implementation>
 // Custom commands for your podcast
-/generate-episode &lt;number&gt; - Generate specific episode
-/test-voices &lt;text&gt; - Test different voices
+/generate-episode &lt;number> - Generate specific episode
+/test-voices &lt;text> - Test different voices
 /check-costs - Show current spending
-/batch-generate &lt;start&gt; &lt;end&gt; - Generate multiple episodes
+/batch-generate &lt;start> &lt;end> - Generate multiple episodes
                     </implementation>
                     <explanation>Custom slash commands provide quick access to frequently used podcast production operations</explanation>
                 </example>
@@ -377,12 +333,6 @@ const mcpServer = {
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced MCP integration patterns including future feature preparation, streaming audio support, voice training workflows, real-time conversion capabilities, and multi-voice conversation systems for next-generation podcast production.
-            </technical-explanation>
-            <simple-explanation>
-                Cutting-edge features and future capabilities that will make podcast production even more powerful and automated.
-            </simple-explanation>
 
             <future-features>
                 <feature name="streaming-audio">Real-time audio generation and streaming</feature>

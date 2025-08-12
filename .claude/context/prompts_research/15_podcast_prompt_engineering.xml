@@ -38,17 +38,6 @@
   <core-concepts>
     <concept id="master-system-prompt">
       <title>Master System Prompt</title>
-      <technical-explanation>
-        The Gabriel Chua Open-NotebookLM Framework leverages structured thinking patterns
-        that align with how LLMs process information. The scratchpad technique allows
-        the model to "think out loud" before generating final content, improving coherence
-        and creativity through explicit reasoning chains.
-      </technical-explanation>
-      <simple-explanation>
-        Think of this prompt like giving directions to a talented friend who's never made
-        a podcast before. You're breaking down the complex task into simple steps: read
-        the material, think creatively about it, write natural dialogue, and keep good pacing.
-      </simple-explanation>
       <implementation>
         <system-prompt-template>
           <![CDATA[
@@ -95,17 +84,6 @@ Output: Valid JSON format without code blocks
 
     <concept id="conversation-flow">
       <title>Conversation Flow Techniques</title>
-      <technical-explanation>
-        Two-host dynamics implement complementary personality patterns that create
-        natural information exchange. The curious explorer/knowledgeable guide archetype
-        mirrors effective pedagogical structures and maintains audience engagement
-        through perspective variation.
-      </technical-explanation>
-      <simple-explanation>
-        Like having two friends chat - one who asks great questions and one who explains
-        things well. They play off each other naturally, with interruptions, agreements,
-        and moments of discovery that keep listeners engaged.
-      </simple-explanation>
       <patterns>
         <host-dynamics>
           <host name="Alex" role="curious_explorer">
@@ -136,17 +114,6 @@ Output: Valid JSON format without code blocks
 
     <concept id="educational-content-strategies">
       <title>Educational Content Strategies</title>
-      <technical-explanation>
-        The intellectual humility framework implements epistemic transparency,
-        explicitly acknowledging knowledge boundaries. This approach builds trust
-        through honesty and models critical thinking by demonstrating scientific
-        uncertainty as a feature, not a bug.
-      </technical-explanation>
-      <simple-explanation>
-        Instead of pretending to know everything, we celebrate the mystery. When we
-        say "we don't know yet," it's honest and exciting - like opening a door to
-        future discoveries. It makes learning feel like an adventure.
-      </simple-explanation>
       <framework>
         <intellectual-humility>
           <core-principle>
@@ -173,17 +140,6 @@ Output: Valid JSON format without code blocks
 
     <concept id="cost-optimization">
       <title>Cost Optimization Patterns</title>
-      <technical-explanation>
-        Strategic API usage optimization through model cascading, prompt caching,
-        and batch processing reduces token consumption by 60-80%. Smart model selection
-        routes simple tasks to cheaper models while reserving premium models for
-        complex reasoning tasks.
-      </technical-explanation>
-      <simple-explanation>
-        Like shopping smart - use the expensive store only for special items,
-        buy in bulk when possible, and reuse what you can. We use powerful AI
-        for hard thinking and cheaper options for simple formatting.
-      </simple-explanation>
       <strategies>
         <research-phase cost="$0.50">
           <source type="wikipedia_api">free</source>

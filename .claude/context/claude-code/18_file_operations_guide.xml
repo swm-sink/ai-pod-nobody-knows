@@ -84,7 +84,7 @@ Example: /process-episode-pipeline episodes/ep001-consciousness/" > .claude/comm
             </examples>
 
             <validation>
-                <validation-command>ls .claude/commands/ && find .claude/commands/ -name "*.md" | wc -l</validation-command>
+                <validation-command>ls .claude/commands/ &amp;&amp; find .claude/commands/ -name "*.md" | wc -l</validation-command>
                 <success-criteria>File operations commands exist and are properly formatted</success-criteria>
             </validation>
         </section>

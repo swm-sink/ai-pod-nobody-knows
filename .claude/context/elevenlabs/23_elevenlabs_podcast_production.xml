@@ -10,35 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive podcast production pipeline using ElevenLabs technology, covering end-to-end workflows from script preparation through audio generation, post-processing, quality assurance, and distribution. Includes automation patterns, quality gates, and production optimization techniques for professional podcast creation.
-
-                Provides:
-                - Complete production pipeline architectures
-                - ElevenLabs Studio (Projects) integration patterns
-                - Multi-speaker coordination and management
-                - Quality assurance and validation workflows
-                - Cost optimization and scaling strategies
-                - Distribution and publishing automation
-            </technical-explanation>
-            <simple-explanation>
-                Complete guide to producing professional podcasts with ElevenLabs. Traditional production: Script → Voice Actor → Recording → Editing → Master (Days). AI Production: Script → ElevenLabs → Master (Minutes). You're cutting 95% of production time and 99% of costs!
-
-                Explains:
-                - How to set up complete podcast production workflows
-                - How to use ElevenLabs Studio for automated podcast generation
-                - How to ensure consistent quality across episodes
-                - How to scale production for multiple episodes
-            </simple-explanation>
         </section>
 
         <section type="reference" id="elevenlabs-studio">
-            <technical-explanation>
-                ElevenLabs Studio (formerly Projects) provides automated podcast generation with GenFM technology, multi-speaker support, auto-dubbing capabilities, and integrated sound effects for complete podcast production workflows.
-            </technical-explanation>
-            <simple-explanation>
-                New ElevenLabs Studio makes podcast creation even easier with automatic generation, multiple speakers, and built-in effects.
-            </simple-explanation>
 
             <studio-features>
                 <feature name="free-tier-access">Studio access available on free tier</feature>
@@ -73,12 +47,6 @@ def create_podcast_project(title, script):
         </section>
 
         <section type="reference" id="production-pipeline">
-            <technical-explanation>
-                Complete production pipeline implementing pre-production script optimization, multi-voice audio generation, post-processing workflows, quality validation, and export management for professional podcast creation at scale.
-            </technical-explanation>
-            <simple-explanation>
-                Step-by-step system that takes your episode ideas and turns them into finished podcast episodes automatically.
-            </simple-explanation>
 
             <examples>
                 <example type="complete-pipeline">
@@ -160,12 +128,6 @@ class PodcastProductionPipeline:
         </section>
 
         <section type="reference" id="quality-assurance">
-            <technical-explanation>
-                Multi-layered quality assurance system including audio analysis, voice consistency validation, script adherence checking, and automated quality scoring with configurable thresholds for production approval.
-            </technical-explanation>
-            <simple-explanation>
-                Automated system that checks every episode to make sure it meets your quality standards before release.
-            </simple-explanation>
 
             <quality-gates>
                 <gate name="duration-check">
@@ -241,12 +203,6 @@ class QualityAssurance:
         </section>
 
         <section type="reference" id="automation-workflows">
-            <technical-explanation>
-                Production automation including batch processing, scheduled generation, error recovery, progress tracking, and notification systems for scalable podcast production operations.
-            </technical-explanation>
-            <simple-explanation>
-                Systems that can automatically produce multiple episodes, handle problems, and keep you informed of progress.
-            </simple-explanation>
 
             <examples>
                 <example type="batch-production">
@@ -291,7 +247,7 @@ class BatchProduction:
                 if self.validate_output(result):
                     return result
                 else:
-                    if attempt < max_retries - 1:
+                    if attempt &lt; max_retries - 1:
                         await self.optimize_for_retry(episode, result)
                     else:
                         raise QualityError("Failed quality validation after retries")
@@ -345,12 +301,6 @@ class BatchProduction:
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced production patterns including dynamic content adaptation, A/B testing frameworks, international versioning, real-time generation, and scalable distribution systems for enterprise podcast production.
-            </technical-explanation>
-            <simple-explanation>
-                Professional features for sophisticated podcast production including testing different versions, creating international editions, and scaling to handle lots of episodes.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

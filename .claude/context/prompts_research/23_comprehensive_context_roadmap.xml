@@ -38,14 +38,6 @@
   <critical-immediate-needs>
     <need id="technical-infrastructure" severity="CRITICAL">
       <title>Technical Infrastructure &amp; Automation Framework</title>
-      <technical-explanation>
-        Cannot scale without automation. Production bottlenecks, quality inconsistencies, and
-        unsustainable manual processes prevent growth beyond experimental phase.
-      </technical-explanation>
-      <simple-explanation>
-        Right now everything is done by hand, which is slow, inconsistent, and impossible to scale.
-        We need automated systems that handle the technical work reliably.
-      </simple-explanation>
       <impact>Production bottlenecks, quality inconsistencies, unsustainable manual processes</impact>
       <framework>
         <ci-cd-pipeline>
@@ -109,14 +101,6 @@
 
     <need id="legal-compliance" severity="CRITICAL">
       <title>Legal &amp; Compliance Framework</title>
-      <technical-explanation>
-        Legal liability without proper compliance framework creates existential risk through
-        potential lawsuits, platform removal, financial penalties, and reputation damage.
-      </technical-explanation>
-      <simple-explanation>
-        Without proper legal protections, we could face lawsuits, get banned from platforms,
-        pay huge fines, or destroy our reputation—any of which could kill the project.
-      </simple-explanation>
       <impact>Lawsuits, platform removal, financial penalties, reputation damage</impact>
       <framework>
         <copyright-management>
@@ -170,14 +154,6 @@
 
     <need id="financial-modeling" severity="CRITICAL">
       <title>Financial Modeling &amp; Business Framework</title>
-      <technical-explanation>
-        Cannot make informed business decisions without comprehensive financial modeling,
-        leading to unsustainable economics, missed opportunities, and resource misallocation.
-      </technical-explanation>
-      <simple-explanation>
-        We need to understand the money side of the business—how much we'll make, how much we'll spend,
-        and whether this will actually be profitable or just an expensive hobby.
-      </simple-explanation>
       <impact>Unsustainable economics, missed opportunities, resource misallocation</impact>
       <framework>
         <revenue-forecasting-models>
@@ -265,14 +241,6 @@
 
     <need id="editorial-governance" severity="CRITICAL">
       <title>Editorial &amp; Content Governance Framework</title>
-      <technical-explanation>
-        Quality and credibility without governance creates risk of misinformation, credibility loss,
-        and scientific accuracy issues that could undermine the entire educational mission.
-      </technical-explanation>
-      <simple-explanation>
-        We need systems to make sure our content is accurate, trustworthy, and maintains high quality—
-        otherwise we could spread misinformation and lose all credibility.
-      </simple-explanation>
       <impact>Misinformation, credibility loss, scientific accuracy issues</impact>
       <framework>
         <scientific-accuracy-protocols>
@@ -328,14 +296,6 @@
   <high-priority-infrastructure>
     <infrastructure id="audience-development" priority="HIGH">
       <title>Audience Development &amp; Community Management</title>
-      <technical-explanation>
-        Growth limited without systematic audience development, leading to slow growth,
-        limited engagement, and missed monetization opportunities.
-      </technical-explanation>
-      <simple-explanation>
-        We need to actively build and nurture our audience and community, not just hope people find us.
-        This includes understanding who our listeners are and giving them reasons to stay engaged.
-      </simple-explanation>
       <impact>Slow growth, limited engagement, missed monetization opportunities</impact>
       <framework>
         <listener-persona-development>
@@ -367,7 +327,7 @@
                 <channel>General discussion (#general-chat)</channel>
                 <channel>Episode discussions (#episode-discussions)</channel>
                 <channel>Topic-specific channels (#physics, #biology, #philosophy)</channel>
-                <channel>Q&A and suggestions (#ask-hosts, #topic-suggestions)</channel>
+                <channel>Q&amp;A and suggestions (#ask-hosts, #topic-suggestions)</channel>
                 <channel>Member introductions (#introductions)</channel>
                 <channel>Resources and links (#resources, #recommended-reading)</channel>
               </channel-structure>
@@ -385,14 +345,6 @@
 
     <infrastructure id="analytics-intelligence" priority="HIGH">
       <title>Analytics &amp; Performance Intelligence</title>
-      <technical-explanation>
-        Cannot optimize without comprehensive analytics, leading to blind optimization,
-        missed growth opportunities, and inefficient resource allocation.
-      </technical-explanation>
-      <simple-explanation>
-        We're making decisions without data—like driving blindfolded. We need to measure what works,
-        what doesn't, and how to improve based on real information, not guesses.
-      </simple-explanation>
       <impact>Blind optimization, missed growth opportunities, inefficient resource allocation</impact>
       <framework>
         <comprehensive-data-collection>
@@ -438,14 +390,6 @@
 
     <infrastructure id="brand-marketing" priority="HIGH">
       <title>Brand &amp; Marketing Ecosystem</title>
-      <technical-explanation>
-        Limited growth without systematic marketing approach, resulting in slow audience acquisition,
-        weak brand recognition, and missed opportunities for partnership and monetization.
-      </technical-explanation>
-      <simple-explanation>
-        We need a clear brand identity and marketing strategy, not just good content. People need to
-        know who we are, what we stand for, and why they should choose us over other options.
-      </simple-explanation>
       <impact>Slow audience acquisition, weak brand recognition, missed opportunities</impact>
       <framework>
         <brand-identity-system>
@@ -493,14 +437,6 @@
   <medium-priority-systems>
     <system id="platform-optimization" priority="MEDIUM">
       <title>Platform Optimization &amp; Distribution</title>
-      <technical-explanation>
-        Growth acceleration through platform mastery, enabling faster discovery,
-        improved engagement, and revenue optimization across multiple channels.
-      </technical-explanation>
-      <simple-explanation>
-        Each platform (Apple Podcasts, Spotify, YouTube) has its own rules and algorithms.
-        We need to optimize specifically for each one to get maximum visibility and growth.
-      </simple-explanation>
       <impact>Faster discovery, improved engagement, revenue optimization</impact>
       <framework>
         <cross-platform-optimization>
@@ -536,14 +472,6 @@
 
     <system id="educational-effectiveness" priority="MEDIUM">
       <title>Educational Effectiveness &amp; Impact Measurement</title>
-      <technical-explanation>
-        Validates educational mission and improves content quality by measuring actual learning outcomes
-        and educational impact, strengthening value proposition and mission alignment.
-      </technical-explanation>
-      <simple-explanation>
-        We need to know if people are actually learning from our content, not just enjoying it.
-        This helps us improve and proves that we're achieving our educational mission.
-      </simple-explanation>
       <impact>Better educational outcomes, stronger value proposition, mission alignment</impact>
       <framework>
         <learning-objective-definition>
@@ -577,14 +505,6 @@
 
     <system id="partnership-ecosystem" priority="MEDIUM">
       <title>Partnership &amp; Collaboration Ecosystem</title>
-      <technical-explanation>
-        Accelerates growth and credibility through strategic partnerships, providing expert access,
-        credibility boost, content enhancement, and revenue opportunities.
-      </technical-explanation>
-      <simple-explanation>
-        Building relationships with experts, institutions, and other creators gives us access to better
-        content, more credibility, and new opportunities we couldn't achieve alone.
-      </simple-explanation>
       <impact>Expert access, credibility boost, content enhancement, revenue opportunities</impact>
       <framework>
         <expert-network-development>
@@ -612,14 +532,6 @@
   <strategic-long-term>
     <requirement id="international-expansion" priority="LOW">
       <title>International Expansion &amp; Localization</title>
-      <technical-explanation>
-        Future growth market opportunities through geographic expansion and content localization,
-        enabling global audience access, revenue diversification, and cultural impact.
-      </technical-explanation>
-      <simple-explanation>
-        Eventually we can expand to other countries and languages, but this requires translating
-        content, understanding different cultures, and adapting to local markets.
-      </simple-explanation>
       <impact>Global audience access, revenue diversification, cultural impact</impact>
       <framework>
         <localization-strategy>
@@ -636,14 +548,6 @@
 
     <requirement id="innovation-future-proofing" priority="LOW">
       <title>Innovation &amp; Future-Proofing</title>
-      <technical-explanation>
-        Competitive advantage and long-term sustainability through emerging technology adoption
-        and market leadership initiatives, ensuring future relevance and market position.
-      </technical-explanation>
-      <simple-explanation>
-        Staying ahead of technology trends and industry changes so we don't become obsolete.
-        This means experimenting with new tools and approaches before they become mainstream.
-      </simple-explanation>
       <impact>Market leadership, technology adoption, future relevance</impact>
       <framework>
         <emerging-technology-adoption>

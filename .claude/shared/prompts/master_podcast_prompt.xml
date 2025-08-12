@@ -111,15 +111,15 @@
     <approved-ssml>
       <break-elements>
         <usage>Natural pauses between thoughts and concepts</usage>
-        <syntax>&lt;break time="0.3s" /&gt; to &lt;break time="1.0s" /&gt;</syntax>
+        <syntax>&lt;break time="0.3s" /> to &lt;break time="1.0s" /></syntax>
       </break-elements>
       <prosody-elements>
         <usage>Emphasis for important content</usage>
-        <syntax>&lt;prosody rate="95%" pitch="+2%" volume="medium"&gt;emphasized content&lt;/prosody&gt;</syntax>
+        <syntax>&lt;prosody rate="95%" pitch="+2%" volume="medium">emphasized content&lt;/prosody></syntax>
       </prosody-elements>
       <phoneme-elements>
         <usage>Pronunciation guidance for complex terms</usage>
-        <syntax>&lt;phoneme alphabet="cmu" ph="pronunciation"&gt;word&lt;/phoneme&gt;</syntax>
+        <syntax>&lt;phoneme alphabet="cmu" ph="pronunciation">word&lt;/phoneme></syntax>
       </phoneme-elements>
     </approved-ssml>
 
@@ -244,9 +244,9 @@
     </organic-speech-patterns>
 
     <strategic-pauses>
-      <complex-concepts>&lt;break time="0.5s" /&gt; after complex concepts</complex-concepts>
-      <natural-breaks>&lt;break time="0.3s" /&gt; at natural comma breaks</natural-breaks>
-      <transitions>&lt;break time="0.7s" /&gt; before major transitions</transitions>
+      <complex-concepts>&lt;break time="0.5s" /> after complex concepts</complex-concepts>
+      <natural-breaks>&lt;break time="0.3s" /> at natural comma breaks</natural-breaks>
+      <transitions>&lt;break time="0.7s" /> before major transitions</transitions>
       <limit>3-4 per segment maximum</limit>
     </strategic-pauses>
 

@@ -22,15 +22,6 @@
   <core-templates>
     <template id="master-research-agent">
       <title>Master Research Agent Template</title>
-      <technical-explanation>
-        This template structures the research agent as a sophisticated information broker
-        that prioritizes free sources, validates claims, and maintains intellectual humility—
-        essential for educational content that acknowledges knowledge limitations.
-      </technical-explanation>
-      <simple-explanation>
-        Think of this research agent like a smart librarian who knows exactly where to find
-        information, can spot when sources disagree, and isn't afraid to say "we're not sure about this yet."
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <research_agent_system>
@@ -88,14 +79,6 @@
 
     <template id="multi-source-research">
       <title>Multi-Source Research Template</title>
-      <technical-explanation>
-        Comprehensive information gathering with source prioritization that optimizes
-        for cost efficiency while maintaining quality through strategic API usage hierarchy.
-      </technical-explanation>
-      <simple-explanation>
-        Like having a research plan that tries free sources first, then carefully uses
-        paid sources only when needed, while always checking information against multiple sources.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <research_task>
@@ -149,14 +132,6 @@
 
     <template id="cross-source-synthesis">
       <title>Cross-Source Synthesis Framework</title>
-      <technical-explanation>
-        Information integration framework that analyzes agreement patterns, identifies
-        discrepancies, and assigns confidence scores based on source credibility and consensus levels.
-      </technical-explanation>
-      <simple-explanation>
-        Like being a detective who compares witness statements, notes where they agree
-        or disagree, and figures out what's most likely true based on how reliable each witness is.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <synthesis_task>
@@ -187,7 +162,7 @@
       High (90%+): Multiple credible sources agree
       Medium (60-89%): Some agreement, minor discrepancies
       Low (30-59%): Limited sources or disagreement
-      Uncertain (<30%): Insufficient or conflicting data
+      Uncertain (&lt;30%): Insufficient or conflicting data
     </confidence_scoring>
   </analysis_framework>
 
@@ -212,14 +187,6 @@
 
     <template id="fact-verification">
       <title>Fact Verification Framework</title>
-      <technical-explanation>
-        Rigorous multi-layer verification system that checks claims against primary sources,
-        assesses expert consensus, and provides confidence ratings for podcast accuracy.
-      </technical-explanation>
-      <simple-explanation>
-        Like having a checklist to make sure information is true by looking it up in
-        multiple reliable places and seeing if experts agree about it.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <fact_verification>
@@ -256,7 +223,7 @@
     - Verified (95%+): All checks passed
     - Likely (70-94%): Most checks passed
     - Uncertain (40-69%): Mixed results
-    - Disputed (<40%): Significant contradictions
+    - Disputed (&lt;40%): Significant contradictions
   </confidence_assessment>
 
   <recommendation>
@@ -329,14 +296,6 @@
   <cost-optimization>
     <strategy id="free-first-approach">
       <title>Free-First Research Strategy</title>
-      <technical-explanation>
-        Minimize costs while maintaining quality by prioritizing free API sources
-        and only escalating to paid services when necessary for gap filling.
-      </technical-explanation>
-      <simple-explanation>
-        Like shopping for groceries - check the free samples first, then only buy
-        what you actually need that you couldn't get for free.
-      </simple-explanation>
       <cost-breakdown>
         <phase name="free_source_gathering">
           <apis>wikipedia, arxiv, crossref</apis>

@@ -21,21 +21,9 @@
 
   <content>
     <section type="introduction" id="anti-hallucination-policy">
-      <technical-explanation>
-        Hallucination prevention implements systematic validation workflows to prevent AI generation of plausible but incorrect information. The policy enforces evidence-based claims, source attribution, and transparent uncertainty acknowledgment to maintain information integrity and user trust.
-      </technical-explanation>
-      <simple-explanation>
-        Think of anti-hallucination like being a really good fact-checker - you never say something is true unless you can prove it, and you're honest when you're not sure about something. It's like having a rule that you can't tell someone a "fact" unless you can show them where you learned it.
-      </simple-explanation>
     </section>
 
     <section type="implementation" id="prevention-strategies">
-      <technical-explanation>
-        Core prevention strategies include Retrieval-Augmented Generation (RAG) for external knowledge grounding, uncertainty acknowledgment for transparent confidence communication, and direct quote grounding for verifiable source attribution. These techniques reduce hallucination rates by 75% according to 2025 research studies.
-      </technical-explanation>
-      <simple-explanation>
-        Like having three safety nets when walking a tightrope - first you look up facts before speaking (RAG), then you admit when you're not sure (uncertainty), and finally you show the exact words that support what you're saying (quotes). Multiple safety checks mean fewer mistakes.
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -57,12 +45,6 @@
     </section>
 
     <section type="implementation" id="validation-workflow">
-      <technical-explanation>
-        The mandatory validation workflow implements a five-step process: Identify Claims, Research Validation (3-10 searches), Cross-Reference sources, Citation Requirements, and Confidence Disclosure. Each step has specific criteria and decision trees for systematic fact verification.
-      </technical-explanation>
-      <simple-explanation>
-        Like having a checklist for double-checking your work - identify what needs checking, research it thoroughly, compare different sources, write down where you found the information, and be honest about how sure you are.
-      </simple-explanation>
 
       <instructions>
         <step number="1" validation-command="grep -c 'factual.*claim' claims_analysis.txt">Identify all statements that assert facts (statistics, events, specifications)</step>
@@ -83,12 +65,6 @@
     </section>
 
     <section type="reference" id="research-categories">
-      <technical-explanation>
-        Research requirements vary by information category: Technical Specifications (3 sources, 2-year recency), Statistics (2 primary sources, original study citation), Best Practices (3-5 sources, context variations noted), Historical Information (2 authoritative sources, cross-checked details).
-      </technical-explanation>
-      <simple-explanation>
-        Different types of information need different levels of checking - like how you'd verify a recipe differently than a historical date. Technical stuff needs recent sources, statistics need the original studies, best practices need multiple expert opinions.
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -105,12 +81,6 @@
     </section>
 
     <section type="troubleshooting" id="hallucination-red-flags">
-      <technical-explanation>
-        Hallucination red flags include: specific numbers without source citation, absolute statements without qualification, future predictions stated as facts, fabricated untested examples, and false attribution without verification. Each flag has specific remediation actions.
-      </technical-explanation>
-      <simple-explanation>
-        Warning signs that information might be made up - like when someone gives you very specific numbers but can't tell you where they got them, or when they say something will "always" or "never" happen without any exceptions.
-      </simple-explanation>
 
       <examples>
         <example type="anti-pattern">
@@ -127,12 +97,6 @@
     </section>
 
     <section type="advanced" id="claude-code-automation">
-      <technical-explanation>
-        Claude Code automation enhancements integrate thinking mode escalation, MCP web-search integration, hooks automation, and parallel fact-checking subagents. Automated escalation rules adjust thinking modes based on confidence levels and claim complexity for appropriate validation depth.
-      </technical-explanation>
-      <simple-explanation>
-        Like having smart assistants that automatically use more brainpower for harder problems and get help from specialists when needed. The system gets more careful and thorough when dealing with important or uncertain information.
-      </simple-explanation>
 
       <examples>
         <example type="advanced">
@@ -149,12 +113,6 @@
     </section>
 
     <section type="reference" id="uncertainty-language">
-      <technical-explanation>
-        Uncertainty language provides standardized phrases for different confidence levels: high uncertainty ("I don't have reliable information"), medium uncertainty ("Sources suggest but don't confirm"), and qualified statements ("According to [source]", "As of [date]").
-      </technical-explanation>
-      <simple-explanation>
-        Having the right words to be honest about what you know and don't know - like having a vocabulary for different levels of "I'm not sure" instead of pretending to know everything.
-      </simple-explanation>
 
       <examples>
         <example type="basic">

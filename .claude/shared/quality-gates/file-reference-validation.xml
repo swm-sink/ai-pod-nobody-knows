@@ -139,9 +139,9 @@
         <description>Update CLAUDE.md lines 55-68 with correct subdirectory paths</description>
         <example>
           <current># Current (WRONG)
-&lt;file number="1" path=".claude/context/01_project_overview.md"&gt;</current>
+&lt;file number="1" path=".claude/context/01_project_overview.md"></current>
           <should-be># Should be (CORRECT)
-&lt;file number="1" path=".claude/context/foundation/01_project_overview.md"&gt;</should-be>
+&lt;file number="1" path=".claude/context/foundation/01_project_overview.md"></should-be>
         </example>
       </priority>
 
@@ -170,7 +170,7 @@ __pycache__/
 dist/
 build/
 .venv/
-venv/" &gt; .claudeignore
+venv/" > .claudeignore
         </example>
       </priority>
 

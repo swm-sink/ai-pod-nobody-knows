@@ -244,7 +244,7 @@
         <rule name="high_cost">Cost per hour > $10</rule>
         <rule name="high_error_rate">Error rate > 5%</rule>
         <rule name="slow_response">95th percentile latency > 5 seconds</rule>
-        <rule name="budget_depleted">Budget remaining < $10</rule>
+        <rule name="budget_depleted">Budget remaining &lt; $10</rule>
       </alert-rules>
       <notification-channels>
         <channel>Email for critical alerts</channel>

@@ -20,12 +20,6 @@
     <section id="protection-1">
       <title>Hallucination Prevention</title>
       <problem>LLMs generate plausible but incorrect information</problem>
-      <technical-explanation>
-        Hallucinations occur due to pattern completion over incomplete training data leading to confident but incorrect outputs
-      </technical-explanation>
-      <simple-explanation>
-        Like a confident storyteller who fills in missing details with believable but wrong information
-      </simple-explanation>
       <solution>
         <item>Chain-of-thought verification with thinking tags</item>
         <item>Multi-query consensus (ask 5 times, check variance)</item>
@@ -38,12 +32,6 @@
     <section id="protection-2">
       <title>Attention Sink Defense</title>
       <problem>Manipulation of attention scores induces hallucinations</problem>
-      <technical-explanation>
-        Adversarial inputs can exploit attention mechanisms to create sink tokens that bias model behavior
-      </technical-explanation>
-      <simple-explanation>
-        Like someone distracting you while performing a magic trick to make you miss important details
-      </simple-explanation>
       <solution>
         <item>Dynamic validation of attention patterns</item>
         <item>Black-box transferability checks</item>
@@ -55,12 +43,6 @@
     <section id="protection-3">
       <title>Circular Reasoning Guards</title>
       <problem>Model loops in self-referential logic</problem>
-      <technical-explanation>
-        Recursive reasoning without external validation can create logical loops that reinforce incorrect conclusions
-      </technical-explanation>
-      <simple-explanation>
-        Like asking someone to prove they're telling the truth by having them promise they're telling the truth
-      </simple-explanation>
       <solution>
         <item>Step-by-step reasoning enforcement</item>
         <item>External fact validation</item>
@@ -71,12 +53,6 @@
     <section id="protection-4">
       <title>Injection Attack Prevention</title>
       <problem>Malicious prompts manipulate model behavior</problem>
-      <technical-explanation>
-        Prompt injection exploits instruction-following behavior to override intended system behavior
-      </technical-explanation>
-      <simple-explanation>
-        Like someone sneaking new instructions into a recipe while you're cooking
-      </simple-explanation>
       <solution>
         <item>Input sanitization layers</item>
         <item>Output validation against expected patterns</item>
@@ -87,12 +63,6 @@
     <section id="protection-5">
       <title>Context Overflow Protection</title>
       <problem>Token limit exceeded, losing critical context</problem>
-      <technical-explanation>
-        Context window limitations can cause important information to be truncated during processing
-      </technical-explanation>
-      <simple-explanation>
-        Like trying to write notes on a piece of paper that's too small - important stuff gets cut off
-      </simple-explanation>
       <solution>
         <item>Automatic summary compression</item>
         <item>External memory for overflow</item>

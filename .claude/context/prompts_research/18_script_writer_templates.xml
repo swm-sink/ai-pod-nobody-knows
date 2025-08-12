@@ -8,7 +8,7 @@
     <domain>prompts-research</domain>
     <purpose>Script writing templates for AI podcast generation</purpose>
     <style>Educational, conversational, intellectually humble</style>
-    <format>27-minute two-host dialogue</format>
+    <format>{EPISODE_DURATION_MINUTES}-minute two-host dialogue</format>
   </metadata>
 
   <executive-summary>
@@ -22,16 +22,6 @@
   <core-templates>
     <template id="master-script-writer">
       <title>Master Script Writer Template</title>
-      <technical-explanation>
-        This template structures script generation as a multi-phase narrative construction process,
-        ensuring consistent quality through defined acts, character dynamics, and timing constraints
-        that align with proven podcast engagement patterns.
-      </technical-explanation>
-      <simple-explanation>
-        Think of this like writing a play where two friends discuss fascinating topics—one asks
-        great questions while the other shares knowledge, but both admit when they hit the limits
-        of what anyone really knows.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <script_writer_system>
@@ -67,7 +57,7 @@
   </expertise>
 
   <constraints>
-    <timing>27 minutes (4200 words)</timing>
+    <timing>{EPISODE_DURATION_MINUTES} minutes (4200 words)</timing>
     <line_length>Maximum 100 characters per line</line_length>
     <hosts>Two (Alex: curious, Jordan: knowledgeable)</hosts>
     <theme>Intellectual humility - acknowledging unknowns</theme>
@@ -79,14 +69,6 @@
 
     <template id="squibler-framework">
       <title>Advanced Script Generation Framework</title>
-      <technical-explanation>
-        State-of-the-art script generation using 2025 techniques with structured narrative phases,
-        character dynamics, and precise timing controls for optimal audience engagement.
-      </technical-explanation>
-      <simple-explanation>
-        Like having a recipe for creating perfect podcast conversations - with clear steps for
-        building up interest, exploring ideas, and leaving listeners satisfied but curious.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <script_generation_task>

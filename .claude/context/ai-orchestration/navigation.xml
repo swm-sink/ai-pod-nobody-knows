@@ -7,12 +7,6 @@
 
     <content>
         <section type="navigation" id="overview">
-            <technical-explanation>
-                AI Orchestration domain navigation provides systematic access to multi-agent system concepts, cost optimization strategies, and practical implementation guidance. The domain covers agent coordination patterns, cost management techniques, and production-ready workflow design.
-            </technical-explanation>
-            <simple-explanation>
-                This is your guide to learning how to coordinate multiple AI agents to work together effectively and affordably. Think of it as a roadmap through all the concepts and practical steps you need to master AI orchestration.
-            </simple-explanation>
         </section>
 
         <section type="navigation" id="quick-start">
@@ -23,7 +17,7 @@
                 <step number="2" validation-command="ls cost-optimization-strategies.xml">
                     Learn cost optimization to keep projects affordable
                 </step>
-                <step number="3" validation-command="python -c 'print(\"Ready for practical implementation\")'">
+                <step number="3" validation-command="python -c 'print(&quot;Ready for practical implementation&quot;)'">
                     Apply concepts in practice with guided exercises
                 </step>
             </instructions>
@@ -43,12 +37,6 @@
         </section>
 
         <section type="navigation" id="learning-paths">
-            <technical-explanation>
-                Structured learning progression through AI orchestration concepts with clear dependencies and skill building pathways. Each path is designed for specific learning objectives and skill levels.
-            </technical-explanation>
-            <simple-explanation>
-                Step-by-step paths through the content based on what you want to learn and your current skill level.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">
@@ -70,12 +58,6 @@
         </section>
 
         <section type="navigation" id="task-based-navigation">
-            <technical-explanation>
-                Task-oriented navigation paths for specific objectives including concept learning, cost management, and production implementation. Each path provides direct routes to relevant materials based on current needs.
-            </technical-explanation>
-            <simple-explanation>
-                Quick paths to find exactly what you need for your current task or problem.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">
@@ -102,12 +84,6 @@
         </section>
 
         <section type="navigation" id="cross-domain-references">
-            <technical-explanation>
-                Cross-domain navigation paths connecting AI orchestration concepts with foundation knowledge, Claude Code features, ElevenLabs integration, operations, quality assurance, and research templates.
-            </technical-explanation>
-            <simple-explanation>
-                Links to related information in other areas that connect with AI orchestration topics.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">
@@ -144,12 +120,6 @@
         </section>
 
         <section type="navigation" id="phase-based-progression">
-            <technical-explanation>
-                Learning phase progression aligned with WALK-CRAWL-RUN methodology, providing clear advancement paths from conceptual understanding through practical implementation to full production deployment.
-            </technical-explanation>
-            <simple-explanation>
-                Your learning journey organized by phases: free learning, first implementation, and full production.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">
@@ -171,12 +141,6 @@
         </section>
 
         <section type="troubleshooting" id="emergency-navigation">
-            <technical-explanation>
-                Emergency navigation paths for common orchestration problems including agent failures, cost overruns, quality issues, and integration problems. Each path provides direct routes to diagnostic and resolution materials.
-            </technical-explanation>
-            <simple-explanation>
-                Quick help when things go wrong - organized by the type of problem you're having.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">
@@ -209,12 +173,6 @@
         </section>
 
         <section type="reference" id="quick-reference">
-            <technical-explanation>
-                Quick reference shortcuts for daily orchestration activities including common patterns, budget checks, troubleshooting procedures, and cost debugging techniques.
-            </technical-explanation>
-            <simple-explanation>
-                Shortcuts to the most frequently needed information for daily work.
-            </simple-explanation>
 
             <navigation-links>
                 <link priority="high">

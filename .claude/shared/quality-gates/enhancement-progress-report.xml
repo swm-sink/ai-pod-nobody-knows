@@ -109,28 +109,28 @@
       <pattern id="xml-semantic-structure">
         <title>XML Semantic Structure</title>
         <template>
-&lt;document type="[type]" version="3.1.0" enhanced="2025-08-11"&gt;
-  &lt;metadata&gt;
-    &lt;title&gt;[Human-friendly title]&lt;/title&gt;
-    &lt;category&gt;[domain]&lt;/category&gt;
-    &lt;priority&gt;[high|medium|low]&lt;/priority&gt;
-    &lt;navigation&gt;
-      &lt;prev&gt;@[previous-file].md&lt;/prev&gt;
-      &lt;index&gt;@NAVIGATION.md&lt;/index&gt;
-      &lt;next&gt;@[next-file].md&lt;/next&gt;
-    &lt;/navigation&gt;
-  &lt;/metadata&gt;
+&lt;document type="[type]" version="3.1.0" enhanced="2025-08-11">
+  &lt;metadata>
+    &lt;title>[Human-friendly title]&lt;/title>
+    &lt;category>[domain]&lt;/category>
+    &lt;priority>[high|medium|low]&lt;/priority>
+    &lt;navigation>
+      &lt;prev>@[previous-file].md&lt;/prev>
+      &lt;index>@NAVIGATION.md&lt;/index>
+      &lt;next>@[next-file].md&lt;/next>
+    &lt;/navigation>
+  &lt;/metadata>
 
-  &lt;summary&gt;
+  &lt;summary>
     [2-3 sentence overview for both humans and LLMs]
-  &lt;/summary&gt;
+  &lt;/summary>
 
-  &lt;learning-objectives&gt;
-    &lt;primary&gt;[Main learning goal]&lt;/primary&gt;
-    &lt;secondary&gt;[Supporting concepts]&lt;/secondary&gt;
-    &lt;outcome&gt;[What reader can do after reading]&lt;/outcome&gt;
-  &lt;/learning-objectives&gt;
-&lt;/document&gt;
+  &lt;learning-objectives>
+    &lt;primary>[Main learning goal]&lt;/primary>
+    &lt;secondary>[Supporting concepts]&lt;/secondary>
+    &lt;outcome>[What reader can do after reading]&lt;/outcome>
+  &lt;/learning-objectives>
+&lt;/document>
         </template>
       </pattern>
 

@@ -22,21 +22,9 @@
 
   <content>
     <section type="introduction" id="tdd-mandate">
-      <technical-explanation>
-        Test-Driven Development (TDD) implements a disciplined approach where tests drive code design through the Red-Green-Refactor cycle. This methodology ensures comprehensive test coverage, promotes clean design, and maintains regression safety through automated validation.
-      </technical-explanation>
-      <simple-explanation>
-        TDD is like building with blueprints that you create as you go - first you decide what you want to build (test), then you build just enough to make it work (code), then you clean it up (refactor). This way you always know your building is solid.
-      </simple-explanation>
     </section>
 
     <section type="implementation" id="tdd-cycle">
-      <technical-explanation>
-        The TDD cycle consists of three phases: RED (write failing test), GREEN (implement minimal code to pass), and REFACTOR (improve code quality). Each phase has specific duration constraints and rules to maintain discipline and prevent over-engineering.
-      </technical-explanation>
-      <simple-explanation>
-        Like a traffic light for coding - RED means stop and write a test that fails, GREEN means go and make it pass with simple code, YELLOW (refactor) means slow down and clean up your code while keeping tests passing.
-      </simple-explanation>
 
       <instructions>
         <step number="1" validation-command="pytest new_test.py | grep FAILED">Write a failing test (RED phase) - 5-10 minutes maximum</step>
@@ -64,12 +52,6 @@
     </section>
 
     <section type="reference" id="test-structure">
-      <technical-explanation>
-        The testing pyramid allocates tests across three levels: 50% unit tests (fast, isolated), 30% integration tests (component interactions), and 20% end-to-end tests (full workflows). This distribution optimizes for speed, reliability, and comprehensive coverage.
-      </technical-explanation>
-      <simple-explanation>
-        Like a pyramid of different types of tests - lots of fast unit tests at the bottom (like checking individual LEGO pieces), fewer integration tests in the middle (checking how pieces fit together), and just a few slow end-to-end tests at the top (checking the whole model works).
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -91,12 +73,6 @@
     </section>
 
     <section type="reference" id="naming-conventions">
-      <technical-explanation>
-        Test naming follows the pattern: test_[unit]_[should]_[expected_behavior]_[when]_[condition]. This convention provides clear documentation of test intent and makes failure diagnosis straightforward.
-      </technical-explanation>
-      <simple-explanation>
-        Test names tell a story about what should happen - like writing a sentence that explains "when I do X, Y should happen". This makes it easy to understand what went wrong when a test fails.
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -113,12 +89,6 @@
     </section>
 
     <section type="implementation" id="quality-requirements">
-      <technical-explanation>
-        Test quality requirements ensure Independence (tests don't affect each other), Repeatability (consistent results), Clarity (obvious intent), and Speed (fast execution). These characteristics enable reliable automated testing and effective debugging.
-      </technical-explanation>
-      <simple-explanation>
-        Good tests are like good experiments - they work the same way every time, don't interfere with each other, make it obvious what they're testing, and give you results quickly so you're not waiting around.
-      </simple-explanation>
 
       <validation>
         <validation-command>pytest tests/unit/ -v --tb=short | grep "100ms"</validation-command>
@@ -133,12 +103,6 @@
     </section>
 
     <section type="advanced" id="claude-code-automation">
-      <technical-explanation>
-        Claude Code automation enhances TDD through hooks-based enforcement, thinking mode escalation for test design complexity, subagent delegation for comprehensive test generation, and automated coverage monitoring with MCP integration for analytics tracking.
-      </technical-explanation>
-      <simple-explanation>
-        Claude Code acts like a smart assistant that automatically helps with TDD - it stops you from breaking the rules, uses more brainpower for complex tests, assigns specialists to generate comprehensive tests, and tracks how well you're doing over time.
-      </simple-explanation>
 
       <examples>
         <example type="advanced">
@@ -160,12 +124,6 @@
     </section>
 
     <section type="reference" id="testing-patterns">
-      <technical-explanation>
-        Standard testing patterns include Arrange-Act-Assert (setup-execute-verify), Given-When-Then (behavior specification), and Test Fixtures (shared test infrastructure). These patterns provide consistent structure and improve test maintainability.
-      </technical-explanation>
-      <simple-explanation>
-        Testing patterns are like templates that make writing good tests easier - they give you a consistent way to organize your tests so they're easy to read and understand.
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -182,12 +140,6 @@
     </section>
 
     <section type="troubleshooting" id="common-mistakes">
-      <technical-explanation>
-        Common TDD mistakes include writing implementation before tests (violates test-first principle), testing implementation details rather than behavior (creates brittle tests), writing overly large tests (difficult debugging), and ignoring failing tests (accumulates technical debt).
-      </technical-explanation>
-      <simple-explanation>
-        Common mistakes are like bad habits that make TDD less effective - writing code before tests is like building without a plan, testing how something works internally makes tests break when you improve the code, and ignoring broken tests is like ignoring warning lights in your car.
-      </simple-explanation>
 
       <examples>
         <example type="anti-pattern">

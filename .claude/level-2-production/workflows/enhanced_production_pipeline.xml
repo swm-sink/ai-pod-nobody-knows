@@ -280,7 +280,7 @@
         <![CDATA[
         # Direct execution in 05_quality_gemini agent
         SCRIPT_FILE="/tmp/episode_script_$(date +%s).md"
-        cat > "$SCRIPT_FILE" << 'EOF'
+        cat > "$SCRIPT_FILE" &lt;< 'EOF'
         [SCRIPT_CONTENT]
         EOF
 
@@ -350,7 +350,7 @@
         <target>95% first-attempt pass</target>
       </kpi>
       <kpi name="average_quality_score">
-        <target>&gt;0.88 across all metrics</target>
+        <target>>0.88 across all metrics</target>
       </kpi>
       <kpi name="production_time">
         <target>&lt;30 minutes per episode</target>

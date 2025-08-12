@@ -23,12 +23,6 @@
 
     <content>
         <section type="introduction" id="overview">
-            <technical-explanation>
-                The production checklist implements a comprehensive workflow that integrates Claude Code's advanced automation capabilities with traditional podcast production stages. It leverages hooks for automated quality gates, MCP servers for external system integration, subagents for parallel processing, and thinking modes for enhanced analysis. The workflow progresses from manual execution (WALK phase) to semi-automated (CRAWL phase) to fully automated production (RUN phase), enabling cost reduction from $8 to under $4.50 per episode while maintaining superior quality standards.
-            </technical-explanation>
-            <simple-explanation>
-                Think of this as your complete recipe for making podcast episodes, with two versions: one where you do everything step by step manually (like cooking from scratch), and another where you have smart kitchen assistants that automatically handle routine tasks, check your work, and even fix problems before they happen. As you get better, the assistants take over more work so you can focus on the creative parts.
-            </simple-explanation>
         </section>
 
         <section type="implementation" id="automated-production-setup">
@@ -53,12 +47,12 @@
                     <implementation>
                         ```bash
                         # Create pre-save script quality hook
-                        cat > .claude/hooks/pre-save-script.sh << 'EOF'
+                        cat > .claude/hooks/pre-save-script.sh &lt;&lt; 'EOF'
                         #!/bin/bash
                         # Auto-validates scripts before saving
                         if [[ "$1" == *"script"* ]]; then
                           # Word count validation (4000-4500 words for 27 minutes)
-                          word_count=$(wc -w < "$1")
+                          word_count=$(wc -w &lt; "$1")
                           if [ $word_count -lt 4000 ] || [ $word_count -gt 4500 ]; then
                             echo "⚠️ Script word count: $word_count (should be 4000-4500)"
                           fi
@@ -86,12 +80,12 @@
                         claude task create --type="research_analysis" --parallel=true \
                           --id="primary_research_${EPISODE_NUM}" \
                           --thinking-mode="think_hard" \
-                          --context="comprehensive_topic_analysis" &
+                          --context="comprehensive_topic_analysis" &amp;
 
                         claude task create --type="research_validation" --parallel=true \
                           --id="validation_research_${EPISODE_NUM}" \
                           --mcp-integration="web-search" \
-                          --context="fact_checking_and_verification" &
+                          --context="fact_checking_and_verification" &amp;
 
                         # Automated script generation with quality gates
                         claude task create --type="script_generation" \
@@ -105,18 +99,12 @@
             </examples>
 
             <validation>
-                <validation-command>bash .claude/scripts/test_automation_pipeline.sh && echo "Automation pipeline validated"</validation-command>
+                <validation-command>bash .claude/scripts/test_automation_pipeline.sh &amp;&amp; echo "Automation pipeline validated"</validation-command>
                 <success-criteria>All hooks executable, MCP servers responding, subagent framework initialized, quality gates functional</success-criteria>
             </validation>
         </section>
 
         <section type="troubleshooting" id="production-recovery">
-            <technical-explanation>
-                Production recovery systems use automated failure detection through hooks, intelligent diagnosis via thinking modes and subagents, and automated recovery strategies for common production issues. The system can detect research failures, script quality problems, audio synthesis issues, and cost overruns, then automatically implement appropriate recovery strategies while learning from failures to prevent recurrence.
-            </technical-explanation>
-            <simple-explanation>
-                Imagine having a smart production assistant that watches every step of your podcast creation. When something goes wrong - like research failing or audio not generating properly - it notices immediately, figures out what the problem is, tries to fix it automatically, and remembers how to prevent the same problem next time. It's like having an experienced producer who never sleeps and gets smarter with every episode.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -128,12 +116,6 @@
         </section>
 
         <section type="advanced" id="batch-production-automation">
-            <technical-explanation>
-                Batch production automation leverages Claude Code's parallel processing capabilities to produce multiple episodes simultaneously while maintaining quality standards and optimizing costs. The system uses intelligent resource allocation, coordinated subagent orchestration, and shared learning across parallel processes to achieve 40%+ time savings and 25%+ cost reductions compared to sequential production.
-            </technical-explanation>
-            <simple-explanation>
-                Instead of making one episode at a time like cooking one meal at a time, batch production is like running a smart restaurant kitchen where multiple dishes are prepared simultaneously. The system coordinates everything so that research for episode 1 happens while episode 2's script is being written and episode 3's audio is being synthesized - all while ensuring each episode meets quality standards and stays within budget.
-            </simple-explanation>
         </section>
     </content>
 

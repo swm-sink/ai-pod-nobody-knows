@@ -10,34 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive reference for ElevenLabs voice synthesis models, including performance characteristics, cost analysis, and optimal use cases for professional podcast production. Covers model specifications, latency metrics, language support, and implementation patterns for production systems.
-
-                Provides:
-                - Complete model comparison matrices with 2025 specifications
-                - Cost-per-episode calculations for podcast production
-                - Technical API implementation patterns
-                - Performance benchmarking data
-                - Migration strategies across development phases
-            </technical-explanation>
-            <simple-explanation>
-                Think of this as your guide to picking the right voice tool - like choosing between a quick sketch, a detailed drawing, or a professional painting based on what you need.
-
-                Explains:
-                - Which ElevenLabs model to choose and when
-                - How much each model costs for your podcast
-                - What makes each model special
-                - How to switch between models as you grow
-            </simple-explanation>
         </section>
 
         <section type="reference" id="model-comparison">
-            <technical-explanation>
-                Model performance matrix with quantitative metrics for speed, quality, language support, and cost optimization. All values reference constants file for maintainability.
-            </technical-explanation>
-            <simple-explanation>
-                Like comparing different types of cameras - phone camera (quick, decent), DSLR (better quality, moderate price), or cinema camera (amazing quality, premium price).
-            </simple-explanation>
 
             <comparison-matrix>
                 <model id="flash_v25">
@@ -79,12 +54,6 @@
         </section>
 
         <section type="reference" id="cost-analysis">
-            <technical-explanation>
-                Per-episode cost calculations based on 27-minute episodes (approximately 27,000 characters) with scaling projections for production volumes.
-            </technical-explanation>
-            <simple-explanation>
-                Real dollar amounts for what it costs to make your podcast episodes with each model.
-            </simple-explanation>
 
             <cost-breakdown>
                 <episode-costs characters="27000">
@@ -182,12 +151,6 @@ MODELS = {
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced model selection strategies, performance optimization techniques, and production deployment patterns including model mixing, caching strategies, and fallback implementations.
-            </technical-explanation>
-            <simple-explanation>
-                Pro techniques for getting the best results and saving money, like using different models for different parts of your podcast.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

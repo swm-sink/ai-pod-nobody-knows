@@ -21,17 +21,11 @@
 
     <content>
         <section type="introduction" id="overview">
-            <technical-explanation>
-                Troubleshooting in AI orchestration systems requires systematic diagnostic approaches that address multiple layers: infrastructure (Python environments, API connections), application logic (agent coordination, prompt engineering), and AI-specific challenges (context management, model behavior, token economics). Modern debugging leverages Claude Code's advanced features including thinking modes for analysis, subagents for parallel diagnosis, MCP servers for external system integration, and hooks for automated error detection and recovery.
-            </technical-explanation>
-            <simple-explanation>
-                Think of troubleshooting like being a detective who solves computer mysteries. When your AI podcast system breaks, you need to check different parts systematically - like checking if the electricity is working, if all the parts are connected properly, and if everyone is following the right instructions. Claude Code gives you super-powered detective tools that can think through problems, work on multiple clues at once, and even fix some problems automatically.
-            </simple-explanation>
         </section>
 
         <section type="implementation" id="common-problems">
             <instructions>
-                <step number="1" validation-command="python --version && which python">
+                <step number="1" validation-command="python --version &amp;&amp; which python">
                     **Installation Issues**: Most problems start with environment setup. Verify Python version (3.11+), virtual environment activation, and package installation.
                 </step>
                 <step number="2" validation-command="lsof -i :8000 || echo 'Port available'">
@@ -60,7 +54,7 @@
                     <scenario>MCP server connection failures despite correct API keys</scenario>
                     <implementation>
                         1. Check if API keys are in MCP server environment: `echo "Key exists: $(if [ -n "$PERPLEXITY_API_KEY" ]; then echo 'Yes'; else echo 'No'; fi)"`
-                        2. Load environment before starting Claude: `source .env && claude`
+                        2. Load environment before starting Claude: `source .env &amp;&amp; claude`
                         3. Reconfigure MCP with explicit environment variables
                         4. Create startup script that loads environment automatically
                     </implementation>
@@ -69,18 +63,12 @@
             </examples>
 
             <validation>
-                <validation-command>python debug.py && echo "Basic environment test passed"</validation-command>
+                <validation-command>python debug.py &amp;&amp; echo "Basic environment test passed"</validation-command>
                 <success-criteria>All imports succeed, environment variables loaded, basic connectivity confirmed</success-criteria>
             </validation>
         </section>
 
         <section type="troubleshooting" id="claude-code-debugging">
-            <technical-explanation>
-                Claude Code provides advanced debugging capabilities through thinking modes (think, think hard, think harder, ultrathink) for progressive analysis depth, subagents for parallel component testing, MCP servers for external system integration, and hooks for automated error detection and recovery. These tools enable sophisticated debugging workflows that combine human problem-solving with AI-powered analysis.
-            </technical-explanation>
-            <simple-explanation>
-                Claude Code is like having a really smart debugging assistant. You can ask it to think harder about problems (thinking modes), create helper teams to check different parts of your system (subagents), connect to external tools for testing (MCP servers), and set up automatic problem detection (hooks). It's like having multiple expert mechanics working on your car simultaneously.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -92,12 +80,6 @@
         </section>
 
         <section type="advanced" id="self-healing-systems">
-            <technical-explanation>
-                Self-healing systems use automated error detection, diagnosis, and recovery mechanisms. In Claude Code, this combines hooks for real-time monitoring, thinking modes for problem analysis, subagents for parallel recovery attempts, and memory systems for learning from failures. The goal is systems that can detect problems, understand their causes, attempt fixes, and improve their resilience over time.
-            </technical-explanation>
-            <simple-explanation>
-                Imagine if your computer could notice when something was wrong, figure out what the problem was, try to fix it itself, and then remember how to prevent the same problem in the future. That's what self-healing systems do - they're like having a really smart IT person built right into your software.
-            </simple-explanation>
         </section>
     </content>
 

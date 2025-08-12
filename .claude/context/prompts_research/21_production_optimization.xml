@@ -37,14 +37,6 @@
   <core-concepts>
     <concept id="cost-structure-analysis">
       <title>Complete Episode Cost Breakdown</title>
-      <technical-explanation>
-        Detailed cost analysis implementing activity-based costing methodology across the entire
-        production pipeline, enabling precise optimization targeting and ROI measurement.
-      </technical-explanation>
-      <simple-explanation>
-        Like itemizing a restaurant bill - we track exactly what each part of making a podcast
-        costs so we know where to save money without hurting quality.
-      </simple-explanation>
       <cost-components>
         <research-phase cost="$0.10">
           <component name="wikipedia_api">$0.00 (Free)</component>
@@ -82,14 +74,6 @@
 
     <concept id="optimization-hierarchy">
       <title>Cost Optimization Hierarchy</title>
-      <technical-explanation>
-        Strategic resource allocation framework prioritizing free resources, efficient paid services,
-        and premium features based on cost-benefit analysis and quality impact assessment.
-      </technical-explanation>
-      <simple-explanation>
-        Like shopping smart - always check free options first, then carefully use paid services
-        only when they add real value, and save expensive options for special occasions.
-      </simple-explanation>
       <tier-system>
         <tier name="free-resources" priority="1">
           <description>Always exhaust first</description>
@@ -125,14 +109,6 @@
 
     <concept id="api-optimization">
       <title>Smart API Cost Management</title>
-      <technical-explanation>
-        Advanced API usage optimization implementing caching strategies, batch processing,
-        token optimization, and intelligent model selection for maximum cost efficiency.
-      </technical-explanation>
-      <simple-explanation>
-        Like being smart about using expensive tools - cache what you can reuse, buy in bulk
-        when possible, use the right tool for each job, and don't waste resources.
-      </simple-explanation>
       <optimization-strategies>
         <strategy name="prompt_caching">
           <implementation>Cache common prompts, research templates</implementation>
@@ -159,14 +135,6 @@
 
     <concept id="progressive-cost-reduction">
       <title>Month-by-Month Optimization Plan</title>
-      <technical-explanation>
-        Systematic approach implementing progressive optimization through baseline establishment,
-        core optimizations, and advanced automation with measurable targets and milestones.
-      </technical-explanation>
-      <simple-explanation>
-        Like a fitness plan for costs - start by tracking everything, then make improvements
-        gradually, building up to advanced techniques that save the most money.
-      </simple-explanation>
       <optimization-roadmap>
         <month name="1" focus="Learning">
           <target-cost>$15-25 per episode</target-cost>
@@ -203,14 +171,6 @@
 
     <concept id="quality-cost-balance">
       <title>Quality-Cost Optimization Matrix</title>
-      <technical-explanation>
-        Multi-dimensional optimization framework balancing quality requirements with cost constraints
-        through adaptive control systems and configuration optimization.
-      </technical-explanation>
-      <simple-explanation>
-        Like having different quality settings on a camera - sometimes you need maximum quality
-        for special episodes, sometimes good-enough quality saves money for regular content.
-      </simple-explanation>
       <optimization-approaches>
         <approach name="high_quality_low_cost">
           <description>Maximum efficiency sweet spot</description>
@@ -327,7 +287,7 @@
         <metric name="cost_per_episode" target="5.00" alert-threshold="8.00"/>
         <metric name="cost_per_minute" target="0.18" alert-threshold="0.30"/>
         <metric name="cost_trend" target="decreasing" alert="increasing >10%"/>
-        <metric name="budget_utilization" target="<90%" alert-threshold="95%"/>
+        <metric name="budget_utilization" target="&lt;90%" alert-threshold="95%"/>
       </cost-metrics>
       <quality-metrics>
         <metric name="overall_quality" target="0.90" alert-threshold="0.85"/>
@@ -338,8 +298,8 @@
       <efficiency-metrics>
         <metric name="production_time" target="45" alert-threshold="60" unit="minutes"/>
         <metric name="automation_rate" target="95" alert-threshold="90" unit="percentage"/>
-        <metric name="error_rate" target="<2%" alert-threshold="5%"/>
-        <metric name="resource_utilization" target="80-90%" alert="<70% or >95%"/>
+        <metric name="error_rate" target="&lt;2%" alert-threshold="5%"/>
+        <metric name="resource_utilization" target="80-90%" alert="&lt;70% or >95%"/>
       </efficiency-metrics>
     </monitoring-metrics>
 

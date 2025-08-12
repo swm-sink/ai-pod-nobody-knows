@@ -13,12 +13,6 @@
       <title>DRY (Don't Repeat Yourself) Principle</title>
       <mandate>DRY PRINCIPLE MUST BE ENFORCED EVERYWHERE</mandate>
 
-      <technical-explanation>
-        DRY principle reduces maintenance burden, prevents inconsistencies, and centralizes truth
-      </technical-explanation>
-      <simple-explanation>
-        Like having one address book instead of writing addresses everywhere - update once, works everywhere
-      </simple-explanation>
 
       <learning-value>
         Understanding DRY principle is essential for maintainable, scalable systems

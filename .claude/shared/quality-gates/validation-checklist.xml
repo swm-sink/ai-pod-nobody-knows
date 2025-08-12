@@ -181,7 +181,7 @@
           <check id="error-rate-monitoring">
             <title>Error Rate Monitoring</title>
             <test>Track API errors and retry attempts in real-time</test>
-            <pass-criteria>Error rate &lt; 5%, retry success rate &gt; 80%</pass-criteria>
+            <pass-criteria>Error rate &lt; 5%, retry success rate > 80%</pass-criteria>
             <error-handling>Escalate to fallback mechanisms</error-handling>
             <recovery>Switch to alternative service providers or cached responses</recovery>
           </check>

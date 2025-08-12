@@ -151,7 +151,7 @@
               <status>Research complete, script 60% done</status>
               <research-sources>Physics textbooks, philosophy papers, scientific podcasts</research-sources>
               <key-points>Time perception, relativity, consciousness relationship</key-points>
-              <quality-targets>Intellectual humility emphasis, 27-minute duration</quality-targets>
+              <quality-targets>Intellectual humility emphasis, {EPISODE_DURATION_MINUTES}-minute duration</quality-targets>
               <challenges>Balancing scientific accuracy with accessibility</challenges>
               <learning>Manual research takes 3-4 hours, need better source organization</learning>
             </episode>
@@ -172,7 +172,7 @@
           <cost-breakdown>
             <research-agent>$0.025 (5 queries @ $0.005 each)</research-agent>
             <script-writer>$0.009 (3 revisions @ $0.003 each)</script-writer>
-            <audio-synthesis>$0.027 (27 minutes @ $0.001/minute)</audio-synthesis>
+            <audio-synthesis>$0.027 ({EPISODE_DURATION_MINUTES} minutes @ $0.001/minute)</audio-synthesis>
             <quality-evaluation>$0.003 (1 evaluation @ $0.003)</quality-evaluation>
             <total-per-episode>~$0.064</total-per-episode>
           </cost-breakdown>

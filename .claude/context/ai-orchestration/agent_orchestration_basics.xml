@@ -20,21 +20,9 @@
 
     <content>
         <section type="introduction" id="overview">
-            <technical-explanation>
-                Agent orchestration is the systematic coordination of multiple AI agents to accomplish complex tasks, enhanced by Claude Code's development acceleration features for rapid prototyping, testing, and optimization of agent workflows. This involves sequential pipeline management, error handling protocols, state management, and cost tracking across distributed AI systems.
-            </technical-explanation>
-            <simple-explanation>
-                Think of this like conducting an orchestra - you have specialized musicians (AI agents) who each play their part perfectly, and you're the conductor (orchestrator) who makes them work together beautifully. Claude Code is like having the world's best concert hall with perfect acoustics and recording equipment that makes the orchestra sound even better.
-            </simple-explanation>
         </section>
 
         <section type="implementation" id="agents-overview">
-            <technical-explanation>
-                AI agents are specialized workers in a distributed system architecture. Each agent has a single responsibility, maintains clear input/output contracts, and participates in a coordinated workflow. Claude Code provides the infrastructure and development acceleration features for building and managing these agent networks.
-            </technical-explanation>
-            <simple-explanation>
-                Think of AI agents as specialized workers in a factory - each worker has ONE specific job, they pass work between each other, a manager (orchestrator) coordinates them, and together they build something complex. Claude Code is like the factory management system that provides blueprints, automates quality control, and maintains records.
-            </simple-explanation>
 
             <examples>
                 <example type="basic">
@@ -66,15 +54,9 @@
         </section>
 
         <section type="implementation" id="orchestration-patterns">
-            <technical-explanation>
-                Orchestration patterns implement systematic coordination through sequential pipelines, error handling protocols, data passing contracts, and state management. The basic pattern involves async/await coordination, retry mechanisms with exponential backoff, and comprehensive error recovery strategies.
-            </technical-explanation>
-            <simple-explanation>
-                Instead of spending 8 hours manually creating content, orchestrated systems complete the work in 11 minutes of computer time, with each step automatically flowing into the next and handling errors intelligently.
-            </simple-explanation>
 
             <instructions>
-                <step number="1" validation-command="python -c 'import asyncio; print(\"Async support ready\")'">
+                <step number="1" validation-command="python -c 'import asyncio; print(&quot;Async support ready&quot;)'">
                     Set up async orchestration environment with proper error handling
                 </step>
                 <step number="2" validation-command="python -m pytest tests/test_agents.py -v">
@@ -166,12 +148,6 @@ class DoEverythingAgent:
         </section>
 
         <section type="implementation" id="key-concepts">
-            <technical-explanation>
-                Critical orchestration concepts include agent independence (single responsibility principle), state management (tracking workflow progress and errors), error recovery (retry mechanisms with exponential backoff), and cost tracking (monitoring API usage and budget constraints).
-            </technical-explanation>
-            <simple-explanation>
-                The key ideas are: each agent does one job well, the system tracks where it is in the process, it knows how to recover from failures, and it keeps track of how much everything costs.
-            </simple-explanation>
 
             <examples>
                 <example type="basic">
@@ -235,12 +211,6 @@ class AgentResult:
         </section>
 
         <section type="advanced" id="learning-progression">
-            <technical-explanation>
-                Progressive skill development follows four levels: understanding orchestration flow (Level 1), modifying and testing agents (Level 2), creating new agents and patterns (Level 3), and mastering advanced orchestration architectures (Level 4). Each level builds on previous knowledge with increasing complexity.
-            </technical-explanation>
-            <simple-explanation>
-                Your learning journey has four stages: first understand how the pieces work together, then modify existing pieces, then build new pieces, and finally design sophisticated systems with parallel execution and advanced patterns.
-            </simple-explanation>
 
             <instructions>
                 <step number="1">Level 1: Read each agent's code, trace data through pipeline, identify what each agent produces</step>

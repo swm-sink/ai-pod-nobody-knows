@@ -23,16 +23,6 @@
   <core-templates>
     <template id="master-quality-evaluator">
       <title>Master Quality Assessment Prompt</title>
-      <technical-explanation>
-        This evaluator implements a multi-stage assessment process that mirrors human expert evaluation
-        while maintaining consistency through defined rubrics and weighted scoring, essential for
-        maintaining quality at scale.
-      </technical-explanation>
-      <simple-explanation>
-        Think of this like a teacher grading a paper—checking if facts are right, if it's interesting
-        to read, if it's clearly written, and if it follows the assignment guidelines, then combining
-        all those scores into a final grade.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <quality_evaluator_system>
@@ -86,14 +76,6 @@
 
     <template id="comprehensive-evaluation">
       <title>2025 Best Practice Evaluation Framework</title>
-      <technical-explanation>
-        State-of-the-art quality evaluation system with weighted criteria, threshold validation,
-        and automated feedback generation for scalable quality assurance.
-      </technical-explanation>
-      <simple-explanation>
-        Like having a systematic checklist that covers all aspects of quality, with each item
-        weighted by importance, and automatic recommendations for improvement.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <quality_evaluation_task>
@@ -136,7 +118,7 @@
       One priority improvement with specific suggestion
     </feedback>
     <recommendation>
-      PASS (>85%) or REVISE (<85%) with reasoning
+      PASS (>85%) or REVISE (&lt;85%) with reasoning
     </recommendation>
   </output_requirements>
 </quality_evaluation_task>
@@ -274,14 +256,6 @@
   <llm-as-judge>
     <implementation id="automated-judge">
       <title>LLM-as-Judge Implementation</title>
-      <technical-explanation>
-        Implement scalable quality assessment using Claude as an expert judge with low temperature
-        settings for consistency and evidence-based scoring requirements.
-      </technical-explanation>
-      <simple-explanation>
-        Like having an AI expert who consistently grades content using the same standards,
-        always explaining their reasoning and providing specific examples.
-      </simple-explanation>
       <judge-configuration>
         <model>claude-opus-4.1</model>
         <temperature>0.3</temperature>
@@ -309,7 +283,7 @@
     2. Compare against the rubric
     3. Select appropriate score (1-5)
     4. Provide specific evidence from content
-    5. Suggest one improvement if score < 5
+    5. Suggest one improvement if score &lt; 5
   </scoring_instructions>
 
   <output_format>

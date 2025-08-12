@@ -20,21 +20,9 @@
 
   <content>
     <section type="introduction" id="change-control-principle">
-      <technical-explanation>
-        Change control is a formal process that ensures all modifications to a system undergo systematic evaluation, approval, and validation before implementation. This prevents unauthorized changes, reduces risk, and maintains system integrity through structured governance.
-      </technical-explanation>
-      <simple-explanation>
-        Think of change control like getting permission before making changes to someone else's house - you explain what you want to do, why it's needed, get approval, and then make sure the work was done properly.
-      </simple-explanation>
     </section>
 
     <section type="implementation" id="approval-workflow">
-      <technical-explanation>
-        The mandatory approval workflow implements a six-step process: Change Request, Impact Assessment, User Review, Implementation, Validation, and User Confirmation. This ensures comprehensive evaluation and user control at every stage.
-      </technical-explanation>
-      <simple-explanation>
-        Like following a recipe with checkpoints - request what you want to cook, check if you have ingredients, get permission to use the kitchen, cook the meal, taste it, and make sure everyone's happy with the result.
-      </simple-explanation>
 
       <instructions>
         <step number="1" validation-command="echo 'Change request acknowledged'">Request specific change from user</step>
@@ -47,12 +35,6 @@
     </section>
 
     <section type="reference" id="change-categories">
-      <technical-explanation>
-        Changes are categorized into three levels based on impact scope and risk: Critical (core functionality), Significant (user experience), and Minor (small improvements). Each category has specific requirements for assessment depth and approval rigor.
-      </technical-explanation>
-      <simple-explanation>
-        Like sorting mail into different priorities - some changes are urgent and need careful handling (critical), some are important but not urgent (significant), and some are routine updates (minor).
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -74,12 +56,6 @@
     </section>
 
     <section type="implementation" id="assessment-template">
-      <technical-explanation>
-        The AI assessment template provides a structured format for impact analysis covering: Change Summary, Benefits Analysis, Risk Analysis, Alternatives, and Implementation Plan. This ensures comprehensive evaluation across all critical dimensions.
-      </technical-explanation>
-      <simple-explanation>
-        Like filling out a detailed form before making any changes - what, why, who's affected, what could go right, what could go wrong, other options, and step-by-step plan.
-      </simple-explanation>
 
       <validation>
         <validation-command>grep -E "(Change Summary|Benefits|Risk|Alternatives|Implementation)" assessment.md</validation-command>
@@ -92,12 +68,6 @@
     </section>
 
     <section type="troubleshooting" id="rollback-procedures">
-      <technical-explanation>
-        Rollback procedures define systematic approaches for handling rejection, implementation failures, and user-requested reversions. Each scenario has specific actions to maintain system stability and user control.
-      </technical-explanation>
-      <simple-explanation>
-        Like having an "undo" plan ready - if something goes wrong or the user changes their mind, we know exactly how to put everything back the way it was.
-      </simple-explanation>
 
       <examples>
         <example type="basic">
@@ -114,12 +84,6 @@
     </section>
 
     <section type="advanced" id="claude-code-automation">
-      <technical-explanation>
-        Claude Code automation enhancements integrate hooks, thinking modes, and subagent delegation to automate approval workflows while maintaining human oversight. Pre-change hooks trigger impact assessments, post-change hooks validate implementations.
-      </technical-explanation>
-      <simple-explanation>
-        Like having smart assistants that automatically handle the paperwork and routine checks, but still require your approval for important decisions.
-      </simple-explanation>
 
       <examples>
         <example type="advanced">

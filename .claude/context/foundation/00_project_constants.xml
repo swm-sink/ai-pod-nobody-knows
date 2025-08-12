@@ -7,12 +7,6 @@
 
     <content>
         <section type="constants" id="learning-philosophy">
-            <technical-explanation>
-                Educational methodology based on Feynman technique emphasizing conceptual understanding before implementation, progressive complexity management, and research-backed validation. Designed for hobbyist learning with practical skill development through hands-on building.
-            </technical-explanation>
-            <simple-explanation>
-                The learning approach is about understanding deeply before doing - like learning to swim in shallow water before going to the deep end. We build things to learn, not just to have something built.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -54,12 +48,6 @@
         </section>
 
         <section type="constants" id="walk-crawl-run-phases">
-            <technical-explanation>
-                Three-phase progressive learning methodology with defined duration, cost constraints, and measurable outcomes. Each phase builds on the previous with increasing complexity and investment.
-            </technical-explanation>
-            <simple-explanation>
-                Like learning to run - first you walk (learn for free), then crawl (try with small budget), then run (full production). Each step gets you ready for the next.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -121,12 +109,6 @@
         </section>
 
         <section type="constants" id="learning-objectives">
-            <technical-explanation>
-                Structured learning objectives with primary and secondary goals, plus skill progression milestones. Objectives focus on practical AI orchestration mastery with measurable outcomes.
-            </technical-explanation>
-            <simple-explanation>
-                What you'll learn and when you'll learn it - like a curriculum with clear goals for each stage of your journey.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -173,12 +155,6 @@
         </section>
 
         <section type="constants" id="podcast-specifications">
-            <technical-explanation>
-                Content structure specifications defining theme, approach, tone, and episode format. Emphasizes educational storytelling with intellectual humility and accessibility to general audience.
-            </technical-explanation>
-            <simple-explanation>
-                What the podcast sounds like and how it's organized - the blueprint for making each episode consistent and engaging.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -225,12 +201,6 @@
         </section>
 
         <section type="constants" id="success-metrics">
-            <technical-explanation>
-                Quantifiable success metrics and milestone tracking for learning progress and system performance. Includes learning metrics, milestone tracking, and quality gates for comprehensive evaluation.
-            </technical-explanation>
-            <simple-explanation>
-                How we know if things are working well - like grades in school, but for both your learning and the system's performance.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -288,12 +258,6 @@
         </section>
 
         <section type="constants" id="learning-safeguards">
-            <technical-explanation>
-                Quality control and safety measures including approval requirements, quality controls, and error handling procedures. Ensures responsible AI development with comprehensive validation and fallback strategies.
-            </technical-explanation>
-            <simple-explanation>
-                Safety rules and quality checks to make sure everything stays on track and nothing goes wrong - like safety nets and quality inspections.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -335,12 +299,6 @@
         </section>
 
         <section type="constants" id="development-approach">
-            <technical-explanation>
-                Development methodology emphasizing test-driven development, iterative improvement, user-centered design, and documentation-first approach. Includes validation processes and risk management strategies.
-            </technical-explanation>
-            <simple-explanation>
-                How we build things step by step - like following a recipe that ensures we get good results every time and can fix problems quickly.
-            </simple-explanation>
 
             <constants>
                 <constant>

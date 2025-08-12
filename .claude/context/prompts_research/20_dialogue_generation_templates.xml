@@ -23,16 +23,6 @@
   <core-templates>
     <template id="master-dialogue-system">
       <title>Core Two-Host Generation Framework</title>
-      <technical-explanation>
-        This system models human conversation by implementing computational linguistics research
-        on turn-taking, emotional contagion, and discourse markers. It creates authenticity through
-        strategic imperfection—the "ums" and interruptions that make conversations feel real.
-      </technical-explanation>
-      <simple-explanation>
-        Think of this like teaching two AI actors to have a natural conversation—they need to know
-        when to interrupt, when to get excited, when to pause to think, and how real friends talk
-        to each other about fascinating topics.
-      </simple-explanation>
       <template-content>
         <![CDATA[
 <dialogue_generation_system>
@@ -71,7 +61,7 @@
   <technical_constraints>
     <line_length>Maximum 100 characters per speech turn</line_length>
     <timing>150 words per minute average pacing</timing>
-    <duration>27 minutes total conversation</duration>
+    <duration>{EPISODE_DURATION_MINUTES} minutes total conversation</duration>
     <format>Natural dialogue with stage directions</format>
   </technical_constraints>
 </dialogue_generation_system>
@@ -81,14 +71,6 @@
 
     <template id="elevenlabs-integration">
       <title>ElevenLabs Conversational AI 2.0 Integration</title>
-      <technical-explanation>
-        State-of-the-art dialogue generation using 2025 techniques with turn-taking models,
-        interruption thresholds, and emotional context awareness for maximum naturalness.
-      </technical-explanation>
-      <simple-explanation>
-        Advanced AI that understands when to let people interrupt each other, how to show emotions
-        in speech, and when to add natural thinking sounds like "um" and "hmm."
-      </simple-explanation>
       <configuration>
         <conversation-config>
           <turn-taking-model>state_of_the_art_2025</turn-taking-model>
@@ -713,7 +695,7 @@ Requirements:
 - Build excitement together
 - Acknowledge what we don't know
 - Max 100 chars per line
-- 27 minutes total
+- {EPISODE_DURATION_MINUTES} minutes total
 
 Generate authentic conversation, not scripted exchange.
         ]]>

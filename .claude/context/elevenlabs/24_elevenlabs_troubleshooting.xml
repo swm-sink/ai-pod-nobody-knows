@@ -10,35 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive troubleshooting guide for ElevenLabs API integration, voice generation issues, authentication problems, rate limiting challenges, and production environment debugging. Includes systematic diagnostic procedures, error classification, and resolution strategies for common and complex issues.
-
-                Provides:
-                - Complete error code reference with resolution steps
-                - API connectivity and authentication troubleshooting
-                - Voice generation quality issue diagnostics
-                - Rate limiting and quota management solutions
-                - Production environment debugging techniques
-                - Performance optimization troubleshooting
-            </technical-explanation>
-            <simple-explanation>
-                Comprehensive guide to fixing problems when ElevenLabs isn't working as expected. Covers everything from simple connection issues to complex production problems, with step-by-step solutions for each type of issue.
-
-                Explains:
-                - How to diagnose what's wrong when things aren't working
-                - Step-by-step solutions for common problems
-                - How to prevent issues from happening in the first place
-                - When to contact support vs. fix issues yourself
-            </simple-explanation>
         </section>
 
         <section type="reference" id="common-issues">
-            <technical-explanation>
-                Systematic categorization of common ElevenLabs integration issues including authentication failures, API connectivity problems, voice generation errors, rate limiting issues, and quality problems with specific diagnostic procedures and resolution steps.
-            </technical-explanation>
-            <simple-explanation>
-                Most frequent problems people encounter and how to fix them quickly.
-            </simple-explanation>
 
             <issue-categories>
                 <category name="authentication">
@@ -96,10 +70,10 @@
                 <step validation-command="curl -H 'xi-api-key: YOUR_KEY' https://api.elevenlabs.io/v1/user">
                     Test API connectivity: Verify basic API access
                 </step>
-                <step validation-command="python -c 'from elevenlabs import ElevenLabs; client = ElevenLabs(); print(\"Client initialized\")'">
+                <step validation-command="python -c 'from elevenlabs import ElevenLabs; client = ElevenLabs(); print(&quot;Client initialized&quot;)'">
                     Test SDK functionality: Confirm library installation and configuration
                 </step>
-                <step validation-command="python -c 'import requests; r = requests.get(\"https://api.elevenlabs.io/v1/models\"); print(r.status_code)'">
+                <step validation-command="python -c 'import requests; r = requests.get(&quot;https://api.elevenlabs.io/v1/models&quot;); print(r.status_code)'">
                     Test network connectivity: Verify network access to ElevenLabs
                 </step>
                 <step validation-command="echo $ELEVENLABS_API_KEY | head -c 20">
@@ -172,12 +146,6 @@ def test_api_connectivity():
         </section>
 
         <section type="reference" id="error-codes">
-            <technical-explanation>
-                Complete error code reference with HTTP status codes, ElevenLabs-specific error messages, resolution procedures, and prevention strategies for each error type encountered in production environments.
-            </technical-explanation>
-            <simple-explanation>
-                Dictionary of error messages and what to do about each one.
-            </simple-explanation>
 
             <error-reference>
                 <error code="400">
@@ -218,12 +186,6 @@ def test_api_connectivity():
         </section>
 
         <section type="reference" id="performance-troubleshooting">
-            <technical-explanation>
-                Performance optimization troubleshooting including latency analysis, throughput optimization, memory usage investigation, and scaling issue resolution for production environments.
-            </technical-explanation>
-            <simple-explanation>
-                How to fix problems when ElevenLabs is working but running slowly or using too many resources.
-            </simple-explanation>
 
             <examples>
                 <example type="performance-optimization">
@@ -325,12 +287,6 @@ class PerformanceTroubleshooter:
         </section>
 
         <section type="advanced" id="advanced-troubleshooting">
-            <technical-explanation>
-                Advanced troubleshooting techniques including distributed system debugging, production incident response, root cause analysis, and preventive maintenance strategies for enterprise environments.
-            </technical-explanation>
-            <simple-explanation>
-                Expert-level troubleshooting for complex problems and production environments.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

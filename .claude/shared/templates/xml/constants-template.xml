@@ -7,24 +7,6 @@
 
     <content>
         <section type="constants" id="primary-constants">
-            <technical-explanation>
-                {TECHNICAL_DESCRIPTION}
-
-                Should define:
-                - System-wide configuration values
-                - Quality thresholds and limits
-                - API endpoints and constraints
-                - File naming conventions
-                - Validation criteria
-            </technical-explanation>
-            <simple-explanation>
-                {SIMPLE_DESCRIPTION}
-
-                Should explain:
-                - What these values control
-                - Why they're set to these specific values
-                - When you might need to reference them
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -42,12 +24,6 @@
         </section>
 
         <section type="constants" id="quality-gates">
-            <technical-explanation>
-                Quality assurance thresholds and validation criteria for automated systems.
-            </technical-explanation>
-            <simple-explanation>
-                The standards that determine if something is "good enough" to proceed.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -65,12 +41,6 @@
         </section>
 
         <section type="constants" id="system-limits">
-            <technical-explanation>
-                System resource limits, timeouts, and operational constraints.
-            </technical-explanation>
-            <simple-explanation>
-                Boundaries that keep the system running smoothly and prevent resource exhaustion.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -88,12 +58,6 @@
         </section>
 
         <section type="constants" id="file-naming">
-            <technical-explanation>
-                Standardized file naming conventions and directory structures.
-            </technical-explanation>
-            <simple-explanation>
-                Consistent naming rules so everyone knows where to find things.
-            </simple-explanation>
 
             <constants>
                 <constant>

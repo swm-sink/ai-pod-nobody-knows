@@ -22,26 +22,20 @@
 
     <content>
         <section type="introduction" id="overview">
-            <technical-explanation>
-                Model Context Protocol (MCP) enables Claude Code to integrate with external services through standardized server interfaces. MCP servers run as separate processes with their own environment contexts, requiring careful API key management and process coordination. The setup involves three configuration layers: file storage (.env), shell environment (export), and subprocess environment (MCP server context), each serving specific roles in the authentication and connection chain.
-            </technical-explanation>
-            <simple-explanation>
-                Think of MCP like adding specialized tools to your workshop. Just as you need electrical outlets for power tools, Claude Code needs MCP servers to connect to external services like research databases (Perplexity) and audio synthesis (ElevenLabs). The setup is like installing the electrical connections - you need the right wiring (API keys), proper connections (environment setup), and safety checks (validation) to make everything work together safely.
-            </simple-explanation>
         </section>
 
         <section type="implementation" id="quick-setup">
             <instructions>
-                <step number="1" validation-command="ls .env && echo 'Environment file exists'">
+                <step number="1" validation-command="ls .env &amp;&amp; echo 'Environment file exists'">
                     **API Key Configuration**: Obtain API keys from service providers and create secure .env file with proper formatting
                 </step>
-                <step number="2" validation-command="bash start-claude.sh --test && echo 'Startup script functional'">
+                <step number="2" validation-command="bash start-claude.sh --test &amp;&amp; echo 'Startup script functional'">
                     **Startup Script Creation**: Build automated startup script that loads environment and validates key availability
                 </step>
                 <step number="3" validation-command="claude mcp list | grep -E 'perplexity|elevenlabs'">
                     **MCP Server Configuration**: Configure individual MCP servers with proper environment variable passing
                 </step>
-                <step number="4" validation-command="/mcp && echo 'All connections verified'">
+                <step number="4" validation-command="/mcp &amp;&amp; echo 'All connections verified'">
                     **Connection Verification**: Test all MCP connections and validate functionality through Claude Code interface
                 </step>
             </instructions>
@@ -110,18 +104,12 @@
             </examples>
 
             <validation>
-                <validation-command>./start-claude.sh && claude mcp list | grep -c "Connected" | test $(cat) -ge 2</validation-command>
+                <validation-command>./start-claude.sh &amp;&amp; claude mcp list | grep -c "Connected" | test $(cat) -ge 2</validation-command>
                 <success-criteria>Environment loads successfully, all configured MCP servers show "Connected" status, test queries execute without authentication errors</success-criteria>
             </validation>
         </section>
 
         <section type="troubleshooting" id="common-issues">
-            <technical-explanation>
-                Common MCP setup issues stem from environment variable scope problems, API key formatting errors, process execution context mismatches, and path resolution failures. Understanding the subprocess execution model of MCP servers is crucial for diagnosing authentication and connection issues. Each MCP server runs independently with its own environment context, requiring explicit environment variable passing through the configuration.
-            </technical-explanation>
-            <simple-explanation>
-                Most MCP problems are like having the right key but not being able to reach the lock. The most common issue is that your API keys are available in your terminal session but the MCP servers (which run as separate programs) can't see them. It's like having your house key in your pocket but the MCP server is like a friend trying to enter your house - they need you to hand them the key explicitly.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -133,12 +121,6 @@
         </section>
 
         <section type="advanced" id="security-best-practices">
-            <technical-explanation>
-                Secure MCP setup involves proper API key lifecycle management, environment variable scoping, file permission controls, and access logging. API keys should be stored with minimal necessary permissions, rotated regularly, and never exposed in process lists or logs. The .env file approach provides project-level isolation while maintaining ease of management and avoiding accidental exposure through shell history or system-wide environment variables.
-            </technical-explanation>
-            <simple-explanation>
-                Think of API key security like managing physical keys to your house. You want to keep them safe (not written on sticky notes), only give them to people who need them (project-level isolation), change the locks occasionally (key rotation), and make sure you're not accidentally leaving them lying around where others can see them (avoiding exposure in logs or history).
-            </simple-explanation>
         </section>
     </content>
 

@@ -15,7 +15,24 @@
     "allow_different_nesting": true
   },
   "MD033": {
-    "allowed_elements": ["antml:function_calls", "antml:invoke", "antml:parameter", "antml:thinking"]
+    "allowed_elements": [
+      "antml:function_calls",
+      "antml:invoke",
+      "antml:parameter",
+      "antml:thinking",
+      "agent-metadata",
+      "version",
+      "enhanced",
+      "status",
+      "dependencies",
+      "configs",
+      "frameworks",
+      "quality-gates",
+      "mission",
+      "capabilities",
+      "primary",
+      "secondary"
+    ]
   },
   "MD041": false,
   "MD046": {

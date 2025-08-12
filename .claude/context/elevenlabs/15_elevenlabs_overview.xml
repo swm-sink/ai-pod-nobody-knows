@@ -8,16 +8,6 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                ElevenLabs is a leading AI voice synthesis platform that converts text to natural speech using advanced neural networks, offering voice cloning, multilingual support, and real-time streaming capabilities. The platform provides various models optimized for different use cases, from high-speed generation to premium quality output.
-
-                Should provide comprehensive understanding of ElevenLabs' position as the market leader in AI voice synthesis with over 60% Fortune 500 adoption and processing capabilities exceeding 1 million hours annually.
-            </technical-explanation>
-            <simple-explanation>
-                Think of ElevenLabs like having an incredible voice actor friend who can speak in any voice, any emotion, any language, and never gets tired. It's an AI that can turn your written podcast scripts into professional-quality audio instantly.
-
-                This is what makes your podcast project economically viable - traditional production costs $800-3500 per episode, while ElevenLabs enables sub-$5 episode production, a 99% cost reduction.
-            </simple-explanation>
         </section>
 
         <section type="reference" id="quick-reference">
@@ -106,12 +96,6 @@ episode_cost = EPISODE_COSTS['flash_v2_5']
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced ElevenLabs integration includes MCP server setup for Claude Code integration, WebSocket streaming for real-time applications, voice management workflows, and cost optimization strategies using model cascading and caching.
-            </technical-explanation>
-            <simple-explanation>
-                Power-user features for professional podcast production including real-time voice generation, custom voice creation, and integration with Claude Code for automated workflows.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">
@@ -121,7 +105,7 @@ episode_cost = EPISODE_COSTS['flash_v2_5']
 
 # 1. v3 Model with limited-time discount
 v3_model = ELEVENLABS_MODELS['v3_alpha']
-if datetime.now() < datetime.fromisoformat(v3_model['discount_ends']):
+if datetime.now() &lt; datetime.fromisoformat(v3_model['discount_ends']):
     print(f"v3 discounted until {v3_model['discount_ends']}")
 
 # 2. Free Studio Access for podcast generation

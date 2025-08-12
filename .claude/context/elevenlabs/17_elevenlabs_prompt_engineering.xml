@@ -10,34 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Advanced prompt engineering techniques for ElevenLabs voice synthesis, including SSML implementation, audio tag usage, voice settings optimization, and pronunciation control systems. Covers neural network prosody inference, emotional arc design, and production-quality voice direction methods.
-
-                Provides:
-                - Complete audio tag specifications for v3 models
-                - Voice settings optimization for different content types
-                - SSML phoneme implementation with CMU Arpabet and IPA
-                - Pronunciation dictionary management systems
-                - Quality metrics and testing methodologies
-            </technical-explanation>
-            <simple-explanation>
-                Learn how to make AI voices sound natural, emotional, and engaging - the "director" skills for AI actors. Think of it like being a movie director: you can't physically demonstrate, so you communicate through the script, stage directions, character notes, and pronunciation guides.
-
-                Explains:
-                - How to write text that AI voices understand
-                - When and how to add emotional tags
-                - How to fix pronunciation problems
-                - How to make voices consistent across episodes
-            </simple-explanation>
         </section>
 
         <section type="reference" id="core-principles">
-            <technical-explanation>
-                The 250-character minimum rule leverages neural network context windows for prosody inference. Shorter inputs lack sufficient context for the model to determine appropriate intonation patterns, stress placement, and emotional delivery.
-            </technical-explanation>
-            <simple-explanation>
-                The AI needs enough context to understand HOW to speak, not just WHAT to say. Like giving an actor the whole scene, not just their line.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -55,12 +30,6 @@
         </section>
 
         <section type="reference" id="audio-tags">
-            <technical-explanation>
-                Audio tags in Eleven v3 provide direct control over prosodic features including pitch contour, rhythm patterns, and emotional expression. Tags are processed during neural synthesis to modify voice characteristics dynamically.
-            </technical-explanation>
-            <simple-explanation>
-                Special commands you can put in brackets to control how the voice sounds - like stage directions for an actor.
-            </simple-explanation>
 
             <available-tags>
                 <emotion-tags>
@@ -96,12 +65,6 @@
         </section>
 
         <section type="reference" id="voice-settings">
-            <technical-explanation>
-                Voice generation parameters control neural network output characteristics: stability affects randomness in generation, similarity boost influences voice embedding strength, and style exaggeration amplifies prosodic features.
-            </technical-explanation>
-            <simple-explanation>
-                Three sliders that control how the voice sounds - like adjusting the settings on a musical instrument to get the right tone.
-            </simple-explanation>
 
             <settings-explained>
                 <setting name="stability" range="0-100">
@@ -148,21 +111,15 @@
         </section>
 
         <section type="reference" id="pronunciation-control">
-            <technical-explanation>
-                Multiple pronunciation control methods accommodate different model capabilities: SSML phoneme tags provide precise phonetic control for compatible models, pronunciation dictionaries offer universal compatibility, and creative text manipulation works across all systems.
-            </technical-explanation>
-            <simple-explanation>
-                Different ways to teach the AI how to say difficult words correctly - like giving pronunciation keys in a dictionary.
-            </simple-explanation>
 
             <methods>
                 <method name="ssml-phonemes" compatibility="Flash v2, Turbo v2, English v1">
                     <description>Technical phonetic notation for precise pronunciation control</description>
                     <example type="cmu-arpabet">
-                        <code>&lt;phoneme alphabet="cmu" ph="T R AE P AH Z IY"&gt;trapezii&lt;/phoneme&gt;</code>
+                        <code>&lt;phoneme alphabet="cmu" ph="T R AE P AH Z IY">trapezii&lt;/phoneme></code>
                     </example>
                     <example type="ipa">
-                        <code>&lt;phoneme alphabet="ipa" ph="trəˈpiːzi"&gt;trapezii&lt;/phoneme&gt;</code>
+                        <code>&lt;phoneme alphabet="ipa" ph="trəˈpiːzi">trapezii&lt;/phoneme></code>
                     </example>
                 </method>
 
@@ -235,12 +192,6 @@
         </section>
 
         <section type="reference" id="podcast-specific-techniques">
-            <technical-explanation>
-                Podcast-specific delivery patterns optimized for audio-only consumption, including opening hooks for attention capture, transition techniques for segment flow, and closing patterns for episode conclusion and retention.
-            </technical-explanation>
-            <simple-explanation>
-                Special techniques designed specifically for podcast listening - ways to grab attention, move between topics, and end episodes memorably.
-            </simple-explanation>
 
             <templates>
                 <template type="opening-hook">
@@ -301,12 +252,6 @@ def create_opening(topic, emotion="curious"):
         </section>
 
         <section type="advanced" id="advanced-techniques">
-            <technical-explanation>
-                Advanced voice control techniques including multi-voice conversation simulation, dynamic pacing control, contextual emphasis manipulation, and production-quality voice direction methods for professional podcast creation.
-            </technical-explanation>
-            <simple-explanation>
-                Professional techniques for creating sophisticated audio experiences - like advanced directing skills for complex scenes.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">
@@ -348,7 +293,7 @@ The answer isn't what YOU'D expect.
 def optimize_prompt(text, style="podcast"):
     """Enhances text for better AI narration"""
     # Ensure minimum length
-    if len(text) < 250:
+    if len(text) &lt; 250:
         text = add_context(text)
 
     # Add style-specific markers

@@ -37,17 +37,6 @@
   <core-concepts>
     <concept id="hybrid-reasoning">
       <title>Hybrid Reasoning Architecture</title>
-      <technical-explanation>
-        Claude Opus 4.1 uses a hybrid architecture where it can switch between fast, direct responses
-        and deep, extended thinking based on task complexity. This mirrors human cognition's System 1
-        (fast, intuitive) and System 2 (slow, deliberate) thinking modes. The model automatically
-        allocates up to 64,000 tokens for internal reasoning when tasks require complex multi-step analysis.
-      </technical-explanation>
-      <simple-explanation>
-        Imagine Claude has two modes: a "quick answer" mode for simple questions and a "deep think"
-        mode where it can spend more time working through complex problems step-by-step, just like
-        you might quickly answer "2+2" but need time to solve a puzzle.
-      </simple-explanation>
       <implementation>
         <direct-processing>
           <use-case>Simple queries, quick responses</use-case>
@@ -67,16 +56,6 @@
 
     <concept id="xml-tag-mastery">
       <title>XML Tag Optimization</title>
-      <technical-explanation>
-        XML tags provide semantic structure that aligns with Claude's training patterns, improving
-        comprehension by 40%. The hierarchical nature of XML mirrors Claude's internal representation
-        of structured information, leading to more precise task execution and reduced ambiguity.
-      </technical-explanation>
-      <simple-explanation>
-        XML tags are like organizing your instructions with clear labels and sections. Instead of
-        giving Claude a messy paragraph, you use tags to say "this is the task, this is context,
-        this is an example" - making it much easier for Claude to understand what you want.
-      </simple-explanation>
       <essential-tags>
         <structure-tags>
           <tag name="document">Main content container</tag>
@@ -100,16 +79,6 @@
 
     <concept id="context-window-optimization">
       <title>200K Context Window Management</title>
-      <technical-explanation>
-        Claude's 200K token context window enables unprecedented information retention, but requires
-        strategic organization. Hierarchical structuring with priority-based information placement
-        optimizes attention allocation and prevents information dilution across the massive context space.
-      </technical-explanation>
-      <simple-explanation>
-        Think of Claude's memory like a huge filing cabinet with 200,000 slots. You need to organize
-        information smartly - put the most important stuff at the front where it's easy to find,
-        group related things together, and summarize old conversations to make room for new ones.
-      </simple-explanation>
       <optimization-strategies>
         <hierarchical-organization>
           <critical-context priority="1">Up to 50,000 tokens</critical-context>
@@ -126,16 +95,6 @@
 
     <concept id="safety-reliability">
       <title>Safety and Reliability Frameworks</title>
-      <technical-explanation>
-        Hallucination prevention requires explicit uncertainty acknowledgment protocols and fact-checking
-        frameworks. The 98.76% policy compliance rate indicates robust safety mechanisms, but additional
-        prompt-level safeguards ensure reliable outputs in production environments.
-      </technical-explanation>
-      <simple-explanation>
-        Like teaching someone to say "I don't know" when they're not sure instead of guessing.
-        We build in safety checks so Claude admits when it's uncertain, sticks to facts it can verify,
-        and doesn't make up plausible-sounding but wrong information.
-      </simple-explanation>
       <prevention-strategies>
         <uncertainty-acknowledgment>
           <phrase>Based on the available information...</phrase>
@@ -212,7 +171,7 @@ Generate a podcast dialogue.
   </step>
   <step number="4">
     <action>Write full script</action>
-    <constraints>100 chars per line, 27 minutes total</constraints>
+    <constraints>100 chars per line, {EPISODE_DURATION_MINUTES} minutes total</constraints>
     <output>{{final_script}}</output>
   </step>
 </reasoning_chain>
@@ -281,7 +240,7 @@ Create episode about: {{topic}}
 
 <requirements>
 <format>Two-host conversational</format>
-<duration>27 minutes (4200 words)</duration>
+<duration>{EPISODE_DURATION_MINUTES} minutes (4200 words)</duration>
 <dialogue_rule>Max 100 characters per line</dialogue_rule>
 <quality_targets>
     <engagement>≥0.85</engagement>

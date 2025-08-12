@@ -10,36 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive voice library management system covering voice discovery, selection criteria, cloning workflows, voice design techniques, multi-voice orchestration, licensing considerations, and production voice management patterns for professional podcast creation.
-
-                Provides:
-                - Complete voice library catalog with 5,000+ community voices and 100+ professional voices
-                - Advanced voice discovery and matching algorithms
-                - Professional voice cloning (PVC) and instant voice cloning (IVC) implementations
-                - Voice design capabilities using v3 model features
-                - Multi-host podcast production patterns
-                - Licensing and rights management systems
-                - Voice quality optimization techniques
-            </technical-explanation>
-            <simple-explanation>
-                Master voice selection, cloning, and management to find the perfect voice for your podcast. Think of voices like casting actors: Default Voices are professional actors ready to work, Community Voices are indie actors with unique styles, Cloned Voices are your custom actor trained on specific samples, and Designed Voices are AI-created actors from descriptions.
-
-                Explains:
-                - How to find the perfect voice from thousands of options
-                - How to create custom voices from audio samples or descriptions
-                - How to manage multiple voices for complex podcast productions
-                - How to ensure you have the right licensing for commercial use
-            </simple-explanation>
         </section>
 
         <section type="reference" id="voice-library-overview">
-            <technical-explanation>
-                ElevenLabs voice library contains 5,000+ community voices, 70+ language support, 100+ default professional voices, with categorization system for efficient discovery and selection based on use case requirements.
-            </technical-explanation>
-            <simple-explanation>
-                A massive library of voices organized by categories like narration, characters, news, conversational, and storytelling to help you find exactly what you need.
-            </simple-explanation>
 
             <library-stats>
                 <stat name="community-voices">5,000+</stat>
@@ -77,12 +50,6 @@
         </section>
 
         <section type="reference" id="voice-discovery">
-            <technical-explanation>
-                Intelligent voice discovery system using weighted scoring algorithms based on language compatibility, category matching, and keyword analysis in voice descriptions to identify optimal voices for specific requirements.
-            </technical-explanation>
-            <simple-explanation>
-                Smart search system that finds voices matching your needs by analyzing language, style, and description keywords to give you the best matches first.
-            </simple-explanation>
 
             <examples>
                 <example type="voice-search">
@@ -166,12 +133,6 @@ def test_voices(text, voice_ids):
         </section>
 
         <section type="reference" id="voice-cloning">
-            <technical-explanation>
-                Voice cloning technologies including Instant Voice Cloning (IVC) for rapid prototyping with minimal audio samples and Professional Voice Cloning (PVC) for high-fidelity reproduction requiring extensive audio data and manual review processes.
-            </technical-explanation>
-            <simple-explanation>
-                Two ways to create custom voices: Instant cloning (quick setup with just a few minutes of audio) and Professional cloning (high-quality results with 30+ minutes of audio and professional review).
-            </simple-explanation>
 
             <cloning-methods>
                 <method name="instant-voice-cloning" abbreviation="IVC">
@@ -222,12 +183,6 @@ my_voice_id = clone_voice_instant(
         </section>
 
         <section type="reference" id="voice-design">
-            <technical-explanation>
-                Voice design functionality in v3 models enables generation of custom voices from textual descriptions using advanced neural synthesis to create unique voice characteristics based on specified parameters including age, gender, accent, tone, and specific vocal characteristics.
-            </technical-explanation>
-            <simple-explanation>
-                Create completely new voices just by describing what you want - like commissioning an artist to create a character based on your description.
-            </simple-explanation>
 
             <examples>
                 <example type="voice-design">
@@ -265,12 +220,6 @@ podcast_host = design_voice({
         </section>
 
         <section type="reference" id="voice-management-system">
-            <technical-explanation>
-                Comprehensive voice management system including voice cataloging, favorite management, detailed voice profiling, cache optimization, and systematic organization for production podcast workflows with multiple voice coordination.
-            </technical-explanation>
-            <simple-explanation>
-                A complete system to organize, track, and manage all your voices like a professional casting director's database.
-            </simple-explanation>
 
             <examples>
                 <example type="voice-manager">
@@ -353,12 +302,6 @@ class VoiceManager:
         </section>
 
         <section type="reference" id="multi-voice-production">
-            <technical-explanation>
-                Multi-voice production workflows for complex podcast content including host-guest dynamics, character dialogue generation, voice consistency management, and seamless audio integration patterns for professional podcast production.
-            </technical-explanation>
-            <simple-explanation>
-                How to coordinate multiple voices in a single podcast episode - like directing a radio drama with multiple actors.
-            </simple-explanation>
 
             <examples>
                 <example type="multi-host-setup">
@@ -410,12 +353,6 @@ def generate_dialogue(script_segments):
         </section>
 
         <section type="reference" id="licensing-rights">
-            <technical-explanation>
-                Voice licensing framework covering community voice terms, cloned voice ownership, default voice usage rights, commercial usage permissions, attribution requirements, and compliance tracking for legal podcast production.
-            </technical-explanation>
-            <simple-explanation>
-                Understanding who owns what and what you can use commercially - important legal considerations for professional podcast production.
-            </simple-explanation>
 
             <licensing-types>
                 <license type="community-voices">
@@ -514,12 +451,6 @@ def track_voice_usage(voice_id, project):
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced voice management patterns including A/B testing frameworks, voice blending techniques, clone evolution tracking, dynamic voice selection, and quality optimization workflows for professional podcast production environments.
-            </technical-explanation>
-            <simple-explanation>
-                Professional techniques for sophisticated voice management - like having a full casting and voice direction team automated through code.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

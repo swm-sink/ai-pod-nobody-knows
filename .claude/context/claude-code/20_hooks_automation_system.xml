@@ -35,10 +35,10 @@
                 <step number="1" validation-command="mkdir -p .claude/hooks">
                     Create hooks directory structure
                 </step>
-                <step number="2" validation-command="touch .claude/hooks/pre-save-script.sh && chmod +x .claude/hooks/pre-save-script.sh">
+                <step number="2" validation-command="touch .claude/hooks/pre-save-script.sh &amp;&amp; chmod +x .claude/hooks/pre-save-script.sh">
                     Create executable script quality validation hook
                 </step>
-                <step number="3" validation-command="touch .claude/hooks/post-command-capture.sh && chmod +x .claude/hooks/post-command-capture.sh">
+                <step number="3" validation-command="touch .claude/hooks/post-command-capture.sh &amp;&amp; chmod +x .claude/hooks/post-command-capture.sh">
                     Create command result capture hook
                 </step>
             </instructions>
@@ -55,10 +55,10 @@ FILE_PATH=$1
 FILE_TYPE=$(echo $FILE_PATH | grep -o '\.[^.]*$')
 
 # Check if it's a script file
-if [[ $FILE_PATH == *"script"* ]] && [[ $FILE_TYPE == ".md" ]]; then
+if [[ $FILE_PATH == *"script"* ]] &amp;&amp; [[ $FILE_TYPE == ".md" ]]; then
     echo "🔍 Running script quality validation..."
 
-    # Check word count for 27-minute target
+    # Check word count for {EPISODE_DURATION_MINUTES}-minute target
     WORD_COUNT=$(wc -w &lt; "$FILE_PATH")
     if [ $WORD_COUNT -lt 4000 ] || [ $WORD_COUNT -gt 4500 ]; then
         echo "⚠️ Word count outside target range (4000-4500): $WORD_COUNT words"
@@ -117,7 +117,7 @@ class ProductionQualityGate:
             </examples>
 
             <validation>
-                <validation-command>ls -la .claude/hooks/ && find .claude/hooks/ -executable -type f</validation-command>
+                <validation-command>ls -la .claude/hooks/ &amp;&amp; find .claude/hooks/ -executable -type f</validation-command>
                 <success-criteria>Hooks directory exists with executable hook scripts</success-criteria>
             </validation>
         </section>
@@ -189,7 +189,7 @@ fi
 
 # GOOD: Hook with proper error handling and user feedback
 #!/bin/bash
-if ! QUALITY_SCORE=$(some_command_that_might_fail 2>&1); then
+if ! QUALITY_SCORE=$(some_command_that_might_fail 2>&amp;1); then
     echo "❌ Quality analysis failed: $QUALITY_SCORE"
     echo "💡 Try running manual quality check first"
     exit 1

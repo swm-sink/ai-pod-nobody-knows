@@ -10,35 +10,9 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive cost optimization strategies for ElevenLabs API usage, covering pricing structure analysis, advanced reduction techniques, cost tracking systems, and budget planning methodologies for sustainable podcast production at scale.
-
-                Provides:
-                - Complete pricing tier analysis and ROI calculations
-                - Advanced cost reduction patterns including caching, batching, and model selection
-                - Production-ready cost tracking and monitoring systems
-                - Strategic budget planning for different production phases
-                - Text preprocessing and optimization algorithms
-                - Long-term financial planning considerations
-            </technical-explanation>
-            <simple-explanation>
-                Learn to reduce podcast costs from $50 to $4 per episode using real strategies that work. Think of API credits like cell phone minutes: you buy a monthly plan (subscription tier), each call uses minutes (credits), longer calls use more minutes, and smart usage equals huge savings.
-
-                Explains:
-                - How ElevenLabs pricing works and how to choose the right plan
-                - Techniques to dramatically reduce costs without losing quality
-                - How to track and monitor spending in real-time
-                - Strategies to produce 27-minute podcasts for under $8 instead of $800-3500
-            </simple-explanation>
         </section>
 
         <section type="reference" id="pricing-structure">
-            <technical-explanation>
-                ElevenLabs operates on a credit-based system where 1 character equals 1 credit, with model-specific pricing and subscription tier optimizations for different usage patterns.
-            </technical-explanation>
-            <simple-explanation>
-                Understanding the pricing system: 1 character = 1 credit, 1,000 characters ≈ 1 minute of speech, costs vary by model and subscription tier.
-            </simple-explanation>
 
             <pricing-tiers>
                 <tier name="free" monthly-cost="0" credits="10000" cost-per-1k="free" episodes="0.3"/>
@@ -63,12 +37,6 @@
         </section>
 
         <section type="reference" id="cost-reduction-strategies">
-            <technical-explanation>
-                Multi-layered cost optimization approach combining intelligent model selection, content optimization, caching strategies, batch processing, and text preprocessing to achieve 70-80% cost reductions.
-            </technical-explanation>
-            <simple-explanation>
-                Practical techniques to dramatically cut costs while maintaining quality - like using different tools for different jobs and being smart about what you generate vs. what you reuse.
-            </simple-explanation>
 
             <strategies>
                 <strategy name="smart-model-selection">
@@ -136,12 +104,6 @@ class AudioCache:
         </section>
 
         <section type="reference" id="advanced-techniques">
-            <technical-explanation>
-                Advanced optimization patterns including hybrid model generation, progressive quality workflows, silence optimization, and text preprocessing algorithms for maximum cost efficiency.
-            </technical-explanation>
-            <simple-explanation>
-                Professional-level techniques for getting the most out of your budget - like using different quality levels for different parts of your podcast.
-            </simple-explanation>
 
             <examples>
                 <example type="hybrid-generation">
@@ -217,7 +179,7 @@ def optimize_silences(script):
     # Add strategic pauses instead of generating silence
     optimized = script.replace(
         "...",  # Natural pause
-        "&lt;break time='1s'/&gt;"  # Costs 95% less!
+        "&lt;break time='1s'/>"  # Costs 95% less!
     )
 
     # Calculate savings
@@ -235,12 +197,6 @@ def optimize_silences(script):
         </section>
 
         <section type="reference" id="cost-tracking-system">
-            <technical-explanation>
-                Comprehensive cost monitoring system with real-time tracking, budget alerts, analytics, and reporting capabilities for production cost management and optimization.
-            </technical-explanation>
-            <simple-explanation>
-                A system to track every penny you spend so you can see where your money goes and optimize accordingly - like a fitness tracker for your podcast budget.
-            </simple-explanation>
 
             <examples>
                 <example type="cost-tracker">
@@ -301,12 +257,6 @@ class CostTracker:
         </section>
 
         <section type="reference" id="budget-planning">
-            <technical-explanation>
-                Strategic budget planning methodologies including scenario analysis, subscription tier optimization, seasonal planning, and long-term cost projections for sustainable podcast production.
-            </technical-explanation>
-            <simple-explanation>
-                How to plan your monthly and yearly budget for different scenarios - like planning a road trip where you know how much gas will cost.
-            </simple-explanation>
 
             <budget-scenarios>
                 <scenario name="optimal">
@@ -345,12 +295,6 @@ class CostTracker:
         </section>
 
         <section type="reference" id="roi-analysis">
-            <technical-explanation>
-                Return on investment analysis comparing AI-powered podcast production costs against traditional voice actor, studio, and editing expenses, demonstrating 99.5% cost reduction potential.
-            </technical-explanation>
-            <simple-explanation>
-                How much money you save compared to traditional podcast production - the numbers are pretty amazing.
-            </simple-explanation>
 
             <cost-comparison>
                 <traditional-production>
@@ -451,12 +395,6 @@ class CostTracker:
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced cost optimization patterns including predictive modeling, automated optimization workflows, bulk processing strategies, and long-term financial planning for sustainable podcast production scaling.
-            </technical-explanation>
-            <simple-explanation>
-                Expert-level techniques for minimizing costs while scaling production - like having a smart system that automatically finds the cheapest way to make quality content.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

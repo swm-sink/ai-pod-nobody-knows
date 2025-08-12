@@ -10,26 +10,6 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                Comprehensive Python SDK implementation guide for ElevenLabs API integration, covering synchronous and asynchronous patterns, rate limit management, error handling, voice management, and production-ready podcast generation systems.
-
-                Provides:
-                - Complete SDK installation and configuration procedures
-                - Production-ready API client patterns with error handling
-                - Rate limiting and concurrent processing implementations
-                - Voice management and cloning workflows
-                - Cost tracking and usage monitoring systems
-                - Comprehensive testing frameworks
-            </technical-explanation>
-            <simple-explanation>
-                Step-by-step guide to integrate ElevenLabs into your Python project - from "Hello World" to production. Think of an API like ordering at a restaurant: you (client) look at the menu (documentation), tell the waiter (API) what you want, the kitchen (ElevenLabs servers) prepares it, and the waiter brings your food (audio data).
-
-                Explains:
-                - How to install and set up the ElevenLabs Python SDK
-                - How to make your first API call and generate audio
-                - How to handle errors and rate limits properly
-                - How to process multiple episodes efficiently
-            </simple-explanation>
         </section>
 
         <section type="reference" id="getting-started">
@@ -43,7 +23,7 @@
                 <step validation-command="grep -q '.env' .gitignore">
                     Add to gitignore: echo ".env" >> .gitignore
                 </step>
-                <step validation-command="python -c 'from elevenlabs import ElevenLabs; print(\"Import successful\")'">
+                <step validation-command="python -c 'from elevenlabs import ElevenLabs; print(&quot;Import successful&quot;)'">
                     Test installation: Import ElevenLabs successfully
                 </step>
             </instructions>
@@ -81,12 +61,6 @@ with open("output.mp3", "wb") as f:
         </section>
 
         <section type="reference" id="core-patterns">
-            <technical-explanation>
-                Three fundamental API patterns: simple generation for testing, advanced generation with full control for production, and batch processing for scaling operations. Each pattern includes proper error handling and configuration management.
-            </technical-explanation>
-            <simple-explanation>
-                Three ways to use the API: simple (for testing), advanced (for production), and batch (for many episodes at once).
-            </simple-explanation>
 
             <patterns>
                 <pattern name="simple-generation">
@@ -184,12 +158,6 @@ def batch_generate_episodes(episodes):
         </section>
 
         <section type="reference" id="async-implementation">
-            <technical-explanation>
-                Asynchronous implementation patterns for scalable operations, including basic async generation, concurrent processing with rate limiting, and production-ready async clients with semaphore-based concurrency control.
-            </technical-explanation>
-            <simple-explanation>
-                How to generate many audio files at the same time instead of one after another - like having multiple workers instead of just one.
-            </simple-explanation>
 
             <examples>
                 <example type="basic-async">
@@ -251,12 +219,6 @@ class ElevenLabsAsyncClient:
         </section>
 
         <section type="reference" id="voice-management">
-            <technical-explanation>
-                Voice management operations including voice discovery, filtering by criteria, custom voice cloning, and voice metadata management for production podcast systems.
-            </technical-explanation>
-            <simple-explanation>
-                How to find, choose, and even create custom voices for your podcast - like having a casting director for AI voices.
-            </simple-explanation>
 
             <operations>
                 <operation name="list-voices">
@@ -312,12 +274,6 @@ def clone_voice(name, audio_files):
         </section>
 
         <section type="reference" id="rate-limit-management">
-            <technical-explanation>
-                Comprehensive rate limit management including tier-specific limits, intelligent rate limiting algorithms, request tracking with sliding windows, and automated backoff strategies.
-            </technical-explanation>
-            <simple-explanation>
-                How to avoid getting blocked by the API for making too many requests too fast - like learning to wait your turn in line.
-            </simple-explanation>
 
             <rate-limits>
                 <tier name="free" concurrent="2" per-minute="10"/>
@@ -347,7 +303,7 @@ class RateLimiter:
             now = time.time()
 
             # Remove requests older than 1 minute
-            while self.requests and self.requests[0] < now - 60:
+            while self.requests and self.requests[0] &lt; now - 60:
                 self.requests.popleft()
 
             # If at limit, wait
@@ -365,12 +321,6 @@ class RateLimiter:
         </section>
 
         <section type="reference" id="error-handling">
-            <technical-explanation>
-                Production-grade error handling system with error classification, recovery strategies, exponential backoff, and intelligent retry logic for different error types.
-            </technical-explanation>
-            <simple-explanation>
-                How to handle problems when the API doesn't work - like having a backup plan when things go wrong.
-            </simple-explanation>
 
             <error-types>
                 <error type="rate_limit" status="429" recovery="Wait and retry with backoff"/>
@@ -423,7 +373,7 @@ def safe_generate(text, max_retries=3, **kwargs):
                 raise Exception(f"Authentication failed: {solution}")
             elif error_type == ErrorType.QUOTA:
                 raise Exception(f"Quota exceeded: {solution}")
-            elif attempt < max_retries - 1:
+            elif attempt &lt; max_retries - 1:
                 wait_time = 2 ** attempt
                 print(f"Attempt {attempt + 1} failed: {error_type.value}")
                 print(f"Solution: {solution}")
@@ -438,12 +388,6 @@ def safe_generate(text, max_retries=3, **kwargs):
         </section>
 
         <section type="reference" id="podcast-production-class">
-            <technical-explanation>
-                Complete podcast production system implementation with script processing, intelligent chunking, rate limiting integration, audio combining, and episode management.
-            </technical-explanation>
-            <simple-explanation>
-                A complete system that takes a podcast script and turns it into a finished audio file automatically.
-            </simple-explanation>
 
             <examples>
                 <example type="production-class">
@@ -474,7 +418,7 @@ class PodcastProducer:
         current_chunk = ""
 
         for sentence in sentences:
-            if len(current_chunk) + len(sentence) < max_chars:
+            if len(current_chunk) + len(sentence) &lt; max_chars:
                 current_chunk += sentence + ". "
             else:
                 chunks.append(current_chunk.strip())
@@ -555,12 +499,6 @@ class PodcastProducer:
         </section>
 
         <section type="advanced" id="advanced-usage">
-            <technical-explanation>
-                Advanced implementation patterns including cost tracking systems, usage monitoring, comprehensive testing frameworks, and production deployment considerations.
-            </technical-explanation>
-            <simple-explanation>
-                Professional techniques for monitoring costs, testing your system, and making sure everything works reliably in production.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">

@@ -8,13 +8,6 @@
 
   <content>
     <section type="constants" id="content-quality-thresholds">
-      <technical-explanation>
-        Content quality thresholds define minimum acceptable performance levels across accuracy, comprehension, engagement, brand consistency, and technical quality dimensions. These quantitative measures enable automated quality gates and consistent evaluation.
-      </technical-explanation>
-      <simple-explanation>
-        Like report card grades for different aspects of podcast quality - each area has a minimum score needed to pass, helping ensure every episode meets consistent standards.
-      </simple-explanation>
-
       <constants>
         <constant>
           <name>CONTENT_ACCURACY_THRESHOLD</name>
@@ -45,13 +38,6 @@
     </section>
 
     <section type="constants" id="validation-score-ranges">
-      <technical-explanation>
-        Validation score ranges provide standardized interpretation of quality measurements, enabling consistent categorization of content quality from minimum passing to perfect scores.
-      </technical-explanation>
-      <simple-explanation>
-        Like a grading scale that tells you what different scores mean - from "needs work" to "perfect" - so everyone understands what the numbers represent.
-      </simple-explanation>
-
       <constants>
         <constant>
           <name>VALIDATION_MINIMUM_PASSING</name>
@@ -77,12 +63,6 @@
     </section>
 
     <section type="constants" id="mandatory-compliance-requirements">
-      <technical-explanation>
-        Mandatory compliance requirements define non-negotiable standards for change approval, hallucination prevention, TDD compliance, and DRY principle adherence. These requirements ensure system reliability and maintainability.
-      </technical-explanation>
-      <simple-explanation>
-        Like safety rules that can't be broken - these are the absolute requirements that must always be followed to keep the system working properly and safely.
-      </simple-explanation>
 
       <constants>
         <constant>
@@ -109,12 +89,6 @@
     </section>
 
     <section type="constants" id="test-coverage-standards">
-      <technical-explanation>
-        Test coverage standards define minimum coverage requirements and testing framework specifications for different test types including unit, integration, and quality validation tests.
-      </technical-explanation>
-      <simple-explanation>
-        Like inspection requirements for different parts of a building - different areas need different types of testing, but all must meet minimum standards to ensure safety and reliability.
-      </simple-explanation>
 
       <constants>
         <constant>
@@ -141,12 +115,6 @@
     </section>
 
     <section type="constants" id="error-severity-classification">
-      <technical-explanation>
-        Error severity classification defines response time requirements and approval processes for different error levels, from critical system failures to cosmetic improvements.
-      </technical-explanation>
-      <simple-explanation>
-        Like emergency response levels - critical errors get immediate attention like calling 911, while minor issues are like scheduling a routine appointment.
-      </simple-explanation>
 
       <constants>
         <constant>
@@ -173,12 +141,6 @@
     </section>
 
     <section type="constants" id="quality-measurement-standards">
-      <technical-explanation>
-        Quality measurement standards define audio quality requirements, content standards, technical performance targets, and system reliability metrics for consistent evaluation.
-      </technical-explanation>
-      <simple-explanation>
-        Like detailed specifications for what "good quality" means in each area - clear audio, accurate content, fast performance, and reliable operation.
-      </simple-explanation>
 
       <constants>
         <constant>
@@ -210,12 +172,6 @@
     </section>
 
     <section type="constants" id="monitoring-and-reporting">
-      <technical-explanation>
-        Monitoring and reporting constants define measurement frequencies, reporting formats, and quality indicator thresholds for continuous system health assessment.
-      </technical-explanation>
-      <simple-explanation>
-        Like scheduling regular check-ups and defining what the results mean - when to check different things and how to interpret whether everything is healthy.
-      </simple-explanation>
 
       <constants>
         <constant>
@@ -242,12 +198,6 @@
     </section>
 
     <section type="constants" id="validation-workflow-steps">
-      <technical-explanation>
-        Validation workflow steps define the sequential process for content validation, code validation, and system validation to ensure comprehensive quality assurance.
-      </technical-explanation>
-      <simple-explanation>
-        Like assembly line quality checks - each step must be completed in order to ensure everything meets standards before moving to the next stage.
-      </simple-explanation>
 
       <constants>
         <constant>

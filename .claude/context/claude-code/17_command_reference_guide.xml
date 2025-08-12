@@ -150,7 +150,7 @@ echo "Test our specific podcast production orchestration with brand requirements
 
 Context: 4-agent system (Research, Script, Audio, Quality)
 Brand: Intellectual humility, curiosity, accessibility
-Targets: 27 min duration, &lt;$5 cost, >0.85 quality" > .claude/commands/test-podcast-system.md
+Targets: {EPISODE_DURATION_MINUTES} min duration, &lt;$5 cost, >0.85 quality" > .claude/commands/test-podcast-system.md
                     </implementation>
                     <explanation>Commands should understand your specific AI project context, not be generic tools. This prevents confusion and ensures commands work with your actual system architecture.</explanation>
                 </example>
@@ -175,7 +175,7 @@ echo "Analyze episode production and automatically apply appropriate optimizatio
 Usage: /smart-optimization [episode-id]
 
 Logic:
-- IF cost &gt; budget THEN /optimize-prompts AND /cost-analysis
+- IF cost > budget THEN /optimize-prompts AND /cost-analysis
 - IF quality &lt; threshold THEN /quality-check AND /brand-voice-analysis
 - IF agent performance declining THEN /test-agent-flow AND /analyze-patterns
 - IF new patterns discovered THEN /update-memory AND /pattern-analysis

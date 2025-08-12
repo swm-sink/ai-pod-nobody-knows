@@ -20,12 +20,6 @@
 
     <content>
         <section type="introduction" id="cost-challenge">
-            <technical-explanation>
-                AI cost optimization combines systematic analysis of API usage patterns with Claude Code automation features to achieve dramatic cost reductions while maintaining quality. The approach uses development acceleration to iterate faster on optimization strategies, implementing caching, batching, and intelligent query design to minimize API costs.
-            </technical-explanation>
-            <simple-explanation>
-                Think of this like learning to cook efficiently - you start by understanding ingredient costs (AI APIs), then you learn techniques to waste less (optimization strategies), and finally you use professional kitchen tools (Claude Code) to track costs and automate the money-saving techniques you've learned.
-            </simple-explanation>
 
             <examples>
                 <example type="basic">
@@ -48,12 +42,6 @@ The Challenge:
         </section>
 
         <section type="implementation" id="cost-breakdown-analysis">
-            <technical-explanation>
-                Detailed cost analysis comparing unoptimized manual tracking against AI optimization with Claude Code automation. Manual approach results in $40-75 per episode due to inefficient query patterns, multiple revisions, and hidden costs. Optimized approach achieves $5-8.50 per episode through smart queries, caching, automated gates, and development efficiency improvements.
-            </technical-explanation>
-            <simple-explanation>
-                Like comparing cooking without a plan (expensive, wasteful) versus meal prep with professional tools (efficient, cost-effective). The difference comes from being smart about how you use resources.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -93,12 +81,6 @@ Claude Code Cost Intelligence:
         </section>
 
         <section type="implementation" id="smart-research-optimization">
-            <technical-explanation>
-                Research query optimization through comprehensive single queries instead of multiple fragmented queries. Implementation includes query pattern templates, caching systems for similar topics, and Claude Code automation for cost-efficient research workflows. Professional caching systems reduce redundant API calls and enable pattern reuse.
-            </technical-explanation>
-            <simple-explanation>
-                Instead of asking 20 small questions (expensive), ask one really good comprehensive question (cheap). Then remember the answers so you don't ask the same things twice.
-            </simple-explanation>
 
             <examples>
                 <example type="anti-pattern">
@@ -180,12 +162,6 @@ class ResearchCache:
         </section>
 
         <section type="implementation" id="script-optimization-strategies">
-            <technical-explanation>
-                Script generation optimization through template-based approaches, single-pass generation with comprehensive prompts, and Claude Code automation for quality gates and brand consistency. Eliminates expensive revision cycles through better initial prompt design and automated validation.
-            </technical-explanation>
-            <simple-explanation>
-                Write better prompts that get the script right the first time, instead of paying for multiple revisions. Use templates and automated checks to ensure consistency without manual review.
-            </simple-explanation>
 
             <examples>
                 <example type="basic">
@@ -227,12 +203,6 @@ Format: Include [PAUSE] markers for pacing
         </section>
 
         <section type="implementation" id="audio-synthesis-optimization">
-            <technical-explanation>
-                Audio synthesis cost optimization through model selection (ElevenLabs v3 turbo vs premium), batch processing, voice optimization, and length management. Claude Code automation tracks synthesis costs and optimizes voice settings for quality-cost balance.
-            </technical-explanation>
-            <simple-explanation>
-                Choose the right voice model for your needs (turbo is often good enough instead of premium), process multiple segments efficiently, and track costs to avoid surprises.
-            </simple-explanation>
 
             <examples>
                 <example type="intermediate">
@@ -263,12 +233,6 @@ Format: Include [PAUSE] markers for pacing
         </section>
 
         <section type="implementation" id="automated-quality-gates">
-            <technical-explanation>
-                Automated quality assurance through Claude Code hooks and validation scripts that check content against quality standards without manual review. Implements cost-effective validation using smaller models for initial checks and targeted validation for specific quality criteria.
-            </technical-explanation>
-            <simple-explanation>
-                Set up automated quality checks that catch problems early and cheaply, instead of expensive manual review or fixing problems after production.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">
@@ -307,12 +271,6 @@ quality_gates = {
         </section>
 
         <section type="advanced" id="cost-monitoring-systems">
-            <technical-explanation>
-                Real-time cost monitoring and budget controls through Claude Code automation, API usage tracking, and predictive cost analysis. Systems include automated alerts, budget enforcement, and cost optimization recommendations based on usage patterns.
-            </technical-explanation>
-            <simple-explanation>
-                Keep track of spending as you go, set up automatic warnings before you hit budget limits, and learn from your spending patterns to get better over time.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">
@@ -359,12 +317,6 @@ class CostMonitor:
         </section>
 
         <section type="reference" id="optimization-checklist">
-            <technical-explanation>
-                Systematic optimization checklist covering all cost centers: research query efficiency, script generation optimization, audio synthesis choices, quality gate automation, and monitoring system implementation. Provides measurable targets and validation procedures for each optimization area.
-            </technical-explanation>
-            <simple-explanation>
-                Your step-by-step checklist to make sure you're optimizing costs in every area - like a pilot's pre-flight checklist to make sure nothing important gets missed.
-            </simple-explanation>
 
             <instructions>
                 <step number="1" validation-command="python research_optimizer.py --validate-queries">

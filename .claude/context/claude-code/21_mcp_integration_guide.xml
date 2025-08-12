@@ -32,10 +32,10 @@
 
         <section type="implementation" id="initial-setup">
             <instructions>
-                <step number="1" validation-command="touch .env && echo 'PERPLEXITY_API_KEY=test' >> .env">
+                <step number="1" validation-command="touch .env &amp;&amp; echo 'PERPLEXITY_API_KEY=test' >> .env">
                     Create .env file with API keys for MCP servers
                 </step>
-                <step number="2" validation-command="cat > start-claude.sh << 'EOF'
+                <step number="2" validation-command="cat > start-claude.sh &lt;&lt; 'EOF'
 #!/bin/bash
 if [ -f .env ]; then
     source .env
@@ -93,7 +93,7 @@ claude "analyze episode quality trends using podcast-analytics"
             </examples>
 
             <validation>
-                <validation-command>ls .env start-claude.sh && claude mcp list</validation-command>
+                <validation-command>ls .env start-claude.sh &amp;&amp; claude mcp list</validation-command>
                 <success-criteria>Environment file exists, startup script is executable, MCP servers are listed</success-criteria>
             </validation>
         </section>

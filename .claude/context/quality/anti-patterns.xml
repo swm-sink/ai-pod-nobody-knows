@@ -20,56 +20,26 @@
 
       <pattern type="status-tracking">
         <forbidden>status="pending"/"completed" attributes in markdown documentation</forbidden>
-        <technical-explanation>
-          Hardcoded status creates synchronization problems between documentation and actual state
-        </technical-explanation>
-        <simple-explanation>
-          Like writing "done" on a todo list instead of actually crossing things off - gets out of sync
-        </simple-explanation>
         <required>Use dynamic JSON session files for state tracking</required>
       </pattern>
 
       <pattern type="hardcoded-progress">
         <forbidden>Hardcoded progress indicators in documentation</forbidden>
-        <technical-explanation>
-          Static progress markers don't reflect actual system state changes
-        </technical-explanation>
-        <simple-explanation>
-          Like a fake progress bar that doesn't show real progress
-        </simple-explanation>
         <required>Dynamic progress calculation from session data</required>
       </pattern>
 
       <pattern type="circular-dependencies">
         <forbidden>Circular dependencies between components</forbidden>
-        <technical-explanation>
-          Circular dependencies create impossible initialization orders and tight coupling
-        </technical-explanation>
-        <simple-explanation>
-          Like two people both waiting for each other to go first through a door
-        </simple-explanation>
         <required>Clear dependency hierarchy (Level 1 → Level 2 → Level 3 → Level 4)</required>
       </pattern>
 
       <pattern type="vague-criteria">
         <forbidden>Vague success criteria</forbidden>
-        <technical-explanation>
-          Non-measurable criteria prevent automated testing and validation
-        </technical-explanation>
-        <simple-explanation>
-          Like saying "make it good" instead of "make it red and 10 inches tall"
-        </simple-explanation>
         <required>Specific metrics with thresholds (e.g., "&lt;$5 per episode")</required>
       </pattern>
 
       <pattern type="untestable-claims">
         <forbidden>Untestable claims</forbidden>
-        <technical-explanation>
-          Unverifiable assertions lead to documentation drift and system inconsistencies
-        </technical-explanation>
-        <simple-explanation>
-          Like claiming something works without being able to prove it
-        </simple-explanation>
         <required>Include validation commands for every technical claim</required>
       </pattern>
     </section>
@@ -79,34 +49,16 @@
 
       <pattern type="state-tracking">
         <required>Use JSON session files in appropriate level directories</required>
-        <technical-explanation>
-          JSON provides structured, parseable state representation with schema validation
-        </technical-explanation>
-        <simple-explanation>
-          Like keeping organized records in filing cabinets instead of sticky notes everywhere
-        </simple-explanation>
         <location>.claude/*/sessions/ directories</location>
       </pattern>
 
       <pattern type="single-responsibility">
         <required>Each agent/command/tool has one clear purpose</required>
-        <technical-explanation>
-          Single Responsibility Principle reduces complexity and improves testability
-        </technical-explanation>
-        <simple-explanation>
-          Like having specialized tools - a hammer for nails, screwdriver for screws
-        </simple-explanation>
         <validation>Each component should be describable in one sentence</validation>
       </pattern>
 
       <pattern type="visible-state">
         <required>All progress/state tracked in visible session files</required>
-        <technical-explanation>
-          Transparent state management enables debugging and system introspection
-        </technical-explanation>
-        <simple-explanation>
-          Like being able to see the gears turning in a clear-sided watch
-        </simple-explanation>
         <implementation>Everything important gets saved to trackable files</implementation>
       </pattern>
     </section>

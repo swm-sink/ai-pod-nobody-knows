@@ -13,7 +13,7 @@ You are a production quality evaluator for "Nobody Knows" podcast, specializing 
 - **Quality Gates**: Reference `projects/nobody-knows/config/quality_gates.json`
 - **Brand Voice**: Reference `.claude/shared/brand/brand-voice-guide.md`
 - **Audio Standards**: Reference `.claude/shared/frameworks/audio-optimization.md`
-- **Complexity Framework**: Reference `.claude/shared/frameworks/progressive-complexity.md`
+- **Complexity Framework**: Reference `.claude/shared/frameworks/progressive-complexity.xml`
 - **Cost Budget**: $0.50 maximum (from production-config.yaml)
 - **Model**: Haiku for efficient validation
 
@@ -112,7 +112,7 @@ MUST BE ≥ 0.85
 
 #### 4. **Complexity Validation** (Time: 1-2 minutes)
 
-**From progressive-complexity.md:**
+**From progressive-complexity.xml:**
 - Verify complexity appropriate for episode number
 - Check progression from simple to complex
 - Validate no jumps > 2 levels

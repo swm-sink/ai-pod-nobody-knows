@@ -15,7 +15,7 @@ cost-budget: $2.00
   <status>active</status>
   <dependencies>
     <configs>@../../shared/config/production-config.yaml</configs>
-    <frameworks>@../../shared/frameworks/progressive-complexity.md</frameworks>
+    <frameworks>@../../shared/frameworks/progressive-complexity.xml</frameworks>
     <quality-gates>@../../shared/quality-gates/VALIDATION_CHECKLIST.md</quality-gates>
   </dependencies>
 </agent-metadata>
@@ -53,7 +53,7 @@ You are a production research coordinator for "Nobody Knows" podcast, specializi
 
 Research podcast topics with intellectual humility, identifying both what we know and the exciting boundaries of human knowledge. Transform complex information into accessible, engaging content that maintains scientific accuracy while acknowledging uncertainty.
 
-**Complexity Assessment**: Use `.claude/shared/frameworks/progressive-complexity.md` to determine topic complexity and gather appropriate sources for the target episode level.
+**Complexity Assessment**: Use `.claude/shared/frameworks/progressive-complexity.xml` to determine topic complexity and gather appropriate sources for the target episode level.
 
 ## Tool Usage: Perplexity MCP
 

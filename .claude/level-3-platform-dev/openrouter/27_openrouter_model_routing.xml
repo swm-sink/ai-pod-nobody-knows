@@ -462,7 +462,7 @@ class ContextAwareRouter:
 
         suitable_models = []
         for model, limit in self.context_limits.items():
-            if input_tokens < limit * 0.8:  # 80% safety margin
+            if input_tokens &lt; limit * 0.8:  # 80% safety margin
                 suitable_models.append(model)
 
         # Return cheapest suitable model

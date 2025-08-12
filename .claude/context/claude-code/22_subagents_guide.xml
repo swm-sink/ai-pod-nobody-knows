@@ -71,13 +71,13 @@ for episode in episodes/ep00{1..5}*; do
   claude task "Analyze episode $episode for:
   1. Content quality score (0-1.0)
   2. Brand voice consistency
-  3. Duration accuracy vs 27-minute target
+  3. Duration accuracy vs {EPISODE_DURATION_MINUTES}-minute target
   4. Research source diversity
   5. Engagement potential
 
   Compare against our quality standards and provide improvement recommendations." \
   --context "$episode" \
-  --output ".claude/subagent-logs/quality-analysis-$(basename $episode).json" &
+  --output ".claude/subagent-logs/quality-analysis-$(basename $episode).json" &amp;
 done
 
 # Wait for all subagents to complete
@@ -89,7 +89,7 @@ echo "✅ All episode analyses complete"
             </examples>
 
             <validation>
-                <validation-command>ls .claude/subagent-logs/ && claude task --list-active</validation-command>
+                <validation-command>ls .claude/subagent-logs/ &amp;&amp; claude task --list-active</validation-command>
                 <success-criteria>Subagent logs directory exists and task system is operational</success-criteria>
             </validation>
         </section>
@@ -195,11 +195,11 @@ EPISODE_ID="ep001-consciousness"
 # Stage 1: Parallel research analysis
 claude task "Research Analyst: Analyze topic depth and source diversity" \
   --context "episodes/$EPISODE_ID/research.json" \
-  --output ".claude/pipeline/research-analysis.json" &
+  --output ".claude/pipeline/research-analysis.json" &amp;
 
 claude task "Fact Checker: Validate claims and identify verification needs" \
   --context "episodes/$EPISODE_ID/research.json" \
-  --output ".claude/pipeline/fact-check.json" &
+  --output ".claude/pipeline/fact-check.json" &amp;
 
 # Wait for research stage completion
 wait
@@ -211,11 +211,11 @@ if (( $(echo "$RESEARCH_SCORE >= 0.85" | bc -l) )); then
   claude task "Script Optimizer: Enhance narrative flow and engagement" \
     --context "episodes/$EPISODE_ID/" \
     --include ".claude/pipeline/research-analysis.json" \
-    --output ".claude/pipeline/script-optimization.json" &
+    --output ".claude/pipeline/script-optimization.json" &amp;
 
   claude task "Brand Voice Validator: Ensure consistency with intellectual humility" \
     --context "episodes/$EPISODE_ID/script.md" \
-    --output ".claude/pipeline/brand-validation.json" &
+    --output ".claude/pipeline/brand-validation.json" &amp;
 
   wait
 
@@ -227,7 +227,7 @@ if (( $(echo "$RESEARCH_SCORE >= 0.85" | bc -l) )); then
 
   echo "✅ Episode $EPISODE_ID pipeline complete"
 else
-  echo "❌ Research quality insufficient ($RESEARCH_SCORE < 0.85) - pipeline halted"
+  echo "❌ Research quality insufficient ($RESEARCH_SCORE &lt; 0.85) - pipeline halted"
 fi
                     </implementation>
                     <explanation>This advanced orchestration demonstrates multi-stage workflows with quality gates, parallel processing, conditional logic, and comprehensive context sharing between subagents, creating a sophisticated content production system with built-in quality assurance.</explanation>

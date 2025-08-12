@@ -7,12 +7,6 @@
 
     <content>
         <section type="constants" id="architecture-constants">
-            <technical-explanation>
-                4-Level Architecture constants define the hierarchical separation of concerns with strict dependency management and controlled progression gates. Each level serves a specific purpose in the development and production workflow.
-            </technical-explanation>
-            <simple-explanation>
-                These are the basic building blocks that organize the entire project into four levels, like floors in a building where each floor has a specific purpose and you can only move up when you're ready.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -39,12 +33,6 @@
         </section>
 
         <section type="constants" id="file-naming-conventions">
-            <technical-explanation>
-                Standardized file naming conventions ensure consistent organization and prevent naming conflicts across the system. These patterns enable programmatic file discovery and maintain clear separation between development and production assets.
-            </technical-explanation>
-            <simple-explanation>
-                Consistent naming rules so everyone knows where to find things and what type of file they're looking at just from the name.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -71,12 +59,6 @@
         </section>
 
         <section type="constants" id="quality-standards">
-            <technical-explanation>
-                Quality assurance thresholds and validation criteria for automated systems. These metrics ensure consistent output quality and enable automated decision-making in the production pipeline.
-            </technical-explanation>
-            <simple-explanation>
-                The standards that determine if something is "good enough" to proceed - like grade thresholds in school.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -129,12 +111,6 @@
         </section>
 
         <section type="constants" id="production-pipeline">
-            <technical-explanation>
-                Production pipeline stages define the sequential workflow for episode creation with clear stage boundaries and validation checkpoints. Each stage has specific inputs, outputs, and success criteria.
-            </technical-explanation>
-            <simple-explanation>
-                The step-by-step process for making each episode, like an assembly line where each station does one job.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -161,12 +137,6 @@
         </section>
 
         <section type="constants" id="mcp-server-limits">
-            <technical-explanation>
-                MCP (Model Context Protocol) server cost limits and usage constraints to prevent budget overruns and ensure sustainable operation. These limits enable cost-controlled API usage across different service providers.
-            </technical-explanation>
-            <simple-explanation>
-                Spending limits for different AI services to keep costs under control - like having a budget for different types of tools.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -188,12 +158,6 @@
         </section>
 
         <section type="constants" id="error-recovery">
-            <technical-explanation>
-                Error recovery constants define resilience patterns for handling failures in distributed AI systems. These values balance reliability against performance, implementing exponential backoff and circuit breaker patterns.
-            </technical-explanation>
-            <simple-explanation>
-                Rules for what to do when things go wrong - like how many times to try again and how long to wait between attempts.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -236,12 +200,6 @@
         </section>
 
         <section type="constants" id="thinking-modes">
-            <technical-explanation>
-                Claude Code thinking mode specifications for different complexity levels of analysis. These modes optimize computational resources while ensuring appropriate depth of reasoning for different types of problems.
-            </technical-explanation>
-            <simple-explanation>
-                Different levels of "thinking power" to use depending on how complex the problem is - like using a calculator for simple math but a computer for complex calculations.
-            </simple-explanation>
 
             <constants>
                 <constant>

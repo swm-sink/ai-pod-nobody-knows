@@ -7,12 +7,6 @@
 
     <content>
         <section type="constants" id="environment-configuration">
-            <technical-explanation>
-                Python environment configuration standards defining version requirements, virtual environment setup, package management, and common dependencies. Ensures consistent development and production environments across all deployments.
-            </technical-explanation>
-            <simple-explanation>
-                The basic setup requirements for your Python development environment - like the ingredients list and tools you need before starting to cook.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -49,12 +43,6 @@
         </section>
 
         <section type="constants" id="server-operations">
-            <technical-explanation>
-                Server configuration and operational commands for development and production deployments. Defines standard endpoints, ports, and startup procedures for the FastAPI application server.
-            </technical-explanation>
-            <simple-explanation>
-                How to start, stop, and manage your server - like knowing how to turn your car on and off and where all the controls are.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -91,12 +79,6 @@
         </section>
 
         <section type="constants" id="monitoring-logging">
-            <technical-explanation>
-                Logging configuration and monitoring standards including log levels, file locations, and monitoring commands. Enables comprehensive system observability and debugging capabilities.
-            </technical-explanation>
-            <simple-explanation>
-                How to keep track of what your system is doing and find problems when they occur - like having a dashboard and diagnostic tools for your car.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -148,12 +130,6 @@
         </section>
 
         <section type="constants" id="troubleshooting">
-            <technical-explanation>
-                Common issue identification and resolution procedures with specific error messages, solutions, and diagnostic commands. Provides systematic approach to problem resolution.
-            </technical-explanation>
-            <simple-explanation>
-                Common problems and how to fix them - like a troubleshooting guide that tells you what to check when something doesn't work.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -201,12 +177,6 @@
         </section>
 
         <section type="constants" id="cost-management">
-            <technical-explanation>
-                Cost tracking and management constants including logging formats, alert thresholds, and optimization strategies. Ensures budget compliance and cost efficiency.
-            </technical-explanation>
-            <simple-explanation>
-                How to track and control spending - like having a budget tracker that warns you before you overspend.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -238,12 +208,6 @@
         </section>
 
         <section type="constants" id="security-operations">
-            <technical-explanation>
-                Security configuration standards including environment variable management, access control, and security checklist items. Ensures secure operation and data protection.
-            </technical-explanation>
-            <simple-explanation>
-                Security rules to keep your system and data safe - like locking your doors and not sharing your passwords.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -275,12 +239,6 @@
         </section>
 
         <section type="constants" id="performance-metrics">
-            <technical-explanation>
-                Performance targets and monitoring intervals defining acceptable system performance characteristics and measurement frequencies.
-            </technical-explanation>
-            <simple-explanation>
-                Performance goals and how often to check them - like speed limits and regular car maintenance checks.
-            </simple-explanation>
 
             <constants>
                 <constant>
@@ -307,12 +265,6 @@
         </section>
 
         <section type="constants" id="development-tools">
-            <technical-explanation>
-                Development tool configuration including formatting, linting, testing, and type checking standards. Ensures code quality and consistency.
-            </technical-explanation>
-            <simple-explanation>
-                Tools that help you write better code and catch mistakes early - like spell check and grammar tools for programming.
-            </simple-explanation>
 
             <constants>
                 <constant>

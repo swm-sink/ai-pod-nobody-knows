@@ -8,17 +8,11 @@
 
     <content>
         <section type="reference" id="overview">
-            <technical-explanation>
-                This reference provides immediate access to essential commands, patterns, and workflows for AI podcast production using Claude Code orchestration. It includes traditional development commands alongside Claude Code-specific features like thinking modes, subagents, MCP server integration, and automated workflows. The guide emphasizes practical copy-paste solutions and emergency procedures for rapid problem resolution.
-            </technical-explanation>
-            <simple-explanation>
-                Think of this as your quick-lookup cheat sheet - like having all the most important phone numbers written on a card in your wallet. When you need to do something common or fix a problem quickly, you can find the exact command or pattern here without digging through long documentation.
-            </simple-explanation>
         </section>
 
         <section type="reference" id="essential-commands">
             <instructions>
-                <step validation-command="python --version && which python">
+                <step validation-command="python --version &amp;&amp; which python">
                     **Project Setup**: Create virtual environment, install dependencies, configure API keys
                 </step>
                 <step validation-command="curl http://localhost:8000/health">
@@ -40,7 +34,7 @@
                         source venv/bin/activate
                         /init  # Claude Code memory initialization
                         uvicorn core.orchestration.server:app --reload
-                        curl localhost:8000/health && echo "Server OK"
+                        curl localhost:8000/health &amp;&amp; echo "Server OK"
                         ```
                     </implementation>
                     <explanation>This sequence activates your Python environment, initializes Claude Code's project memory system, starts the FastAPI server with auto-reload, and verifies everything is working correctly.</explanation>
@@ -77,12 +71,6 @@
         </section>
 
         <section type="advanced" id="automation-patterns">
-            <technical-explanation>
-                Advanced automation patterns leverage Claude Code's hook system for automated quality checks, cost monitoring, and error recovery. Combined with MCP server integration and subagent coordination, these patterns enable self-healing systems that can detect problems, analyze causes, and implement fixes with minimal human intervention.
-            </technical-explanation>
-            <simple-explanation>
-                Think of automation patterns as setting up smart assistants that watch your system 24/7. They can automatically catch problems before they get big, fix common issues on their own, and alert you only when they really need human help - like having a really good IT department built into your software.
-            </simple-explanation>
 
             <examples>
                 <example type="advanced">
@@ -93,7 +81,7 @@
                         def pre_synthesis_quality_check(context):
                             if context.operation == "audio_synthesis":
                                 script_quality = evaluate_script_quality(context.script)
-                                if script_quality < 0.8:
+                                if script_quality &lt; 0.8:
                                     # Auto-regenerate with improved prompts
                                     context.script = improve_script(context.script)
                             return context

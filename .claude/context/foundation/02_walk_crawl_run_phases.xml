@@ -42,13 +42,13 @@
                 <step number="2" validation-command="python -c 'import sys; print(sys.version)'">
                     Install Python and verify basic dependencies
                 </step>
-                <step number="3" validation-command="python -c 'print(\"Understanding agent coordination concepts\")'">
+                <step number="3" validation-command="python -c 'print(&quot;Understanding agent coordination concepts&quot;)'">
                     Study AI agent concepts and coordination patterns
                 </step>
-                <step number="4" validation-command="python -c 'print(\"Manual workflow design complete\")'">
+                <step number="4" validation-command="python -c 'print(&quot;Manual workflow design complete&quot;)'">
                     Design agent interactions and workflows manually
                 </step>
-                <step number="5" validation-command="python -c 'print(\"Foundational knowledge established\")'">
+                <step number="5" validation-command="python -c 'print(&quot;Foundational knowledge established&quot;)'">
                     Build foundational knowledge through hands-on exercises
                 </step>
             </instructions>
@@ -94,7 +94,7 @@ Optional Claude Code (Week 2-3):
             </simple-explanation>
 
             <instructions>
-                <step number="1" validation-command="python -c 'import os; assert \"API_KEY\" in os.environ, \"API keys not configured\"'">
+                <step number="1" validation-command="python -c 'import os; assert &quot;API_KEY&quot; in os.environ, &quot;API keys not configured&quot;'">
                     Set up API keys and external service connections
                 </step>
                 <step number="2" validation-command="python test_agents.py --dry-run">
@@ -106,7 +106,7 @@ Optional Claude Code (Week 2-3):
                 <step number="4" validation-command="python quality_check.py --validate-outputs">
                     Create quality validation and testing procedures
                 </step>
-                <step number="5" validation-command="python -c 'print(\"First episode under budget produced\")'">
+                <step number="5" validation-command="python -c 'print(&quot;First episode under budget produced&quot;)'">
                     Produce first complete episode within cost targets
                 </step>
             </instructions>
@@ -135,7 +135,7 @@ Claude Code Enhancement:
 
             <validation>
                 <validation-command>python -c "assert total_costs &lt; 50.0, 'CRAWL phase budget exceeded'"</validation-command>
-                <validation-command>python -c "assert episodes_produced &gt; 0, 'No episodes produced in CRAWL phase'"</validation-command>
+                <validation-command>python -c "assert episodes_produced > 0, 'No episodes produced in CRAWL phase'"</validation-command>
                 <success-criteria>Working multi-agent system producing episodes within budget constraints</success-criteria>
             </validation>
         </section>
@@ -189,7 +189,7 @@ Claude Code Expert Usage:
             </examples>
 
             <validation>
-                <validation-command>python -c "assert season_1_episodes &gt;= 10, 'Season 1 not complete'"</validation-command>
+                <validation-command>python -c "assert season_1_episodes >= 10, 'Season 1 not complete'"</validation-command>
                 <validation-command>python -c "assert avg_cost_per_episode &lt;= 5.0, 'Cost targets not met'"</validation-command>
                 <success-criteria>Complete season production with cost targets achieved and quality standards maintained</success-criteria>
             </validation>

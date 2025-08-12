@@ -99,7 +99,7 @@
             <![CDATA[
 #!/bin/bash
 # Create brand detection scripts
-cat > .claude/level-2-production/tools/brand_detector.sh << 'EOF'
+cat > .claude/level-2-production/tools/brand_detector.sh &lt;< 'EOF'
 #!/bin/bash
 # Count intellectual humility phrases
 grep -i "nobody.*know\|we don't\|uncertain\|might be wrong\|still learning" "$1" | wc -l

@@ -19,7 +19,7 @@
       <name>Episode Data</name>
       <location>projects/nobody-knows/series_plan/episodes_master.json</location>
       <contains>
-        <item>All 125 episode titles</item>
+        <item>All {TOTAL_EPISODES} episode titles</item>
         <item>Episode descriptions</item>
         <item>Complexity levels</item>
         <item>Season organization</item>
@@ -126,7 +126,7 @@
       <title>Hardcoded Values</title>
       <bad-example>
         <description>In some random file</description>
-        <code>The podcast has 125 episodes across 5 seasons...</code>
+        <code>The podcast has {TOTAL_EPISODES} episodes across {TOTAL_SEASONS} seasons...</code>
         <reason>WRONG: Hardcoded</reason>
       </bad-example>
       <good-example>

@@ -272,7 +272,7 @@ trace.score(
 ```
 IF overall_score >= 0.85 AND all_thresholds_met:
     PROCEED to audio synthesis
-ELIF retry_count < 3:
+ELIF retry_count &lt; 3:
     IDENTIFY weakest metric
     GENERATE improvement instructions
     RETRY with targeted agent
@@ -283,7 +283,7 @@ ELSE:
 
 ### Budget Decision
 ```
-IF remaining_budget < next_agent_requirement:
+IF remaining_budget &lt; next_agent_requirement:
     IF quality_achieved:
         COMPLETE with partial success
     ELSE:
@@ -293,8 +293,8 @@ IF remaining_budget < next_agent_requirement:
 
 ## Performance Benchmarks
 
-- Episode completion: < 60 minutes
-- Orchestration overhead: < 5% of total cost
+- Episode completion: &lt; 60 minutes
+- Orchestration overhead: &lt; 5% of total cost
 - Retry success rate: > 70%
 - Quality achievement: > 90%
 - Budget compliance: > 95%
@@ -348,17 +348,17 @@ Remember: You are the conductor ensuring every episode is produced efficiently, 
 
   <retry-strategies>
     <strategy name="brand_voice_correction">
-      <trigger>brand_consistency < 0.90</trigger>
+      <trigger>brand_consistency &lt; 0.90</trigger>
       <action>Return to script_writer with brand emphasis</action>
       <feedback>Include 5 example phrases from brand guide</feedback>
     </strategy>
     <strategy name="complexity_reduction">
-      <trigger>comprehension < 0.85</trigger>
+      <trigger>comprehension &lt; 0.85</trigger>
       <action>Return to script_writer with simplification request</action>
       <feedback>Identify specific complex sections</feedback>
     </strategy>
     <strategy name="engagement_boost">
-      <trigger>engagement < 0.80</trigger>
+      <trigger>engagement &lt; 0.80</trigger>
       <action>Return to script_writer with narrative enhancement</action>
       <feedback>Suggest specific story elements to add</feedback>
     </strategy>
