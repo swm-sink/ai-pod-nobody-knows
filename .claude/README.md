@@ -4,6 +4,18 @@
 
 This project features **Claude Code-optimized navigation** with @ file hopping for seamless documentation traversal. Use `@NAVIGATION_INDEX.md` for master navigation patterns.
 
+## ⚙️ Claude Code Configuration Setup
+
+### Quick Setup for Local Settings
+```bash
+# Copy the template to create your local settings (one-time setup)
+cp .claude/settings.local.json.template .claude/settings.local.json
+
+# The settings.local.json file is gitignored and won't be committed
+```
+
+**Important:** The project requires git permissions for atomic commits. See `settings.local.json.template` for required permissions.
+
 ## 🎯 DRY-Compliant Documentation System
 
 This project follows strict DRY (Don't Repeat Yourself) principles. **All constants and specifications are centralized in constants files.**

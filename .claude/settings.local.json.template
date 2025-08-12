@@ -1,0 +1,135 @@
+{
+  "permissions": {
+    "allow": [
+      "// Basic Claude Code operations",
+      "Bash(pre-commit run:*)",
+      "Bash(ls:*)",
+      "Bash(echo:*)",
+      "Bash(which:*)",
+      "Bash(pwd)",
+      "Bash(cd:*)",
+
+      "// Core Git Operations - REQUIRED for atomic commits",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git add:*)",
+      "Bash(git add .:*)",
+      "Bash(git add -A:*)",
+      "Bash(git commit:*)",
+      "Bash(git commit -m:*)",
+      "Bash(git commit --amend:*)",
+      "Bash(git reset:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git reset --soft:*)",
+      "Bash(git restore:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git branch:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git fetch:*)",
+      "Bash(git remote:*)",
+      "Bash(git stash:*)",
+      "Bash(git tag:*)",
+      "Bash(git describe:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git config:*)",
+      "Bash(git config --list)",
+      "Bash(git rev-list:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git clean:*)",
+
+      "// Ultimate Git Fallback - Enable for full git access",
+      "Bash(git *)",
+
+      "// Project-specific tools",
+      "Bash(.claude/level-2-production/tools/*)",
+      "Bash(.claude/level-2-production/tests/*)",
+
+      "// Hook Operations - REQUIRED for automation",
+      "Bash(.claude/hooks/*)",
+      "Bash(chmod +x .claude/hooks/*)",
+      "Bash(chmod 755 .claude/hooks/*)",
+
+      "// Testing Operations",
+      "Bash(./test-*.sh)",
+      "Bash(pytest:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(python3 -m pytest:*)",
+
+      "// Environment Validation",
+      "Bash(python --version)",
+      "Bash(python3 --version)",
+      "Bash(pip list:*)",
+      "Bash(pip3 list:*)",
+      "Bash(df -h:*)",
+      "Bash(du -sh:*)",
+
+      "// File operations",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+
+      "// Make operations",
+      "Bash(make:*)",
+      "Bash(make test)",
+      "Bash(make clean)",
+
+      "// Directory operations",
+      "Bash(mkdir:*)",
+      "Bash(rmdir:*)",
+      "Bash(rm -rf:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+
+      "// Process management",
+      "Bash(ps:*)",
+      "Bash(kill:*)",
+      "Bash(pkill:*)",
+
+      "// ADD YOUR CUSTOM PERMISSIONS BELOW",
+      "// Example: Bash(your-custom-command:*)"
+    ],
+    "deny": [
+      "// ADD COMMANDS TO BLOCK HERE",
+      "// Example: Bash(rm -rf /)",
+      "// Example: Bash(sudo:*)"
+    ]
+  },
+
+  "// Configuration Instructions": {
+    "step_1": "Copy this file to settings.local.json",
+    "step_2": "Remove or comment out any permissions you don't want to allow",
+    "step_3": "Add any additional permissions specific to your workflow",
+    "step_4": "The file settings.local.json is gitignored and won't be committed",
+    "note": "Comments starting with // are allowed in the JSON for documentation"
+  },
+
+  "// Hooks Configuration (Optional)": {
+    "hooks": {
+      "pre-tool-use": ".claude/hooks/pre-tool-validation.sh",
+      "post-tool-use": ".claude/hooks/post-tool-tracking.sh",
+      "pre-file-edit": ".claude/hooks/pre-edit-checkpoint.sh",
+      "post-file-edit": ".claude/hooks/post-edit-validation.sh",
+      "session-complete": ".claude/hooks/session-complete.sh"
+    }
+  },
+
+  "// Additional Settings": {
+    "auto_commit": false,
+    "commit_frequency": "after_task",
+    "max_context_size": 100000,
+    "enable_thinking": true,
+    "enable_artifacts": true
+  }
+}
