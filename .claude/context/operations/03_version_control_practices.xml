@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="reference">
+  <metadata>
+    <title>Version Control Best Practices - Atomic Commits Over Backups</title>
+    <domain>operations</domain>
+    <version>1.0</version>
+    <last-updated>2025-08-12</last-updated>
+    <criticality>MANDATORY</criticality>
+  </metadata>
+
+  <content>
+    <section id="core-principle">
+      <title>Atomic Commits Over Backups</title>
+      <mandate>Use git for all version control - NO backup files or directories</mandate>
+
+      <rationale>
+        <point>Git provides complete history with minimal storage overhead</point>
+        <point>Atomic commits enable precise rollbacks to any point</point>
+        <point>Backup files create clutter and confusion about versions</point>
+        <point>Git compression is more efficient than file copies</point>
+        <point>Professional teams never use backup files</point>
+      </rationale>
+
+      <educational-value>
+        <technical>Version control systems provide distributed, compressed, annotated history with branching and merging capabilities</technical>
+        <simple>Like having a time machine for your code that remembers every change and why you made it</simple>
+        <connection>This is fundamental to all modern software development</connection>
+      </educational-value>
+    </section>
+
+    <section id="commit-standards">
+      <title>Semantic Commit Messages</title>
+      <format>type(scope): description</format>
+
+      <types>
+        <type name="feat">New feature or capability</type>
+        <type name="fix">Bug fix or error correction</type>
+        <type name="docs">Documentation changes only</type>
+        <type name="style">Formatting, whitespace, no code change</type>
+        <type name="refactor">Code restructuring without behavior change</type>
+        <type name="test">Adding or modifying tests</type>
+        <type name="chore">Maintenance, dependencies, config</type>
+      </types>
+
+      <examples>
+        <example>feat(pipeline): add error recovery state machine</example>
+        <example>fix(tools): relocate misplaced error recovery tools</example>
+        <example>docs(session): create handover template with git context</example>
+        <example>test(quality): validate brand detection accuracy</example>
+        <example>refactor(agents): simplify handoff logic</example>
+        <example>chore(deps): update pytest to 7.4.0</example>
+      </examples>
+
+      <educational-value>
+        <technical>Semantic commits enable automated changelog generation, easier code review, and clear project history</technical>
+        <simple>Like writing clear labels on boxes so anyone can find what they need later</simple>
+        <connection>This practice is required in most professional development teams</connection>
+      </educational-value>
+    </section>
+
+    <section id="commit-workflow">
+      <title>Standard Commit Workflow</title>
+
+      <steps>
+        <step number="1">
+          <command>git status</command>
+          <purpose>Check what files have changed</purpose>
+        </step>
+        <step number="2">
+          <command>git diff</command>
+          <purpose>Review the actual changes</purpose>
+        </step>
+        <step number="3">
+          <command>git add -A</command>
+          <purpose>Stage all changes for commit</purpose>
+        </step>
+        <step number="4">
+          <command>git commit -m "type(scope): description"</command>
+          <purpose>Create atomic commit with message</purpose>
+        </step>
+        <step number="5">
+          <command>git log --oneline -5</command>
+          <purpose>Verify commit was created</purpose>
+        </step>
+      </steps>
+
+      <when-to-commit>
+        <trigger>After completing a todo task</trigger>
+        <trigger>Before starting risky operations</trigger>
+        <trigger>After successful test runs</trigger>
+        <trigger>At natural stopping points</trigger>
+        <trigger>Before context switches</trigger>
+        <trigger>At session boundaries</trigger>
+      </when-to-commit>
+    </section>
+
+    <section id="rollback-procedures">
+      <title>Rollback Without Backups</title>
+
+      <scenarios>
+        <scenario name="Discard uncommitted changes">
+          <command>git restore .</command>
+          <when>Made changes but haven't committed yet</when>
+        </scenario>
+
+        <scenario name="Undo last commit (keep changes)">
+          <command>git reset --soft HEAD~1</command>
+          <when>Committed too early, want to add more</when>
+        </scenario>
+
+        <scenario name="Undo last commit (discard changes)">
+          <command>git reset --hard HEAD~1</command>
+          <when>Last commit broke something</when>
+        </scenario>
+
+        <scenario name="Rollback to specific commit">
+          <command>git reset --hard [commit-hash]</command>
+          <when>Need to go back multiple commits</when>
+        </scenario>
+
+        <scenario name="Temporary storage">
+          <command>git stash &amp;&amp; git stash pop</command>
+          <when>Need to switch context temporarily</when>
+        </scenario>
+      </scenarios>
+
+      <educational-value>
+        <technical>Git's reflog maintains a complete history of HEAD movements, enabling recovery even from destructive operations</technical>
+        <simple>Like having an undo button that can go back as far as you need, even after saving</simple>
+        <connection>Understanding rollback procedures prevents panic when things go wrong</connection>
+      </educational-value>
+    </section>
+
+    <section id="forbidden-practices">
+      <title>What NOT to Do</title>
+
+      <forbidden>
+        <practice>Creating *.backup files</practice>
+        <practice>Creating *.bak files</practice>
+        <practice>Creating timestamped copies (file_2025_01_15.txt)</practice>
+        <practice>Creating backup/ directories</practice>
+        <practice>Creating archive/ directories</practice>
+        <practice>Copying files before editing</practice>
+        <practice>Keeping multiple versions in same directory</practice>
+      </forbidden>
+
+      <instead>
+        <bad>cp important.py important.py.backup</bad>
+        <good>git add important.py &amp;&amp; git commit -m "chore: checkpoint before refactor"</good>
+      </instead>
+
+      <instead>
+        <bad>mkdir backup_2025_01_15 &amp;&amp; cp -r src/* backup_2025_01_15/</bad>
+        <good>git tag v1.0.0-before-refactor &amp;&amp; git commit -m "chore: tag before major changes"</good>
+      </instead>
+    </section>
+
+    <section id="git-hygiene">
+      <title>Maintaining Clean Git History</title>
+
+      <practices>
+        <practice>One logical change per commit</practice>
+        <practice>No mixing unrelated changes</practice>
+        <practice>Fix typos in same commit if related</practice>
+        <practice>Squash WIP commits before pushing</practice>
+        <practice>Use meaningful branch names</practice>
+        <practice>Keep commits small and focused</practice>
+      </practices>
+
+      <educational-value>
+        <technical>Clean history enables git bisect for debugging, cherry-picking for selective deployment, and clear blame attribution</technical>
+        <simple>Like keeping a neat diary where each entry is about one thing, making it easy to find specific events</simple>
+        <connection>Clean git history is a sign of professional development practices</connection>
+      </educational-value>
+    </section>
+
+    <section id="advanced-techniques">
+      <title>Advanced Git Techniques</title>
+
+      <technique name="Interactive rebase">
+        <command>git rebase -i HEAD~3</command>
+        <purpose>Clean up last 3 commits before pushing</purpose>
+        <warning>Never rebase pushed commits</warning>
+      </technique>
+
+      <technique name="Cherry-pick">
+        <command>git cherry-pick [commit-hash]</command>
+        <purpose>Apply specific commit to current branch</purpose>
+      </technique>
+
+      <technique name="Bisect">
+        <command>git bisect start &amp;&amp; git bisect bad &amp;&amp; git bisect good [hash]</command>
+        <purpose>Find commit that introduced a bug</purpose>
+      </technique>
+
+      <technique name="Reflog recovery">
+        <command>git reflog &amp;&amp; git reset --hard [reflog-hash]</command>
+        <purpose>Recover from accidental reset</purpose>
+      </technique>
+    </section>
+
+    <section id="integration-with-project">
+      <title>Project-Specific Git Practices</title>
+
+      <requirements>
+        <requirement>Commit after each completed todo task</requirement>
+        <requirement>Use semantic commit messages always</requirement>
+        <requirement>No backup files in any directory</requirement>
+        <requirement>Tag major milestones (phases complete)</requirement>
+        <requirement>Document rollback commands in quick reference</requirement>
+      </requirements>
+
+      <hooks-integration>
+        <hook>Pre-commit: Run integration tests</hook>
+        <hook>Post-commit: Log to session tracker</hook>
+        <hook>Pre-push: Validate quality gates</hook>
+      </hooks-integration>
+    </section>
+
+    <section id="quick-reference">
+      <title>Git Commands Quick Reference</title>
+
+      <essential-commands>
+        <cmd>git status                    # What changed?</cmd>
+        <cmd>git diff                      # Show changes</cmd>
+        <cmd>git add -A                    # Stage everything</cmd>
+        <cmd>git commit -m "type: msg"     # Commit with message</cmd>
+        <cmd>git log --oneline -10         # Recent history</cmd>
+        <cmd>git reset --hard HEAD~1       # Undo last commit</cmd>
+        <cmd>git restore .                 # Discard changes</cmd>
+        <cmd>git stash                     # Save temporarily</cmd>
+        <cmd>git stash pop                 # Restore saved</cmd>
+        <cmd>git tag v1.0.0                # Tag milestone</cmd>
+      </essential-commands>
+    </section>
+  </content>
+</document>
