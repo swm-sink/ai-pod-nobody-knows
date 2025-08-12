@@ -242,6 +242,50 @@
   </critical-requirement>
 </dry-principle-summary>
 
+## 🔄 ATOMIC COMMIT POLICY
+
+<atomic-commit-policy>
+  <critical-requirement>
+    USE GIT ATOMIC COMMITS INSTEAD OF FILE BACKUPS
+    EVERY SIGNIFICANT CHANGE MUST BE COMMITTED ATOMICALLY
+    NO EXCESSIVE BACKUP FILES OR DIRECTORIES
+  </critical-requirement>
+
+  <commit-standards>
+    <format>type(scope): description</format>
+    <types>feat, fix, docs, style, refactor, test, chore</types>
+    <examples>
+      - feat(pipeline): add error recovery state machine
+      - fix(tools): relocate misplaced error recovery tools
+      - docs(session): create handover template
+      - test(quality): validate quality gate thresholds
+      - chore(config): update settings template
+    </examples>
+  </commit-standards>
+
+  <commit-points>
+    <mandatory>After completing each todo task</mandatory>
+    <mandatory>Before any risky operation</mandatory>
+    <mandatory>After successful test runs</mandatory>
+    <mandatory>At session boundaries</mandatory>
+    <forbidden>NO backup files like *.backup, *.bak</forbidden>
+    <forbidden>NO backup directories like backups/, archive/</forbidden>
+  </commit-points>
+
+  <rollback-strategy>
+    <method>Use git reset --hard HEAD~1 for rollback</method>
+    <method>Use git restore for discarding changes</method>
+    <method>Use git stash for temporary storage</method>
+    <forbidden>DO NOT create timestamped backup files</forbidden>
+  </rollback-strategy>
+
+  <educational-value>
+    **Technical:** Atomic commits provide precise version control with minimal storage overhead
+    **Simple:** Like saving your game progress instead of copying the entire game each time
+    **Connection:** This is how all professional developers manage code changes
+  </educational-value>
+</atomic-commit-policy>
+
 ## 🛡️ FILE OPERATIONS BEST PRACTICES
 
 See: [File Operations Best Practices](.claude/context/operations/file-operations-best-practices.xml)
