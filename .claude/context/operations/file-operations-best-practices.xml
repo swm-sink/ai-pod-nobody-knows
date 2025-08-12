@@ -45,6 +45,31 @@
       </educational-example>
     </section>
 
+    <section id="backup-prevention">
+      <title>Backup File Prevention</title>
+      <requirements>
+        <requirement>NEVER create *.backup, *.bak files</requirement>
+        <requirement>NEVER create backup directories</requirement>
+        <requirement>USE git commits for version control</requirement>
+        <requirement>USE git stash for temporary storage</requirement>
+      </requirements>
+
+      <instead-of>
+        <bad>cp important.md important.md.backup</bad>
+        <good>git add important.md &amp;&amp; git commit -m "chore: checkpoint before changes"</good>
+      </instead-of>
+
+      <instead-of>
+        <bad>mkdir backups &amp;&amp; cp -r src/* backups/</bad>
+        <good>git commit -am "chore: checkpoint before refactor"</good>
+      </instead-of>
+
+      <educational-example>
+        <command>git stash push -m "temporary work"</command>
+        <learning>Git stash saves work without creating backup files</learning>
+      </educational-example>
+    </section>
+
     <section id="move-delete-safety">
       <title>Move and Delete Safety</title>
       <requirements>

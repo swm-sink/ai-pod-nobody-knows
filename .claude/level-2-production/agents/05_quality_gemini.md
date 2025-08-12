@@ -1,6 +1,7 @@
 ---
 name: 05_quality_gemini
-description: Secondary quality evaluator using Gemini CLI for independent validation. MUST USE in parallel with 04_quality_claude for comprehensive dual-model assessment.
+description: PLANNED secondary quality evaluator using Gemini CLI for independent validation. Intended to
+  run in parallel with 04_quality_claude for dual-model assessment (not yet implemented).
 tools: [Bash, Read, Write, TodoWrite]
 model: haiku
 color: blue
