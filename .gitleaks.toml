@@ -1,0 +1,12 @@
+[allowlist]
+description = "Allow common false positives and binary/vendor dirs"
+paths = [
+  "node_modules/",
+  "dist/",
+  "build/",
+  ".claude/mocks/",
+  "projects/.*/output/"
+]
+regexes = []
+commits = []
+
