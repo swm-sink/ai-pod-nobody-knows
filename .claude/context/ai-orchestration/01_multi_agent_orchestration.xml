@@ -10,9 +10,9 @@
 
   <content>
     <section id="architecture">
-      <title>Enhanced 9-Agent Pipeline Architecture</title>
+      <title>Enhanced 9-Agent Pipeline Architecture (DESIGN)</title>
       <technical-explanation>
-        Enhanced 9-agent pipeline with dual-model quality validation and iterative refinement loops
+        THEORETICAL: Enhanced 9-agent pipeline design with planned dual-model quality validation and iterative refinement loops (not yet implemented)
       </technical-explanation>
       <simple-explanation>
         Like a factory assembly line with multiple quality checkpoints - each station specializes, two inspectors verify, and problems get fixed before moving forward
@@ -21,7 +21,7 @@
         This teaches advanced distributed systems, consensus algorithms, and production-grade quality assurance
       </learning-value>
 
-      <cost-warning>⚠️ Multi-agent systems use 15x more tokens than single interactions</cost-warning>
+      <cost-warning>⚠️ ESTIMATED: Multi-agent systems may use significantly more tokens than single interactions (measure actual usage)</cost-warning>
       <cost-explanation>
         <technical>Token multiplication occurs due to context sharing and inter-agent communication overhead</technical>
         <simple>Like group conversations using more words than talking to yourself</simple>

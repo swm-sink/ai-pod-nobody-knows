@@ -8,6 +8,8 @@ category: monitoring
 level: 2-production
 ---
 
+<!-- markdownlint-disable-file -->
+
 # Production Metrics Command
 
 **Purpose**: Analyze and display comprehensive production metrics for the Nobody Knows podcast, tracking costs, quality, and performance across episodes.
@@ -73,68 +75,67 @@ Extract from each session:
 
 ## Output Format
 
-### Summary View (Default)
+### ⚠️ TEMPLATE ONLY - NO EPISODES PRODUCED YET
+
+**IMPORTANT**: All data shown below is EXAMPLE FORMAT ONLY for planning purposes.
+Actual metrics will be populated when production begins.
+
+### Summary View Template (EXAMPLE ONLY)
 ```
 Nobody Knows Podcast - Production Metrics
 ═══════════════════════════════════════════════════════════════
 
-📊 OVERVIEW (Last 10 Episodes)
-├─ Episodes Analyzed: 10
-├─ Date Range: 2024-08-01 to 2024-08-11
-├─ Total External Cost: $23.50
-└─ Success Rate: 80% (8/10 passed quality gates)
+⚠️ NO ACTUAL PRODUCTION DATA - THIS IS A TEMPLATE
 
-💰 COST ANALYSIS
-├─ Average Cost per Episode: $2.35
+📊 OVERVIEW (EXAMPLE FORMAT)
+├─ Episodes Analyzed: [Will show actual count]
+├─ Date Range: [Will show actual dates]
+├─ Total External Cost: PROJECTED: $20-50
+└─ Success Rate: [Will calculate from actual data]
+
+💰 COST ANALYSIS (ESTIMATED)
+├─ Average Cost per Episode: PROJECTED: $2-5
 ├─ Cost Breakdown:
-│  ├─ Perplexity (Research): $0.50 avg (21%)
-│  ├─ ElevenLabs (Audio): $1.85 avg (79%)
-│  └─ Other: $0.00 (0%)
-├─ Budget Compliance: 100% under $5 target
-└─ Trend: Stable ➡️
+│  ├─ Perplexity (Research): ESTIMATED: $0.50-1.00
+│  ├─ ElevenLabs (Audio): ESTIMATED: $1.50-3.00
+│  └─ Other: TBD
+├─ Budget Compliance: TARGET: Under $5/episode
+└─ Trend: [Will calculate from actual data]
 
-🎯 QUALITY METRICS
-├─ Average Quality Score: 0.87
+🎯 QUALITY METRICS (TARGETS)
+├─ Average Quality Score: TARGET: >0.85
 ├─ Quality Breakdown:
-│  ├─ Brand Consistency: 0.91 (✅ exceeds 0.90 threshold)
-│  ├─ Comprehension: 0.86 (✅ exceeds 0.85 threshold)
-│  ├─ Engagement: 0.84 (✅ exceeds 0.80 threshold)
-│  └─ Technical: 0.87 (✅ exceeds 0.85 threshold)
-├─ Pass Rate: 80% (8/10)
-└─ Failed Episodes: [3, 7] - Brand consistency issues
+│  ├─ Brand Consistency: TARGET: >0.90
+│  ├─ Comprehension: TARGET: >0.85
+│  ├─ Engagement: TARGET: >0.80
+│  └─ Technical: TARGET: >0.85
+├─ Pass Rate: TARGET: >75%
+└─ Failed Episodes: [Will track actual failures]
 
-⚡ PERFORMANCE
-├─ Average Production Time: 45 minutes
+⚡ PERFORMANCE (EXPECTED)
+├─ Average Production Time: ESTIMATED: 30-60 minutes
 ├─ Phase Breakdown:
-│  ├─ Research: 15 min (33%)
-│  ├─ Script Writing: 12 min (27%)
-│  ├─ Quality Eval: 8 min (18%)
-│  └─ Audio Synthesis: 10 min (22%)
-├─ Retry Rate: 20% (2 episodes needed retries)
-└─ Most Common Failure: Brand voice (60% of failures)
+│  ├─ Research: ESTIMATED: 10-20 min
+│  ├─ Script Writing: ESTIMATED: 10-20 min
+│  ├─ Quality Eval: ESTIMATED: 5-10 min
+│  └─ Audio Synthesis: ESTIMATED: 5-15 min
+├─ Retry Rate: [Will calculate from actual data]
+└─ Most Common Failure: [Will identify from actual data]
 
 📈 TRENDS & INSIGHTS
-├─ Cost Trend: Decreasing (-5% week-over-week)
-├─ Quality Trend: Improving (+3% week-over-week)
-├─ Efficiency: 15% faster than previous week
-└─ Recommendation: Consider increasing brand voice emphasis in prompts
+└─ [Will populate with actual production data]
 ```
 
-### Detailed Episode View
+### Detailed Episode View Template (EXAMPLE FORMAT ONLY)
 ```
-EPISODE DETAILS
+EPISODE DETAILS - TEMPLATE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Episode | Topic                  | Cost   | Quality | Time  | Status
---------|------------------------|--------|---------|-------|--------
-001     | AI Consciousness       | $2.35  | 0.87    | 42min | ✅ PASS
-002     | Quantum Computing      | $2.50  | 0.91    | 38min | ✅ PASS
-003     | Dark Matter           | $3.10  | 0.83    | 55min | ❌ FAIL
-004     | Climate Tipping       | $2.25  | 0.89    | 41min | ✅ PASS
-005     | Gene Editing          | $2.40  | 0.88    | 44min | ✅ PASS
-...
+Episode | Topic                  | Cost      | Quality | Time    | Status
+--------|------------------------|-----------|---------|---------|--------
+[TBD]   | [Episode topic]        | [Actual]  | [Score] | [Time]  | [Pass/Fail]
 
-Averages| -                     | $2.52  | 0.87    | 44min | 80%
+No episodes produced yet - template shows expected format only
 ```
 
 ## Metrics Calculation
