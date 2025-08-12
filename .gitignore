@@ -308,10 +308,13 @@ requirements.txt.backup.*
 
 # Archives and backup directories (anywhere in the tree)
 # - Matches: archive/, archives/, archived/, Archive/, Backups/, backup_2025-*, etc.
+**/[Aa]rchive*/
 **/[Aa]rchive*/**
+**/[Bb]ackup*/
 **/[Bb]ackup*/**
 
 # Claude session backups
+.claude/**/sessions/backups/
 .claude/**/sessions/backups/**
 
 # Session files
