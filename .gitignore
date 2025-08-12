@@ -178,6 +178,7 @@ datasets/
 *.ogg
 *.m4a
 audio_output/
+audio-output/
 audio_cache/
 
 # Cache files
@@ -304,6 +305,14 @@ pyvenv.cfg
 *.backup.*
 README.md.backup.*
 requirements.txt.backup.*
+
+# Archives and backup directories (anywhere in the tree)
+# - Matches: archive/, archives/, archived/, Archive/, Backups/, backup_2025-*, etc.
+**/[Aa]rchive*/**
+**/[Bb]ackup*/**
+
+# Claude session backups
+.claude/**/sessions/backups/**
 
 # Session files
 *.session
