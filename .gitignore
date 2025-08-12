@@ -341,3 +341,6 @@ projects/nobody-knows/output/
 
 # Local test data (not for version control)
 .claude/test-data/
+
+# Scripts containing local-only experimentation
+.claude/scripts/
