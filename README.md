@@ -18,7 +18,7 @@ An automated podcast production system using **Claude Code's native AI capabilit
 
 ## 🏗️ Four-Level Architecture
 
-**Technical:** Hierarchical separation with strict dependency management and approval gates  
+**Technical:** Hierarchical separation with strict dependency management and approval gates
 **Simple:** Like building levels in a video game - you must complete each before unlocking the next
 
 ```
@@ -108,8 +108,8 @@ cd ai-podcasts-nobody-knows
 ```bash
 cp .env.example .env
 # Edit .env with your API keys:
-# PERPLEXITY_API_KEY=pplx-YOUR-KEY
-# ELEVENLABS_API_KEY=sk_YOUR-KEY
+# PERPLEXITY_API_KEY=your-perplexity-key
+# ELEVENLABS_API_KEY=your-elevenlabs-key
 ```
 
 3. **MCPs are already installed locally** (in .claude/mcp-servers/)
@@ -212,6 +212,7 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 ### API Keys
 - `.env` - Contains API keys (git-ignored)
 - `.env.example` - Template for others
+- Pre-commit hooks include secret scanning; see `.pre-commit-config.yaml` and `.secrets.baseline`.
 
 ### MCP Configuration
 - `.mcp.json` - MCP server config (git-ignored)
@@ -226,7 +227,7 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 
 ## 🚶‍♂️ WALK-CRAWL-RUN Learning Progression
 
-**Technical:** Progressive complexity introduction with cost-gated milestones  
+**Technical:** Progressive complexity introduction with cost-gated milestones
 **Simple:** Like learning to cook - first read recipes, then try simple dishes, finally create feasts
 
 ### 🚶 WALK Phase (Weeks 1-4) - Current Phase 🎯
@@ -234,7 +235,7 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 - **Focus:** Understanding concepts without spending money
 - **Activities:**
   - ✅ Set up environment
-  - ✅ Read all context files  
+  - ✅ Read all context files
   - ✅ Create agent/command structures
   - ⏳ Test with mock data
 - **Status:** Phase 6 complete, Phase 7 pending restart
