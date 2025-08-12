@@ -16,7 +16,7 @@
 
 📋 **DESIGN CERTIFICATION ONLY**
 
-The Nobody Knows Podcast Production System DESIGN has been reviewed and validated. This represents architectural completeness, NOT actual production testing.
+The Nobody Knows Podcast Production System DESIGN has been reviewed. This represents architectural completeness, NOT actual production testing or validation.
 
 **Status**: DESIGN COMPLETE - PRODUCTION TESTING PENDING
 
@@ -29,17 +29,17 @@ The Nobody Knows Podcast Production System DESIGN has been reviewed and validate
 All 3 critical blocking issues from the 50-branch analysis have been addressed IN DESIGN:
 
 1. **Tool Integration Issue** 📋 DESIGNED
-   - ElevenLabs tool references corrected (6 locations validated)
+   - ElevenLabs tool references corrected in design (6 locations identified)
    - Audio synthesis pipeline functional
    - Validation: `grep "mcp__ElevenLabs__text_to_speech" .claude/level-2-production/agents/09_audio_synthesizer.md`
 
 2. **Missing Sessions Directory** 📋 DESIGNED
    - Complete sessions infrastructure deployed
    - Templates and backup systems operational
-   - Validation: Sessions directory structure with templates confirmed
+   - Design: Sessions directory structure with templates specified
 
 3. **Configuration References** 📋 DESIGNED
-   - 133 configuration files validated
+   - 133 configuration files identified in design
    - All reference paths resolved
    - No broken configuration dependencies
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="learning-guide" id="03" version="3.0.0" claude-code-optimized="true">
   <metadata>
     <title>Hobbyist Focus - Personal AI Learning with Development Acceleration</title>
@@ -338,7 +339,7 @@
         <integration>Use Claude Code to rapidly iterate on agent designs while building deep orchestration understanding</integration>
       </month>
 
-      <months number="4-6" focus="Optimization & Refinement">
+      <months number="4-6" focus="Optimization &amp; Refinement">
         <ai-mastery>Master complex orchestration patterns, optimize agent interactions, build robust error handling</ai-mastery>
         <quality-goals>Improve episode quality, optimize costs, add advanced features</quality-goals>
         <claude-code-mastery>Advanced automation, MCP integrations, custom subagents, optimization patterns</claude-code-mastery>
@@ -393,13 +394,13 @@
 
   <validation-notes>
     <learning-approach>
-      Hobbyist learning methodology validated from educational psychology
+      Hobbyist learning methodology BASED ON educational psychology
       research on intrinsic motivation and self-directed learning (2025-08-10)
     </learning-approach>
 
     <dual-learning-validation>
-      Dual-track learning approach (AI concepts + development tools) validated
-      from cognitive load theory and skill transfer research (2025-08-10)
+      Dual-track learning approach (AI concepts + development tools) BASED ON
+      cognitive load theory and skill transfer research (2025-08-10)
     </dual-learning-validation>
 
     <claude-code-hobbyist-fit>
