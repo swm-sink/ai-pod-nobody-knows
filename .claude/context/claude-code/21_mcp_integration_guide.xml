@@ -58,7 +58,7 @@ EOF">
                     <scenario>Setting up Perplexity MCP server for research</scenario>
                     <implementation>
 # 1. Create .env with actual API key
-echo "PERPLEXITY_API_KEY=pplx-your-actual-key-here" > .env
+echo "PERPLEXITY_API_KEY=pplx-your-actual-key-here" > .env  # pragma: allowlist secret
 
 # 2. Start Claude with environment loaded
 ./start-claude.sh
