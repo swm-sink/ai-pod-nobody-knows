@@ -27,7 +27,7 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 - **Emergency Navigation**: `@08_troubleshooting_guide.md → @09_quick_reference.md`
 
 ### 🔑 Constants Files (Start Here!)
-- **[00_GLOBAL_CONSTANTS.xml](./00_GLOBAL_CONSTANTS.xml)** ⭐ - Project-wide specifications
+- **[00_GLOBAL_CONSTANTS.xml](./00_GLOBAL_CONSTANTS.xml)** ⭐ - Project-wide specifications (125 episodes, $4-8 target cost)
 - **[context/elevenlabs/00_elevenlabs_constants.xml](./context/elevenlabs/00_elevenlabs_constants.xml)** - Voice synthesis specs
 - **[context/claude-code/00_claude_code_constants.xml](./context/claude-code/00_claude_code_constants.xml)** - Development platform specs
 - **[context/foundation/00_project_constants.xml](./context/foundation/00_project_constants.xml)** - Learning structure specs
@@ -236,4 +236,4 @@ The DRY principle ensures consistency and maintainability while preserving educa
 
 *Last Updated: January 2025*
 *Documentation System Version: 2.0.0 (DRY-Compliant)*
-*Total Files: 58 markdown files, all following DRY principles*
+*Total Files: 307+ files, all following DRY principles and Zero Hallucination Policy*

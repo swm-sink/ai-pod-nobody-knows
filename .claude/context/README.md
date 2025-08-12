@@ -165,7 +165,7 @@ Global Constants (project-wide)
 ## ⚡ Quick Navigation
 
 ### Looking for...
-- **Project specs** → [Global Constants](../00_GLOBAL_CONSTANTS.xml)
+- **Project specs** → [Global Constants](../00_GLOBAL_CONSTANTS.xml) (125 episodes, 9 agents)
 - **Learning structure** → [Foundation Constants](./foundation/00_project_constants.xml)
 - **Voice synthesis** → [ElevenLabs Constants](./elevenlabs/00_elevenlabs_constants.xml)
 - **Development tools** → [Claude Code Constants](./claude-code/00_claude_code_constants.xml)
@@ -183,7 +183,7 @@ Global Constants (project-wide)
 
 ## 📊 Documentation Metrics
 
-**Total Files**: 58 markdown files
+**Total Files**: 58+ documentation files in context directory
 **DRY Violations**: 0 (eliminated through constants system)
 **Cross-References**: 200+ links between files
 **Constants Files**: 6 domain-specific files
@@ -211,4 +211,4 @@ File C: "For our EPISODE_SPECS['duration_minutes']-minute podcast costing COST_T
 
 ---
 
-*This documentation system demonstrates enterprise-grade DRY principles while maintaining educational value and accessibility.*
+*This documentation system demonstrates enterprise-grade DRY principles with Zero Hallucination Policy enforcement.*

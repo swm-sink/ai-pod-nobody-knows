@@ -161,11 +161,11 @@ claude /produce-episode --topic "consciousness" --episode 1
 ## 💰 Actual Costs
 
 ### Target Budget (Solo/Hobby)
-- **Per Episode**: <$5.00
+- **Per Episode**: ESTIMATED <$5.00
 - **Daily Limit**: $10.00
 - **Alert at**: $4.00
 
-### API Costs
+### API Costs (ESTIMATED)
 - **Perplexity**: Research (~$2-3)
 - **ElevenLabs**: Audio synthesis (~$1-2)
 - **Claude Code**: Built-in (no extra cost)
@@ -174,32 +174,23 @@ claude /produce-episode --topic "consciousness" --episode 1
 
 ## 🤖 Actual AI Agents
 
-All agents are Markdown files in `.claude/level-2-production/agents/`:
+All agents are Markdown files in `.claude/level-2-production/agents/` (9 agents total):
 
-1. **research-coordinator.md**
-   - Uses Perplexity MCP for web research
-   - Outputs to projects/nobody-knows/output/research/
-
-2. **script-writer.md**
-   - Uses Claude Code natively
-   - Applies Feynman + Fridman style
-   - Outputs to projects/nobody-knows/output/scripts/
-
-3. **quality-evaluator.md**
-   - Uses Claude Code natively
-   - Validates against quality gates
-   - Outputs to projects/nobody-knows/output/quality/
-
-4. **audio-synthesizer.md**
-   - Uses ElevenLabs MCP
-   - Generates MP3 audio
-   - Outputs to projects/nobody-knows/output/audio/
+1. **research-coordinator.md** - Perplexity MCP for web research
+2. **script-writer.md** - Claude Code for script generation
+3. **quality-evaluator.md** - Claude Code for quality validation
+4. **audio-synthesizer.md** - ElevenLabs MCP for audio generation
+5. **post-production-optimizer.md** - Audio optimization and mastering
+6. **episode-orchestrator.md** - Main production coordinator
+7. **multi-agent-supervisor.md** - Multi-agent coordination
+8. **gemini-quality-validator.md** - Dual-model validation (PLANNED)
+9. **cost-optimizer.md** - Token usage optimization
 
 ---
 
 ## 🎯 The "Nobody Knows" Podcast
 
-100 episodes exploring the limits of human knowledge with intellectual humility.
+125 episodes exploring the limits of human knowledge with intellectual humility.
 
 ### Quality Standards
 - **Comprehension**: ≥0.85
@@ -208,8 +199,8 @@ All agents are Markdown files in `.claude/level-2-production/agents/`:
 - **Technical Accuracy**: ≥0.85
 
 ### Season Structure
-10 seasons × 10 episodes = 100 episodes total
-(See season1_topics.csv for episode topics)
+5 seasons × 25 episodes = 125 episodes total
+(See projects/nobody-knows/series_plan/episodes_master.json for complete episode list)
 
 ---
 
@@ -319,7 +310,7 @@ This is a solo hobby project, but if you want to use it:
 
 ## 📄 License
 
-No license file exists yet (README.md incorrectly claims MIT)
+MIT License (see LICENSE file)
 
 ---
 
@@ -331,4 +322,6 @@ No license file exists yet (README.md incorrectly claims MIT)
 
 ---
 
-**This document reflects the ACTUAL state of the project as of 2025-08-11**
+**This document reflects the ACTUAL state of the project as of 2025-08-12**
+
+⚠️ **Zero Hallucination Policy**: All claims in this document have been verified. See CLAUDE.md for enforcement standards.
