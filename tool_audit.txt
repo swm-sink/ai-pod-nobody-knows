@@ -10,10 +10,10 @@ Line 4: tools: [perplexity_ask, Read, TodoWrite, Write]
 Tools Declared: 4
 - perplexity_ask (EXTERNAL - MCP)
 - Read (APPROVED)
-- TodoWrite (APPROVED)  
+- TodoWrite (APPROVED)
 - Write (APPROVED)
 
-### Agent 02: Episode Planner  
+### Agent 02: Episode Planner
 File: /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-2-production/agents/02_episode_planner.md
 Line 4: tools: [Read, Write, Grep, TodoWrite]
 Tools Declared: 4
@@ -23,7 +23,7 @@ Tools Declared: 4
 - TodoWrite (APPROVED)
 
 ### Agent 03: Script Writer
-File: /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-2-production/agents/03_script_writer.md  
+File: /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-2-production/agents/03_script_writer.md
 Line 4: tools: [Read, Write, Edit, MultiEdit, LS, TodoWrite]
 Tools Declared: 6
 - Read (APPROVED)

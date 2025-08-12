@@ -15,7 +15,7 @@
 - **Configuration Required:** MCP Server setup for Perplexity
 - **Fallback Available:** No direct fallback, research workflow depends on this
 
-### EXTERNAL TOOL #2: text_to_speech  
+### EXTERNAL TOOL #2: text_to_speech
 - **Agent Using:** 09_audio_synthesizer.md
 - **Declaration Line:** 4
 - **Tool Type:** MCP (Model Context Protocol)
@@ -34,8 +34,8 @@
    - Setup Command: claude mcp add perplexity
    - API Key Required: Yes
    - Cost Impact: Per-query pricing
-   
-2. **ElevenLabs MCP Server**  
+
+2. **ElevenLabs MCP Server**
    - Required for: Audio Synthesizer agent
    - Setup Command: claude mcp add elevenlabs
    - API Key Required: Yes
