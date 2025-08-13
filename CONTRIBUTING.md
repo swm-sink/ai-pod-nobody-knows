@@ -109,6 +109,36 @@ pre-commit run --all-files
 - **Agents**: `##_agent_name.md` (numbered)
 - **Commands**: `verb-noun.md`
 
+### Output File Locations
+
+**IMPORTANT**: Never generate files in the root directory. Use these standard locations:
+
+- **Analysis outputs**: `.claude/level-2-production/analysis/`
+  - XML transformation plans
+  - Semantic analysis results
+  - Code analysis reports
+
+- **Validation reports**: `.claude/level-2-production/reports/`
+  - Compliance reports
+  - Audit results
+  - Validation summaries
+  - Release reports
+
+- **Temporary files**: `.claude/archive/`
+  - One-time analysis
+  - Historical validations
+  - Backup documents
+
+- **Session data**: `projects/nobody-knows/output/sessions/`
+  - Episode production sessions
+  - Pipeline state tracking
+
+**Root Directory**: Reserved ONLY for:
+- README.md, CONTRIBUTING.md, DEPLOYMENT.md
+- LICENSE, CODE_OF_CONDUCT.md
+- requirements.txt, dev-requirements.txt
+- Configuration files (.gitignore, .pre-commit-config.yaml, etc.)
+
 ### Documentation Requirements
 
 **EVERY contribution must include:**
@@ -284,7 +314,7 @@ Add screenshots or terminal output
 ### Contact
 - **GitHub Issues**: Technical problems and bugs
 - **GitHub Discussions**: Ideas and questions
-- **Repository**: https://github.com/smenssink/ai-podcasts-nobody-knows
+- **Repository**: [GitHub](https://github.com/swm-sink/ai-podcasts-nobody-knows)
 
 ## 🙏 Recognition
 

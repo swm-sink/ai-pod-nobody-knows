@@ -17,7 +17,7 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
+git clone https://github.com/swm-sink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 
 # 2. Create virtual environment
@@ -64,7 +64,7 @@ cp .env.example .env
 
 1. **Clone and Navigate:**
 ```bash
-git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
+git clone https://github.com/swm-sink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 ```
 
@@ -360,7 +360,7 @@ bash .claude/level-2-production/tools/fix-agent-dependencies.sh
 ### Getting Help
 
 1. **Documentation First**: Check `.claude/context/operations/01_troubleshooting_guide.xml`
-2. **GitHub Issues**: [Create an issue](https://github.com/smenssink/ai-podcasts-nobody-knows/issues)
+2. **GitHub Issues**: [Create an issue](https://github.com/swm-sink/ai-podcasts-nobody-knows/issues)
 3. **GitHub Discussions**: Share experiences and tips
 4. **Context Files**: Extensive documentation in `.claude/context/`
 
@@ -383,7 +383,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
 
 ## 🎓 What This Deployment Teaches You
 
-**Technical:** This deployment guide demonstrates production deployment practices including environment configuration, dependency management, scaling strategies, cost optimization, monitoring setup, and operational procedures.
+**Technical:** This guide demonstrates production deployment practices including environment configuration, dependency management, scaling strategies, cost optimization, and monitoring setup.
 
 **Simple:** Like getting a complex machine ready to run in a factory - you need to install it correctly, configure all the settings, test everything works, and know how to fix problems when they arise.
 

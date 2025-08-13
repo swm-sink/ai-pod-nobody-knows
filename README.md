@@ -110,7 +110,7 @@ ai-podcasts-nobody-knows/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
+git clone https://github.com/swm-sink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 ```
 

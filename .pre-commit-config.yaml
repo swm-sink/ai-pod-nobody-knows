@@ -82,3 +82,10 @@ repos:
         entry: scripts/precommit/validate_naming_conventions.sh
         language: system
         files: \.(md|xml|yaml|json)$
+
+      - id: prevent-root-pollution
+        name: prevent root directory pollution
+        entry: scripts/precommit/prevent_root_pollution.sh
+        language: system
+        pass_filenames: false
+        stages: [commit]
