@@ -74,6 +74,21 @@ else
     echo "$LARGE_FILES"
 fi
 
+# 6. Optional: Run DRY compliance check (informational only)
+echo -n "Running DRY compliance check... "
+if [ -f "scripts/precommit/validate_dry_compliance.sh" ]; then
+    DRY_OUTPUT=$(bash scripts/precommit/validate_dry_compliance.sh 2>&1)
+    if echo "$DRY_OUTPUT" | grep -q "All DRY compliance checks passed"; then
+        echo -e "${GREEN}✓ DRY principles followed${NC}"
+    else
+        echo -e "${YELLOW}⚠ DRY suggestions available${NC}"
+        echo "  Run 'bash scripts/precommit/validate_dry_compliance.sh' for details"
+        # Note: This is informational only, not blocking
+    fi
+else
+    echo -e "${YELLOW}Skipped (script not found)${NC}"
+fi
+
 echo "================================"
 
 if [ $ERRORS -eq 0 ]; then

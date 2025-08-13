@@ -96,7 +96,11 @@ validate_markdown_links() {
         if [[ "$url" =~ ^\./ ]]; then
             resolved_path="$dir/${url#./}"
         elif [[ "$url" =~ ^\.\. ]]; then
-            resolved_path=$(realpath "$dir/$url" 2>/dev/null)
+            if command -v realpath >/dev/null 2>&1; then
+                resolved_path=$(realpath "$dir/$url" 2>/dev/null)
+            else
+                resolved_path=$(python3 -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "$dir/$url" 2>/dev/null)
+            fi
         else
             resolved_path="$url"
         fi

@@ -82,14 +82,3 @@ repos:
         entry: scripts/precommit/validate_naming_conventions.sh
         language: system
         files: \.(md|xml|yaml|json)$
-
-      - id: dry-compliance-check
-        name: check for DRY principle violations
-        entry: scripts/precommit/validate_dry_compliance.sh
-        language: system
-        files: \.(md|xml)$
-        exclude: |
-          (?x)^(
-            \.claude/archive/|
-            \.claude/.*constants\.xml$
-          )

@@ -6,11 +6,11 @@
 
 ## 🎯 What This Is
 
-A production-ready automated podcast system using **Claude Code's native AI capabilities** to create a 125-episode series called "Nobody Knows" - teaching AI through intellectual humility and dual explanations. (See `projects/nobody-knows/series_plan/episodes_master.json` for complete episode list)
+A production-ready automated podcast system using Claude Code's native AI to create the "Nobody Knows" series. See `projects/nobody-knows/series_plan/episodes_master.json` for the complete episode list.
 
-### Built With:
+### Built With
 - **9 specialized Claude Code agents** for complete production pipeline
-- **MCP integrations** for research (Perplexity) and audio (ElevenLabs) 
+- **MCP integrations** for research (Perplexity) and audio (ElevenLabs)
 - **4-level architecture** with strict separation of concerns
 - **Educational focus** with mandatory dual explanations (technical + simple)
 
@@ -21,7 +21,7 @@ A production-ready automated podcast system using **Claude Code's native AI capa
 **Technical:** Hierarchical separation with strict dependency management and approval gates
 **Simple:** Like building levels in a video game - you must complete each before unlocking the next
 
-```
+```text
 Level 1: Development Platform (COMPLETE)
 ├── Purpose: Build tools that build the production system
 ├── Location: .claude/level-1-dev/
@@ -50,7 +50,7 @@ Level 4: Coded Python Platform (LOCKED 🔒)
 ├── Status: ⚠️ REQUIRES EXPLICIT USER APPROVAL
 ├── Gate: User must say "Approved for Level 4 implementation"
 └── Learning: Enterprise patterns and observability
-```
+```text
 
 ---
 
@@ -59,7 +59,7 @@ Level 4: Coded Python Platform (LOCKED 🔒)
 ```
 ai-podcasts-nobody-knows/
 ├── .env                           # API keys (git-ignored)
-├── .mcp.json                      # MCP configuration (git-ignored)
+├── .claude/config/mcp-config.json # MCP configuration
 ├── CLAUDE.md                      # Master system prompt (v5.0.0)
 ├── README.md                      # This file
 │
@@ -108,12 +108,14 @@ ai-podcasts-nobody-knows/
 ### Installation Steps
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 ```
 
 2. **Set up API keys**
+
 ```bash
 cp .env.example .env
 # Edit .env with your API keys:
@@ -121,13 +123,14 @@ cp .env.example .env
 # ELEVENLABS_API_KEY=your-elevenlabs-key
 ```
 
-3. **MCPs are already installed locally** (in .claude/mcp-servers/)
-   - Already configured in .mcp.json
+3. **MCPs configured locally** (in .claude/mcp-servers/)
+   - Configuration: `.claude/config/mcp-config.json`
    - Git-ignored for security
 
 4. **Restart Claude Code** to load MCPs
 
 5. **Install dev dependencies (recommended)**
+
 ```bash
 python3 -m pip install -r requirements.txt
 python3 -m pip install -r dev-requirements.txt
@@ -146,6 +149,7 @@ pre-commit install
 ### Producing an Episode (Claude Code Commands)
 
 **In Claude Code interface:**
+
 ```
 # Test with dry run first (no API costs)
 /test-episode-dry-run
@@ -200,7 +204,7 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 
 ## 🎯 The "Nobody Knows" Podcast
 
-125 episodes exploring the limits of human knowledge with intellectual humility.
+EPISODE_SPECS['total_episodes'] episodes exploring the limits of human knowledge with intellectual humility.
 
 ### Quality Standards
 - **Comprehension**: ≥0.85
@@ -222,8 +226,7 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 - Pre-commit hooks include secret scanning; see `.pre-commit-config.yaml` and `.secrets.baseline`.
 
 ### MCP Configuration
-- `.mcp.json` - MCP server config (git-ignored)
-- `.mcp.json.example` - Template for others
+- `.claude/config/mcp-config.json` - MCP server config
 
 ### Project Config
 - `projects/nobody-knows/config/project_config.json`
@@ -242,7 +245,7 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 - **Focus:** Understanding concepts without spending money
 - **Activities:**
   - ✅ Set up environment
-  - ✅ Read all context files  
+  - ✅ Read all context files
   - ✅ Create agent/command structures
   - ✅ Test with mock data
 - **Status:** Complete - Ready for CRAWL phase

@@ -126,6 +126,14 @@ validate_yaml_naming() {
     local file="$1"
     local basename=$(basename "$file")
 
+    # Special config files that must keep their exact names
+    if [[ "$basename" == ".pre-commit-config.yaml" ]] ||
+       [[ "$basename" == ".gitleaks.toml" ]] ||
+       [[ "$basename" == ".yamllint" ]]; then
+        log_success "Special config file naming allowed: $file"
+        return 0
+    fi
+
     # YAML files should use kebab-case or snake_case
     if [[ "$basename" =~ ^[a-z0-9_-]+\.(yaml|yml)$ ]]; then
         log_success "YAML naming correct: $file"
@@ -143,6 +151,15 @@ validate_yaml_naming() {
 validate_json_naming() {
     local file="$1"
     local basename=$(basename "$file")
+
+    # Special config files that must keep their exact names
+    if [[ "$basename" == ".markdownlint.json" ]] ||
+       [[ "$basename" == ".secrets.baseline" ]] ||
+       [[ "$basename" == "tsconfig.json" ]] ||
+       [[ "$basename" == "package.json" ]]; then
+        log_success "Special JSON config naming allowed: $basename"
+        return 0
+    fi
 
     # JSON files should use kebab-case or snake_case
     if [[ "$basename" =~ ^[a-z0-9_-]+\.json$ ]]; then

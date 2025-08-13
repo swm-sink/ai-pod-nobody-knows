@@ -22,13 +22,7 @@ echo "Project root: $PROJECT_ROOT"
 echo ""
 
 AGENTS_DIR=".claude/level-2-production/agents"
-BACKUP_DIR=".claude/level-2-production/agents/backups/dependency-fix-$(date +%Y%m%d_%H%M)"
-
-# Create backup
-echo "📁 Creating backup..."
-mkdir -p "$BACKUP_DIR"
-cp -r "$AGENTS_DIR"/*.md "$BACKUP_DIR"/
-echo -e "${GREEN}✓ Backup created: $BACKUP_DIR${NC}"
+echo "📁 Skipping repo backups per atomic commit policy (use git for rollback)"
 
 echo ""
 echo "🔍 Identifying problematic references..."
@@ -86,7 +80,7 @@ fix_agent_file() {
         echo -e "  ${YELLOW}- No changes needed for $agent_name${NC}"
     fi
 
-    # Clean up backup files
+    # Clean up sed backup files
     rm -f "$temp_file.bak"
 }
 
@@ -177,7 +171,7 @@ echo "🔧 DEPENDENCY FIX RESULTS"
 echo "=================================="
 echo -e "Files processed: ${GREEN}$(ls "$AGENTS_DIR"/*.md | wc -l)${NC}"
 echo -e "Fixes applied: ${GREEN}$FIXES_APPLIED${NC}"
-echo -e "Backup location: ${YELLOW}$BACKUP_DIR${NC}"
+echo -e "Backup location: ${YELLOW}(use git history)${NC}"
 echo ""
 
 if [ $FIXES_APPLIED -gt 0 ]; then
@@ -188,8 +182,8 @@ if [ $FIXES_APPLIED -gt 0 ]; then
     echo "2. Test agent pipeline functionality"
     echo "3. Commit changes if validation passes"
     echo ""
-    echo "To restore backup if needed:"
-    echo "  cp $BACKUP_DIR/*.md $AGENTS_DIR/"
+    echo "To restore previous version if needed:"
+    echo "  git checkout -- $AGENTS_DIR/*.md"
 else
     echo -e "${YELLOW}⚠️  NO FIXES NEEDED${NC}"
     echo "All agents already have clean dependencies"

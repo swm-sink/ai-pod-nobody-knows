@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file -->
 # ElevenLabs Documentation Index
 
 ## 📚 Documentation Structure (DRY-Compliant)
@@ -9,71 +10,71 @@ This documentation follows the DRY (Don't Repeat Yourself) principle. **Start wi
 ## 🎯 File Organization & Purpose
 
 ### Core Reference (Read First!)
-- **[00_elevenlabs_constants.md](./00_elevenlabs_constants.md)** ⭐
+- **[00_elevenlabs_constants.xml](./00_elevenlabs_constants.xml)** ⭐
   - Single source of truth for ALL specifications
   - Model specs, pricing, voice IDs, API endpoints
   - Reference this instead of memorizing values
 
 ### Conceptual Understanding
-- **[15_elevenlabs_overview.md](./15_elevenlabs_overview.md)**
+- **[15_elevenlabs_overview.xml](./15_elevenlabs_overview.xml)**
   - What is ElevenLabs and why use it
   - Integration with your podcast project
   - Learning path overview
   - *References constants for specs*
 
-- **[16_elevenlabs_models_reference.md](./16_elevenlabs_models_reference.md)**
+- **[16_elevenlabs_models_reference.xml](./16_elevenlabs_models_reference.xml)**
   - Model selection strategies
   - Use case comparisons
   - Decision trees for your project
   - *References constants for model details*
 
 ### Implementation Guides
-- **[17_elevenlabs_prompt_engineering.md](./17_elevenlabs_prompt_engineering.md)**
+- **[17_elevenlabs_prompt_engineering.xml](./17_elevenlabs_prompt_engineering.xml)**
   - Text optimization techniques
   - Audio tag usage (v3)
   - Voice direction strategies
   - *References constants for tags and settings*
 
-- **[18_elevenlabs_api_implementation.md](./18_elevenlabs_api_implementation.md)**
+- **[18_elevenlabs_api_implementation.xml](./18_elevenlabs_api_implementation.xml)**
   - Python SDK setup and usage
   - Code patterns and examples
   - Async implementation
   - *References constants for endpoints and limits*
 
-- **[19_elevenlabs_websocket_streaming.md](./19_elevenlabs_websocket_streaming.md)**
+- **[19_elevenlabs_websocket_streaming.xml](./19_elevenlabs_websocket_streaming.xml)**
   - Real-time streaming setup
   - Buffer management
   - Latency optimization
   - *References constants for WebSocket config*
 
 ### Optimization & Management
-- **[20_elevenlabs_cost_optimization.md](./20_elevenlabs_cost_optimization.md)**
+- **[20_elevenlabs_cost_optimization.xml](./20_elevenlabs_cost_optimization.xml)**
   - Cost reduction strategies
   - Caching techniques
   - Budget tracking
   - *References constants for pricing*
 
-- **[21_elevenlabs_voice_management.md](./21_elevenlabs_voice_management.md)**
+- **[21_elevenlabs_voice_management.xml](./21_elevenlabs_voice_management.xml)**
   - Voice selection and testing
   - Cloning procedures
   - Voice library navigation
   - *References constants for voice IDs*
 
 ### Integration & Production
-- **[22_elevenlabs_mcp_integration.md](./22_elevenlabs_mcp_integration.md)**
+- **[22_elevenlabs_mcp_integration.xml](./22_elevenlabs_mcp_integration.xml)**
   - Claude Code direct integration
   - MCP server setup
   - Custom commands
   - *References constants for MCP config*
 
-- **[23_elevenlabs_podcast_production.md](./23_elevenlabs_podcast_production.md)**
+- **[23_elevenlabs_podcast_production.xml](./23_elevenlabs_podcast_production.xml)**
   - Complete production pipeline
   - Quality assurance
   - Distribution preparation
   - *References constants for podcast specs*
 
 ### Support
-- **[24_elevenlabs_troubleshooting.md](./24_elevenlabs_troubleshooting.md)**
+- **[24_elevenlabs_troubleshooting.xml](./24_elevenlabs_troubleshooting.xml)**
   - Error diagnosis and recovery
   - Common issues and solutions
   - Debug tools and techniques

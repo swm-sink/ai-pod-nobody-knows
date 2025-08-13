@@ -119,7 +119,12 @@ if [ -n "$PERPLEXITY_API_KEY" ]; then
 
     # Test 6: Test Perplexity API connectivity (lightweight test)
     echo "Testing Perplexity API connectivity (may take 10-15 seconds)..."
-    PERPLEXITY_TEST=$(timeout 15 bash -c '
+    # macOS may not have `timeout`; use `gtimeout` if available, else skip with warning
+    TIMEOUT_BIN="timeout"
+    if ! command -v timeout >/dev/null 2>&1 && command -v gtimeout >/dev/null 2>&1; then
+        TIMEOUT_BIN="gtimeout"
+    fi
+    PERPLEXITY_TEST=$("$TIMEOUT_BIN" 15 bash -c '
         if [ -n "$PERPLEXITY_API_KEY" ]; then
             # Test basic curl to Perplexity API
             curl -s -H "Authorization: Bearer $PERPLEXITY_API_KEY" \
@@ -129,7 +134,7 @@ if [ -n "$PERPLEXITY_API_KEY" ]; then
         else
             exit 1
         fi
-    ' 2>/dev/null)
+    ' 2>/dev/null || echo "TIMEOUT_BIN_MISSING")
 
     if [ $? -eq 0 ]; then
         run_test "Perplexity API responds to test query" \
