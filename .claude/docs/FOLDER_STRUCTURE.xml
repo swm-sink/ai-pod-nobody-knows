@@ -27,7 +27,7 @@
 │   └── templates/             # Reusable templates
 │       └── episode_structure.md
 │
-├── context/                   # Documentation & learning guides (ALL levels)
+├── context/                   # Documentation &amp; learning guides (ALL levels)
 │   ├── foundation/            # Project basics (6 files)
 │   │   ├── 00_project_constants.md
 │   │   ├── 01_project_overview.md
@@ -120,7 +120,7 @@
 │   └── sessions/              # Episode production tracking
 │       └── episode-session-template.json
 │
-├── level-3-platform-dev/      # Platform Planning & Design
+├── level-3-platform-dev/      # Platform Planning &amp; Design
 │   └── openrouter/            # OpenRouter integration docs
 │       ├── 00_openrouter_constants.md
 │       ├── 25_openrouter_overview.md

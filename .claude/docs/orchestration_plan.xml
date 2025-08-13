@@ -278,7 +278,7 @@ CONVERSION RULES:
 1. Preserve ALL educational content
 2. Maintain dual explanations (technical + simple)
 3. Convert markdown links to XML cross-references
-4. Extract code blocks to <code-example> tags
+4. Extract code blocks to &lt;code-example&gt; tags
 5. Preserve learning objectives and prerequisites
 
 QUALITY CHECKS PER FILE:
@@ -408,9 +408,9 @@ VALIDATION RULES:
 5. No XML contamination in code blocks
 
 COMMON ISSUES TO FIX:
-- Unclosed tags: <example> without </example>
-- Markdown in XML: <item>**text**</item>
-- Escaped characters: &lt; instead of <
+- Unclosed tags: &lt;example&gt; without &lt;/example&gt;
+- Markdown in XML: &lt;item&gt;**text**&lt;/item&gt;
+- Escaped characters: &amp;lt; instead of &lt;
 - Missing semantic structure
 
 FIXING STRATEGY:

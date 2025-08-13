@@ -92,7 +92,7 @@
         - COST_LIMIT_PER_EPISODE: $9.00
         - PERPLEXITY_LIMIT: $3.00 per episode
         - ELEVENLABS_LIMIT: $2.00 per episode
-        - Development session target: < $5.00
+        - Development session target: &lt; $5.00
       </cost-limits>
 
       <quality-targets>

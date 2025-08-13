@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="reference" version="3.1.0" enhanced="2025-08-13">
   <metadata>
     <title>Constants Template - Domain Constants and Configuration</title>
@@ -175,7 +176,7 @@
           <status value="excellent">Score ≥ 0.95</status>
           <status value="good">Score ≥ 0.85</status>
           <status value="acceptable">Score ≥ 0.75</status>
-          <status value="poor">Score < 0.75</status>
+          <status value="poor">Score &lt; 0.75</status>
         </status-set>
       </status-values>
 

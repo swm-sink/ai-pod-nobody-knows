@@ -222,19 +222,19 @@
     <success-metrics>
       <development-efficiency>
         <measurement>Time to create functional, tested tools</measurement>
-        <target>< 30 minutes for simple agents, < 60 minutes for complex workflows</target>
+        <target>&lt; 30 minutes for simple agents, &lt; 60 minutes for complex workflows</target>
         <improvement-strategy>Template optimization, process automation, skill development</improvement-strategy>
       </development-efficiency>
 
       <quality-consistency>
         <measurement>Percentage of tools passing all validation checks on first attempt</measurement>
-        <target>> 90% first-pass success rate</target>
+        <target>&gt; 90% first-pass success rate</target>
         <improvement-strategy>Better templates, enhanced validation, developer training</improvement-strategy>
       </quality-consistency>
 
       <cost-effectiveness>
         <measurement>Cost per functional tool created</measurement>
-        <target>< $2.00 per simple agent, < $5.00 per complex workflow</target>
+        <target>&lt; $2.00 per simple agent, &lt; $5.00 per complex workflow</target>
         <improvement-strategy>Tool selection optimization, batch processing, reuse patterns</improvement-strategy>
       </cost-effectiveness>
 
