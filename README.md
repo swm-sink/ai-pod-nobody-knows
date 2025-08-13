@@ -204,7 +204,7 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 
 ## 🎯 The "Nobody Knows" Podcast
 
-EPISODE_SPECS['total_episodes'] episodes exploring the limits of human knowledge with intellectual humility.
+125 episodes exploring the limits of human knowledge with intellectual humility.
 
 ### Quality Standards
 - **Comprehension**: ≥0.85
