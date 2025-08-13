@@ -17,7 +17,7 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/ai-podcasts-nobody-knows.git
+git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 
 # 2. Create virtual environment
@@ -27,38 +27,36 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Install Claude Code CLI
-npm install -g @anthropic/claude-code
-
-# 5. Configure environment
+# 4. Configure environment
 cp .env.example .env
 # Edit .env with your API keys (see Configuration section)
 
-# 6. Initialize the system
-claude code --init
+# 5. Start Claude Code
+# Open Claude Code application (desktop app)
+# Navigate to this project directory
 
-# 7. Run your first test (no API keys needed!)
-claude code --command /walk-phase-test
+# 6. Run your first test (no API keys needed!)
+# In Claude Code interface, run:
+/test-episode-dry-run
 ```
 
 ## 📚 Prerequisites
 
 ### Required Software
-- **Python 3.9+** - Core runtime
-- **Node.js 18+** - For Claude Code CLI
+- **Python 3.11+** - Core runtime
+- **Node.js 18+** - For MCP servers (Perplexity)
 - **Git** - Version control
-- **Claude Code CLI** - AI development platform
+- **Claude Code** - AI development platform (desktop app)
 
 ### Recommended Software
-- **Docker** (optional) - For containerized deployment
-- **PostgreSQL** (optional) - For production session storage
-- **Redis** (optional) - For caching and queues
+- **Pre-commit** - For automated code quality checks
+- **Virtual environment** - Python dependency isolation
+- **VS Code** - For editing XML documentation
 
 ### API Keys (for CRAWL phase and beyond)
-- **Anthropic Claude API** - For AI agents
-- **Perplexity API** (optional) - For research enhancement
-- **ElevenLabs API** (optional) - For audio synthesis
-- **OpenAI API** (optional) - For GPT-based quality validation
+- **Perplexity API** - For research (via MCP)
+- **ElevenLabs API** - For audio synthesis (via MCP)
+- **Note:** Claude Code uses built-in Claude - no separate API key needed
 
 ## 🔧 Installation
 
@@ -66,7 +64,7 @@ claude code --command /walk-phase-test
 
 1. **Clone and Navigate:**
 ```bash
-git clone https://github.com/yourusername/ai-podcasts-nobody-knows.git
+git clone https://github.com/smenssink/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 ```
 
@@ -87,36 +85,28 @@ pip install -r requirements.txt
 
 3. **Claude Code Setup:**
 ```bash
-# Install Claude Code globally
-npm install -g @anthropic/claude-code
-
-# Or use npx (no installation needed)
-npx @anthropic/claude-code --version
+# Claude Code is a desktop application
+# Download from: https://claude.ai/download
+# Install and launch the application
+# Open this project folder in Claude Code
 ```
 
-4. **Initialize Project Memory:**
+4. **Configure MCP Servers:**
 ```bash
-claude code
-# In Claude Code, run:
-/init
+# MCPs are already installed in .claude/mcp-servers/
+# Configure in Claude Code settings or .mcp.json
+# Restart Claude Code to load MCP servers
 ```
 
-### Option 2: Docker Deployment (Production)
+### Option 2: Production Deployment
 
-```bash
-# Build the container
-docker build -t ai-podcasts .
+For production deployment:
+1. Set up proper environment variables in `.env`
+2. Configure cost limits and monitoring
+3. Use batch processing for efficiency
+4. Monitor with `/production-metrics` command
 
-# Run with environment variables
-docker run -it \
-  -e ANTHROPIC_API_KEY=your_key \
-  -v $(pwd)/output:/app/output \
-  ai-podcasts
-```
-
-### Option 3: Cloud Deployment
-
-See `.claude/docs/cloud-deployment.md` for AWS/GCP/Azure instructions.
+See `.claude/level-2-production/docs/QUICK_START_GUIDE.xml` for detailed production setup.
 
 ## ⚙️ Configuration
 
@@ -167,18 +157,20 @@ claude mcp add github
 
 ### Claude Code Settings
 
-Configure Claude Code hooks in `.claude/config/settings.json`:
+Configure Claude Code settings in `.claude/settings.local.json`:
 
 ```json
 {
-  "hooks": {
-    "pre-commit": "python scripts/validate.py",
-    "post-episode": "python scripts/cost-tracker.py",
-    "session-end": "git add . && git commit -m 'Session: $(date)'"
+  "permissions": {
+    "git": true,
+    "filesystem": {
+      "write": true,
+      "delete": true
+    }
   },
-  "memory": {
-    "persistent": true,
-    "location": ".claude/memory"
+  "hooks": {
+    "pre-commit": "bash .claude/hooks/pre-commit-quality.sh",
+    "session-complete": "bash .claude/hooks/session-complete.sh"
   }
 }
 ```
@@ -188,42 +180,35 @@ Configure Claude Code hooks in `.claude/config/settings.json`:
 ### Phase 1: WALK (Free Learning - No API Keys)
 
 ```bash
-# Start Claude Code
-claude code
+# Start Claude Code application
+# Open project folder
 
-# Run free learning activities
-/walk-phase-test
+# In Claude Code interface, run:
+/test-episode-dry-run    # Test without API calls
 
-# Explore the system
-/explore-agents
-/test-pipeline-mock
+# Explore available commands
+/agent-builder-production    # Learn about agents
+/command-builder-production  # Learn about commands
 ```
 
 ### Phase 2: CRAWL (First Real Episode - API Keys Required)
 
 ```bash
 # Ensure .env is configured with API keys
-# Start Claude Code
-claude code
+# Start Claude Code application
 
-# Produce your first episode
-/produce-episode 1
-
-# Monitor progress
-/session-status
-
-# Check costs
-/cost-dashboard
+# In Claude Code interface:
+/produce-episode         # Produce first episode
+/production-metrics      # Monitor progress
+/pipeline-coordinator    # Manage pipeline
 ```
 
 ### Phase 3: RUN (Batch Production)
 
 ```bash
-# Produce multiple episodes
-/batch-production 1-5
-
-# Season management
-/produce-season 1
+# In Claude Code interface:
+/batch-produce          # Produce multiple episodes
+/production-metrics     # View statistics
 ```
 
 ## 🏭 Production Deployment
@@ -248,17 +233,15 @@ claude code
 ### Production Commands
 
 ```bash
-# Start production system
-./scripts/start-production.sh
+# In Claude Code interface:
+/produce-episode        # Single episode production
+/batch-produce          # Multiple episodes
+/production-metrics     # View metrics
+/pipeline-coordinator   # Manage pipeline
 
-# Monitor system health
-./scripts/health-check.sh
-
-# View logs
-tail -f logs/production.log
-
-# Backup session data
-./scripts/backup-sessions.sh
+# Shell commands for monitoring:
+ls projects/nobody-knows/output/sessions/  # View sessions
+tail -f projects/nobody-knows/output/sessions/*.json  # Monitor progress
 ```
 
 ### Scaling Considerations
@@ -286,18 +269,18 @@ tail -f logs/production.log
 4. **Content Reuse**: Leverage memory system
 5. **Monitor Daily**: Check `/cost-dashboard` regularly
 
-### Cost Control Commands
+### Cost Control
 
 ```bash
-# Check current costs
-/cost-dashboard
+# Cost monitoring via environment variables in .env:
+DAILY_COST_LIMIT=10.00
+EPISODE_COST_LIMIT=5.00
 
-# Set cost limits
-/set-cost-limit daily 10.00
-/set-cost-limit episode 5.00
+# Monitor costs with:
+/production-metrics     # View production statistics
 
-# View cost history
-/cost-history 7  # Last 7 days
+# Cost optimization built into agents
+# See .claude/context/ai-orchestration/cost_optimization_strategies.xml
 ```
 
 ## 🔍 Troubleshooting
@@ -308,7 +291,7 @@ tail -f logs/production.log
 ```bash
 Error: Invalid API key
 Solution: Verify .env file and key format
-Test: claude code --test-api
+Test: In Claude Code, test MCP tools directly
 ```
 
 #### 2. Cost Limit Exceeded
@@ -321,39 +304,38 @@ Override: /force-continue (use cautiously)
 #### 3. Agent Pipeline Failures
 ```bash
 Error: Agent 03_script_writer failed
-Solution: Check logs and retry
-Recovery: /retry-from-stage SCRIPT_GENERATION
+Solution: Check session files in projects/nobody-knows/output/sessions/
+Recovery: Review error in session file and retry with /produce-episode
 ```
 
 #### 4. Memory Issues
 ```bash
 Error: Context window exceeded
-Solution: Clear context and continue
-Fix: /clear then /resume-episode
+Solution: Clear context in Claude Code
+Fix: Use Claude Code's clear conversation, then continue
 ```
 
 ### Debug Commands
 
 ```bash
-# Enable verbose logging
-export DEBUG=true
+# Test pipeline without API calls
+/test-episode-dry-run
 
-# Test individual agents
-/test-agent 01_research_coordinator
+# Run validation scripts
+bash scripts/precommit/validate_dry_compliance.sh
+bash scripts/precommit/validate_navigation.sh
 
-# Validate configuration
-/validate-config
-
-# Check system health
-/health-check
+# Check agent dependencies
+bash .claude/level-2-production/tools/fix-agent-dependencies.sh
 ```
 
-### Log Locations
+### Output Locations
 
-- **System Logs**: `logs/system.log`
-- **Episode Logs**: `output/episodes/ep_*/logs/`
-- **Cost Logs**: `logs/costs.log`
-- **Error Logs**: `logs/errors.log`
+- **Session Files**: `projects/nobody-knows/output/sessions/`
+- **Research Output**: `projects/nobody-knows/output/research/`
+- **Scripts**: `projects/nobody-knows/output/scripts/`
+- **Audio Files**: `projects/nobody-knows/output/audio/`
+- **Quality Reports**: `projects/nobody-knows/output/quality/`
 
 ## 📖 Learning Resources
 
@@ -378,9 +360,9 @@ export DEBUG=true
 ### Getting Help
 
 1. **Documentation First**: Check `.claude/context/operations/01_troubleshooting_guide.xml`
-2. **GitHub Issues**: [Create an issue](https://github.com/yourusername/ai-podcasts-nobody-knows/issues)
-3. **Community Discord**: Join our learning community
-4. **Email Support**: support@ai-podcasts-nobody-knows.com
+2. **GitHub Issues**: [Create an issue](https://github.com/smenssink/ai-podcasts-nobody-knows/issues)
+3. **GitHub Discussions**: Share experiences and tips
+4. **Context Files**: Extensive documentation in `.claude/context/`
 
 ### Reporting Issues
 

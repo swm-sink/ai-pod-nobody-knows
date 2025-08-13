@@ -53,7 +53,7 @@ First off, thank you for considering contributing to this educational project! T
 ```bash
 # Fork the repository on GitHub
 # Clone your fork
-git clone https://github.com/yourusername/ai-podcasts-nobody-knows.git
+git clone https://github.com/[your-username]/ai-podcasts-nobody-knows.git
 cd ai-podcasts-nobody-knows
 
 # Create a feature branch
@@ -68,12 +68,14 @@ git checkout -b feature/your-feature-name
 
 ### 4. Test Your Changes
 ```bash
-# Run validation scripts
-./scripts/validate-all.sh
+# Run validation scripts (from scripts/precommit/)
+for script in scripts/precommit/*.sh; do
+    bash "$script"
+done
 
 # Test with Claude Code
-claude code
-/test-your-feature
+# Start Claude Code and run:
+/test-episode-dry-run
 
 # Run pre-commit hooks
 pre-commit run --all-files
@@ -92,8 +94,13 @@ pre-commit run --all-files
 .claude/
 ├── level-1-dev/        # Development tools
 ├── level-2-production/ # Production system
-├── level-3-platform/   # Platform planning
-└── context/           # Documentation
+│   ├── agents/        # 9 production agents
+│   ├── commands/      # Production commands
+│   ├── tests/         # Test suites
+│   └── tools/         # Helper scripts
+├── level-3-platform-dev/ # Platform planning
+├── context/           # XML documentation
+└── shared/            # Shared resources
 ```
 
 ### Naming Conventions
@@ -269,15 +276,15 @@ Add screenshots or terminal output
 ## 📞 Getting Help
 
 ### Resources
-- **Documentation**: `.claude/context/`
+- **Documentation**: `.claude/context/` (XML format)
 - **Quick Start**: `README.md`
 - **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.xml`
-- **Discord**: [Join our community](https://discord.gg/ai-podcasts)
+- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.xml`
 
 ### Contact
-- **Issues**: Technical problems and bugs
-- **Discussions**: Ideas and questions
-- **Email**: contribute@ai-podcasts-nobody-knows.com
+- **GitHub Issues**: Technical problems and bugs
+- **GitHub Discussions**: Ideas and questions
+- **Repository**: https://github.com/smenssink/ai-podcasts-nobody-knows
 
 ## 🙏 Recognition
 
