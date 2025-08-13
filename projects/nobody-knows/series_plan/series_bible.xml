@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="series-bible" version="1.0.0">
+  <metadata>
+    <title>"Nobody Knows" - The AI Podcast Series Bible</title>
+    <purpose>Comprehensive series guide and episode master plan for the AI podcast exploring intellectual honesty</purpose>
+    <last-updated>2025-08-13</last-updated>
+    <episodes-source>episodes_master.json</episodes-source>
+    <total-seasons>5</total-seasons>
+    <core-philosophy>Learning through honest confusion</core-philosophy>
+    <mission>Teach AI through radical honesty about universal confusion</mission>
+  </metadata>
+
 # "Nobody Knows" - The AI Podcast Series Bible
 
 ## Series DNA: The Philosophy of Honest Confusion
@@ -452,3 +464,4 @@
 - **"The Rabbit Hole"**: Following implications to their logical (and illogical) conclusions
 
 This isn't just a podcast—it's a **movement toward intellectual honesty** in an age of artificial expertise. By admitting what nobody knows, we create space to learn what everybody needs to understand.
+</document>

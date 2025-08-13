@@ -1,0 +1,233 @@
+{
+  "discoveryMetadata": {
+    "analysisDate": "2025-08-13",
+    "totalFilesFound": 93,
+    "expectedFileCount": 213,
+    "discrepancyNote": "Fewer files found than expected - may indicate focus on .md files only",
+    "repositoryRoot": "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/la-paz",
+    "analysisScope": [
+      ".claude/level-2-production/",
+      ".claude/context/",
+      ".claude/level-1-dev/",
+      ".claude/shared/",
+      "projects/nobody-knows/series_plan/"
+    ]
+  },
+
+  "xmlComplianceStatus": {
+    "FULL": {
+      "count": 18,
+      "description": "Files with complete <document> root tag XML structure",
+      "examples": [
+        ".claude/context/claude-code/00_claude_code_constants.md",
+        ".claude/context/foundation/NAVIGATION.md",
+        ".claude/shared/quality-gates/VALIDATION_CHECKLIST.md",
+        "CLAUDE.md"
+      ]
+    },
+    "PARTIAL": {
+      "count": 8,
+      "description": "Files with some XML tags but missing document root structure",
+      "examples": [
+        ".claude/level-1-dev/commands/context-researcher-dev.md",
+        ".claude/level-2-production/agents/01_research_coordinator.md",
+        ".claude/shared/quality-gates/FILE_REFERENCE_VALIDATION.md",
+        ".claude/shared/templates/xml/conversion-guide.md"
+      ]
+    },
+    "NONE": {
+      "count": 67,
+      "description": "Files with no XML structure, pure markdown",
+      "examples": [
+        ".claude/level-2-production/agents/03_script_writer.md",
+        ".claude/level-2-production/commands/produce-episode.md",
+        "projects/nobody-knows/series_plan/series_bible.md",
+        "README.md"
+      ]
+    }
+  },
+
+  "directoryBreakdown": {
+    ".claude/level-2-production/agents": {
+      "count": 10,
+      "xmlStatus": {
+        "FULL": 0,
+        "PARTIAL": 2,
+        "NONE": 8
+      },
+      "specialFeatures": ["YAML frontmatter", "agent metadata", "XML tags within content"]
+    },
+    ".claude/level-2-production/commands": {
+      "count": 7,
+      "xmlStatus": {
+        "FULL": 0,
+        "PARTIAL": 1,
+        "NONE": 6
+      },
+      "specialFeatures": ["YAML frontmatter in some files", "command specifications"]
+    },
+    ".claude/shared/templates/documentation": {
+      "count": 6,
+      "xmlStatus": {
+        "FULL": 4,
+        "PARTIAL": 2,
+        "NONE": 0
+      },
+      "specialFeatures": ["Template structures", "YAML frontmatter in templates"]
+    },
+    ".claude/context/*": {
+      "count": 12,
+      "xmlStatus": {
+        "FULL": 10,
+        "PARTIAL": 0,
+        "NONE": 2
+      },
+      "specialFeatures": ["Navigation indexes", "Constants files", "High XML compliance"]
+    },
+    "projects/nobody-knows/series_plan": {
+      "count": 4,
+      "xmlStatus": {
+        "FULL": 0,
+        "PARTIAL": 0,
+        "NONE": 4
+      },
+      "specialFeatures": ["Series planning documents", "Pure markdown content"]
+    }
+  },
+
+  "headingPatterns": {
+    "mostCommon": [
+      "# [Document Title]",
+      "## Overview/Summary",
+      "## Purpose/Mission",
+      "### [Subsection]",
+      "## Requirements/Specifications",
+      "## Implementation/Usage",
+      "## Validation/Testing"
+    ],
+    "navigationPatterns": [
+      "# [Topic] Navigation Index",
+      "## [Topic] Navigation 🎯/🤖/📚",
+      "### **Complete [Topic] Path**",
+      "### **Task-Based Navigation**"
+    ],
+    "agentPatterns": [
+      "# [Agent Name] - [Purpose]",
+      "## Role & Purpose",
+      "## System Prompt",
+      "## Tools & Capabilities",
+      "## Quality Gates"
+    ],
+    "commandPatterns": [
+      "# [Command Name]",
+      "## Purpose",
+      "## Usage",
+      "## Implementation",
+      "## Validation"
+    ]
+  },
+
+  "specialFormatting": {
+    "yamlFrontmatter": {
+      "count": 15,
+      "locations": [
+        ".claude/level-1-dev/agents/*",
+        ".claude/level-2-production/agents/*",
+        ".claude/shared/templates/documentation/*",
+        ".claude/level-2-production/commands/pipeline-coordinator.md"
+      ],
+      "fields": ["name", "description", "tools", "model", "color", "category", "level", "cost-budget"]
+    },
+    "codeFences": {
+      "count": 71,
+      "languages": ["bash", "json", "yaml", "xml", "python", "javascript", "markdown"],
+      "usage": "Configuration examples, command snippets, code templates"
+    },
+    "xmlTags": {
+      "commonTags": [
+        "<agent-metadata>", "<dependencies>", "<configs>", "<frameworks>",
+        "<quality-gates>", "<document>", "<metadata>", "<learning-value>",
+        "<technical>", "<simple>", "<connection>"
+      ]
+    }
+  },
+
+  "edgeCases": {
+    "hybridFiles": [
+      {
+        "file": ".claude/level-2-production/agents/01_research_coordinator.md",
+        "issue": "YAML frontmatter + XML metadata sections",
+        "handling": "Preserve YAML, wrap XML content properly"
+      },
+      {
+        "file": ".claude/shared/templates/documentation/agent-template.md",
+        "issue": "Template with YAML and placeholder content",
+        "handling": "Keep as template, ensure XML wrapper compatibility"
+      }
+    ],
+    "largeFiles": [
+      {
+        "file": "CLAUDE.md",
+        "note": "Master system prompt with complex XML structure",
+        "handling": "Already XML compliant, verify structure integrity"
+      },
+      {
+        "file": "projects/nobody-knows/series_plan/series_bible.md",
+        "note": "Long-form content document",
+        "handling": "Needs comprehensive XML wrapper with sections"
+      }
+    ],
+    "navigationFiles": [
+      {
+        "files": "**/NAVIGATION.md",
+        "note": "Special index files with consistent structure",
+        "handling": "Use navigation-specific XML template"
+      }
+    ]
+  },
+
+  "conversionStrategy": {
+    "phase1_fullCompliance": {
+      "target": "Files already with <document> structure",
+      "action": "Validate and enhance existing XML",
+      "count": 18
+    },
+    "phase2_partialUpgrade": {
+      "target": "Files with some XML elements",
+      "action": "Add document wrapper, preserve existing XML",
+      "count": 8
+    },
+    "phase3_newWrappers": {
+      "target": "Pure markdown files",
+      "action": "Apply appropriate XML templates based on content type",
+      "count": 67
+    }
+  },
+
+  "qualityGates": {
+    "preConversion": [
+      "Backup all files before conversion",
+      "Validate XML structure in FULL compliance files",
+      "Test template application on sample files",
+      "Verify YAML frontmatter preservation"
+    ],
+    "postConversion": [
+      "XML validation against schema",
+      "Content integrity verification",
+      "Link reference validation",
+      "Template compliance checking"
+    ]
+  },
+
+  "technicalInsights": {
+    "xmlStructure": "Mix of full XML documents and hybrid markdown with XML elements",
+    "yamlIntegration": "15 files use YAML frontmatter, mainly for agent/command metadata",
+    "contentTypes": "Navigation indexes, agents, commands, documentation, reports, tests",
+    "linkPatterns": "Extensive use of relative paths and @ file references",
+    "templateUsage": "Well-defined template structures already in use"
+  },
+
+  "simpleExplanation": "Like organizing a mixed library where some books already have proper catalog cards (FULL), some have partial information (PARTIAL), and others need complete cataloging (NONE). We found 93 files total, with 18 already properly organized, 8 partially organized, and 67 needing full organization.",
+
+  "learningValue": "This analysis teaches systematic assessment of large codebases, XML compliance validation, and migration planning for semantic documentation upgrades."
+}
