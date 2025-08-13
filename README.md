@@ -56,6 +56,9 @@ Level 4: Coded Python Platform (LOCKED 🔒)
 
 ## 📁 Real File Structure
 
+**Technical:** Hierarchical filesystem organization following Unix conventions with separation of concerns and git-ignored sensitive data
+**Simple:** Like organizing your desk with labeled folders - everything has a specific place and private stuff stays private
+
 ```
 ai-podcasts-nobody-knows/
 ├── .env                           # API keys (git-ignored)
@@ -99,10 +102,16 @@ ai-podcasts-nobody-knows/
 
 ## 🚀 Actual Setup Instructions
 
+### System Requirements
+- **OS**: macOS, Linux, or Windows with WSL
+- **RAM**: 4GB minimum (8GB recommended)
+- **Storage**: 10GB free space
+- **Network**: Stable internet for API calls
+
 ### Prerequisites
 - Claude Code installed
-- Python 3.11+ (for ElevenLabs MCP)
-- Node.js (for Perplexity MCP)
+- Python 3.11+ (for ElevenLabs MCP) - verify with `python3 --version`
+- Node.js 18+ (for Perplexity MCP) - verify with `node --version`
 - API keys for Perplexity and ElevenLabs
 
 ### Installation Steps
@@ -146,6 +155,9 @@ pre-commit install
 
 ## 📝 Actual Usage
 
+**Technical:** Command-line interface operations using Claude Code's built-in command system for multi-agent orchestration
+**Simple:** Like typing simple commands to make the system do complex tasks automatically - you say 'produce episode' and it handles everything
+
 ### Producing an Episode (Claude Code Commands)
 
 **In Claude Code interface:**
@@ -174,8 +186,11 @@ pre-commit install
 
 ## 💰 Actual Costs
 
+**Technical:** Token-based pricing model with API rate optimization and batch processing for cost efficiency
+**Simple:** Like paying for phone minutes - you only pay for what you use, and we've optimized to use as few 'minutes' as possible
+
 ### Target Budget (Solo/Hobby)
-- **Per Episode**: ESTIMATED <$5.00
+- **Per Episode**: $4-5 (estimated)
 - **Daily Limit**: $10.00
 - **Alert at**: $4.00
 
@@ -187,6 +202,9 @@ pre-commit install
 ---
 
 ## 🤖 Actual AI Agents
+
+**Technical:** Specialized Claude Code agents with role-based responsibilities using chain-of-thought prompting and handoff protocols
+**Simple:** Like a relay race team where each runner specializes in their part - researcher finds info, writer creates script, reviewer checks quality
 
 All agents are in `.claude/level-2-production/agents/` (9 agents total):
 
@@ -219,6 +237,9 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 ---
 
 ## 🔧 Configuration
+
+**Technical:** Environment variables and JSON configuration files for dependency injection and runtime configuration
+**Simple:** Like setting preferences in an app - you tell it your API keys and settings once, then it remembers them
 
 ### API Keys
 - `.env` - Contains API keys (git-ignored)
@@ -273,6 +294,9 @@ All agents are in `.claude/level-2-production/agents/` (9 agents total):
 ---
 
 ## 🚦 Current Project Status
+
+**Technical:** Production-ready implementation with feature-complete pipeline, comprehensive testing, and quality gates
+**Simple:** Like a car that's fully built and tested - all parts work, it's been test-driven, and it's ready for daily use
 
 ### ✅ Completed Components
 - **Foundation:** Complete 4-level architecture

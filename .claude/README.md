@@ -27,7 +27,7 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 - **Emergency Navigation**: `@08_troubleshooting_guide.md → @09_quick_reference.md`
 
 ### 🔑 Constants Files (Start Here!)
-- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (EPISODE_SPECS['total_episodes'] episodes, $4-8 target cost)
+- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (125 episodes, $4-5 target cost)
 - **[context/elevenlabs/00_elevenlabs_constants.xml](./context/elevenlabs/00_elevenlabs_constants.xml)** - Voice synthesis specs
 - **[context/claude-code/00_claude_code_constants.xml](./context/claude-code/00_claude_code_constants.xml)** - Development platform specs
 - **[context/foundation/00_project_constants.xml](./context/foundation/00_project_constants.xml)** - Learning structure specs
