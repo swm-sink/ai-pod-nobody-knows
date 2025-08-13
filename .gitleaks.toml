@@ -1,3 +1,14 @@
+title = "ai-podcasts-nobody-knows gitleaks config"
+
+[allowlist]
+description = "Ignore generated/local artifacts and baseline file"
+paths = [
+  "audio-output/.*",
+  "projects/nobody-knows/output/.*",
+  "\\.claude/mcp-servers/.*",
+  "\\.secrets\\.baseline"
+]
+
 [allowlist]
 description = "Allow common false positives and binary/vendor dirs"
 paths = [
