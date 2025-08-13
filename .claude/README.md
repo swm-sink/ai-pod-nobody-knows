@@ -21,13 +21,13 @@ cp .claude/settings.local.json.template .claude/settings.local.json
 This project follows strict DRY (Don't Repeat Yourself) principles. **All constants and specifications are centralized in constants files.**
 
 ### 🧭 Navigation Quick Start
-- **[@NAVIGATION_INDEX.xml](./NAVIGATION_INDEX.xml)** ⭐ - Master navigation guide for @ file hopping
+- **[@NAVIGATION_INDEX.md](./NAVIGATION_INDEX.md)** ⭐ - Master navigation guide for @ file hopping
 - **[@CLAUDE.md](./CLAUDE.md)** - Main project memory with navigation chains
 - **Domain Navigation**: Each `/context/domain/` has a `NAVIGATION.md` file
 - **Emergency Navigation**: `@08_troubleshooting_guide.md → @09_quick_reference.md`
 
 ### 🔑 Constants Files (Start Here!)
-- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (125 episodes, $4-8 target cost)
+- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (EPISODE_SPECS['total_episodes'] episodes, $4-8 target cost)
 - **[context/elevenlabs/00_elevenlabs_constants.xml](./context/elevenlabs/00_elevenlabs_constants.xml)** - Voice synthesis specs
 - **[context/claude-code/00_claude_code_constants.xml](./context/claude-code/00_claude_code_constants.xml)** - Development platform specs
 - **[context/foundation/00_project_constants.xml](./context/foundation/00_project_constants.xml)** - Learning structure specs
@@ -39,7 +39,7 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 ## 📚 Documentation Categories
 
 ### 🏗️ Foundation (Start Your Journey)
-**[context/foundation/README.md](./context/foundation/README.md)**
+**[context/foundation/NAVIGATION.md](./context/foundation/NAVIGATION.md)**
 1. [Project Overview](./context/foundation/01_project_overview.xml) - What this project is about
 2. [Walk-Crawl-Run Phases](./context/foundation/02_walk_crawl_run_phases.xml) - Learning progression
 3. [Hobbyist Focus](./context/foundation/03_hobbyist_focus.xml) - Why this works for individuals
@@ -56,15 +56,15 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 Complete voice synthesis implementation (10 guides) - All reference constants files
 
 ### 🛠️ Claude Code Platform (Development Acceleration)
-**[context/claude-code/README.md](./context/claude-code/README.md)**
+**[context/claude-code/NAVIGATION.md](./context/claude-code/NAVIGATION.md)**
 10 guides covering the modern AI development platform (15-24)
 
 ### ✅ Quality Assurance (Production Ready)
-**[context/quality/README.md](./context/quality/README.md)**
+**[context/quality/NAVIGATION.md](./context/quality/NAVIGATION.md)**
 4 guides ensuring professional quality standards (11-14)
 
 ### ⚙️ Operations & Production
-**[context/operations/README.md](./context/operations/README.md)**
+**[context/operations/NAVIGATION.md](./context/operations/NAVIGATION.md)**
 3 guides for system management and deployment (08-10)
 
 ### 🔬 Advanced Research

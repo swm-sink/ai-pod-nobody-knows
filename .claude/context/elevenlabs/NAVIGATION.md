@@ -1,127 +1,120 @@
 # ElevenLabs Navigation Index - Audio Production Guide
-
-<document type="domain-navigation" version="3.0.0" claude-code-optimized="true">
-  <metadata>
-    <domain>elevenlabs</domain>
-    <purpose>Navigate ElevenLabs audio production materials with @ file hopping</purpose>
-    <navigation-levels>4</navigation-levels>
-  </metadata>
-</document>
+<!-- markdownlint-disable MD033 MD013 -->
 
 ## ElevenLabs Audio Production Navigation 🎙️
 
 ### **Complete Audio Mastery Path**
 ```
-@15_elevenlabs_overview.md
+@15_elevenlabs_overview.xml
   ↓ (Introduction & Basics)
-@16_elevenlabs_models_reference.md
+@16_elevenlabs_models_reference.xml
   ↓ (Models & Capabilities)
-@17_elevenlabs_prompt_engineering.md
+@17_elevenlabs_prompt_engineering.xml
   ↓ (Optimization Techniques)
-@18_elevenlabs_api_implementation.md
+@18_elevenlabs_api_implementation.xml
   ↓ (API Integration)
-@19_elevenlabs_websocket_streaming.md
+@19_elevenlabs_websocket_streaming.xml
   ↓ (Real-time Streaming)
-@20_elevenlabs_cost_optimization.md
+@20_elevenlabs_cost_optimization.xml
   ↓ (Budget Management)
-@21_elevenlabs_voice_management.md
+@21_elevenlabs_voice_management.xml
   ↓ (Voice Configuration)
-@22_elevenlabs_mcp_integration.md
+@22_elevenlabs_mcp_integration.xml
   ↓ (Claude Code Integration)
-@23_elevenlabs_podcast_production.md
+@23_elevenlabs_podcast_production.xml
   ↓ (Production Workflows)
-@24_elevenlabs_troubleshooting.md
+@24_elevenlabs_troubleshooting.xml
   ↓ (Problem Resolution)
 ```
 
 ### **Quick Start Navigation Chains**
 
 **First-Time Setup (3 levels):**
-`@15_elevenlabs_overview.md → @16_elevenlabs_models_reference.md → @18_elevenlabs_api_implementation.md`
+`@15_elevenlabs_overview.xml → @16_elevenlabs_models_reference.xml → @18_elevenlabs_api_implementation.xml`
 
 **Cost-Conscious Start (3 levels):**
-`@20_elevenlabs_cost_optimization.md → @17_elevenlabs_prompt_engineering.md → @15_elevenlabs_overview.md`
+`@20_elevenlabs_cost_optimization.xml → @17_elevenlabs_prompt_engineering.xml → @15_elevenlabs_overview.xml`
 
 **Production Ready (4 levels):**
-`@15_elevenlabs_overview.md → @18_elevenlabs_api_implementation.md → @22_elevenlabs_mcp_integration.md → @23_elevenlabs_podcast_production.md`
+`@15_elevenlabs_overview.xml → @18_elevenlabs_api_implementation.xml → @22_elevenlabs_mcp_integration.xml → @23_elevenlabs_podcast_production.xml`
 
 ### **Task-Based Navigation**
 
 **Learning Phase:**
-- **WALK**: @15_elevenlabs_overview.md → @20_elevenlabs_cost_optimization.md
-- **CRAWL**: @16_elevenlabs_models_reference.md → @18_elevenlabs_api_implementation.md
-- **RUN**: @22_elevenlabs_mcp_integration.md → @23_elevenlabs_podcast_production.md
+- **WALK**: @15_elevenlabs_overview.xml → @20_elevenlabs_cost_optimization.xml
+- **CRAWL**: @16_elevenlabs_models_reference.xml → @18_elevenlabs_api_implementation.xml
+- **RUN**: @22_elevenlabs_mcp_integration.xml → @23_elevenlabs_podcast_production.xml
 
 **Development Workflow:**
-- **Research**: @15_elevenlabs_overview.md → @16_elevenlabs_models_reference.md
-- **Implementation**: @18_elevenlabs_api_implementation.md → @17_elevenlabs_prompt_engineering.md
-- **Optimization**: @20_elevenlabs_cost_optimization.md → @21_elevenlabs_voice_management.md
-- **Production**: @22_elevenlabs_mcp_integration.md → @23_elevenlabs_podcast_production.md
+- **Research**: @15_elevenlabs_overview.xml → @16_elevenlabs_models_reference.xml
+- **Implementation**: @18_elevenlabs_api_implementation.xml → @17_elevenlabs_prompt_engineering.xml
+- **Optimization**: @20_elevenlabs_cost_optimization.xml → @21_elevenlabs_voice_management.xml
+- **Production**: @22_elevenlabs_mcp_integration.xml → @23_elevenlabs_podcast_production.xml
 
 **Problem Solving:**
-- **Issues**: @24_elevenlabs_troubleshooting.md → @../operations/08_troubleshooting_guide.md
-- **Costs**: @20_elevenlabs_cost_optimization.md → @../ai-orchestration/06_cost_optimization_strategies.md
-- **Quality**: @17_elevenlabs_prompt_engineering.md → @../quality/14_validation_workflow.md
+- **Issues**: @24_elevenlabs_troubleshooting.xml → @../operations/01_troubleshooting_guide.xml
+- **Costs**: @20_elevenlabs_cost_optimization.xml → @../ai-orchestration/cost_optimization_strategies.xml
+- **Quality**: @17_elevenlabs_prompt_engineering.xml → @../quality/04_validation_workflow.xml
 
 ### **Feature-Specific Navigation**
 
 **API Integration:**
 ```
-@18_elevenlabs_api_implementation.md → @22_elevenlabs_mcp_integration.md → @../claude-code/21_mcp_integration_guide.md
+@18_elevenlabs_api_implementation.xml → @22_elevenlabs_mcp_integration.xml → @../claude-code/21_mcp_integration_guide.xml
 ```
 
 **Voice & Audio Quality:**
 ```
-@21_elevenlabs_voice_management.md → @17_elevenlabs_prompt_engineering.md → @16_elevenlabs_models_reference.md
+@21_elevenlabs_voice_management.xml → @17_elevenlabs_prompt_engineering.xml → @16_elevenlabs_models_reference.xml
 ```
 
 **Streaming & Real-time:**
 ```
-@19_elevenlabs_websocket_streaming.md → @18_elevenlabs_api_implementation.md → @24_elevenlabs_troubleshooting.md
+@19_elevenlabs_websocket_streaming.xml → @18_elevenlabs_api_implementation.xml → @24_elevenlabs_troubleshooting.xml
 ```
 
 **Production Pipeline:**
 ```
-@23_elevenlabs_podcast_production.md → @20_elevenlabs_cost_optimization.md → @../operations/10_production_checklist.md
+@23_elevenlabs_podcast_production.xml → @20_elevenlabs_cost_optimization.xml → @../operations/03_production_checklist.xml
 ```
 
 ### **Cost Optimization Navigation Chains**
 
 **Budget Planning Chain (4 levels):**
-`@20_elevenlabs_cost_optimization.md → @16_elevenlabs_models_reference.md → @17_elevenlabs_prompt_engineering.md → @../ai-orchestration/06_cost_optimization_strategies.md`
+`@20_elevenlabs_cost_optimization.xml → @16_elevenlabs_models_reference.xml → @17_elevenlabs_prompt_engineering.xml → @../ai-orchestration/cost_optimization_strategies.xml`
 
 **Efficiency Chain (3 levels):**
-`@17_elevenlabs_prompt_engineering.md → @21_elevenlabs_voice_management.md → @20_elevenlabs_cost_optimization.md`
+`@17_elevenlabs_prompt_engineering.xml → @21_elevenlabs_voice_management.xml → @20_elevenlabs_cost_optimization.xml`
 
 ### **Production Workflow Navigation**
 
 **Episode Production Chain (4 levels):**
-`@23_elevenlabs_podcast_production.md → @18_elevenlabs_api_implementation.md → @17_elevenlabs_prompt_engineering.md → @../operations/10_production_checklist.md`
+`@23_elevenlabs_podcast_production.xml → @18_elevenlabs_api_implementation.xml → @17_elevenlabs_prompt_engineering.xml → @../operations/03_production_checklist.xml`
 
 **Quality Assurance Chain (3 levels):**
-`@21_elevenlabs_voice_management.md → @17_elevenlabs_prompt_engineering.md → @../quality/14_validation_workflow.md`
+`@21_elevenlabs_voice_management.xml → @17_elevenlabs_prompt_engineering.xml → @../quality/04_validation_workflow.xml`
 
 ### **Cross-Domain References**
 
 **To Foundation:**
-`@15_elevenlabs_overview.md → @../foundation/02_walk_crawl_run_phases.md`
+`@15_elevenlabs_overview.xml → @../foundation/02_walk_crawl_run_phases.xml`
 
 **To Claude Code:**
-`@22_elevenlabs_mcp_integration.md → @../claude-code/21_mcp_integration_guide.md`
+`@22_elevenlabs_mcp_integration.xml → @../claude-code/21_mcp_integration_guide.xml`
 
 **To Operations:**
-`@23_elevenlabs_podcast_production.md → @../operations/10_production_checklist.md`
+`@23_elevenlabs_podcast_production.xml → @../operations/03_production_checklist.xml`
 
 **To Quality:**
-`@24_elevenlabs_troubleshooting.md → @../quality/12_hallucination_prevention_guide.md`
+`@24_elevenlabs_troubleshooting.xml → @../quality/02_hallucination_prevention_guide.xml`
 
 **To AI Orchestration:**
-`@20_elevenlabs_cost_optimization.md → @../ai-orchestration/06_cost_optimization_strategies.md`
+`@20_elevenlabs_cost_optimization.xml → @../ai-orchestration/cost_optimization_strategies.xml`
 
 ### **Constants & Configuration**
 ```
-ElevenLabs Constants: @00_elevenlabs_constants.md
-Global Constants: @../00_GLOBAL_CONSTANTS.md
+ElevenLabs Constants: @00_elevenlabs_constants.xml
+Global Constants: @00_global_constants.xml
 ```
 
 ### **Emergency Navigation**

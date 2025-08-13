@@ -9,6 +9,7 @@ level: 2-production
 cost-budget: $2.00
 ---
 
+<!-- markdownlint-disable MD013 -->
 <agent-metadata>
   <version>3.1.0</version>
   <enhanced>2025-08-11</enhanced>
@@ -16,7 +17,7 @@ cost-budget: $2.00
   <dependencies>
     <configs>@../../shared/config/production-config.yaml</configs>
     <frameworks>@../../shared/frameworks/progressive-complexity.xml</frameworks>
-    <quality-gates>@../../shared/quality-gates/VALIDATION_CHECKLIST.md</quality-gates>
+    <quality-gates>@../../shared/quality-gates/validation-checklist.xml</quality-gates>
   </dependencies>
 </agent-metadata>
 

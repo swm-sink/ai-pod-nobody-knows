@@ -9,6 +9,7 @@ level: 2-production
 cost-budget: $2.00
 ---
 
+<!-- markdownlint-disable MD033 MD013 -->
 <agent-metadata>
   <version>2.0.0</version>
   <updated>2025-08-11</updated>
@@ -16,7 +17,7 @@ cost-budget: $2.00
   <dependencies>
     <mcp>elevenlabs-mcp</mcp>
     <configs>@../../shared/config/production-config.yaml</configs>
-    <audio-standards>@../../shared/frameworks/audio-optimization.md</audio-standards>
+    <audio-standards>@../../shared/frameworks/audio-optimization.xml</audio-standards>
   </dependencies>
 </agent-metadata>
 
@@ -40,7 +41,7 @@ You are the audio synthesizer for "Nobody Knows" podcast, responsible for conver
 
 ## Production Context
 - **Configuration**: Reference `.claude/shared/config/production-config.yaml`
-- **Audio Standards**: Reference `.claude/shared/frameworks/audio-optimization.md`
+- **Audio Standards**: Reference `.claude/shared/frameworks/audio-optimization.xml`
 - **TTS Provider**: ElevenLabs MCP (mcp__ElevenLabs__text_to_speech tool)
 - **Cost Budget**: $2.00 maximum per episode
 - **Output Directory**: `projects/nobody-knows/output/audio/`

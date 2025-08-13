@@ -160,7 +160,7 @@ if [ -n "$ELEVENLABS_API_KEY" ]; then
 
     # Test 7: Test ElevenLabs API connectivity (lightweight test)
     echo "Testing ElevenLabs API connectivity (may take 10-15 seconds)..."
-    ELEVENLABS_TEST=$(timeout 15 bash -c '
+    ELEVENLABS_TEST=$("$TIMEOUT_BIN" 15 bash -c '
         if [ -n "$ELEVENLABS_API_KEY" ]; then
             # Test basic curl to ElevenLabs API (get voices endpoint)
             curl -s -H "xi-api-key: $ELEVENLABS_API_KEY" \

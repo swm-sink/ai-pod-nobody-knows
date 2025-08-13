@@ -17,7 +17,7 @@
 
 - **@CLAUDE.md** - Main project memory (start here)
 - **@00_global_constants.xml** - All project constants
-- **@folder_structure.xml** - Directory organization
+- **@docs/folder_structure.xml** - Directory organization
 - **@README.md** - Documentation overview
 
 ### Level 2: Domain Navigation
@@ -103,25 +103,25 @@
 - **Project Memory:** @CLAUDE.md
 
 ### Domain-Specific Navigation
-- **Foundation:** @foundation/NAVIGATION.md
-- **Claude Code:** @claude-code/NAVIGATION.md
-- **AI Orchestration:** @ai-orchestration/NAVIGATION.md
-- **ElevenLabs:** @elevenlabs/NAVIGATION.md
-- **Prompts Research:** @prompts_research/NAVIGATION.md
-- **Operations:** @operations/NAVIGATION.md
-- **Quality:** @quality/NAVIGATION.md
+- **Foundation:** @context/foundation/NAVIGATION.md
+- **Claude Code:** @context/claude-code/NAVIGATION.md
+- **AI Orchestration:** @context/ai-orchestration/NAVIGATION.md
+- **ElevenLabs:** @context/elevenlabs/NAVIGATION.md
+- **Prompts Research:** @context/prompts_research/NAVIGATION.md
+- **Operations:** @context/operations/NAVIGATION.md
+- **Quality:** @context/quality/NAVIGATION.md
 
 ## Constants Navigation 🔧
 
 ### Quick Constants Access
 - **Global:** @00_global_constants.xml
-- **Foundation:** @foundation/00_project_constants.xml
-- **Claude Code:** @claude-code/00_claude_code_constants.xml
-- **AI Orchestration:** @ai-orchestration/* (no constants file)
-- **ElevenLabs:** @elevenlabs/00_elevenlabs_constants.xml
-- **Prompts Research:** @prompts_research/* (no constants file)
-- **Quality:** @quality/00_quality_constants.xml
-- **Operations:** @operations/00_operations_constants.xml
+- **Foundation:** @context/foundation/00_project_constants.xml
+- **Claude Code:** @context/claude-code/00_claude_code_constants.xml
+- **AI Orchestration:** @context/ai-orchestration/* (no constants file)
+- **ElevenLabs:** @context/elevenlabs/00_elevenlabs_constants.xml
+- **Prompts Research:** @context/prompts_research/* (no constants file)
+- **Quality:** @context/quality/00_quality_constants.xml
+- **Operations:** @context/operations/00_operations_constants.xml
 
 ## Specialized Navigation Chains 🔗
 
@@ -154,7 +154,7 @@
 ## Usage Guidelines 📋
 
 ### @ Reference Best Practices
-- Use @ for internal files: @filename.xml for navigation within the project
+- Use @ for internal files: @00_global_constants.xml for navigation within the project
 - Use full paths for precision: @context/foundation/01_project_overview.xml when needed
 - Chain logically: Connect related concepts in learning sequences
 - Keep chains short: Maximum 3-4 hops for clarity

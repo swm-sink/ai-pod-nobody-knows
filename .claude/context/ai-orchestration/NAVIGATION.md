@@ -1,12 +1,5 @@
 # AI Orchestration Navigation Index - Multi-Agent Systems Guide
-
-<document type="domain-navigation" version="3.0.0" claude-code-optimized="true">
-  <metadata>
-    <domain>ai-orchestration</domain>
-    <purpose>Navigate AI agent orchestration materials with @ file hopping</purpose>
-    <navigation-levels>3</navigation-levels>
-  </metadata>
-</document>
+<!-- markdownlint-disable MD033 MD013 -->
 
 ## AI Orchestration Navigation 🤖
 
@@ -22,12 +15,12 @@
 
 **Foundation Understanding:**
 ```
-@agent-orchestration-basics.xml → @../foundation/project-overview.xml → @../foundation/walk-crawl-run-phases.xml
+@agent-orchestration-basics.xml → @../foundation/01_project_overview.xml → @../foundation/02_walk_crawl_run_phases.xml
 ```
 
 **Cost-Conscious Development:**
 ```
-@cost-optimization-strategies.xml → @../foundation/no-api-keys-activities.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml
+@cost-optimization-strategies.xml → @../foundation/04_no_api_keys_activities.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml
 ```
 
 ### **Task-Based Navigation**
@@ -38,7 +31,7 @@
 - **Integration**: @agent-orchestration-basics.xml → @../claude-code/22_subagents_guide.xml
 
 **Managing Costs:**
-- **Strategy**: @cost-optimization-strategies.xml → @../foundation/walk-crawl-run-phases.xml
+- **Strategy**: @cost-optimization-strategies.xml → @../foundation/02_walk_crawl_run_phases.xml
 - **Implementation**: @cost-optimization-strategies.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml
 - **Monitoring**: @cost-optimization-strategies.xml → @../operations/02_quick_reference.xml
 
@@ -50,7 +43,7 @@
 ### **Multi-Level Navigation Chains**
 
 **Complete Learning Chain (4 levels):**
-`@agent-orchestration-basics.xml → @../foundation/project-overview.xml → @../claude-code/15_claude_code_introduction.xml → @../foundation/no-api-keys-activities.xml`
+`@agent-orchestration-basics.xml → @../foundation/01_project_overview.xml → @../claude-code/15_claude_code_introduction.xml → @../foundation/04_no_api_keys_activities.xml`
 
 **Cost Optimization Chain (3 levels):**
 `@cost-optimization-strategies.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml → @../operations/02_quick_reference.xml`
@@ -87,27 +80,27 @@
 
 **CRAWL Phase (First Implementation):**
 ```
-@06_cost_optimization_strategies.md → @../elevenlabs/15_elevenlabs_overview.md → @../operations/10_production_checklist.md
+@cost-optimization-strategies.xml → @../elevenlabs/15_elevenlabs_overview.xml → @../operations/03_production_checklist.xml
 ```
 
 **RUN Phase (Full Orchestration):**
 ```
-@05_agent_orchestration_basics.md → @../claude-code/22_subagents_guide.md → @../elevenlabs/23_elevenlabs_podcast_production.md
+@agent-orchestration-basics.xml → @../claude-code/22_subagents_guide.xml → @../elevenlabs/23_elevenlabs_podcast_production.xml
 ```
 
 ### **Problem-Solution Navigation**
 
 **Understanding Issues:**
-`@05_agent_orchestration_basics.md → @../operations/08_troubleshooting_guide.md`
+`@agent-orchestration-basics.xml → @../operations/01_troubleshooting_guide.xml`
 
 **Cost Problems:**
-`@06_cost_optimization_strategies.md → @../elevenlabs/20_elevenlabs_cost_optimization.md → @../prompts_research/21_production_optimization.md`
+`@cost-optimization-strategies.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml → @../prompts_research/21_production_optimization.xml`
 
 **Quality Issues:**
-`@05_agent_orchestration_basics.md → @../quality/12_hallucination_prevention_guide.md → @../quality/14_validation_workflow.md`
+`@agent-orchestration-basics.xml → @../quality/02_hallucination_prevention_guide.xml → @../quality/04_validation_workflow.xml`
 
 **Implementation Problems:**
-`@05_agent_orchestration_basics.md → @../claude-code/22_subagents_guide.md → @../operations/08_troubleshooting_guide.md`
+`@agent-orchestration-basics.xml → @../claude-code/22_subagents_guide.xml → @../operations/01_troubleshooting_guide.xml`
 
 ### **Specialized Navigation Patterns**
 
@@ -124,16 +117,16 @@
 ### **Emergency Navigation**
 
 **Agents Not Working:**
-`@05_agent_orchestration_basics.md → @../operations/08_troubleshooting_guide.md → @../claude-code/22_subagents_guide.md`
+`@agent-orchestration-basics.xml → @../operations/01_troubleshooting_guide.xml → @../claude-code/22_subagents_guide.xml`
 
 **Costs Too High:**
-`@06_cost_optimization_strategies.md → @../elevenlabs/20_elevenlabs_cost_optimization.md → @../prompts_research/21_production_optimization.md`
+`@cost-optimization-strategies.xml → @../elevenlabs/20_elevenlabs_cost_optimization.xml → @../prompts_research/21_production_optimization.xml`
 
 **Quality Issues:**
-`@05_agent_orchestration_basics.md → @../quality/12_hallucination_prevention_guide.md → @../quality/14_validation_workflow.md`
+`@agent-orchestration-basics.xml → @../quality/02_hallucination_prevention_guide.xml → @../quality/04_validation_workflow.xml`
 
 **Integration Problems:**
-`@05_agent_orchestration_basics.md → @../claude-code/21_mcp_integration_guide.md`
+`@agent-orchestration-basics.xml → @../claude-code/21_mcp_integration_guide.xml`
 
 ### **Quick Reference Shortcuts**
 
