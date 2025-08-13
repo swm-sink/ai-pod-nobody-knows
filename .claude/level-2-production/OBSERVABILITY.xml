@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="guide" version="1.0.0">
+  <metadata>
+    <title>Observability Strategy for Level 2 Production</title>
+    <last-updated>2025-08-12</last-updated>
+    <approach>Simple &amp; Effective</approach>
+  </metadata>
+
+  <section title="Current Approach: Simple &amp; Effective">
+    <content>
+      <technical-explanation>File-based state tracking with local analytics provides sufficient observability without external dependencies or complexity.</technical-explanation>
+      <simple-explanation>Like keeping a notebook of your work that you can review anytime without needing special tools or internet.</simple-explanation>
+      <learning-value>This demonstrates that effective monitoring doesn't require complex infrastructure - sometimes simple is better.</learning-value>
+    </content>
+  </section>
+
+  <section title="What We Track in Level 2">
+    <subsection title="Session Files (Primary Storage)">
+      <location>projects/nobody-knows/output/sessions/*.json</location>
+      <contents>
+        <item>Episode metadata (number, topic, complexity)</item>
+        <item>External costs (Perplexity ~$0.50, ElevenLabs ~$1.85)</item>
+        <item>Quality scores and pass/fail decisions</item>
+        <item>Timing information per phase</item>
+        <item>Retry counts and status</item>
+      </contents>
+    </subsection>
+
+    <subsection title="Local Analytics Tools">
+      <tools>
+        <tool name="analyze_sessions.py">Generate reports from session files</tool>
+        <tool name="export_metrics.py">Export to CSV for spreadsheet analysis</tool>
+        <tool name="production-metrics command">In-Claude analysis</tool>
+      </tools>
+    </subsection>
+
+    <subsection title="What We Can Measure">
+      <capabilities>
+        <capability status="available">MCP server costs (Perplexity, ElevenLabs)</capability>
+        <capability status="available">Quality scores and pass rates</capability>
+        <capability status="available">Production success rates</capability>
+        <capability status="available">Phase durations</capability>
+        <capability status="available">Cost trends over time</capability>
+      </capabilities>
+    </subsection>
+
+    <subsection title="What We Cannot Measure">
+      <limitations>
+        <limitation>Claude Code's internal token usage (not exposed)</limitation>
+        <limitation>Claude Code's costs (fixed $20/month)</limitation>
+        <limitation>Real-time streaming metrics</limitation>
+        <limitation>Detailed API latencies</limitation>
+      </limitations>
+    </subsection>
+  </section>
+
+  <section title="Why Not Langfuse in Level 2?">
+    <fundamental-mismatch>
+      <description>Langfuse is designed for API-based systems where you control the code. Claude Code is an interactive tool where we can only observe external effects.</description>
+    </fundamental-mismatch>
+
+    <specific-limitations>
+      <limitation name="No Token Access">Claude Code doesn't expose its token usage</limitation>
+      <limitation name="Security Restrictions">Claude Code blocks curl/wget for safety</limitation>
+      <limitation name="Limited Value">Can only track ~$2-3 of MCP costs per episode</limitation>
+      <limitation name="Added Complexity">Python dependencies, API keys, network requirements</limitation>
+      <limitation name="Wrong Abstraction">Enterprise observability for a learning project</limitation>
+    </specific-limitations>
+
+    <cost-benefit-analysis>
+      <effort-required>20+ hours implementation</effort-required>
+      <value-added>Track $2-3 in MCP costs (already in session files)</value-added>
+      <net-value>Negative ROI</net-value>
+    </cost-benefit-analysis>
+  </section>
+
+  <section title="Our Chosen Approach">
+    <philosophy title="KISS (Keep It Simple, Stupid)">
+      <principles>
+        <principle>No external dependencies</principle>
+        <principle>Works offline</principle>
+        <principle>No API keys to manage</principle>
+        <principle>Instant local analysis</principle>
+        <principle>Zero security risks</principle>
+      </principles>
+    </philosophy>
+
+    <implementation>
+      <command name="analyze_recent">python .claude/level-2-production/tools/analyze_sessions.py --last 10</command>
+      <command name="export_metrics">python .claude/level-2-production/tools/export_metrics.py &gt; metrics.csv</command>
+      <command name="in_claude_analysis">/production-metrics</command>
+    </implementation>
+
+    <benefits>
+      <benefit name="Simplicity">No complex setup or maintenance</benefit>
+      <benefit name="Reliability">No network failures or API issues</benefit>
+      <benefit name="Security">No exposed credentials</benefit>
+      <benefit name="Speed">Instant local processing</benefit>
+      <benefit name="Learning Focus">Concentrate on concepts, not infrastructure</benefit>
+    </benefits>
+  </section>
+
+  <section title="Future Evolution (Level 3/4)">
+    <when-langfuse-makes-sense>
+      <level-3-4-features>
+        <feature>Direct API control (not Claude Code)</feature>
+        <feature>Token-level visibility</feature>
+        <feature>Programmatic execution</feature>
+        <feature>Real-time streaming needs</feature>
+        <feature>Multi-tenant requirements</feature>
+      </level-3-4-features>
+    </when-langfuse-makes-sense>
+
+    <migration-path>
+      <level name="Level 2 (Now)">Session files + local tools</level>
+      <level name="Level 3 (Planning)">API-based system design</level>
+      <level name="Level 4 (Implementation)">Full Langfuse integration</level>
+    </migration-path>
+
+    <reference>See .claude/level-3-platform-dev/langfuse-integration/ for future plans.</reference>
+  </section>
+
+  <section title="Monitoring Checklist">
+    <daily-operations>
+      <checklist>
+        <item>Session files created for each episode</item>
+        <item>Costs tracked in external_costs</item>
+        <item>Quality scores recorded</item>
+        <item>Pass/fail decisions logged</item>
+      </checklist>
+    </daily-operations>
+
+    <weekly-analysis>
+      <checklist>
+        <item>Run analyze_sessions.py for trends</item>
+        <item>Export CSV for detailed analysis</item>
+        <item>Review failed episodes</item>
+        <item>Identify optimization opportunities</item>
+      </checklist>
+    </weekly-analysis>
+
+    <monthly-review>
+      <checklist>
+        <item>Cost trends vs. budget</item>
+        <item>Quality improvement patterns</item>
+        <item>Success rate changes</item>
+        <item>Document learnings in CLAUDE.local.md</item>
+      </checklist>
+    </monthly-review>
+  </section>
+
+  <section title="Tools Reference">
+    <tool name="analyze_sessions.py">
+      <usage>
+        <command name="basic">python analyze_sessions.py</command>
+        <command name="last_10">python analyze_sessions.py --last 10</command>
+        <command name="custom_dir">python analyze_sessions.py --dir /path/to/sessions</command>
+      </usage>
+    </tool>
+
+    <tool name="export_metrics.py">
+      <usage>
+        <command name="stdout">python export_metrics.py</command>
+        <command name="to_file">python export_metrics.py --output metrics.csv</command>
+        <command name="last_20">python export_metrics.py --last 20 --output recent.csv</command>
+      </usage>
+    </tool>
+
+    <tool name="production-metrics command">
+      <usage>
+        <command name="basic">/production-metrics</command>
+        <command name="last_20">/production-metrics --last 20</command>
+        <command name="detailed">/production-metrics --detailed</command>
+      </usage>
+    </tool>
+  </section>
+
+  <section title="Key Insights">
+    <what-we-learned>
+      <insight>Simple solutions often suffice - Not every project needs enterprise tooling</insight>
+      <insight>Local-first has advantages - No dependencies, works offline, fast</insight>
+      <insight>Observability != Complexity - You can have visibility without infrastructure</insight>
+      <insight>Right tool for the job - Langfuse is great for APIs, overkill for Claude Code</insight>
+    </what-we-learned>
+
+    <decision-rationale>
+      <reason>Level 2 is for learning, not production scale</reason>
+      <reason>Session files already capture what we need</reason>
+      <reason>Local tools provide sufficient analytics</reason>
+      <reason>No value in tracking fixed Claude Code costs</reason>
+      <reason>Complexity would distract from core learning</reason>
+    </decision-rationale>
+  </section>
+
+  <summary>
+    <current-state>Simple, effective, local observability through session files and Python scripts.</current-state>
+    <future-state>Full Langfuse integration when we have API control in Level 3/4.</future-state>
+    <key-principle>Use the simplest tool that solves the problem. For Level 2, that's local files and scripts, not enterprise observability platforms.</key-principle>
+    <decision>Remove Langfuse from Level 2, keep for Level 3/4 planning</decision>
+  </summary>
+</document>

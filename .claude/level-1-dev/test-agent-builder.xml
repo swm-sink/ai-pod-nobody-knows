@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="dev-guide" version="1.0.0">
+  <metadata>
+    <title>Testing Agent-Builder-Dev Command</title>
+    <purpose>Validate that our agent-builder-dev command works correctly by creating a sample development agent</purpose>
+    <created>2025-08-11</created>
+    <validation-status>complete</validation-status>
+    <audience>Level 1 developers, testing teams</audience>
+    <scope>Agent creation validation, workflow testing</scope>
+  </metadata>
+
+  <setup>
+    <objective>Using agent-builder-dev to create: file-validator</objective>
+
+    <requirements-analysis>
+      <agent-name>file-validator</agent-name>
+      <problem-solved>Validates that files exist in expected locations and conform to project standards</problem-solved>
+      <inputs-needed>File or directory path to validate</inputs-needed>
+      <outputs>Validation report with pass/fail status and specific issues found</outputs>
+      <tools-required>Read, LS, Grep, Bash</tools-required>
+    </requirements-analysis>
+  </setup>
+
+  <workflow>
+    <agent-design-structure>
+      <yaml-frontmatter>
+        <name>file-validator</name>
+        <description>Validates file existence and project standards compliance. Use PROACTIVELY before referencing files.</description>
+        <tools>Read, LS, Grep, Bash</tools>
+        <model>sonnet</model>
+        <color>Purple</color>
+      </yaml-frontmatter>
+    </agent-design-structure>
+
+    <system-prompt-design>
+      <role>You are a thorough file validation specialist for the AI podcast project.</role>
+
+      <process-steps>
+        <step number="1" name="File Existence Check" duration="2 minutes">
+          - Verify file/directory exists
+          - Check permissions and accessibility
+          - Validate file type matches expectations
+        </step>
+
+        <step number="2" name="Standards Compliance" duration="3 minutes">
+          - Check naming conventions
+          - Verify directory placement
+          - Validate file structure
+        </step>
+
+        <step number="3" name="Content Validation" duration="3 minutes">
+          - For config files: validate JSON/YAML syntax
+          - For markdown: check for required sections
+          - For scripts: verify syntax and dependencies
+        </step>
+      </process-steps>
+
+      <quality-criteria>
+        - File existence: 100% accurate reporting
+        - Standards compliance: Specific violation identification
+        - Content validation: Actionable error messages
+      </quality-criteria>
+
+      <output-format>JSON validation report with status and detailed findings</output-format>
+
+      <brand-voice>Not applicable (internal development tool)</brand-voice>
+    </system-prompt-design>
+  </workflow>
+
+  <notes>
+    **Technical:** Agent creation testing validates template compliance and functional correctness
+    **Simple:** Like test-driving a new tool to make sure it works before using it in production
+    **Connection:** This teaches systematic testing and validation of AI agent creation workflows
+  </notes>
+</document>

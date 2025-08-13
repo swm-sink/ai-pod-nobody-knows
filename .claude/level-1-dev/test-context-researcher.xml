@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="dev-guide" version="1.0.0">
+  <metadata>
+    <title>Testing Context-Researcher-Dev Command</title>
+    <purpose>Validate that our context-researcher-dev command works correctly by researching and documenting a relevant topic</purpose>
+    <created>2025-08-11</created>
+    <validation-status>complete</validation-status>
+    <audience>Level 1 developers, testing teams</audience>
+    <scope>Research workflow validation, documentation testing</scope>
+  </metadata>
+
+  <setup>
+    <objective>Using context-researcher-dev to research: Claude Code thinking modes optimization</objective>
+
+    <requirements-analysis>
+      <topic>Claude Code thinking modes optimization</topic>
+      <need-reason>To understand how to use think/think hard/think harder/ultrathink effectively</need-reason>
+      <decisions-informed>When to use different thinking modes in our agents and commands</decisions-informed>
+      <detail-level-required>Practical implementation guidance with specific use cases</detail-level-required>
+    </requirements-analysis>
+  </setup>
+
+  <workflow>
+    <research-rationale>
+      This research is needed because:
+      1. Our agents will use thinking modes for complex reasoning
+      2. Different production stages need different thinking depths
+      3. Cost optimization requires understanding thinking mode resource usage
+      4. Quality outcomes depend on appropriate thinking mode selection
+    </research-rationale>
+
+    <expected-research-areas>
+      - Technical specifications of each thinking mode
+      - Resource consumption and cost implications
+      - Best practices for mode selection
+      - Integration with agent workflows
+      - Performance optimization strategies
+    </expected-research-areas>
+  </workflow>
+
+  <notes>
+    **Technical:** Research workflow testing validates knowledge gathering and documentation generation patterns
+    **Simple:** Like researching before making a big decision to make sure you have all the facts
+    **Connection:** This teaches systematic research methodology and comprehensive documentation practices
+  </notes>
+</document>

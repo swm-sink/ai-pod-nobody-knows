@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="guide" version="1.0.0">
+  <metadata>
+    <title>Quick Start Guide - Nobody Knows Podcast</title>
+    <purpose>Step-by-step production system initialization and episode generation workflow</purpose>
+    <audience>New users and production operators</audience>
+    <last-updated>2025-08-12</last-updated>
+  </metadata>
+
+  <introduction>
+    <technical>Step-by-step production system initialization and episode generation workflow</technical>
+    <simple>Like a recipe to make your first podcast - follow the steps and you'll have an episode</simple>
+    <connection>This teaches systematic project setup and production pipeline execution</connection>
+  </introduction>
+
+  <prerequisites>
+    <title>Prerequisites</title>
+
+    <environment-requirements>
+      <title>Environment Requirements</title>
+      <requirement>Python 3.8+ (for dependency management)</requirement>
+      <requirement>Git (for version control and atomic commits)</requirement>
+      <requirement>1GB+ free disk space (for episode outputs and sessions)</requirement>
+      <requirement>Text editor (for configuration edits)</requirement>
+    </environment-requirements>
+
+    <api-setup>
+      <title>API Keys Setup</title>
+      <steps>
+        <step number="1" description="Copy environment template">cp .env.example .env</step>
+        <step number="2" description="Edit .env with your API keys">
+          # Required for research
+          PERPLEXITY_API_KEY=your_key_here
+
+          # Optional for audio synthesis
+          ELEVENLABS_API_KEY=your_key_here
+        </step>
+      </steps>
+
+      <educational-value>
+        <technical>Environment separation prevents API key exposure and enables configuration flexibility</technical>
+        <simple>Like keeping your house keys separate from work keys - each has its purpose</simple>
+        <connection>This teaches secure credential management and environment configuration</connection>
+      </educational-value>
+    </api-setup>
+  </prerequisites>
+
+  <quick-start>
+    <title>Quick Start (5 minutes)</title>
+
+    <step-1>
+      <title>Step 1: Validate System Readiness</title>
+      <command>.claude/level-2-production/tests/test-all-scripts.sh</command>
+      <expected-result>Pass rate &gt;50% (some failures expected without API keys)</expected-result>
+    </step-1>
+
+    <step-2>
+      <title>Step 2: Test MCP Connectivity</title>
+      <commands>
+        <command description="Test Perplexity connection">claude mcp add perplexity</command>
+        <command description="Verify research capability">echo "Test research query" | claude research "AI podcast topics"</command>
+      </commands>
+    </step-2>
+
+    <step-3>
+      <title>Step 3: Run Pre-Production Check</title>
+      <command>.claude/hooks/pre-production.sh</command>
+      <note>Fix any issues reported before continuing</note>
+    </step-3>
+
+    <step-4>
+      <title>Step 4: Test Episode Production</title>
+      <command>.claude/level-2-production/commands/test-episode-dry-run.md</command>
+      <monitoring>Monitor session state in: .claude/level-2-production/sessions/active/</monitoring>
+    </step-4>
+  </quick-start>
+
+  <production-workflow>
+    <title>Production Workflow</title>
+
+    <episode-production>
+      <title>Episode Production Steps</title>
+
+      <step-1>
+        <title>1. Initialize Episode Session</title>
+        <commands>
+          <command description="Create episode session">episode_id="ep_001_$(date +%Y%m%d_%H%M)"</command>
+          <command description="Create session directory">mkdir -p .claude/level-2-production/sessions/active/$episode_id</command>
+        </commands>
+      </step-1>
+
+      <step-2>
+        <title>2. Configure Episode Parameters</title>
+        <commands>
+          <command description="Copy episode configuration">cp .claude/level-2-production/config/episode-config.yaml .claude/level-2-production/sessions/active/$episode_id/config.yaml</command>
+          <note>Customize complexity level, topic, length</note>
+        </commands>
+      </step-2>
+
+      <step-3>
+        <title>3. Execute Production Pipeline</title>
+        <commands>
+          <command description="Run full 9-agent pipeline">.claude/level-2-production/commands/produce-episode.md $episode_id</command>
+          <command description="Monitor progress">tail -f .claude/level-2-production/sessions/active/$episode_id/state.json</command>
+        </commands>
+      </step-3>
+
+      <step-4>
+        <title>4. Quality Validation</title>
+        <commands>
+          <command description="Check quality gates passed">.claude/level-2-production/tools/brand-detector.sh .claude/level-2-production/sessions/active/$episode_id/final_script.md</command>
+          <threshold>Scores should be &gt;8% intellectual humility</threshold>
+        </commands>
+      </step-4>
+
+      <step-5>
+        <title>5. Session Completion</title>
+        <commands>
+          <command description="Auto-triggered session summary">.claude/hooks/session-complete.sh</command>
+          <output>Review summary in: .claude/sessions/summaries/session_${timestamp}_summary.md</output>
+        </commands>
+      </step-5>
+    </episode-production>
+
+    <educational-value>
+      <technical>Pipeline orchestration with state management and quality gates ensures reliable production</technical>
+      <simple>Like an assembly line with quality checkpoints - each step validates before moving forward</simple>
+      <connection>This teaches production system design and automated quality assurance</connection>
+    </educational-value>
+  </production-workflow>
+
+  <cost-management>
+    <title>Cost Management</title>
+
+    <monitor-costs>
+      <title>Monitor Episode Costs</title>
+      <commands>
+        <command description="Check current costs">.claude/level-2-production/tools/analyze_sessions.py --cost-summary</command>
+        <target>Target: &lt;$5 per episode</target>
+        <alert>Alert: &gt;$5 indicates optimization needed</alert>
+      </commands>
+    </monitor-costs>
+
+    <cost-optimization>
+      <title>Cost Optimization</title>
+      <commands>
+        <command description="Review token usage patterns">.claude/level-2-production/tools/export_metrics.py --tokens</command>
+        <note>Optimize prompts if costs exceed thresholds</note>
+      </commands>
+    </cost-optimization>
+  </cost-management>
+
+  <troubleshooting>
+    <title>Troubleshooting</title>
+
+    <common-issues>
+      <title>Common Issues</title>
+
+      <mcp-connection-failed>
+        <title>"MCP Connection Failed"</title>
+        <commands>
+          <command description="Check API key configuration">echo $PERPLEXITY_API_KEY | cut -c1-10  # Should show key prefix</command>
+          <command description="Restart MCP server">claude mcp restart perplexity</command>
+        </commands>
+      </mcp-connection-failed>
+
+      <tests-failing>
+        <title>"Tests Failing"</title>
+        <commands>
+          <command description="Run individual test components">.claude/level-2-production/tools/brand-detector.sh test_script.md</command>
+          <command description="Check error detector">.claude/level-2-production/tools/error-detector.sh</command>
+          <note>Check logs for specific errors</note>
+        </commands>
+      </tests-failing>
+
+      <session-recovery>
+        <title>"Session Recovery"</title>
+        <commands>
+          <command description="Recover failed session">.claude/level-2-production/tools/recovery-helper.sh $episode_id</command>
+          <note>Review recovery options and continue from checkpoint</note>
+        </commands>
+      </session-recovery>
+
+      <git-issues>
+        <title>"Git Issues"</title>
+        <commands>
+          <command description="Check repo status">git status</command>
+          <reference>Use git recovery reference: .claude/level-2-production/docs/GIT_RECOVERY_COMMANDS.xml</reference>
+        </commands>
+      </git-issues>
+    </common-issues>
+  </troubleshooting>
+
+  <quality-gates-reference>
+    <title>Quality Gates Reference</title>
+
+    <brand-voice-requirements>
+      <title>Brand Voice Requirements</title>
+      <requirement name="Intellectual Humility">&gt;8% of text</requirement>
+      <requirement name="Question Density">&gt;3 questions per 1000 words</requirement>
+      <requirement name="Overconfidence">&lt;2 absolute statements</requirement>
+      <requirement name="Wonder Expressions">"I wonder", "Perhaps", "What if"</requirement>
+    </brand-voice-requirements>
+
+    <technical-quality-thresholds>
+      <title>Technical Quality Thresholds</title>
+      <threshold name="Comprehension">&gt;0.85 (general audience understanding)</threshold>
+      <threshold name="Brand Consistency">&gt;0.90 (intellectual humility alignment)</threshold>
+      <threshold name="Engagement">&gt;0.80 (audience interest maintenance)</threshold>
+      <threshold name="Technical Accuracy">&gt;0.85 (factual correctness)</threshold>
+    </technical-quality-thresholds>
+
+    <educational-value>
+      <technical>Quantified quality metrics enable automated decision making and consistent standards</technical>
+      <simple>Like having a grading rubric - you know exactly what makes a good episode</simple>
+      <connection>This teaches quality assurance methodology and automated validation systems</connection>
+    </educational-value>
+  </quality-gates-reference>
+
+  <file-structure>
+    <title>File Structure Reference</title>
+
+    <structure>
+      .claude/level-2-production/
+      ├── agents/           # 9-agent pipeline definitions
+      ├── commands/         # Production workflow commands
+      ├── config/           # System configuration files
+      ├── sessions/         # Episode production sessions
+      │   ├── active/       # Current productions
+      │   ├── completed/    # Finished episodes
+      │   └── failed/       # Error recovery
+      ├── tools/            # Utility scripts and analyzers
+      ├── tests/            # Validation and testing suite
+      └── docs/             # Documentation (this file)
+
+      .claude/hooks/        # Automated validation hooks
+      ├── pre-production.sh    # System readiness check
+      ├── session-complete.sh  # Auto-commit and summary
+      └── pre-commit-quality.sh # Quality validation
+
+      projects/nobody-knows/
+      ├── output/           # Final episode outputs
+      └── config/           # Episode-specific configs
+    </structure>
+  </file-structure>
+
+  <next-steps>
+    <title>Next Steps</title>
+
+    <after-first-episode>
+      <title>After First Episode</title>
+      <step number="1">Review Cost Analysis - Optimize if &gt;$5</step>
+      <step number="2">Quality Assessment - Review brand voice scores</step>
+      <step number="3">Batch Production - Scale to multiple episodes</step>
+      <step number="4">Advanced Features - Explore custom prompts and voices</step>
+    </after-first-episode>
+
+    <advanced-usage>
+      <title>Advanced Usage</title>
+      <feature name="Custom Agents">Modify .claude/level-2-production/agents/</feature>
+      <feature name="Quality Tuning">Adjust .claude/level-2-production/config/quality-thresholds.yaml</feature>
+      <feature name="Batch Processing">Use .claude/level-2-production/commands/batch-produce.md</feature>
+      <feature name="Season Planning">Configure episode series in projects/nobody-knows/</feature>
+    </advanced-usage>
+
+    <educational-value>
+      <technical>Progressive complexity introduction enables skill development and system mastery</technical>
+      <simple>Like learning to drive - start in parking lot, then streets, then highway</simple>
+      <connection>This teaches incremental learning and capability building</connection>
+    </educational-value>
+  </next-steps>
+
+  <support>
+    <title>Support</title>
+    <resource name="Documentation">@context/operations/01_troubleshooting_guide.xml</resource>
+    <resource name="Quality Issues">@context/quality/ENFORCEMENT_STANDARDS.xml</resource>
+    <resource name="Git Problems">.claude/level-2-production/docs/GIT_WORKFLOW_GUIDE.xml</resource>
+    <resource name="System Issues">Run .claude/level-2-production/tests/test-all-scripts.sh</resource>
+  </support>
+
+  <footer>
+    <version>Phase 3 Production Ready</version>
+    <updated>2025-08-12</updated>
+    <pass-rate>52%+ expected</pass-rate>
+  </footer>
+</document>

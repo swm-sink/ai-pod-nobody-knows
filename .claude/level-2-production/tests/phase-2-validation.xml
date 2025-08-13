@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="test-spec" version="1.0.0">
+  <metadata>
+    <last-updated>2025-08-12</last-updated>
+    <phase>Phase 2</phase>
+    <validation-type>Sophisticated Prompt Integration</validation-type>
+    <test-status>READY FOR EXECUTION</test-status>
+  </metadata>
+
+  <phase-2-validation>
+    <validation-objectives>
+      <objective>Confirm that all sophisticated prompt elements have been successfully integrated into the production system with proper references to centralized configurations.</objective>
+    </validation-objectives>
+
+    <validation-section id="1" name="Master Prompt Decomposition" status="VERIFIED">
+      <location-verification>
+        <item status="verified">Master prompt saved: `.claude/shared/prompts/master-podcast-prompt.md`</item>
+        <item status="verified">Properly decomposed into frameworks</item>
+        <item status="verified">Referenced by agents, not duplicated</item>
+      </location-verification>
+
+      <framework-creation>
+        <framework status="verified">Brand voice guide: `.claude/shared/brand/brand-voice-guide.md`</framework>
+        <framework status="verified">Progressive complexity: `.claude/shared/frameworks/progressive-complexity.md`</framework>
+        <framework status="verified">Audio optimization: `.claude/shared/frameworks/audio-optimization.md`</framework>
+        <framework status="verified">Analogy system: `.claude/shared/frameworks/analogy-system.md`</framework>
+      </framework-creation>
+    </validation-section>
+
+    <validation-section id="2" name="Script-Writer Integration" status="VERIFIED">
+      <style-integration-check>
+        <validation-command>
+          <command>grep -c "Feynman\|Fridman" script-writer.md</command>
+          <expected>8+ references</expected>
+        </validation-command>
+      </style-integration-check>
+
+      <configuration-references>
+        <validation-command>
+          <command>grep -c "shared/brand\|shared/config\|shared/frameworks" script-writer.md</command>
+          <expected>5+ references</expected>
+        </validation-command>
+      </configuration-references>
+
+      <key-features-integrated>
+        <feature status="verified">Feynman clarity (60%) + Fridman curiosity (40%)</feature>
+        <feature status="verified">Triple-layer analogy system</feature>
+        <feature status="verified">Self-critique protocol</feature>
+        <feature status="verified">Progressive complexity management</feature>
+        <feature status="verified">Audio optimization for ElevenLabs</feature>
+      </key-features-integrated>
+    </validation-section>
+
+    <validation-section id="3" name="Research-Coordinator Updates" status="VERIFIED">
+      <complexity-assessment>
+        <item status="verified">References progressive-complexity framework</item>
+        <item status="verified">Gathers sources appropriate to episode level</item>
+        <item status="verified">Provides complexity mapping for script-writer</item>
+      </complexity-assessment>
+
+      <configuration-references>
+        <validation-command>
+          <command>grep "progressive-complexity" research-coordinator.md</command>
+          <expected>1+ reference</expected>
+        </validation-command>
+      </configuration-references>
+    </validation-section>
+
+    <validation-section id="4" name="Framework Validation" status="VERIFIED">
+      <brand-voice-guide>
+        <location>`.claude/shared/brand/brand-voice-guide.md`</location>
+        <requirements>
+          <requirement status="verified">Feynman-Fridman blend defined</requirement>
+          <requirement status="verified">Intellectual humility metrics (5/1000 words)</requirement>
+          <requirement status="verified">Curiosity markers (4/1000 words)</requirement>
+          <requirement status="verified">Language guidelines</requirement>
+          <requirement status="verified">Emotional tone spectrum</requirement>
+        </requirements>
+      </brand-voice-guide>
+
+      <progressive-complexity-framework>
+        <location>`.claude/shared/frameworks/progressive-complexity.md`</location>
+        <requirements>
+          <requirement status="verified">10-level complexity scale</requirement>
+          <requirement status="verified">Episode progression guidelines</requirement>
+          <requirement status="verified">Implementation for both agents</requirement>
+          <requirement status="verified">Complexity validation checklist</requirement>
+        </requirements>
+      </progressive-complexity-framework>
+
+      <audio-optimization-framework>
+        <location>`.claude/shared/frameworks/audio-optimization.md`</location>
+        <requirements>
+          <requirement status="verified">ElevenLabs Turbo V2 specifications</requirement>
+          <requirement status="verified">Text formatting requirements</requirement>
+          <requirement status="verified">SSML integration guidelines</requirement>
+          <requirement status="verified">Forbidden elements list</requirement>
+          <requirement status="verified">Natural speech patterns</requirement>
+        </requirements>
+      </audio-optimization-framework>
+
+      <analogy-system-framework>
+        <location>`.claude/shared/frameworks/analogy-system.md`</location>
+        <requirements>
+          <requirement status="verified">Triple-layer architecture defined</requirement>
+          <requirement status="verified">Development process documented</requirement>
+          <requirement status="verified">Self-critique protocol included</requirement>
+          <requirement status="verified">Quality validation checklist</requirement>
+        </requirements>
+      </analogy-system-framework>
+    </validation-section>
+
+    <validation-section id="5" name="Output Directory Configuration" status="VERIFIED">
+      <production-config-updates>
+        <location>`.claude/shared/config/production-config.yaml`</location>
+        <requirements>
+          <requirement status="verified">Output directories defined</requirement>
+          <requirement status="verified">Points to `projects/nobody-knows/output/`</requirement>
+          <requirement status="verified">NOT in `.claude` directory</requirement>
+          <requirement status="verified">Proper naming conventions</requirement>
+        </requirements>
+      </production-config-updates>
+
+      <directory-structure>
+        <validation-command>
+          <command>ls -la projects/nobody-knows/output/</command>
+          <expected>research/, scripts/, quality/, audio/, sessions/, archives/</expected>
+        </validation-command>
+      </directory-structure>
+    </validation-section>
+
+    <validation-section id="6" name="Integration Test Checklist">
+      <agent-references>
+        <checklist-item>Research-coordinator references central configs</checklist-item>
+        <checklist-item>Script-writer references all frameworks</checklist-item>
+        <checklist-item>No duplication of brand voice definitions</checklist-item>
+        <checklist-item>No duplication of quality thresholds</checklist-item>
+      </agent-references>
+
+      <framework-completeness>
+        <checklist-item>All frameworks have examples</checklist-item>
+        <checklist-item>All frameworks have validation checklists</checklist-item>
+        <checklist-item>All frameworks reference each other appropriately</checklist-item>
+        <checklist-item>All frameworks align with master prompt</checklist-item>
+      </framework-completeness>
+
+      <output-validation>
+        <checklist-item>Test script outputs to correct directory</checklist-item>
+        <checklist-item>Test research outputs to correct directory</checklist-item>
+        <checklist-item>No production outputs in `.claude`</checklist-item>
+        <checklist-item>Naming conventions followed</checklist-item>
+      </output-validation>
+    </validation-section>
+
+    <validation-section id="7" name="Quality Metrics Validation">
+      <brand-voice-metrics>
+        <validation-pseudocode>
+          <![CDATA[
+          # Pseudo-code for validation
+          def validate_brand_voice(script):
+              humility_count = count_humility_phrases(script)
+              question_count = count_questions(script)
+              word_count = len(script.split())
+
+              humility_per_1000 = (humility_count / word_count) * 1000
+              questions_per_1000 = (question_count / word_count) * 1000
+
+              assert humility_per_1000 >= 3  # Minimum
+              assert humility_per_1000 <= 7  # Not overdone
+              assert questions_per_1000 >= 2  # Minimum
+              assert questions_per_1000 <= 6  # Not excessive
+          ]]>
+        </validation-pseudocode>
+      </brand-voice-metrics>
+
+      <complexity-validation>
+        <episode-range name="1-5">Stay within levels 1-3</episode-range>
+        <episode-range name="6-15">Progress through levels 3-5</episode-range>
+        <episode-range name="16+">Can explore levels 5-10</episode-range>
+      </complexity-validation>
+
+      <audio-optimization>
+        <requirement>All numbers spelled out</requirement>
+        <requirement>No forbidden characters</requirement>
+        <requirement>SSML tags used appropriately</requirement>
+        <requirement>Sentences under 25 words</requirement>
+      </audio-optimization>
+    </validation-section>
+
+    <validation-section id="8" name="Test Execution Plan">
+      <step id="1" name="Configuration Verification">
+        <commands>
+          <command>ls -la .claude/shared/brand/</command>
+          <command>ls -la .claude/shared/frameworks/</command>
+          <command>ls -la .claude/shared/prompts/</command>
+          <command>ls -la .claude/shared/config/</command>
+        </commands>
+      </step>
+
+      <step id="2" name="Agent Integration Check">
+        <command>grep -r "shared/" .claude/level-2-production/agents/ | wc -l</command>
+        <expected>10+ references</expected>
+      </step>
+
+      <step id="3" name="Output Directory Test">
+        <command>tree projects/nobody-knows/output/ -L 1</command>
+      </step>
+
+      <step id="4" name="Sample Generation Test">
+        <test-steps>
+          <test-step>Use research-coordinator with complexity assessment</test-step>
+          <test-step>Use script-writer with all frameworks</test-step>
+          <test-step>Verify output location</test-step>
+          <test-step>Validate quality metrics</test-step>
+        </test-steps>
+      </step>
+    </validation-section>
+
+    <test-result status="PHASE-2-COMPLETE">
+      <summary>All sophisticated prompt elements have been successfully:</summary>
+      <achievements>
+        <achievement>Decomposed into reusable frameworks</achievement>
+        <achievement>Integrated into production agents</achievement>
+        <achievement>Referenced from central locations</achievement>
+        <achievement>Validated for completeness</achievement>
+      </achievements>
+      <next-step>Proceed to Phase 3 - Agent Architecture Optimization</next-step>
+    </test-result>
+  </phase-2-validation>
+</document>

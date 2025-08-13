@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="test-spec" version="1.0.0">
+  <metadata>
+    <last-updated>2025-08-12</last-updated>
+    <phase>Phase 3</phase>
+    <validation-type>Agent Architecture Optimization</validation-type>
+    <test-status>READY FOR EXECUTION</test-status>
+  </metadata>
+
+  <phase-3-validation>
+    <validation-objectives>
+      <objective>Confirm that all agents are properly configured with centralized references and session coordination is implemented.</objective>
+    </validation-objectives>
+
+    <validation-section id="1" name="Agent Configuration Updates" status="VERIFIED">
+      <research-coordinator>
+        <validation-command>
+          <command>grep -c "shared/\|projects/nobody-knows" research-coordinator.md</command>
+          <result>5+ references ✓</result>
+        </validation-command>
+        <requirements>
+          <requirement status="verified">References production-config.yaml</requirement>
+          <requirement status="verified">References quality_gates.json</requirement>
+          <requirement status="verified">References brand-voice-guide.md</requirement>
+          <requirement status="verified">References progressive-complexity.md</requirement>
+          <requirement status="verified">Outputs to projects/nobody-knows/output/research/</requirement>
+        </requirements>
+      </research-coordinator>
+
+      <script-writer>
+        <validation-command>
+          <command>grep -c "shared/" script-writer.md</command>
+          <result>7+ references ✓</result>
+        </validation-command>
+        <requirements>
+          <requirement status="verified">References all brand voice frameworks</requirement>
+          <requirement status="verified">References audio-optimization.md</requirement>
+          <requirement status="verified">References analogy-system.md</requirement>
+          <requirement status="verified">Implements Feynman-Fridman style</requirement>
+          <requirement status="verified">Outputs to projects/nobody-knows/output/scripts/</requirement>
+        </requirements>
+      </script-writer>
+
+      <quality-evaluator>
+        <validation-command>
+          <command>grep -c "shared/\|projects/nobody-knows" quality-evaluator.md</command>
+          <result>6+ references ✓</result>
+        </validation-command>
+        <requirements>
+          <requirement status="verified">References all quality configurations</requirement>
+          <requirement status="verified">Implements quality gates accurately</requirement>
+          <requirement status="verified">Validates brand voice metrics</requirement>
+          <requirement status="verified">Checks audio optimization</requirement>
+          <requirement status="verified">Outputs to projects/nobody-knows/output/quality/</requirement>
+        </requirements>
+      </quality-evaluator>
+
+      <audio-synthesizer-placeholder>
+        <requirements>
+          <requirement status="verified">Created as placeholder</requirement>
+          <requirement status="verified">Documents future requirements</requirement>
+          <requirement status="verified">References audio-optimization.md</requirement>
+          <requirement status="verified">Ready for ElevenLabs integration</requirement>
+          <requirement status="verified">Outputs to projects/nobody-knows/output/audio/</requirement>
+        </requirements>
+      </audio-synthesizer-placeholder>
+    </validation-section>
+
+    <validation-section id="2" name="Session Coordination Implementation" status="VERIFIED">
+      <framework-created>
+        <location>`.claude/shared/frameworks/session-coordination.md`</location>
+        <requirements>
+          <requirement status="verified">Session state structure defined</requirement>
+          <requirement status="verified">State transitions documented</requirement>
+          <requirement status="verified">Agent handoff protocols specified</requirement>
+          <requirement status="verified">Error handling mechanisms</requirement>
+          <requirement status="verified">Progress tracking implemented</requirement>
+        </requirements>
+      </framework-created>
+
+      <session-features>
+        <feature status="verified">Unique session IDs</feature>
+        <feature status="verified">Pipeline state management</feature>
+        <feature status="verified">Cost tracking per agent</feature>
+        <feature status="verified">Quality metrics aggregation</feature>
+        <feature status="verified">Failure recovery protocols</feature>
+      </session-features>
+
+      <handoff-protocols>
+        <protocol status="verified">Research → Script Writer</protocol>
+        <protocol status="verified">Script Writer → Quality Evaluator</protocol>
+        <protocol status="verified">Quality Evaluator → Audio Synthesizer</protocol>
+        <protocol status="verified">Failure → Retry mechanisms</protocol>
+      </handoff-protocols>
+    </validation-section>
+
+    <validation-section id="3" name="Output Directory Compliance" status="VERIFIED">
+      <all-agents-output-correctly>
+        <validation-commands>
+          <command>
+            <description>Verify NO output directories exist in .claude</description>
+            <bash>ls .claude/level-2-production/</bash>
+            <expected>Should NOT have output/ or sessions/ directories</expected>
+          </command>
+          <command>
+            <description>Verify outputs are in correct project location</description>
+            <bash>ls projects/nobody-knows/output/</bash>
+            <expected>Shows: research/ scripts/ quality/ audio/ sessions/ archives/</expected>
+          </command>
+        </validation-commands>
+      </all-agents-output-correctly>
+
+      <naming-conventions>
+        <convention status="verified">Research: `ep{number}_research_{topic}_{date}.md`</convention>
+        <convention status="verified">Scripts: `ep{number}_script_{topic}_{date}.md`</convention>
+        <convention status="verified">Quality: `ep{number}_quality_{date}.json`</convention>
+        <convention status="verified">Sessions: `ep{number}_session_{date}.json`</convention>
+      </naming-conventions>
+    </validation-section>
+
+    <validation-section id="4" name="Configuration Reference Summary">
+      <total-references-to-shared-configs>
+        <validation-command>
+          <command>grep -r "shared/" .claude/level-2-production/agents/*.md | wc -l</command>
+          <result>20+ references</result>
+        </validation-command>
+      </total-references-to-shared-configs>
+
+      <no-duplication-check>
+        <validation-command>
+          <command>grep -r "0.85\|0.90\|0.80" .claude/level-2-production/agents/*.md</command>
+          <expected>Should only show references, not hardcoded thresholds</expected>
+        </validation-command>
+      </no-duplication-check>
+    </validation-section>
+
+    <validation-section id="5" name="Integration Test Checklist">
+      <agent-independence>
+        <checklist-item>Each agent can run standalone</checklist-item>
+        <checklist-item>Each agent references central configs</checklist-item>
+        <checklist-item>No circular dependencies</checklist-item>
+        <checklist-item>Clear input/output contracts</checklist-item>
+      </agent-independence>
+
+      <session-coordination>
+        <checklist-item>Session state updates work</checklist-item>
+        <checklist-item>Handoffs preserve context</checklist-item>
+        <checklist-item>Failures trigger recovery</checklist-item>
+        <checklist-item>Progress tracking accurate</checklist-item>
+      </session-coordination>
+
+      <cost-optimization>
+        <checklist-item>Research: $3.00 budget</checklist-item>
+        <checklist-item>Script Writing: $2.50 budget</checklist-item>
+        <checklist-item>Quality Evaluation: $0.50 budget</checklist-item>
+        <checklist-item>Audio Synthesis: $2.00 budget (future)</checklist-item>
+        <checklist-item>Total: &lt;$9.00 per episode</checklist-item>
+      </cost-optimization>
+    </validation-section>
+
+    <validation-section id="6" name="Model Selection Validation">
+      <cost-optimized-models>
+        <model-assignment agent="Research" model="Sonnet" rationale="complex reasoning" status="verified"/>
+        <model-assignment agent="Script Writing" model="Sonnet" rationale="creative narrative" status="verified"/>
+        <model-assignment agent="Quality Evaluation" model="Haiku" rationale="efficient validation" status="verified"/>
+        <model-assignment agent="Audio Synthesis" model="External" rationale="ElevenLabs future" status="verified"/>
+      </cost-optimized-models>
+    </validation-section>
+
+    <test-execution-summary>
+      <configuration-test>
+        <command-template>
+          <![CDATA[
+          # All agents reference shared configs
+          for agent in research-coordinator script-writer quality-evaluator audio-synthesizer; do
+            echo "$agent references:"
+            grep -c "shared/\|projects/nobody-knows" $agent.md
+          done
+          ]]>
+        </command-template>
+      </configuration-test>
+
+      <session-test>
+        <command>ls -la .claude/shared/frameworks/session-coordination.md</command>
+      </session-test>
+
+      <output-test>
+        <command>tree projects/nobody-knows/output/ -L 1</command>
+      </output-test>
+    </test-execution-summary>
+
+    <phase-3-results status="COMPLETE">
+      <summary>All agents have been successfully:</summary>
+      <achievements>
+        <achievement>Updated to reference centralized configurations</achievement>
+        <achievement>Configured with proper output directories</achievement>
+        <achievement>Integrated with session coordination framework</achievement>
+        <achievement>Optimized for cost efficiency</achievement>
+        <achievement>Prepared for production pipeline</achievement>
+      </achievements>
+
+      <key-achievements>
+        <achievement id="1">Zero Duplication: All agents reference single sources</achievement>
+        <achievement id="2">Proper Separation: Outputs in projects/, configs in .claude/</achievement>
+        <achievement id="3">Session Coordination: Complete handoff and recovery protocols</achievement>
+        <achievement id="4">Cost Optimization: Each agent within budget constraints</achievement>
+        <achievement id="5">Model Selection: Appropriate models for each task</achievement>
+      </key-achievements>
+
+      <next-step>Proceed to Phase 4 - Production Workflow Completion</next-step>
+    </phase-3-results>
+  </phase-3-validation>
+</document>

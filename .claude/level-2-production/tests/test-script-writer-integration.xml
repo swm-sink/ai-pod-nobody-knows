@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="test-spec" version="1.0.0">
+  <metadata>
+    <last-updated>2025-08-12</last-updated>
+    <test-type>agent-integration-validation</test-type>
+    <agent-under-test>script-writer</agent-under-test>
+    <integration-focus>Feynman-Fridman Style</integration-focus>
+  </metadata>
+
+  <script-writer-integration-test>
+    <test-objective>
+      <objectives>
+        <objective>Validate that script-writer agent correctly references centralized configurations</objective>
+        <objective>Implements Feynman-Fridman style fusion</objective>
+        <objective>Uses triple-layer analogy system</objective>
+        <objective>Meets intellectual humility metrics</objective>
+        <objective>Outputs to correct directory</objective>
+      </objectives>
+    </test-objective>
+
+    <test-checklist>
+      <configuration-references status="TO-BE-VERIFIED">
+        <reference>References `.claude/shared/brand/brand-voice-guide.md`</reference>
+        <reference>References `projects/nobody-knows/config/quality_gates.json`</reference>
+        <reference>References `.claude/shared/config/production-config.yaml`</reference>
+        <reference>References `.claude/shared/prompts/master-podcast-prompt.md`</reference>
+      </configuration-references>
+
+      <style-implementation status="TO-BE-VERIFIED">
+        <implementation>Feynman clarity (60% - brilliant analogies)</implementation>
+        <implementation>Fridman curiosity (40% - technical exploration)</implementation>
+        <implementation>Progressive complexity management</implementation>
+        <implementation>Self-critique protocol included</implementation>
+      </style-implementation>
+
+      <analogy-system status="TO-BE-VERIFIED">
+        <layer>Universal layer (household/everyday)</layer>
+        <layer>Professional layer (work processes)</layer>
+        <layer>Historical layer (past innovations)</layer>
+      </analogy-system>
+
+      <brand-voice-metrics status="TO-BE-VERIFIED">
+        <metric>5 intellectual humility phrases per 1000 words</metric>
+        <metric>4 genuine questions per 1000 words</metric>
+        <metric>Uncertainty celebrated as exciting</metric>
+        <metric>Multiple perspectives fairly presented</metric>
+      </brand-voice-metrics>
+
+      <output-configuration status="TO-BE-VERIFIED">
+        <requirement>Scripts saved to `projects/nobody-knows/output/scripts/`</requirement>
+        <requirement>Naming follows pattern: `ep{number}_script_{topic}_{date}.md`</requirement>
+        <requirement>No outputs in `.claude` directory</requirement>
+      </output-configuration>
+    </test-checklist>
+
+    <test-execution>
+      <step id="1">Load consciousness research from: `projects/nobody-knows/output/research/consciousness-hard-problem-research-package.md`</step>
+      <step id="2">Generate script using updated script-writer agent</step>
+      <step id="3">Verify all checklist items</step>
+      <step id="4">Measure quality metrics</step>
+    </test-execution>
+
+    <expected-results>
+      <result>Script demonstrates clear Feynman-Fridman fusion</result>
+      <result>Triple-layer analogies for major concepts</result>
+      <result>Meets all brand voice metrics</result>
+      <result>Outputs to correct location</result>
+      <result>References central configurations</result>
+    </expected-results>
+
+    <test-validation-framework>
+      <configuration-validation>
+        <validation-method>Grep analysis for centralized config references</validation-method>
+        <success-criteria>All 4 required configuration files referenced</success-criteria>
+      </configuration-validation>
+
+      <style-fusion-validation>
+        <feynman-elements>
+          <element>Clear, accessible explanations</element>
+          <element>Everyday analogies for complex concepts</element>
+          <element>Step-by-step logical progression</element>
+        </feynman-elements>
+        <fridman-elements>
+          <element>Deep, probing questions</element>
+          <element>Technical curiosity</element>
+          <element>Philosophical exploration</element>
+        </fridman-elements>
+        <balance-target>60% Feynman clarity, 40% Fridman curiosity</balance-target>
+      </style-fusion-validation>
+
+      <analogy-system-validation>
+        <universal-layer-check>Household/everyday comparisons present</universal-layer-check>
+        <professional-layer-check>Work process analogies included</professional-layer-check>
+        <historical-layer-check>Past innovation comparisons used</historical-layer-check>
+      </analogy-system-validation>
+
+      <brand-voice-metrics-validation>
+        <humility-check>
+          <target>5 phrases per 1000 words</target>
+          <measurement-method>Count phrases like "we don't know", "perhaps", "might be"</measurement-method>
+        </humility-check>
+        <curiosity-check>
+          <target>4 questions per 1000 words</target>
+          <measurement-method>Count genuine questions that engage audience</measurement-method>
+        </curiosity-check>
+        <uncertainty-celebration>
+          <requirement>Uncertainty positioned as positive and exciting</requirement>
+          <measurement-method>Tone analysis of uncertainty references</measurement-method>
+        </uncertainty-celebration>
+      </brand-voice-metrics-validation>
+
+      <output-validation>
+        <directory-check>Verify output location is `projects/nobody-knows/output/scripts/`</directory-check>
+        <naming-validation>Confirm naming pattern: `ep{number}_script_{topic}_{date}.md`</naming-validation>
+        <constraint-check>Ensure no outputs in `.claude` directory</constraint-check>
+      </output-validation>
+    </test-validation-framework>
+
+    <integration-quality-assessment>
+      <centralized-configuration-usage>
+        <assessment-criteria>All configuration references point to centralized files</assessment-criteria>
+        <assessment-criteria>No hardcoded values that should be in configs</assessment-criteria>
+        <assessment-criteria>DRY principle maintained across all references</assessment-criteria>
+      </centralized-configuration-usage>
+
+      <style-implementation-quality>
+        <feynman-implementation>Clear, accessible language without oversimplification</feynman-implementation>
+        <fridman-implementation>Thoughtful questions that deepen understanding</fridman-implementation>
+        <fusion-effectiveness>Seamless integration of both styles</fusion-effectiveness>
+      </style-implementation-quality>
+
+      <analogy-system-effectiveness>
+        <analogy-quality>Analogies enhance understanding without being forced</analogy-quality>
+        <layer-utilization>All three layers used appropriately</layer-utilization>
+        <accuracy-maintenance>Complex concepts remain technically accurate</accuracy-maintenance>
+      </analogy-system-effectiveness>
+    </integration-quality-assessment>
+
+    <test-success-criteria>
+      <configuration-success>
+        <criterion>All 4 required configuration files referenced</criterion>
+        <criterion>No duplication of centralized information</criterion>
+        <criterion>Proper separation of concerns maintained</criterion>
+      </configuration-success>
+
+      <style-fusion-success>
+        <criterion>Clear evidence of Feynman clarity approach</criterion>
+        <criterion>Demonstrated Fridman curiosity elements</criterion>
+        <criterion>Balanced 60/40 implementation</criterion>
+      </style-fusion-success>
+
+      <brand-voice-success>
+        <criterion>Intellectual humility metrics met or exceeded</criterion>
+        <criterion>Curiosity markers present throughout</criterion>
+        <criterion>"Nobody Knows" philosophy evident</criterion>
+      </brand-voice-success>
+
+      <technical-success>
+        <criterion>Triple-layer analogy system functional</criterion>
+        <criterion>Output directory compliance verified</criterion>
+        <criterion>Self-critique protocol operational</criterion>
+      </technical-success>
+    </test-success-criteria>
+
+    <test-status>READY FOR EXECUTION</test-status>
+
+    <educational-value>
+      <technical-learning>Integration testing validates that centralized configuration management works correctly and style fusion is properly implemented</technical-learning>
+      <simple-learning>Like testing that a new recipe follows the cookbook correctly and produces the expected flavors</simple-learning>
+      <connection>This teaches systematic validation of complex integrations and style consistency in content generation systems</connection>
+    </educational-value>
+  </script-writer-integration-test>
+</document>

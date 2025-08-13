@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="dev-guide" version="1.0.0">
+  <metadata>
+    <title>Testing Command-Builder-Dev Command</title>
+    <purpose>Validate that our command-builder-dev command works correctly by creating a sample development command</purpose>
+    <created>2025-08-11</created>
+    <validation-status>complete</validation-status>
+    <audience>Level 1 developers, testing teams</audience>
+    <scope>Command creation validation, workflow testing</scope>
+  </metadata>
+
+  <setup>
+    <objective>Using command-builder-dev to create: validate-project-structure</objective>
+
+    <requirements-analysis>
+      <command-name>validate-project-structure</command-name>
+      <workflow-automated>Comprehensive validation of the 4-level project structure</workflow-automated>
+      <agents-coordinated>file-validator (created above)</agents-coordinated>
+      <quality-gates-needed>All directories exist, all files are properly placed, naming conventions followed</quality-gates-needed>
+      <cost-limits>Free (uses only local file operations)</cost-limits>
+    </requirements-analysis>
+  </setup>
+
+  <workflow>
+    <command-design>
+      <functionality>
+        This command will:
+        1. Check all 4 levels exist with proper directory structure
+        2. Validate file placement according to level architecture
+        3. Check naming conventions compliance
+        4. Generate comprehensive validation report
+        5. Provide specific fixing instructions for any issues
+      </functionality>
+
+      <quality-gates>
+        - Directory structure: 100% compliance
+        - File placement: 100% correct level assignment
+        - Naming conventions: 100% consistency
+        - Reference integrity: All links valid
+      </quality-gates>
+    </command-design>
+  </workflow>
+
+  <notes>
+    **Technical:** Command creation testing validates orchestration patterns and quality gate integration
+    **Simple:** Like testing a new recipe to make sure all the steps work together properly
+    **Connection:** This teaches systematic testing of complex workflow automation tools
+  </notes>
+</document>
