@@ -9,10 +9,10 @@
   <structure-overview>
     <directory-tree>
 .claude/
-├── FOLDER_STRUCTURE.xml       # This file - explains organization
+├── folder_structure.xml       # This file - explains organization
 ├── NAVIGATION_INDEX.xml       # Master navigation guide
 ├── README.md                  # .claude directory overview
-├── 00_GLOBAL_CONSTANTS.xml    # Project-wide constants
+├── 00_global_constants.xml    # Project-wide constants
 ├── CLAUDE.local.md            # Local settings documentation
 ├── settings.local.json        # User-specific Claude Code settings
 ├── .claudeignore              # Files to exclude from context
@@ -61,7 +61,7 @@
 │   │   ├── 02_hallucination_prevention_guide.md
 │   │   ├── 03_tdd_requirements_specification.md
 │   │   ├── 04_validation_workflow.md
-│   │   ├── TDD_ENFORCEMENT.md
+│   │   ├── tdd_enforcement.xml
 │   │   └── NAVIGATION.md
 │   │
 │   ├── elevenlabs/            # ElevenLabs integration (12 files)

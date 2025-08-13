@@ -27,7 +27,7 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 - **Emergency Navigation**: `@08_troubleshooting_guide.md → @09_quick_reference.md`
 
 ### 🔑 Constants Files (Start Here!)
-- **[00_GLOBAL_CONSTANTS.xml](./00_GLOBAL_CONSTANTS.xml)** ⭐ - Project-wide specifications (125 episodes, $4-8 target cost)
+- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (125 episodes, $4-8 target cost)
 - **[context/elevenlabs/00_elevenlabs_constants.xml](./context/elevenlabs/00_elevenlabs_constants.xml)** - Voice synthesis specs
 - **[context/claude-code/00_claude_code_constants.xml](./context/claude-code/00_claude_code_constants.xml)** - Development platform specs
 - **[context/foundation/00_project_constants.xml](./context/foundation/00_project_constants.xml)** - Learning structure specs
@@ -75,7 +75,7 @@ Complete voice synthesis implementation (10 guides) - All reference constants fi
 ## 🎓 Learning Paths
 
 ### Path 1: Quick Start (2-3 hours)
-1. Read [Global Constants](./00_GLOBAL_CONSTANTS.xml) - Understand the project scope
+1. Read [Global Constants](./00_global_constants.xml) - Understand the project scope
 2. Read [Project Overview](./context/foundation/01_project_overview.xml) - Get the big picture
 3. Follow [No API Keys Activities](./context/foundation/04_no_api_keys_activities.xml) - Start for FREE
 
@@ -144,7 +144,7 @@ ai-podcasts-nobody-knows/
 
 ### Most Important Files
 1. **[CLAUDE.md](./CLAUDE.md)** - Start here! Project setup and rules
-2. **[00_GLOBAL_CONSTANTS.xml](./00_GLOBAL_CONSTANTS.xml)** - All project specifications
+2. **[00_global_constants.xml](./00_global_constants.xml)** - All project specifications
 3. **[Project Overview](./context/foundation/01_project_overview.xml)** - What you're building
 
 ### Find Information Quickly
@@ -164,7 +164,7 @@ ai-podcasts-nobody-knows/
 
 ## 🎯 Project Goals Summary
 
-Reference values from [Global Constants](./00_GLOBAL_CONSTANTS.xml):
+Reference values from [Global Constants](./00_global_constants.xml):
 
 - **Project**: `PROJECT['name']` - `PROJECT['description']`
 - **Episodes**: `EPISODE_SPECS['total_episodes']` episodes, `EPISODE_SPECS['duration_minutes']` minutes each

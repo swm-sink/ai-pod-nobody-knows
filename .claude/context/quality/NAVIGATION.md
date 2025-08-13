@@ -20,7 +20,7 @@
   ↓ (Test-Driven Development)
 @14_validation_workflow.md
   ↓ (Validation Process)
-TDD_ENFORCEMENT.md
+tdd_enforcement.xml
   ↓ (Enforcement Rules)
 ```
 
@@ -33,7 +33,7 @@ TDD_ENFORCEMENT.md
 `@12_hallucination_prevention_guide.md → @14_validation_workflow.md → @../operations/08_troubleshooting_guide.md`
 
 **Development Standards Chain (3 levels):**
-`@13_tdd_requirements_specification.md → TDD_ENFORCEMENT.md → @../claude-code/20_hooks_automation_system.md`
+`@13_tdd_requirements_specification.md → tdd_enforcement.xml → @../claude-code/20_hooks_automation_system.md`
 
 ### **Task-Based Navigation**
 
@@ -58,7 +58,7 @@ TDD_ENFORCEMENT.md
 
 **During Development (CONTINUOUS):**
 ```
-@13_tdd_requirements_specification.md → @14_validation_workflow.md → TDD_ENFORCEMENT.md
+@13_tdd_requirements_specification.md → @14_validation_workflow.md → tdd_enforcement.xml
 ```
 
 **Post-Development (VALIDATION):**
@@ -103,7 +103,7 @@ TDD_ENFORCEMENT.md
 `@11_change_approval_requirements.md → @14_validation_workflow.md → @../claude-code/21_mcp_integration_guide.md`
 
 **Test Failures:**
-`@13_tdd_requirements_specification.md → TDD_ENFORCEMENT.md → @../operations/08_troubleshooting_guide.md`
+`@13_tdd_requirements_specification.md → tdd_enforcement.xml → @../operations/08_troubleshooting_guide.md`
 
 **Validation Failures:**
 `@14_validation_workflow.md → @12_hallucination_prevention_guide.md → @11_change_approval_requirements.md`
@@ -120,7 +120,7 @@ Global Constants: @../00_GLOBAL_CONSTANTS.md
 `@14_validation_workflow.md → @12_hallucination_prevention_guide.md → @11_change_approval_requirements.md → @../claude-code/21_mcp_integration_guide.md`
 
 **TDD Implementation Chain (4 levels):**
-`@13_tdd_requirements_specification.md → TDD_ENFORCEMENT.md → @../claude-code/20_hooks_automation_system.md → @../operations/08_troubleshooting_guide.md`
+`@13_tdd_requirements_specification.md → tdd_enforcement.xml → @../claude-code/20_hooks_automation_system.md → @../operations/08_troubleshooting_guide.md`
 
 ### **Quality Checkpoints Navigation**
 
@@ -137,7 +137,7 @@ Global Constants: @../00_GLOBAL_CONSTANTS.md
 **Post-Work Checkpoint:**
 - Final Validation: @14_validation_workflow.md
 - Change Review: @11_change_approval_requirements.md
-- Enforcement: TDD_ENFORCEMENT.md
+- Enforcement: tdd_enforcement.xml
 
 ### **Quick Reference Shortcuts**
 

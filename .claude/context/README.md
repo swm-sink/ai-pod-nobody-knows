@@ -165,7 +165,7 @@ Global Constants (project-wide)
 ## ⚡ Quick Navigation
 
 ### Looking for...
-- **Project specs** → [Global Constants](../00_GLOBAL_CONSTANTS.xml) (125 episodes, 9 agents)
+- **Project specs** → [Global Constants](../00_global_constants.xml) (125 episodes, 9 agents)
 - **Learning structure** → [Foundation Constants](./foundation/00_project_constants.xml)
 - **Voice synthesis** → [ElevenLabs Constants](./elevenlabs/00_elevenlabs_constants.xml)
 - **Development tools** → [Claude Code Constants](./claude-code/00_claude_code_constants.xml)

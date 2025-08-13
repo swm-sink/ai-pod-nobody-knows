@@ -231,6 +231,6 @@ venv/" > .claudeignore
   <cross-references>
     <reference target="validation-checklist.xml">Validation Checklist</reference>
     <reference target="enhancement-progress-report.xml">Enhancement Progress Report</reference>
-    <reference target="../../context/quality/ENFORCEMENT_STANDARDS.xml">Quality Standards</reference>
+    <reference target="../../context/quality/enforcement_standards.xml">Quality Standards</reference>
   </cross-references>
 </document>

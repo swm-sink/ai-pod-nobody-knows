@@ -9,7 +9,7 @@
         <validation-frequency>weekly</validation-frequency>
         <navigation>
             <index>@NAVIGATION.md</index>
-            <related>@../../00_GLOBAL_CONSTANTS.xml</related>
+            <related>@../../00_global_constants.xml</related>
         </navigation>
     </metadata>
 
@@ -302,7 +302,7 @@
     </content>
 
     <cross-references>
-        <reference file="../../00_GLOBAL_CONSTANTS.xml" section="global-project" type="parent">
+        <reference file="../../00_global_constants.xml" section="global-project" type="parent">
             Global project constants and specifications
         </reference>
         <reference file="16_memory_management_system.xml" section="memory-hierarchy" type="implementation">

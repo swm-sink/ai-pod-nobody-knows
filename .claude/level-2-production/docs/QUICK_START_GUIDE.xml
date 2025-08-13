@@ -273,7 +273,7 @@
   <support>
     <title>Support</title>
     <resource name="Documentation">@context/operations/01_troubleshooting_guide.xml</resource>
-    <resource name="Quality Issues">@context/quality/ENFORCEMENT_STANDARDS.xml</resource>
+    <resource name="Quality Issues">@context/quality/enforcement_standards.xml</resource>
     <resource name="Git Problems">.claude/level-2-production/docs/GIT_WORKFLOW_GUIDE.xml</resource>
     <resource name="System Issues">Run .claude/level-2-production/tests/test-all-scripts.sh</resource>
   </support>

@@ -33,7 +33,7 @@
       <title>Constants File Hierarchy</title>
       <structure>
         <level type="global">
-          <path>.claude/00_GLOBAL_CONSTANTS.xml</path>
+          <path>.claude/00_global_constants.xml</path>
           <purpose>Project-wide values</purpose>
         </level>
         <level type="domain">
@@ -107,8 +107,8 @@
   </content>
 
   <cross-references>
-    <reference target="../quality/ENFORCEMENT_STANDARDS.xml">Quality Enforcement Standards</reference>
-    <reference target="../../00_GLOBAL_CONSTANTS.xml">Global Constants</reference>
+    <reference target="../quality/enforcement_standards.xml">Quality Enforcement Standards</reference>
+    <reference target="../../00_global_constants.xml">Global Constants</reference>
     <reference target="../quality/anti-patterns.xml">Anti-Pattern Prevention</reference>
   </cross-references>
 </document>

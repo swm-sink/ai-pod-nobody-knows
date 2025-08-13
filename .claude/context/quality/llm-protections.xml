@@ -74,6 +74,6 @@
   <cross-references>
     <reference target="./anti-patterns.xml">Anti-Pattern Prevention</reference>
     <reference target="./validation_requirements.xml">Validation Requirements</reference>
-    <reference target="./ENFORCEMENT_STANDARDS.xml">Quality Enforcement Standards</reference>
+    <reference target="./enforcement_standards.xml">Quality Enforcement Standards</reference>
   </cross-references>
 </document>

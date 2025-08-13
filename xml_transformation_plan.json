@@ -147,7 +147,7 @@
           ".claude/context/operations/NAVIGATION.md",
           ".claude/context/prompts_research/NAVIGATION.md",
           ".claude/context/quality/NAVIGATION.md",
-          ".claude/context/quality/TDD_ENFORCEMENT.md"
+          ".claude/context/quality/tdd_enforcement.xml"
         ],
         "document_type": "context",
         "transformation_level": "ENHANCE",

@@ -257,7 +257,7 @@ else
     echo "  ✅ Use consistent XML namespaces and metadata"
     echo ""
     echo "Constants Files Location:"
-    echo "  📁 .claude/00_GLOBAL_CONSTANTS.xml (project-wide)"
+    echo "  📁 .claude/00_global_constants.xml (project-wide)"
     echo "  📁 .claude/context/*/00_*_constants.xml (domain-specific)"
     # Relaxed: Only exit with error for critical violations
     # exit 1  # Temporarily disabled to allow progress

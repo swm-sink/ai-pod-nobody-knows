@@ -118,7 +118,7 @@
   </content>
 
   <cross-references>
-    <reference target="../quality/ENFORCEMENT_STANDARDS.xml">Enforcement Standards</reference>
+    <reference target="../quality/enforcement_standards.xml">Enforcement Standards</reference>
     <reference target="../quality/validation_requirements.xml">Validation Requirements</reference>
     <reference target="./01_troubleshooting_guide.xml">Troubleshooting Guide</reference>
   </cross-references>

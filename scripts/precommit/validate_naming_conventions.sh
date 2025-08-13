@@ -46,7 +46,7 @@ validate_xml_naming() {
             log_success "Constants file naming correct: $file"
         elif [[ "$basename" == "README.xml" ]] ||
              [[ "$basename" == "NAVIGATION.xml" ]] ||
-             [[ "$basename" == "ENFORCEMENT_STANDARDS.xml" ]]; then
+             [[ "$basename" == "enforcement_standards.xml" ]]; then
             log_success "Special file naming correct: $file"
         else
             log_error "XML naming convention violation: $file"

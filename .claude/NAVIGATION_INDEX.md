@@ -16,8 +16,8 @@
 ### Level 1: Core Entry Points
 
 - **@CLAUDE.md** - Main project memory (start here)
-- **@00_GLOBAL_CONSTANTS.xml** - All project constants
-- **@FOLDER_STRUCTURE.xml** - Directory organization
+- **@00_global_constants.xml** - All project constants
+- **@folder_structure.xml** - Directory organization
 - **@README.md** - Documentation overview
 
 ### Level 2: Domain Navigation
@@ -114,7 +114,7 @@
 ## Constants Navigation 🔧
 
 ### Quick Constants Access
-- **Global:** @00_GLOBAL_CONSTANTS.xml
+- **Global:** @00_global_constants.xml
 - **Foundation:** @foundation/00_project_constants.xml
 - **Claude Code:** @claude-code/00_claude_code_constants.xml
 - **AI Orchestration:** @ai-orchestration/* (no constants file)

@@ -740,7 +740,7 @@ See: [Multi-Agent Orchestration Framework](.claude/context/agents/multi-agent-or
   </operations>
 
   <quality>
-    <file>.claude/context/quality/ENFORCEMENT_STANDARDS.xml</file>
+    <file>.claude/context/quality/enforcement_standards.xml</file>
     <purpose>Mandatory standards</purpose>
     <learning-value>Quality assurance principles and practices</learning-value>
 

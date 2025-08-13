@@ -691,6 +691,6 @@ echo "✅ Pre-commit validation passed"
   <cross-references>
     <reference target="enhancement-progress-report.xml">Enhancement Progress Report</reference>
     <reference target="file-reference-validation.xml">File Reference Validation</reference>
-    <reference target="../../context/quality/ENFORCEMENT_STANDARDS.xml">Quality Standards</reference>
+    <reference target="../../context/quality/enforcement_standards.xml">Quality Standards</reference>
   </cross-references>
 </document>
