@@ -18,20 +18,20 @@ This document maps concrete agent names to abstract stage references to eliminat
 
 ## Pipeline Flow
 
-```
-RESEARCH_STAGE → PLANNING_STAGE → SCRIPT_GENERATION_STAGE → 
+```text
+RESEARCH_STAGE → PLANNING_STAGE → SCRIPT_GENERATION_STAGE →
 QUALITY_EVALUATION_STAGE_1 ↘
-                              ↘ FEEDBACK_SYNTHESIS_STAGE → 
+                              ↘ FEEDBACK_SYNTHESIS_STAGE →
 QUALITY_EVALUATION_STAGE_2 ↗                              ↘
-                                                          ↘ SCRIPT_POLISHING_STAGE → 
-                                                             FINAL_REVIEW_STAGE → 
+                                                          ↘ SCRIPT_POLISHING_STAGE →
+                                                             FINAL_REVIEW_STAGE →
                                                              AUDIO_SYNTHESIS_STAGE
 ```
 
 ## Benefits
 
 - **Eliminates Circular Dependencies**: No agent directly references another agent
-- **Reduces Coupling**: Agents reference abstract stages, not concrete implementations  
+- **Reduces Coupling**: Agents reference abstract stages, not concrete implementations
 - **Improves Maintainability**: Agent names can change without breaking references
 - **Enables Dynamic Routing**: Pipeline coordinator determines actual agent routing
 - **Supports Testing**: Abstract stages can be mocked or stubbed for testing

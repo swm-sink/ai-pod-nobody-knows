@@ -36,7 +36,7 @@ echo "🔍 Identifying problematic references..."
 # Define mapping of specific agent names to abstract stages
 declare -A STAGE_MAPPING=(
     ["01_research_coordinator"]="RESEARCH_STAGE"
-    ["02_episode_planner"]="PLANNING_STAGE" 
+    ["02_episode_planner"]="PLANNING_STAGE"
     ["03_script_writer"]="SCRIPT_GENERATION_STAGE"
     ["04_quality_claude"]="QUALITY_EVALUATION_STAGE_1"
     ["05_quality_gemini"]="QUALITY_EVALUATION_STAGE_2"
@@ -51,31 +51,31 @@ fix_agent_file() {
     local agent_file="$1"
     local agent_name=$(basename "$agent_file" .md)
     local temp_file=$(mktemp)
-    
+
     echo "Fixing: $agent_name"
-    
+
     # Copy original file
     cp "$agent_file" "$temp_file"
-    
+
     # Remove self-references (except in name field)
     sed -i.bak "/^name: $agent_name$/!s/$agent_name/CURRENT_AGENT/g" "$temp_file"
-    
+
     # Replace specific agent references with abstract stages
     for agent in "${!STAGE_MAPPING[@]}"; do
         stage="${STAGE_MAPPING[$agent]}"
         # Don't replace the agent's own name declaration
         sed -i.bak "/^name: $agent$/!s/$agent/$stage/g" "$temp_file"
     done
-    
+
     # Fix routing logic to use abstract references
     sed -i.bak 's/"next_agent": "[^"]*"/"next_stage": "NEXT_PIPELINE_STAGE"/g' "$temp_file"
     sed -i.bak 's/Route to [0-9][0-9]_[a-z_]*/Route to NEXT_APPROPRIATE_STAGE/g' "$temp_file"
-    
+
     # Replace specific workflow references
     sed -i.bak 's/after both quality evaluations/after both quality evaluation stages/g' "$temp_file"
     sed -i.bak 's/from 04_quality_claude/from QUALITY_EVALUATION_STAGE_1/g' "$temp_file"
     sed -i.bak 's/from 05_quality_gemini/from QUALITY_EVALUATION_STAGE_2/g' "$temp_file"
-    
+
     # Check if changes were made
     if ! diff -q "$agent_file" "$temp_file" >/dev/null 2>&1; then
         mv "$temp_file" "$agent_file"
@@ -85,7 +85,7 @@ fix_agent_file() {
         rm "$temp_file"
         echo -e "  ${YELLOW}- No changes needed for $agent_name${NC}"
     fi
-    
+
     # Clean up backup files
     rm -f "$temp_file.bak"
 }
@@ -125,19 +125,19 @@ This document maps concrete agent names to abstract stage references to eliminat
 ## Pipeline Flow
 
 ```
-RESEARCH_STAGE → PLANNING_STAGE → SCRIPT_GENERATION_STAGE → 
+RESEARCH_STAGE → PLANNING_STAGE → SCRIPT_GENERATION_STAGE →
 QUALITY_EVALUATION_STAGE_1 ↘
-                              ↘ FEEDBACK_SYNTHESIS_STAGE → 
+                              ↘ FEEDBACK_SYNTHESIS_STAGE →
 QUALITY_EVALUATION_STAGE_2 ↗                              ↘
-                                                          ↘ SCRIPT_POLISHING_STAGE → 
-                                                             FINAL_REVIEW_STAGE → 
+                                                          ↘ SCRIPT_POLISHING_STAGE →
+                                                             FINAL_REVIEW_STAGE →
                                                              AUDIO_SYNTHESIS_STAGE
 ```
 
 ## Benefits
 
 - **Eliminates Circular Dependencies**: No agent directly references another agent
-- **Reduces Coupling**: Agents reference abstract stages, not concrete implementations  
+- **Reduces Coupling**: Agents reference abstract stages, not concrete implementations
 - **Improves Maintainability**: Agent names can change without breaking references
 - **Enables Dynamic Routing**: Pipeline coordinator determines actual agent routing
 - **Supports Testing**: Abstract stages can be mocked or stubbed for testing

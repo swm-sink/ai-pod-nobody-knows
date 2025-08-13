@@ -2,7 +2,7 @@
 # Session State Recovery Validation Test
 # Tests system ability to recover from various interruption scenarios
 
-echo "🔄 SESSION STATE RECOVERY VALIDATION"  
+echo "🔄 SESSION STATE RECOVERY VALIDATION"
 echo "===================================="
 
 # Color codes
@@ -27,9 +27,9 @@ run_test() {
     local test_name="$1"
     local test_command="$2"
     local expected_result="$3"
-    
+
     echo -n "Testing: $test_name... "
-    
+
     if eval "$test_command"; then
         if [ "$expected_result" = "pass" ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
@@ -94,7 +94,7 @@ cat > "$TEST_SESSION_DIR/state.json" << EOF
   "error_log": [],
   "recovery_points": [
     {
-      "agent": "01_research_coordinator", 
+      "agent": "01_research_coordinator",
       "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
       "state": "completed"
     }
@@ -176,7 +176,7 @@ run_test "Session analysis tool execution" \
     "pass"
 
 echo ""
-echo "🧹 Testing Cleanup and Recovery..."  
+echo "🧹 Testing Cleanup and Recovery..."
 echo "---------------------------------"
 
 # Test 10: Git integration with session recovery
@@ -203,7 +203,7 @@ mkdir -p "$COMPLEX_SESSION_DIR"
 cat > "$COMPLEX_SESSION_DIR/state.json" << EOF
 {
   "session_id": "$COMPLEX_SESSION_ID",
-  "episode_id": "ep_complex_001", 
+  "episode_id": "ep_complex_001",
   "phase": "quality_evaluation",
   "status": "agent_failed",
   "current_agent": "04_quality_claude",
@@ -212,7 +212,7 @@ cat > "$COMPLEX_SESSION_DIR/state.json" << EOF
   "updated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "agents_completed": [
     "01_research_coordinator",
-    "02_episode_planner", 
+    "02_episode_planner",
     "03_script_writer"
   ],
   "agents_remaining": [
@@ -220,7 +220,7 @@ cat > "$COMPLEX_SESSION_DIR/state.json" << EOF
     "05_quality_gemini",
     "06_feedback_synthesizer",
     "07_script_polisher",
-    "08_final_reviewer", 
+    "08_final_reviewer",
     "09_audio_synthesizer"
   ],
   "partial_outputs": {
@@ -254,7 +254,7 @@ if [ $TESTS_FAILED -eq 0 ]; then
     echo ""
     echo "Session Recovery Capabilities Validated:"
     echo "✓ Session state persistence"
-    echo "✓ Error logging and recovery"  
+    echo "✓ Error logging and recovery"
     echo "✓ Failed session management"
     echo "✓ Recovery helper functionality"
     echo "✓ Git integration preservation"

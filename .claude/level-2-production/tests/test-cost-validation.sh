@@ -25,11 +25,11 @@ echo ""
 # Test helper function
 run_test() {
     local test_name="$1"
-    local test_command="$2" 
+    local test_command="$2"
     local expected_result="$3"
-    
+
     echo -n "Testing: $test_name... "
-    
+
     if eval "$test_command"; then
         if [ "$expected_result" = "pass" ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
@@ -168,7 +168,7 @@ run_test "Cost targets are achievable (under industry standards)" \
 
 echo ""
 echo "=================================="
-echo "💰 COST VALIDATION TEST RESULTS" 
+echo "💰 COST VALIDATION TEST RESULTS"
 echo "=================================="
 echo -e "Tests Passed: ${GREEN}$TESTS_PASSED${NC}"
 echo -e "Tests Failed: ${RED}$TESTS_FAILED${NC}"

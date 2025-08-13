@@ -1,5 +1,5 @@
 #!/bin/bash
-# MCP Connectivity Validation Test  
+# MCP Connectivity Validation Test
 # Tests Perplexity (required) and ElevenLabs (optional) MCP server connectivity
 
 echo "🔗 MCP CONNECTIVITY VALIDATION"
@@ -16,7 +16,7 @@ TESTS_PASSED=0
 TESTS_FAILED=0
 
 # Find project root
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 cd "$PROJECT_ROOT"
 
@@ -28,9 +28,9 @@ run_test() {
     local test_name="$1"
     local test_command="$2"
     local expected_result="$3"
-    
+
     echo -n "Testing: $test_name... "
-    
+
     if eval "$test_command"; then
         if [ "$expected_result" = "pass" ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
@@ -116,7 +116,7 @@ echo "------------------------------------"
 
 if [ -n "$PERPLEXITY_API_KEY" ]; then
     echo -e "${GREEN}🔑 API Key Available - Testing Connection${NC}"
-    
+
     # Test 6: Test Perplexity API connectivity (lightweight test)
     echo "Testing Perplexity API connectivity (may take 10-15 seconds)..."
     PERPLEXITY_TEST=$(timeout 15 bash -c '
@@ -130,7 +130,7 @@ if [ -n "$PERPLEXITY_API_KEY" ]; then
             exit 1
         fi
     ' 2>/dev/null)
-    
+
     if [ $? -eq 0 ]; then
         run_test "Perplexity API responds to test query" \
             "true" \
@@ -152,7 +152,7 @@ echo "-----------------------------------"
 
 if [ -n "$ELEVENLABS_API_KEY" ]; then
     echo -e "${GREEN}🔑 API Key Available - Testing Connection${NC}"
-    
+
     # Test 7: Test ElevenLabs API connectivity (lightweight test)
     echo "Testing ElevenLabs API connectivity (may take 10-15 seconds)..."
     ELEVENLABS_TEST=$(timeout 15 bash -c '
@@ -164,7 +164,7 @@ if [ -n "$ELEVENLABS_API_KEY" ]; then
             exit 1
         fi
     ' 2>/dev/null)
-    
+
     if [ $? -eq 0 ]; then
         run_test "ElevenLabs API responds to test query" \
             "true" \
@@ -218,7 +218,7 @@ def test_fallback_logic():
     """Test MCP fallback handling"""
     # Simulate MCP unavailable
     mcp_available = False
-    
+
     if not mcp_available:
         print("FALLBACK: Using local processing instead of MCP")
         return "local_processing"
@@ -273,7 +273,7 @@ if [ $TESTS_FAILED -eq 0 ]; then
     echo ""
     echo "MCP Integration Status: READY FOR PRODUCTION"
     echo "✓ Infrastructure configured correctly"
-    echo "✓ API integration points established"  
+    echo "✓ API integration points established"
     echo "✓ Fallback mechanisms available"
     echo "✓ Production pipeline MCP-aware"
     exit 0

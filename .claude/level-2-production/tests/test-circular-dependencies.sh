@@ -29,9 +29,9 @@ run_test() {
     local test_name="$1"
     local test_command="$2"
     local expected_result="$3"
-    
+
     echo -n "Testing: $test_name... "
-    
+
     if eval "$test_command"; then
         if [ "$expected_result" = "pass" ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
@@ -57,7 +57,7 @@ echo "-----------------------------------------"
 # Define the expected agent pipeline flow
 AGENT_FLOW=(
     "01_research_coordinator"
-    "02_episode_planner"  
+    "02_episode_planner"
     "03_script_writer"
     "04_quality_claude"
     "05_quality_gemini"
@@ -103,17 +103,17 @@ from typing import Dict, List, Set
 def extract_agent_dependencies(agent_file: str) -> List[str]:
     """Extract dependencies from agent markdown file"""
     dependencies = []
-    
+
     if not os.path.exists(agent_file):
         return dependencies
-    
+
     with open(agent_file, 'r') as f:
         lines = f.readlines()
-        
+
         # Look for references to other agents, excluding name declaration
         agent_patterns = [
             r'01_research_coordinator',
-            r'02_episode_planner', 
+            r'02_episode_planner',
             r'03_script_writer',
             r'04_quality_claude',
             r'05_quality_gemini',
@@ -122,39 +122,39 @@ def extract_agent_dependencies(agent_file: str) -> List[str]:
             r'08_final_reviewer',
             r'09_audio_synthesizer'
         ]
-        
+
         for i, line in enumerate(lines):
             line_lower = line.lower()
             # Skip name declaration line and description line
             if line.startswith('name:') or line.startswith('description:'):
                 continue
-                
+
             for pattern in agent_patterns:
                 if re.search(pattern, line_lower):
                     if pattern not in dependencies:
                         dependencies.append(pattern)
-    
+
     return dependencies
 
 def detect_circular_dependencies(agents: List[str]) -> Dict[str, List[str]]:
     """Detect circular dependencies in agent pipeline"""
     dependencies = {}
-    
+
     # Build dependency graph
     for agent in agents:
         agent_file = f'.claude/level-2-production/agents/{agent}.md'
         deps = extract_agent_dependencies(agent_file)
         dependencies[agent] = deps
-        
+
     return dependencies
 
 def has_circular_dependency(dependencies: Dict[str, List[str]]) -> bool:
     """Check if dependency graph has cycles using DFS"""
-    
+
     def dfs_visit(node: str, visited: Set[str], rec_stack: Set[str]) -> bool:
         visited.add(node)
         rec_stack.add(node)
-        
+
         for neighbor in dependencies.get(node, []):
             if neighbor not in visited:
                 if dfs_visit(neighbor, visited, rec_stack):
@@ -162,23 +162,23 @@ def has_circular_dependency(dependencies: Dict[str, List[str]]) -> bool:
             elif neighbor in rec_stack:
                 print(f"CIRCULAR DEPENDENCY FOUND: {node} → {neighbor}")
                 return True
-                
+
         rec_stack.remove(node)
         return False
-    
+
     visited = set()
-    
+
     for node in dependencies.keys():
         if node not in visited:
             if dfs_visit(node, visited, set()):
                 return True
-                
+
     return False
 
 # Analyze the pipeline
 agents = [
     '01_research_coordinator',
-    '02_episode_planner', 
+    '02_episode_planner',
     '03_script_writer',
     '04_quality_claude',
     '05_quality_gemini',
@@ -230,7 +230,7 @@ FORWARD_DEPS_FOUND=0
 for i in "${!AGENT_FLOW[@]}"; do
     current_agent="${AGENT_FLOW[$i]}"
     current_file=".claude/level-2-production/agents/${current_agent}.md"
-    
+
     if [ -f "$current_file" ]; then
         # Check if this agent references any later agents
         for j in "${!AGENT_FLOW[@]}"; do
@@ -256,12 +256,12 @@ echo "-------------------------------------"
 # Test 5: Each agent has clear input/output definitions
 for agent in "${AGENT_FLOW[@]}"; do
     agent_file=".claude/level-2-production/agents/${agent}.md"
-    
+
     if [ -f "$agent_file" ]; then
         run_test "$agent has input requirements" \
             "grep -q -i 'input\|require' '$agent_file'" \
             "pass"
-            
+
         run_test "$agent has output format" \
             "grep -q -i 'output\|format' '$agent_file'" \
             "pass"
@@ -276,10 +276,10 @@ echo "--------------------------------------"
 cat > /tmp/test_session_state.py << 'EOF'
 def simulate_pipeline_execution():
     """Simulate pipeline execution to check for potential loops"""
-    
+
     pipeline_flow = [
         "01_research_coordinator",
-        "02_episode_planner", 
+        "02_episode_planner",
         "03_script_writer",
         "04_quality_claude",
         "05_quality_gemini",
@@ -288,7 +288,7 @@ def simulate_pipeline_execution():
         "08_final_reviewer",
         "09_audio_synthesizer"
     ]
-    
+
     # Simulate session state
     session_state = {
         "current_agent": 0,
@@ -296,29 +296,29 @@ def simulate_pipeline_execution():
         "max_iterations": 20,  # Prevent infinite loops
         "iteration_count": 0
     }
-    
+
     while session_state["current_agent"] < len(pipeline_flow):
         current_agent_index = session_state["current_agent"]
         current_agent = pipeline_flow[current_agent_index]
-        
+
         session_state["iteration_count"] += 1
-        
+
         # Check for infinite loop protection
         if session_state["iteration_count"] > session_state["max_iterations"]:
             print(f"ERROR: Maximum iterations exceeded - possible infinite loop")
             return False
-            
+
         # Check for agent being executed twice
         if current_agent in session_state["completed_agents"]:
             print(f"ERROR: Agent {current_agent} executed multiple times")
             return False
-            
+
         # Mark agent as completed and move to next
         session_state["completed_agents"].append(current_agent)
         session_state["current_agent"] += 1
-        
+
         print(f"Executed: {current_agent}")
-    
+
     print("Pipeline completed successfully - no loops detected")
     return True
 
@@ -339,22 +339,22 @@ echo "-------------------------------------"
 cat > /tmp/test_retry_logic.py << 'EOF'
 def test_retry_mechanism():
     """Test that retry logic doesn't create circular dependencies"""
-    
+
     # Simulate agent failure and retry
     failed_agent = "03_script_writer"
     retry_count = 0
     max_retries = 3
-    
+
     while retry_count < max_retries:
         retry_count += 1
         print(f"Retry {retry_count} for {failed_agent}")
-        
+
         # Simulate retry logic
         if retry_count == max_retries:
             print(f"Max retries reached for {failed_agent} - marking as failed")
             print("Moving to recovery procedure (not retry loop)")
             break
-    
+
     # Verify no circular retry
     if retry_count <= max_retries:
         print("Retry mechanism bounded - no infinite loops")
@@ -401,7 +401,7 @@ if [ $TESTS_FAILED -eq 0 ]; then
     echo ""
     echo "Pipeline Architecture Validation: PASSED"
     echo "✓ Sequential agent flow confirmed"
-    echo "✓ No circular dependencies detected"  
+    echo "✓ No circular dependencies detected"
     echo "✓ No forward dependencies found"
     echo "✓ Proper input/output definitions"
     echo "✓ Loop prevention mechanisms active"
