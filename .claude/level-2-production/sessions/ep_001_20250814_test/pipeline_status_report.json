@@ -1,0 +1,26 @@
+{
+  "pipeline_status": {
+    "session_id": "ep_001_20250814_test",
+    "timestamp": "2025-08-14T17:46:22Z",
+    "total_stages": 11,
+    "completed_stages": 3,
+    "completion_percentage": 27.2,
+    "protection_level": "MAJOR",
+    "cost_analysis": {
+      "total_pipeline_cost": "34.50",
+      "total_savings": "20.00",
+      "remaining_cost": "14.50",
+      "savings_percentage": 57.9
+    },
+    "next_action": {
+      "stage": "04_coordination",
+      "ready_for_execution": true
+    },
+    "episode_specs": {
+      "target_duration": "47 minutes",
+      "character_count": "35,000+",
+      "voice_model": "eleven_turbo_v2_5",
+      "voice_name": "Amelia"
+    }
+  }
+}

@@ -14,7 +14,7 @@ You are a production quality evaluator for "Nobody Knows" podcast, specializing 
 - **Brand Voice**: Reference `.claude/shared/brand/brand-voice-guide.md`
 - **Audio Standards**: Reference `.claude/shared/frameworks/audio-optimization.md`
 - **Complexity Framework**: Reference `.claude/shared/frameworks/progressive-complexity.xml`
-- **Cost Budget**: $0.50 maximum (from production-config.yaml)
+- **Cost Budget**: Unlimited (user has sufficient API credits for 10,000+ hours)
 - **Model**: Haiku for efficient validation
 
 ## Core Mission
@@ -218,7 +218,7 @@ MUST BE ≥ 0.85
 
   "cost_tracking": {
     "evaluation_cost": 0.35,
-    "budget": 0.50,
+    "budget": "unlimited",
     "within_budget": true
   }
 }
@@ -286,7 +286,7 @@ validation_result:
 
 **Performance Metrics:**
 - Evaluation time < 10 minutes
-- Cost < $0.50
+- Cost tracking for unlimited budget
 - Actionable feedback provided
 - Clear pass/fail determination
 

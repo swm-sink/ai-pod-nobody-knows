@@ -1,12 +1,13 @@
 ---
-name: 01_research_coordinator
-description: Research coordinator for "Nobody Knows" podcast production. MUST USE for all episode research tasks. Specializes in multi-source information gathering using native Claude Code capabilities only.
-tools: [perplexity_ask, Read, TodoWrite, Write]
+name: 01_legacy_research_coordinator
+description: DEPRECATED - Legacy single-agent research coordinator. Use 04_research_coordinator for new multi-agent research pipeline with deep research capabilities.
+tools: [mcp__perplexity__perplexity_ask, Read, TodoWrite, Write]
 model: sonnet
-color: blue
-category: research
+color: gray
+category: legacy
 level: 2-production
 cost-budget: $2.00
+status: deprecated
 ---
 
 <!-- markdownlint-disable MD013 -->

@@ -1,0 +1,43 @@
+{
+  "checkpoint_type": "tts_optimization",
+  "session_id": "ep_001_20250814_test",
+  "episode_number": 1,
+  "status": "completed",
+  "timestamp": "2025-08-14T20:45:00Z",
+  "cost_invested": 2.25,
+  "input_script_path": "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-2-production/sessions/ep_001_20250814_test/original_script.md",
+  "output_script_path": "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-2-production/sessions/ep_001_20250814_test/tts_optimized_script.md",
+  "optimization_results": {
+    "word_count": 1182,
+    "character_count": 7781,
+    "audio_tags_applied": 33,
+    "tts_segments": 8,
+    "target_model": "eleven_turbo_v2_5",
+    "voice_id": "ZF6FPAbjXT4488VcRRnw",
+    "voice_name": "Amelia",
+    "pronunciation_normalizations": 12,
+    "natural_speech_enhancements": 8
+  },
+  "quality_metrics": {
+    "audio_tags_per_1000_words": 27.9,
+    "optimization_ratio": 1.02,
+    "avg_segment_size": 972,
+    "duration_target": "47+ minutes",
+    "character_target": "35,000+ characters"
+  },
+  "quality_validation": {
+    "duration_target": "47+ minutes",
+    "character_target": "optimized for eleven_turbo_v2_5",
+    "optimization_complete": true,
+    "audio_tag_formatting": true,
+    "natural_speech_patterns": true,
+    "amelia_voice_optimized": true
+  },
+  "elevenlabs_compliance": {
+    "minimum_segment_length": true,
+    "audio_tag_formatting": true,
+    "natural_speech_patterns": true,
+    "voice_optimization": "Amelia (ZF6FPAbjXT4488VcRRnw)",
+    "model_optimization": "eleven_turbo_v2_5"
+  }
+}

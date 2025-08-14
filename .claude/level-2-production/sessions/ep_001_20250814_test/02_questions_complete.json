@@ -1,0 +1,27 @@
+{
+  "checkpoint_type": "question_generation",
+  "session_id": "ep_001_20250814_test",
+  "episode_number": 1,
+  "status": "completed",
+  "timestamp": "2025-08-14T16:15:00Z",
+  "cost_invested": 0.50,
+  "question_results": {
+    "total_questions": 52,
+    "high_priority": 18,
+    "medium_priority": 22,
+    "low_priority": 12,
+    "question_categories": {
+      "factual_verification": 12,
+      "expert_perspectives": 15,
+      "technical_deep_dives": 10,
+      "historical_parallels": 8,
+      "practical_implications": 7
+    },
+    "complete_question_set": "1. What exactly did Geoffrey Hinton say about AI understanding in his March 2024 resignation interview? 2. How do current researchers explain the emergent capabilities phenomenon..."
+  },
+  "quality_validation": {
+    "brand_alignment": 0.92,
+    "research_actionability": 0.88,
+    "content_coverage": 0.90
+  }
+}

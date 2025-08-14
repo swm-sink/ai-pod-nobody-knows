@@ -1,0 +1,204 @@
+{
+  "series": "Nobody Knows",
+  "total_episodes": 10,
+  "status": "baseline_captured",
+  "created_at": "2025-08-14T09:55:00Z",
+  "episodes": [
+    {
+      "episode_number": 1,
+      "title": "Even the Experts Are Making It Up",
+      "file": "ep001_original.md",
+      "theme": "Expert uncertainty about AI",
+      "complexity_level": 1,
+      "target_duration": 27,
+      "word_count_estimate": 4050,
+      "status": "ready_for_pipeline",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 3,
+        "feynman_analogies": 2,
+        "questions_estimate": 8,
+        "hook_strength": "strong",
+        "brand_alignment": "high"
+      }
+    },
+    {
+      "episode_number": 2,
+      "title": "Your Phone Is Psychic (And Doesn't Know It)",
+      "file": "ep002_original.md",
+      "theme": "Pattern recognition without understanding",
+      "complexity_level": 1,
+      "target_duration": 27,
+      "word_count_estimate": 4100,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 2,
+        "feynman_analogies": 2,
+        "questions_estimate": 7,
+        "hook_strength": "strong",
+        "brand_alignment": "high"
+      }
+    },
+    {
+      "episode_number": 3,
+      "title": "The $100 Million Guess",
+      "file": "ep003_original.md",
+      "theme": "AI development costs and uncertainty",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4200,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 3,
+        "feynman_analogies": 2,
+        "questions_estimate": 9,
+        "hook_strength": "strong",
+        "brand_alignment": "high"
+      }
+    },
+    {
+      "episode_number": 4,
+      "title": "AI Went to School on the Internet (Bad Idea)",
+      "file": "ep004_original.md",
+      "theme": "Training data problems and biases",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4150,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 3,
+        "feynman_analogies": 1,
+        "questions_estimate": 8,
+        "hook_strength": "strong",
+        "brand_alignment": "high"
+      }
+    },
+    {
+      "episode_number": 5,
+      "title": "The Mirror That Shows What We Don't Want to See",
+      "file": "ep005_original.md",
+      "theme": "AI as mirror of human bias",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4250,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 3,
+        "feynman_analogies": 1,
+        "questions_estimate": 9,
+        "hook_strength": "strong",
+        "brand_alignment": "high"
+      }
+    },
+    {
+      "episode_number": 6,
+      "title": "The Language AI Actually Understands",
+      "file": "ep006_original.md",
+      "theme": "Effective AI communication - STAR method",
+      "complexity_level": 1,
+      "target_duration": 27,
+      "word_count_estimate": 3800,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 1,
+        "feynman_analogies": 1,
+        "questions_estimate": 6,
+        "hook_strength": "strong",
+        "brand_alignment": "moderate"
+      }
+    },
+    {
+      "episode_number": 7,
+      "title": "Why Being Polite to AI Actually Works",
+      "file": "ep007_original.md",
+      "theme": "Collaborative AI communication",
+      "complexity_level": 1,
+      "target_duration": 27,
+      "word_count_estimate": 3900,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 1,
+        "feynman_analogies": 2,
+        "questions_estimate": 7,
+        "hook_strength": "strong",
+        "brand_alignment": "moderate"
+      }
+    },
+    {
+      "episode_number": 8,
+      "title": "The Art of Asking AI to Think",
+      "file": "ep008_original.md",
+      "theme": "Chain-of-thought reasoning",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4000,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 1,
+        "feynman_analogies": 1,
+        "questions_estimate": 8,
+        "hook_strength": "strong",
+        "brand_alignment": "moderate"
+      }
+    },
+    {
+      "episode_number": 9,
+      "title": "Context Is Everything (And Most People Get It Wrong)",
+      "file": "ep009_original.md",
+      "theme": "Contextual AI communication",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4100,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 1,
+        "feynman_analogies": 1,
+        "questions_estimate": 7,
+        "hook_strength": "strong",
+        "brand_alignment": "moderate"
+      }
+    },
+    {
+      "episode_number": 10,
+      "title": "Your Personal AI Communication Style",
+      "file": "ep010_original.md",
+      "theme": "Developing personal AI fluency",
+      "complexity_level": 2,
+      "target_duration": 27,
+      "word_count_estimate": 4050,
+      "status": "saved",
+      "baseline_metrics": {
+        "has_break_tags": true,
+        "nobody_knows_moments": 1,
+        "feynman_analogies": 1,
+        "questions_estimate": 6,
+        "hook_strength": "strong",
+        "brand_alignment": "moderate"
+      }
+    }
+  ],
+  "observations": {
+    "strengths": [
+      "Strong opening hooks across all episodes",
+      "Good narrative structure and pacing",
+      "Effective use of break tags for natural speech",
+      "Progressive complexity from Episodes 1-5 to 6-10",
+      "Clear transition from understanding AI to using AI"
+    ],
+    "improvement_opportunities": [
+      "Episodes 6-10 need more 'Nobody Knows' moments (only 1 each vs 3 in early episodes)",
+      "Could add more Feynman analogies throughout",
+      "Question frequency could be increased to 3-4 per 1000 words",
+      "Later episodes drift slightly from intellectual humility theme",
+      "Could add more cross-episode references for series cohesion"
+    ]
+  }
+}
