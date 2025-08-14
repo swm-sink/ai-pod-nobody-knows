@@ -19,7 +19,7 @@ AUDIENCE: General audience with curiosity about AI and technology
 The following text contains audio tags in [brackets] that should guide your vocal performance:
 
 [excited] - High energy, enthusiastic delivery
-[confident] - Assured, authoritative tone  
+[confident] - Assured, authoritative tone
 [curious] - Inquisitive, questioning inflection
 [contemplative] - Thoughtful, reflective tone
 [thoughtful] - Deliberative, considering tone
@@ -35,7 +35,7 @@ The script includes natural speech patterns like "um," "well," and "you know" - 
 
 Technical terms have been optimized for clarity:
 - Acronyms are spelled out (ay-eye for AI, em-el for ML)
-- Numbers are written phonetically (twenty twenty-five for 2025) 
+- Numbers are written phonetically (twenty twenty-five for 2025)
 - Complex terms include pronunciation guides where needed
 
 ## Brand Philosophy Integration
@@ -52,7 +52,7 @@ TRANSITIONS: Allow natural pauses at paragraph breaks and topic shifts
 ## Content Quality Markers
 
 ✓ Technical accuracy maintained through optimization
-✓ Accessibility enhanced for general audience  
+✓ Accessibility enhanced for general audience
 ✓ Brand alignment verified (intellectual humility present)
 ✓ Engagement optimized through natural speech patterns
 

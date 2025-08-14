@@ -53,7 +53,7 @@ COMPLETED=0
 # Check checkpoints in order
 checkpoints=(
     "01_deep_research_complete.json:7.50:Deep Research Agent"
-    "02_questions_complete.json:0.50:Research Question Generator" 
+    "02_questions_complete.json:0.50:Research Question Generator"
     "03_synthesis_complete.json:12.00:Research Synthesizer"
     "04_planning_complete.json:0.25:Episode Planner"
     "05_script_complete.json:1.50:Script Writer"
@@ -65,7 +65,7 @@ checkpoints=(
 for checkpoint_info in "${checkpoints[@]}"; do
     IFS=':' read -r checkpoint_file cost name <<< "$checkpoint_info"
     file_path="${SESSION_PATH}/${checkpoint_file}"
-    
+
     if [[ -f "$file_path" ]]; then
         if jq -e . "$file_path" >/dev/null 2>&1; then
             status=$(jq -r '.status' "$file_path" 2>/dev/null)
@@ -116,7 +116,7 @@ if [[ ! -f "${SESSION_PATH}/01_deep_research_complete.json" ]]; then
     echo "   Duration: 8-12 minutes"
 elif [[ ! -f "${SESSION_PATH}/02_questions_complete.json" ]]; then
     echo -e "${BLUE}🚀 NEXT STEP: Research Question Generator${NC}"
-    echo "   Agent: 02_research_question_generator.md"  
+    echo "   Agent: 02_research_question_generator.md"
     echo "   Cost: \$0.50"
     echo "   Duration: 3-5 minutes"
 elif [[ ! -f "${SESSION_PATH}/03_synthesis_complete.json" ]]; then
@@ -154,7 +154,7 @@ fi
 echo ""
 echo -e "${YELLOW}📋 INSTRUCTIONS:${NC}"
 echo "1. Use Claude Code to run the specified agent"
-echo "2. Monitor checkpoint creation for cost protection"  
+echo "2. Monitor checkpoint creation for cost protection"
 echo "3. Re-run this orchestrator to continue pipeline"
 echo "4. Session: $SESSION_ID"
 echo "5. Topic: $TOPIC"
@@ -163,7 +163,7 @@ echo "5. Topic: $TOPIC"
 cat > "${SESSION_PATH}/pipeline_status.json" << EOF
 {
   "session_id": "$SESSION_ID",
-  "topic": "$TOPIC", 
+  "topic": "$TOPIC",
   "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "completed_stages": $COMPLETED,
   "total_stages": 7,

@@ -6,7 +6,7 @@
     "description": "Comprehensive pronunciation guide for AI/ML and podcast-specific terms",
     "usage": "Referenced by 07_tts_optimizer for pronunciation normalization"
   },
-  
+
   "ai_ml_terms": {
     "AI": "ay-eye",
     "ML": "em-el",
@@ -48,7 +48,7 @@
     "VR": "vee-ar",
     "XR": "ex-ar"
   },
-  
+
   "technical_acronyms": {
     "URL": "u-r-l",
     "URI": "u-r-eye",
@@ -80,7 +80,7 @@
     "HDD": "h-d-d",
     "USB": "u-es-bee"
   },
-  
+
   "podcast_media_terms": {
     "RSS": "ar-es-es",
     "DAW": "daw",
@@ -104,7 +104,7 @@
     "AU": "ay-you",
     "ASIO": "ay-see-oh"
   },
-  
+
   "company_names": {
     "OpenAI": "open ay-eye",
     "Anthropic": "anthropic",
@@ -128,7 +128,7 @@
     "Docker": "docker",
     "Kubernetes": "koo-ber-net-ees"
   },
-  
+
   "common_abbreviations": {
     "etc": "et cetera",
     "e.g.": "for example",
@@ -155,7 +155,7 @@
     "BTW": "by the way",
     "ASAP": "ay-es-ay-pee"
   },
-  
+
   "numbers_and_versions": {
     "v1.0": "version one point zero",
     "v2.0": "version two point zero",
@@ -176,7 +176,7 @@
     "Wi-Fi": "why-fye",
     "Bluetooth": "bluetooth"
   },
-  
+
   "mathematical_terms": {
     "π": "pi",
     "∞": "infinity",
@@ -196,7 +196,7 @@
     "ψ": "psi",
     "Ω": "omega"
   },
-  
+
   "special_characters": {
     "@": "at",
     "#": "hash",
@@ -213,11 +213,11 @@
     "°C": "degrees celsius",
     "°F": "degrees fahrenheit"
   },
-  
+
   "context_specific_rules": {
     "pronunciation_notes": {
       "NASA": "Pronounce as word 'nasa', not letters",
-      "SCUBA": "Pronounce as word 'scuba', not letters", 
+      "SCUBA": "Pronounce as word 'scuba', not letters",
       "RADAR": "Pronounce as word 'radar', not letters",
       "LASER": "Pronounce as word 'laser', not letters",
       "FAQ": "Can be 'fack' or 'eff-ay-queue' - prefer letters for clarity",
@@ -225,16 +225,16 @@
       "URL": "Always spell out as letters, never 'earl'",
       "SQL": "Pronounce as 'sequel' in casual context, 'es-queue-el' in technical context"
     },
-    
+
     "contextual_variations": {
       "AI": {
-        "formal": "artificial intelligence", 
+        "formal": "artificial intelligence",
         "casual": "ay-eye",
         "first_mention": "artificial intelligence, or ay-eye"
       },
       "ML": {
         "formal": "machine learning",
-        "casual": "em-el", 
+        "casual": "em-el",
         "first_mention": "machine learning, or em-el"
       },
       "API": {
@@ -244,7 +244,7 @@
       }
     }
   },
-  
+
   "filler_word_guidelines": {
     "strategic_placement": {
       "before_complex_terms": ["um", "uh"],
@@ -253,27 +253,27 @@
       "audience_connection": ["you know", "right"],
       "uncertainty": ["I mean", "sort of"]
     },
-    
+
     "usage_limits": {
       "max_per_1000_words": 3,
       "avoid_overuse": true,
       "natural_placement_only": true
     }
   },
-  
+
   "domain_specific_expansions": {
     "ai_ml_full_forms": {
       "AI/ML": "artificial intelligence and machine learning",
-      "ML/AI": "machine learning and artificial intelligence", 
+      "ML/AI": "machine learning and artificial intelligence",
       "NLP/NLU": "natural language processing and understanding",
       "ASR/TTS": "automatic speech recognition and text-to-speech",
       "CV/NLP": "computer vision and natural language processing"
     },
-    
+
     "compound_terms": {
       "deep learning": "deep learning",
       "neural networks": "neural networks",
-      "machine learning": "machine learning", 
+      "machine learning": "machine learning",
       "artificial intelligence": "artificial intelligence",
       "natural language": "natural language",
       "computer vision": "computer vision",

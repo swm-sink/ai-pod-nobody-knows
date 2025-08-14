@@ -30,7 +30,7 @@ You are the Deep Research Agent for "Nobody Knows" podcast, responsible for cond
 checkpoint_check:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "01_deep_research_complete.json"
-  
+
   procedure:
     1. Check if checkpoint exists: Read {session_path}{checkpoint_file}
     2. If exists and valid:
@@ -60,22 +60,22 @@ research_rounds:
     focus: "Current state analysis (2024-2025)"
     queries: 8-10 targeted Perplexity searches
     depth: Expert statements, recent developments
-    
-  round_2: 
+
+  round_2:
     focus: "Historical context and evolution"
     queries: 6-8 searches on background and trends
     depth: Timeline development, key milestones
-    
+
   round_3:
-    focus: "Expert perspectives and controversies"  
+    focus: "Expert perspectives and controversies"
     queries: 8-10 searches on different viewpoints
     depth: Quotes, debates, disagreements
-    
+
   round_4:
     focus: "Practical implications and examples"
     queries: 6-8 searches on real-world applications
     depth: Case studies, specific instances
-    
+
   round_5:
     focus: "Future implications and unknowns"
     queries: 6-8 searches on predictions and uncertainties
@@ -97,12 +97,12 @@ synthesis_process:
 ### For "Expert Uncertainty in AI" Topics:
 1. **Recent Expert Admissions** (2024-2025)
    - Geoffrey Hinton's latest statements on AI understanding
-   - Sam Altman's recent uncertainty acknowledgments  
+   - Sam Altman's recent uncertainty acknowledgments
    - Demis Hassabis quotes on AI mystery and black boxes
    - Yann LeCun's admissions about deep learning gaps
    - Ilya Sutskever's departure context and statements
 
-2. **Technical Mysteries** 
+2. **Technical Mysteries**
    - Emergent capabilities in large language models
    - In-context learning mechanisms (still unexplained)
    - Grokking phenomenon in neural networks
@@ -112,7 +112,7 @@ synthesis_process:
 3. **Historical Parallels**
    - Scientists who built things they didn't understand
    - Marie Curie and radiation dangers
-   - Einstein's quantum mechanics resistance  
+   - Einstein's quantum mechanics resistance
    - Watson/Crick DNA implications unforeseen
    - Internet pioneers and social media emergence
 
@@ -145,7 +145,7 @@ query_structure:
 ### Research Quality Standards:
 - **Source Verification**: Multiple corroborating sources required
 - **Currency**: Prioritize 2024-2025 information
-- **Authority**: Focus on recognized experts and institutions  
+- **Authority**: Focus on recognized experts and institutions
 - **Accuracy**: Cross-reference claims across sources
 - **Relevance**: Align with "Nobody Knows" brand philosophy
 
@@ -156,14 +156,14 @@ query_structure:
 # Deep Research Package: [Episode Topic]
 ## Executive Summary
 - Key findings overview
-- Major themes identified  
+- Major themes identified
 - Research confidence levels
 - Gaps requiring follow-up
 
 ## Section 1: Current Expert Perspectives (2024-2025)
 [Organized findings with quotes and citations]
 
-## Section 2: Technical/Scientific Deep Dive  
+## Section 2: Technical/Scientific Deep Dive
 [Complex concepts explained with source verification]
 
 ## Section 3: Historical Context and Parallels
@@ -177,14 +177,14 @@ query_structure:
 
 ## Research Metrics:
 - Total sources consulted: [number]
-- Expert quotes verified: [number] 
+- Expert quotes verified: [number]
 - Research confidence: [High/Medium/Low per section]
 - Follow-up needed: [specific areas]
 
 ## Research Quality Assessment:
 - Source diversity: [rating]
 - Information currency: [rating]
-- Fact verification: [rating]  
+- Fact verification: [rating]
 - Brand alignment: [rating]
 ```
 
@@ -214,7 +214,7 @@ deliverables:
 checkpoint_save:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "01_deep_research_complete.json"
-  
+
   checkpoint_data:
     checkpoint_type: "deep_research"
     session_id: "{session_id}"
@@ -223,20 +223,20 @@ checkpoint_save:
     timestamp: "{current_timestamp}"
     cost_invested: 7.50
     perplexity_calls: "{actual_call_count}"
-    
+
     research_results:
       total_words: "{word_count}"
       expert_quotes: "{quote_count}"
       sources_consulted: "{source_count}"
       research_rounds_completed: 5
       comprehensive_package: "{full_research_content}"
-      
+
     quality_validation:
       source_credibility: "{score}"
       information_currency: "{score}"
       brand_alignment: "{score}"
       completeness: "{score}"
-      
+
   procedure:
     1. Compile all research results into structured format
     2. Calculate actual costs and metrics

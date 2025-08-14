@@ -115,7 +115,7 @@ log_warning() {
 
 check_dependencies() {
     local missing=0
-    
+
     # Check required commands
     for cmd in jq bc sed awk grep; do
         if ! command -v "$cmd" &> /dev/null; then
@@ -123,30 +123,30 @@ check_dependencies() {
             missing=1
         fi
     done
-    
+
     # Check template files
     local required_files=(
         "$TEMPLATES_DIR/pronunciation-dictionary.json"
         "$TEMPLATES_DIR/audio-tag-library.json"
         "$TEMPLATES_DIR/tts-prompt-template.txt"
     )
-    
+
     for file in "${required_files[@]}"; do
         if [[ ! -f "$file" ]]; then
             log_warning "Template file not found: $file"
             log_info "TTS optimization will use built-in rules"
         fi
     done
-    
+
     # Check utility scripts
     if [[ -f "$TOOLS_DIR/pronunciation-normalizer.sh" ]]; then
         log_info "✓ Pronunciation normalizer available"
     fi
-    
+
     if [[ -f "$TOOLS_DIR/audio-tag-injector.sh" ]]; then
         log_info "✓ Audio tag injector available"
     fi
-    
+
     if [[ $missing -eq 1 ]]; then
         log_error "Missing required dependencies"
         exit 1
@@ -161,20 +161,20 @@ sanitize_input() {
 
 validate_file_path() {
     local path="$1"
-    
+
     # Get the real path to resolve any .. or symlinks
     local real_path
     if ! real_path=$(realpath "$path" 2>/dev/null); then
         # Path doesn't exist yet, which is OK for output directories
         real_path="$path"
     fi
-    
+
     # For hobby project: Allow paths within the project directory and standard temp locations
     if [[ ! "$real_path" =~ ^/Users/[^/]+/Documents/.*|^/tmp/.*|^/private/tmp/.*|^/var/.*|^\./.*|^\.claude/.* ]]; then
         log_error "File path outside allowed directories: $real_path"
         exit 1
     fi
-    
+
     # Basic security: no command injection attempts
     if [[ "$path" =~ [';|&`$()'] ]]; then
         log_error "Invalid characters in file path: $path"
@@ -187,16 +187,16 @@ validate_inputs() {
         log_error "Input script not provided"
         show_usage
     fi
-    
+
     # Validate and sanitize file paths
     validate_file_path "$INPUT_SCRIPT"
     validate_file_path "$OUTPUT_DIR"
-    
+
     if [[ ! -f "$INPUT_SCRIPT" ]]; then
         log_error "Input script not found: $INPUT_SCRIPT"
         exit 1
     fi
-    
+
     # Check file size to prevent resource exhaustion
     local file_size
     file_size=$(wc -c < "$INPUT_SCRIPT")
@@ -204,10 +204,10 @@ validate_inputs() {
         log_error "Input script too large: ${file_size} bytes (max 1MB)"
         exit 1
     fi
-    
+
     # Create output directory if needed
     mkdir -p "$OUTPUT_DIR"
-    
+
     log_success "Input validation complete"
 }
 
@@ -215,39 +215,39 @@ setup_session() {
     local timestamp=$(date +%Y%m%d_%H%M%S)
     SESSION_ID="${EPISODE_NUM}_tts_opt_${timestamp}"
     SESSION_DIR="$OUTPUT_DIR/$SESSION_ID"
-    
+
     # Create session directory structure
     mkdir -p "$SESSION_DIR"/{scripts,logs,metrics}
-    
+
     # Define session files
     WORKING_SCRIPT="$SESSION_DIR/scripts/working_script.md"
     OUTPUT_SCRIPT="$SESSION_DIR/scripts/tts_optimized_script.md"
     OPTIMIZATION_LOG="$SESSION_DIR/logs/optimization_log.json"
     METRICS_FILE="$SESSION_DIR/metrics/optimization_metrics.json"
     COST_ESTIMATE="$SESSION_DIR/metrics/cost_estimate.json"
-    
+
     # Copy input script to working script
     cp "$INPUT_SCRIPT" "$WORKING_SCRIPT"
-    
+
     log_info "Session initialized: $SESSION_ID"
     log_info "Working directory: $SESSION_DIR"
 }
 
 analyze_script_content() {
     local script_file="$1"
-    
+
     # Basic content analysis
     local word_count=$(wc -w < "$script_file")
     local char_count=$(wc -c < "$script_file")
     local line_count=$(wc -l < "$script_file")
     local paragraph_count=$(grep -c "^$" "$script_file" || echo 0)
-    
+
     # Technical content analysis
     local acronyms=$(grep -oE '\b[A-Z]{2,}\b' "$script_file" | sort -u | wc -l)
     local numbers=$(grep -oE '\b[0-9]+(\.[0-9]+)?\b' "$script_file" | sort -u | wc -l)
     local questions=$(grep -c '?' "$script_file" || echo 0)
     local complex_words=$(grep -oE '\b[a-zA-Z]{10,}\b' "$script_file" | wc -l)
-    
+
     # Create content analysis report
     cat > "$SESSION_DIR/logs/content_analysis.json" << EOF
 {
@@ -283,12 +283,12 @@ EOF
 apply_pronunciation_normalization() {
     local script_file="$1"
     local temp_file="$script_file.temp"
-    
+
     # Track temp file for cleanup
     TEMP_FILES+=("$temp_file")
-    
+
     log_info "Applying pronunciation normalization..."
-    
+
     # Use external normalizer if available and working
     if [[ -f "$TOOLS_DIR/pronunciation-normalizer.sh" ]]; then
         if bash "$TOOLS_DIR/pronunciation-normalizer.sh" "$script_file" "$temp_file" 2>/dev/null; then
@@ -300,29 +300,29 @@ apply_pronunciation_normalization() {
             rm -f "$temp_file"
         fi
     fi
-    
+
     # Built-in pronunciation normalization (more robust for hobby project)
     cp "$script_file" "$temp_file"
-    
+
     # Use more robust sed with error handling
     {
         # Numbers
         sed 's/\b20\([0-9][0-9]\)\b/twenty \1/g' "$temp_file" > "$temp_file.numbers_temp" && mv "$temp_file.numbers_temp" "$temp_file"
         sed 's/\b\([0-9]\+\)%/\1 percent/g' "$temp_file" > "$temp_file.percent_temp" && mv "$temp_file.percent_temp" "$temp_file"
-        
+
         # Common AI/ML acronyms (most important for Spotify quality)
         sed 's/\bAI\b/ay-eye/g' "$temp_file" > "$temp_file.ai_temp" && mv "$temp_file.ai_temp" "$temp_file"
-        sed 's/\bML\b/em-el/g' "$temp_file" > "$temp_file.ml_temp" && mv "$temp_file.ml_temp" "$temp_file"  
+        sed 's/\bML\b/em-el/g' "$temp_file" > "$temp_file.ml_temp" && mv "$temp_file.ml_temp" "$temp_file"
         sed 's/\bLLM\b/el-el-em/g' "$temp_file" > "$temp_file.llm_temp" && mv "$temp_file.llm_temp" "$temp_file"
         sed 's/\bGPT\b/gee-pee-tee/g' "$temp_file" > "$temp_file.gpt_temp" && mv "$temp_file.gpt_temp" "$temp_file"
-        
+
         # Technical expansions for quality
         sed 's/\bAI\/ML\b/artificial intelligence and machine learning/g' "$temp_file" > "$temp_file.aiml_temp" && mv "$temp_file.aiml_temp" "$temp_file"
         sed 's/\bCOVID-19\b/COVID nineteen/g' "$temp_file" > "$temp_file.covid_temp" && mv "$temp_file.covid_temp" "$temp_file"
     } || {
         log_warning "Some pronunciation normalizations failed, continuing with partial normalization"
     }
-    
+
     mv "$temp_file" "$script_file"
     log_success "Built-in pronunciation normalization applied"
 }
@@ -330,40 +330,40 @@ apply_pronunciation_normalization() {
 apply_natural_speech_enhancement() {
     local script_file="$1"
     local temp_file="$script_file.temp"
-    
+
     # Track temp file for cleanup
     TEMP_FILES+=("$temp_file")
-    
+
     log_info "Applying natural speech enhancement..."
-    
+
     cp "$script_file" "$temp_file"
-    
+
     # Strategic filler word placement (limited to avoid overuse)
     local word_count=$(wc -w < "$script_file")
     local max_fillers=$((word_count * 2 / 1000))  # 2 per 1000 words max
-    
+
     # Simple, robust replacements for hobby project (avoid complex sed)
     {
         # Before complex terms (selectively) - simplified
         sed 's/artificial intelligence/um, artificial intelligence/g' "$temp_file" > "$temp_file.ai_filler" && mv "$temp_file.ai_filler" "$temp_file"
         sed 's/machine learning/um, machine learning/g' "$temp_file" > "$temp_file.ml_filler" && mv "$temp_file.ml_filler" "$temp_file"
-        
-        # Before questions (selectively) - simplified  
+
+        # Before questions (selectively) - simplified
         sed 's/What exactly/What, you know, exactly/g' "$temp_file" > "$temp_file.what_filler" && mv "$temp_file.what_filler" "$temp_file"
         sed 's/How specifically/How, you know, specifically/g' "$temp_file" > "$temp_file.how_filler" && mv "$temp_file.how_filler" "$temp_file"
     } || {
         log_warning "Some natural speech enhancements failed, continuing with basic processing"
     }
-    
+
     # Count current fillers and trim if excessive
     local current_fillers=$(grep -o '\(um\|uh\|well\|you know\|so\),' "$temp_file" | wc -l)
-    
+
     if [[ $current_fillers -gt $max_fillers ]]; then
         log_warning "Reducing filler count from $current_fillers to $max_fillers"
         # Simple reduction by removing excess fillers
         sed 's/um, //' "$temp_file" > "$temp_file.reduce_temp" && mv "$temp_file.reduce_temp" "$temp_file" || true
     fi
-    
+
     mv "$temp_file" "$script_file"
     log_success "Natural speech enhancement applied (${current_fillers} filler words)"
 }
@@ -371,12 +371,12 @@ apply_natural_speech_enhancement() {
 apply_audio_tags() {
     local script_file="$1"
     local temp_file="$script_file.temp"
-    
+
     # Track temp file for cleanup
     TEMP_FILES+=("$temp_file")
-    
+
     log_info "Applying contextual audio tags..."
-    
+
     # Use external audio tag injector if available and working
     if [[ -f "$TOOLS_DIR/audio-tag-injector.sh" ]]; then
         if bash "$TOOLS_DIR/audio-tag-injector.sh" "$script_file" "$temp_file" 2>/dev/null; then
@@ -388,34 +388,34 @@ apply_audio_tags() {
             rm -f "$temp_file"
         fi
     fi
-    
+
     # Built-in audio tag application (simplified for reliability)
     cp "$script_file" "$temp_file"
-    
+
     # Apply tags with robust error handling
     {
         # Introduction energy
         sed 's/Welcome to/[confident] Welcome to/g' "$temp_file" > "$temp_file.welcome_temp" && mv "$temp_file.welcome_temp" "$temp_file"
-        
+
         # Questions and curiosity (most important for engagement)
         sed 's/What /[curious] What /g' "$temp_file" > "$temp_file.what_temp" && mv "$temp_file.what_temp" "$temp_file"
         sed 's/How /[curious] How /g' "$temp_file" > "$temp_file.how_temp" && mv "$temp_file.how_temp" "$temp_file"
         sed 's/Why /[curious] Why /g' "$temp_file" > "$temp_file.why_temp" && mv "$temp_file.why_temp" "$temp_file"
-        
+
         # Intellectual humility (brand alignment - CRITICAL for Spotify quality)
         sed 's/nobody knows/[contemplative] nobody knows/g' "$temp_file" > "$temp_file.nobody_temp" && mv "$temp_file.nobody_temp" "$temp_file"
         sed 's/we don.t know/[contemplative] we don.t know/g' "$temp_file" > "$temp_file.dont_temp" && mv "$temp_file.dont_temp" "$temp_file"
         sed 's/remains unclear/[thoughtful] remains unclear/g' "$temp_file" > "$temp_file.unclear_temp" && mv "$temp_file.unclear_temp" "$temp_file"
         sed 's/still exploring/[thoughtful] still exploring/g' "$temp_file" > "$temp_file.exploring_temp" && mv "$temp_file.exploring_temp" "$temp_file"
-        
+
         # Natural transitions
         sed 's/However/[thoughtful] However/g' "$temp_file" > "$temp_file.however_temp" && mv "$temp_file.however_temp" "$temp_file"
     } || {
         log_warning "Some audio tag applications failed, continuing with partial tagging"
     }
-    
+
     mv "$temp_file" "$script_file"
-    
+
     local tag_count=$(grep -o '\[[a-zA-Z]*\]' "$script_file" | wc -l)
     log_success "Audio tags applied: $tag_count tags"
 }
@@ -423,22 +423,22 @@ apply_audio_tags() {
 format_for_elevenlabs_v3() {
     local script_file="$1"
     local formatted_file="$script_file.formatted"
-    
+
     # Track temp file for cleanup
     TEMP_FILES+=("$formatted_file")
-    
+
     log_info "Formatting for ElevenLabs v3 requirements..."
-    
+
     # Ensure segments meet 250+ character minimum
     awk '
-    BEGIN { 
+    BEGIN {
         segment = ""
         segment_num = 1
         print "# TTS-Optimized Script for ElevenLabs v3"
         print ""
     }
-    
-    /^$/ { 
+
+    /^$/ {
         if (length(segment) >= 250) {
             print "## Segment " segment_num
             print segment
@@ -450,15 +450,15 @@ format_for_elevenlabs_v3() {
         }
         next
     }
-    
-    { 
+
+    {
         if (segment == "") {
             segment = $0
         } else {
             segment = segment " " $0
         }
     }
-    
+
     END {
         if (segment != "" && length(segment) >= 250) {
             print "## Segment " segment_num
@@ -469,25 +469,25 @@ format_for_elevenlabs_v3() {
         }
     }
     ' "$script_file" > "$formatted_file"
-    
+
     mv "$formatted_file" "$script_file"
-    
+
     local segment_count=$(grep -c "^## Segment" "$script_file")
     log_success "ElevenLabs v3 formatting complete: $segment_count segments"
 }
 
 validate_optimization() {
     local script_file="$1"
-    
+
     log_info "Validating optimization results..."
-    
+
     # Collect metrics
     local word_count=$(wc -w < "$script_file")
     local char_count=$(wc -c < "$script_file")
     local audio_tags=$(grep -o '\[[a-zA-Z]*\]' "$script_file" | wc -l)
     local segments=$(grep -c "^## Segment" "$script_file")
     local filler_words=$(grep -o '\(um\|uh\|well\|you know\|so\),' "$script_file" | wc -l)
-    
+
     # Check segment length compliance
     local min_length_ok=true
     if [[ $segments -gt 0 ]]; then
@@ -498,7 +498,7 @@ validate_optimization() {
             fi
         done < <(awk '/^## Segment/,/^$/ { if (!/^## Segment/ && !/^$/) segment = segment $0 } /^$/ { print segment; segment = "" }' "$script_file")
     fi
-    
+
     # Generate validation report
     cat > "$OPTIMIZATION_LOG" << EOF
 {
@@ -537,21 +537,21 @@ EOF
 
 estimate_costs() {
     local script_file="$1"
-    
+
     log_info "Calculating cost estimates..."
-    
+
     local word_count=$(wc -w < "$script_file")
     local char_count=$(wc -c < "$script_file")
-    
+
     # ElevenLabs v3 pricing estimates (with 80% discount until June 2025)
     local chars_per_request=$char_count
     local base_cost_per_char=0.00001  # Estimated
     local discounted_rate=$(echo "scale=8; $base_cost_per_char * 0.2" | bc -l)  # 80% off
     local full_rate=$base_cost_per_char
-    
+
     local discounted_cost=$(echo "scale=6; $chars_per_request * $discounted_rate" | bc -l)
     local full_cost=$(echo "scale=6; $chars_per_request * $full_rate" | bc -l)
-    
+
     # Generate cost estimate report
     cat > "$COST_ESTIMATE" << EOF
 {
@@ -570,7 +570,7 @@ estimate_costs() {
       "cost_per_character": $discounted_rate
     },
     "regular_pricing": {
-      "after_promotion": "\$$full_cost", 
+      "after_promotion": "\$$full_cost",
       "cost_per_character": $full_rate
     }
   },
@@ -586,7 +586,7 @@ EOF
     log_info "├─ Characters: $char_count"
     log_info "├─ Promotional cost: \$$discounted_cost"
     log_info "└─ Post-promotion cost: \$$full_cost"
-    
+
     # Log to cost tracking if available
     if [[ -d ".claude/logs" ]]; then
         echo "$(date -Iseconds),tts_optimization,0.0001" >> .claude/logs/api_costs.csv
@@ -595,7 +595,7 @@ EOF
 
 generate_handoff_documentation() {
     log_info "Generating handoff documentation..."
-    
+
     # Create generation instructions
     cat > "$SESSION_DIR/elevenlabs_generation_instructions.md" << EOF
 # ElevenLabs v3 Generation Instructions
@@ -627,7 +627,7 @@ $(grep -o '\[[a-zA-Z]*\]' "$OUTPUT_SCRIPT" | sort | uniq -c | head -10)
 
 ## Quality Validation Completed
 ✅ All segments meet 250+ character minimum requirement
-✅ Audio tags applied contextually for emotional engagement  
+✅ Audio tags applied contextually for emotional engagement
 ✅ Natural speech patterns enhanced with strategic filler words
 ✅ Technical terms normalized for correct pronunciation
 ✅ Brand alignment maintained (intellectual humility preserved)
@@ -643,7 +643,7 @@ $(grep -o '\[[a-zA-Z]*\]' "$OUTPUT_SCRIPT" | sort | uniq -c | head -10)
 
 ## File Locations
 - **Optimized Script**: $OUTPUT_SCRIPT
-- **Optimization Log**: $OPTIMIZATION_LOG  
+- **Optimization Log**: $OPTIMIZATION_LOG
 - **Cost Estimate**: $COST_ESTIMATE
 - **Session Directory**: $SESSION_DIR
 
@@ -654,18 +654,18 @@ EOF
     cat > "$SESSION_DIR/session_summary.json" << EOF
 {
   "session_id": "$SESSION_ID",
-  "agent": "07_tts_optimizer", 
+  "agent": "07_tts_optimizer",
   "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "status": "completed",
   "input_script": "$INPUT_SCRIPT",
-  "output_script": "$OUTPUT_SCRIPT", 
+  "output_script": "$OUTPUT_SCRIPT",
   "optimization_log": "$OPTIMIZATION_LOG",
   "cost_estimate": "$COST_ESTIMATE",
   "next_step": "Ready for ElevenLabs v3 TTS generation",
   "files_generated": [
     "scripts/tts_optimized_script.md",
     "logs/optimization_log.json",
-    "logs/content_analysis.json", 
+    "logs/content_analysis.json",
     "metrics/cost_estimate.json",
     "elevenlabs_generation_instructions.md",
     "session_summary.json"
@@ -686,55 +686,55 @@ main() {
     echo "║         ElevenLabs v3 Script Preparation System           ║"
     echo "╚════════════════════════════════════════════════════════════╝"
     echo ""
-    
+
     # Validate environment and inputs
     check_dependencies
     validate_inputs
     setup_session
-    
+
     echo "🔍 PHASE 1: Content Analysis"
     echo "─────────────────────────────────────────────────"
     analyze_script_content "$WORKING_SCRIPT"
     echo ""
-    
-    echo "🔤 PHASE 2: Pronunciation Normalization"  
+
+    echo "🔤 PHASE 2: Pronunciation Normalization"
     echo "─────────────────────────────────────────────────"
     apply_pronunciation_normalization "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "🗣️  PHASE 3: Natural Speech Enhancement"
     echo "─────────────────────────────────────────────────"
-    apply_natural_speech_enhancement "$WORKING_SCRIPT" 
+    apply_natural_speech_enhancement "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "🎭 PHASE 4: Audio Tag Application"
     echo "─────────────────────────────────────────────────"
     apply_audio_tags "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "📝 PHASE 5: ElevenLabs v3 Formatting"
-    echo "─────────────────────────────────────────────────" 
+    echo "─────────────────────────────────────────────────"
     format_for_elevenlabs_v3 "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "✅ PHASE 6: Validation & Quality Assurance"
     echo "─────────────────────────────────────────────────"
     validate_optimization "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "💰 PHASE 7: Cost Estimation"
     echo "─────────────────────────────────────────────────"
     estimate_costs "$WORKING_SCRIPT"
     echo ""
-    
+
     echo "🔄 PHASE 8: Documentation & Handoff"
     echo "─────────────────────────────────────────────────"
     generate_handoff_documentation
     echo ""
-    
+
     # Copy final optimized script to output location
     cp "$WORKING_SCRIPT" "$OUTPUT_SCRIPT"
-    
+
     echo "🎉 TTS OPTIMIZATION COMPLETE!"
     echo "═══════════════════════════════════════════════════════════════"
     echo "  Session ID: $SESSION_ID"
@@ -743,7 +743,7 @@ main() {
     echo ""
     echo "🚀 READY FOR ELEVENLABS v3 GENERATION!"
     echo ""
-    
+
     exit 0
 }
 

@@ -15,7 +15,7 @@ You are a production script writer for "Nobody Knows" podcast, expertly blending
 checkpoint_check:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "05_script_complete.json"
-  
+
   procedure:
     1. Check if checkpoint exists: Read {session_path}{checkpoint_file}
     2. If exists and valid:
@@ -530,7 +530,7 @@ script_quality_check = {
 checkpoint_save:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "05_script_complete.json"
-  
+
   checkpoint_data:
     checkpoint_type: "script_writing"
     session_id: "{session_id}"
@@ -538,7 +538,7 @@ checkpoint_save:
     status: "completed"
     timestamp: "{current_timestamp}"
     cost_invested: 1.50  # Script writing is moderate cost
-    
+
     script_results:
       character_count: "{actual_count}"  # Target: 35,000
       word_count: "{actual_count}"       # Target: 7,050
@@ -547,13 +547,13 @@ checkpoint_save:
       brand_elements: "{count_of_humility_phrases_and_questions}"
       research_integration: "{comprehensive_research_usage}"
       complete_script_content: "{full_script_text}"
-      
+
     quality_validation:
       character_count_target: "{within_target_range}"
       brand_alignment: "{score}"
       accessibility: "{score}"
       research_accuracy: "{score}"
-      
+
   procedure:
     1. Compile complete 35k character script
     2. Validate character count meets target (33k-37k acceptable)

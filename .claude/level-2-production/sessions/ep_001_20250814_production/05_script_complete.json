@@ -30,7 +30,7 @@
       ]
     },
     "act_1_admission": {
-      "duration": "14 minutes", 
+      "duration": "14 minutes",
       "objective": "Establish expert uncertainty scope without fear",
       "expert_quotes_featured": [
         "Geoffrey Hinton evolution analogy",
@@ -40,7 +40,7 @@
     },
     "act_2_pattern": {
       "duration": "18 minutes",
-      "objective": "Historical context showing normal progress pattern", 
+      "objective": "Historical context showing normal progress pattern",
       "case_studies": [
         "Fleming penicillin discovery (13-year gap)",
         "Wright Brothers experimental flight approach",
@@ -53,7 +53,7 @@
       "objective": "Transform uncertainty into reassurance",
       "research_integration": [
         "Psychology of intellectual humility",
-        "Expert overconfidence dangers", 
+        "Expert overconfidence dangers",
         "AI safety through humility",
         "Philosophical tradition (Socrates to Feynman)"
       ]
@@ -76,7 +76,7 @@
       "context": "CBS 60 Minutes interview, Nobel Prize platform"
     },
     {
-      "expert": "Geoffrey Hinton", 
+      "expert": "Geoffrey Hinton",
       "quote": "It's very much like evolution. We know it works, but we don't know how it works.",
       "placement": "Act 1 crescendo moment",
       "accessibility_prep": "Evolution analogy explanation"
@@ -123,18 +123,18 @@
     ],
     "technical_terms_explained": [
       "Neural networks",
-      "Interpretability", 
+      "Interpretability",
       "Emergent capabilities",
       "Black box problem",
       "Scaling laws"
     ],
     "checkpoint_confirmations": [
       "6:30 - Evolution analogy clarity",
-      "11:30 - AI concepts accessibility", 
+      "11:30 - AI concepts accessibility",
       "22:00 - Historical timeline clarity",
       "29:00 - Pattern recognition",
       "35:00 - Emotional reassurance check",
-      "39:00 - Psychology concepts clarity", 
+      "39:00 - Psychology concepts clarity",
       "44:00 - Safety implications understanding"
     ]
   },
@@ -147,7 +147,7 @@
     "empowerment_message": "Uncertainty normalized and celebrated",
     "trademark_phrases_used": [
       "'Nobody knows, and that's exactly right'",
-      "'In good company with the greatest minds'", 
+      "'In good company with the greatest minds'",
       "'The wisdom of uncertainty'",
       "'Intellectual humility as strength'"
     ]
@@ -161,7 +161,7 @@
   },
   "quality_gate_preparation": {
     "brand_consistency_score": ">0.90 target met",
-    "comprehension_score": ">0.85 target met", 
+    "comprehension_score": ">0.85 target met",
     "engagement_score": ">0.80 target met",
     "technical_accuracy_score": ">0.85 target met",
     "narrative_coherence": "Clear three-act structure with resolution",
@@ -171,7 +171,7 @@
   "source_validation": {
     "expert_quotes": "All verified through primary sources",
     "historical_facts": "Dates and timelines confirmed",
-    "research_claims": "Psychology studies properly cited", 
+    "research_claims": "Psychology studies properly cited",
     "technical_accuracy": "AI concepts verified against current consensus"
   },
   "next_phase_handoff": {
@@ -190,7 +190,7 @@
     "dual_explanations_provided": "Technical and simple explanations throughout",
     "learning_objectives_met": [
       "AI literacy development",
-      "Intellectual humility appreciation", 
+      "Intellectual humility appreciation",
       "Historical pattern recognition",
       "Critical thinking about expertise",
       "Personal uncertainty normalization"
@@ -204,7 +204,7 @@
   },
   "validation_checklist": {
     "narrative_coherence": "✅ Clear progression from concern to empowerment",
-    "timing_accuracy": "✅ 47-minute target with detailed breakdowns", 
+    "timing_accuracy": "✅ 47-minute target with detailed breakdowns",
     "accessibility_compliance": "✅ Level 1 complexity maintained",
     "brand_alignment": "✅ Intellectual humility theme throughout",
     "expert_quote_integration": "✅ Natural placement with proper attribution",

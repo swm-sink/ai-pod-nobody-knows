@@ -12,7 +12,7 @@ This document outlines the integration of the new TTS Optimizer agent into the e
 
 ## New Pipeline Flow
 
-```  
+```
 08_final_reviewer ($0.50) → 08b_tts_optimizer ($0.10) → 09_audio_synthesizer ($2.00)
 ```
 
@@ -57,7 +57,7 @@ This document outlines the integration of the new TTS Optimizer agent into the e
 - Update completion message to reference TTS optimization step
 - Ensure metadata includes TTS optimization requirements
 
-#### 3. Agent 09_audio_synthesizer Updates  
+#### 3. Agent 09_audio_synthesizer Updates
 - Update input expectations to receive TTS-optimized script
 - Reference ElevenLabs generation instructions from TTS optimizer
 - Utilize audio tag information and pronunciation guides
@@ -92,7 +92,7 @@ sessions/ep_XXX_YYYYMMDD_HHMM/
   signals: [08b_tts_optimizer]
 
 08b_tts_optimizer:
-  validates: [script_completeness, episode_metadata]  
+  validates: [script_completeness, episode_metadata]
   processes: [pronunciation_normalization, audio_tag_injection, speech_enhancement, v3_formatting]
   outputs: [tts_optimized_script.md, optimization_log.json, cost_estimate.json, generation_instructions.md]
   signals: [09_audio_synthesizer]
@@ -207,7 +207,7 @@ error_scenarios:
 - [ ] Update session management templates
 - [ ] Implement error handling extensions
 
-#### Phase 2: Testing and Validation  
+#### Phase 2: Testing and Validation
 - [ ] Run comprehensive test suite
 - [ ] Execute end-to-end pipeline tests
 - [ ] Validate audio quality improvements
@@ -262,7 +262,7 @@ tts_optimization_kpis:
 
 1. **Complete Integration Tasks**
    - [ ] Update enhanced_production_pipeline.xml
-   - [ ] Modify agent handoff protocols  
+   - [ ] Modify agent handoff protocols
    - [ ] Update session management
    - [ ] Test pipeline integration
 

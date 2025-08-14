@@ -127,6 +127,64 @@
   <learning-emphasis>Every activity includes technical and simple explanations</learning-emphasis>
 </current-phase>
 
+## 🔧 PRODUCTION SPECIFICATIONS
+
+<production-specifications>
+  <critical-decisions>
+    <tts-model-selection>
+      <decision-date>2025-08-14</decision-date>
+      <research-sources>10+ independent sources including Artificial Analysis, Labelbox, Smallest.ai</research-sources>
+      <final-model>ElevenLabs Turbo v2.5</final-model>
+      <rejected-alternative>ElevenLabs Flash v2.5</rejected-alternative>
+      
+      <rationale>
+        <quality-priority>25-30 minute podcast episodes require maximum emotional expressiveness and narrative quality</quality-priority>
+        <cost-analysis>Both models identical pricing: 0.5 credits per character - no economic advantage to Flash</cost-analysis>
+        <latency-irrelevant>Podcast production (batch processing) doesn't require real-time 75ms response</latency-irrelevant>
+        <user-preference>User specifically requested Turbo over Flash recommendation</user-preference>
+        <content-type>Long-form narrative content benefits from higher quality vs conversational AI use cases</content-type>
+      </rationale>
+      
+      <benchmark-data>
+        <flash-v25>
+          <latency>75ms (4x faster)</latency>
+          <quality>Slightly lower emotional depth</quality>
+          <use-case>Real-time conversational AI</use-case>
+          <company-rec>Now recommended by ElevenLabs over Turbo</company-rec>
+        </flash-v25>
+        
+        <turbo-v25>
+          <latency>250-300ms</latency>
+          <quality>Higher emotional expressiveness and narrative quality</quality>
+          <use-case>Content requiring maximum quality</use-case>
+          <proven-track>Established production model</proven-track>
+        </turbo-v25>
+      </benchmark-data>
+      
+      <implementation-specs>
+        <model-id>eleven_turbo_v2_5</model-id>
+        <voice>Amelia (ZF6FPAbjXT4488VcRRnw)</voice>
+        <ssml-parsing>enable_ssml_parsing=True</ssml-parsing>
+        <content-approach>Clean text, minimal SSML, no custom markup</content-approach>
+        <episode-length>25-30 minutes (18-22k characters)</episode-length>
+        <cost-per-episode>~$3.60-4.40 for 18-22k characters</cost-per-episode>
+      </implementation-specs>
+      
+      <educational-value>
+        <technical>Research-driven decision making using independent benchmarks, cost analysis, and use-case optimization for production workflows</technical>
+        <simple>Like choosing the right tool for the job - faster isn't always better when quality matters more than speed</simple>
+        <connection>This teaches systematic evaluation methodology, stakeholder preference integration, and production requirement analysis</connection>
+      </educational-value>
+      
+      <finality-clause>
+        <status>PERMANENT DECISION</status>
+        <change-requirement>Any future TTS model changes require new comprehensive research with 10+ sources and explicit user approval</change-requirement>
+        <reasoning>Prevents endless model switching and maintains production consistency</reasoning>
+      </finality-clause>
+    </tts-model-selection>
+  </critical-decisions>
+</production-specifications>
+
 ## ⚠️ COMPREHENSIVE QUALITY ENFORCEMENT STANDARDS
 
 <quality-enforcement-standards>

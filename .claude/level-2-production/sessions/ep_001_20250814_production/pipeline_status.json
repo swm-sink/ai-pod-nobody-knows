@@ -1,13 +1,10 @@
 {
   "session_id": "ep_001_20250814_production",
-  "topic": "The Dirty Secret: Even the Experts Are Making It Up", 
-  "timestamp": "2025-08-14T18:50:00Z",
-  "completed_stages": 1,
+  "topic": "AI for Beginners",
+  "timestamp": "2025-08-14T18:59:13Z",
+  "completed_stages": 2,
   "total_stages": 7,
-  "total_savings": "0",
-  "remaining_cost": "27.00",
-  "completion_percentage": 14.3,
-  "stage_1_deep_research": "completed",
-  "stage_1_cost": "7.50",
-  "stage_1_output": "01_deep_research_complete.json"
+  "total_savings": "8.00",
+  "remaining_cost": "26.50",
+  "completion_percentage": 28.5
 }

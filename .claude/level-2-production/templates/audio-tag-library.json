@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "ElevenLabs v3 Audio Tag Library",
-    "version": "1.0.0", 
+    "version": "1.0.0",
     "created": "2025-01-14",
     "description": "Contextual mapping library for ElevenLabs v3 audio tag application",
     "usage": "Referenced by 07_tts_optimizer for contextual audio tag injection"
@@ -12,7 +12,7 @@
       "description": "High energy, enthusiastic tone",
       "usage_contexts": [
         "Episode introductions",
-        "Breakthrough discoveries", 
+        "Breakthrough discoveries",
         "Exciting announcements",
         "Major revelations"
       ],
@@ -37,11 +37,11 @@
       "trigger_phrases": [
         "We know that",
         "Research shows",
-        "Studies confirm", 
+        "Studies confirm",
         "Evidence suggests",
         "It's clear that"
       ],
-      "placement": "before_phrase", 
+      "placement": "before_phrase",
       "frequency_limit": "2-3 per episode"
     },
 
@@ -54,7 +54,7 @@
       ],
       "trigger_phrases": [
         "But what if",
-        "Have you ever wondered", 
+        "Have you ever wondered",
         "What would happen",
         "How might",
         "Could it be"
@@ -62,7 +62,7 @@
       "trigger_patterns": [
         "\\?",
         "What.*\\?",
-        "How.*\\?", 
+        "How.*\\?",
         "Why.*\\?",
         "When.*\\?"
       ],
@@ -80,7 +80,7 @@
       "trigger_phrases": [
         "Nobody knows",
         "We don't fully understand",
-        "Remains uncertain", 
+        "Remains uncertain",
         "Still exploring",
         "It's complicated"
       ],
@@ -90,7 +90,7 @@
     },
 
     "[thoughtful]": {
-      "description": "Deliberative, considering tone", 
+      "description": "Deliberative, considering tone",
       "usage_contexts": [
         "Complex explanations",
         "Weighing multiple perspectives",
@@ -100,7 +100,7 @@
         "However",
         "On the other hand",
         "Consider this",
-        "Let's think about", 
+        "Let's think about",
         "It's worth noting"
       ],
       "placement": "before_phrase",
@@ -129,7 +129,7 @@
       "description": "Ironic or mocking inflection",
       "usage_contexts": [
         "Gentle humor",
-        "Ironic observations", 
+        "Ironic observations",
         "Light criticism"
       ],
       "trigger_phrases": [
@@ -197,7 +197,7 @@
       "description": "Thoughtful silence moment",
       "usage_contexts": [
         "Before important points",
-        "Thinking moments", 
+        "Thinking moments",
         "Emphasis creation"
       ],
       "trigger_phrases": [
@@ -239,7 +239,7 @@
 
   "character_performance_tags": {
     "[whispers]": {
-      "description": "Quiet, intimate speaking style", 
+      "description": "Quiet, intimate speaking style",
       "usage_contexts": [
         "Secrets or confidential information",
         "Creating intimacy",
@@ -301,7 +301,7 @@
         "uncertainty",
         "unknown",
         "don't know",
-        "mystery", 
+        "mystery",
         "unclear",
         "complicated"
       ],
@@ -325,7 +325,7 @@
     "episode_targets": {
       "total_audio_tags": "10-15 per episode",
       "emotional_tags": "60% of total tags",
-      "natural_speech": "30% of total tags", 
+      "natural_speech": "30% of total tags",
       "character_performance": "10% of total tags"
     },
 
@@ -349,7 +349,7 @@
         "note": "Work best with expressive voices"
       },
       "professional_voices": {
-        "tags": ["[confident]", "[thoughtful]", "[pauses]"], 
+        "tags": ["[confident]", "[thoughtful]", "[pauses]"],
         "note": "Suitable for authoritative voices"
       },
       "conversational_voices": {
@@ -399,7 +399,7 @@
   "advanced_usage_patterns": {
     "combination_tags": {
       "[thoughtful] [pauses]": "Deep contemplation before complex topics",
-      "[curious] [chuckles]": "Amused wondering about possibilities", 
+      "[curious] [chuckles]": "Amused wondering about possibilities",
       "[contemplative] [sighs]": "Accepting complexity and uncertainty"
     },
 
@@ -420,7 +420,7 @@
   "implementation_notes": {
     "placement_syntax": {
       "before_phrase": "[tag] Text to be modified",
-      "after_phrase": "Text to be modified [tag]", 
+      "after_phrase": "Text to be modified [tag]",
       "standalone": "[tag]",
       "within_phrase": "Text [tag] more text"
     },

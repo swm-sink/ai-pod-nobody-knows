@@ -19,7 +19,7 @@
         "theme": "fundamental_lack_of_understanding"
       },
       {
-        "expert": "Geoffrey Hinton", 
+        "expert": "Geoffrey Hinton",
         "quote": "What we did was we designed the learning algorithm. That's a bit like designing the principle of evolution. But when this learning algorithm then interacts with data, it produces complicated neural networks that are good at doing things.",
         "context": "Explaining the gap between designing algorithms and understanding their emergent behaviors",
         "source": "Various interviews, 2023",
@@ -220,7 +220,7 @@
         "verification_method": "Web search using established news sources",
         "sources_checked": [
           "MIT Technology Review",
-          "CBS 60 Minutes", 
+          "CBS 60 Minutes",
           "MIT Sloan",
           "Stanford HAI",
           "Georgetown CSET",

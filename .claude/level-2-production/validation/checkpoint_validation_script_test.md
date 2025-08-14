@@ -71,7 +71,7 @@ Remaining pipeline cost: $0
 - **Fix Applied:** Format floating point costs to 2 decimal places
 - **Results:**
   - Deep Research: $7.50 ✓
-  - Questions: $0.50 ✓ 
+  - Questions: $0.50 ✓
   - Synthesis: $12.00 ✓
   - Planning: $0.25 ✓
   - Script: $1.50 ✓
@@ -89,7 +89,7 @@ Remaining pipeline cost: $0
 ```bash
 # Available commands tested:
 ./checkpoint-validator-simple.sh all           # System-wide validation
-./checkpoint-validator-simple.sh validate <ID> # Single session validation  
+./checkpoint-validator-simple.sh validate <ID> # Single session validation
 ./checkpoint-validator-simple.sh cost <ID>     # Cost analysis
 ./checkpoint-validator-simple.sh help          # Help documentation
 ```

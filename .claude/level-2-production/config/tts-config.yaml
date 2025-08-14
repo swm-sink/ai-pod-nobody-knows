@@ -1,0 +1,56 @@
+# TTS Configuration for Turbo v2.5
+# Defines TTS-specific settings for podcast episode audio synthesis
+
+tts_model:
+  provider: "elevenlabs"
+  model_id: "eleven_turbo_v2_5"
+  model_name: "Turbo v2.5"
+  pricing: 0.5  # credits per character
+  latency: "250-300ms"  # processing latency
+  max_characters: 500000  # single call limit
+  quality_focus: "high"  # quality over speed
+
+voice_settings:
+  primary_voice: "Amelia"
+  voice_id: "ZF6FPAbjXT4488VcRRnw"
+  backup_voice: "Rachel"
+  consistency: "required"  # same voice throughout episode
+
+audio_parameters:
+  stability: 0.5
+  similarity_boost: 0.75
+  style: 0.3
+  use_speaker_boost: true
+  speed: 1.0
+  language: "en"
+  output_format: "mp3_44100_128"
+
+ssml_settings:
+  enable_ssml_parsing: true
+  break_tags: "contextual"  # minimal, natural pauses
+  emphasis_tags: "key_concepts"  # moderate emphasis only
+  prosody_tags: "complex_terms"  # slight rate reduction
+
+episode_targets:
+  duration_minutes: "25-30"
+  character_count: "18000-22000"
+  word_count: "3500-4500"
+  file_size_mb: "25-35"
+
+cost_estimates:
+  per_1k_characters: 0.30  # USD
+  per_episode: 6.00  # 20k chars * $0.30
+  checkpoint_savings: 6.00  # cost protection value
+
+quality_requirements:
+  single_call_synthesis: true
+  voice_consistency: required
+  natural_emotion: true
+  clean_content: true  # no metadata in audio
+  pronunciation_normalized: true
+
+optimization_approach:
+  content_preparation: "clean_extraction"
+  emotion_integration: "context_driven"  # not custom markup
+  ssml_usage: "minimal_contextual"
+  intervention_level: "neural_friendly"  # let AI handle most naturally

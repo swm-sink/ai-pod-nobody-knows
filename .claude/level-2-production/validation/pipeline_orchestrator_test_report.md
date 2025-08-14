@@ -26,7 +26,7 @@
 - **Shows remaining pipeline cost** after checkpoint protection
 - **Identifies protection levels**:
   - MAJOR SAVINGS: $12.00+ (Research synthesis protected)
-  - GOOD SAVINGS: $7.50+ (Deep research protected)  
+  - GOOD SAVINGS: $7.50+ (Deep research protected)
   - PARTIAL SAVINGS: $0.01+ (Some work protected)
   - NO PROTECTION: $0 (Full pipeline needed)
 
@@ -123,7 +123,7 @@ Completed Stages: 0/7
 
 ### Output Features ✅
 - **Color-coded status indicators** (Green=Complete, Yellow=Pending, Red=Error)
-- **Cost analysis with savings calculations** 
+- **Cost analysis with savings calculations**
 - **Next-step instructions** with agent file references
 - **Session metadata generation** for tracking
 - **Progress percentage** and completion metrics

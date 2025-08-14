@@ -9,7 +9,7 @@
 
 **Current Status:**
 - Target: 4,050 words (27-minute episode)
-- Current: 1,489 words  
+- Current: 1,489 words
 - **Needed: ~2,500 additional words**
 - Target "Nobody Knows" moments: 5+ (currently has 3)
 - Target Feynman analogies: 3-5 (currently has 2)
@@ -49,7 +49,7 @@
 
 **Expert Gap:** No mathematical theory explains these sudden jumps. Some researchers compare it to phase transitions in physics, but we're still guessing.
 
-### Nobody Knows #2: The In-Context Learning Enigma  
+### Nobody Knows #2: The In-Context Learning Enigma
 **What We Don't Know:** How AI models learn new tasks just from examples in a conversation.
 
 **The Mystery:** Show GPT-4 a few examples of translating English to French within a prompt, and suddenly it can translate sentences it's never seen. It's like showing someone three magic tricks and they instantly become a magician - but we don't understand the mechanism.
@@ -122,7 +122,7 @@
 
 **Why It Works:**
 - **Signals authenticity:** People are tired of overconfident "experts" making bold claims
-- **Reduces defensive resistance:** Humility makes audiences more receptive to new information  
+- **Reduces defensive resistance:** Humility makes audiences more receptive to new information
 - **Models growth mindset:** Shows that learning never stops, even for experts
 - **Humanizes expertise:** Makes experts relatable rather than intimidating
 
@@ -172,7 +172,7 @@
 **Current:** Episode opens with AI uncertainty
 **Enhancement:** Start with Sam Altman's July 2025 quote: "No one knows what happens next" - then reveal this came from the CEO of the company that created ChatGPT.
 
-### Transition Improvements  
+### Transition Improvements
 **Between Sections:** Use "Speaking of things we don't understand..." or "This brings us to another mystery..." to connect topics
 **Historical Connections:** "Just like Marie Curie working with radioactivity..." to bridge past and present
 **Psychology Bridges:** "This uncertainty isn't just academic - it actually makes people feel better, and here's why..."
@@ -195,7 +195,7 @@
 - Grokking and emergence examples
 - Black box problem illustration
 
-### Minute 15-18: Historical Parallels Section  
+### Minute 15-18: Historical Parallels Section
 - Curie, Einstein, Watson/Crick, Internet pioneers
 - Pattern of breakthrough → uncertainty → unexpected implications
 - Connection to current AI moment
@@ -217,7 +217,7 @@
 - **Expert Admissions:** +400 words
 - **Five AI Mysteries:** +800 words (160 each)
 - **Historical Parallels:** +500 words
-- **Psychological Insights:** +400 words  
+- **Psychological Insights:** +400 words
 - **Enhanced Transitions:** +200 words
 - **Improved Analogies:** +200 words
 
@@ -258,7 +258,7 @@
 
 This enhanced Episode 1 sets up themes for:
 - **Episode 2:** Climate modeling uncertainties
-- **Episode 3:** Medical diagnostic mysteries  
+- **Episode 3:** Medical diagnostic mysteries
 - **Episode 4:** Economic prediction failures
 - **Episode 5:** Consciousness and free will questions
 

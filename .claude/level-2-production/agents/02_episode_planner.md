@@ -19,7 +19,7 @@ Transform comprehensive research insights into a structured 47-minute episode bl
 checkpoint_check:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "04_planning_complete.json"
-  
+
   procedure:
     1. Check if checkpoint exists: Read {session_path}{checkpoint_file}
     2. If exists and valid:
@@ -215,7 +215,7 @@ episode_blueprint:
       character_count: 3375  # ~5 chars per word average
       elements:
         hook: "[Opening question or surprising fact]"
-        thesis: "[Main episode theme]"  
+        thesis: "[Main episode theme]"
         preview: "[What listeners will learn]"
         complexity_setup: "[How we'll build understanding]"
         research_depth_preview: "[Depth of investigation completed]"
@@ -454,7 +454,7 @@ def maintain_engagement(blueprint):
 checkpoint_save:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "04_planning_complete.json"
-  
+
   checkpoint_data:
     checkpoint_type: "episode_planning"
     session_id: "{session_id}"
@@ -462,7 +462,7 @@ checkpoint_save:
     status: "completed"
     timestamp: "{current_timestamp}"
     cost_invested: 0.25  # Planning is low-cost but time-consuming
-    
+
     planning_results:
       structure_chosen: "{structure_type}"
       complexity_level: "{level}"
@@ -472,13 +472,13 @@ checkpoint_save:
       narrative_elements: "{complete_narrative_framework}"
       brand_integration: "{brand_elements}"
       complete_episode_blueprint: "{full_blueprint_content}"
-      
+
     quality_validation:
       timing_precision: "{score}"
       character_count_accuracy: "{score}"
       research_integration: "{score}"
       brand_alignment: "{score}"
-      
+
   procedure:
     1. Compile complete episode blueprint into structured format
     2. Validate all timing and content targets met

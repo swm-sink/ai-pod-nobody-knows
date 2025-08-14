@@ -50,20 +50,20 @@ TOTAL_PIPELINE_COST="34.50"
 # Session validation
 validate_session() {
     local session_id="$1"
-    
+
     if [[ -z "$session_id" ]]; then
         echo -e "${RED}❌ Error: Session ID required${NC}"
         echo "Usage: $0 <session_id> [topic]"
         echo "Example: $0 ep_001_20250814_test \"AI for Beginners\""
         exit 1
     fi
-    
+
     local session_path="${SESSIONS_PATH}/${session_id}"
-    
+
     if [[ ! -d "$session_path" ]]; then
         echo -e "${BLUE}📁 Creating new session: ${session_id}${NC}"
         mkdir -p "$session_path"
-        
+
         # Initialize session metadata
         cat > "${session_path}/session_metadata.json" << EOF
 {
@@ -81,7 +81,7 @@ validate_session() {
 }
 EOF
     fi
-    
+
     echo "$session_path"
 }
 
@@ -89,21 +89,21 @@ EOF
 analyze_checkpoints() {
     local session_path="$1"
     local session_id=$(basename "$session_path")
-    
+
     echo -e "${PURPLE}🔍 CHECKPOINT ANALYSIS: ${session_id}${NC}"
     echo "─────────────────────────────────────────────────────────"
-    
+
     local total_savings=0
     local completed_stages=0
     local next_stage=""
     local protection_level=""
-    
+
     # Check each pipeline stage for checkpoints
     for stage_info in "${PIPELINE_STAGES[@]}"; do
         IFS=':' read -r stage_key stage_name stage_cost <<< "$stage_info"
-        
+
         local checkpoint_file="${session_path}/${stage_key}.json"
-        
+
         if [[ -f "$checkpoint_file" ]]; then
             # Validate checkpoint integrity
             if jq -e . "$checkpoint_file" >/dev/null 2>&1; then
@@ -125,13 +125,13 @@ analyze_checkpoints() {
             echo -e "  ⭕ ${stage_name}: ${YELLOW}Pending${NC} (Cost: \$${stage_cost})"
         fi
     done
-    
+
     echo ""
     echo -e "${BLUE}📊 CHECKPOINT SUMMARY${NC}"
     echo "─────────────────────────────────────────────────────────"
     echo -e "  Completed Stages:     ${completed_stages}/11"
     echo -e "  💰 Total Savings:      \$${total_savings} (${TOTAL_PIPELINE_COST} max)"
-    
+
     if [[ "$completed_stages" -eq 11 ]]; then
         protection_level="COMPLETE"
         echo -e "  🎉 Protection Level:   ${GREEN}COMPLETE PIPELINE${NC}"
@@ -149,17 +149,17 @@ analyze_checkpoints() {
         protection_level="NONE"
         echo -e "  💭 Protection Level:   ${RED}NO PROTECTION${NC} (Full pipeline needed)"
     fi
-    
+
     local remaining_cost=$(echo "$TOTAL_PIPELINE_COST - $total_savings" | bc -l)
     echo -e "  💸 Remaining Cost:     \$${remaining_cost}"
-    
+
     if [[ -n "$next_stage" ]]; then
         IFS=':' read -r next_key next_name <<< "$next_stage"
         echo -e "  ▶️  Next Stage:         ${BLUE}${next_name}${NC} (${next_key})"
     fi
-    
+
     echo ""
-    
+
     # Return values for pipeline execution
     echo "CHECKPOINT_ANALYSIS_COMPLETE"
     echo "TOTAL_SAVINGS:$total_savings"
@@ -173,16 +173,16 @@ analyze_checkpoints() {
 determine_restart_strategy() {
     local analysis_output="$1"
     local session_path="$2"
-    
+
     # Parse analysis output
     local total_savings=$(echo "$analysis_output" | grep "TOTAL_SAVINGS:" | cut -d: -f2)
     local completed_stages=$(echo "$analysis_output" | grep "COMPLETED_STAGES:" | cut -d: -f2)
     local protection_level=$(echo "$analysis_output" | grep "PROTECTION_LEVEL:" | cut -d: -f2)
     local next_stage=$(echo "$analysis_output" | grep "NEXT_STAGE:" | cut -d: -f2)
-    
+
     echo -e "${PURPLE}🧠 SMART RESTART STRATEGY${NC}"
     echo "─────────────────────────────────────────────────────────"
-    
+
     # Determine optimal restart approach
     case "$protection_level" in
         "COMPLETE")
@@ -212,13 +212,13 @@ determine_restart_strategy() {
             echo -e "  💰 Cost: \$${TOTAL_PIPELINE_COST} (no existing protection)"
             ;;
     esac
-    
+
     if [[ -n "$next_stage" && "$protection_level" != "COMPLETE" ]]; then
         IFS=':' read -r next_key next_name <<< "$next_stage"
         echo -e "  ▶️  Next Action: Execute ${BLUE}${next_name}${NC}"
         echo -e "  📋 Stage Key: ${next_key}"
     fi
-    
+
     echo ""
     return 1
 }
@@ -226,20 +226,20 @@ determine_restart_strategy() {
 # Execute pipeline stage
 execute_stage() {
     local stage_key="$1"
-    local stage_name="$2" 
+    local stage_name="$2"
     local session_id="$3"
     local topic="${4:-AI for Beginners}"
-    
+
     echo -e "${BLUE}🎬 EXECUTING: ${stage_name}${NC}"
     echo "─────────────────────────────────────────────────────────"
     echo "  Stage: $stage_key"
     echo "  Session: $session_id"
     echo "  Topic: $topic"
     echo ""
-    
+
     local agent_file=""
     local execution_success=false
-    
+
     # Map stage to agent file
     case "$stage_key" in
         "01_deep_research")
@@ -309,7 +309,7 @@ execute_stage() {
             return 1
             ;;
     esac
-    
+
     if [[ -n "$agent_file" ]]; then
         local agent_path="${AGENTS_PATH}/${agent_file}"
         if [[ -f "$agent_path" ]]; then
@@ -325,7 +325,7 @@ execute_stage() {
             return 1
         fi
     fi
-    
+
     echo ""
     return $([ "$execution_success" = true ] && echo 0 || echo 1)
 }
@@ -335,30 +335,30 @@ execute_pipeline() {
     local session_path="$1"
     local session_id="$2"
     local topic="${3:-AI for Beginners}"
-    
+
     echo -e "${PURPLE}🎼 PIPELINE EXECUTION COORDINATOR${NC}"
     echo "═══════════════════════════════════════════════════════════"
-    
+
     # Run checkpoint analysis
     local analysis_output=$(analyze_checkpoints "$session_path")
-    
+
     # Determine restart strategy
     if determine_restart_strategy "$analysis_output" "$session_path"; then
         # Episode complete
         echo -e "${GREEN}🎉 Episode production complete!${NC}"
         return 0
     fi
-    
+
     # Parse next stage
     local next_stage=$(echo "$analysis_output" | grep "NEXT_STAGE:" | cut -d: -f2)
-    
+
     if [[ -z "$next_stage" || "$next_stage" == "" ]]; then
         echo -e "${RED}❌ Unable to determine next stage${NC}"
         return 1
     fi
-    
+
     IFS=':' read -r stage_key stage_name <<< "$next_stage"
-    
+
     echo -e "${BLUE}🚀 READY FOR EXECUTION${NC}"
     echo "─────────────────────────────────────────────────────────"
     echo -e "  Next Stage: ${BLUE}${stage_name}${NC}"
@@ -366,7 +366,7 @@ execute_pipeline() {
     echo -e "  Session: ${session_id}"
     echo -e "  Topic: ${topic}"
     echo ""
-    
+
     # Execute the next stage
     if execute_stage "$stage_key" "$stage_name" "$session_id" "$topic"; then
         echo -e "${GREEN}✅ Stage ready for execution${NC}"
@@ -381,7 +381,7 @@ execute_pipeline() {
         echo -e "${RED}❌ Stage execution configuration failed${NC}"
         return 1
     fi
-    
+
     return 0
 }
 
@@ -389,17 +389,17 @@ execute_pipeline() {
 generate_status_report() {
     local session_path="$1"
     local session_id="$2"
-    
+
     local report_file="${session_path}/pipeline_status_report.json"
     local analysis_output=$(analyze_checkpoints "$session_path")
-    
+
     # Parse analysis results
     local total_savings=$(echo "$analysis_output" | grep "TOTAL_SAVINGS:" | cut -d: -f2)
     local completed_stages=$(echo "$analysis_output" | grep "COMPLETED_STAGES:" | cut -d: -f2)
     local protection_level=$(echo "$analysis_output" | grep "PROTECTION_LEVEL:" | cut -d: -f2)
     local remaining_cost=$(echo "$analysis_output" | grep "REMAINING_COST:" | cut -d: -f2)
     local next_stage=$(echo "$analysis_output" | grep "NEXT_STAGE:" | cut -d: -f2)
-    
+
     cat > "$report_file" << EOF
 {
   "pipeline_status": {
@@ -428,7 +428,7 @@ generate_status_report() {
   }
 }
 EOF
-    
+
     echo -e "${GREEN}📄 Status report generated: ${report_file}${NC}"
 }
 
@@ -470,20 +470,20 @@ main() {
         *)
             local session_id="$1"
             local topic="${2:-AI for Beginners}"
-            
+
             echo "Starting pipeline orchestration..."
             echo "Session: $session_id"
             echo "Topic: $topic"
             echo ""
-            
+
             # Validate and prepare session
             local session_path=$(validate_session "$session_id")
-            
+
             # Execute pipeline coordination
             if execute_pipeline "$session_path" "$session_id" "$topic"; then
                 # Generate status report
                 generate_status_report "$session_path" "$session_id"
-                
+
                 echo -e "${GREEN}🎼 Pipeline orchestration complete!${NC}"
                 echo -e "   Use Claude Code to execute the next configured stage"
                 exit 0

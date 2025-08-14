@@ -21,7 +21,7 @@ NC='\033[0m'
 # Checkpoint specifications (simple arrays)
 CHECKPOINT_FILES=(
     "01_deep_research_complete.json"
-    "02_questions_complete.json" 
+    "02_questions_complete.json"
     "03_synthesis_complete.json"
     "04_planning_complete.json"
     "05_script_complete.json"
@@ -86,7 +86,7 @@ try:
     print('{:.2f}'.format(float(data.get('cost_invested', 0))))
 except:
     print('0.00')" 2>/dev/null)
-    
+
     if [ "$actual" = "$expected" ]; then
         return 0
     else
@@ -98,63 +98,63 @@ except:
 validate_session() {
     local session_path=$1
     local session_name=$(basename "$session_path")
-    
+
     echo ""
     echo -e "${BLUE}📁 Validating Session: $session_name${NC}"
-    
+
     if [ ! -d "$session_path" ]; then
         echo -e "${RED}❌ Session directory not found${NC}"
         return 1
     fi
-    
+
     local files_validated=0
     local total_protection=0
     local validation_passed=true
-    
+
     for i in "${!CHECKPOINT_FILES[@]}"; do
         local checkpoint_file="${CHECKPOINT_FILES[$i]}"
         local expected_cost="${CHECKPOINT_COSTS[$i]}"
         local full_path="$session_path/$checkpoint_file"
-        
+
         echo -n "  🔍 $checkpoint_file..."
-        
+
         if [ ! -f "$full_path" ]; then
             echo -e " ${YELLOW}⚠️  Missing${NC}"
             continue
         fi
-        
+
         if ! validate_json "$full_path"; then
             echo -e " ${RED}❌ Invalid JSON${NC}"
             validation_passed=false
             continue
         fi
-        
+
         if ! validate_structure "$full_path"; then
             echo -e " ${RED}❌ Invalid Structure${NC}"
             validation_passed=false
             continue
         fi
-        
+
         if ! validate_cost "$full_path" "$expected_cost"; then
             echo -e " ${RED}❌ Cost Error${NC}"
             validation_passed=false
             continue
         fi
-        
+
         echo -e " ${GREEN}✅ Valid${NC}"
         files_validated=$((files_validated + 1))
         total_protection=$(echo "$total_protection + $expected_cost" | bc -l)
     done
-    
+
     echo ""
     echo "  📊 Session Summary:"
     echo "     Files validated: $files_validated/5"
     echo "     Cost protection: \$$total_protection"
-    
+
     if [ "$files_validated" -gt 0 ]; then
         local percentage=$(echo "scale=1; $total_protection / 21.75 * 100" | bc -l)
         echo "     Pipeline coverage: ${percentage}%"
-        
+
         if [ "$total_protection" = "21.75" ]; then
             echo -e "${GREEN}     💰 FULL PROTECTION: Complete pipeline can be skipped${NC}"
         elif [ "$(echo "$total_protection >= 12.00" | bc -l)" = "1" ]; then
@@ -163,7 +163,7 @@ validate_session() {
             echo -e "${YELLOW}     💰 GOOD SAVINGS: Deep research protected (\$7.50)${NC}"
         fi
     fi
-    
+
     if $validation_passed && [ "$files_validated" -gt 0 ]; then
         return 0
     else
@@ -174,33 +174,33 @@ validate_session() {
 calculate_savings() {
     local session_path=$1
     echo "💰 Cost Analysis: $(basename "$session_path")"
-    
+
     if [ ! -d "$session_path" ]; then
         echo -e "${RED}Session not found${NC}"
         return 1
     fi
-    
+
     local total_savings=0
     local files_found=0
-    
+
     for i in "${!CHECKPOINT_FILES[@]}"; do
         local checkpoint_file="${CHECKPOINT_FILES[$i]}"
         local cost="${CHECKPOINT_COSTS[$i]}"
         local full_path="$session_path/$checkpoint_file"
-        
+
         if [ -f "$full_path" ]; then
             total_savings=$(echo "$total_savings + $cost" | bc -l)
             files_found=$((files_found + 1))
         fi
     done
-    
+
     echo "Checkpoint files found: $files_found/5"
     echo "Potential savings: \$$total_savings"
-    
+
     if [ "$(echo "$total_savings > 0" | bc -l)" = "1" ]; then
         local percentage=$(echo "scale=1; $total_savings / 21.75 * 100" | bc -l)
         echo "Cost reduction: ${percentage}%"
-        
+
         local remaining_cost=$(echo "21.75 - $total_savings" | bc -l)
         echo "Remaining pipeline cost: \$$remaining_cost"
     fi
@@ -208,15 +208,15 @@ calculate_savings() {
 
 validate_all() {
     echo "🚀 Validating All Sessions"
-    
+
     local total_sessions=0
     local valid_sessions=0
-    
+
     if [ ! -d "$BASE_PATH" ]; then
         echo -e "${RED}❌ Base path not found: $BASE_PATH${NC}"
         return 1
     fi
-    
+
     for session_dir in "$BASE_PATH"/*; do
         if [ -d "$session_dir" ]; then
             total_sessions=$((total_sessions + 1))
@@ -225,18 +225,18 @@ validate_all() {
             fi
         fi
     done
-    
+
     echo ""
     echo "🎯 System Summary"
     echo "================"
     echo "Sessions found: $total_sessions"
     echo "Sessions valid: $valid_sessions"
-    
+
     if [ "$total_sessions" -gt 0 ]; then
         local success_rate=$(echo "scale=1; $valid_sessions * 100 / $total_sessions" | bc -l)
         echo "Success rate: ${success_rate}%"
     fi
-    
+
     if [ "$valid_sessions" = "$total_sessions" ] && [ "$total_sessions" -gt 0 ]; then
         echo -e "${GREEN}🎉 ALL SESSIONS VALID${NC}"
         return 0

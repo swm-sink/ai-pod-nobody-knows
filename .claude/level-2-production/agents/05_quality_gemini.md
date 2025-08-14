@@ -115,15 +115,15 @@ EOF
 evaluate_with_gemini() {
     local attempt=$1
     local wait_time=$((2 ** attempt))
-    
+
     if [ $attempt -gt 0 ]; then
         echo "Retry attempt $attempt after ${wait_time}s wait..."
         sleep $wait_time
     fi
-    
+
     # Execute Gemini CLI with timeout
     timeout 30 bash -c "cat '$PROMPT_FILE' '$SCRIPT_FILE' | gemini -p - 2>'$ERROR_FILE'" > "$OUTPUT_FILE"
-    
+
     return $?
 }
 
@@ -145,9 +145,9 @@ while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
             fi
         fi
     fi
-    
+
     RETRY_COUNT=$((RETRY_COUNT + 1))
-    
+
     # Check for specific errors
     if grep -q "rate limit" "$ERROR_FILE" 2>/dev/null; then
         echo "Rate limit detected, waiting longer..."
@@ -158,13 +158,13 @@ done
 # Fallback if all retries failed
 if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
     echo "ERROR: All Gemini evaluation attempts failed"
-    
+
     # Create fallback with simplified prompt
     echo "Attempting fallback evaluation..."
     echo "Rate this podcast script 1-5 on: factual accuracy, comprehension, brand alignment, engagement. Output only JSON scores." | \
     cat - "$SCRIPT_FILE" | \
     timeout 15 gemini -p - > "$OUTPUT_FILE" 2>/dev/null || true
-    
+
     # If still no valid JSON, create error response
     if ! jq empty "$OUTPUT_FILE" 2>/dev/null; then
         cat > "$OUTPUT_FILE" << EOF
@@ -198,7 +198,7 @@ if [ -f "$OUTPUT_FILE" ] && jq empty "$OUTPUT_FILE" 2>/dev/null; then
     COMPREHENSION=$(jq -r '.scores.audience_comprehension' "$OUTPUT_FILE")
     BRAND=$(jq -r '.scores.brand_alignment' "$OUTPUT_FILE")
     ENGAGEMENT=$(jq -r '.scores.engagement_quality' "$OUTPUT_FILE")
-    
+
     # Display evaluation summary
     echo "═══════════════════════════════════════════════"
     echo "   GEMINI QUALITY EVALUATION RESULTS"
@@ -211,7 +211,7 @@ if [ -f "$OUTPUT_FILE" ] && jq empty "$OUTPUT_FILE" 2>/dev/null; then
     echo "  Brand Alignment:     ${BRAND}/5"
     echo "  Engagement:          ${ENGAGEMENT}/5"
     echo "═══════════════════════════════════════════════"
-    
+
     # Cost tracking
     WORD_COUNT=$(wc -w < "$SCRIPT_FILE")
     INPUT_TOKENS=$((WORD_COUNT * 4 / 3))
@@ -219,17 +219,17 @@ if [ -f "$OUTPUT_FILE" ] && jq empty "$OUTPUT_FILE" 2>/dev/null; then
     INPUT_COST=$(echo "scale=6; $INPUT_TOKENS * 0.00000015" | bc)
     OUTPUT_COST=$(echo "scale=6; $OUTPUT_TOKENS * 0.0000006" | bc)
     TOTAL_COST=$(echo "scale=6; $INPUT_COST + $OUTPUT_COST" | bc)
-    
+
     echo "  Evaluation Cost: \$${TOTAL_COST}"
     echo "  Tokens: ${INPUT_TOKENS} in, ${OUTPUT_TOKENS} out"
-    
+
     # Log cost
     echo "$(date -Iseconds),gemini_evaluation,${TOTAL_COST}" >> .claude/logs/api_costs.csv
-    
+
     # Save to session directory
     mkdir -p "./sessions/${SESSION_ID}"
     cp "$OUTPUT_FILE" "./sessions/${SESSION_ID}/gemini_evaluation.json"
-    
+
     # Create threshold comparison
     jq --argjson thresholds '{
         "comprehension": 0.85,
@@ -259,7 +259,7 @@ if [ -f "$OUTPUT_FILE" ] && jq empty "$OUTPUT_FILE" 2>/dev/null; then
             "pass": ((.scores.factual_accuracy / 5) >= $thresholds.technical_accuracy)
         }
     }' "$OUTPUT_FILE" > "./sessions/${SESSION_ID}/gemini_threshold_analysis.json"
-    
+
 else
     echo "ERROR: Unable to process Gemini evaluation results"
     exit 1
@@ -283,18 +283,18 @@ rm -f "$SCRIPT_FILE" "$PROMPT_FILE" "$ERROR_FILE"
   "timestamp": "[ISO 8601 timestamp]",
   "model": "gemini-2.5-flash",
   "evaluation_method": "cli_non_interactive_likert",
-  
+
   "scores": {
     "factual_accuracy": [1-5],
     "audience_comprehension": [1-5],
     "brand_alignment": [1-5],
     "engagement_quality": [1-5]
   },
-  
+
   "weighted_average": [1.0-5.0],
   "pass_threshold": 3.5,
   "pass_fail": "PASS|FAIL|ERROR",
-  
+
   "threshold_comparison": {
     "comprehension": {
       "score": [0.0-1.0 normalized],
@@ -317,7 +317,7 @@ rm -f "$SCRIPT_FILE" "$PROMPT_FILE" "$ERROR_FILE"
       "pass": true/false
     }
   },
-  
+
   "critical_issues": [
     {
       "category": "factual|comprehension|brand|engagement",
@@ -325,18 +325,18 @@ rm -f "$SCRIPT_FILE" "$PROMPT_FILE" "$ERROR_FILE"
       "severity": "HIGH|MEDIUM|LOW"
     }
   ],
-  
+
   "improvements": [
     {
       "priority": [1-3],
       "suggestion": "Actionable improvement"
     }
   ],
-  
+
   "strengths": [
     "Notable positive aspects"
   ],
-  
+
   "metrics": {
     "word_count": [integer],
     "humility_phrases": [integer],
@@ -345,14 +345,14 @@ rm -f "$SCRIPT_FILE" "$PROMPT_FILE" "$ERROR_FILE"
     "questions_per_1000_words": [float],
     "humility_per_1000_words": [float]
   },
-  
+
   "cost_tracking": {
     "input_tokens": [integer],
     "output_tokens": [integer],
     "total_cost": "$0.0000",
     "model_used": "gemini-2.5-flash"
   },
-  
+
   "recommendation": "ACCEPT|REVISE|REJECT",
   "confidence_level": "HIGH|MEDIUM|LOW",
   "retry_count": [0-3]

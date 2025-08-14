@@ -82,12 +82,12 @@ check_dependencies() {
         echo "Documentation: .claude/context/tools/gemini-cli-quality-judge-guide.xml"
         exit 1
     fi
-    
+
     # Check jq for JSON processing
     if ! command -v jq &> /dev/null; then
         log_warning "jq not found - JSON validation will be limited"
     fi
-    
+
     # Check bc for calculations
     if ! command -v bc &> /dev/null; then
         log_warning "bc not found - cost calculations will be skipped"
@@ -99,24 +99,24 @@ validate_inputs() {
         log_error "Script file not provided"
         show_usage
     fi
-    
+
     if [[ ! -f "$SCRIPT_FILE" ]]; then
         log_error "Script file not found: $SCRIPT_FILE"
         exit 1
     fi
-    
+
     if [[ ! -f "$TEMPLATE_FILE" ]]; then
         log_warning "Template file not found: $TEMPLATE_FILE"
         log_info "Using inline prompt instead"
     fi
-    
+
     # Create output directory if needed
     mkdir -p "$OUTPUT_DIR"
 }
 
 create_evaluation_prompt() {
     local temp_prompt="/tmp/gemini_prompt_$$.txt"
-    
+
     if [[ -f "$TEMPLATE_FILE" ]]; then
         cp "$TEMPLATE_FILE" "$temp_prompt"
     else
@@ -150,7 +150,7 @@ Output ONLY valid JSON with these exact fields:
 SCRIPT TO EVALUATE:
 EOF
     fi
-    
+
     echo "$temp_prompt"
 }
 
@@ -159,16 +159,16 @@ execute_gemini_evaluation() {
     local output_file="$2"
     local attempt=0
     local success=false
-    
+
     while [[ $attempt -lt $MAX_RETRIES ]] && [[ "$success" == "false" ]]; do
         if [[ $attempt -gt 0 ]]; then
             local wait_time=$((2 ** attempt))
             log_info "Retry attempt $((attempt + 1)) after ${wait_time}s wait..."
             sleep $wait_time
         fi
-        
+
         log_info "Executing Gemini evaluation (attempt $((attempt + 1))/$MAX_RETRIES)..."
-        
+
         # Execute with timeout
         if timeout $TIMEOUT_SECONDS bash -c "cat '$prompt_file' '$SCRIPT_FILE' | gemini -p - 2>/dev/null" > "$output_file"; then
             # Try to validate JSON
@@ -197,21 +197,21 @@ execute_gemini_evaluation() {
         else
             log_warning "Evaluation timed out or failed"
         fi
-        
+
         attempt=$((attempt + 1))
     done
-    
+
     if [[ "$success" == "false" ]]; then
         log_error "All evaluation attempts failed"
         return 1
     fi
-    
+
     return 0
 }
 
 process_results() {
     local result_file="$1"
-    
+
     if command -v jq &> /dev/null; then
         # Extract and display key metrics
         local weighted_avg=$(jq -r '.weighted_average // "N/A"' "$result_file" 2>/dev/null)
@@ -220,7 +220,7 @@ process_results() {
         local comprehension=$(jq -r '.scores.audience_comprehension // 0' "$result_file" 2>/dev/null)
         local brand=$(jq -r '.scores.brand_alignment // 0' "$result_file" 2>/dev/null)
         local engagement=$(jq -r '.scores.engagement_quality // 0' "$result_file" 2>/dev/null)
-        
+
         echo ""
         echo "╔════════════════════════════════════════════════════════╗"
         echo "║          GEMINI QUALITY EVALUATION RESULTS            ║"
@@ -236,7 +236,7 @@ process_results() {
         echo "  ├─ Brand Alignment:      $brand"
         echo "  └─ Engagement:           $engagement"
         echo ""
-        
+
         if [[ "$pass_fail" == "PASS" ]]; then
             echo -e "  ${GREEN}✓ Quality threshold met${NC}"
         elif [[ "$pass_fail" == "FAIL" ]]; then
@@ -251,23 +251,23 @@ process_results() {
 
 calculate_cost() {
     local script_file="$1"
-    
+
     if command -v bc &> /dev/null; then
         local word_count=$(wc -w < "$script_file")
         local input_tokens=$((word_count * 4 / 3))
         local output_tokens=500
-        
+
         # Gemini 2.5 Flash pricing
         local input_cost=$(echo "scale=8; $input_tokens * 0.00000015" | bc)
         local output_cost=$(echo "scale=8; $output_tokens * 0.0000006" | bc)
         local total_cost=$(echo "scale=8; $input_cost + $output_cost" | bc)
-        
+
         echo ""
         echo "  Cost Analysis:"
         echo "  ├─ Input tokens:  ~$input_tokens"
         echo "  ├─ Output tokens: ~$output_tokens"
         echo "  └─ Total cost:    \$$total_cost"
-        
+
         # Log to cost file if directory exists
         if [[ -d ".claude/logs" ]]; then
             echo "$(date -Iseconds),gemini_evaluation,$total_cost" >> .claude/logs/api_costs.csv
@@ -282,42 +282,42 @@ calculate_cost() {
 main() {
     echo -e "${BOLD}GEMINI CLI QUALITY JUDGE v1.0.0${NC}"
     echo "════════════════════════════════════════"
-    
+
     # Check dependencies
     check_dependencies
-    
+
     # Validate inputs
     validate_inputs
-    
+
     # Prepare files
     local timestamp=$(date +%Y%m%d_%H%M%S)
     local session_id="${EPISODE_NUM}_${timestamp}"
     local prompt_file=$(create_evaluation_prompt)
     local output_file="$OUTPUT_DIR/gemini_evaluation_${session_id}.json"
-    
+
     log_info "Evaluating script: $SCRIPT_FILE"
     log_info "Episode: $EPISODE_NUM"
     log_info "Output: $output_file"
-    
+
     # Execute evaluation
     if execute_gemini_evaluation "$prompt_file" "$output_file"; then
         # Process and display results
         process_results "$output_file"
-        
+
         # Calculate cost
         calculate_cost "$SCRIPT_FILE"
-        
+
         echo ""
         log_success "Evaluation complete!"
         echo "  Results saved to: $output_file"
-        
+
         # Cleanup
         rm -f "$prompt_file"
-        
+
         exit 0
     else
         log_error "Evaluation failed after $MAX_RETRIES attempts"
-        
+
         # Create error output
         cat > "$output_file" << EOF
 {
@@ -327,10 +327,10 @@ main() {
   "pass_fail": "ERROR"
 }
 EOF
-        
+
         # Cleanup
         rm -f "$prompt_file"
-        
+
         exit 1
     fi
 }

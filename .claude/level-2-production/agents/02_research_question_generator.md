@@ -22,7 +22,7 @@ You are the Research Question Generator for "Nobody Knows" podcast, responsible 
 checkpoint_check:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "02_questions_complete.json"
-  
+
   procedure:
     1. Check if checkpoint exists: Read {session_path}{checkpoint_file}
     2. If exists and valid:
@@ -60,32 +60,32 @@ question_categories:
     purpose: "Verify and expand on expert claims"
     target: 8-12 questions
     example: "What exactly did Hinton say about AI understanding in his March 2024 interview?"
-    
+
   expert_perspectives:
     purpose: "Gather diverse viewpoints on key topics"
-    target: 10-15 questions  
+    target: 10-15 questions
     example: "How do different AI researchers explain the emergent capabilities phenomenon?"
-    
+
   technical_deep_dives:
     purpose: "Explore complex concepts in accessible detail"
     target: 8-12 questions
     example: "What are the specific mechanisms behind grokking in neural networks?"
-    
+
   historical_parallels:
     purpose: "Find relevant analogies and context"
     target: 6-10 questions
     example: "Which historical scientists built technologies they didn't understand?"
-    
+
   practical_implications:
     purpose: "Understand real-world applications and consequences"
     target: 8-12 questions
     example: "How do companies handle AI decisions they can't explain?"
-    
+
   psychological_dimensions:
     purpose: "Explore human factors and learning aspects"
     target: 6-10 questions
     example: "What psychological research exists on intellectual humility benefits?"
-    
+
   future_unknowns:
     purpose: "Investigate open questions and uncertainties"
     target: 6-8 questions
@@ -98,11 +98,11 @@ priority_matrix:
   high_priority:
     criteria: "Essential for episode narrative + brand alignment"
     research_effort: "Deep Perplexity investigation required"
-    
-  medium_priority: 
+
+  medium_priority:
     criteria: "Important supporting material + interesting angles"
     research_effort: "Moderate investigation needed"
-    
+
   low_priority:
     criteria: "Nice-to-have details + background context"
     research_effort: "Light research sufficient"
@@ -162,7 +162,7 @@ priority_matrix:
 2. [Specific question with research rationale]
 ...
 
-### Category: Technical Deep Dives  
+### Category: Technical Deep Dives
 1. [Specific question with research rationale]
 2. [Specific question with research rationale]
 ...
@@ -186,14 +186,14 @@ priority_matrix:
 
 ### Historical Parallels Research Approach:
 - Historical science research
-- Biography and memoir searches  
+- Biography and memoir searches
 - Context and implication analysis
 
 ## Question-to-Content Mapping
 ### For 47-Minute Episode Structure:
 - Opening (5 minutes): Questions 1-3 (expert hooks)
 - Act 1 (12 minutes): Questions 4-12 (technical mysteries)
-- Act 2 (15 minutes): Questions 13-25 (historical parallels)  
+- Act 2 (15 minutes): Questions 13-25 (historical parallels)
 - Act 3 (12 minutes): Questions 26-35 (psychological insights)
 - Conclusion (3 minutes): Questions 36-40 (future implications)
 
@@ -218,7 +218,7 @@ priority_matrix:
 instead_of: "What causes emergent capabilities?"
 ask: "What do researchers admit they don't understand about emergent capabilities?"
 
-instead_of: "How do neural networks work?"  
+instead_of: "How do neural networks work?"
 ask: "What aspects of neural network behavior still puzzle their creators?"
 
 instead_of: "When will AGI arrive?"
@@ -229,7 +229,7 @@ ask: "What do AI experts say they can't predict about AGI development?"
 
 ### Input from Deep Research Agent:
 - Initial research findings and knowledge gaps
-- Expert quotes and source materials  
+- Expert quotes and source materials
 - Identified areas needing deeper exploration
 - Research quality assessment
 
@@ -253,7 +253,7 @@ ask: "What do AI experts say they can't predict about AGI development?"
 checkpoint_save:
   session_path: ".claude/level-2-production/sessions/{session_id}/"
   checkpoint_file: "02_questions_complete.json"
-  
+
   checkpoint_data:
     checkpoint_type: "question_generation"
     session_id: "{session_id}"
@@ -261,7 +261,7 @@ checkpoint_save:
     status: "completed"
     timestamp: "{current_timestamp}"
     cost_invested: 0.50
-    
+
     question_results:
       total_questions: "{count}"
       high_priority: "{count}"
@@ -269,12 +269,12 @@ checkpoint_save:
       low_priority: "{count}"
       question_categories: "{category_breakdown}"
       complete_question_set: "{full_question_list}"
-      
+
     quality_validation:
       brand_alignment: "{score}"
       research_actionability: "{score}"
       content_coverage: "{score}"
-      
+
   procedure:
     1. Compile all questions into structured format
     2. Organize by priority and category

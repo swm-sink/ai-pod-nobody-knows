@@ -20,7 +20,7 @@
 - If checkpoint missing: Execute research, SPEND $7.50
 - **Savings accuracy: VERIFIED** ✓
 
-### ✅ Research Question Generator - $0.50 Protection  
+### ✅ Research Question Generator - $0.50 Protection
 **Cost Breakdown:**
 - Question generation: Low-cost Claude processing
 - 50+ questions with analysis: ~$0.50
@@ -76,7 +76,7 @@
 Agent                    | Fresh Cost | Checkpoint Savings
 ------------------------|------------|------------------
 Deep Research           |    $7.50   |      $7.50
-Question Generation     |    $0.50   |      $0.50  
+Question Generation     |    $0.50   |      $0.50
 Research Synthesis      |   $12.00   |     $12.00 ⭐
 Episode Planning        |    $0.25   |      $0.25
 Script Writing          |    $1.50   |      $1.50
@@ -142,19 +142,19 @@ cost_protection_logic:
   if all_checkpoints_exist:
     action: "Skip entire research pipeline (SAVE $20.00!)"
     validation: $7.50 + $0.50 + $12.00 = $20.00 ✓
-    
+
   elif synthesis_checkpoint_exists:
     action: "Skip to Episode Planner (SAVE $12.00!)"
     validation: Research Synthesis = $12.00 ✓
-    
+
   elif questions_checkpoint_exists:
     action: "Run synthesis only (SAVE $8.00)"
     validation: $7.50 + $0.50 = $8.00 ✓
-    
+
   elif deep_research_checkpoint_exists:
     action: "Run questions + synthesis (SAVE $7.50)"
     validation: Deep Research = $7.50 ✓
-    
+
   else:
     action: "Full pipeline execution (COST: $20.00)"
     validation: $7.50 + $0.50 + $12.00 = $20.00 ✓

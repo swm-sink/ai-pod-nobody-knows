@@ -2,7 +2,7 @@
 # Defines default settings for podcast episode production
 
 episode_defaults:
-  target_length: "4000-4500"  # words
+  target_length: "3500-4500"  # words (25-30 minutes)
   complexity_level: 5  # 1-10 scale
   format: "conversational"
   tone: "curious"
@@ -27,4 +27,4 @@ quality_requirements:
 production_limits:
   max_retries: 3
   timeout_minutes: 15
-  max_cost_per_episode: 5.00
+  max_cost_per_episode: 8.00  # Updated for 25-30 min episodes with Turbo v2.5
