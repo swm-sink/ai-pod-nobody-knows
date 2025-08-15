@@ -1,17 +1,118 @@
-# Claude Code Navigation Index - @ File Hopping Guide
+# Master Navigation Index - Hierarchical Memory & @ File Hopping System 🧠
 
-**Purpose**: Master navigation index for @ file hopping across all documentation
-**Max Levels**: 4
-**Created**: 2025-08-11
-**Navigation Optimized**: true
+<document type="navigation-hub" version="2.0.0" hierarchical-memory="true">
+  <metadata>
+    <purpose>Central navigation hub for hierarchical CLAUDE.md memory system + XML documentation</purpose>
+    <coverage>All project domains, levels, and components</coverage>
+    <inheritance-levels>4</inheritance-levels>
+    <optimization>Token-efficient selective loading + @ file hopping</optimization>
+    <created>2025-08-11</created>
+    <updated>2025-08-15</updated>
+  </metadata>
+</document>
 
-## Navigation Philosophy
+## 🎯 DUAL NAVIGATION SYSTEM
+
+**Technical:** Hybrid navigation combining hierarchical CLAUDE.md memory inheritance with @ file hopping for XML documentation, enabling optimal context loading and seamless knowledge discovery.
+
+**Simple:** Like having both a smart family tree of memories (CLAUDE.md files) and a lightning-fast bookmark system (@ links) working together to get you exactly where you need to be.
+
+**Connection:** This teaches advanced context engineering that combines inheritance patterns with direct access patterns for maximum efficiency.
+
+## 🏗️ HIERARCHICAL MEMORY ARCHITECTURE
+
+### **Tier 1: Global Memory (User Level)**
+```
+~/.claude/CLAUDE.md → Global user preferences across all projects
+```
+
+### **Tier 2: Project Memory (Team Level)**
+```
+/CLAUDE.md → Master system prompt (education requirements, quality standards)
+/.claude/CLAUDE.md → Project-wide context (inheritance from master)
+/CLAUDE.local.md → Personal project notes (gitignored)
+```
+
+### **Tier 3: Domain Memory (Feature Level)**
+```
+/.claude/level-1-dev/CLAUDE.md → Development platform context
+/.claude/level-2-production/CLAUDE.md → Production system context  
+/.claude/level-3-platform-dev/CLAUDE.md → Platform planning context
+/.claude/context/CLAUDE.md → Context system navigation
+```
+
+### **Tier 4: Component Memory (Task Level)**
+```
+/.claude/level-*/agents/CLAUDE.md → Agent development specific
+/.claude/level-*/commands/CLAUDE.md → Command development specific
+/.claude/context/*/CLAUDE.md → Domain-specific context
+/projects/*/CLAUDE.md → Project-specific context
+```
+
+## 📚 @ FILE HOPPING PHILOSOPHY
 
 - @ references provide instant file hopping for seamless navigation
 - Keep hopping chains to 3-4 levels maximum for mental clarity
 - Use @ for internal files, traditional links for external resources
+- Hierarchical CLAUDE.md files complement @ navigation for different use cases
 
-## Quick Navigation Patterns 🚀
+## 🚀 MEMORY LOADING PATTERNS
+
+### **Automatic Inheritance Loading**
+When Claude starts in any directory, it automatically loads:
+1. **Current directory CLAUDE.md** (if exists)
+2. **Parent directory inheritance chain** (up to project root)
+3. **Master system prompt** (/CLAUDE.md)
+4. **Project-wide context** (/.claude/CLAUDE.md)
+
+### **Selective On-Demand Loading**
+These load only when accessing specific paths:
+- **Domain contexts**: Only when working in specific level-* directories
+- **Component contexts**: Only when accessing agents/, commands/, config/, etc.
+- **Project contexts**: Only when working in projects/* directories
+
+### **Smart Context Injection**
+```markdown
+# Example: Working in /.claude/level-2-production/agents/
+Auto-loads:
+1. /.claude/level-2-production/agents/CLAUDE.md (component-specific)
+2. /.claude/level-2-production/CLAUDE.md (domain-specific)
+3. /.claude/CLAUDE.md (project-wide)
+4. /CLAUDE.md (master system prompt)
+
+# Result: Perfect context for agent development with full inheritance
+```
+
+## 🔗 HIERARCHICAL MEMORY NAVIGATION
+
+### **By Memory Type**
+```
+CLAUDE.md Memory Navigation:
+├── Global Memory: ~/.claude/CLAUDE.md (user preferences)
+├── Project Memory: /CLAUDE.md + /.claude/CLAUDE.md (team standards)
+├── Domain Memory: /.claude/level-*/CLAUDE.md (feature-specific)
+└── Component Memory: /.claude/*/CLAUDE.md (task-specific)
+```
+
+### **By Purpose & Context**
+```
+Learning Path Memory:
+@/.claude/context/foundation/CLAUDE.md → Foundation learning context
+@/.claude/context/claude-code/CLAUDE.md → Claude Code mastery context
+@/.claude/context/elevenlabs/CLAUDE.md → Voice synthesis context
+
+Development Memory:
+@/.claude/level-1-dev/CLAUDE.md → Development platform overview
+@/.claude/level-1-dev/agents/CLAUDE.md → Agent building context
+@/.claude/level-1-dev/commands/CLAUDE.md → Command building context
+
+Production Memory:
+@/.claude/level-2-production/CLAUDE.md → Production system overview
+@/.claude/level-2-production/agents/CLAUDE.md → Production agent context
+@/.claude/level-2-production/sessions/CLAUDE.md → Session management context
+```
+
+## 📚 @ FILE HOPPING PATTERNS (XML Documentation)
 
 ### Level 1: Core Entry Points
 

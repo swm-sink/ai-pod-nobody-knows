@@ -43,25 +43,25 @@ get_master_hash() {
 extract_checkpoint_config() {
     local checkpoint_file="$1"
     local temp_config=$(mktemp)
-    
+
     # Extract relevant configuration values from checkpoint
     if [[ -f "$checkpoint_file" ]] && jq -e . "$checkpoint_file" >/dev/null 2>&1; then
         {
             # Episode duration
             jq -r '.script_results.estimated_duration // "MISSING"' "$checkpoint_file" | sed 's/ minutes//'
-            
+
             # Character count (approximate from different checkpoint types)
             jq -r '
                 if .script_results.character_count then .script_results.character_count
-                elif .synthesis_results.character_count then .synthesis_results.character_count  
+                elif .synthesis_results.character_count then .synthesis_results.character_count
                 elif .tts_specifications.character_count_optimized then .tts_specifications.character_count_optimized
                 else "MISSING"
                 end
             ' "$checkpoint_file"
-            
+
             # Cost values
             jq -r '.cost_invested // "MISSING"' "$checkpoint_file"
-            
+
             # Model references
             jq -r '
                 if .synthesis_results.model_used then .synthesis_results.model_used
@@ -69,7 +69,7 @@ extract_checkpoint_config() {
                 else "MISSING"
                 end
             ' "$checkpoint_file"
-            
+
             # Voice references
             jq -r '
                 if .synthesis_results.voice_used then .synthesis_results.voice_used
@@ -77,9 +77,9 @@ extract_checkpoint_config() {
                 else "MISSING"
                 end
             ' "$checkpoint_file"
-            
+
         } > "$temp_config"
-        
+
         echo "$temp_config"
     else
         echo "/dev/null"
@@ -92,26 +92,26 @@ validate_checkpoint_consistency() {
     local session_path="$2"
     local violations=0
     local warnings=0
-    
+
     echo "  Validating: $(basename "$checkpoint_file")"
-    
+
     if [[ ! -f "$checkpoint_file" ]]; then
         return 0
     fi
-    
+
     # Check if checkpoint is valid JSON
     if ! jq -e . "$checkpoint_file" >/dev/null 2>&1; then
         echo "    ⚠️  Invalid JSON format"
         ((warnings++))
         return $warnings
     fi
-    
+
     # Extract and compare values
     local config_file=$(extract_checkpoint_config "$checkpoint_file")
     if [[ "$config_file" == "/dev/null" ]]; then
         return 0
     fi
-    
+
     # Duration validation
     local checkpoint_duration=$(sed -n '1p' "$config_file")
     if [[ "$checkpoint_duration" != "MISSING" ]] && [[ "$checkpoint_duration" =~ ^[0-9]+$ ]]; then
@@ -120,8 +120,8 @@ validate_checkpoint_consistency() {
             ((violations++))
         fi
     fi
-    
-    # Character count validation  
+
+    # Character count validation
     local checkpoint_chars=$(sed -n '2p' "$config_file")
     if [[ "$checkpoint_chars" != "MISSING" ]] && [[ "$checkpoint_chars" =~ ^[0-9]+$ ]]; then
         if [[ $checkpoint_chars -lt $CONFIG_EPISODE_CHARS_MIN ]] || [[ $checkpoint_chars -gt $CONFIG_EPISODE_CHARS_MAX ]]; then
@@ -129,14 +129,14 @@ validate_checkpoint_consistency() {
             ((violations++))
         fi
     fi
-    
+
     # Model validation
     local checkpoint_model=$(sed -n '4p' "$config_file")
     if [[ "$checkpoint_model" != "MISSING" ]] && [[ "$checkpoint_model" != "$CONFIG_ELEVENLABS_MODEL_ID" ]]; then
         echo "    ❌ Model drift: $checkpoint_model (expected: $CONFIG_ELEVENLABS_MODEL_ID)"
         ((violations++))
     fi
-    
+
     # Cost validation (approximate)
     local checkpoint_cost=$(sed -n '3p' "$config_file")
     if [[ "$checkpoint_cost" != "MISSING" ]] && [[ "$checkpoint_cost" =~ ^[0-9]+\.?[0-9]*$ ]]; then
@@ -147,7 +147,7 @@ validate_checkpoint_consistency() {
             ((warnings++))
         fi
     fi
-    
+
     rm -f "$config_file"
     return $((violations + warnings))
 }
@@ -158,17 +158,17 @@ scan_session() {
     local session_id=$(basename "$session_path")
     local violations=0
     local warnings=0
-    
+
     if [[ ! -d "$session_path" ]]; then
         return 0
     fi
-    
+
     echo "📁 Session: $session_id"
-    
+
     # Check for session configuration hash file
     local session_hash_file="$session_path/config_hash.txt"
     local master_hash=$(get_master_hash)
-    
+
     if [[ -f "$session_hash_file" ]]; then
         local session_hash=$(cat "$session_hash_file")
         if [[ "$session_hash" != "$master_hash" ]]; then
@@ -182,28 +182,28 @@ scan_session() {
         echo "$master_hash" > "$session_hash_file"
         echo "  ℹ️  Created configuration hash reference"
     fi
-    
+
     # Scan checkpoint files
     local checkpoint_files=$(find "$session_path" -name "*_complete.json" 2>/dev/null | sort)
-    
+
     if [[ -z "$checkpoint_files" ]]; then
         echo "  ℹ️  No checkpoint files found"
         return 0
     fi
-    
+
     while IFS= read -r checkpoint_file; do
         [[ -z "$checkpoint_file" ]] && continue
         validate_checkpoint_consistency "$checkpoint_file" "$session_path"
         local result=$?
         ((violations += result))
     done <<< "$checkpoint_files"
-    
+
     if [[ $violations -eq 0 ]]; then
         echo "  ✅ Configuration consistent"
-    else  
+    else
         echo "  ❌ $violations configuration issues found"
     fi
-    
+
     echo ""
     return $violations
 }
@@ -215,44 +215,44 @@ scan_all_sessions() {
     echo "Sessions Directory: $SESSIONS_DIR"
     echo "Scan Time: $(date)"
     echo ""
-    
+
     if [[ ! -d "$SESSIONS_DIR" ]]; then
         echo -e "${YELLOW}No sessions directory found: $SESSIONS_DIR${NC}"
         return 0
     fi
-    
+
     local total_violations=0
     local total_warnings=0
     local sessions_scanned=0
-    
+
     # Scan each session directory
     local sessions=$(find "$SESSIONS_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
-    
+
     if [[ -z "$sessions" ]]; then
         echo -e "${YELLOW}No session directories found${NC}"
         return 0
     fi
-    
+
     while IFS= read -r session_path; do
         [[ -z "$session_path" ]] && continue
         ((sessions_scanned++))
-        
+
         scan_session "$session_path"
         local session_result=$?
         ((total_violations += session_result))
-        
+
     done <<< "$sessions"
-    
+
     # Log results
     local log_entry="$(date -Iseconds) | Scanned: $sessions_scanned | Violations: $total_violations | Hash: $(get_master_hash | cut -c1-8)"
     echo "$log_entry" >> "$DRIFT_LOG"
-    
+
     echo "=== DRIFT DETECTION SUMMARY ==="
     echo "Sessions scanned: $sessions_scanned"
     echo "Total violations: $total_violations"
     echo "Master config hash: $(get_master_hash | cut -c1-8)..."
     echo ""
-    
+
     if [[ $total_violations -gt 0 ]]; then
         echo -e "${RED}❌ CONFIGURATION DRIFT DETECTED${NC}"
         echo ""
@@ -273,22 +273,22 @@ scan_all_sessions() {
 quick_session_check() {
     local session_id="$1"
     local session_path="$SESSIONS_DIR/$session_id"
-    
+
     if [[ -z "$session_id" ]]; then
         echo -e "${RED}ERROR: Session ID required${NC}"
         echo "Usage: $0 check <session_id>"
         return 1
     fi
-    
+
     if [[ ! -d "$session_path" ]]; then
         echo -e "${RED}ERROR: Session not found: $session_path${NC}"
         return 1
     fi
-    
+
     echo -e "${BLUE}🔍 Quick Configuration Check${NC}"
     echo "Session: $session_id"
     echo ""
-    
+
     scan_session "$session_path"
 }
 
@@ -298,7 +298,7 @@ show_drift_log() {
         echo -e "${YELLOW}No drift detection log found${NC}"
         return 0
     fi
-    
+
     echo -e "${BLUE}📊 Configuration Drift History${NC}"
     echo ""
     tail -20 "$DRIFT_LOG" | while IFS= read -r line; do
@@ -314,9 +314,9 @@ show_drift_log() {
 generate_health_report() {
     local report_file="$BASE_DIR/analysis/session_health_report.txt"
     mkdir -p "$(dirname "$report_file")"
-    
+
     echo -e "${BLUE}📊 Generating Session Health Report${NC}"
-    
+
     {
         echo "Session Health Report - $(date)"
         echo "========================================"
@@ -328,20 +328,20 @@ generate_health_report() {
         echo ""
         echo "Session Analysis:"
         echo ""
-        
+
         # Scan and report on each session
         local sessions=$(find "$SESSIONS_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
         local healthy=0
         local problematic=0
-        
+
         while IFS= read -r session_path; do
             [[ -z "$session_path" ]] && continue
-            
+
             local session_id=$(basename "$session_path")
             local checkpoint_count=$(find "$session_path" -name "*_complete.json" | wc -l)
             local session_hash_file="$session_path/config_hash.txt"
             local config_status="MISSING"
-            
+
             if [[ -f "$session_hash_file" ]]; then
                 local session_hash=$(cat "$session_hash_file")
                 local master_hash=$(get_master_hash)
@@ -355,14 +355,14 @@ generate_health_report() {
             else
                 ((problematic++))
             fi
-            
+
             echo "Session: $session_id"
             echo "  Checkpoints: $checkpoint_count"
             echo "  Config Status: $config_status"
             echo ""
-            
+
         done <<< "$sessions"
-        
+
         echo "========================================"
         echo "Health Summary:"
         echo "  Healthy sessions: $healthy"
@@ -370,9 +370,9 @@ generate_health_report() {
         echo "  Total sessions: $((healthy + problematic))"
         echo ""
         echo "Report generated: $(date)"
-        
+
     } | tee "$report_file"
-    
+
     echo ""
     echo "Health report saved to: $report_file"
 }
@@ -380,7 +380,7 @@ generate_health_report() {
 # Main execution
 main() {
     local command="${1:-scan}"
-    
+
     case "$command" in
         "scan"|"--scan")
             scan_all_sessions

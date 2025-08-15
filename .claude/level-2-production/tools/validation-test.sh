@@ -16,7 +16,7 @@ else
 fi
 echo ""
 
-# Test environment.yaml  
+# Test environment.yaml
 echo "Testing config/environment.yaml:"
 if grep -q "duration_minutes.*[0-9]\+\|target_word_count.*[0-9]\+" config/environment.yaml 2>/dev/null; then
     echo "❌ VIOLATION: Found hardcoded values in environment.yaml"

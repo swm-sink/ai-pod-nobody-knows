@@ -6,64 +6,83 @@
 
 **Connection:** This teaches efficient information architecture and resource management in large systems.
 
-## 🚀 QUICK ACCESS PATTERNS
+## 🚀 COMPLETE CONTEXT PACKAGES (LLM-OPTIMIZED)
 
-### Foundation & Learning
+### 🎯 PRIMARY CONTEXT PACKAGES - Complete & Self-Contained
+- `@production-complete` - Everything needed for episode production
+- `@learning-essentials` - Complete beginner onboarding and education
+- `@troubleshooting-kit` - Complete diagnostic and resolution toolkit
+
+### 📚 LEGACY INDIVIDUAL CONTEXTS (Use packages above instead)
+
+#### Foundation & Learning
 - `@foundation/01_project_overview.xml` - Start here for new users
-- `@foundation/02_walk_crawl_run_phases.xml` - Learning progression  
+- `@foundation/02_walk_crawl_run_phases.xml` - Learning progression
 - `@foundation/04_no_api_keys_activities.xml` - FREE learning activities
 - `@foundation/00_project_constants.xml` - Core project constants
 
-### Operations & Commands  
+#### Operations & Commands
 - `@operations/01_troubleshooting_guide.xml` - Fix problems
 - `@operations/02_quick_reference.xml` - Essential commands
 - `@operations/03_production_checklist.xml` - Production workflows
 - `@operations/00_operations_constants.xml` - Operations constants
 
-### Quality & Standards
+#### Quality & Standards
 - `@quality/enforcement_standards.xml` - Mandatory standards
 - `@quality/03_tdd_requirements_specification.xml` - Testing approach
 - `@quality/04_validation_workflow.xml` - Validation procedures
 - `@quality/dry-principle-enforcement.xml` - DRY requirements
 - `@quality/00_quality_constants.xml` - Quality constants
 
-### Agent & Tool Systems
+#### Agent & Tool Systems
 - `@agents/multi-agent-orchestration.xml` - Multi-agent framework
 - `@tools/elevenlabs-v3-optimization-guide.xml` - TTS optimization
 - `@tools/gemini-cli-quality-judge-guide.xml` - Quality evaluation
 
-### Level-Specific Contexts
+#### Level-Specific Contexts
 - `@level1/CONTEXT.md` - Development Platform (Level 1)
-- `@level2/CONTEXT.md` - Production System (Level 2)  
+- `@level2/CONTEXT.md` - Production System (Level 2)
 - `@level2/agents/CONTEXT.md` - Production agents
 - `@level2/sessions/CONTEXT.md` - Session management
 
-### External Integrations
+#### External Integrations
 - `@elevenlabs/15_elevenlabs_overview.xml` - ElevenLabs integration
 - `@elevenlabs/20_elevenlabs_cost_optimization.xml` - Cost strategies
 - `@claude-code/22_subagents_guide.xml` - Subagent usage
 
-## 🎯 COMMON WORKFLOWS
+## 🎯 LLM-OPTIMIZED WORKFLOWS
 
-### New User Setup
+### New User Onboarding (Complete in ONE load)
+**Command**: `@learning-essentials`
+**Contains**: Project overview, learning phases, essential commands, architecture, quality requirements, next steps
+**Result**: Complete understanding and clear next actions
+
+### Episode Production (Complete in ONE load)
+**Command**: `@production-complete`
+**Contains**: All constants, agent specs, workflow, troubleshooting, templates
+**Result**: Can produce episode end-to-end without additional context
+
+### Problem Solving (Complete in ONE load)
+**Command**: `@troubleshooting-kit`
+**Contains**: Diagnostics, resolutions, error patterns, prevention, escalation
+**Result**: Can diagnose and resolve any system issue
+
+### 📚 LEGACY MULTI-STEP WORKFLOWS (Less Efficient)
+
+#### Traditional New User Setup
 1. `@foundation/01_project_overview.xml` - Understand the project
 2. `@foundation/02_walk_crawl_run_phases.xml` - See learning path
 3. `@foundation/04_no_api_keys_activities.xml` - Start FREE activities
 
-### Troubleshooting Issues
+#### Traditional Troubleshooting
 1. `@operations/01_troubleshooting_guide.xml` - Systematic diagnosis
 2. `@quality/04_validation_workflow.xml` - Validation procedures
 3. `@operations/02_quick_reference.xml` - Quick fixes
 
-### Production Episode Creation
+#### Traditional Production
 1. `@level2/CONTEXT.md` - Production system overview
 2. `@operations/03_production_checklist.xml` - Production workflow
 3. `@elevenlabs/20_elevenlabs_cost_optimization.xml` - Cost control
-
-### Quality Assurance
-1. `@quality/enforcement_standards.xml` - Standards overview
-2. `@quality/03_tdd_requirements_specification.xml` - Testing requirements  
-3. `@quality/04_validation_workflow.xml` - Validation steps
 
 ## 📁 DIRECTORY STRUCTURE
 
@@ -92,7 +111,7 @@
 
 ### Find Specific Information
 - Constants: Look in `00_*_constants.xml` files
-- Procedures: Check `@operations/` directory  
+- Procedures: Check `@operations/` directory
 - Standards: Reference `@quality/` directory
 - Technical guides: Browse `@tools/` and specific integration directories
 

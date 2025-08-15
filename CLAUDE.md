@@ -97,30 +97,185 @@
 
   <context-loading>
     `@foundation/` - Project overview and learning phases
-    `@operations/` - Troubleshooting and procedures  
+    `@operations/` - Troubleshooting and procedures
     `@quality/` - Standards and validation
     `@level1/` - Development platform context
     `@level2/` - Production system context
   </context-loading>
 </essential-commands>
 
-## ⚠️ CRITICAL REQUIREMENTS
+## ⚠️ BRUTAL ENFORCEMENT PROTOCOLS - ZERO TOLERANCE
 
-<critical-requirements>
-  <anti-hallucination>
-    - VERIFY before claiming: Use tools to confirm every statement
-    - RESEARCH before documenting: Use Grep, Read, LS for validation
-    - TEST before implementing: Run validation commands
-    - NO assumptions: State "UNVERIFIED" when uncertain
-  </anti-hallucination>
+<anti-hallucination-protocol type="MANDATORY" enforcement="HARSH">
+  <critical-mandate>
+    EVERY TECHNICAL CLAIM MUST BE TOOL-VERIFIED OR EXPLICITLY MARKED UNVERIFIED
+    FAILURE TO VERIFY INVALIDATES ALL WORK AND REQUIRES IMMEDIATE STOP
+    NO EXCEPTIONS - NO BYPASS - NO ESTIMATES WITHOUT EXPLICIT UNCERTAINTY
+  </critical-mandate>
 
-  <quality-enforcement>
-    - DRY principle: No repetition across files
-    - Atomic commits: Use git, not backup files
-    - File format policy: XML for documentation, MD only for exempted files
-    - Validation requirements: Every operation must include validation steps
-  </quality-enforcement>
-</critical-requirements>
+  <verification-requirements>
+    <file-operations>
+      <rule>BEFORE claiming file exists: ls -la [path] || echo "UNVERIFIED: File existence unknown"</rule>
+      <rule>BEFORE claiming file content: cat [path] | head -5 || echo "UNVERIFIED: Content unknown"</rule>
+      <rule>BEFORE claiming directory structure: find [path] -type d | head -10 || echo "UNVERIFIED: Structure unknown"</rule>
+    </file-operations>
+
+    <system-state>
+      <rule>BEFORE claiming process status: ps aux | grep [process] || echo "UNVERIFIED: Process status unknown"</rule>
+      <rule>BEFORE claiming service status: systemctl status [service] || echo "UNVERIFIED: Service status unknown"</rule>
+      <rule>BEFORE claiming network status: ping -c 1 [host] || echo "UNVERIFIED: Network status unknown"</rule>
+    </system-state>
+
+    <configuration-claims>
+      <rule>BEFORE claiming setting value: grep [setting] [config] || echo "UNVERIFIED: Setting value unknown"</rule>
+      <rule>BEFORE claiming version: [command] --version || echo "UNVERIFIED: Version unknown"</rule>
+      <rule>BEFORE claiming installation: which [command] || echo "UNVERIFIED: Installation status unknown"</rule>
+    </configuration-claims>
+  </verification-requirements>
+
+  <escape-hatch-prevention>
+    <forbidden-unsupported-claims>
+      <phrase>"This should work"</phrase>
+      <phrase>"This is probably"</phrase>
+      <phrase>"This typically"</phrase>
+      <phrase>"I believe"</phrase>
+      <phrase>"Most likely"</phrase>
+      <phrase>"It appears that"</phrase>
+      <phrase>"This seems to"</phrase>
+    </forbidden-unsupported-claims>
+
+    <required-uncertainty-acknowledgment>
+      <when-tools-fail>EXPLICITLY state "UNVERIFIED: Cannot confirm with available tools"</when-tools-fail>
+      <when-assumptions-needed>EXPLICITLY state "ASSUMPTION: Based on [specific reasoning]"</when-assumptions-needed>
+      <when-partial-info>EXPLICITLY state "PARTIAL: Only [specific aspect] verified"</when-partial-info>
+    </required-uncertainty-acknowledgment>
+  </escape-hatch-prevention>
+
+  <stop-work-triggers>
+    <trigger>Verification command fails and no alternative verification available</trigger>
+    <trigger>User requests information that cannot be tool-verified</trigger>
+    <trigger>System operation requires assumption about unverified state</trigger>
+    <action>IMMEDIATELY stop, explain what cannot be verified, request guidance</action>
+  </stop-work-triggers>
+</anti-hallucination-protocol>
+
+<chain-of-thought-mandate type="MANDATORY" enforcement="BRUTAL">
+  <thinking-escalation-matrix>
+    <safety-critical-operations>
+      <trigger>CLAUDE.md modifications, system-wide changes, critical file operations</trigger>
+      <requirement>ultrathink + visible step-by-step reasoning + impact analysis</requirement>
+      <format>MUST show: Problem analysis → Options considered → Risk assessment → Decision rationale</format>
+    </safety-critical-operations>
+
+    <system-modification-operations>
+      <trigger>Configuration changes, file creation/deletion, process changes</trigger>
+      <requirement>think hard + explicit reasoning chain + validation steps</requirement>
+      <format>MUST show: Current state → Proposed change → Validation plan → Success criteria</format>
+    </system-modification-operations>
+
+    <file-operations>
+      <trigger>Reading, writing, moving, copying files</trigger>
+      <requirement>think + verification steps + error handling</requirement>
+      <format>MUST show: Operation plan → Verification command → Error handling → Validation</format>
+    </file-operations>
+
+    <routine-operations>
+      <trigger>Simple commands, basic responses, clarifications</trigger>
+      <requirement>Basic reasoning acceptable but explicit when requested</requirement>
+      <format>Show reasoning when complexity unclear or user requests detail</format>
+    </routine-operations>
+  </thinking-escalation-matrix>
+
+  <reasoning-transparency-requirements>
+    <mandatory-visibility>All CLAUDE.md changes, context modifications, system changes</mandatory-visibility>
+    <step-by-step-format>
+      Step 1: [Current situation analysis]
+      Step 2: [Problem/requirement identification]
+      Step 3: [Options evaluation with pros/cons]
+      Step 4: [Risk assessment and mitigation]
+      Step 5: [Decision and implementation plan]
+      Step 6: [Validation and success criteria]
+    </step-by-step-format>
+    <reasoning-validation>Each step must include specific justification and evidence</reasoning-validation>
+  </reasoning-transparency-requirements>
+</chain-of-thought-mandate>
+
+<change-control-protocol type="MANDATORY" enforcement="ZERO-TOLERANCE">
+  <critical-change-definition>
+    <scope>ANY modification to CLAUDE.md, context files, system configuration, quality standards</scope>
+    <includes>Content changes, structural changes, policy changes, enforcement changes</includes>
+    <excludes>Simple typo fixes (single character/word), whitespace-only changes</excludes>
+  </critical-change-definition>
+
+  <pre-change-mandatory-analysis>
+    <step-1-impact-assessment>
+      <requirement>ANALYZE: What systems/processes will this change affect?</requirement>
+      <requirement>IDENTIFY: What could break or behave differently?</requirement>
+      <requirement>QUANTIFY: Scale of impact (minimal/moderate/significant/critical)</requirement>
+    </step-1-impact-assessment>
+
+    <step-2-alternative-evaluation>
+      <requirement>GENERATE: Minimum 2 alternative approaches</requirement>
+      <requirement>COMPARE: Pros/cons of each alternative</requirement>
+      <requirement>JUSTIFY: Why chosen approach is superior</requirement>
+    </step-2-alternative-evaluation>
+
+    <step-3-risk-assessment>
+      <requirement>IDENTIFY: Potential failure modes</requirement>
+      <requirement>ASSESS: Probability and impact of each risk</requirement>
+      <requirement>PLAN: Mitigation strategies for each identified risk</requirement>
+    </step-3-risk-assessment>
+
+    <step-4-rollback-documentation>
+      <requirement>DOCUMENT: Exact steps to undo the change</requirement>
+      <requirement>VALIDATE: Rollback procedure is tested and functional</requirement>
+      <requirement>SPECIFY: Success criteria for rollback completion</requirement>
+    </step-4-rollback-documentation>
+  </pre-change-mandatory-analysis>
+
+  <approval-checkpoint-protocol>
+    <checkpoint-1-proposal>
+      <action>Present complete impact analysis, alternatives, risks, and rollback plan</action>
+      <requirement>Wait for explicit user approval: "Approved for implementation"</requirement>
+      <no-proceed>CANNOT proceed without explicit approval text</no-proceed>
+    </checkpoint-1-proposal>
+
+    <checkpoint-2-implementation>
+      <action>Execute change with step-by-step reasoning and real-time validation</action>
+      <requirement>Document each step taken and validation performed</requirement>
+      <stop-on-failure>IMMEDIATELY stop if any validation fails, execute rollback</stop-on-failure>
+    </checkpoint-2-implementation>
+
+    <checkpoint-3-confirmation>
+      <action>Present implementation summary and validation results</action>
+      <requirement>Request user confirmation: "Change completed successfully?"</requirement>
+      <rollback-if-no>Execute rollback if user indicates dissatisfaction</rollback-if-no>
+    </checkpoint-3-confirmation>
+  </approval-checkpoint-protocol>
+
+  <change-execution-requirements>
+    <documentation>Every change must be logged with timestamp, rationale, and validation</documentation>
+    <validation>Every change must include specific success criteria and testing</validation>
+    <rollback>Every change must have validated rollback procedure before implementation</rollback>
+    <audit-trail>Every change must be traceable and reversible</audit-trail>
+  </change-execution-requirements>
+</change-control-protocol>
+
+<semantic-tagging-policy type="MANDATORY" enforcement="STRICT">
+  <format-standards>
+    <rule>XML semantic tags ONLY in .xml files - NO exceptions</rule>
+    <rule>Pure markdown ONLY in .md files - NO HTML/XML tags</rule>
+    <rule>Mixed format files MUST be converted to appropriate format</rule>
+    <rule>Navigation and user-facing files should be pure markdown</rule>
+    <rule>System and configuration files should be pure XML</rule>
+  </format-standards>
+
+  <immediate-violations>
+    <violation>47+ .md files currently contain XML/HTML tags</violation>
+    <action>MUST be cleaned up before system is considered stable</action>
+    <priority>HIGH - affects system parsing and maintenance</priority>
+  </immediate-violations>
+</semantic-tagging-policy>
 
 ## 📚 CONTEXT LOADING GUIDE
 
@@ -130,7 +285,7 @@
   **Connection:** This teaches efficient AI system management and resource optimization.
 
   <available-contexts>
-    - `@foundation/` - Project overview, phases, constants  
+    - `@foundation/` - Project overview, phases, constants
     - `@operations/` - Commands, troubleshooting, procedures
     - `@quality/` - Standards, validation, anti-patterns
     - `@agents/` - Multi-agent orchestration
@@ -141,7 +296,7 @@
 
   <usage-pattern>
     1. Start with minimal context (this file)
-    2. Load specific context with @ when needed  
+    2. Load specific context with @ when needed
     3. Use /clear frequently to manage token usage
     4. Reference detailed contexts for complex operations
   </usage-pattern>
@@ -164,7 +319,7 @@
 
   <levels>
     - **Level 1**: Development Platform (.claude/level-1-dev/) - Build tools that build the system
-    - **Level 2**: Production System (.claude/level-2-production/) - Active podcast production  
+    - **Level 2**: Production System (.claude/level-2-production/) - Active podcast production
     - **Level 3**: Platform Planning (.claude/level-3-platform-dev/) - Future platform design
     - **Level 4**: Coded Platform - Future implementation (LOCKED - requires approval)
   </levels>
@@ -184,7 +339,7 @@
 <pro-tips>
   - **Start FREE**: Complete all no-API activities first
   - **Use /clear frequently**: Prevent context bloat
-  - **Use @ references**: Load only needed context  
+  - **Use @ references**: Load only needed context
   - **Track everything**: Document learnings in CLAUDE.local.md
   - **Verify always**: No assumptions, test everything
 </pro-tips>
