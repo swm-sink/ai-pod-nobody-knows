@@ -201,8 +201,10 @@ quality:
       gemini: 0.45            # Secondary evaluator weight
 
     consensus:
-      max_difference: 0.15    # Escalate if scores differ more
+      max_difference: 0.15    # Escalate if scores differ more (maps to agreement_threshold)
       agreement_threshold: 0.10  # Good agreement threshold
+      minor_revision_gap: 0.05   # Score difference triggering minor revision
+      major_revision_gap: 0.10   # Score difference triggering major revision
 
     revision_triggers:
       minor_revision: 0.05    # Score gap triggering minor revision

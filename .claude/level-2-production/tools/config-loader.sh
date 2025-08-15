@@ -212,7 +212,24 @@ load_master_config() {
     echo "export CONFIG_QUALITY_BRAND_MIN=$(yq_eval '.quality.thresholds.brand_consistency.minimum' "$MASTER_CONFIG")" >> "$temp_env"
     echo "export CONFIG_QUALITY_BRAND_TARGET=$(yq_eval '.quality.thresholds.brand_consistency.target' "$MASTER_CONFIG")" >> "$temp_env"
     echo "export CONFIG_QUALITY_ENGAGEMENT_MIN=$(yq_eval '.quality.thresholds.engagement.minimum' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_ENGAGEMENT_TARGET=$(yq_eval '.quality.thresholds.engagement.target' "$MASTER_CONFIG")" >> "$temp_env"
     echo "export CONFIG_QUALITY_TECHNICAL_MIN=$(yq_eval '.quality.thresholds.technical_accuracy.minimum' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_TECHNICAL_TARGET=$(yq_eval '.quality.thresholds.technical_accuracy.target' "$MASTER_CONFIG")" >> "$temp_env"
+    
+    # Quality evaluation settings
+    echo "export CONFIG_QUALITY_CLAUDE_WEIGHT=$(yq_eval '.quality.evaluation.models.claude' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_GEMINI_WEIGHT=$(yq_eval '.quality.evaluation.models.gemini' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_AGREEMENT_THRESHOLD=$(yq_eval '.quality.evaluation.consensus.max_difference' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_MINOR_REVISION_GAP=$(yq_eval '.quality.evaluation.consensus.minor_revision_gap' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_QUALITY_MAJOR_REVISION_GAP=$(yq_eval '.quality.evaluation.consensus.major_revision_gap' "$MASTER_CONFIG")" >> "$temp_env"
+    
+    # Brand voice settings
+    echo "export CONFIG_BRAND_HUMILITY_MIN=$(yq_eval '.quality.brand_voice.intellectual_humility.minimum_instances' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_BRAND_HUMILITY_TARGET=$(yq_eval '.quality.brand_voice.intellectual_humility.target_instances' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_BRAND_QUESTIONS_MIN=$(yq_eval '.quality.brand_voice.question_density.minimum_per_1000' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_BRAND_QUESTIONS_TARGET=$(yq_eval '.quality.brand_voice.question_density.per_1000_words' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_BRAND_ANALOGIES_MIN=$(yq_eval '.quality.brand_voice.feynman_analogies.minimum_per_episode' "$MASTER_CONFIG")" >> "$temp_env"
+    echo "export CONFIG_BRAND_ANALOGIES_TARGET=$(yq_eval '.quality.brand_voice.feynman_analogies.target_per_episode' "$MASTER_CONFIG")" >> "$temp_env"
 
     # Paths
     echo "export CONFIG_SESSIONS_DIR=\"$(yq_eval '.paths.directories.sessions' "$MASTER_CONFIG")\"" >> "$temp_env"
