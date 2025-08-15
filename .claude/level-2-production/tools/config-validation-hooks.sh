@@ -29,27 +29,27 @@ FORBIDDEN_PATTERNS=(
     "35k.character"
     "4[0-9][0-9][0-9].word"
     "[0-9]+.minute.*episode"
-    
-    # Cost patterns  
+
+    # Cost patterns
     "\\\$[0-9]+\.[0-9][0-9]"
     "cost.*\\\$[1-9][0-9]*"
     "[0-9]+\.[0-9][0-9].*USD"
-    
+
     # TTS model patterns
     "eleven_flash_v2_5"
     "eleven_turbo_v2_5"  # Should use CONFIG reference
     "ZF6FPAbjXT4488VcRRnw"  # Voice ID should use CONFIG
-    
+
     # Quality threshold patterns
     "0\.[89][0-9]"  # Quality scores like 0.85, 0.90 should use CONFIG
-    
+
     # Character count patterns
     "[1-9][0-9],[0-9]{3}.*character"
     "[0-9]{5}.*character"
-    
+
     # File size patterns
     "[0-9]+.*MB.*episode"
-    
+
     # API endpoint patterns
     "api\.elevenlabs\.io"
     "api\.perplexity\.ai"
@@ -76,14 +76,14 @@ is_exception_file() {
     local file="$1"
     local base_file=$(basename "$file")
     local rel_path=${file#$PROJECT_ROOT/}
-    
+
     for exception in "${EXCEPTION_FILES[@]}"; do
         # Handle wildcard patterns
         if [[ "$exception" == *"*"* ]]; then
             if [[ "$base_file" == $exception ]]; then
                 return 0
             fi
-        # Handle directory patterns  
+        # Handle directory patterns
         elif [[ "$exception" == *"/**" ]]; then
             local dir_pattern=${exception%/**}
             if [[ "$rel_path" == "$dir_pattern"* ]]; then
@@ -94,7 +94,7 @@ is_exception_file() {
             return 0
         fi
     done
-    
+
     return 1
 }
 
@@ -103,17 +103,17 @@ validate_file() {
     local file="$1"
     local violations=0
     local temp_report=$(mktemp)
-    
+
     # Skip if file is in exception list
     if is_exception_file "$file"; then
         return 0
     fi
-    
+
     # Skip binary files
     if file "$file" | grep -q binary; then
         return 0
     fi
-    
+
     # Check for forbidden patterns
     for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
         local matches=$(grep -n -E "$pattern" "$file" 2>/dev/null || true)
@@ -126,13 +126,13 @@ validate_file() {
             ((violations++))
         fi
     done
-    
+
     if [[ $violations -gt 0 ]]; then
         cat "$temp_report"
         rm -f "$temp_report"
         return 1
     fi
-    
+
     rm -f "$temp_report"
     return 0
 }
@@ -141,10 +141,10 @@ validate_file() {
 pre_commit_validation() {
     echo -e "${BLUE}🔍 Configuration Validation - Pre-commit Hook${NC}"
     echo "Checking staged files for hardcoded configuration values..."
-    
+
     local violations=0
     local files_checked=0
-    
+
     # Get list of staged files
     local staged_files
     if command -v git &>/dev/null && git rev-parse --git-dir &>/dev/null; then
@@ -158,29 +158,29 @@ pre_commit_validation() {
         # Not in git repo, check recent files in level-2-production
         staged_files=$(find "$BASE_DIR" -type f -name "*.md" -o -name "*.yaml" -o -name "*.json" -o -name "*.sh" | head -20)
     fi
-    
+
     echo "Files to validate:"
-    
+
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
-        
+
         # Skip if file doesn't exist (deleted files)
         [[ ! -f "$file" ]] && continue
-        
+
         echo "  $file"
         ((files_checked++))
-        
+
         if ! validate_file "$file"; then
             ((violations++))
         fi
-        
+
     done <<< "$staged_files"
-    
+
     echo ""
     echo "Validation Summary:"
     echo "  Files checked: $files_checked"
     echo "  Violations found: $violations"
-    
+
     if [[ $violations -gt 0 ]]; then
         echo ""
         echo -e "${RED}❌ COMMIT BLOCKED - Configuration violations detected${NC}"
@@ -192,7 +192,7 @@ pre_commit_validation() {
         echo ""
         echo -e "${YELLOW}Example fixes:${NC}"
         echo '  ❌ "47 minutes"              → ✅ "${CONFIG_EPISODE_DURATION_TARGET} minutes"'
-        echo '  ❌ $10.50                   → ✅ $CONFIG_ELEVENLABS_ESTIMATED_COST'  
+        echo '  ❌ $10.50                   → ✅ $CONFIG_ELEVENLABS_ESTIMATED_COST'
         echo '  ❌ eleven_turbo_v2_5        → ✅ $CONFIG_ELEVENLABS_MODEL_ID'
         echo '  ❌ 0.85                     → ✅ $CONFIG_QUALITY_COMPREHENSION_MIN'
         return 1
@@ -206,41 +206,41 @@ pre_commit_validation() {
 full_system_audit() {
     echo -e "${BLUE}🔍 Full System Configuration Audit${NC}"
     echo "Scanning entire production system for hardcoded values..."
-    
+
     local violations=0
     local files_checked=0
     local violation_files=()
-    
-    # Find all relevant files in production system  
+
+    # Find all relevant files in production system
     local all_files=$(find "$BASE_DIR" -type f \( \
         -name "*.md" -o \
         -name "*.yaml" -o -name "*.yml" -o \
         -name "*.json" -o \
         -name "*.sh" -o \
         -name "*.bash" \
-        \) 2>/dev/null | grep -v "/\." | grep -v "/.git/" | sort)
-    
+        \) 2>/dev/null | grep -v "/\.[^/]*$" | grep -v "/.git/" | sort)
+
     echo "Scanning production files..."
     echo "DEBUG: Found $(echo "$all_files" | wc -l) files:" >&2
     echo "$all_files" | head -5 >&2
-    
+
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
         ((files_checked++))
-        
+
         if ! validate_file "$file"; then
             ((violations++))
             violation_files+=("$file")
         fi
-        
+
     done <<< "$all_files"
-    
+
     echo ""
     echo "=== SYSTEM AUDIT RESULTS ==="
     echo "Files scanned: $files_checked"
     echo "Violations found: $violations"
     echo "Violation files: ${#violation_files[@]}"
-    
+
     if [[ $violations -gt 0 ]]; then
         echo ""
         echo -e "${RED}❌ SYSTEM AUDIT FAILED - Configuration violations exist${NC}"
@@ -265,10 +265,10 @@ full_system_audit() {
 # Generate migration report for hardcoded values
 generate_migration_report() {
     echo -e "${BLUE}📊 Configuration Migration Report${NC}"
-    
+
     local report_file="$BASE_DIR/analysis/config_migration_report.txt"
     mkdir -p "$(dirname "$report_file")"
-    
+
     {
         echo "Configuration Migration Report - $(date)"
         echo "=============================================="
@@ -276,25 +276,25 @@ generate_migration_report() {
         echo "This report identifies all hardcoded configuration values"
         echo "that should be migrated to use CONFIG references."
         echo ""
-        
+
         local total_violations=0
-        
+
         # Scan and report violations by pattern
         for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
             echo "Pattern: $pattern"
             echo "----------------------------------------"
-            
+
             local pattern_violations=0
             local files=$(find "$BASE_DIR" -type f \( -name "*.md" -o -name "*.yaml" -o -name "*.json" -o -name "*.sh" \) | grep -v "/\.")
-            
+
             while IFS= read -r file; do
                 [[ -z "$file" ]] && continue
-                
+
                 # Skip exception files
                 if is_exception_file "$file"; then
                     continue
                 fi
-                
+
                 local matches=$(grep -n -E "$pattern" "$file" 2>/dev/null || true)
                 if [[ -n "$matches" ]]; then
                     echo "File: $file"
@@ -302,25 +302,25 @@ generate_migration_report() {
                     echo ""
                     ((pattern_violations++))
                 fi
-                
+
             done <<< "$files"
-            
+
             if [[ $pattern_violations -eq 0 ]]; then
                 echo "  ✅ No violations found"
             else
                 echo "  ❌ $pattern_violations files with violations"
             fi
-            
+
             echo ""
             ((total_violations += pattern_violations))
         done
-        
+
         echo "=============================================="
         echo "Total violation instances: $total_violations"
         echo "Report generated: $(date)"
-        
+
     } | tee "$report_file"
-    
+
     echo ""
     echo "Migration report saved to: $report_file"
 }
@@ -329,12 +329,12 @@ generate_migration_report() {
 install_pre_commit_hook() {
     local git_hooks_dir="$PROJECT_ROOT/.git/hooks"
     local pre_commit_hook="$git_hooks_dir/pre-commit"
-    
+
     if [[ ! -d "$git_hooks_dir" ]]; then
         echo -e "${YELLOW}Warning: Not in a git repository or .git/hooks directory not found${NC}"
         return 1
     fi
-    
+
     # Create pre-commit hook that calls this script
     cat > "$pre_commit_hook" << 'EOF'
 #!/usr/bin/env bash
@@ -349,9 +349,9 @@ else
     exit 1
 fi
 EOF
-    
+
     chmod +x "$pre_commit_hook"
-    
+
     echo -e "${GREEN}✅ Pre-commit hook installed${NC}"
     echo "Location: $pre_commit_hook"
     echo "All future commits will be validated for configuration compliance"
@@ -360,7 +360,7 @@ EOF
 # Main execution
 main() {
     local command="${1:-help}"
-    
+
     case "$command" in
         "pre-commit")
             pre_commit_validation
