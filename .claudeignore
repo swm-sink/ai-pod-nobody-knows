@@ -10,3 +10,29 @@ dist/
 build/
 .venv/
 venv/
+
+# Claude Code Context Loading Control
+# Prevent auto-loading of large context directories
+# Files can still be accessed via @ references
+
+# Prevent auto-loading of context files
+.claude/context/
+.claude/level-*/
+.claude/sessions/
+projects/*/output/
+logs/
+temp/
+
+# Prevent auto-loading of backup files
+*.backup
+*.bak
+*_backup*
+*_bak*
+
+# Prevent auto-loading of session files
+**/sessions/
+**/output/
+
+# Allow specific essential files to auto-load
+!.claude/NAVIGATION.md
+!.claude/quick-reference.md
