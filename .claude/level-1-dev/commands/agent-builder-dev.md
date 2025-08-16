@@ -50,7 +50,7 @@ You are the Agent Builder. Your role is to create well-structured, effective age
 ```markdown
 ---
 name: [agent-name]
-description: [Purpose and when to use - include PROACTIVE/MUST USE directives]
+version: 0.1.0description: [Purpose and when to use - include PROACTIVE/MUST USE directives]
 tools: [Comma-separated list]
 model: [haiku|sonnet|opus]
 color: [Color name]
