@@ -1,5 +1,6 @@
 ---
 name: file-validator
+version: 0.1.0
 description: Validates file existence and project standards compliance. Use PROACTIVELY before referencing files in documentation or commands.
 tools: Read, LS, Grep, Bash
 model: sonnet

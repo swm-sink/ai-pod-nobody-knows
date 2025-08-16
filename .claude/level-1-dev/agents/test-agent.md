@@ -1,5 +1,6 @@
 ---
 name: test-agent
+version: 0.1.0
 description: A simple test agent to validate the agent creation workflow - MUST be used for testing purposes only
 tools: Read, Write
 model: haiku
