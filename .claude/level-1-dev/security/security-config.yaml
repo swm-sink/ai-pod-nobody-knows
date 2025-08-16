@@ -1,0 +1,596 @@
+# Security Configuration for Level-1-Dev Quality System
+# Defines security policies, thresholds, and validation rules
+
+version: "1.0.0"
+created: "2025-08-16"
+maintainer: "Level-1-Dev Security System"
+
+# Global Security Settings
+global:
+  security_level: "high"        # low, medium, high, strict
+  fail_on_critical: true        # Fail builds on critical security issues
+  fail_on_high: true           # Fail builds on high severity issues
+  fail_on_secrets: true        # Fail builds when secrets are detected
+  enable_auto_fix: false       # Automatically fix security issues when possible
+  scan_timeout: 600            # Maximum scan time in seconds (10 minutes)
+  
+# Secret Detection Configuration
+secret_detection:
+  enabled: true
+  entropy_threshold: 4.5       # Minimum entropy for secret detection
+  min_secret_length: 8         # Minimum length for potential secrets
+  max_secret_length: 100       # Maximum length for potential secrets
+  confidence_threshold: "medium"  # Minimum confidence to report (low, medium, high)
+  
+  # Secret Patterns - Organized by category
+  patterns:
+    api_keys:
+      - 'api[_-]?key\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+      - 'access[_-]?token\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+      - 'auth[_-]?token\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+      - 'bearer[_-]?token\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+      - 'client[_-]?secret\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+      - 'secret[_-]?key\s*[:=]\s*["\047]([a-zA-Z0-9]{20,})["\047]'
+    
+    cloud_providers:
+      # AWS
+      - 'AKIA[0-9A-Z]{16}'
+      - '["\047][0-9a-zA-Z/+]{40}["\047]'
+      # Google
+      - 'AIza[0-9A-Za-z\-_]{35}'
+      - 'ya29\.[0-9A-Za-z\-_]+'
+      # Azure
+      - '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+    
+    payment_providers:
+      # Stripe
+      - 'sk_live_[a-zA-Z0-9]{24,}'
+      - 'pk_live_[a-zA-Z0-9]{24,}'
+      - 'rk_live_[a-zA-Z0-9]{24,}'
+      # Square
+      - 'sq0atp-[a-zA-Z0-9\-_]{22}'
+      - 'sq0csp-[a-zA-Z0-9\-_]{43}'
+    
+    version_control:
+      # GitHub
+      - 'ghp_[a-zA-Z0-9]{36}'
+      - 'gho_[a-zA-Z0-9]{36}'
+      - 'ghu_[a-zA-Z0-9]{36}'
+      - 'ghs_[a-zA-Z0-9]{36}'
+      - 'ghr_[a-zA-Z0-9]{36}'
+      # GitLab
+      - 'glpat-[a-zA-Z0-9\-_]{20}'
+    
+    communication:
+      # Slack
+      - 'xox[baprs]-[a-zA-Z0-9\-]+'
+      # Discord
+      - '[MN][a-zA-Z\d]{23}\.[a-zA-Z\d]{6}\.[a-zA-Z\d]{27}'
+      # Twilio
+      - 'SK[a-fA-F0-9]{32}'
+      - 'AC[a-fA-F0-9]{32}'
+    
+    email_services:
+      # SendGrid
+      - 'SG\.[a-zA-Z0-9\-_]{22}\.[a-zA-Z0-9\-_]{43}'
+      # Mailgun
+      - 'key-[a-fA-F0-9]{32}'
+    
+    passwords:
+      - 'password\s*[:=]\s*["\047]([^"\047\s]{8,})["\047]'
+      - 'passwd\s*[:=]\s*["\047]([^"\047\s]{8,})["\047]'
+      - 'pwd\s*[:=]\s*["\047]([^"\047\s]{8,})["\047]'
+      - 'pass\s*[:=]\s*["\047]([^"\047\s]{8,})["\047]'
+    
+    database_urls:
+      - 'mysql://[a-zA-Z0-9]+:[a-zA-Z0-9]+@'
+      - 'postgres://[a-zA-Z0-9]+:[a-zA-Z0-9]+@'
+      - 'mongodb://[a-zA-Z0-9]+:[a-zA-Z0-9]+@'
+      - 'redis://[a-zA-Z0-9]+:[a-zA-Z0-9]+@'
+    
+    private_keys:
+      - '-----BEGIN\s+(RSA\s+)?PRIVATE\s+KEY-----'
+      - '-----BEGIN\s+OPENSSH\s+PRIVATE\s+KEY-----'
+      - '-----BEGIN\s+DSA\s+PRIVATE\s+KEY-----'
+      - '-----BEGIN\s+EC\s+PRIVATE\s+KEY-----'
+      - '-----BEGIN\s+PGP\s+PRIVATE\s+KEY\s+BLOCK-----'
+    
+    ssh_keys:
+      - 'ssh-rsa\s+[A-Za-z0-9+/]{300,}'
+      - 'ssh-dss\s+[A-Za-z0-9+/]{300,}'
+      - 'ssh-ed25519\s+[A-Za-z0-9+/]{68}'
+      - 'ecdsa-sha2-nistp256\s+[A-Za-z0-9+/]{100,}'
+  
+  # Whitelist patterns (known false positives)
+  whitelist_patterns:
+    - 'password\s*[:=]\s*["\047](password|123456|test|example|sample|demo|your_password_here|insert_password)["\047]'
+    - 'api[_-]?key\s*[:=]\s*["\047](your_api_key_here|insert_key|example_key|test_key|api_key_here)["\047]'
+    - 'token\s*[:=]\s*["\047](your_token_here|insert_token|example_token|test_token|token_here)["\047]'
+    - 'secret\s*[:=]\s*["\047](your_secret_here|insert_secret|example_secret|test_secret|secret_here)["\047]'
+    - '\$\{[A-Z_]+\}'         # Environment variable placeholders
+    - '\{\{[A-Z_]+\}\}'       # Template placeholders
+    - '%[A-Z_]+%'             # Windows environment variables
+    - '<[A-Z_]+>'             # XML/HTML placeholders
+
+# Vulnerability Detection Configuration
+vulnerability_detection:
+  enabled: true
+  severity_threshold: "medium"   # Minimum severity to report
+  
+  patterns:
+    command_injection:
+      severity: "high"
+      patterns:
+        - 'eval\s*\('
+        - 'exec\s*\('
+        - 'system\s*\('
+        - 'shell_exec\s*\('
+        - 'passthru\s*\('
+        - 'popen\s*\('
+        - '\$\([^)]*\)'
+        - '`[^`]*`'
+        - 'os\.system\s*\('
+        - 'subprocess\.call\s*\('
+        - 'subprocess\.run\s*\('
+    
+    path_traversal:
+      severity: "high"
+      patterns:
+        - '\.\./\.\.'
+        - '\.\.\\\.\..'
+        - '/\.\./\.\.'
+        - '\\\.\.\\\.\..'
+        - '\.\./'
+        - '\.\.\\'
+    
+    sql_injection:
+      severity: "high"
+      patterns:
+        - 'SELECT.*\+.*FROM'
+        - 'UNION.*SELECT'
+        - 'INSERT.*VALUES.*\+'
+        - 'UPDATE.*SET.*\+'
+        - 'DELETE.*WHERE.*\+'
+        - 'DROP.*TABLE'
+        - '--.*'
+        - '/\*.*\*/'
+    
+    xss_patterns:
+      severity: "medium"
+      patterns:
+        - '<script[^>]*>'
+        - 'javascript:'
+        - 'onload\s*='
+        - 'onerror\s*='
+        - 'onclick\s*='
+        - 'onmouseover\s*='
+        - 'document\.write'
+        - 'innerHTML\s*='
+    
+    file_inclusion:
+      severity: "high"
+      patterns:
+        - 'include\s*\(\s*\$'
+        - 'require\s*\(\s*\$'
+        - 'file_get_contents\s*\(\s*\$'
+        - 'readfile\s*\(\s*\$'
+        - 'fopen\s*\(\s*\$'
+    
+    unsafe_serialization:
+      severity: "medium"
+      patterns:
+        - 'unserialize\s*\(\s*\$'
+        - 'pickle\.loads\s*\('
+        - 'yaml\.load\s*\('
+        - 'json\.loads\s*\(\s*\$'
+    
+    weak_crypto:
+      severity: "low"
+      patterns:
+        - 'md5\s*\('
+        - 'sha1\s*\('
+        - 'crypt\s*\('
+        - 'rand\s*\(\)'
+        - 'mt_rand\s*\(\)'
+        - 'srand\s*\('
+    
+    information_disclosure:
+      severity: "medium"
+      patterns:
+        - 'phpinfo\s*\(\)'
+        - 'var_dump\s*\('
+        - 'print_r\s*\(.*\$_(GET|POST)'
+        - 'error_reporting\s*\(\s*E_ALL'
+        - 'display_errors\s*=\s*1'
+        - 'console\.log\s*\('
+    
+    hardcoded_secrets:
+      severity: "critical"
+      patterns:
+        - 'password\s*=\s*["\047][^"\047]{4,}["\047]'
+        - 'secret\s*=\s*["\047][^"\047]{4,}["\047]'
+        - 'key\s*=\s*["\047][^"\047]{4,}["\047]'
+
+# File Permission Security
+permission_checks:
+  enabled: true
+  
+  # Maximum allowed permissions
+  max_permissions:
+    scripts: "755"          # Executable scripts
+    configs: "644"          # Configuration files
+    secrets: "600"          # Secret/key files
+    directories: "755"      # Directories
+    logs: "644"            # Log files
+  
+  # Forbidden permissions (never allowed)
+  forbidden_permissions:
+    - "777"                # World writable
+    - "666"                # World writable files
+    - "755"                # For sensitive files (secrets, keys)
+  
+  # File types requiring specific permissions
+  sensitive_files:
+    patterns:
+      - "*.key"
+      - "*.pem"
+      - "*.p12"
+      - "*.pfx"
+      - "*id_rsa*"
+      - "*id_dsa*"
+      - "*id_ecdsa*"
+      - "*id_ed25519*"
+      - "*.env"
+      - "*secret*"
+      - "*credential*"
+    max_permission: "600"
+  
+  # Executable file requirements
+  executable_files:
+    require_shebang: true
+    allowed_shebangs:
+      - "#!/bin/bash"
+      - "#!/bin/sh"
+      - "#!/usr/bin/env bash"
+      - "#!/usr/bin/env python"
+      - "#!/usr/bin/env python3"
+      - "#!/usr/bin/env node"
+      - "#!/usr/bin/env ruby"
+
+# Dependency Security
+dependency_scanning:
+  enabled: true
+  severity_threshold: "medium"
+  
+  # Package managers to scan
+  package_managers:
+    npm:
+      enabled: true
+      files: ["package.json", "package-lock.json"]
+      tools: ["npm audit"]
+      cache_duration: 86400  # 24 hours
+    
+    pip:
+      enabled: true
+      files: ["requirements.txt", "setup.py", "Pipfile"]
+      tools: ["safety", "pip-audit"]
+      cache_duration: 86400
+    
+    gem:
+      enabled: true
+      files: ["Gemfile", "Gemfile.lock"]
+      tools: ["bundle-audit"]
+      cache_duration: 86400
+    
+    composer:
+      enabled: true
+      files: ["composer.json", "composer.lock"]
+      tools: ["security-checker"]
+      cache_duration: 86400
+    
+    cargo:
+      enabled: true
+      files: ["Cargo.toml", "Cargo.lock"]
+      tools: ["cargo-audit"]
+      cache_duration: 86400
+    
+    go:
+      enabled: true
+      files: ["go.mod", "go.sum"]
+      tools: ["nancy", "govulncheck"]
+      cache_duration: 86400
+  
+  # Vulnerability databases
+  vulnerability_sources:
+    - name: "OSV"
+      url: "https://api.osv.dev"
+      enabled: true
+      priority: 1
+    
+    - name: "NVD"
+      url: "https://services.nvd.nist.gov/rest/json"
+      enabled: true
+      priority: 2
+    
+    - name: "Snyk"
+      url: "https://api.snyk.io"
+      enabled: false  # Requires API key
+      priority: 3
+  
+  # Known vulnerable packages (manual database)
+  known_vulnerabilities:
+    npm:
+      lodash:
+        versions: ["<4.17.21"]
+        severity: "high"
+        description: "Prototype pollution vulnerability"
+        fixed_version: "4.17.21"
+      
+      axios:
+        versions: ["<0.21.1"]
+        severity: "medium"
+        description: "SSRF vulnerability"
+        fixed_version: "0.21.1"
+    
+    pip:
+      Pillow:
+        versions: ["<8.1.1"]
+        severity: "medium"
+        description: "Buffer overflow vulnerability"
+        fixed_version: "8.1.1"
+      
+      PyYAML:
+        versions: ["<5.4"]
+        severity: "high"
+        description: "Arbitrary code execution"
+        fixed_version: "5.4"
+
+# Compliance and Standards
+compliance:
+  enabled: true
+  
+  # Security standards to enforce
+  standards:
+    owasp_top_10:
+      enabled: true
+      year: 2021
+      categories:
+        - "A01_2021-Broken_Access_Control"
+        - "A02_2021-Cryptographic_Failures"
+        - "A03_2021-Injection"
+        - "A04_2021-Insecure_Design"
+        - "A05_2021-Security_Misconfiguration"
+        - "A06_2021-Vulnerable_and_Outdated_Components"
+        - "A07_2021-Identification_and_Authentication_Failures"
+        - "A08_2021-Software_and_Data_Integrity_Failures"
+        - "A09_2021-Security_Logging_and_Monitoring_Failures"
+        - "A10_2021-Server_Side_Request_Forgery"
+    
+    sans_top_25:
+      enabled: true
+      year: 2021
+    
+    pci_dss:
+      enabled: false  # Enable for payment processing applications
+      version: "4.0"
+    
+    iso_27001:
+      enabled: false  # Enable for enterprise compliance
+      version: "2013"
+
+# Scan Configuration
+scanning:
+  # File types to scan
+  file_extensions:
+    - "sh"
+    - "bash"
+    - "py"
+    - "js"
+    - "ts"
+    - "jsx"
+    - "tsx"
+    - "rb"
+    - "php"
+    - "java"
+    - "go"
+    - "rs"
+    - "c"
+    - "cpp"
+    - "h"
+    - "hpp"
+    - "cs"
+    - "yaml"
+    - "yml"
+    - "json"
+    - "xml"
+    - "conf"
+    - "config"
+    - "env"
+    - "properties"
+    - "sql"
+    - "dockerfile"
+    - "makefile"
+  
+  # Directories to exclude
+  excluded_directories:
+    - ".git"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - "__pycache__"
+    - ".pytest_cache"
+    - "vendor"
+    - "target"
+    - "build"
+    - "dist"
+    - ".cache"
+    - "tmp"
+    - "temp"
+  
+  # Files to exclude
+  excluded_files:
+    - "*.log"
+    - "*.tmp"
+    - "*.cache"
+    - "*.pyc"
+    - "*.pyo"
+    - "*.class"
+    - "*.o"
+    - "*.so"
+    - "*.dll"
+    - "*.exe"
+    - "*.bin"
+  
+  # Maximum file size to scan
+  max_file_size: "10MB"
+  
+  # Parallel scanning
+  parallel_jobs: 4
+  
+  # Timeouts
+  file_timeout: 30        # Seconds per file
+  total_timeout: 600      # Total scan timeout (10 minutes)
+
+# Reporting Configuration
+reporting:
+  # Output formats
+  formats:
+    console:
+      enabled: true
+      colors: true
+      show_progress: true
+    
+    json:
+      enabled: true
+      pretty_print: true
+      include_metadata: true
+    
+    markdown:
+      enabled: true
+      include_toc: true
+      include_stats: true
+    
+    sarif:
+      enabled: false  # SARIF format for static analysis
+      version: "2.1.0"
+  
+  # Report destinations
+  destinations:
+    file:
+      enabled: true
+      directory: "quality/reports"
+      retention_days: 30
+    
+    webhook:
+      enabled: false
+      url: ""
+      authentication: ""
+    
+    email:
+      enabled: false
+      recipients: []
+      smtp_server: ""
+
+# Integration Configuration
+integrations:
+  # Git hooks integration
+  git_hooks:
+    pre_commit:
+      enabled: true
+      quick_scan: true      # Fast scan for pre-commit
+      block_on_secrets: true
+    
+    pre_push:
+      enabled: true
+      full_scan: true       # Complete scan for pre-push
+      block_on_critical: true
+    
+    commit_msg:
+      enabled: true
+      check_commit_messages: false  # Don't scan commit messages for secrets
+  
+  # CI/CD integration
+  ci_cd:
+    fail_build_on_critical: true
+    fail_build_on_secrets: true
+    generate_artifacts: true
+    upload_results: false
+  
+  # IDE integration
+  ide:
+    vscode:
+      enabled: false
+      real_time_scanning: false
+    
+    intellij:
+      enabled: false
+      real_time_scanning: false
+
+# Notification Configuration
+notifications:
+  # Channels
+  channels:
+    email:
+      enabled: false
+      smtp_server: ""
+      recipients: []
+    
+    slack:
+      enabled: false
+      webhook_url: ""
+      channel: "#security"
+    
+    teams:
+      enabled: false
+      webhook_url: ""
+    
+    webhook:
+      enabled: false
+      url: ""
+      headers: {}
+  
+  # Trigger conditions
+  triggers:
+    critical_vulnerability: true
+    secrets_detected: true
+    scan_failure: true
+    compliance_violation: false
+
+# Advanced Configuration
+advanced:
+  # Machine learning enhancement
+  ml_enhancement:
+    enabled: false          # Requires ML models
+    confidence_boost: 0.1   # Boost confidence scores
+    false_positive_learning: false
+  
+  # Custom rules
+  custom_rules:
+    enabled: true
+    rules_directory: "security/custom-rules"
+    reload_interval: 3600   # 1 hour
+  
+  # Performance optimization
+  performance:
+    cache_results: true
+    cache_duration: 3600    # 1 hour
+    parallel_processing: true
+    memory_limit: "512MB"
+  
+  # Debug options
+  debug:
+    enabled: false
+    log_level: "info"       # error, warn, info, debug
+    verbose_output: false
+    save_intermediate_results: false
+
+# Version and Update Configuration
+updates:
+  auto_update_rules: false
+  check_interval: 86400     # 24 hours
+  rule_sources:
+    - "https://raw.githubusercontent.com/level-1-dev/security-rules/main/rules.yaml"
+  
+  version_check:
+    enabled: true
+    notify_on_updates: false
