@@ -43,17 +43,17 @@ info() {
 fix_xml_references() {
     local file="$1"
     local changes=0
-    
+
     # Skip if file doesn't exist or is in archive
     if [[ ! -f "$file" ]] || [[ "$file" == *archive* ]]; then
         return 0
     fi
-    
+
     info "Processing: $(basename "$file")"
-    
+
     # Create backup
     cp "$file" "${file}.backup"
-    
+
     # Fix common reference patterns
     sed -i '' \
         -e 's/\.xml"/.md"/g' \
@@ -64,7 +64,7 @@ fix_xml_references() {
         -e 's/file="[^"]*\.xml"/file="\&.md"/g' \
         -e 's/\.\.\///g' \
         "$file"
-    
+
     # Count changes by comparing with backup
     if ! diff -q "$file" "${file}.backup" > /dev/null 2>&1; then
         changes=$(diff "$file" "${file}.backup" | wc -l)
@@ -83,13 +83,13 @@ main() {
     info "Starting XML reference cleanup"
     info "Project root: $PROJECT_ROOT"
     info "Log file: $LOG_FILE"
-    
+
     # Clear log file
     > "$LOG_FILE"
-    
+
     local total_files=0
     local changed_files=0
-    
+
     # Process all markdown files in .claude directory
     while IFS= read -r -d '' file; do
         ((total_files++))
@@ -97,14 +97,14 @@ main() {
             ((changed_files++))
         fi
     done < <(find "$CLAUDE_DIR" -name "*.md" -type f -print0)
-    
+
     info "Processed $total_files files"
     success "Updated $changed_files files with reference fixes"
-    
+
     # Validate no broken references remain
     local remaining_refs
     remaining_refs=$(grep -r "\.xml" "$CLAUDE_DIR" --exclude-dir=archive | grep -v "\.xml:" | wc -l)
-    
+
     if [[ $remaining_refs -eq 0 ]]; then
         success "All XML references successfully updated to Markdown"
     else

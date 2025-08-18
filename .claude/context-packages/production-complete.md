@@ -82,35 +82,35 @@ Like an assembly line where each station checks the quality before passing the w
 </simple>
 
 
-- 
-            
+-
 
-- 
-                
+
+-
+
 Research Phase
 Research Coordinator
 Fact-checking, source verification, completeness check
 Research package with ≥3 diverse sources, all facts verified
 Retry with expanded search terms, additional sources
 
-- 
-                
+-
+
 Script Creation
 Script Writer
 Quality evaluation against all thresholds
 All quality scores ≥ minimum thresholds
 Revise script, retry up to 3 times, escalate if needed
 
-- 
-                
+-
+
 Audio Synthesis
 Audio Synthesizer
 Audio quality check, duration verification
 Clean audio file, target duration achieved
 Regenerate audio, adjust script if necessary
 
-- 
-                
+-
+
 Final Quality Check
 Quality Evaluator
 Comprehensive quality assessment

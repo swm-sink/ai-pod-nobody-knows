@@ -29,7 +29,7 @@
   },
   "agents_status": {
     "deep_research_agent": "completed",
-    "question_generator": "completed", 
+    "question_generator": "completed",
     "research_synthesizer": "completed"
   },
   "validation_checkpoints": {

@@ -55,39 +55,39 @@ Reduces "unprecedented" anxiety
 ## Development process
 Analogy Development Process
 
-- 
-      
+-
+
 What is the essential process happening here?
 Strip away technical details
 Find the fundamental pattern
 Identify the key transformation
 
-- 
-      
+-
+
 Where does this pattern appear in everyday life?
 Kitchen activities (cooking, organizing)
 Transportation (driving, navigating)
 Communication (conversation, storytelling)
 Learning (reading, practicing)
 
-- 
-      
+-
+
 How does this manifest in work/collaboration?
 Team dynamics
 Project management
 Problem-solving processes
 Skill development
 
-- 
-      
+-
+
 When has humanity faced this before?
 Previous technological shifts
 Historical innovations
 Societal adaptations
 Natural phenomena
 
-- 
-      
+-
+
 Does this analogy illuminate or obscure?
 Verify accuracy
 Confirm accessibility
@@ -131,13 +131,13 @@ on importance and urgency (Historical).
 Self-Critique Protocol
 Three-Step Critique
 
-- 
+-
         Identify Limitations: "This analogy captures X but misses Y"
 
-- 
+-
         Improve Understanding: "Think of it more like Z because..."
 
-- 
+-
         Connect Concepts: "This bridges our earlier discussion and prepares us for..."
 
 **Example:**

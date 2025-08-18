@@ -114,41 +114,41 @@ End with reflection and continued curiosity
 "Keep questioning, keep learning..."
 Episode Opening Framework
 
-- 
-      
+-
 
-- 
+
+-
         Open with a thought-provoking question
 
-- 
+-
         Acknowledge the complexity of the topic
 
-- 
+-
         Preview key insights to be explored
 
-- 
+-
         Express genuine enthusiasm for the subject
 
-- 
+-
         Invite the listener on a journey of discovery
 Concept Explanation Structure
 
-- 
-      
+-
 
-- 
+
+-
         Start with the familiar or relatable
 
-- 
+-
         Build complexity gradually
 
-- 
+-
         Use analogies and metaphors
 
-- 
+-
         Acknowledge alternative explanations
 
-- 
+-
         Highlight what remains unknown
 Between-Segment Transitions
 Summarize the previous point briefly
@@ -157,22 +157,22 @@ Maintain momentum with engaging language
 Preview what's coming next
 Episode Closing Framework
 
-- 
-      
+-
 
-- 
+
+-
         Reflect on key discoveries
 
-- 
+-
         Acknowledge remaining mysteries
 
-- 
+-
         Pose open-ended questions for reflection
 
-- 
+-
         Express gratitude for the journey
 
-- 
+-
         Tease future explorations
 
 <technical>

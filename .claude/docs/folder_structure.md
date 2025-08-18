@@ -156,44 +156,44 @@ Creating a new development tool?
 ### Setup Instructions
 
 
-- 
+-
         Use level-1-dev/commands/agent-builder-dev.md
 
-- 
+-
         Save to level-1-dev/agents/ or level-1-dev/commands/
 Creating a podcast production agent?
 
 ### Setup Instructions
 
 
-- 
+-
         Use level-2-production/commands/agent-builder-production.md
 
-- 
+-
         Save to level-2-production/agents/
 Documenting how something works?
 
 ### Setup Instructions
 
 
-- 
+-
         Add to appropriate context/ subfolder
 Planning the future platform?
 
 ### Setup Instructions
 
 
-- 
+-
         Work in level-3-platform-dev/
 Want to write Python code?
 
 ### Setup Instructions
 
 
-- 
+-
         STOP! Get approval first
 
-- 
+-
         Document plan in level-4-coded/documentation/
 ~100 markdown files
 28 (after cleanup from 61)

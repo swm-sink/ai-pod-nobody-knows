@@ -38,8 +38,8 @@ How it works
 Everyday comparison
 What you're trying to achieve
 
-- 
-            
+-
+
 1. Step with clear action
 2. Step with expected result
 3. Step with validation

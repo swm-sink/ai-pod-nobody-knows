@@ -18,16 +18,16 @@ This is your guide to learning how to coordinate multiple AI agents to work toge
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Start with agent orchestration basics to understand core concepts
 
-- 
-                
+-
+
 Learn cost optimization to keep projects affordable
 
-- 
-                
+-
+
 Apply concepts in practice with guided exercises
 Agent Orchestration Basics
 agent-orchestration-basics.xml

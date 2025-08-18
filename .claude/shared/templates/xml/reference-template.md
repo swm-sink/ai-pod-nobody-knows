@@ -28,12 +28,12 @@ Should explain:
 ### Setup Instructions
 
 
-- 
-                
+-
+
 {QUICK_ACTION_1}
 
-- 
-                
+-
+
 {QUICK_ACTION_2}
 
 **Example:**

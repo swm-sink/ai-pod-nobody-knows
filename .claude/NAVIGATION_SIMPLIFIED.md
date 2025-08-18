@@ -75,7 +75,7 @@
 
 ### **WALK Phase (FREE Learning)**
 - **Start**: @foundation/01_project_overview.md
-- **Learn**: @foundation/02_walk_crawl_run_phases.md  
+- **Learn**: @foundation/02_walk_crawl_run_phases.md
 - **Practice**: @04_no_api_keys_activities.md
 
 ### **CRAWL Phase (First APIs)**
@@ -95,7 +95,7 @@
 ### **Lost? Start Here**
 - @foundation/01_project_overview.md
 
-### **Stuck? Get Help** 
+### **Stuck? Get Help**
 - @01_troubleshooting_guide.md
 
 ### **Commands? Quick Reference**

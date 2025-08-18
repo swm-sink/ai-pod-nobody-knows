@@ -111,29 +111,29 @@ Eliminated across enhanced files
 Remaining Work by Priority
 Fix Broken @ References
 
-- 
-          
+-
 
-- 
+
+-
             Audit all @ references across 127 files
 
-- 
+-
             Update incorrect paths (context/ vs shared/context/)
 
-- 
+-
             Test navigation chains work correctly
 Complete Foundation Domain
 
-- 
-          
+-
 
-- 
+
+-
             Apply doc-template.md to files 01-05
 
-- 
+-
             Ensure learning progression intact
 
-- 
+-
             Add cross-references to other domains
 Claude Code Domain
 Critical for tool mastery documentation

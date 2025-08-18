@@ -90,35 +90,35 @@ What does it mean to...?
 Implementation Guidelines
 For Research-Coordinator Agent
 
-- 
-        
+-
 
-- 
+
+-
           Assess Topic Complexity: Determine inherent complexity level
 
-- 
+-
           Gather Layered Sources: From basic to advanced
 
-- 
+-
           Flag Complexity Jumps: Note where scaffolding needed
 
-- 
+-
           Provide Complexity Map: Guide script-writer on progression
 For Script-Writer Agent
 
-- 
-        
+-
 
-- 
+
+-
           Start Simple: Always begin 2 levels below target
 
-- 
+-
           Build Gradually: Maximum 2-level jump per segment
 
-- 
+-
           Scaffold Jumps: Extra explanation before complexity increases
 
-- 
+-
           Check Understanding: "Now that we understand X, we can explore Y"
 Episode Complexity Planning
 1

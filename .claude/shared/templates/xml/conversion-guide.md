@@ -29,31 +29,31 @@ Priority-based links
 Quick start guidance
 Cross-domain references
 
-- 
-      
+-
+
 Has educational content with explanations
 Primarily lookup information and commands
 Contains configuration values and thresholds
 Directory structure and learning paths
 
-- 
-      
+-
+
 Title and Metadata: Extract from headers and frontmatter
 Technical/Simple Explanations: Look for dual explanation patterns
 Instructions: Extract step-by-step procedures
 Examples: Identify code examples and use cases
 Cross-references: Note links to other documents
 
-- 
-      
+-
+
 Copy appropriate template
 Replace {PLACEHOLDER} values with extracted content
 Preserve dual explanation structure
 Maintain validation commands where present
 Update cross-references to point to .xml files
 
-- 
-      
+-
+
 Ensure XML is well-formed
 Check against schema if possible
 Verify all required sections are present
@@ -114,40 +114,40 @@ xmlstarlet val -s schema.xsd filename.xml - Schema validation
 
 ```bash
 
-- 
+-
         Identify document type and select appropriate template
 
-- 
+-
         Read through original content to understand structure
 
-- 
+-
         Note any special formatting or embedded elements
 
-- 
+-
         Copy template and begin content mapping
 
-- 
+-
         Preserve all educational elements and explanations
 
-- 
+-
         Update file references and navigation links
 
-- 
+-
         Check XML structure and schema compliance
 
-- 
+-
         Verify all content is properly categorized
 
-- 
+-
         Test navigation links and cross-references
 
-- 
+-
         Compare with original for completeness
 
-- 
+-
         Ensure educational value is maintained
 
-- 
+-
         Validate against quality checklist
 markdown-to-xml-converter.py
 Extract markdown headers and convert to XML metadata

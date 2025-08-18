@@ -53,13 +53,13 @@ Always translate immediately
 **Example:**
 Simple → Complex
 
-- 
+-
           Start with everyday analogy
 
-- 
+-
           Add technical detail gradually
 
-- 
+-
           Never jump ahead of foundation
 Zero knowledge at series start
 Complete beginner
@@ -98,19 +98,19 @@ Promise accessible exploration
 "Now you might wonder..."
 "This connects to..."
 
-- 
+-
         Introduce concept (simple terms)
 
-- 
+-
         Provide analogy (familiar comparison)
 
-- 
+-
         Add detail (technical accuracy)
 
-- 
+-
         Show application (real world)
 
-- 
+-
         Acknowledge limits (what we don't know)
 Practical experiment or observation
 Connection to bigger picture

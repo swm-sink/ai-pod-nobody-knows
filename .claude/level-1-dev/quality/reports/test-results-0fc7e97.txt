@@ -1,0 +1,31 @@
+==========================================
+Level-1-Dev Test Framework
+==========================================
+
+[1;33mℹ[0m Loaded test utilities
+[1;33mℹ[0m Running unit tests...
+[1;33mℹ[0m Running test: test-agent-builder
+[0;31m✗[0m test-agent-builder
+[1;33mℹ[0m Running test: test-command-builder
+[0;31m✗[0m test-command-builder
+[1;33mℹ[0m Running test: test-context-researcher
+[0;31m✗[0m test-context-researcher
+[1;33mℹ[0m Running test: test-templates
+[0;31m✗[0m test-templates
+[1;33mℹ[0m Running integration tests...
+[1;33mℹ[0m Running test: test-quality-gates
+[0;31m✗[0m test-quality-gates
+[1;33mℹ[0m Running test: test-version-management
+[0;31m✗[0m test-version-management
+[1;33mℹ[0m Running test: test-workflows
+[0;31m✗[0m test-workflows
+
+==========================================
+Test Summary
+==========================================
+[1;33mℹ[0m Total tests: 7
+[0;32m✓[0m Passed: 0
+[0;31m✗[0m Failed: 7
+[1;33mℹ[0m Success rate: 0%
+
+[1;33mℹ[0m Report saved to: /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/level-1-dev/tests/reports/test-report-20250818-030925.md

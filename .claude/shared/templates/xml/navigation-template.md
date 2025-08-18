@@ -28,12 +28,12 @@ Should explain:
 ### Setup Instructions
 
 
-- 
-                
+-
+
 {QUICK_START_STEP_1}
 
-- 
-                
+-
+
 {QUICK_START_STEP_2}
 {HIGH_PRIORITY_TITLE}
 {HIGH_PRIORITY_FILE}.xml

@@ -30,53 +30,53 @@ H --> E
 G --> I[Complete]
 D --> J[Log &amp; Alert]
 
-- 
-          
+-
+
 Validate Prerequisites
 /validate-environment
 All checks return green
 Stop and address missing requirements
 
-- 
-          
+-
+
 Load Configuration
 /load-config [workflow-name]
 Config loaded successfully
 Check config file exists and is valid
 
-- 
-          
+-
+
 Primary processing action
 /[main-command] [arguments]
 X-Y minutes
 How to verify success
 Recovery procedure
 
-- 
-          
+-
+
 Secondary processing action
 /[secondary-command] [arguments]
 X-Y minutes
 How to verify success
 Recovery procedure
 
-- 
-          
+-
+
 Run Quality Checks
 /quality-check [output]
 Metric 1 ≥ threshold
 Metric 2 ≥ threshold
 Return to Step 3 with adjustments
 
-- 
-          
+-
+
 Generate Output
 /generate-output [format]
 Where output is saved
 Output file exists and is valid
 
-- 
-          
+-
+
 Update Tracking
 /update-session [workflow-id]
 Record time, cost, quality scores
@@ -153,19 +153,19 @@ completion notification
 
 ```bash
 
-- 
+-
       Replace all placeholder values with workflow-specific content
 
-- 
+-
       Create accurate mermaid diagram reflecting actual flow
 
-- 
+-
       Define specific quality thresholds and metrics
 
-- 
+-
       Map automation hooks to available tools
 
-- 
+-
       Test workflow documentation against actual implementation
 All steps have clear success criteria
 Error paths are documented with recovery procedures

@@ -55,92 +55,92 @@ Exact instructions for fixing each type of problem, like having a repair manual 
 
 Identify specific @ reference that's failing
 
-- 
-                    
+-
 
-- 
-                        
+
+-
+
 Check .claudeignore file
 cat .claudeignore | grep -E "context|packages"
 Ensure context-packages/ is not excluded
 
-- 
-                        
+-
+
 Verify context package exists
 ls -la .claude/context-packages/[package-name].xml
 File exists and is readable
 
-- 
-                        
+-
+
 Test @ reference syntax
 Try loading the specific @ reference
 Context loads without errors
 @ reference loads complete context successfully
 Identify which API is failing
 
-- 
-                    
+-
 
-- 
-                        
+
+-
+
 Verify API key is set
 echo $[API_KEY_NAME] | head -c 20
 Key exists and starts correctly
 
-- 
-                        
+-
+
 Test API connectivity
 Use appropriate API test command
 Receives successful response
 
-- 
-                        
+-
+
 Check MCP server status
 claude mcp list | grep [server-name]
 Server shows as available
 API calls succeed and return expected data
 Identify which stage is failing
 
-- 
-                    
+-
 
-- 
-                        
+
+-
+
 Review session logs
 cat .claude/level-2-production/sessions/[session]/[step].json
 Identify specific error or failure point
 
-- 
-                        
+-
+
 Check quality thresholds
 grep "threshold" .claude/level-2-production/config/quality_gates.yaml
 Thresholds are reasonable and achievable
 
-- 
-                        
+-
+
 Retry with adjustments
 Run production step with modified parameters
 Step completes successfully
 Production pipeline completes end-to-end
 Identify performance bottleneck
 
-- 
-                    
+-
 
-- 
-                        
+
+-
+
 Audit auto-loading
 Check what files are loading automatically
 Only essential files auto-load
 
-- 
-                        
+-
+
 Optimize context packages
 Review context package sizes and usage
 Packages are focused and efficient
 
-- 
-                        
+-
+
 Use /clear frequently
 /clear to reset context periodically
 Maintains responsive performance

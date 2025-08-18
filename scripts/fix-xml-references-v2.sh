@@ -35,10 +35,10 @@ CHANGES=0
 for file in "${FILES[@]}"; do
     if [[ -f "$file" ]]; then
         echo "📝 Processing: $file"
-        
+
         # Count .xml references before
         BEFORE=$(grep -o '@[^[:space:]]*\.xml' "$file" 2>/dev/null | wc -l)
-        
+
         if [[ $BEFORE -gt 0 ]]; then
             # Fix common .xml → .md patterns
             sed -i '' \
@@ -52,10 +52,10 @@ for file in "${FILES[@]}"; do
                 -e 's/agent-orchestration-basics\.xml/agent-orchestration-basics.md/g' \
                 -e 's/cost-optimization-strategies\.xml/cost-optimization-strategies.md/g' \
                 "$file"
-            
+
             # Count .xml references after
             AFTER=$(grep -o '@[^[:space:]]*\.xml' "$file" 2>/dev/null | wc -l)
-            
+
             FIXED=$((BEFORE - AFTER))
             if [[ $FIXED -gt 0 ]]; then
                 echo "  ✅ Fixed $FIXED XML references"

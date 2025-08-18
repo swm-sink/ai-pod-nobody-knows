@@ -146,28 +146,28 @@ Maintainable: Future changes are simple
 Testable: Clear data contracts
 Educational: Demonstrates proper system design
 
-- 
+-
       Start by reading this file to understand the architecture
 
-- 
+-
       Check the source files listed above for authoritative data
 
-- 
+-
       Never duplicate data - always reference the sources
 
-- 
+-
       When in doubt, ask: "Where is the single source of truth for this?"
 
-- 
+-
       Identify which source file owns the data
 
-- 
+-
       Make changes only in that source file
 
-- 
+-
       Ensure consumers read the updated data dynamically
 
-- 
+-
       Update this document if adding new sources of truth
 
 ---

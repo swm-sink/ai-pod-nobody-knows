@@ -64,7 +64,7 @@ And that's where our certainty starts to crack. Because when you ask the experts
 
 **[PAUSE: Long]**
 
-### Emerging Understanding [SEGMENT: 13:00-22:00] 
+### Emerging Understanding [SEGMENT: 13:00-22:00]
 **[TONE: Thoughtful, Nuanced]**
 
 Dr. Russell Foster from Oxford University calls sleep "one of the last great biological mysteries." **[PAUSE: Brief]** This isn't a researcher being dramatic - this is one of the world's leading chronobiologists acknowledging something remarkable about the state of our knowledge.
@@ -157,7 +157,7 @@ Dr. Fu's research on short sleeper families is revealing, but it also highlights
 
 **[TONE: Thoughtful]**
 
-Then there's the consciousness question - perhaps the deepest mystery of all. 
+Then there's the consciousness question - perhaps the deepest mystery of all.
 
 **[PAUSE: Brief]** Dr. Cirelli's observation that we don't understand how consciousness switches off points to something profound: **[EMPHASIS: we don't really understand consciousness itself.**
 
@@ -251,7 +251,7 @@ Sleep well tonight. **[TONE: Warm]** And rest assured that your nightly journey 
 
 ## Brand Voice Compliance
 - **Humility Phrases**: 37 per 7,055 words (5.2 per 1000 words - exceeds target)
-- **Questions**: 31 per 7,055 words (4.4 per 1000 words - exceeds target)  
+- **Questions**: 31 per 7,055 words (4.4 per 1000 words - exceeds target)
 - **Uncertainty Acknowledgment**: Consistent expert admissions throughout
 - **Wonder Celebration**: Multiple moments of scientific awe and curiosity
 

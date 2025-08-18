@@ -35,7 +35,7 @@
   },
   "deliverables": {
     "episode_plan": "sessions/ep_test_endtoend_20250818/production/episode_plan.json",
-    "script_draft": "sessions/ep_test_endtoend_20250818/production/script_draft.md", 
+    "script_draft": "sessions/ep_test_endtoend_20250818/production/script_draft.md",
     "quality_reports": [
       "sessions/ep_test_endtoend_20250818/production/quality_claude_report.json",
       "sessions/ep_test_endtoend_20250818/production/quality_gemini_report.json",
@@ -54,7 +54,7 @@
   },
   "workflow_validation": {
     "research_to_production_handoff": "successful",
-    "sequential_agent_delegation": "successful", 
+    "sequential_agent_delegation": "successful",
     "parallel_quality_evaluation": "successful",
     "feedback_synthesis": "successful",
     "cost_tracking": "complete",

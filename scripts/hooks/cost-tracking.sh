@@ -21,7 +21,7 @@ WEEKLY_BUDGET_LIMIT=100.00
 get_operation_cost() {
     local operation="$1"
     local count="${2:-1}"
-    
+
     case "$operation" in
         "perplexity_search") echo "0.005" ;;
         "perplexity_ask") echo "0.02" ;;
@@ -67,16 +67,16 @@ record_cost() {
     local operation="$1"
     local cost="$2"
     local description="${3:-$operation}"
-    
+
     local today
     today=$(date '+%Y-%m-%d')
     local week
     week=$(date '+%Y-W%U')
-    
+
     # Update cost database
     local temp_file
     temp_file=$(mktemp)
-    
+
     jq --arg date "$today" \
        --arg week "$week" \
        --arg op "$operation" \
@@ -86,7 +86,7 @@ record_cost() {
         .weekly_costs[$week] = (.weekly_costs[$week] // 0) + ($cost | tonumber) |
         .operation_counts[$op] = (.operation_counts[$op] // 0) + 1' \
         "$COST_DB_FILE" > "$temp_file" && mv "$temp_file" "$COST_DB_FILE"
-    
+
     log_cost "💰 $operation: $cost USD - $description"
 }
 
@@ -95,14 +95,14 @@ check_budget_limits() {
     today=$(date '+%Y-%m-%d')
     local week
     week=$(date '+%Y-W%U')
-    
+
     # Get current costs
     local daily_cost
     daily_cost=$(jq -r --arg date "$today" '.daily_costs[$date] // 0' "$COST_DB_FILE")
-    
+
     local weekly_cost
     weekly_cost=$(jq -r --arg week "$week" '.weekly_costs[$week] // 0' "$COST_DB_FILE")
-    
+
     # Check daily limits
     if (( $(echo "$daily_cost >= $DAILY_BUDGET_LIMIT" | bc -l) )); then
         log_error "🚨 DAILY BUDGET EXCEEDED: $daily_cost USD >= $DAILY_BUDGET_LIMIT USD"
@@ -111,7 +111,7 @@ check_budget_limits() {
     elif (( $(echo "$daily_cost >= $DAILY_BUDGET_WARNING" | bc -l) )); then
         log_warning "⚠️  Daily budget warning: $daily_cost USD >= $DAILY_BUDGET_WARNING USD"
     fi
-    
+
     # Check weekly limits
     if (( $(echo "$weekly_cost >= $WEEKLY_BUDGET_LIMIT" | bc -l) )); then
         log_error "🚨 WEEKLY BUDGET EXCEEDED: $weekly_cost USD >= $WEEKLY_BUDGET_LIMIT USD"
@@ -120,7 +120,7 @@ check_budget_limits() {
     elif (( $(echo "$weekly_cost >= $WEEKLY_BUDGET_WARNING" | bc -l) )); then
         log_warning "⚠️  Weekly budget warning: $weekly_cost USD >= $WEEKLY_BUDGET_WARNING USD"
     fi
-    
+
     log_info "💚 Budget check passed: Daily $daily_cost USD, Weekly $weekly_cost USD"
     return 0
 }
@@ -129,14 +129,14 @@ check_budget_limits() {
 track_task_usage() {
     local agent_type="$1"
     local description="${2:-Task operation}"
-    
+
     log_info "🤖 Tracking Task operation: $agent_type"
-    
+
     # Estimate cost based on agent type
     local operation_key="task_${agent_type//-/_}"
     local cost
     cost=$(get_operation_cost "$operation_key" 1)
-    
+
     # Check budget before expensive operations
     if [[ "$agent_type" =~ (audio-synthesizer|research|script-writer) ]]; then
         if ! check_budget_limits; then
@@ -144,7 +144,7 @@ track_task_usage() {
             return 1
         fi
     fi
-    
+
     record_cost "$operation_key" "$cost" "Task: $agent_type - $description"
     return 0
 }
@@ -152,12 +152,12 @@ track_task_usage() {
 track_mcp_usage() {
     local tool_name="$1"
     local parameters="${2:-}"
-    
+
     log_info "🔌 Tracking MCP operation: $tool_name"
-    
+
     local operation_key=""
     local cost=""
-    
+
     case "$tool_name" in
         "mcp__perplexity__perplexity_ask")
             operation_key="perplexity_ask"
@@ -172,7 +172,7 @@ track_mcp_usage() {
             if echo "$parameters" | grep -q "18000\|20000\|22000"; then
                 operation_key="elevenlabs_tts_episode"
                 cost=$(get_operation_cost "$operation_key" 1)
-                
+
                 # Check budget for expensive TTS
                 if ! check_budget_limits; then
                     log_error "❌ TTS operation blocked due to budget limits"
@@ -186,7 +186,7 @@ track_mcp_usage() {
         "mcp__ElevenLabs__voice_clone")
             operation_key="elevenlabs_voice_clone"
             cost=$(get_operation_cost "$operation_key" 1)
-            
+
             if ! check_budget_limits; then
                 log_error "❌ Voice cloning blocked due to budget limits"
                 return 1
@@ -197,7 +197,7 @@ track_mcp_usage() {
             cost="0.10"
             ;;
     esac
-    
+
     record_cost "$operation_key" "$cost" "MCP: $tool_name"
     return 0
 }
@@ -205,20 +205,20 @@ track_mcp_usage() {
 # Reporting functions
 generate_cost_report() {
     local period="${1:-daily}"
-    
+
     log_info "📊 Generating $period cost report"
-    
+
     case "$period" in
         daily)
             local today
             today=$(date '+%Y-%m-%d')
             local daily_cost
             daily_cost=$(jq -r --arg date "$today" '.daily_costs[$date] // 0' "$COST_DB_FILE")
-            
+
             echo "📅 Daily Cost Report - $today"
             echo "💰 Total: $daily_cost USD"
             echo "📊 Budget: $daily_cost / $DAILY_BUDGET_WARNING USD (warning) / $DAILY_BUDGET_LIMIT USD (limit)"
-            
+
             if (( $(echo "$daily_cost >= $DAILY_BUDGET_WARNING" | bc -l) )); then
                 echo "⚠️  Warning threshold reached"
             fi
@@ -228,11 +228,11 @@ generate_cost_report() {
             week=$(date '+%Y-W%U')
             local weekly_cost
             weekly_cost=$(jq -r --arg week "$week" '.weekly_costs[$week] // 0' "$COST_DB_FILE")
-            
+
             echo "📅 Weekly Cost Report - Week $week"
             echo "💰 Total: $weekly_cost USD"
             echo "📊 Budget: $weekly_cost / $WEEKLY_BUDGET_WARNING USD (warning) / $WEEKLY_BUDGET_LIMIT USD (limit)"
-            
+
             if (( $(echo "$weekly_cost >= $WEEKLY_BUDGET_WARNING" | bc -l) )); then
                 echo "⚠️  Warning threshold reached"
             fi
@@ -249,7 +249,7 @@ main() {
     local command="${1:-help}"
     local target="${2:-}"
     local params="${3:-}"
-    
+
     case "$command" in
         track-task)
             track_task_usage "$target" "$params"

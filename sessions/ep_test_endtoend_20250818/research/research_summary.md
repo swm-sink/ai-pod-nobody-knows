@@ -14,7 +14,7 @@ Even top experts admit uncertainty about this fundamental question:
 - **Dr. Matthew Walker**: "We still don't have a complete answer to why we need sleep"
 - **Dr. Russell Foster**: "Sleep remains one of the last great biological mysteries"
 
-### 2. Individual Sleep Differences  
+### 2. Individual Sleep Differences
 Why some need 4 hours, others need 10 - science can't predict or explain:
 - **Dr. Ying-Hui Fu**: "We can identify short sleeper genes, but can't predict who else might have similar variants"
 - **Dr. Sean Drummond**: "Some people maintain nearly normal function on minimal sleep while others deteriorate rapidly, and we don't know why"
@@ -67,7 +67,7 @@ Everyone has sleep questions, making abstract mysteries personally meaningful.
 **Key Moments**:
 1. Expert admissions of uncertainty (builds authority through honesty)
 2. The vulnerability paradox (why evolve such a dangerous state?)
-3. Individual differences mysteries (personal relevance) 
+3. Individual differences mysteries (personal relevance)
 4. 2024 discoveries that created more questions than answers
 
 ## Production Budget Analysis
@@ -83,7 +83,7 @@ Everyone has sleep questions, making abstract mysteries personally meaningful.
 
 **Production Stream Ready To Begin**:
 1. Episode planning with research package
-2. Script writing using question framework  
+2. Script writing using question framework
 3. Quality review (Claude + Gemini)
 4. Audio synthesis
 

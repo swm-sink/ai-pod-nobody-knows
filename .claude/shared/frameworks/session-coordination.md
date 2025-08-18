@@ -66,19 +66,19 @@ episode_number
 topic
 complexity_level
 
-- 
+-
             Generate session ID
 
-- 
+-
             Create session structure
 
-- 
+-
             Initialize pipeline state
 
-- 
+-
             Save session state
 
-- 
+-
             Return session ID
 Agent Handoff Protocols
 path/to/research.md
@@ -106,22 +106,22 @@ session_id
 agent_name
 update
 
-- 
+-
             Load current session state
 
-- 
+-
             Update agent-specific data
 
-- 
+-
             Update pipeline state if complete
 
-- 
+-
             Update timestamps
 
-- 
+-
             Update cost tracking
 
-- 
+-
             Save updated session state
 
 ## Error handling
@@ -131,34 +131,34 @@ session_id
 agent_name
 error
 
-- 
+-
             Record failure status and error
 
-- 
+-
             Increment failed attempts counter
 
-- 
+-
             Determine retry strategy (max 3 retries)
 
-- 
+-
             Either retry agent or escalate failure
 
-- 
+-
             Save updated session state
 Quality Gate Failures
 session_id
 quality_report
 
-- 
+-
             Analyze failure type from quality report
 
-- 
+-
             Route back to appropriate stage with feedback
 
-- 
+-
             Set specific adjustments needed
 
-- 
+-
             Update pipeline state accordingly
 Return to script_writer with feedback
 Return to script_writer for duration adjustment
@@ -183,28 +183,28 @@ Average quality score
 Implementation in Agents
 Standard Agent Pattern
 
-- 
+-
           Load session state
 
-- 
+-
           Validate ready for stage
 
-- 
+-
           Update session progress to "in_progress"
 
-- 
+-
           Update session state with results
 
-- 
+-
           Include output file path
 
-- 
+-
           Record actual cost
 
-- 
+-
           Include quality metrics
 
-- 
+-
           Call handle_agent_failure with error details
 ```
 

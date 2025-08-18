@@ -50,7 +50,7 @@
         ]
       },
       "foundation_segment": {
-        "duration": "8 minutes", 
+        "duration": "8 minutes",
         "character_count": "6000",
         "content_type": "known_facts_and_context",
         "narrative_purpose": "Establish what we do know before revealing gaps",
@@ -68,7 +68,7 @@
       },
       "emerging_mystery_segment": {
         "duration": "9 minutes",
-        "character_count": "6750", 
+        "character_count": "6750",
         "content_type": "expert_admissions",
         "narrative_purpose": "Reveal expert uncertainty through direct quotes",
         "key_points": [
@@ -91,7 +91,7 @@
       "active_debates_segment": {
         "duration": "9 minutes",
         "character_count": "6750",
-        "content_type": "competing_theories_and_controversies", 
+        "content_type": "competing_theories_and_controversies",
         "narrative_purpose": "Explore ongoing scientific disagreements",
         "key_points": [
           "Universal vs individualized sleep recommendations debate",
@@ -159,7 +159,7 @@
     "production_notes": {
       "brand_voice_integration": [
         "Intellectual humility threading throughout",
-        "Scientific uncertainty as fascinating, not frustrating", 
+        "Scientific uncertainty as fascinating, not frustrating",
         "Expert quotes as humble admissions, not authority claims",
         "Personal relevance of shared mysteries"
       ],

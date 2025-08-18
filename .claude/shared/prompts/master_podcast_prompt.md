@@ -41,16 +41,16 @@ Production notes or commentary
 Quality assessments or meta-analysis
 Structural breakdowns or technical notes
 
-- 
+-
       Conduct comprehensive web research on episode topic
 
-- 
+-
       Incorporate latest developments (past 6-12 months)
 
-- 
+-
       Use thinking tags for internal planning
 
-- 
+-
       Deliver only final script content to user
 If conflicting information encountered: explicitly state "I need to verify this"
 and conduct additional research rather than making assumptions.
@@ -114,13 +114,13 @@ Engineering constraints and consequences
 Real-world performance data
 Direct principle demonstrations
 
-- 
+-
       IDENTIFY: "Comparing X to Y captures [aspect] but misses [limitation]"
 
-- 
+-
       IMPROVE: "Think of it more like [refined analogy] because [advantage]"
 
-- 
+-
       CONNECT: "This bridges [previous concept] and sets up [future topic]"
 Core concepts with memorable analogies
 Practical observation/application

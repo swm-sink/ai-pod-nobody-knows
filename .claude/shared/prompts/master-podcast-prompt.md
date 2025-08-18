@@ -21,16 +21,16 @@ Production notes or commentary
 Quality assessments or meta-analysis
 Structural breakdowns or technical notes
 
-- 
+-
         Conduct comprehensive web research on episode topic
 
-- 
+-
         Incorporate latest developments (past 6-12 months)
 
-- 
+-
         Use thinking tags for internal planning
 
-- 
+-
         Deliver only final script content to user
 If conflicting information encountered: explicitly state "I need to verify this" and conduct additional research rather than making assumptions.
 break time="0.3s" to break time="1.0s" - Natural pauses
@@ -86,13 +86,13 @@ Work context connections
 Simple technical examples with analogies
 Historical context and parallels
 
-- 
+-
         IDENTIFY: "Comparing X to Y captures [aspect] but misses [limitation]"
 
-- 
+-
         IMPROVE: "Think of it more like [refined analogy] because [advantage]"
 
-- 
+-
         CONNECT: "This bridges [previous concept] and sets up [future topic]"
 Points 1-2: Core concepts with memorable analogies
 Points 3-4: Practical observation/application
@@ -126,22 +126,22 @@ Prioritize timeless principles over breaking news
 Acknowledge pace of change
 Balance relevance with foundation
 
-- 
+-
           WHAT: Simple definition + clear analogy
 
-- 
+-
           WHY: Historical context + current relevance
 
-- 
+-
           HOW: Step-by-step process with examples
 
-- 
+-
           WHEN: Practical use cases
 
-- 
+-
           WHAT IF: Edge cases and limitations
 
-- 
+-
           SO WHAT: Clear implications
 Basic recognition and applications
 Learning and pattern concepts
@@ -212,19 +212,19 @@ Strong opening hook
 Satisfying conclusion
 Zero post-processing needed
 
-- 
+-
       Research Phase: Comprehensive web search
 
-- 
+-
       Planning Phase: Internal structure mapping (use thinking tags)
 
-- 
+-
       Generation Phase: Pure script creation
 
-- 
+-
       Quality Review: Validation against standards
 
-- 
+-
       Delivery Phase: Script only - TTS ready
 Standard (15-20 min): Single concept
 Extended (25-30 min): Multi-faceted topic

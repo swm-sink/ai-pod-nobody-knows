@@ -31,12 +31,12 @@ Simple breakdown should include:
 ### Setup Instructions
 
 
-- 
-                
+-
+
 {IMPLEMENTATION_STEP_1}
 
-- 
-                
+-
+
 {IMPLEMENTATION_STEP_2}
 
 **Example:**

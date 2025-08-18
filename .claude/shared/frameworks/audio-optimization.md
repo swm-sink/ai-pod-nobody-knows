@@ -143,51 +143,51 @@ Attention management included
 Integration Notes
 For Script-Writer Agent
 
-- 
-        
+-
 
-- 
+
+-
           Apply formatting during script generation
 
-- 
+-
           Use SSML tags strategically
 
-- 
+-
           Maintain natural speech patterns
 
-- 
+-
           Check against forbidden elements
 For Quality-Evaluator Agent
 
-- 
-        
+-
 
-- 
+
+-
           Validate TTS compatibility
 
-- 
+-
           Check SSML usage frequency
 
-- 
+-
           Verify natural speech patterns
 
-- 
+-
           Ensure audio-only clarity
 For Audio-Synthesizer Agent (Future)
 
-- 
-        
+-
 
-- 
+
+-
           Direct ElevenLabs Turbo V2 input
 
-- 
+-
           No post-processing required
 
-- 
+-
           Consistent quality output
 
-- 
+-
           Natural speech synthesis
 Audio Quality Gates
 Agent Integration
