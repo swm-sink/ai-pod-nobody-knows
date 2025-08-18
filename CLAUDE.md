@@ -104,6 +104,39 @@
   </context-loading>
 </essential-commands>
 
+## 🔒 SECURITY CONFIGURATION
+
+<security-setup>
+  <github-integration>
+    **Technical:** GitHub Personal Access Token configured in .env for secure repository operations.
+    **Simple:** Like having a special key that only works for this one project - keeps your main GitHub account safe.
+    **Connection:** This teaches secure credential management and environment-based configuration patterns.
+
+    **Setup:** 
+    - PAT stored in `.env` file (git-ignored)
+    - Remote URL uses environment variable: `${GITHUB_PAT}`
+    - Token scope limited to repository access only
+    - Never committed to version control
+
+    **Usage:**
+    ```bash
+    source .env && git push origin main
+    ```
+  </github-integration>
+
+  <api-key-management>
+    **Technical:** All sensitive credentials isolated in .env with proper .gitignore protection.
+    **Simple:** Like keeping all your passwords in a locked drawer that never leaves your house.
+    **Connection:** This teaches production security practices and credential isolation.
+
+    **Protected Keys:**
+    - PERPLEXITY_API_KEY (research operations)
+    - ELEVENLABS_API_KEY (audio synthesis) 
+    - GITHUB_PAT (repository operations)
+    - OPENROUTER_API_KEY (future platform integration)
+  </api-key-management>
+</security-setup>
+
 ## ⚠️ BRUTAL ENFORCEMENT PROTOCOLS - ZERO TOLERANCE
 
 <anti-hallucination-protocol type="MANDATORY" enforcement="HARSH">
