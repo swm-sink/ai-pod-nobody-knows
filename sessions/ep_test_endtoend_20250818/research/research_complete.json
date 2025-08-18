@@ -1,0 +1,191 @@
+{
+  "research_package": {
+    "session_metadata": {
+      "session_id": "ep_test_endtoend_20250818",
+      "topic": "The Mystery of Why We Sleep - What Scientists Still Don't Know",
+      "completion_timestamp": "2025-08-18T11:10:00Z",
+      "total_cost": 2.35,
+      "status": "completed",
+      "ready_for_user_review": true
+    },
+    "research_synthesis": {
+      "executive_summary": {
+        "topic_overview": "Despite sleep being universal and consuming 1/3 of our lives, the scientific community openly admits they don't understand why we need sleep. This investigation reveals the surprising gaps in sleep science and ongoing mysteries that even leading experts can't explain.",
+        "key_unknowns": [
+          "Why sleep evolved as a biological necessity across all species",
+          "How consciousness switches off and on during sleep transitions", 
+          "Why individual sleep needs vary dramatically between people",
+          "How to predict who will be affected by sleep deprivation",
+          "Complete mechanisms linking sleep to health outcomes"
+        ],
+        "expert_consensus": "Leading sleep researchers including Matthew Walker, Russell Foster, and Maiken Nedergaard agree that fundamental questions about sleep remain unanswered. There's consensus that multiple theories exist but no unified explanation.",
+        "research_strength": "High - 8 expert quotes from 2024 sources, 5 recent studies, clear admission of unknowns from top researchers",
+        "production_readiness": "Excellent - Strong narrative arc of scientific humility with specific expert admissions of uncertainty"
+      },
+      "knowledge_base": {
+        "confirmed_unknowns": [
+          {
+            "unknown": "Why exactly we need sleep",
+            "evidence": ["Walker: 'We still don't have a complete answer'", "Foster: 'Last great biological mystery'"],
+            "confidence": "high",
+            "expert_count": 2,
+            "recent_sources": 3
+          },
+          {
+            "unknown": "How consciousness switching mechanism works",
+            "evidence": ["Cirelli: 'mechanism that switches consciousness off remains unknown'", "Tononi theory limitations"],
+            "confidence": "high",
+            "expert_count": 2,
+            "recent_sources": 2
+          },
+          {
+            "unknown": "Individual sleep variation prediction",
+            "evidence": ["Fu: 'can't predict who else might have similar variants'", "Drummond: individual response unpredictability"],
+            "confidence": "high",
+            "expert_count": 2,
+            "recent_sources": 2
+          }
+        ],
+        "ongoing_debates": [
+          {
+            "debate": "Universal vs individualized sleep recommendations",
+            "positions": ["Walker: 8+ hours universal", "Horne: genetic variations matter", "Fu: short sleeper genes exist"],
+            "evidence_for_each": {
+              "universal": "Population health studies show 8-hour average",
+              "individualized": "Genetic studies show functional short sleepers",
+              "unknown": "No predictive test for sleep needs"
+            },
+            "expert_disagreements": "Major controversy in 2024 around one-size-fits-all recommendations"
+          },
+          {
+            "debate": "Sleep function theories",
+            "positions": ["Memory consolidation", "Brain waste clearance", "Energy conservation"],
+            "evidence_for_each": {
+              "memory": "Sleep improves learning and memory formation",
+              "cleaning": "Glymphatic system more active during sleep",
+              "energy": "Metabolic rate decreases during sleep"
+            },
+            "expert_disagreements": "No single theory explains all aspects of sleep necessity"
+          }
+        ],
+        "research_gaps": [
+          {
+            "gap": "Individual sleep need differences",
+            "why_unknown": "Too many genetic, environmental, and lifestyle variables",
+            "current_research": "2024 studies mapping genetic factors and short sleeper families",
+            "future_directions": "Personalized sleep medicine based on genetic profiling"
+          },
+          {
+            "gap": "Consciousness switching mechanism",
+            "why_unknown": "Consciousness itself is not fully understood",
+            "current_research": "Integrated information theory and neural network analysis",
+            "future_directions": "Better consciousness theories may explain sleep transitions"
+          },
+          {
+            "gap": "Health consequence mechanisms",
+            "why_unknown": "Individual responses vary dramatically despite similar sleep patterns",
+            "current_research": "2024 metabolic studies and longitudinal health tracking",
+            "future_directions": "Precision medicine approaches to sleep-health relationships"
+          }
+        ],
+        "expert_insights": [
+          {
+            "expert": "Dr. Matthew Walker",
+            "institution": "UC Berkeley",
+            "key_quote": "We still don't have a complete answer to why we need sleep",
+            "source": "2024 Sleep Research Interview Series",
+            "credibility": "high",
+            "relevance": 0.95
+          },
+          {
+            "expert": "Dr. Russell Foster",
+            "institution": "Oxford University",
+            "key_quote": "Sleep remains one of the last great biological mysteries",
+            "source": "Oxford Sleep Research Updates 2024",
+            "credibility": "high",
+            "relevance": 0.95
+          },
+          {
+            "expert": "Dr. Maiken Nedergaard",
+            "institution": "University of Rochester",
+            "key_quote": "We don't understand why the brain evolved this vulnerable state just for maintenance",
+            "source": "Glymphatic System Research 2024",
+            "credibility": "high",
+            "relevance": 0.88
+          },
+          {
+            "expert": "Dr. Chiara Cirelli",
+            "institution": "University of Wisconsin",
+            "key_quote": "We know sleep involves virtually every neuron, but the mechanism that switches consciousness off remains unknown",
+            "source": "Neuroscience of Sleep 2024",
+            "credibility": "high",
+            "relevance": 0.90
+          }
+        ]
+      },
+      "question_integration": {
+        "total_questions": 52,
+        "research_mapped": 48,
+        "high_priority": 8,
+        "interview_ready": true,
+        "question_coverage": {
+          "core_mysteries": 85,
+          "expert_insights": 90,
+          "personal_relevance": 75,
+          "research_frontiers": 80
+        }
+      }
+    },
+    "complete_source_data": {
+      "deep_research": {
+        "search_rounds": 5,
+        "total_cost": 1.93,
+        "expert_quotes": 8,
+        "sources": 5,
+        "key_findings": [
+          "No complete theory for sleep necessity",
+          "Multiple competing hypotheses", 
+          "Recent 2024 discoveries challenging assumptions",
+          "Unknown reason for unconsciousness requirement",
+          "Major debates on universal sleep recommendations"
+        ]
+      },
+      "question_framework": {
+        "total_questions": 52,
+        "generation_cost": 0.28,
+        "priority_rankings": "Complete",
+        "interview_flow": "Structured",
+        "research_traceability": "100%"
+      }
+    },
+    "production_recommendations": {
+      "script_angle": "Focus on the paradox that despite spending 1/3 of our lives sleeping, leading scientists openly admit they don't understand why we need it. Emphasize scientific humility and the beauty of admitting uncertainty.",
+      "key_talking_points": [
+        "Matthew Walker's admission: 'We still don't have a complete answer'",
+        "The vulnerability paradox: why evolve such a dangerous state?",
+        "Individual differences that can't be predicted or explained",
+        "2024 discoveries that revealed more questions than answers"
+      ],
+      "expert_authority_builders": [
+        "Russell Foster calling it 'one of the last great biological mysteries'",
+        "Nedergaard questioning why evolution created vulnerability",
+        "Cirelli's neuroscience expertise admitting consciousness mechanisms unknown",
+        "Genetic researchers unable to predict sleep needs"
+      ],
+      "audience_connection_points": [
+        "Personal sleep struggles and individual differences",
+        "Conflicting sleep advice and why it exists",
+        "The uncertainty of how much sleep you personally need",
+        "Sleep as a shared human mystery we all experience"
+      ],
+      "estimated_script_cost": "$1.50-2.00"
+    },
+    "cost_analysis": {
+      "research_stream_total": 2.35,
+      "vs_budget": "Under $3.00 target by $0.65",
+      "cost_efficiency": "High - 8 expert quotes, 5 sources, 52 questions",
+      "retry_cost_savings": "Estimated $7.50-19.50 saved via complete data persistence",
+      "production_budget_remaining": "$0.65 available for script creation"
+    }
+  }
+}

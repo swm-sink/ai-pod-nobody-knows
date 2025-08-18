@@ -1,0 +1,57 @@
+{
+  "session_metadata": {
+    "session_id": "ep_test_endtoend_20250818",
+    "topic": "The Mystery of Why We Sleep - What Scientists Still Don't Know",
+    "status": "research_stream_complete",
+    "created_timestamp": "2025-08-18T10:00:00Z",
+    "completed_timestamp": "2025-08-18T11:10:00Z",
+    "budget": {
+      "target_max": 3.00,
+      "research_allocated": 2.50,
+      "production_allocated": 0.50
+    },
+    "stream": "research",
+    "phase": "completed_awaiting_user_review"
+  },
+  "cost_tracking": {
+    "total_spent": 2.35,
+    "budget_remaining": 0.65,
+    "by_agent": {
+      "deep_research_agent": 1.93,
+      "question_generator": 0.28,
+      "research_synthesizer": 0.14
+    },
+    "by_service": {
+      "perplexity": 1.93,
+      "question_analysis": 0.28,
+      "synthesis": 0.14
+    }
+  },
+  "agents_status": {
+    "deep_research_agent": "completed",
+    "question_generator": "completed", 
+    "research_synthesizer": "completed"
+  },
+  "validation_checkpoints": {
+    "session_created": true,
+    "agents_ready": true,
+    "research_complete": true,
+    "data_persisted": true,
+    "user_review_ready": true
+  },
+  "deliverables": {
+    "research_package": "/sessions/ep_test_endtoend_20250818/research/research_complete.json",
+    "user_summary": "/sessions/ep_test_endtoend_20250818/research/research_summary.md",
+    "deep_research": "/sessions/ep_test_endtoend_20250818/research/deep_research_complete.json",
+    "questions": "/sessions/ep_test_endtoend_20250818/research/questions_complete.json",
+    "session_tracking": "/sessions/ep_test_endtoend_20250818/research/session_metadata.json"
+  },
+  "quality_metrics": {
+    "expert_quotes": 8,
+    "recent_sources": 5,
+    "questions_generated": 52,
+    "research_coverage": 0.95,
+    "cost_efficiency": "high",
+    "data_persistence": "complete"
+  }
+}

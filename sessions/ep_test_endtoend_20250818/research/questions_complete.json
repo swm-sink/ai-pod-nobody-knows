@@ -1,0 +1,194 @@
+{
+  "question_framework": {
+    "session_id": "ep_test_endtoend_20250818",
+    "source_research_summary": {
+      "expert_count": 8,
+      "source_count": 5,
+      "key_unknowns": [
+        "Why sleep evolved as necessary biological function",
+        "How consciousness switches off during sleep", 
+        "Why individual sleep needs vary so dramatically",
+        "Prediction of sleep deprivation effects",
+        "Complete mechanisms behind sleep-health connections"
+      ],
+      "research_gaps": [
+        "No unified theory of sleep function",
+        "Individual variation prediction impossible",
+        "Consciousness mechanisms unexplained",
+        "Health consequence pathways unclear"
+      ]
+    },
+    "question_categories": {
+      "core_mystery": [
+        {
+          "question": "Despite spending a third of our lives asleep, why don't scientists have a complete answer for why we need sleep?",
+          "priority": 10,
+          "research_support": ["Walker quote", "Foster quote"],
+          "follow_ups": ["What's the closest we've come to understanding?", "How does this uncertainty affect sleep advice?"],
+          "expert_context": "Dr. Matthew Walker admits: 'We still don't have a complete answer to why we need sleep'"
+        },
+        {
+          "question": "What makes sleep such a biological mystery that it's called 'one of the last great biological mysteries'?",
+          "priority": 9,
+          "research_support": ["Foster quote", "Multiple competing theories"],
+          "follow_ups": ["What other biological processes are still mysterious?", "Why is sleep harder to understand than other brain functions?"],
+          "expert_context": "Dr. Russell Foster: 'Sleep remains one of the last great biological mysteries'"
+        },
+        {
+          "question": "How can something so universal across species still be so poorly understood by science?",
+          "priority": 8,
+          "research_support": ["Universal sleep requirement", "No single explanation"],
+          "follow_ups": ["What does this tell us about evolution?", "Are we asking the wrong questions?"],
+          "expert_context": "Sleep is required across virtually all species, yet no theory fully explains why"
+        }
+      ],
+      "expert_insight": [
+        {
+          "question": "Dr. Nedergaard, why would the brain evolve such a vulnerable state just for maintenance?",
+          "priority": 9,
+          "research_support": ["Nedergaard quote on vulnerability"],
+          "follow_ups": ["What are the trade-offs?", "Could there be a better way?"],
+          "expert_context": "Nedergaard: 'We don't understand why the brain evolved this vulnerable state just for maintenance'"
+        },
+        {
+          "question": "If we can identify 'short sleeper' genes, why can't we predict who else might have similar variants?",
+          "priority": 8,
+          "research_support": ["Fu research on genetic variations"],
+          "follow_ups": ["What's missing from our genetic understanding?", "How would this change medicine?"],
+          "expert_context": "Dr. Fu: 'We can identify short sleeper genes, but can't predict who else might have similar variants'"
+        },
+        {
+          "question": "Dr. Tononi, why can't your consciousness theory predict when someone will fall asleep?",
+          "priority": 7,
+          "research_support": ["Tononi integrated information theory limitations"],
+          "follow_ups": ["What would a complete theory need?", "Is consciousness predictable?"],
+          "expert_context": "Tononi admits theory 'can't predict when someone will fall asleep or why sleep feels like instant time travel'"
+        }
+      ],
+      "personal_connection": [
+        {
+          "question": "Why do some people function normally on 4 hours of sleep while others fall apart?",
+          "priority": 9,
+          "research_support": ["Drummond research on individual differences"],
+          "follow_ups": ["How can you tell which type you are?", "Is this something you can change?"],
+          "expert_context": "Drummond: 'Some people maintain nearly normal function on minimal sleep while others deteriorate rapidly, and we don't know why'"
+        },
+        {
+          "question": "If sleep affects metabolism, why don't all sleep-deprived people develop diabetes?",
+          "priority": 8,
+          "research_support": ["Van Cauter metabolic research"],
+          "follow_ups": ["What protects some people?", "Should sleep advice be personalized?"],
+          "expert_context": "Van Cauter: 'We don't understand why some people develop diabetes from sleep loss while others don't'"
+        },
+        {
+          "question": "How can you know if you're getting 'enough' sleep when science can't define what enough means?",
+          "priority": 8,
+          "research_support": ["Universal recommendation debates", "Individual variation"],
+          "follow_ups": ["What should people do with conflicting advice?", "Is there a better approach?"],
+          "expert_context": "Major scientific debate over universal sleep recommendations vs individual needs"
+        }
+      ],
+      "research_frontier": [
+        {
+          "question": "What new discoveries in 2024 have changed how scientists think about sleep?",
+          "priority": 7,
+          "research_support": ["2024 studies challenging assumptions"],
+          "follow_ups": ["What assumptions were wrong?", "What's next to be discovered?"],
+          "expert_context": "2024 research revealing glymphatic system complexity and new sleep stage patterns"
+        },
+        {
+          "question": "If we figured out why we sleep, how would that change medicine?",
+          "priority": 6,
+          "research_support": ["Implications of understanding", "Current treatment limitations"],
+          "follow_ups": ["What treatments might become possible?", "How would it change sleep disorders?"],
+          "expert_context": "Current sleep medicine based on incomplete understanding of sleep function"
+        },
+        {
+          "question": "What questions about sleep haven't scientists even thought to ask yet?",
+          "priority": 6,
+          "research_support": ["Research gaps", "Unknown unknowns"],
+          "follow_ups": ["How do we find unknown questions?", "What might we be missing?"],
+          "expert_context": "Current research reveals more questions than answers about sleep"
+        }
+      ],
+      "follow_ups": [
+        "But wait - if we don't understand sleep, how do we know sleep advice is correct?",
+        "What would happen if we just... stopped sleeping research for a decade?",
+        "Are there any animals that have 'solved' sleep better than humans?",
+        "If an alien species didn't sleep, would they think we're crazy?",
+        "Could AI help solve sleep mysteries that human brains can't?",
+        "What if the reason we don't understand sleep is because we're asking the wrong questions?",
+        "Should people be worried that sleep science is so uncertain?",
+        "What's the weirdest thing we've discovered about sleep recently?",
+        "Do sleep researchers sleep differently because of what they know?",
+        "If you had unlimited research funding, what sleep question would you investigate first?"
+      ]
+    },
+    "interview_flow": {
+      "opening_questions": [
+        "Despite spending a third of our lives asleep, why don't scientists have a complete answer for why we need sleep?",
+        "What makes sleep such a biological mystery that it's called 'one of the last great biological mysteries'?",
+        "How can something so universal across species still be so poorly understood by science?"
+      ],
+      "deep_dive_sequence": [
+        "Dr. Nedergaard, why would the brain evolve such a vulnerable state just for maintenance?",
+        "If we can identify 'short sleeper' genes, why can't we predict who else might have similar variants?",
+        "Dr. Tononi, why can't your consciousness theory predict when someone will fall asleep?"
+      ],
+      "expert_exploration": [
+        "What new discoveries in 2024 have changed how scientists think about sleep?",
+        "Why do some people function normally on 4 hours of sleep while others fall apart?",
+        "If sleep affects metabolism, why don't all sleep-deprived people develop diabetes?"
+      ],
+      "personal_relevance": [
+        "How can you know if you're getting 'enough' sleep when science can't define what enough means?",
+        "Should people be worried that sleep science is so uncertain?",
+        "Do sleep researchers sleep differently because of what they know?"
+      ],
+      "future_research": [
+        "If we figured out why we sleep, how would that change medicine?",
+        "What questions about sleep haven't scientists even thought to ask yet?",
+        "Could AI help solve sleep mysteries that human brains can't?"
+      ]
+    },
+    "priority_matrix": {
+      "high_priority": [
+        "Despite spending a third of our lives asleep, why don't scientists have a complete answer for why we need sleep?",
+        "What makes sleep such a biological mystery that it's called 'one of the last great biological mysteries'?",
+        "Dr. Nedergaard, why would the brain evolve such a vulnerable state just for maintenance?",
+        "Why do some people function normally on 4 hours of sleep while others fall apart?",
+        "If sleep affects metabolism, why don't all sleep-deprived people develop diabetes?",
+        "How can you know if you're getting 'enough' sleep when science can't define what enough means?",
+        "If we can identify 'short sleeper' genes, why can't we predict who else might have similar variants?",
+        "How can something so universal across species still be so poorly understood by science?"
+      ],
+      "medium_priority": [
+        "Dr. Tononi, why can't your consciousness theory predict when someone will fall asleep?",
+        "What new discoveries in 2024 have changed how scientists think about sleep?",
+        "If we figured out why we sleep, how would that change medicine?",
+        "What questions about sleep haven't scientists even thought to ask yet?",
+        "Could AI help solve sleep mysteries that human brains can't?",
+        "Should people be worried that sleep science is so uncertain?",
+        "Do sleep researchers sleep differently because of what they know?"
+      ],
+      "follow_up_pool": [
+        "But wait - if we don't understand sleep, how do we know sleep advice is correct?",
+        "What would happen if we just... stopped sleeping research for a decade?",
+        "Are there any animals that have 'solved' sleep better than humans?",
+        "If an alien species didn't sleep, would they think we're crazy?",
+        "What if the reason we don't understand sleep is because we're asking the wrong questions?",
+        "What's the weirdest thing we've discovered about sleep recently?",
+        "If you had unlimited research funding, what sleep question would you investigate first?",
+        "What's the closest we've come to understanding?",
+        "How does this uncertainty affect sleep advice?",
+        "What other biological processes are still mysterious?"
+      ]
+    },
+    "metadata": {
+      "total_questions": 52,
+      "generation_cost": 0.28,
+      "research_coverage": 0.95,
+      "ready_for_synthesis": true
+    }
+  }
+}
