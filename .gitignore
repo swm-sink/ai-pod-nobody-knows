@@ -1,5 +1,23 @@
 # Prevent root directory pollution
-# Temporary analysis and reports should go in .claude/level-2-production/
+# Development files should go in appropriate directories
+
+# Logs
+*.log
+logs/
+
+# Backups and temporary files
+*.backup
+*~
+
+# Archives
+docs/archive/
+
+# Test sessions
+sessions/test_*/
+sessions/ep_test_*/
+sessions/archive/
+
+# Analysis and working files
 /*.txt
 /*.xml
 /*analysis*.json
