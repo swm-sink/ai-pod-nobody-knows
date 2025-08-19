@@ -1,6 +1,11 @@
 #!/bin/bash
 # This script loads environment variables and starts Claude Code with MCP servers
 
+# Set default environment variables for portability
+export PWD="$(pwd)"
+export NODE_EXTRA_CA_CERTS="${NODE_EXTRA_CA_CERTS:-/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/certifi/cacert.pem}"
+export CLAUDE_CODE_BUILDER_PATH="${CLAUDE_CODE_BUILDER_PATH:-/Users/smenssink/Documents/GitHub/claude-code-builder}"
+
 # Load environment variables from .env if it exists
 if [ -f .env ]; then
     echo "Loading API keys from .env file..."
@@ -30,3 +35,4 @@ fi
 # Start Claude Code
 echo "Starting Claude Code with MCP servers..."
 claude
+exit $?

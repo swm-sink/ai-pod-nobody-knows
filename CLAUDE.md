@@ -110,7 +110,7 @@
     **Simple:** Like having a special key that only works for this one project - keeps your main GitHub account safe.
     **Connection:** This teaches secure credential management and environment-based configuration patterns.
 
-    **Setup:** 
+    **Setup:**
     - PAT stored in `.env` file (git-ignored)
     - Remote URL uses environment variable: `${GITHUB_PAT}`
     - Token scope limited to repository access only
@@ -129,7 +129,7 @@
 
     **Protected Keys:**
     - PERPLEXITY_API_KEY (research operations)
-    - ELEVENLABS_API_KEY (audio synthesis) 
+    - ELEVENLABS_API_KEY (audio synthesis)
     - GITHUB_PAT (repository operations)
     - OPENROUTER_API_KEY (future platform integration)
   </api-key-management>

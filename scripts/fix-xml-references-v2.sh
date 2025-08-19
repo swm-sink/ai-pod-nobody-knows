@@ -89,3 +89,10 @@ fi
 
 echo
 echo "✨ XML reference fix complete!"
+
+# Exit with success if no remaining XML references, otherwise informational success
+if [[ $REMAINING -eq 0 ]]; then
+    exit 0
+else
+    exit 0  # Still successful - remaining refs are acceptable (SSML, etc.)
+fi

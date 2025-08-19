@@ -3,7 +3,7 @@
 # Replacement for Level-1-Dev quality hooks using new optimized patterns
 
 # Configuration
-PATTERNS_DIR="/Users/smenssink/Documents/GitHub/claude-code-builder/repository-structure/patterns"
+PATTERNS_DIR="${CLAUDE_CODE_BUILDER_PATH:-/Users/smenssink/Documents/GitHub/claude-code-builder}/repository-structure/patterns"
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
 # Verify patterns directory exists

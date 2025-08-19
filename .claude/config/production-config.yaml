@@ -4,8 +4,8 @@
 # ALL other configurations must reference values from this file
 
 metadata:
-  version: "3.0.0"
-  last_updated: "2025-01-14"
+  version: "3.1.0"
+  last_updated: "2025-08-18"
   authority: "MASTER_CONFIG"
   schema_version: "1.0"
   config_hash_cmd: "sha256sum production-config.yaml | cut -d' ' -f1"

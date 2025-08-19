@@ -1,4 +1,5 @@
-# Simple Error Handling Configuration
+# Simple Error Handling Configuration v3.1.0
+# Last Updated: 2025-08-18
 # Defines what to do when common errors occur
 
 error_types:
@@ -10,8 +11,9 @@ error_types:
       - "API rate limit"
       - "Service temporarily unavailable"
     action: "retry"
-    max_retries: 3
-    wait_between_retries: 10  # seconds
+    max_retries: 3            # Synchronized with production-config.yaml
+    wait_strategy: "exponential_backoff"  # 5s → 10s → 20s
+    rate_limit_wait: 60       # Special case: API rate limits need longer wait
 
   # Quality issues - try to fix the content
   quality:
@@ -53,10 +55,14 @@ quality_gates:
     engagement: 0.80         # Interesting to listen to
     technical_accuracy: 0.85 # Facts are correct
 
-# Retry settings
+# Retry settings - SYNCHRONIZED with production-config.yaml
 retry_policy:
-  delays: [5, 10, 30]  # seconds between retries
-  max_total_time: 300  # 5 minutes max
+  max_attempts: 3           # From production-config.yaml
+  base_delay_seconds: 5     # From production-config.yaml  
+  max_delay_seconds: 60     # From production-config.yaml
+  backoff_multiplier: 2     # From production-config.yaml
+  delays: [5, 10, 20]       # Calculated: 5, 5*2, 10*2 (capped at 60)
+  max_total_time: 300       # 5 minutes max
 
 # Where to save error logs
 logging:

@@ -141,11 +141,11 @@ All files: EPISODE_SPECS['duration_minutes']-minute episodes
 ### **@ File Hopping System**
 ```markdown
 # Quick navigation patterns:
-@foundation/01_project_overview.xml → Project introduction
-@claude-code/15_claude_code_introduction.xml → Platform basics
-@elevenlabs/15_elevenlabs_overview.xml → Voice synthesis
-@quality/02_hallucination_prevention_guide.xml → Accuracy
-@operations/01_troubleshooting_guide.xml → Problem solving
+@foundation/01_project_overview.md → Project introduction
+@claude-code/15_claude_code_introduction.md → Platform basics
+@elevenlabs/15_elevenlabs_overview.md → Voice synthesis
+@quality/02_hallucination_prevention_guide.md → Accuracy
+@operations/01_troubleshooting_guide.md → Problem solving
 ```
 
 ### **Domain Navigation Hubs**
@@ -159,7 +159,7 @@ Each domain includes:
 # Navigation hierarchy:
 Master → @NAVIGATION_INDEX.md
 Domain → @context/{domain}/NAVIGATION.md  
-Specific → @context/{domain}/{file}.xml
+Specific → @context/{domain}/{file}.md
 ```
 
 ---
@@ -233,22 +233,23 @@ Every domain file includes:
 ## ⚡ QUICK ACTIONS
 
 ### **Learning Paths**
-- **Complete Beginner**: @foundation/01_project_overview.xml
-- **Platform Focus**: @claude-code/15_claude_code_introduction.xml
-- **Production Focus**: @elevenlabs/15_elevenlabs_overview.xml
-- **Quality Focus**: @quality/02_hallucination_prevention_guide.xml
+- **Complete Beginner**: @foundation/01_project_overview.md
+- **Platform Focus**: @claude-code/15_claude_code_introduction.md
+- **Production Focus**: @elevenlabs/15_elevenlabs_overview.md
+- **Quality Focus**: @quality/02_hallucination_prevention_guide.md
 
-### **Domain Navigation**
-- **Foundation Learning**: @foundation/CLAUDE.md
-- **Claude Code Mastery**: @claude-code/CLAUDE.md
-- **Voice Synthesis**: @elevenlabs/CLAUDE.md
-- **Quality Assurance**: @quality/CLAUDE.md
-- **Operations Management**: @operations/CLAUDE.md
+### **Simplified Navigation**
+- **Master System**: @../CLAUDE.md (master system prompt)
+- **Agent Directory**: @../agents/ (14 specialized agents)
+- **Commands**: @../commands/ (4 production commands)
+- **Configuration**: @../config/ (centralized configs)
+- **Context Files**: @*.md (current directory)
+- **Documentation**: @../docs/ (essential guides)
 
-### **System Navigation**
-- **Master Navigation**: @../NAVIGATION_INDEX.md
-- **Context Overview**: @README.md
-- **Constants Access**: @{domain}/00_{domain}_constants.xml
+### **Key Files**
+- **Project Constants**: @00_project_constants.md
+- **Troubleshooting**: @01_troubleshooting_guide.md
+- **Quick Reference**: @02_quick_reference.md
 
 ---
 

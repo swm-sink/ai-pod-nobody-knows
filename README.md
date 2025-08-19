@@ -1,101 +1,92 @@
 # AI Podcasts - Nobody Knows 🎙️
 
-**A solo hobby project using Claude Code's native capabilities to produce an automated podcast series**
+**A simplified automated podcast system using Claude Code's native capabilities**
 
 ---
 
 ## 🎯 What This Is
 
-A production-ready automated podcast system using Claude Code's native AI to create the "Nobody Knows" series. See `projects/nobody-knows/series_plan/episodes_master.json` for the complete episode list.
+A production-ready automated podcast system using Claude Code's native AI to create the "Nobody Knows" series exploring intellectual humility. **Proven cost: $5.51 per episode** vs traditional $800-3500.
 
 ### Built With
-- **9 specialized Claude Code agents** for complete production pipeline
+- **14 specialized Claude Code agents** in two-stream architecture (Research → Production)
 - **MCP integrations** for research (Perplexity) and audio (ElevenLabs)
-- **4-level architecture** with strict separation of concerns
+- **Simplified v1.0 architecture** with agent-based organization
 - **Educational focus** with mandatory dual explanations (technical + simple)
 
 ---
 
-## 🏗️ Four-Level Architecture
+## 🌊 Two-Stream Architecture v1.0
 
-**Technical:** Hierarchical separation with strict dependency management and approval gates
-**Simple:** Like building levels in a video game - you must complete each before unlocking the next
+**Technical:** Simplified dual-stream design with clear separation between research and production workflows
+**Simple:** Like an assembly line with two stages - first we research a topic thoroughly, then we create the episode
 
 ```text
-Level 1: Development Platform (COMPLETE)
-├── Purpose: Build tools that build the production system
-├── Location: .claude/level-1-dev/
-├── Status: ✅ Agent builders and command builders ready
-└── Learning: Meta-programming and tool creation
+Research Stream (3 agents):
+├── 01_research-orchestrator → Coordinates multi-source research
+├── 02_deep-research-agent → Perplexity-powered deep research
+└── 03_question-generator → Generates targeted research questions
 
-Level 2: Native Claude Code Production (ACTIVE) ✅
-├── Purpose: Actual podcast production using Claude's built-in AI
-├── Location: .claude/level-2-production/
-├── Components:
-│   ├── 9 Production Agents (research → script → quality → audio)
-│   ├── Perplexity MCP (web research)
-│   └── ElevenLabs MCP (audio synthesis)
-├── Status: ✅ Production ready with complete testing suite
-└── Learning: Production system design and reliability
+Production Stream (10 agents):
+├── 01_production-orchestrator → Manages complete pipeline
+├── 02_episode-planner → Creates episode structure
+├── 03_script-writer → Generates podcast script
+├── 04_quality-claude → Claude-based quality validation
+├── 05_quality-gemini → Gemini-based quality validation
+├── 06_feedback-synthesizer → Combines quality feedback
+├── 07_script-polisher → Final script optimization
+├── 08_final-reviewer → Production approval gate
+├── 09_tts-optimizer → Audio preparation
+└── 10_audio-synthesizer → ElevenLabs generation
 
-Level 3: Platform Planning (DOCUMENTATION ONLY)
-├── Purpose: Design and document future platform
-├── Location: .claude/level-3-platform-dev/
-├── Status: 📝 Planning phase only - no code
-└── Learning: Architectural planning and migration strategy
-
-Level 4: Coded Python Platform (LOCKED 🔒)
-├── Purpose: Future FastAPI implementation
-├── Technologies: OpenRouter + Langfuse
-├── Status: ⚠️ REQUIRES EXPLICIT USER APPROVAL
-├── Gate: User must say "Approved for Level 4 implementation"
-└── Learning: Enterprise patterns and observability
-```text
+Stream Bridge:
+└── research-synthesizer → Research → Production handoff
+```
 
 ---
 
-## 📁 Real File Structure
+## 📁 Simplified File Structure v1.0
 
-**Technical:** Hierarchical filesystem organization following Unix conventions with separation of concerns and git-ignored sensitive data
-**Simple:** Like organizing your desk with labeled folders - everything has a specific place and private stuff stays private
+**Technical:** Streamlined organization with 93% file reduction while preserving all core functionality
+**Simple:** Like a clean, organized workshop - everything essential is easy to find, complexity is removed
 
 ```
 ai-podcasts-nobody-knows/
-├── .env                           # API keys (git-ignored)
-├── .claude/config/mcp-config.json # MCP configuration
-├── CLAUDE.md                      # Master system prompt (v5.0.0)
+├── CLAUDE.md                      # Master system configuration
 ├── README.md                      # This file
+├── .env                           # API keys (git-ignored)
 │
-├── .claude/                       # Claude Code configuration
-│   ├── level-1-dev/              # Development platform
-│   │   ├── agents/               # Agent builders
-│   │   └── commands/             # Command builders
-│   │
-│   ├── level-2-production/       # Production system
-│   │   ├── agents/               # Agent definitions (Markdown)
-│   │   │   ├── research-coordinator.md
-│   │   │   ├── script-writer.md
-│   │   │   ├── quality-evaluator.md
-│   │   │   └── audio-synthesizer.md
-│   │   └── commands/
-│   │       └── produce-episode.md
-│   │
-│   └── mcp-servers/              # Local MCP installations (git-ignored)
-│       ├── elevenlabs-mcp/       # Python-based MCP
-│       └── perplexity-mcp/       # Node.js-based MCP
+├── .claude/                       # Simplified Claude Code configuration (54 files)
+│   ├── agents/                   # 14 specialized agents
+│   │   ├── research/             # 3 research agents
+│   │   │   ├── 01_research-orchestrator.md
+│   │   │   ├── 02_deep-research-agent.md
+│   │   │   └── 03_question-generator.md
+│   │   ├── production/           # 10 production agents
+│   │   │   ├── 01_production-orchestrator.md
+│   │   │   ├── 02_episode-planner.md
+│   │   │   ├── 03_script-writer.md
+│   │   │   ├── 04_quality-claude.md
+│   │   │   ├── 05_quality-gemini.md
+│   │   │   ├── 06_feedback-synthesizer.md
+│   │   │   ├── 07_script-polisher.md
+│   │   │   ├── 08_final-reviewer.md
+│   │   │   ├── 09_tts-optimizer.md
+│   │   │   └── 10_audio-synthesizer.md
+│   │   └── research-synthesizer.md   # Stream bridge agent
+│   ├── commands/                 # 4 production commands
+│   ├── config/                   # 5 essential configuration files
+│   ├── context/                  # 10 core learning files
+│   ├── docs/                     # 8 essential documentation files
+│   ├── mcp-servers/              # 2 MCP setup files
+│   └── shared/                   # 5 essential templates
 │
-├── projects/nobody-knows/         # Output directory
+├── projects/nobody-knows/         # Project outputs
 │   ├── config/                   # Project configuration
-│   ├── output/                   # Generated episodes
-│   │   ├── audio/               # Final audio files
-│   │   ├── research/            # Research packages
-│   │   ├── scripts/             # Episode scripts
-│   │   ├── quality/             # Quality reports
-│   │   └── sessions/            # Session tracking
-│   └── series_plan/             # 125 episode definitions
+│   └── output/                   # Generated episodes and research
 │
-└── scripts/                      # Validation and pre-commit scripts
-    └── precommit/               # Automated quality checks
+├── sessions/                      # Session tracking (moved from .claude/)
+└── scripts/                      # Pre-commit validation scripts
 ```
 
 ---
@@ -163,24 +154,24 @@ pre-commit install
 **In Claude Code interface:**
 
 ```
-# Test with dry run first (no API costs)
-/test-episode-dry-run
-
-# Produce a single episode
+# Produce a complete episode (research + production)
 /produce-episode
 
-# Batch production
-/batch-produce
+# Research only (save for later production)
+/produce-research
+
+# Batch production of multiple episodes
+/produce-series
+
+# Review and validate existing research
+/review-research
 ```
 
-### Available Production Commands
-- `/produce-episode` - Main production orchestrator
-- `/test-episode-dry-run` - Test without API calls
-- `/batch-produce` - Multiple episode production
-- `/pipeline-coordinator` - Manage production pipeline
-- `/production-metrics` - View production statistics
-- `/agent-builder-production` - Create new agents
-- `/command-builder-production` - Create new commands
+### Available Production Commands (4 Total)
+- `/produce-episode` - Complete episode production (research → script → audio)
+- `/produce-research` - Research stream only (save research for later)
+- `/produce-series` - Batch production of multiple episodes
+- `/review-research` - Validate and review existing research packages
 
 ---
 
@@ -189,10 +180,11 @@ pre-commit install
 **Technical:** Token-based pricing model with API rate optimization and batch processing for cost efficiency
 **Simple:** Like paying for phone minutes - you only pay for what you use, and we've optimized to use as few 'minutes' as possible
 
-### Target Budget (Solo/Hobby)
-- **Per Episode**: $4-5 (estimated)
-- **Daily Limit**: $10.00
-- **Alert at**: $4.00
+### Proven Results (Solo/Hobby)
+- **Per Episode**: $5.51 (achieved) vs $800-3500 traditional
+- **Episode Length**: 27 minutes
+- **Daily Limit**: $15.00
+- **Alert at**: $10.00
 
 ### API Costs (ESTIMATED)
 - **Perplexity**: Research (~$2-3)
@@ -201,22 +193,32 @@ pre-commit install
 
 ---
 
-## 🤖 Actual AI Agents
+## 🤖 Two-Stream Agent Architecture
 
-**Technical:** Specialized Claude Code agents with role-based responsibilities using chain-of-thought prompting and handoff protocols
-**Simple:** Like a relay race team where each runner specializes in their part - researcher finds info, writer creates script, reviewer checks quality
+**Technical:** 14 specialized Claude Code agents organized in research and production streams with clear handoff protocols
+**Simple:** Like two assembly lines - first line researches topics thoroughly, second line creates polished podcast episodes
 
-All agents are in `.claude/level-2-production/agents/` (9 agents total):
+All agents are in `.claude/agents/` (14 agents total):
 
-1. **01_research_coordinator.md** - Perplexity MCP web research
-2. **02_episode_planner.md** - Episode structure and flow planning
-3. **03_script_writer.md** - Claude Code script generation
-4. **04_quality_claude.md** - Claude-based quality evaluation
-5. **05_quality_gemini.md** - Gemini cross-validation (optional)
-6. **06_feedback_synthesizer.md** - Consolidate quality feedback
-7. **07_script_polisher.md** - Final script refinement
-8. **08_final_reviewer.md** - Production approval gate
-9. **09_audio_synthesizer.md** - ElevenLabs audio generation
+### Research Stream (3 agents):
+1. **01_research-orchestrator.md** - Coordinates multi-source research
+2. **02_deep-research-agent.md** - Perplexity-powered deep research  
+3. **03_question-generator.md** - Generates targeted research questions
+
+### Production Stream (10 agents):
+4. **01_production-orchestrator.md** - Manages complete pipeline
+5. **02_episode-planner.md** - Creates episode structure
+6. **03_script-writer.md** - Generates podcast script
+7. **04_quality-claude.md** - Claude-based quality validation
+8. **05_quality-gemini.md** - Gemini-based quality validation
+9. **06_feedback-synthesizer.md** - Combines quality feedback
+10. **07_script-polisher.md** - Final script optimization
+11. **08_final-reviewer.md** - Production approval gate
+12. **09_tts-optimizer.md** - Audio preparation
+13. **10_audio-synthesizer.md** - ElevenLabs generation
+
+### Stream Bridge (1 agent):
+14. **research-synthesizer.md** - Research → Production handoff
 
 ---
 

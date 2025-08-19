@@ -266,7 +266,9 @@ main() {
         reset-daily)
             local today
             today=$(date '+%Y-%m-%d')
-            jq --arg date "$today" 'del(.daily_costs[$date])' "$COST_DB_FILE" > /tmp/cost-db-temp && mv /tmp/cost-db-temp "$COST_DB_FILE"
+            local temp_reset_file
+            temp_reset_file=$(mktemp)
+            jq --arg date "$today" 'del(.daily_costs[$date])' "$COST_DB_FILE" > "$temp_reset_file" && mv "$temp_reset_file" "$COST_DB_FILE"
             log_info "🔄 Reset daily costs for $today"
             ;;
         help|*)
@@ -293,3 +295,4 @@ main() {
 
 # Execute main function with all arguments
 main "$@"
+exit $?

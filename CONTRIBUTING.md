@@ -75,7 +75,7 @@ done
 
 # Test with Claude Code
 # Start Claude Code and run:
-/test-episode-dry-run
+/produce-research  # Test research pipeline only
 
 # Run pre-commit hooks
 pre-commit run --all-files
@@ -89,18 +89,19 @@ pre-commit run --all-files
 
 ## 📐 Code Standards
 
-### File Organization
+### File Organization (Simplified v1.0)
 ```
-.claude/
-├── level-1-dev/        # Development tools
-├── level-2-production/ # Production system
-│   ├── agents/        # 9 production agents
-│   ├── commands/      # Production commands
-│   ├── tests/         # Test suites
-│   └── tools/         # Helper scripts
-├── level-3-platform-dev/ # Platform planning
-├── context/           # XML documentation
-└── shared/            # Shared resources
+.claude/                   # 54 files total (93% reduction achieved)
+├── agents/               # 14 specialized agents
+│   ├── research/         # 3 research agents
+│   ├── production/       # 10 production agents  
+│   └── research-synthesizer.md  # Stream bridge
+├── commands/             # 4 production commands
+├── config/               # 5 essential configs
+├── context/              # 10 core learning files
+├── docs/                 # 8 essential docs
+├── mcp-servers/          # 2 MCP setup files
+└── shared/               # 5 essential templates
 ```
 
 ### Naming Conventions
@@ -113,21 +114,20 @@ pre-commit run --all-files
 
 **IMPORTANT**: Never generate files in the root directory. Use these standard locations:
 
-- **Analysis outputs**: `.claude/level-2-production/analysis/`
-  - XML transformation plans
-  - Semantic analysis results
-  - Code analysis reports
+- **Documentation**: `.claude/docs/`
+  - System documentation
+  - Architecture guides
+  - User guides
 
-- **Validation reports**: `.claude/level-2-production/reports/`
-  - Compliance reports
-  - Audit results
-  - Validation summaries
-  - Release reports
+- **Configuration**: `.claude/config/`
+  - Production configs
+  - Quality gates
+  - MCP settings
 
-- **Temporary files**: `.claude/archive/`
-  - One-time analysis
-  - Historical validations
-  - Backup documents
+- **Temporary analysis**: `sessions/` (root level)
+  - Session tracking
+  - Production logs
+  - Cost analysis
 
 - **Session data**: `projects/nobody-knows/output/sessions/`
   - Episode production sessions

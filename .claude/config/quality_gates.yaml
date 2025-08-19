@@ -1,45 +1,46 @@
 # Quality Gates Configuration for Nobody Knows Podcast Production
-# Version: 3.0.0 - CENTRALIZED CONFIGURATION
-# Last Updated: 2025-01-15
+# Version: 3.1.0 - CENTRALIZED CONFIGURATION
+# Last Updated: 2025-08-18
 # Purpose: Define quality thresholds and evaluation criteria for multi-agent production pipeline
 #
 # CONFIGURATION CENTRALIZATION:
-# This file now uses CONFIG references from production-config.yaml (Single Source of Truth)
-# All ${CONFIG_*} variables are loaded by config-loader.sh
-# CRITICAL: Source config-loader.sh before using this file
+# This file references values from production-config.yaml (Single Source of Truth)
+# Target duration: 28 minutes (25-30 min range)
+# Target content: 4200 words, 21000 characters
+# IMPORTANT: Keep values synchronized with production-config.yaml
 
 quality_gates:
   # Core quality thresholds (0.0 - 1.0 scale)
   thresholds:
     comprehension:
-      minimum: ${CONFIG_QUALITY_COMPREHENSION_MIN}  # From master config
-      target: ${CONFIG_QUALITY_COMPREHENSION_TARGET}    # From master config
+      minimum: 0.85              # Must exceed for publication
+      target: 0.90               # Quality goal
       description: "General audience understanding without prior technical knowledge"
-      weight: ${CONFIG_WEIGHT_COMPREHENSION}
+      weight: 0.25               # Importance in overall score
 
     brand_consistency:
-      minimum: ${CONFIG_QUALITY_BRAND_MIN}        # From master config
-      target: ${CONFIG_QUALITY_BRAND_TARGET}          # From master config
+      minimum: 0.90              # Core brand requirement
+      target: 0.95               # Brand excellence
       description: "Alignment with Nobody Knows brand voice and philosophy"
-      weight: ${CONFIG_WEIGHT_BRAND}
+      weight: 0.30               # Highest importance
 
     engagement:
-      minimum: ${CONFIG_QUALITY_ENGAGEMENT_MIN}      # From master config
-      target: ${CONFIG_QUALITY_ENGAGEMENT_TARGET}        # From master config
-      description: "Ability to maintain listener interest for full ${CONFIG_EPISODE_DURATION_TARGET} minutes"  # From master config
-      weight: ${CONFIG_WEIGHT_ENGAGEMENT}
+      minimum: 0.80              # Listener retention requirement
+      target: 0.85               # Engagement goal
+      description: "Ability to maintain listener interest for full 28 minutes"
+      weight: 0.20               # Audience experience
 
     technical_accuracy:
-      minimum: ${CONFIG_QUALITY_TECHNICAL_MIN}      # From master config
-      target: ${CONFIG_QUALITY_TECHNICAL_TARGET}        # From master config
+      minimum: 0.85              # Factual correctness requirement
+      target: 0.92               # Technical excellence
       description: "Factual correctness and proper technical explanations"
-      weight: ${CONFIG_WEIGHT_TECHNICAL}
+      weight: 0.25               # Critical for credibility
 
   # Brand voice requirements
   brand_metrics:
     intellectual_humility:
-      minimum_per_episode: ${CONFIG_BRAND_HUMILITY_MIN}    # From master config
-      target_per_episode: ${CONFIG_BRAND_HUMILITY_TARGET}      # From master config
+      minimum_per_episode: 3            # Minimum acceptable
+      target_per_episode: 5             # Per episode target
       examples:
         - "Nobody fully understands..."
         - "We're still learning..."
@@ -48,8 +49,8 @@ quality_gates:
         - "The honest answer is we don't know..."
 
     question_density:
-      minimum_per_1000_words: ${CONFIG_BRAND_QUESTIONS_MIN}  # From master config
-      target_per_1000_words: ${CONFIG_BRAND_QUESTIONS_TARGET}    # From master config
+      minimum_per_1000_words: 2         # Minimum engagement
+      target_per_1000_words: 4          # Target curiosity questions
       types:
         - curiosity_prompts: "What if...?"
         - technical_questions: "How does this actually work?"
@@ -57,16 +58,16 @@ quality_gates:
         - engagement: "Have you ever wondered...?"
 
     feynman_analogies:
-      minimum_per_episode: ${CONFIG_BRAND_ANALOGIES_MIN}    # From master config
-      target_per_episode: ${CONFIG_BRAND_ANALOGIES_TARGET}      # From master config
+      minimum_per_episode: 3            # Basic requirement
+      target_per_episode: 5             # Clear explanations
       quality_criteria:
         - uses_everyday_objects: true
         - builds_progressively: true
         - avoids_nested_complexity: true
 
     fridman_curiosity:
-      minimum_expressions: ${CONFIG_BRAND_FRIDMAN_MIN}
-      target_expressions: ${CONFIG_BRAND_FRIDMAN_TARGET}
+      minimum_expressions: 2
+      target_expressions: 4
       markers:
         - "fascinating"
         - "really interesting"
@@ -76,21 +77,21 @@ quality_gates:
   # Episode structure requirements
   structure:
     duration:
-      target_minutes: ${CONFIG_EPISODE_DURATION_TARGET}  # From master config (CORRECTED)
-      tolerance_minutes: ${CONFIG_EPISODE_TOLERANCE}
-      word_count_target: ${CONFIG_EPISODE_WORDS_TARGET}    # From master config (CORRECTED)
-      word_count_range: [${CONFIG_EPISODE_WORDS_MIN}, ${CONFIG_EPISODE_WORDS_MAX}]  # From master config
+      target_minutes: 28              # Episode target duration
+      tolerance_minutes: 1            # Acceptable variance
+      word_count_target: 4200         # Target word count (28 min * 150 WPM)
+      word_count_range: [3750, 4650]  # Min/max word counts
 
     segments:
       introduction:
-        duration_range: [${CONFIG_INTRO_MIN}, ${CONFIG_INTRO_MAX}]
+        duration_range: [1.0, 2.0]     # Introduction duration minutes
         required_elements:
           - hook
           - thesis_statement
           - episode_preview
 
       body:
-        duration_range: [${CONFIG_BODY_MIN}, ${CONFIG_BODY_MAX}]
+        duration_range: [24.0, 26.0]   # Main body duration minutes
         required_elements:
           - foundation_concepts
           - progressive_complexity
@@ -98,7 +99,7 @@ quality_gates:
           - intellectual_humility_moments
 
       conclusion:
-        duration_range: [${CONFIG_CONCLUSION_MIN}, ${CONFIG_CONCLUSION_MAX}]
+        duration_range: [1.0, 2.0]     # Conclusion duration minutes
         required_elements:
           - key_takeaways
           - curiosity_prompt
@@ -106,7 +107,7 @@ quality_gates:
 
   # Multi-model evaluation consensus
   evaluation_consensus:
-    agreement_threshold: ${CONFIG_QUALITY_AGREEMENT_THRESHOLD}  # Maximum acceptable score difference from master config
+    agreement_threshold: 0.10           # Good agreement threshold
     conflict_resolution:
       - strategy: "average"
         when: "difference < minor_threshold"
@@ -118,20 +119,20 @@ quality_gates:
         action: "human_review"
 
     model_weights:
-      claude: ${CONFIG_QUALITY_CLAUDE_WEIGHT}  # Slightly favor Claude for nuanced evaluation (from master config)
-      gemini: ${CONFIG_QUALITY_GEMINI_WEIGHT}  # Gemini for factual verification (from master config)
+      claude: 0.55                        # Primary evaluator weight
+      gemini: 0.45                        # Secondary evaluator weight
 
   # Revision thresholds
   revision_triggers:
     minor_revision:
       when: "1-2 gates fail by small margin"
-      max_time_minutes: ${CONFIG_MINOR_REVISION_TIME}
-      max_attempts: ${CONFIG_MINOR_REVISION_ATTEMPTS}
+      max_time_minutes: 10
+      max_attempts: 2
 
     major_revision:
       when: "3+ gates fail OR any gate fails by significant margin"
-      max_time_minutes: ${CONFIG_MAJOR_REVISION_TIME}
-      max_attempts: ${CONFIG_MAJOR_REVISION_ATTEMPTS}
+      max_time_minutes: 20
+      max_attempts: 3
 
     complete_rewrite:
       when: "any score below critical threshold OR technical_accuracy below minimum"
@@ -140,63 +141,63 @@ quality_gates:
 
   # Cost controls
   cost_limits:
-    per_episode_maximum: ${CONFIG_COST_PER_EPISODE_MAXIMUM}  # From master config
-    per_episode_target: ${CONFIG_COST_PER_EPISODE_TARGET}     # From master config (CORRECTED)
-    revision_budget: ${CONFIG_COST_REVISION_BUDGET}  # From master config
-    alert_threshold: ${CONFIG_COST_ALERT_THRESHOLD}           # From master config
+    per_episode_maximum: 9.00           # Hard limit - pipeline halt
+    per_episode_target: 6.30            # Realistic target cost
+    revision_budget: 1.50               # Budget for revisions
+    alert_threshold: 7.50               # Warning threshold
 
     agent_budgets:
-      01_research_coordinator: ${CONFIG_COST_RESEARCH}
-      02_episode_planner: ${CONFIG_COST_PLANNER}
-      03_script_writer: ${CONFIG_COST_SCRIPT}
-      04_quality_claude: ${CONFIG_COST_QUALITY_CLAUDE}
-      05_quality_gemini: ${CONFIG_COST_QUALITY_GEMINI}  # FREE tier from master config
-      06_feedback_synthesizer: ${CONFIG_COST_FEEDBACK}
-      07_script_polisher: ${CONFIG_COST_POLISHER}
-      08_final_reviewer: ${CONFIG_COST_REVIEWER}
-      09_audio_synthesizer: ${CONFIG_COST_AUDIO}
+      01_research_coordinator: 2.50      # Perplexity + Claude research
+      02_episode_planner: 0.25           # Planning and coordination
+      03_script_writer: 1.75             # Script generation
+      04_quality_claude: 0.50            # Quality evaluation
+      05_quality_gemini: 0.00            # Free tier
+      06_feedback_synthesizer: 0.25      # Feedback processing
+      07_script_polisher: 0.75           # TTS preparation
+      08_final_reviewer: 0.25            # Final validation
+      09_audio_synthesizer: 6.30         # ElevenLabs TTS (major cost)
 
   # Progressive complexity by season
   complexity_progression:
     season_1:
-      episodes: [${CONFIG_SEASON1_START}, ${CONFIG_SEASON1_END}]
-      complexity_range: [${CONFIG_SEASON1_COMPLEXITY_MIN}, ${CONFIG_SEASON1_COMPLEXITY_MAX}]
+      episodes: [1, 25]
+      complexity_range: [1, 3]
       focus: "fundamental_concepts"
 
     season_2:
-      episodes: [${CONFIG_SEASON2_START}, ${CONFIG_SEASON2_END}]
-      complexity_range: [${CONFIG_SEASON2_COMPLEXITY_MIN}, ${CONFIG_SEASON2_COMPLEXITY_MAX}]
+      episodes: [26, 50]
+      complexity_range: [3, 5]
       focus: "building_understanding"
 
     season_3:
-      episodes: [${CONFIG_SEASON3_START}, ${CONFIG_SEASON3_END}]
-      complexity_range: [${CONFIG_SEASON3_COMPLEXITY_MIN}, ${CONFIG_SEASON3_COMPLEXITY_MAX}]
+      episodes: [51, 75]
+      complexity_range: [5, 7]
       focus: "technical_depth"
 
     season_4:
-      episodes: [${CONFIG_SEASON4_START}, ${CONFIG_SEASON4_END}]
-      complexity_range: [${CONFIG_SEASON4_COMPLEXITY_MIN}, ${CONFIG_SEASON4_COMPLEXITY_MAX}]
+      episodes: [76, 100]
+      complexity_range: [7, 9]
       focus: "cutting_edge_research"
 
     season_5:
-      episodes: [${CONFIG_SEASON5_START}, ${CONFIG_SEASON5_END}]
-      complexity_range: [${CONFIG_SEASON5_COMPLEXITY_MIN}, ${CONFIG_SEASON5_COMPLEXITY_MAX}]
+      episodes: [101, 125]
+      complexity_range: [8, 10]
       focus: "philosophical_implications"
 
   # Failure handling
   failure_policies:
-    max_total_attempts: ${CONFIG_MAX_TOTAL_ATTEMPTS}
-    timeout_minutes: ${CONFIG_TIMEOUT_MINUTES}
+    max_total_attempts: 5
+    timeout_minutes: 45
 
     escalation_path:
       - level: 1
-        after_attempts: ${CONFIG_ESCALATION_L1_ATTEMPTS}
+        after_attempts: 2
         action: "increase_model_tier"
       - level: 2
-        after_attempts: ${CONFIG_ESCALATION_L2_ATTEMPTS}
+        after_attempts: 3
         action: "alert_user"
       - level: 3
-        after_attempts: ${CONFIG_ESCALATION_L3_ATTEMPTS}
+        after_attempts: 5
         action: "halt_pipeline"
 
     recovery_strategies:
