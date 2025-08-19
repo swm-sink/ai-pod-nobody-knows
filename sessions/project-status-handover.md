@@ -10,7 +10,7 @@
 
 ### Project Cleanup Completed
 - **README.md**: Simplified and corrected ✅
-- **File Organization**: 
+- **File Organization**:
   - Moved handover docs to `.claude/sessions/` ✅
   - Moved architecture phases to `.claude/context/foundation/06_architecture_phases.md` ✅
   - Deleted obsolete audit files and backups ✅
@@ -85,7 +85,7 @@ Level 4: Future Coded Platform (REQUIRES APPROVAL - DO NOT BUILD)
 1. **Agents Configured**:
    - research-coordinator.md → Uses `perplexity_ask` MCP tool
    - script-writer.md → Uses Claude native
-   - quality-evaluator.md → Uses Claude native  
+   - quality-evaluator.md → Uses Claude native
    - audio-synthesizer.md → Uses `text_to_speech` MCP tool
 
 2. **Commands Available**:

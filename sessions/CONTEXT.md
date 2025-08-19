@@ -68,7 +68,7 @@ ep_002_20250814_1245       → Session with timestamp
   "stages_completed": [
     "01_deep_research",
     "02_questions",
-    "03_synthesis", 
+    "03_synthesis",
     "04_quality_claude"
   ],
   "stages_remaining": [

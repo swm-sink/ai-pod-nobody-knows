@@ -1,5 +1,5 @@
 ---
-name: research-orchestrator
+name: 01_research-orchestrator
 description: PROACTIVELY orchestrates the complete research pipeline for podcast episodes. Manages three-agent research workflow with full data persistence.
 tools: Read, Write, TodoWrite
 ---

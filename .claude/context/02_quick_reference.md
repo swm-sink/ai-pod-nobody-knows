@@ -10,20 +10,20 @@
 ### Setup Instructions
 
 
-- 
-                
+-
+
 **Project Setup**: Create virtual environment, install dependencies, configure API keys
 
-- 
-                
+-
+
 **Daily Operations**: Start server, run tests, check code quality, view logs
 
-- 
-                
+-
+
 **Claude Code Integration**: Memory management, thinking modes, MCP servers, file operations
 
-- 
-                
+-
+
 **Emergency Recovery**: Context overflow, performance issues, cost spikes, quality degradation
 
 **Example:**

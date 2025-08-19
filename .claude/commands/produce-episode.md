@@ -28,7 +28,7 @@ Execute the complete production pipeline for a podcast episode using approved re
 
 ## Execution
 
-Use the production-orchestrator subagent to produce episode from research at: $ARGUMENTS
+Use the 01_production-orchestrator subagent to produce episode from research at: $ARGUMENTS
 
 The production orchestrator will:
 1. Validate research package exists and is complete

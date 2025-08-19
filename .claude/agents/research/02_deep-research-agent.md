@@ -1,5 +1,5 @@
 ---
-name: deep-research-agent
+name: 02_deep-research-agent
 description: PROACTIVELY conducts comprehensive Perplexity research for podcast episodes. Multi-round deep research with full data persistence.
 tools: mcp__perplexity__perplexity_ask, Read, Write
 ---

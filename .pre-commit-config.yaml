@@ -90,9 +90,10 @@ repos:
         pass_filenames: false
         stages: [commit]
 
-      - id: level-1-dev-quality
-        name: Level-1-Dev quality checks
-        entry: .claude/level-1-dev/quality/hooks/pre-commit-quality.sh
-        language: system
-        stages: [commit]
-        files: \.(sh|yaml|yml|md|xml)$
+      # - id: level-1-dev-quality
+        # name: Level-1-Dev quality checks  
+        # entry: .claude/level-1-dev/quality/hooks/pre-commit-quality.sh
+        # language: system
+        # stages: [commit]
+        # files: \.(sh|yaml|yml|md|xml)$
+        # NOTE: level-1-dev directory removed during simplification

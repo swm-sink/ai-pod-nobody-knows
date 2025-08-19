@@ -29,12 +29,12 @@ setup_test() {
 test_agent_spec() {
     setup_test
     log_test "Testing deep research agent specification"
-    
+
     if [ ! -f "$AGENT_FILE" ]; then
         log_fail "Agent file not found: $AGENT_FILE"
         return 1
     fi
-    
+
     # Check required tools
     if grep -q "mcp__perplexity__perplexity_ask" "$AGENT_FILE"; then
         log_pass "Required Perplexity tool specified"
@@ -42,7 +42,7 @@ test_agent_spec() {
         log_fail "Missing required Perplexity tool"
         return 1
     fi
-    
+
     # Check multi-round research capability
     if grep -q "Multi-Round\|round_1\|round_2" "$AGENT_FILE"; then
         log_pass "Multi-round research capability documented"
@@ -56,7 +56,7 @@ test_agent_spec() {
 test_checkpoint_format() {
     setup_test
     log_test "Testing checkpoint format for deep research agent"
-    
+
     # Create test checkpoint
     cat > "$TEST_SESSION_DIR/deep_research_complete.json" << 'EOF'
 {
@@ -82,7 +82,7 @@ test_checkpoint_format() {
     }
 }
 EOF
-    
+
     # Validate JSON structure
     if jq empty "$TEST_SESSION_DIR/deep_research_complete.json" 2>/dev/null; then
         log_pass "Checkpoint JSON structure valid"
@@ -90,7 +90,7 @@ EOF
         log_fail "Invalid checkpoint JSON structure"
         return 1
     fi
-    
+
     # Check required fields
     local required_fields=("checkpoint_type" "session_id" "status" "research_results" "expert_quotes")
     for field in "${required_fields[@]}"; do
@@ -101,7 +101,7 @@ EOF
             return 1
         fi
     done
-    
+
     log_pass "Checkpoint format validation complete"
 }
 
@@ -109,7 +109,7 @@ EOF
 test_research_quality() {
     setup_test
     log_test "Testing research quality validation"
-    
+
     # Check agent has quality thresholds
     if grep -q "50.*sources\|expert.*quotes\|confidence.*level" "$AGENT_FILE"; then
         log_pass "Quality thresholds specified in agent"
@@ -117,12 +117,12 @@ test_research_quality() {
         log_fail "Quality thresholds not found in agent specification"
         return 1
     fi
-    
+
     # Test quality validation logic
     local expert_quotes=8
     local total_sources=50
     local min_sources=50
-    
+
     if [ $expert_quotes -ge 5 ] && [ $total_sources -ge $min_sources ]; then
         log_pass "Research quality metrics meet requirements"
     else
@@ -135,7 +135,7 @@ test_research_quality() {
 test_cost_tracking() {
     setup_test
     log_test "Testing cost tracking integration"
-    
+
     # Check if agent spec mentions cost tracking
     if grep -q "cost.*invested\|budget\|cost.*tracking" "$AGENT_FILE"; then
         log_pass "Cost tracking integration documented"
@@ -143,11 +143,11 @@ test_cost_tracking() {
         log_fail "Cost tracking integration not documented"
         return 1
     fi
-    
+
     # Validate cost estimation
     local estimated_cost=1.93
     local max_cost=2.50
-    
+
     if (( $(echo "$estimated_cost <= $max_cost" | bc -l) )); then
         log_pass "Cost estimation within budget"
     else
@@ -161,7 +161,7 @@ test_mock_research() {
     if [ "$MOCK_MODE" = "true" ]; then
         setup_test
         log_test "Testing mock research functionality"
-        
+
         # Create mock research output
         cat > "$TEST_SESSION_DIR/mock_research_output.json" << 'EOF'
 {
@@ -183,7 +183,7 @@ test_mock_research() {
     }
 }
 EOF
-        
+
         # Validate mock output
         if jq -e '.total_research.total_expert_quotes >= 5' "$TEST_SESSION_DIR/mock_research_output.json" >/dev/null; then
             log_pass "Mock research meets quality requirements"
@@ -199,19 +199,19 @@ EOF
 # Run All Tests
 run_tests() {
     log_test "Starting deep research agent tests"
-    
+
     test_agent_spec
-    test_checkpoint_format  
+    test_checkpoint_format
     test_research_quality
     test_cost_tracking
     test_mock_research
-    
+
     # Summary
     echo "=== Deep Research Agent Test Summary ==="
     echo "Tests Run: $TESTS_RUN"
     echo "Passed: $TESTS_PASSED"
     echo "Failed: $TESTS_FAILED"
-    
+
     if [ $TESTS_FAILED -eq 0 ]; then
         echo "✅ All deep research agent tests passed"
         return 0

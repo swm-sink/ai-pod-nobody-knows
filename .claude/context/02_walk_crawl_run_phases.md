@@ -30,24 +30,24 @@ The walking phase is like learning to walk before you run - you understand how A
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Set up development environment and project structure
 
-- 
-                
+-
+
 Install Python and verify basic dependencies
 
-- 
-                
+-
+
 Study AI agent concepts and coordination patterns
 
-- 
-                
+-
+
 Design agent interactions and workflows manually
 
-- 
-                
+-
+
 Build foundational knowledge through hands-on exercises
 
 **Example:**
@@ -94,24 +94,24 @@ The crawling phase is like a baby learning to crawl - you start using real AI se
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Set up API keys and external service connections
 
-- 
-                
+-
+
 Build and test first working agents with supervision
 
-- 
-                
+-
+
 Implement cost monitoring and budget controls
 
-- 
-                
+-
+
 Create quality validation and testing procedures
 
-- 
-                
+-
+
 Produce first complete episode within cost targets
 
 **Example:**
@@ -156,24 +156,24 @@ The running phase is like learning to run marathon - you have a fully automated 
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Deploy fully automated multi-agent production system
 
-- 
-                
+-
+
 Implement advanced cost optimization to hit $4-5 per episode target
 
-- 
-                
+-
+
 Create automated quality refinement and continuous improvement
 
-- 
-                
+-
+
 Scale implementation to batch production of complete seasons
 
-- 
-                
+-
+
 Achieve project goals: Season 1 complete with cost targets met
 
 **Example:**

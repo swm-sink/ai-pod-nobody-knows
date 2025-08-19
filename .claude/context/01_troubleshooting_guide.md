@@ -12,20 +12,20 @@
 ### Setup Instructions
 
 
-- 
-                
+-
+
 **Installation Issues**: Most problems start with environment setup. Verify Python version (3.11+), virtual environment activation, and package installation.
 
-- 
-                
+-
+
 **Server Issues**: Check port conflicts, file existence, and Python path configuration before starting services.
 
-- 
-                
+-
+
 **API Issues**: Validate API keys, rate limiting, timeouts, and authentication before making expensive calls.
 
-- 
-                
+-
+
 **Agent Issues**: Debug empty responses, quality failures, and coordination problems using Claude Code's agent debugging tools.
 
 **Example:**

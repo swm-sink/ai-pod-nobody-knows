@@ -1,4 +1,4 @@
-The cat sat on the mat. The dog ran to the park. Birds fly high in the sky. Fish swim in the sea. 
+The cat sat on the mat. The dog ran to the park. Birds fly high in the sky. Fish swim in the sea.
 
 Kids like to play games. They run and jump. They laugh and sing. The sun is bright today.
 

@@ -22,7 +22,7 @@ Execute the complete research pipeline for a podcast episode using the research 
 
 ## Execution
 
-Use the research-orchestrator subagent to conduct comprehensive research on: $ARGUMENTS
+Use the 01_research-orchestrator subagent to conduct comprehensive research on: $ARGUMENTS
 
 The research orchestrator will:
 1. Create session directory with timestamp

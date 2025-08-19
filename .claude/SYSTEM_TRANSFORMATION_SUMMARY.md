@@ -40,7 +40,7 @@
 
 **Test Session**: `test_episode_20250818_211549`
 - **Research Agent**: ✅ Created focused research with expert quotes
-- **Script Writer**: ✅ Generated engaging 475-word script draft  
+- **Script Writer**: ✅ Generated engaging 475-word script draft
 - **Quality Evaluator**: ✅ Provided comprehensive assessment
 - **File Management**: ✅ Clean session organization
 
@@ -67,7 +67,7 @@
 .claude/
 ├── agents/
 │   ├── research/           # 3 specialized research agents
-│   ├── production/         # 10 specialized production agents  
+│   ├── production/         # 10 specialized production agents
 │   └── research-synthesizer.md # Bridge agent
 ├── commands/               # 4 simple slash commands
 ├── config/                 # Clean configuration files

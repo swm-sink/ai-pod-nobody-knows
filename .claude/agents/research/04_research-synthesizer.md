@@ -1,5 +1,5 @@
 ---
-name: research-synthesizer
+name: 04_research-synthesizer
 description: PROACTIVELY synthesizes comprehensive research findings into structured knowledge base for script development.
 tools: Read, Write
 ---

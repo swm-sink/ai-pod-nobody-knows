@@ -30,38 +30,38 @@ setup_test() {
 # Helper function to calculate Flesch Reading Ease
 calculate_flesch_score() {
     local text_file="$1"
-    
+
     # Count sentences (periods, exclamation marks, question marks)
     local sentence_count
     sentence_count=$(grep -o "[.!?]" "$text_file" | wc -l)
-    
+
     # Count words (space-separated tokens)
     local word_count
     word_count=$(wc -w < "$text_file")
-    
+
     # Count syllables (simple approximation: vowel groups)
     local syllable_count
     syllable_count=$(tr -d '[:space:][:punct:][:digit:]' < "$text_file" | \
                      tr '[:upper:]' '[:lower:]' | \
                      grep -o '[aeiou]\+' | wc -l)
-    
+
     # Handle edge cases
     if [ "$sentence_count" -eq 0 ]; then sentence_count=1; fi
     if [ "$word_count" -eq 0 ]; then word_count=1; fi
     if [ "$syllable_count" -eq 0 ]; then syllable_count=$word_count; fi
-    
+
     # Calculate Flesch Reading Ease: 206.835 - (1.015 × ASL) - (84.6 × ASW)
     # ASL = Average Sentence Length (words/sentences)
     # ASW = Average Syllables per Word (syllables/words)
     local asl
     asl=$(echo "scale=2; $word_count / $sentence_count" | bc -l)
-    
+
     local asw
     asw=$(echo "scale=2; $syllable_count / $word_count" | bc -l)
-    
+
     local flesch_score
     flesch_score=$(echo "scale=1; 206.835 - (1.015 * $asl) - (84.6 * $asw)" | bc -l)
-    
+
     echo "$flesch_score"
 }
 
@@ -69,7 +69,7 @@ calculate_flesch_score() {
 test_humility_phrase_detection() {
     setup_test
     log_test "Testing humility phrase detection accuracy"
-    
+
     # Create test content with known humility phrases
     cat > "$TEST_DATA_DIR/sample_scripts/humility_test.md" << 'EOF'
 # Test Script for Humility Phrase Detection (1000 words)
@@ -120,7 +120,7 @@ EOF
         "It's possible"
         "What seems clear"
     )
-    
+
     # Test humility phrase detection
     local detected_count=0
     for phrase in "${expected_humility_phrases[@]}"; do
@@ -128,17 +128,17 @@ EOF
             detected_count=$((detected_count + 1))
         fi
     done
-    
+
     log_info "Detected $detected_count humility phrases out of ${#expected_humility_phrases[@]} expected"
-    
+
     # Calculate per-1000-word ratio
     local word_count
     word_count=$(wc -w < "$TEST_DATA_DIR/sample_scripts/humility_test.md")
     local humility_per_1000
     humility_per_1000=$(echo "scale=1; $detected_count * 1000 / $word_count" | bc -l)
-    
+
     log_info "Humility phrases per 1000 words: $humility_per_1000"
-    
+
     # Validate against quality gates (min 3, target 5)
     if (( $(echo "$humility_per_1000 >= 5.0" | bc -l) )); then
         log_pass "Humility phrase density meets target (≥5.0): $humility_per_1000"
@@ -148,21 +148,21 @@ EOF
         log_fail "Humility phrase density below minimum (<3.0): $humility_per_1000"
         return 1
     fi
-    
+
     # Test edge cases - partial matches should not count
     echo "We think of understanding" > "$TEST_DATA_DIR/sample_scripts/partial_match_test.md"
     local partial_matches=0
     if grep -q "We think we understand" "$TEST_DATA_DIR/sample_scripts/partial_match_test.md" 2>/dev/null; then
         partial_matches=1
     fi
-    
+
     if [ "$partial_matches" -eq 0 ]; then
         log_pass "Partial matches correctly rejected"
     else
         log_fail "Partial matches incorrectly counted"
         return 1
     fi
-    
+
     log_pass "Humility phrase detection accuracy validated"
 }
 
@@ -170,7 +170,7 @@ EOF
 test_question_density() {
     setup_test
     log_test "Testing question density calculation"
-    
+
     # Create test content with known questions
     cat > "$TEST_DATA_DIR/sample_scripts/question_test.md" << 'EOF'
 # Test Script for Question Detection (1000 words)
@@ -203,17 +203,17 @@ EOF
     # Count questions
     local question_count
     question_count=$(grep -o "?" "$TEST_DATA_DIR/sample_scripts/question_test.md" | wc -l)
-    
+
     log_info "Detected $question_count questions"
-    
+
     # Calculate per-1000-word ratio
     local word_count
     word_count=$(wc -w < "$TEST_DATA_DIR/sample_scripts/question_test.md")
     local questions_per_1000
     questions_per_1000=$(echo "scale=1; $question_count * 1000 / $word_count" | bc -l)
-    
+
     log_info "Questions per 1000 words: $questions_per_1000"
-    
+
     # Validate against quality gates (min 2, target 4)
     if (( $(echo "$questions_per_1000 >= 4.0" | bc -l) )); then
         log_pass "Question density meets target (≥4.0): $questions_per_1000"
@@ -223,7 +223,7 @@ EOF
         log_fail "Question density below minimum (<2.0): $questions_per_1000"
         return 1
     fi
-    
+
     # Test distinction between rhetorical and genuine questions
     if [ "$question_count" -ge 15 ]; then
         log_pass "Sufficient questions detected for engagement analysis"
@@ -231,7 +231,7 @@ EOF
         log_fail "Insufficient questions for proper engagement measurement"
         return 1
     fi
-    
+
     log_pass "Question density calculation validated"
 }
 
@@ -239,7 +239,7 @@ EOF
 test_flesch_reading_ease() {
     setup_test
     log_test "Testing Flesch Reading Ease score calculation"
-    
+
     # Create test content with known complexity
     cat > "$TEST_DATA_DIR/sample_scripts/flesch_test_simple.md" << 'EOF'
 The cat sat on the mat. The dog ran in the park. Birds fly in the sky. Fish swim in the water.
@@ -261,12 +261,12 @@ EOF
     local simple_score
     simple_score=$(calculate_flesch_score "$TEST_DATA_DIR/sample_scripts/flesch_test_simple.md")
     log_info "Simple text Flesch score: $simple_score"
-    
+
     # Test complex text
     local complex_score
     complex_score=$(calculate_flesch_score "$TEST_DATA_DIR/sample_scripts/flesch_test_complex.md")
     log_info "Complex text Flesch score: $complex_score"
-    
+
     # Validate that simple text scores higher than complex text
     if (( $(echo "$simple_score > $complex_score" | bc -l) )); then
         log_pass "Flesch calculation correctly distinguishes text complexity"
@@ -274,7 +274,7 @@ EOF
         log_fail "Flesch calculation failed to distinguish complexity levels"
         return 1
     fi
-    
+
     # Test target range validation (60-80)
     create_target_text() {
         cat > "$TEST_DATA_DIR/sample_scripts/flesch_test_target.md" << 'EOF'
@@ -291,19 +291,19 @@ Modern AI systems can process language, recognize images, and solve complex prob
 Think of it like exploring an uncharted territory. Each discovery opens new questions. The journey toward understanding artificial intelligence continues to surprise researchers and challenge our assumptions about thinking itself.
 EOF
     }
-    
+
     create_target_text
     local target_score
     target_score=$(calculate_flesch_score "$TEST_DATA_DIR/sample_scripts/flesch_test_target.md")
     log_info "Target range text Flesch score: $target_score"
-    
+
     # Validate target range (60-80)
     if (( $(echo "$target_score >= 60.0 && $target_score <= 80.0" | bc -l) )); then
         log_pass "Target text within optimal Flesch range (60-80): $target_score"
     else
         log_info "Target text outside optimal range (testing boundary): $target_score"
     fi
-    
+
     log_pass "Flesch Reading Ease calculation validated"
 }
 
@@ -311,22 +311,22 @@ EOF
 test_weighted_score_calculation() {
     setup_test
     log_test "Testing weighted score calculation for brand voice quality gate"
-    
+
     # Load quality gate configuration
     if [ ! -f "$QUALITY_CONFIG" ]; then
         log_fail "Quality configuration file not found: $QUALITY_CONFIG"
         return 1
     fi
-    
+
     # Extract brand consistency threshold and weight
     local brand_threshold
     brand_threshold=$(jq -r '.quality_gates.brand_consistency.threshold' "$QUALITY_CONFIG")
-    
+
     local brand_weight
     brand_weight=$(jq -r '.quality_gates.brand_consistency.weight' "$QUALITY_CONFIG")
-    
+
     log_info "Brand consistency threshold: $brand_threshold, weight: $brand_weight"
-    
+
     # Test scoring calculation
     test_score_scenario() {
         local humility_score="$1"
@@ -334,21 +334,21 @@ test_weighted_score_calculation() {
         local avoided_terms_score="$3"
         local expected_result="$4"
         local scenario_name="$5"
-        
+
         # Calculate weighted brand score (simplified model)
         # In actual implementation, this would use the quality agent's algorithm
         local brand_score
         brand_score=$(echo "scale=3; ($humility_score * 0.4) + ($question_score * 0.3) + ($avoided_terms_score * 0.3)" | bc -l)
-        
+
         log_info "Scenario '$scenario_name': Brand score = $brand_score"
-        
+
         # Test threshold comparison
         if (( $(echo "$brand_score >= $brand_threshold" | bc -l) )); then
             local result="PASS"
         else
             local result="FAIL"
         fi
-        
+
         if [ "$result" = "$expected_result" ]; then
             log_pass "Scenario '$scenario_name' calculated correctly: $result"
         else
@@ -356,14 +356,14 @@ test_weighted_score_calculation() {
             return 1
         fi
     }
-    
+
     # Test various scenarios
     test_score_scenario "1.0" "1.0" "1.0" "PASS" "Perfect scores"
     test_score_scenario "0.85" "0.85" "0.85" "FAIL" "Slightly below threshold"
     test_score_scenario "1.0" "0.8" "0.9" "PASS" "Mixed high scores"
     test_score_scenario "0.8" "0.8" "0.8" "FAIL" "All below target"
     test_score_scenario "0.95" "0.95" "0.95" "PASS" "Above threshold"
-    
+
     log_pass "Weighted score calculation validated"
 }
 
@@ -371,21 +371,21 @@ test_weighted_score_calculation() {
 test_failure_action_recommendations() {
     setup_test
     log_test "Testing failure action recommendations"
-    
+
     # Load failure actions from configuration
     local failure_actions
     failure_actions=$(jq -r '.failure_actions.below_brand_consistency[]' "$QUALITY_CONFIG" 2>/dev/null || echo "")
-    
+
     if [ -z "$failure_actions" ]; then
         log_fail "No failure actions defined in quality configuration"
         return 1
     fi
-    
+
     log_info "Available failure actions for brand consistency:"
     echo "$failure_actions" | while read -r action; do
         log_info "  - $action"
     done
-    
+
     # Test recommendation logic
     test_recommendation_trigger() {
         local humility_phrases="$1"
@@ -393,24 +393,24 @@ test_failure_action_recommendations() {
         local avoided_terms="$3"
         local expected_recommendations="$4"
         local scenario_name="$5"
-        
+
         local recommendations=()
-        
+
         # Logic for recommendations based on deficiencies
         if (( $(echo "$humility_phrases < 3.0" | bc -l) )); then
             recommendations+=("Add intellectual humility phrases")
         fi
-        
+
         if (( $(echo "$questions < 2.0" | bc -l) )); then
             recommendations+=("Increase questioning tone")
         fi
-        
+
         if (( $(echo "$avoided_terms > 2" | bc -l) )); then
             recommendations+=("Remove absolutist language")
         fi
-        
+
         log_info "Scenario '$scenario_name': ${#recommendations[@]} recommendations generated"
-        
+
         if [ "${#recommendations[@]}" -eq "$expected_recommendations" ]; then
             log_pass "Correct number of recommendations for '$scenario_name'"
         else
@@ -418,14 +418,14 @@ test_failure_action_recommendations() {
             return 1
         fi
     }
-    
+
     # Test recommendation scenarios
     test_recommendation_trigger "2.5" "1.5" "3" "3" "Multiple deficiencies"
     test_recommendation_trigger "5.0" "4.0" "0" "0" "Perfect metrics"
     test_recommendation_trigger "2.0" "4.0" "1" "1" "Low humility only"
     test_recommendation_trigger "5.0" "1.0" "0" "1" "Low questions only"
     test_recommendation_trigger "4.0" "3.0" "4" "1" "High avoided terms only"
-    
+
     log_pass "Failure action recommendations validated"
 }
 
@@ -433,71 +433,71 @@ test_failure_action_recommendations() {
 test_edge_cases() {
     setup_test
     log_test "Testing edge cases and boundary conditions"
-    
+
     # Test empty content
     echo "" > "$TEST_DATA_DIR/sample_scripts/empty_test.md"
-    
+
     local empty_word_count
     empty_word_count=$(wc -w < "$TEST_DATA_DIR/sample_scripts/empty_test.md")
-    
+
     if [ "$empty_word_count" -eq 0 ]; then
         log_pass "Empty content handled correctly"
     else
         log_fail "Empty content word count calculation error"
         return 1
     fi
-    
+
     # Test single word content
     echo "Test" > "$TEST_DATA_DIR/sample_scripts/single_word_test.md"
-    
+
     local single_flesch_score
     single_flesch_score=$(calculate_flesch_score "$TEST_DATA_DIR/sample_scripts/single_word_test.md")
-    
+
     if [ -n "$single_flesch_score" ]; then
         log_pass "Single word content handled without errors"
     else
         log_fail "Single word content calculation failed"
         return 1
     fi
-    
+
     # Test content with no punctuation
     echo "This is a test with no punctuation marks at all just words" > "$TEST_DATA_DIR/sample_scripts/no_punctuation_test.md"
-    
+
     local no_punct_flesch_score
     no_punct_flesch_score=$(calculate_flesch_score "$TEST_DATA_DIR/sample_scripts/no_punctuation_test.md")
-    
+
     if [ -n "$no_punct_flesch_score" ]; then
         log_pass "Content without punctuation handled correctly"
     else
         log_fail "Content without punctuation calculation failed"
         return 1
     fi
-    
+
     # Test boundary values (exactly at thresholds)
     local boundary_humility="3.0"
     local boundary_questions="2.0"
-    
+
     if (( $(echo "$boundary_humility >= 3.0" | bc -l) )); then
         log_pass "Boundary value validation (humility exactly at minimum)"
     else
         log_fail "Boundary value validation failed for humility minimum"
         return 1
     fi
-    
+
     if (( $(echo "$boundary_questions >= 2.0" | bc -l) )); then
         log_pass "Boundary value validation (questions exactly at minimum)"
     else
         log_fail "Boundary value validation failed for questions minimum"
         return 1
     fi
-    
+
     log_pass "Edge cases and boundary conditions validated"
 }
 
 # Create Expected Scores Reference
 create_expected_scores_reference() {
     log_test "Creating expected scores reference for validation"
-    
+
     cat > "$TEST_DATA_DIR/expected_scores.json" << 'EOF'
 {
   "test_scenarios": {
@@ -546,7 +546,7 @@ create_expected_scores_reference() {
   }
 }
 EOF
-    
+
     log_pass "Expected scores reference created"
 }
 
@@ -554,26 +554,26 @@ EOF
 run_all_tests() {
     log_info "Starting Brand Voice Quality Gates Testing"
     log_info "=============================================="
-    
+
     # Check dependencies
     if ! command -v bc &> /dev/null; then
         log_fail "bc calculator not found - required for calculations"
         exit 1
     fi
-    
+
     if ! command -v jq &> /dev/null; then
         log_fail "jq not found - required for JSON processing"
         exit 1
     fi
-    
+
     if [ ! -f "$QUALITY_CONFIG" ]; then
         log_fail "Quality configuration not found: $QUALITY_CONFIG"
         exit 1
     fi
-    
+
     # Create reference data
     create_expected_scores_reference
-    
+
     # Run test suite
     test_humility_phrase_detection || true
     test_question_density || true
@@ -581,14 +581,14 @@ run_all_tests() {
     test_weighted_score_calculation || true
     test_failure_action_recommendations || true
     test_edge_cases || true
-    
+
     # Summary
     log_info "=============================================="
     log_info "Brand Voice Quality Gates Testing Complete"
     log_info "Tests Run: $TESTS_RUN"
     log_info "Tests Passed: $TESTS_PASSED"
     log_info "Tests Failed: $TESTS_FAILED"
-    
+
     if [ $TESTS_FAILED -eq 0 ]; then
         log_info "🎉 All tests passed! Brand voice quality gates are working correctly."
         exit 0

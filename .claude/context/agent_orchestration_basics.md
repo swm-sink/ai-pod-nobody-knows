@@ -41,20 +41,20 @@ Each agent has a clear, single responsibility and produces specific outputs that
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Set up async orchestration environment with proper error handling
 
-- 
-                
+-
+
 Create individual agent classes with single responsibilities
 
-- 
-                
+-
+
 Implement orchestrator with sequential pipeline management
 
-- 
-                
+-
+
 Test complete workflow with cost tracking and quality gates
 
 **Example:**
@@ -203,16 +203,16 @@ All agents load without errors, error recovery tests pass, cost tracking validat
 ### Setup Instructions
 
 
-- 
+-
                 Level 1: Read each agent's code, trace data through pipeline, identify what each agent produces
 
-- 
+-
                 Level 2: Change prompts and adjust parameters, add logging, test different orchestration sequences
 
-- 
+-
                 Level 3: Build new agents (Summary, Social Media), design custom workflows, implement error recovery
 
-- 
+-
                 Level 4: Master parallel execution, conditional flows, cross-episode learning systems
 Cost optimization techniques for orchestrated systems
 Claude Code memory system for agent coordination

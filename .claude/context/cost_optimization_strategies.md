@@ -297,24 +297,24 @@ Consistent episode production within $5.00 budget with detailed cost tracking
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Optimize research queries: Use comprehensive single queries instead of multiple fragments
 
-- 
-                
+-
+
 Implement single-pass script generation with comprehensive prompts
 
-- 
-                
+-
+
 Optimize audio synthesis: Choose appropriate models and batch processing
 
-- 
-                
+-
+
 Set up automated quality gates with cost-effective validation
 
-- 
-                
+-
+
 Implement comprehensive cost monitoring and budget controls
 Agent orchestration fundamentals needed for cost optimization
 Claude Code memory and caching systems for cost optimization

@@ -36,7 +36,7 @@
 ### **Tier 3: Domain Memory (Feature Level)**
 ```
 /.claude/level-1-dev/CLAUDE.md → Development platform context
-/.claude/level-2-production/CLAUDE.md → Production system context  
+/.claude/level-2-production/CLAUDE.md → Production system context
 /.claude/level-3-platform-dev/CLAUDE.md → Platform planning context
 /.claude/context/CLAUDE.md → Context system navigation
 ```

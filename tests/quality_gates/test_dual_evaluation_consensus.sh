@@ -31,7 +31,7 @@ setup_test() {
 create_mock_claude_evaluation() {
     local scenario="$1"
     local output_file="$2"
-    
+
     case "$scenario" in
         "high_quality")
             cat > "$output_file" << 'EOF'
@@ -227,7 +227,7 @@ create_mock_gemini_evaluation() {
     local scenario="$1"
     local output_file="$2"
     local session_id="test_session_$(date +%s)"
-    
+
     case "$scenario" in
         "high_quality")
             cat > "$output_file" << EOF
@@ -471,32 +471,32 @@ EOF
 test_score_normalization() {
     setup_test
     log_test "Testing Claude vs Gemini score normalization"
-    
+
     # Claude uses 0.0-1.0 scale, Gemini uses 1-5 Likert scale
     # Test normalization functions
-    
+
     normalize_gemini_to_claude() {
         local gemini_score="$1"
         echo "scale=3; ($gemini_score - 1) / 4" | bc -l
     }
-    
+
     normalize_claude_to_gemini() {
         local claude_score="$1"
         echo "scale=1; ($claude_score * 4) + 1" | bc -l
     }
-    
+
     # Test various score mappings
     test_normalization_pair() {
         local gemini_score="$1"
         local expected_claude="$2"
         local tolerance="0.05"
-        
+
         local normalized_claude
         normalized_claude=$(normalize_gemini_to_claude "$gemini_score")
-        
+
         local diff
         diff=$(echo "scale=3; ($normalized_claude - $expected_claude)" | bc -l | tr -d '-')
-        
+
         if (( $(echo "$diff <= $tolerance" | bc -l) )); then
             log_pass "Gemini $gemini_score → Claude $normalized_claude (expected $expected_claude)"
         else
@@ -504,7 +504,7 @@ test_score_normalization() {
             return 1
         fi
     }
-    
+
     # Test score normalization pairs
     test_normalization_pair "5" "1.000"
     test_normalization_pair "4" "0.750"
@@ -512,7 +512,7 @@ test_score_normalization() {
     test_normalization_pair "2" "0.250"
     test_normalization_pair "1" "0.000"
     test_normalization_pair "3.5" "0.625"  # Pass threshold
-    
+
     log_pass "Score normalization validated"
 }
 
@@ -520,45 +520,45 @@ test_score_normalization() {
 test_consensus_building() {
     setup_test
     log_test "Testing consensus building between Claude and Gemini evaluations"
-    
+
     # Create consensus calculation function
     calculate_consensus() {
         local claude_file="$1"
         local gemini_file="$2"
-        
+
         # Extract Claude overall score
         local claude_score
         claude_score=$(jq -r '.overall_score' "$claude_file")
-        
+
         # Extract Gemini weighted average and normalize
         local gemini_weighted
         gemini_weighted=$(jq -r '.weighted_average' "$gemini_file")
         local gemini_normalized
         gemini_normalized=$(echo "scale=3; ($gemini_weighted - 1) / 4" | bc -l)
-        
+
         # Calculate consensus (weighted average: Claude 60%, Gemini 40%)
         local consensus
         consensus=$(echo "scale=3; ($claude_score * 0.6) + ($gemini_normalized * 0.4)" | bc -l)
-        
+
         echo "$consensus"
     }
-    
+
     # Test consensus scenarios
     test_consensus_scenario() {
         local scenario="$1"
         local expected_outcome="$2"
-        
+
         local claude_file="$TEST_DATA_DIR/consensus_tests/claude_${scenario}.json"
         local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_${scenario}.json"
-        
+
         create_mock_claude_evaluation "$scenario" "$claude_file"
         create_mock_gemini_evaluation "$scenario" "$gemini_file"
-        
+
         local consensus_score
         consensus_score=$(calculate_consensus "$claude_file" "$gemini_file")
-        
+
         log_info "Scenario '$scenario': Consensus score = $consensus_score"
-        
+
         # Test against minimum threshold (0.85)
         local consensus_pass
         if (( $(echo "$consensus_score >= 0.85" | bc -l) )); then
@@ -566,7 +566,7 @@ test_consensus_building() {
         else
             consensus_pass="FAIL"
         fi
-        
+
         if [ "$consensus_pass" = "$expected_outcome" ]; then
             log_pass "Consensus scenario '$scenario': $consensus_pass (score: $consensus_score)"
         else
@@ -574,12 +574,12 @@ test_consensus_building() {
             return 1
         fi
     }
-    
+
     # Test various consensus scenarios
     test_consensus_scenario "high_quality" "PASS"
     test_consensus_scenario "low_quality" "FAIL"
     test_consensus_scenario "marginal_quality" "PASS"
-    
+
     log_pass "Consensus building logic validated"
 }
 
@@ -587,54 +587,54 @@ test_consensus_building() {
 test_conflict_resolution() {
     setup_test
     log_test "Testing conflict resolution when evaluators disagree"
-    
+
     # Create conflicting evaluations
     local claude_file="$TEST_DATA_DIR/consensus_tests/claude_marginal_quality.json"
     local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_conflicting_quality.json"
-    
+
     create_mock_claude_evaluation "marginal_quality" "$claude_file"
     create_mock_gemini_evaluation "conflicting_quality" "$gemini_file"
-    
+
     # Extract pass/fail decisions
     local claude_decision
     claude_decision=$(jq -r '.pass_fail' "$claude_file")
-    
+
     local gemini_decision
     gemini_decision=$(jq -r '.pass_fail' "$gemini_file")
-    
+
     log_info "Claude decision: $claude_decision"
     log_info "Gemini decision: $gemini_decision"
-    
+
     # Test conflict detection
     if [ "$claude_decision" != "$gemini_decision" ]; then
         log_pass "Conflict detected between evaluators"
-        
+
         # Test resolution strategy (use consensus score)
         local consensus_score
         consensus_score=$(echo "scale=3; (0.85 * 0.6) + (0.625 * 0.4)" | bc -l)
-        
+
         local final_decision
         if (( $(echo "$consensus_score >= 0.85" | bc -l) )); then
             final_decision="PASS"
         else
             final_decision="FAIL"
         fi
-        
+
         log_info "Consensus score: $consensus_score, Final decision: $final_decision"
         log_pass "Conflict resolved using weighted consensus"
     else
         log_info "No conflict to resolve"
     fi
-    
+
     # Test confidence weighting
     test_confidence_weighting() {
         local claude_confidence="HIGH"
         local gemini_confidence
         gemini_confidence=$(jq -r '.confidence_level' "$gemini_file")
-        
+
         log_info "Claude confidence: $claude_confidence"
         log_info "Gemini confidence: $gemini_confidence"
-        
+
         # In case of conflict with different confidence levels,
         # higher confidence should carry more weight
         if [ "$claude_confidence" = "HIGH" ] && [ "$gemini_confidence" = "MEDIUM" ]; then
@@ -645,9 +645,9 @@ test_conflict_resolution() {
             log_info "Confidence weighting scenario noted"
         fi
     }
-    
+
     test_confidence_weighting
-    
+
     log_pass "Conflict resolution mechanisms validated"
 }
 
@@ -655,42 +655,42 @@ test_conflict_resolution() {
 test_recommendation_synthesis() {
     setup_test
     log_test "Testing recommendation synthesis from dual evaluations"
-    
+
     # Create test evaluations
     local claude_file="$TEST_DATA_DIR/consensus_tests/claude_low_quality.json"
     local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_low_quality.json"
-    
+
     create_mock_claude_evaluation "low_quality" "$claude_file"
     create_mock_gemini_evaluation "low_quality" "$gemini_file"
-    
+
     # Extract recommendations
     local claude_recommendations
     claude_recommendations=$(jq -r '.recommendations[]' "$claude_file" 2>/dev/null || echo "")
-    
+
     local gemini_improvements
     gemini_improvements=$(jq -r '.improvements[].suggestion' "$gemini_file" 2>/dev/null || echo "")
-    
+
     log_info "Claude recommendations count: $(echo "$claude_recommendations" | wc -l)"
     log_info "Gemini improvements count: $(echo "$gemini_improvements" | wc -l)"
-    
+
     # Test synthesis logic
     synthesize_recommendations() {
         local combined_recommendations=()
-        
+
         # Add Claude recommendations
         while IFS= read -r rec; do
             if [ -n "$rec" ]; then
                 combined_recommendations+=("$rec")
             fi
         done <<< "$claude_recommendations"
-        
+
         # Add Gemini improvements
         while IFS= read -r imp; do
             if [ -n "$imp" ]; then
                 combined_recommendations+=("$imp")
             fi
         done <<< "$gemini_improvements"
-        
+
         # Remove duplicates and prioritize
         local unique_recommendations=()
         for rec in "${combined_recommendations[@]}"; do
@@ -702,39 +702,39 @@ test_recommendation_synthesis() {
                     break
                 fi
             done
-            
+
             if [ "$is_duplicate" = false ]; then
                 unique_recommendations+=("$rec")
             fi
         done
-        
+
         echo "${#unique_recommendations[@]}"
     }
-    
+
     local synthesized_count
     synthesized_count=$(synthesize_recommendations)
-    
+
     if [ "$synthesized_count" -gt 0 ]; then
         log_pass "Recommendations successfully synthesized: $synthesized_count unique items"
     else
         log_fail "No recommendations synthesized"
         return 1
     fi
-    
+
     # Test prioritization logic
     test_prioritization() {
         # High priority: Issues that prevent passing
         # Medium priority: Improvements for better quality
         # Low priority: Optional enhancements
-        
+
         local high_priority_keywords=("threshold" "fail" "minimum" "required")
         local medium_priority_keywords=("improve" "enhance" "consider" "strengthen")
-        
+
         log_pass "Recommendation prioritization logic validated"
     }
-    
+
     test_prioritization
-    
+
     log_pass "Recommendation synthesis validated"
 }
 
@@ -742,13 +742,13 @@ test_recommendation_synthesis() {
 test_feedback_synthesizer_integration() {
     setup_test
     log_test "Testing integration with feedback synthesizer agent"
-    
+
     # Check if feedback synthesizer agent exists
     if [ ! -f "$FEEDBACK_SYNTHESIZER" ]; then
         log_fail "Feedback synthesizer agent not found: $FEEDBACK_SYNTHESIZER"
         return 1
     fi
-    
+
     # Check for required integration points
     local integration_points=(
         "quality.*evaluation"
@@ -757,7 +757,7 @@ test_feedback_synthesizer_integration() {
         "synthesis"
         "recommendations"
     )
-    
+
     for point in "${integration_points[@]}"; do
         if grep -q "$point" "$FEEDBACK_SYNTHESIZER"; then
             log_test "✓ Integration point present: $point"
@@ -765,14 +765,14 @@ test_feedback_synthesizer_integration() {
             log_info "⚠ Integration point not explicitly documented: $point"
         fi
     done
-    
+
     # Test data format compatibility
     local claude_file="$TEST_DATA_DIR/consensus_tests/claude_high_quality.json"
     local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_high_quality.json"
-    
+
     create_mock_claude_evaluation "high_quality" "$claude_file"
     create_mock_gemini_evaluation "high_quality" "$gemini_file"
-    
+
     # Validate JSON structure for synthesizer consumption
     if jq empty "$claude_file" 2>/dev/null && jq empty "$gemini_file" 2>/dev/null; then
         log_pass "Evaluation results compatible with JSON processing"
@@ -780,11 +780,11 @@ test_feedback_synthesizer_integration() {
         log_fail "Invalid JSON structure in evaluation results"
         return 1
     fi
-    
+
     # Test required fields
     local claude_required_fields=("overall_score" "pass_fail" "quality_gates" "recommendations")
     local gemini_required_fields=("weighted_average" "pass_fail" "scores" "improvements")
-    
+
     for field in "${claude_required_fields[@]}"; do
         if jq -e "has(\"$field\")" "$claude_file" >/dev/null 2>&1; then
             log_test "✓ Claude required field present: $field"
@@ -793,7 +793,7 @@ test_feedback_synthesizer_integration() {
             return 1
         fi
     done
-    
+
     for field in "${gemini_required_fields[@]}"; do
         if jq -e "has(\"$field\")" "$gemini_file" >/dev/null 2>&1; then
             log_test "✓ Gemini required field present: $field"
@@ -802,7 +802,7 @@ test_feedback_synthesizer_integration() {
             return 1
         fi
     done
-    
+
     log_pass "Feedback synthesizer integration validated"
 }
 
@@ -810,21 +810,21 @@ test_feedback_synthesizer_integration() {
 test_consensus_edge_cases() {
     setup_test
     log_test "Testing edge cases in consensus building"
-    
+
     # Test case: One evaluator fails, other passes
     test_mixed_decisions() {
         local claude_file="$TEST_DATA_DIR/consensus_tests/claude_high_quality.json"
         local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_low_quality.json"
-        
+
         create_mock_claude_evaluation "high_quality" "$claude_file"
         create_mock_gemini_evaluation "low_quality" "$gemini_file"
-        
+
         local claude_decision
         claude_decision=$(jq -r '.pass_fail' "$claude_file")
-        
+
         local gemini_decision
         gemini_decision=$(jq -r '.pass_fail' "$gemini_file")
-        
+
         if [ "$claude_decision" != "$gemini_decision" ]; then
             log_pass "Mixed decisions scenario handled"
         else
@@ -832,16 +832,16 @@ test_consensus_edge_cases() {
             return 1
         fi
     }
-    
+
     # Test case: Both evaluators at exact threshold
     test_threshold_boundary() {
         # Create evaluations exactly at thresholds
         echo '{"overall_score": 0.85, "pass_fail": "PASS"}' > "$TEST_DATA_DIR/consensus_tests/claude_threshold.json"
         echo '{"weighted_average": 3.5, "pass_fail": "PASS"}' > "$TEST_DATA_DIR/consensus_tests/gemini_threshold.json"
-        
+
         local consensus_score
         consensus_score=$(echo "scale=3; (0.85 * 0.6) + (0.625 * 0.4)" | bc -l)
-        
+
         if (( $(echo "$consensus_score >= 0.85" | bc -l) )); then
             log_pass "Threshold boundary case handled correctly"
         else
@@ -849,35 +849,35 @@ test_consensus_edge_cases() {
             return 1
         fi
     }
-    
+
     # Test case: Extreme disagreement
     test_extreme_disagreement() {
         local claude_file="$TEST_DATA_DIR/consensus_tests/claude_high_quality.json"
         local gemini_file="$TEST_DATA_DIR/consensus_tests/gemini_low_quality.json"
-        
+
         create_mock_claude_evaluation "high_quality" "$claude_file"
         create_mock_gemini_evaluation "low_quality" "$gemini_file"
-        
+
         local claude_score
         claude_score=$(jq -r '.overall_score' "$claude_file")
-        
+
         local gemini_score
         gemini_score=$(jq -r '.weighted_average' "$gemini_file")
-        
+
         local score_diff
         score_diff=$(echo "scale=3; $claude_score - (($gemini_score - 1) / 4)" | bc -l | tr -d '-')
-        
+
         if (( $(echo "$score_diff > 0.3" | bc -l) )); then
             log_pass "Extreme disagreement detected: difference = $score_diff"
         else
             log_info "Disagreement within normal range: difference = $score_diff"
         fi
     }
-    
+
     test_mixed_decisions
     test_threshold_boundary
     test_extreme_disagreement
-    
+
     log_pass "Consensus edge cases validated"
 }
 
@@ -885,18 +885,18 @@ test_consensus_edge_cases() {
 run_all_tests() {
     log_info "Starting Dual Evaluation Consensus Testing"
     log_info "=============================================="
-    
+
     # Check dependencies
     if ! command -v bc &> /dev/null; then
         log_fail "bc calculator not found - required for calculations"
         exit 1
     fi
-    
+
     if ! command -v jq &> /dev/null; then
         log_fail "jq not found - required for JSON processing"
         exit 1
     fi
-    
+
     # Run test suite
     test_score_normalization || true
     test_consensus_building || true
@@ -904,14 +904,14 @@ run_all_tests() {
     test_recommendation_synthesis || true
     test_feedback_synthesizer_integration || true
     test_consensus_edge_cases || true
-    
+
     # Summary
     log_info "=============================================="
     log_info "Dual Evaluation Consensus Testing Complete"
     log_info "Tests Run: $TESTS_RUN"
     log_info "Tests Passed: $TESTS_PASSED"
     log_info "Tests Failed: $TESTS_FAILED"
-    
+
     if [ $TESTS_FAILED -eq 0 ]; then
         log_info "🎉 All tests passed! Dual evaluation consensus is working correctly."
         exit 0

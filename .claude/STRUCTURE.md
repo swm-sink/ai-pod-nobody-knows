@@ -5,7 +5,7 @@
 ```
 .claude/
 ├── agents/          # 14 specialized agents (research + production)
-├── commands/        # 4 production commands  
+├── commands/        # 4 production commands
 ├── config/          # 5 essential configuration files
 ├── context/         # 10 core learning files
 ├── docs/            # 8 essential documentation files
@@ -17,7 +17,7 @@
 ```
 .claude/
 ├── README.md        # This directory navigation (you are here)
-├── STRUCTURE.md     # Simple structure overview  
+├── STRUCTURE.md     # Simple structure overview
 ├── CLAUDE.md        # Master system configuration
 └── [other essential system files]
 ```

@@ -219,16 +219,16 @@ Your learning journey has four clear steps: understand the basics, try things wi
 ### Setup Instructions
 
 
-- 
-                
+-
+
 Start with AI Orchestration Fundamentals: Learning phases and hobbyist approach
 
-- 
-                
+-
+
 Begin Hands-On Learning: Free activities and orchestration basics
 
-- 
-                
+-
+
 Build Complete System: Cost optimization, operations, and quality control
 
 ## Philosophical framework

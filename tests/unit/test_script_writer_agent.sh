@@ -29,12 +29,12 @@ setup_test() {
 test_script_writer_spec() {
     setup_test
     log_test "Testing script writer agent specification"
-    
+
     if [ ! -f "$AGENT_FILE" ]; then
         log_fail "Agent file not found: $AGENT_FILE"
         return 1
     fi
-    
+
     # Check required tools
     local required_tools=("Read" "Write" "Edit" "MultiEdit")
     for tool in "${required_tools[@]}"; do
@@ -45,7 +45,7 @@ test_script_writer_spec() {
             return 1
         fi
     done
-    
+
     # Check brand voice integration
     if grep -q "Feynman.*Fridman\|brand_voice" "$AGENT_FILE"; then
         log_pass "Brand voice integration documented"
@@ -53,7 +53,7 @@ test_script_writer_spec() {
         log_fail "Brand voice integration not found"
         return 1
     fi
-    
+
     log_pass "Script writer agent specification valid"
 }
 
@@ -61,7 +61,7 @@ test_script_writer_spec() {
 test_checkpoint_integration() {
     setup_test
     log_test "Testing checkpoint integration for script writer"
-    
+
     # Check checkpoint documentation
     if grep -q "checkpoint_check\|05_script_complete.json" "$AGENT_FILE"; then
         log_test "✓ Checkpoint integration documented"
@@ -69,7 +69,7 @@ test_checkpoint_integration() {
         log_fail "Checkpoint integration not documented"
         return 1
     fi
-    
+
     # Create test checkpoint
     cat > "$TEST_SESSION_DIR/05_script_complete.json" << 'EOF'
 {
@@ -96,7 +96,7 @@ test_checkpoint_integration() {
     }
 }
 EOF
-    
+
     # Validate JSON structure
     if jq empty "$TEST_SESSION_DIR/05_script_complete.json" 2>/dev/null; then
         log_pass "Checkpoint JSON structure valid"
@@ -104,7 +104,7 @@ EOF
         log_fail "Invalid checkpoint JSON structure"
         return 1
     fi
-    
+
     # Check required fields
     local required_fields=("checkpoint_type" "session_id" "script_results" "character_count" "word_count")
     for field in "${required_fields[@]}"; do
@@ -115,7 +115,7 @@ EOF
             return 1
         fi
     done
-    
+
     log_pass "Checkpoint integration validation complete"
 }
 
@@ -123,7 +123,7 @@ EOF
 test_script_quality_metrics() {
     setup_test
     log_test "Testing script quality metrics validation"
-    
+
     # Check quality gates in agent spec
     if grep -q "3900.*4100\|word.*count\|Flesch.*Reading.*Ease" "$AGENT_FILE"; then
         log_pass "Quality gates specified in agent"
@@ -131,14 +131,14 @@ test_script_quality_metrics() {
         log_fail "Quality gates not found in agent specification"
         return 1
     fi
-    
+
     # Test quality validation logic
     local word_count=4050
     local target_min=3900
     local target_max=4100
     local brand_score=0.92
     local readability=75
-    
+
     # Word count validation
     if [ $word_count -ge $target_min ] && [ $word_count -le $target_max ]; then
         log_test "✓ Word count within target range: $word_count"
@@ -146,15 +146,15 @@ test_script_quality_metrics() {
         log_fail "Word count outside target range: $word_count"
         return 1
     fi
-    
-    # Brand score validation  
+
+    # Brand score validation
     if (( $(echo "$brand_score >= 0.90" | bc -l) )); then
         log_test "✓ Brand voice score meets requirement: $brand_score"
     else
         log_fail "Brand voice score below requirement: $brand_score"
         return 1
     fi
-    
+
     # Readability validation
     if [ $readability -ge 60 ] && [ $readability -le 80 ]; then
         log_test "✓ Readability within target range: $readability"
@@ -162,7 +162,7 @@ test_script_quality_metrics() {
         log_fail "Readability outside target range: $readability"
         return 1
     fi
-    
+
     log_pass "Script quality metrics validation complete"
 }
 
@@ -170,7 +170,7 @@ test_script_quality_metrics() {
 test_brand_voice_requirements() {
     setup_test
     log_test "Testing brand voice requirements"
-    
+
     # Check brand voice metrics in spec
     if grep -q "5.*per.*1000.*words\|4.*per.*1000.*words\|humility.*phrases" "$AGENT_FILE"; then
         log_test "✓ Brand voice metrics documented"
@@ -178,7 +178,7 @@ test_brand_voice_requirements() {
         log_fail "Brand voice metrics not documented"
         return 1
     fi
-    
+
     # Create mock script content for testing
     cat > "$TEST_SESSION_DIR/mock_script_content.md" << 'EOF'
 # Mock Script Content (1000 words for testing)
@@ -195,15 +195,15 @@ What's fascinating is how much we don't know about these processes? This challen
 
 [Content continues for approximately 1000 words total...]
 EOF
-    
+
     # Test humility phrase detection
     local humility_count
     humility_count=$(grep -o "Current evidence suggests\|We think we understand\|One possibility is\|Scientists are still working\|This remains an open question\|What's fascinating is how much we don't know" "$TEST_SESSION_DIR/mock_script_content.md" | wc -l)
-    
-    # Test question detection  
+
+    # Test question detection
     local question_count
     question_count=$(grep -o "?" "$TEST_SESSION_DIR/mock_script_content.md" | wc -l)
-    
+
     # Validate metrics (for 1000 words, expect ~5 humility phrases and ~4 questions)
     if [ "$humility_count" -ge 3 ]; then
         log_test "✓ Sufficient humility phrases detected: $humility_count"
@@ -211,14 +211,14 @@ EOF
         log_fail "Insufficient humility phrases: $humility_count"
         return 1
     fi
-    
+
     if [ "$question_count" -ge 2 ]; then
         log_test "✓ Sufficient questions detected: $question_count"
     else
         log_fail "Insufficient questions: $question_count"
         return 1
     fi
-    
+
     log_pass "Brand voice requirements validation complete"
 }
 
@@ -226,7 +226,7 @@ EOF
 test_audio_formatting() {
     setup_test
     log_test "Testing audio formatting requirements"
-    
+
     # Check audio formatting documentation
     if grep -q "PAUSE:\|TONE:\|EMPHASIS:\|Audio.*Optimization" "$AGENT_FILE"; then
         log_test "✓ Audio formatting documented in agent spec"
@@ -234,7 +234,7 @@ test_audio_formatting() {
         log_fail "Audio formatting not documented"
         return 1
     fi
-    
+
     # Create mock script with audio formatting
     cat > "$TEST_SESSION_DIR/mock_audio_script.md" << 'EOF'
 # Mock Audio-Formatted Script
@@ -248,29 +248,29 @@ Here's a question that might surprise you. **[EMPHASIS: surprise]** What if ever
 
 **[TONE: Thoughtful]** Current evidence suggests we're on the verge of a breakthrough. **[PAUSE: Brief]** But here's what makes this story truly fascinating...
 
-### Foundation Building [SEGMENT: 3:30-8:00] 
+### Foundation Building [SEGMENT: 3:30-8:00]
 **[TONE: Educational, Confident]**
 
 Think of it this way - **[EMPHASIS: this way]** imagine you're building a house of knowledge. **[PAUSE: Brief]** The foundation needs to be solid before we can explore the more complex architecture above.
 EOF
-    
+
     # Validate audio markers presence
     local pause_markers
     pause_markers=$(grep -c "\[PAUSE:" "$TEST_SESSION_DIR/mock_audio_script.md" || echo 0)
-    
-    local tone_markers  
+
+    local tone_markers
     tone_markers=$(grep -c "\[TONE:" "$TEST_SESSION_DIR/mock_audio_script.md" || echo 0)
-    
+
     local emphasis_markers
     emphasis_markers=$(grep -c "\[EMPHASIS:" "$TEST_SESSION_DIR/mock_audio_script.md" || echo 0)
-    
+
     if [ "$pause_markers" -ge 2 ] && [ "$tone_markers" -ge 2 ] && [ "$emphasis_markers" -ge 2 ]; then
         log_pass "Audio formatting markers present and sufficient"
     else
         log_fail "Insufficient audio formatting markers (pause:$pause_markers, tone:$tone_markers, emphasis:$emphasis_markers)"
         return 1
     fi
-    
+
     log_pass "Audio formatting requirements validation complete"
 }
 
@@ -278,7 +278,7 @@ EOF
 test_cost_tracking() {
     setup_test
     log_test "Testing cost tracking integration"
-    
+
     # Check if agent spec mentions cost tracking
     if grep -q "cost.*invested\|budget\|\$1\.50.*\$2\.50\|Cost.*Target" "$AGENT_FILE"; then
         log_pass "Cost tracking integration documented"
@@ -286,12 +286,12 @@ test_cost_tracking() {
         log_fail "Cost tracking integration not documented"
         return 1
     fi
-    
+
     # Validate cost estimation
     local estimated_cost=1.75
     local min_cost=1.50
     local max_cost=2.50
-    
+
     if (( $(echo "$estimated_cost >= $min_cost && $estimated_cost <= $max_cost" | bc -l) )); then
         log_pass "Cost estimation within target range"
     else
@@ -304,7 +304,7 @@ test_cost_tracking() {
 test_output_structure() {
     setup_test
     log_test "Testing script output structure validation"
-    
+
     # Check required structure elements in spec
     if grep -q "Opening Hook\|Foundation Building\|Emerging Understanding\|Resolution\|Production Metadata" "$AGENT_FILE"; then
         log_test "✓ Required structure elements documented"
@@ -312,7 +312,7 @@ test_output_structure() {
         log_fail "Required structure elements not documented"
         return 1
     fi
-    
+
     # Create mock script structure for validation
     cat > "$TEST_SESSION_DIR/mock_script_structure.md" << 'EOF'
 # Podcast Script: Test Episode
@@ -346,7 +346,7 @@ Test resolution content...
 - **Humility Phrases**: 35 per 7050 words
 - **Questions**: 28 per 7050 words
 EOF
-    
+
     # Validate required sections are present
     local required_sections=("Production Metadata" "Script Content" "Opening Hook" "Foundation Building" "Brand Voice Compliance")
     for section in "${required_sections[@]}"; do
@@ -357,7 +357,7 @@ EOF
             return 1
         fi
     done
-    
+
     log_pass "Output structure validation complete"
 }
 
@@ -366,7 +366,7 @@ test_mock_script_generation() {
     if [ "$MOCK_MODE" = "true" ]; then
         setup_test
         log_test "Testing mock script generation functionality"
-        
+
         # Create comprehensive mock script output
         cat > "$TEST_SESSION_DIR/mock_complete_script.json" << 'EOF'
 {
@@ -377,7 +377,7 @@ test_mock_script_generation() {
     },
     "script_content": {
         "character_count": 35200,
-        "word_count": 7100, 
+        "word_count": 7100,
         "segments": 6,
         "audio_markers": 45,
         "brand_voice_score": 0.93
@@ -390,21 +390,21 @@ test_mock_script_generation() {
     }
 }
 EOF
-        
+
         # Validate mock output meets requirements
         local word_count
         word_count=$(jq -r '.script_content.word_count' "$TEST_SESSION_DIR/mock_complete_script.json")
-        
+
         local brand_score
         brand_score=$(jq -r '.script_content.brand_voice_score' "$TEST_SESSION_DIR/mock_complete_script.json")
-        
+
         if [ "$word_count" -ge 3900 ] && [ "$word_count" -le 8000 ]; then
             log_test "✓ Mock script word count within acceptable range"
         else
             log_fail "Mock script word count outside range: $word_count"
             return 1
         fi
-        
+
         if (( $(echo "$brand_score >= 0.90" | bc -l) )); then
             log_pass "Mock script generation meets quality requirements"
         else
@@ -419,7 +419,7 @@ EOF
 # Run All Tests
 run_tests() {
     log_test "Starting script writer agent tests"
-    
+
     test_script_writer_spec
     test_checkpoint_integration
     test_script_quality_metrics
@@ -428,13 +428,13 @@ run_tests() {
     test_cost_tracking
     test_output_structure
     test_mock_script_generation
-    
+
     # Summary
     echo "=== Script Writer Agent Test Summary ==="
     echo "Tests Run: $TESTS_RUN"
-    echo "Passed: $TESTS_PASSED" 
+    echo "Passed: $TESTS_PASSED"
     echo "Failed: $TESTS_FAILED"
-    
+
     if [ $TESTS_FAILED -eq 0 ]; then
         echo "✅ All script writer agent tests passed"
         return 0

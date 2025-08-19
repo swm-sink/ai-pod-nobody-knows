@@ -103,7 +103,7 @@ done
 find .claude -name "CLAUDE.md" -exec bash -c '
   file="$1"
   technical=$(grep -c "**Technical:**" "$file")
-  simple=$(grep -c "**Simple:**" "$file") 
+  simple=$(grep -c "**Simple:**" "$file")
   connection=$(grep -c "**Connection:**" "$file")
   if [ "$technical" -eq 0 ] || [ "$simple" -eq 0 ] || [ "$connection" -eq 0 ]; then
     echo "MISSING DUAL EXPLANATIONS: $file (T:$technical S:$simple C:$connection)"
@@ -135,7 +135,7 @@ find .claude -name "CLAUDE.md" -exec bash -c '
 # Procedure for adding new component to existing domain:
 1. Create component directory: .claude/domain/new-component/
 2. Copy component template and customize
-3. Ensure inherits="/.claude/domain/CLAUDE.md" 
+3. Ensure inherits="/.claude/domain/CLAUDE.md"
 4. Update parent domain CLAUDE.md navigation
 5. Create component-specific imports if needed
 6. Validate inheritance and selective loading
@@ -188,7 +188,7 @@ echo "Monitor for token inflation over time"
 # Performance checklist:
 □ Base context loads instantly (always cached)
 □ Domain contexts load quickly when accessed
-□ Component contexts load efficiently 
+□ Component contexts load efficiently
 □ Import resolution is fast and cached
 □ Navigation between contexts is smooth
 □ No noticeable delays in context switching

@@ -35,7 +35,7 @@ load_retry_config() {
         BASE_DELAY=$(grep -A 5 "retry_policies:" "$config_file" | grep "base_delay_seconds:" | awk '{print $2}' || echo "5")
         MAX_DELAY=$(grep -A 5 "retry_policies:" "$config_file" | grep "max_delay_seconds:" | awk '{print $2}' || echo "60")
         BACKOFF_MULTIPLIER=$(grep -A 5 "retry_policies:" "$config_file" | grep "backoff_multiplier:" | awk '{print $2}' || echo "2")
-        
+
         log_test "Loaded retry config: max_attempts=$MAX_ATTEMPTS, base_delay=${BASE_DELAY}s, max_delay=${MAX_DELAY}s, backoff=${BACKOFF_MULTIPLIER}x"
     else
         log_test "Using default retry config"
@@ -50,7 +50,7 @@ load_retry_config() {
 test_perplexity_api_failures() {
     setup_test
     log_test "Testing Perplexity API failure recovery mechanisms"
-    
+
     # Create mock failure scenarios
     cat > "$TEST_SESSION_DIR/perplexity_failure_scenarios.json" << 'EOF'
 {
@@ -84,22 +84,22 @@ test_perplexity_api_failures() {
     ]
 }
 EOF
-    
+
     # Test retry logic validation
     local retry_delays=(5 10 20)  # Based on exponential backoff: 5s, 5*2=10s, 10*2=20s
     local expected_delay
     local calculated_delay
-    
+
     for i in "${!retry_delays[@]}"; do
         expected_delay="${retry_delays[$i]}"
         # Calculate expected delay: BASE_DELAY * (BACKOFF_MULTIPLIER ^ attempt)
         calculated_delay=$(echo "$BASE_DELAY * ($BACKOFF_MULTIPLIER ^ $i)" | bc)
-        
+
         # Cap at max delay
         if [ "$calculated_delay" -gt "$MAX_DELAY" ]; then
             calculated_delay=$MAX_DELAY
         fi
-        
+
         if [ "$calculated_delay" -eq "$expected_delay" ]; then
             log_test "✓ Retry delay correct for attempt $((i+1)): ${calculated_delay}s"
         else
@@ -107,7 +107,7 @@ EOF
             return 1
         fi
     done
-    
+
     # Test max attempts enforcement
     if [ "$MAX_ATTEMPTS" -eq 3 ]; then
         log_test "✓ Max retry attempts configured correctly: $MAX_ATTEMPTS"
@@ -115,7 +115,7 @@ EOF
         log_fail "Max retry attempts misconfigured: expected 3, got $MAX_ATTEMPTS"
         return 1
     fi
-    
+
     log_pass "Perplexity API failure recovery validation complete"
 }
 
@@ -123,7 +123,7 @@ EOF
 test_elevenlabs_api_failures() {
     setup_test
     log_test "Testing ElevenLabs API failure recovery mechanisms"
-    
+
     # Create ElevenLabs specific failure scenarios
     cat > "$TEST_SESSION_DIR/elevenlabs_failure_scenarios.json" << 'EOF'
 {
@@ -161,11 +161,11 @@ test_elevenlabs_api_failures() {
     ]
 }
 EOF
-    
+
     # Test voice fallback mechanism
     local primary_voice="Amelia"
     local backup_voice="Rachel"
-    
+
     # Simulate primary voice failure
     cat > "$TEST_SESSION_DIR/voice_fallback_test.json" << EOF
 {
@@ -178,28 +178,28 @@ EOF
     }
 }
 EOF
-    
+
     local fallback_triggered
     fallback_triggered=$(jq -r '.voice_test.fallback_triggered' "$TEST_SESSION_DIR/voice_fallback_test.json")
-    
+
     if [ "$fallback_triggered" = "true" ]; then
         log_test "✓ Voice fallback mechanism works: $primary_voice → $backup_voice"
     else
         log_fail "Voice fallback mechanism failed"
         return 1
     fi
-    
+
     # Test high-cost operation protection
     local cost_at_failure=6.30
     local checkpoint_protection_value=6.30
-    
+
     if (( $(echo "$checkpoint_protection_value >= $cost_at_failure" | bc -l) )); then
         log_test "✓ High-cost operation protected by checkpoints: \$${checkpoint_protection_value}"
     else
         log_fail "Insufficient checkpoint protection for high-cost operations"
         return 1
     fi
-    
+
     log_pass "ElevenLabs API failure recovery validation complete"
 }
 
@@ -207,7 +207,7 @@ EOF
 test_network_timeout_recovery() {
     setup_test
     log_test "Testing network timeout and retry logic"
-    
+
     # Create network failure scenarios
     cat > "$TEST_SESSION_DIR/network_failure_scenarios.json" << 'EOF'
 {
@@ -233,15 +233,15 @@ test_network_timeout_recovery() {
     ]
 }
 EOF
-    
+
     # Test timeout handling for each service
     local services=("perplexity" "elevenlabs" "claude")
     local timeouts=(30 1500 60)  # perplexity: 30s, elevenlabs: 25min=1500s, claude: 60s
-    
+
     for i in "${!services[@]}"; do
         local service="${services[$i]}"
         local timeout="${timeouts[$i]}"
-        
+
         # Validate timeout configuration is reasonable
         if [ "$timeout" -gt 0 ] && [ "$timeout" -le 1800 ]; then  # Max 30 minutes
             log_test "✓ $service timeout configuration valid: ${timeout}s"
@@ -250,36 +250,36 @@ EOF
             return 1
         fi
     done
-    
+
     # Test exponential backoff calculation
     local attempt=0
     local delay=$BASE_DELAY
-    
+
     while [ $attempt -lt $MAX_ATTEMPTS ]; do
         local expected_delay
         expected_delay=$(echo "$BASE_DELAY * ($BACKOFF_MULTIPLIER ^ $attempt)" | bc)
-        
+
         # Cap at max delay
         if [ "$expected_delay" -gt "$MAX_DELAY" ]; then
             expected_delay=$MAX_DELAY
         fi
-        
+
         if [ "$delay" -eq "$expected_delay" ]; then
             log_test "✓ Retry attempt $((attempt+1)): delay ${delay}s"
         else
             log_fail "Retry attempt $((attempt+1)): expected ${expected_delay}s, got ${delay}s"
             return 1
         fi
-        
+
         # Calculate next delay
         delay=$((delay * BACKOFF_MULTIPLIER))
         if [ "$delay" -gt "$MAX_DELAY" ]; then
             delay=$MAX_DELAY
         fi
-        
+
         attempt=$((attempt + 1))
     done
-    
+
     log_pass "Network timeout and retry logic validation complete"
 }
 
@@ -287,7 +287,7 @@ EOF
 test_budget_exhaustion_recovery() {
     setup_test
     log_test "Testing budget exhaustion and recovery procedures"
-    
+
     # Create budget exhaustion scenarios
     cat > "$TEST_SESSION_DIR/budget_exhaustion_scenarios.json" << 'EOF'
 {
@@ -318,14 +318,14 @@ test_budget_exhaustion_recovery() {
     ]
 }
 EOF
-    
+
     # Test budget enforcement logic
     local daily_budget=25.00
     local current_spent=24.50
     local operation_cost=6.30
     local remaining_budget
     remaining_budget=$(echo "$daily_budget - $current_spent" | bc)
-    
+
     # Test budget check logic
     if (( $(echo "$operation_cost > $remaining_budget" | bc -l) )); then
         log_test "✓ Budget enforcement prevents costly operation: \$${operation_cost} > \$${remaining_budget}"
@@ -333,7 +333,7 @@ EOF
         log_fail "Budget enforcement failed to prevent costly operation"
         return 1
     fi
-    
+
     # Test warning thresholds
     local warning_threshold=20.00  # 80% of $25 daily budget
     if (( $(echo "$current_spent >= $warning_threshold" | bc -l) )); then
@@ -342,7 +342,7 @@ EOF
         log_fail "Budget warning not triggered when expected"
         return 1
     fi
-    
+
     log_pass "Budget exhaustion recovery validation complete"
 }
 
@@ -350,7 +350,7 @@ EOF
 test_auth_failure_recovery() {
     setup_test
     log_test "Testing API authentication and authorization failure recovery"
-    
+
     # Create authentication failure scenarios
     cat > "$TEST_SESSION_DIR/auth_failure_scenarios.json" << 'EOF'
 {
@@ -379,18 +379,18 @@ test_auth_failure_recovery() {
     ]
 }
 EOF
-    
+
     # Test authentication error handling
     local auth_errors=(401 403 429)
     local expected_behaviors=("immediate_failure" "graceful_failure" "retry_with_backoff")
-    
+
     for i in "${!auth_errors[@]}"; do
         local status_code="${auth_errors[$i]}"
         local expected_behavior="${expected_behaviors[$i]}"
-        
+
         # Simulate different responses to auth errors
         case $status_code in
-            401) 
+            401)
                 log_test "✓ 401 Unauthorized: immediate failure with checkpoint preservation"
                 ;;
             403)
@@ -405,7 +405,7 @@ EOF
                 ;;
         esac
     done
-    
+
     log_pass "Authentication failure recovery validation complete"
 }
 
@@ -413,7 +413,7 @@ EOF
 test_partial_response_recovery() {
     setup_test
     log_test "Testing partial response and data corruption recovery"
-    
+
     # Create partial response scenarios
     cat > "$TEST_SESSION_DIR/partial_response_scenarios.json" << 'EOF'
 {
@@ -442,12 +442,12 @@ test_partial_response_recovery() {
     ]
 }
 EOF
-    
+
     # Test response validation logic
     local expected_fields=("sources" "content" "citations")
     local received_fields=("sources" "content")
     local missing_fields=()
-    
+
     # Check for missing fields
     for expected in "${expected_fields[@]}"; do
         local found=false
@@ -461,27 +461,27 @@ EOF
             missing_fields+=("$expected")
         fi
     done
-    
+
     if [ ${#missing_fields[@]} -gt 0 ]; then
         log_test "✓ Response validation detects missing fields: ${missing_fields[*]}"
     else
         log_fail "Response validation failed to detect missing fields"
         return 1
     fi
-    
+
     # Test partial audio synthesis recovery
     local expected_duration=28
     local received_duration=15
     local completion_percentage
     completion_percentage=$(echo "scale=2; $received_duration * 100 / $expected_duration" | bc)
-    
+
     if (( $(echo "$completion_percentage < 90" | bc -l) )); then
         log_test "✓ Partial synthesis detected: ${completion_percentage}% completion requires retry"
     else
         log_fail "Partial synthesis detection failed"
         return 1
     fi
-    
+
     log_pass "Partial response recovery validation complete"
 }
 
@@ -489,10 +489,10 @@ EOF
 test_checkpoint_corruption_recovery() {
     setup_test
     log_test "Testing checkpoint corruption detection and recovery"
-    
+
     # Create corrupted checkpoint scenarios
     mkdir -p "$TEST_SESSION_DIR/corrupted_checkpoints"
-    
+
     # Valid checkpoint for comparison
     cat > "$TEST_SESSION_DIR/corrupted_checkpoints/valid_checkpoint.json" << 'EOF'
 {
@@ -503,7 +503,7 @@ test_checkpoint_corruption_recovery() {
     "cost_invested": 10.50
 }
 EOF
-    
+
     # Corrupted checkpoint scenarios
     cat > "$TEST_SESSION_DIR/corrupted_checkpoints/malformed_json.json" << 'EOF'
 {
@@ -514,7 +514,7 @@ EOF
     "cost_invested": 10.50
 }
 EOF
-    
+
     cat > "$TEST_SESSION_DIR/corrupted_checkpoints/missing_fields.json" << 'EOF'
 {
     "session_id": "test_session",
@@ -522,31 +522,31 @@ EOF
     "timestamp": "2025-08-18T12:00:00Z"
 }
 EOF
-    
+
     # Test checkpoint validation
     local checkpoint_files=(
         "valid_checkpoint.json:valid"
         "malformed_json.json:invalid"
         "missing_fields.json:invalid"
     )
-    
+
     for checkpoint_info in "${checkpoint_files[@]}"; do
         local file="${checkpoint_info%:*}"
         local expected_status="${checkpoint_info#*:}"
         local file_path="$TEST_SESSION_DIR/corrupted_checkpoints/$file"
-        
+
         # Test JSON validity
         if jq empty "$file_path" 2>/dev/null; then
             local json_valid=true
         else
             local json_valid=false
         fi
-        
+
         # Test required fields
         local has_checkpoint_type=false
         local has_session_id=false
         local has_status=false
-        
+
         if [ "$json_valid" = true ]; then
             if jq -e '.checkpoint_type' "$file_path" >/dev/null 2>&1; then
                 has_checkpoint_type=true
@@ -558,13 +558,13 @@ EOF
                 has_status=true
             fi
         fi
-        
+
         # Determine overall validity
         local is_valid=false
         if [ "$json_valid" = true ] && [ "$has_checkpoint_type" = true ] && [ "$has_session_id" = true ] && [ "$has_status" = true ]; then
             is_valid=true
         fi
-        
+
         # Check against expected status
         if [ "$expected_status" = "valid" ] && [ "$is_valid" = true ]; then
             log_test "✓ Valid checkpoint correctly identified: $file"
@@ -575,17 +575,17 @@ EOF
             return 1
         fi
     done
-    
+
     log_pass "Checkpoint corruption recovery validation complete"
 }
 
 # Run All API Failure Tests
 run_tests() {
     log_test "Starting API failure and recovery scenario tests"
-    
+
     # Load configuration
     load_retry_config
-    
+
     # Run all test scenarios
     test_perplexity_api_failures
     test_elevenlabs_api_failures
@@ -594,13 +594,13 @@ run_tests() {
     test_auth_failure_recovery
     test_partial_response_recovery
     test_checkpoint_corruption_recovery
-    
+
     # Summary
     echo "=== API Failure Recovery Test Summary ==="
     echo "Tests Run: $TESTS_RUN"
     echo "Passed: $TESTS_PASSED"
     echo "Failed: $TESTS_FAILED"
-    
+
     if [ $TESTS_FAILED -eq 0 ]; then
         echo "✅ All API failure recovery tests passed"
         return 0

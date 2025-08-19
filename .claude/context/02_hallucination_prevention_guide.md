@@ -37,19 +37,19 @@ Like being a detective who only draws conclusions from actual evidence you can p
 ### Setup Instructions
 
 
-- 
+-
         Identify all statements that assert facts (statistics, events, specifications)
 
-- 
+-
         = 3 {print &quot;Minimum research completed&quot;}'">Conduct 3-10 searches with adaptive rules for conflicting information
 
-- 
+-
         Compare information across sources using decision tree logic
 
-- 
+-
         Ensure every factual claim includes source URL and access date
 
-- 
+-
         Disclose confidence levels using standard ranges (90-100%, 70-89%, 50-69%, &lt;50%)
 
 ```bash

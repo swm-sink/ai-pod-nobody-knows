@@ -1,5 +1,5 @@
 ---
-name: question-generator
+name: 03_question-generator
 description: PROACTIVELY generates targeted research questions from initial findings to drive deeper investigation.
 tools: Read, Write
 ---
