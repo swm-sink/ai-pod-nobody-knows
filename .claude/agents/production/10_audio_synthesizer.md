@@ -1,5 +1,5 @@
 ---
-name: 10_audio-synthesizer
+name: 10_audio_synthesizer
 description: PROACTIVELY converts validated scripts into high-quality podcast audio using ElevenLabs. Produces final episode audio files.
 tools: mcp__ElevenLabs__text_to_speech, Read, Write
 ---
@@ -72,7 +72,7 @@ voice_model: "Amelia (ZF6FPAbjXT4488VcRRnw) + eleven_turbo_v2_5"
 Tool: mcp__ElevenLabs__text_to_speech
 Parameters:
   text: "{18-22k character script content}"
-  voice_name: "Amelia"  # REQUIRED: Use Amelia for all episodes
+  voice_name: 10_audio_synthesizer
   output_directory: "projects/nobody-knows/output/audio"
   stability: 0.5
   similarity_boost: 0.75
@@ -157,7 +157,7 @@ echo "🔄 Starting 25-30 minute audio synthesis for 18-22k character content"
    - Call mcp__ElevenLabs__text_to_speech with FULL 18-22k character script
    - Parameters:
      * text: complete_script_content (18,000-22,000 characters)
-     * voice_name: "Amelia"
+     * voice_name: 10_audio_synthesizer
      * model_id: "eleven_turbo_v2_5"
      * output_directory: "projects/nobody-knows/output/audio"
    - Monitor synthesis progress (15-25 minutes processing time)
@@ -242,7 +242,7 @@ audio_output:
   expected_file_size: "25-35 MB"
 
 voice_settings:
-  voice_name: "Amelia"
+  voice_name: 10_audio_synthesizer
   voice_id: "ZF6FPAbjXT4488VcRRnw"
   model_id: "eleven_turbo_v2_5"
   stability: 0.5  # Balance between consistency and expressiveness
@@ -338,7 +338,7 @@ the fascinating world of artificial intelligence...
 Tool: mcp__ElevenLabs__text_to_speech
 Parameters:
   text: "{Complete 18-22k character TTS-optimized script with audio tags}"
-  voice_name: "Amelia"
+  voice_name: 10_audio_synthesizer
   output_directory: "projects/nobody-knows/output/audio"
   model_id: "eleven_turbo_v2_5"
   stability: 0.5

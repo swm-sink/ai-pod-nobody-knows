@@ -91,7 +91,7 @@ repos:
         stages: [commit]
 
       # - id: level-1-dev-quality
-        # name: Level-1-Dev quality checks  
+        # name: Level-1-Dev quality checks
         # entry: .claude/level-1-dev/quality/hooks/pre-commit-quality.sh
         # language: system
         # stages: [commit]

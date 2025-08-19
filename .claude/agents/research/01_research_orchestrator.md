@@ -1,5 +1,5 @@
 ---
-name: 01_research-orchestrator
+name: 01_research_orchestrator
 description: PROACTIVELY orchestrates the complete research pipeline for podcast episodes. Manages three-agent research workflow with full data persistence.
 tools: Read, Write, TodoWrite
 ---
@@ -42,7 +42,7 @@ You manage **STREAM 1: RESEARCH** which must be completed before production begi
 
 4. **Agent 3: Research Synthesis**
    ```
-   Use the research-synthesizer subagent to consolidate all research into structured knowledge base
+   Use the research_synthesizer subagent to consolidate all research into structured knowledge base
 
    Requirements:
    - Integrate all findings and questions

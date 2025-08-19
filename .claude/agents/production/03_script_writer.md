@@ -1,5 +1,5 @@
 ---
-name: 03_script-writer
+name: 03_script_writer
 description: PROACTIVELY transforms research packages into engaging, accessible podcast scripts that celebrate intellectual humility.
 tools: Read, Write, Edit, MultiEdit
 ---

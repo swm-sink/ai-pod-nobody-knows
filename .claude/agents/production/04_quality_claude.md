@@ -1,5 +1,5 @@
 ---
-name: 04_quality-claude
+name: 04_quality_claude
 description: PROACTIVELY evaluates script quality using Claude analysis. Ensures brand voice and production standards.
 tools: Read, Write, Grep
 ---

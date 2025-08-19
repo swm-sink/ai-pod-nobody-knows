@@ -1,5 +1,5 @@
 ---
-name: 01_production-orchestrator
+name: 01_production_orchestrator
 description: PROACTIVELY manages the complete production pipeline from approved research to final episode audio. Coordinates 5-agent production workflow.
 tools: Read, Write, TodoWrite
 ---

@@ -1,5 +1,5 @@
 ---
-name: 08_final-reviewer
+name: 08_final_reviewer
 description: PROACTIVELY performs final quality validation and production readiness checks before audio synthesis.
 tools: Read, Edit, Write
 ---

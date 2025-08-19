@@ -26,6 +26,13 @@
 - ✅ Check @import references resolve correctly
 - ✅ Verify navigation links are functional
 - ✅ Monitor token usage efficiency
+- ✅ Run automated validation checks for active development
+
+### **Pre-Push Operations (MANDATORY)**
+- 🔒 **CRITICAL**: Complete 50-step validation checklist before ANY push to main/production
+- 🔒 Execute `/run-validation` command for comprehensive verification
+- 🔒 Generate signed validation report with all checks completed
+- 🔒 Ensure pre-push git hook requirements are met
 
 ### **Weekly Maintenance**
 - 🔍 Cross-reference integrity validation
@@ -112,6 +119,168 @@ find .claude -name "CLAUDE.md" -exec bash -c '
 
 # Expected result: All files have complete dual explanations
 ```
+
+### **5. 50-Step Pre-Push Validation Framework**
+
+<validation-framework type="MANDATORY" enforcement="BRUTAL">
+  <critical-mandate>
+    ALL 50 STEPS MUST BE COMPLETED BEFORE ANY PUSH TO MAIN/PRODUCTION
+    NO EXCEPTIONS - NO SHORTCUTS - NO BYPASSES ALLOWED
+  </critical-mandate>
+</validation-framework>
+
+**Technical:** Comprehensive 50-step validation checklist covering environment, structure, agents, commands, integration, quality, security, performance, documentation, and deployment readiness.
+
+**Simple:** Like a pilot's pre-flight checklist - systematically check everything that could go wrong before takeoff, because fixing problems on the ground is infinitely easier than in flight.
+
+**Connection:** This teaches systematic quality assurance, risk management, and professional deployment practices essential for production software systems.
+
+#### **Framework Components**
+
+**1. Master Checklist**
+- **Location**: `.claude/validation/PRE_PUSH_CHECKLIST.md`
+- **Purpose**: Complete 50-step validation protocol
+- **Categories**: 10 categories with 5 checks each
+- **Enforcement**: Mandatory completion before any main/production push
+
+**2. Automated Validation Script**
+- **Location**: `scripts/validate_pre_push.sh`
+- **Purpose**: Automated execution of programmatic checks
+- **Coverage**: Environment, structure, security, git status
+- **Output**: Detailed validation log with pass/fail results
+
+**3. Interactive Validation Runner**
+- **Location**: `.claude/validation/run_validation.md` (Claude Code command)
+- **Purpose**: Guided interactive validation with progress tracking
+- **Features**: Manual verification guidance, report generation
+- **Usage**: `/run-validation` command
+
+**4. Git Hook Enforcement**
+- **Location**: `.git/hooks/pre-push`
+- **Purpose**: Prevent pushes without completed validation
+- **Scope**: main and production branches only
+- **Bypass**: Not allowed - validation required
+
+**5. Validation Report System**
+- **Template**: `.claude/validation/validation_report_template.md`
+- **Storage**: `.claude/validation/reports/`
+- **Format**: Comprehensive audit trail with sign-off
+- **Requirement**: Must show "VALIDATION SUCCESSFUL" status
+
+#### **Validation Categories (50 Steps Total)**
+
+**A. Environment & Dependencies (Steps 1-5)**
+- Python/Node environment validation
+- API key configuration verification
+- Package dependency checks
+- MCP server configuration validation
+
+**B. File Structure & Naming (Steps 6-10)**
+- Agent naming convention compliance
+- Duplicate file detection
+- Relative path usage verification
+- Directory structure integrity
+- Temporary file cleanup
+
+**C. Agent Configuration (Steps 11-15)**
+- Frontmatter YAML validation
+- Agent name consistency checks
+- Required tools specification
+- Claude Code discovery testing
+- Circular dependency analysis
+
+**D. Command Integrity (Steps 16-20)**
+- Command agent reference validation
+- Execution path verification
+- Documentation accuracy checks
+- Example functionality testing
+- Error handling validation
+
+**E. Integration Testing (Steps 21-25)**
+- Research stream testing
+- Production stream testing
+- End-to-end episode testing
+- Checkpoint functionality validation
+- Session management verification
+
+**F. Quality & Brand (Steps 26-30)**
+- Brand voice consistency testing
+- Dual explanation verification
+- Quality gate operational testing
+- Readability score validation
+- Intellectual humility maintenance
+
+**G. Security & Credentials (Steps 31-35)**
+- API key exposure prevention
+- .env gitignore verification
+- Sensitive data log scanning
+- File permission validation
+- Hardcoded credential detection
+
+**H. Performance & Costs (Steps 36-40)**
+- Cost tracking functionality
+- Budget limit enforcement
+- Token usage monitoring
+- Checkpoint optimization verification
+- Infinite loop prevention
+
+**I. Documentation & Maintenance (Steps 41-45)**
+- CLAUDE.md accuracy verification
+- README currency checks
+- Agent description validation
+- Command documentation verification
+- Navigation link testing
+
+**J. Git & Deployment (Steps 46-50)**
+- Working directory cleanliness
+- Pre-commit hook compliance
+- Merge conflict resolution
+- Branch synchronization
+- Test suite execution
+
+#### **Usage Instructions**
+
+**Quick Automated Check**:
+```bash
+./scripts/validate_pre_push.sh
+```
+
+**Complete Interactive Validation**:
+```bash
+# Via Claude Code command
+/run-validation
+
+# With custom report location
+/run-validation --report-file ./custom_validation_report.md
+```
+
+**Emergency Bypass** (NOT RECOMMENDED):
+```bash
+# Only for development branches
+git push --no-verify origin feature-branch
+```
+
+#### **Failure Protocol**
+
+<failure-protocol type="MANDATORY" enforcement="BRUTAL">
+  <critical-actions>
+    IF ANY STEP FAILS:
+    1. IMMEDIATELY stop the validation process
+    2. Document the failure in detail
+    3. Fix the underlying issue completely
+    4. RESTART the entire 50-step validation from Step 1
+    5. NO partial validations or step skipping allowed
+  </critical-actions>
+</failure-protocol>
+
+#### **Benefits Achieved**
+
+**Regression Prevention**: Catches issues like agent naming problems before deployment
+**Quality Assurance**: Ensures brand voice, dual explanations, and standards compliance
+**Security Protection**: Prevents credential leaks and sensitive data exposure
+**Cost Control**: Validates budget limits and optimization mechanisms
+**Documentation Accuracy**: Ensures docs match implementation reality
+**Professional Standards**: Creates audit trail and systematic verification
 
 ---
 

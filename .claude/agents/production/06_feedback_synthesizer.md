@@ -1,5 +1,5 @@
 ---
-name: 06_feedback-synthesizer
+name: 06_feedback_synthesizer
 description: PROACTIVELY aggregates and prioritizes feedback from dual quality evaluators. Creates consolidated improvement plans.
 tools: Read, Write
 ---
