@@ -1,0 +1,28 @@
+{
+  "checkpoint_type": "deep_research",
+  "session_id": "ep_001_20250814_test",
+  "episode_number": 1,
+  "status": "completed",
+  "timestamp": "2025-08-14T15:45:00Z",
+  "cost_invested": 7.50,
+  "perplexity_calls": 42,
+  "research_data": {
+    "total_words": 15420,
+    "expert_quotes": 18,
+    "sources_consulted": 67,
+    "research_rounds_completed": 5,
+    "confidence_assessment": "high",
+    "research_package": "Expert Uncertainty in AI Development: A comprehensive exploration of what leading AI researchers admit they don't understand about the systems they're building..."
+  },
+  "quality_metrics": {
+    "source_credibility": 0.89,
+    "information_currency": 0.94,
+    "brand_alignment": 0.91,
+    "completeness": 0.87
+  },
+  "integrity": {
+    "content_hash": "sha256:abc123def456",
+    "file_size_bytes": 98765,
+    "validation_passed": true
+  }
+}

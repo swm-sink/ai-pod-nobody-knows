@@ -1,0 +1,57 @@
+{
+  "episode_number": 1,
+  "evaluation_date": "2025-08-18",
+  "overall_score": 0.88,
+  "pass_fail": "PASS",
+  "quality_gates": {
+    "comprehension": {
+      "score": 0.87,
+      "threshold": 0.85,
+      "status": "PASS",
+      "metrics": {
+        "flesch_reading_ease": 72,
+        "flesch_kincaid_grade": 10,
+        "avg_sentence_length": 18
+      }
+    },
+    "brand_consistency": {
+      "score": 0.91,
+      "threshold": 0.90,
+      "status": "PASS",
+      "metrics": {
+        "humility_per_1000": 5.2,
+        "questions_per_1000": 4.1,
+        "avoided_terms": 0
+      }
+    },
+    "engagement": {
+      "score": 0.83,
+      "threshold": 0.80,
+      "status": "PASS",
+      "metrics": {
+        "hook_effectiveness": 0.85,
+        "sentence_variety": 0.78,
+        "engagement_phrases": 7
+      }
+    },
+    "technical": {
+      "score": 0.89,
+      "threshold": 0.85,
+      "status": "PASS",
+      "metrics": {
+        "duration_minutes": 26.5,
+        "word_count": 3950,
+        "structure_complete": true
+      }
+    }
+  },
+  "recommendations": [
+    "Consider adding one more intellectual humility phrase in segment 3",
+    "Hook could be strengthened with more immediate relevance"
+  ],
+  "cost_tracking": {
+    "evaluation_cost": 0.35,
+    "budget": "unlimited",
+    "within_budget": true
+  }
+}

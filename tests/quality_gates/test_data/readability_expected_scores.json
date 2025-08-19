@@ -1,0 +1,31 @@
+{
+  "flesch_reading_ease_ranges": {
+    "very_easy": {"min": 90, "max": 100, "description": "5th grade level"},
+    "easy": {"min": 80, "max": 89, "description": "6th grade level"},
+    "fairly_easy": {"min": 70, "max": 79, "description": "7th grade level"},
+    "standard": {"min": 60, "max": 69, "description": "8th-9th grade level"},
+    "fairly_difficult": {"min": 50, "max": 59, "description": "10th-12th grade level"},
+    "difficult": {"min": 30, "max": 49, "description": "College level"},
+    "very_difficult": {"min": 0, "max": 29, "description": "Graduate level"}
+  },
+  "podcast_targets": {
+    "flesch_reading_ease": {"min": 60, "max": 80, "target": 70},
+    "flesch_kincaid_grade": {"min": 8, "max": 12, "target": 10},
+    "average_sentence_length": {"min": 15, "max": 25, "target": 20}
+  },
+  "quality_gates": {
+    "comprehension_threshold": 0.85,
+    "comprehension_weight": 0.25,
+    "accessibility_requirements": {
+      "max_jargon_terms": 5,
+      "max_abbreviations": 3,
+      "min_transition_words": 2
+    }
+  },
+  "test_scenarios": {
+    "grade_school": {"expected_flesch_min": 80, "expected_fk_max": 6},
+    "high_school": {"expected_flesch_min": 50, "expected_fk_max": 12},
+    "college": {"expected_flesch_max": 30, "expected_fk_min": 13},
+    "podcast_target": {"expected_flesch_range": [60, 80], "expected_fk_range": [8, 12]}
+  }
+}

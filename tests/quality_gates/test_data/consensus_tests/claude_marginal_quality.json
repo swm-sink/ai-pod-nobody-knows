@@ -1,0 +1,58 @@
+{
+  "episode_number": 1,
+  "evaluation_date": "2025-08-18",
+  "overall_score": 0.85,
+  "pass_fail": "PASS",
+  "quality_gates": {
+    "comprehension": {
+      "score": 0.85,
+      "threshold": 0.85,
+      "status": "PASS",
+      "metrics": {
+        "flesch_reading_ease": 60,
+        "flesch_kincaid_grade": 12,
+        "avg_sentence_length": 25
+      }
+    },
+    "brand_consistency": {
+      "score": 0.90,
+      "threshold": 0.90,
+      "status": "PASS",
+      "metrics": {
+        "humility_per_1000": 3.0,
+        "questions_per_1000": 2.0,
+        "avoided_terms": 2
+      }
+    },
+    "engagement": {
+      "score": 0.80,
+      "threshold": 0.80,
+      "status": "PASS",
+      "metrics": {
+        "hook_effectiveness": 0.75,
+        "sentence_variety": 0.70,
+        "engagement_phrases": 5
+      }
+    },
+    "technical": {
+      "score": 0.85,
+      "threshold": 0.85,
+      "status": "PASS",
+      "metrics": {
+        "duration_minutes": 29.0,
+        "word_count": 4100,
+        "structure_complete": true
+      }
+    }
+  },
+  "recommendations": [
+    "Consider increasing intellectual humility phrases above minimum",
+    "Add more variety to sentence structure",
+    "Script is at maximum duration - consider minor trimming"
+  ],
+  "cost_tracking": {
+    "evaluation_cost": 0.35,
+    "budget": "unlimited",
+    "within_budget": true
+  }
+}

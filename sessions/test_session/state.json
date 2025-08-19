@@ -1,0 +1,7 @@
+{
+  "episode": "test_001",
+  "phase": "script_writing",
+  "status": "failed",
+  "last_agent": "03_script_writer",
+  "error": "Timeout during generation"
+}

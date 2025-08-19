@@ -1,0 +1,59 @@
+{
+  "episode_number": 1,
+  "evaluation_date": "2025-08-18",
+  "overall_score": 0.78,
+  "pass_fail": "FAIL",
+  "quality_gates": {
+    "comprehension": {
+      "score": 0.82,
+      "threshold": 0.85,
+      "status": "FAIL",
+      "metrics": {
+        "flesch_reading_ease": 55,
+        "flesch_kincaid_grade": 14,
+        "avg_sentence_length": 28
+      }
+    },
+    "brand_consistency": {
+      "score": 0.85,
+      "threshold": 0.90,
+      "status": "FAIL",
+      "metrics": {
+        "humility_per_1000": 2.8,
+        "questions_per_1000": 1.5,
+        "avoided_terms": 3
+      }
+    },
+    "engagement": {
+      "score": 0.75,
+      "threshold": 0.80,
+      "status": "FAIL",
+      "metrics": {
+        "hook_effectiveness": 0.65,
+        "sentence_variety": 0.68,
+        "engagement_phrases": 4
+      }
+    },
+    "technical": {
+      "score": 0.90,
+      "threshold": 0.85,
+      "status": "PASS",
+      "metrics": {
+        "duration_minutes": 27.2,
+        "word_count": 4020,
+        "structure_complete": true
+      }
+    }
+  },
+  "recommendations": [
+    "Simplify sentence structure to improve readability",
+    "Add more intellectual humility phrases throughout",
+    "Increase questioning tone and reduce absolutist language",
+    "Strengthen opening hook for better engagement"
+  ],
+  "cost_tracking": {
+    "evaluation_cost": 0.35,
+    "budget": "unlimited",
+    "within_budget": true
+  }
+}

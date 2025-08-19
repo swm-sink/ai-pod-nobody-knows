@@ -1,0 +1,65 @@
+{
+  "evaluation_id": "gemini_test_session_1755557891",
+  "timestamp": "2025-08-18T22:58:11Z",
+  "model": "gemini-2.5-flash",
+  "scores": {
+    "factual_accuracy": 4,
+    "audience_comprehension": 4,
+    "brand_alignment": 5,
+    "engagement_quality": 4
+  },
+  "weighted_average": 4.3,
+  "pass_threshold": 3.5,
+  "pass_fail": "PASS",
+  "threshold_comparison": {
+    "comprehension": {
+      "score": 0.80,
+      "threshold": 0.85,
+      "pass": false
+    },
+    "brand_consistency": {
+      "score": 1.00,
+      "threshold": 0.90,
+      "pass": true
+    },
+    "engagement": {
+      "score": 0.80,
+      "threshold": 0.80,
+      "pass": true
+    },
+    "technical_accuracy": {
+      "score": 0.80,
+      "threshold": 0.85,
+      "pass": false
+    }
+  },
+  "critical_issues": [],
+  "improvements": [
+    {
+      "priority": 2,
+      "suggestion": "Consider adding more concrete examples to improve clarity"
+    }
+  ],
+  "strengths": [
+    "Excellent intellectual humility throughout",
+    "Strong questioning approach",
+    "Good balance of complexity and accessibility"
+  ],
+  "metrics": {
+    "word_count": 3980,
+    "humility_phrases": 21,
+    "questions_count": 16,
+    "estimated_duration": 26.8,
+    "questions_per_1000_words": 4.0,
+    "humility_per_1000_words": 5.3
+  },
+  "cost_tracking": {
+    "input_tokens": 5307,
+    "output_tokens": 500,
+    "total_cost": "./tests/quality_gates/test_dual_evaluation_consensus.sh.0011",
+    "model_used": "gemini-2.5-flash"
+  },
+  "recommendation": "ACCEPT",
+  "confidence_level": "HIGH",
+  "retry_count": 0
+}

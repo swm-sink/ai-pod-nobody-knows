@@ -1,0 +1,83 @@
+{
+  "evaluation_id": "gemini_test_session_1755557892",
+  "timestamp": "2025-08-18T22:58:12Z",
+  "model": "gemini-2.5-flash",
+  "scores": {
+    "factual_accuracy": 3,
+    "audience_comprehension": 2,
+    "brand_alignment": 2,
+    "engagement_quality": 3
+  },
+  "weighted_average": 2.4,
+  "pass_threshold": 3.5,
+  "pass_fail": "FAIL",
+  "threshold_comparison": {
+    "comprehension": {
+      "score": 0.40,
+      "threshold": 0.85,
+      "pass": false
+    },
+    "brand_consistency": {
+      "score": 0.40,
+      "threshold": 0.90,
+      "pass": false
+    },
+    "engagement": {
+      "score": 0.60,
+      "threshold": 0.80,
+      "pass": false
+    },
+    "technical_accuracy": {
+      "score": 0.60,
+      "threshold": 0.85,
+      "pass": false
+    }
+  },
+  "critical_issues": [
+    {
+      "category": "comprehension",
+      "description": "Overly complex language throughout",
+      "severity": "HIGH"
+    },
+    {
+      "category": "brand",
+      "description": "Lacks intellectual humility phrases",
+      "severity": "HIGH"
+    }
+  ],
+  "improvements": [
+    {
+      "priority": 1,
+      "suggestion": "Simplify language and sentence structure significantly"
+    },
+    {
+      "priority": 1,
+      "suggestion": "Add intellectual humility phrases throughout"
+    },
+    {
+      "priority": 2,
+      "suggestion": "Include more questions and reduce certainty"
+    }
+  ],
+  "strengths": [
+    "Technically accurate content",
+    "Well-structured organization"
+  ],
+  "metrics": {
+    "word_count": 4050,
+    "humility_phrases": 9,
+    "questions_count": 6,
+    "estimated_duration": 27.5,
+    "questions_per_1000_words": 1.5,
+    "humility_per_1000_words": 2.2
+  },
+  "cost_tracking": {
+    "input_tokens": 5400,
+    "output_tokens": 500,
+    "total_cost": "./tests/quality_gates/test_dual_evaluation_consensus.sh.0011",
+    "model_used": "gemini-2.5-flash"
+  },
+  "recommendation": "REJECT",
+  "confidence_level": "HIGH",
+  "retry_count": 0
+}

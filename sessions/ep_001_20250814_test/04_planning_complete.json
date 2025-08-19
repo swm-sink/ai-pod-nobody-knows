@@ -1,0 +1,33 @@
+{
+  "checkpoint_type": "episode_planning",
+  "session_id": "ep_001_20250814_test",
+  "episode_number": 1,
+  "status": "completed",
+  "timestamp": "2025-08-14T18:15:00Z",
+  "cost_invested": 0.25,
+  "planning_results": {
+    "structure_chosen": "three-act",
+    "complexity_level": 4,
+    "duration_target": "47:00",
+    "character_count_target": 35000,
+    "segment_count": 4,
+    "narrative_elements": {
+      "feynman_analogies": 8,
+      "fridman_questions": 7,
+      "expert_perspectives": 10,
+      "intellectual_humility_markers": 12
+    },
+    "brand_integration": {
+      "nobody_knows_philosophy": 0.94,
+      "curiosity_cultivation": 0.91,
+      "expert_uncertainty_celebration": 0.89
+    },
+    "complete_episode_blueprint": "# Episode 001: The Humility of AI Pioneers\n\n## Structure: Three-Act Journey (47 minutes)\n\n### Act 1: The Great Admission (12-14 minutes)\n\n**Opening Hook (2 minutes):**\nImagine building the most sophisticated machine in human history..."
+  },
+  "quality_validation": {
+    "timing_precision": 0.96,
+    "character_count_accuracy": 0.94,
+    "research_integration": 0.92,
+    "brand_alignment": 0.95
+  }
+}

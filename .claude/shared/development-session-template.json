@@ -1,0 +1,95 @@
+{
+  "session_id": "dev_YYYYMMDD_HHMM",
+  "session_type": "development",
+  "purpose": "Building Claude Code native podcast production system",
+  "created_at": "2025-08-11T00:00:00Z",
+  "updated_at": "2025-08-11T00:00:00Z",
+
+  "current_level": {
+    "level": 1,
+    "description": "Claude Code Development Platform",
+    "focus": "Building tools to build the production system"
+  },
+
+  "artifacts_created": {
+    "agents": [],
+    "commands": [],
+    "context_files": [],
+    "templates": [],
+    "configurations": []
+  },
+
+  "work_completed": {
+    "level_1": {
+      "agent_builder": false,
+      "command_builder": false,
+      "context_researcher": false,
+      "session_manager": false,
+      "templates_created": false
+    },
+    "level_2": {
+      "research_agent": false,
+      "script_agent": false,
+      "audio_agent": false,
+      "quality_agent": false,
+      "production_command": false,
+      "mcp_configured": false
+    },
+    "level_3": {
+      "requirements_doc": false,
+      "architecture_design": false,
+      "test_harness": false,
+      "migration_plan": false
+    },
+    "level_4": {
+      "status": "NOT_STARTED",
+      "note": "Requires explicit approval"
+    }
+  },
+
+  "testing_results": {
+    "agents_tested": [],
+    "commands_tested": [],
+    "integration_tests": [],
+    "production_runs": []
+  },
+
+  "quality_metrics": {
+    "agent_quality_scores": {},
+    "command_effectiveness": {},
+    "cost_per_episode": null,
+    "production_time_minutes": null,
+    "error_rate": null
+  },
+
+  "costs": {
+    "development_costs": {
+      "claude_tokens": 0,
+      "mcp_api_calls": 0,
+      "total_usd": 0.00
+    },
+    "production_test_costs": {
+      "perplexity_api": 0.00,
+      "elevenlabs_api": 0.00,
+      "claude_tokens": 0,
+      "total_usd": 0.00
+    }
+  },
+
+  "issues_encountered": [],
+
+  "learnings": {
+    "prompt_patterns": [],
+    "cost_optimizations": [],
+    "quality_improvements": [],
+    "workflow_enhancements": []
+  },
+
+  "next_steps": {
+    "immediate": [],
+    "short_term": [],
+    "long_term": []
+  },
+
+  "notes": ""
+}
