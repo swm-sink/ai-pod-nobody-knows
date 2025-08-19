@@ -22,25 +22,23 @@ A production-ready automated podcast system using Claude Code's native AI to cre
 **Simple:** Like an assembly line with two stages - first we research a topic thoroughly, then we create the episode
 
 ```text
-Research Stream (3 agents):
-├── 01_research-orchestrator → Coordinates multi-source research
-├── 02_deep-research-agent → Perplexity-powered deep research
-└── 03_question-generator → Generates targeted research questions
+Research Stream (4 agents):
+├── 01_research_orchestrator → Coordinates multi-source research
+├── 02_deep_research_agent → Perplexity-powered deep research
+├── 03_question_generator → Generates targeted research questions
+└── 04_research_synthesizer → Research → Production bridge
 
 Production Stream (10 agents):
-├── 01_production-orchestrator → Manages complete pipeline
-├── 02_episode-planner → Creates episode structure
-├── 03_script-writer → Generates podcast script
-├── 04_quality-claude → Claude-based quality validation
-├── 05_quality-gemini → Gemini-based quality validation
-├── 06_feedback-synthesizer → Combines quality feedback
-├── 07_script-polisher → Final script optimization
-├── 08_final-reviewer → Production approval gate
-├── 09_tts-optimizer → Audio preparation
-└── 10_audio-synthesizer → ElevenLabs generation
-
-Stream Bridge:
-└── research-synthesizer → Research → Production handoff
+├── 01_production_orchestrator → Manages complete pipeline
+├── 02_episode_planner → Creates episode structure
+├── 03_script_writer → Generates podcast script
+├── 04_quality_claude → Claude-based quality validation
+├── 05_quality_gemini → Gemini-based quality validation
+├── 06_feedback_synthesizer → Combines quality feedback
+├── 07_script_polisher → Final script optimization
+├── 08_final_reviewer → Production approval gate
+├── 09_tts_optimizer → Audio preparation
+└── 10_audio_synthesizer → ElevenLabs generation
 ```
 
 ---
@@ -58,22 +56,22 @@ ai-podcasts-nobody-knows/
 │
 ├── .claude/                       # Simplified Claude Code configuration (54 files)
 │   ├── agents/                   # 14 specialized agents
-│   │   ├── research/             # 3 research agents
-│   │   │   ├── 01_research-orchestrator.md
-│   │   │   ├── 02_deep-research-agent.md
-│   │   │   └── 03_question-generator.md
+│   │   ├── research/             # 4 research agents
+│   │   │   ├── 01_research_orchestrator.md
+│   │   │   ├── 02_deep_research_agent.md
+│   │   │   ├── 03_question_generator.md
+│   │   │   └── 04_research_synthesizer.md
 │   │   ├── production/           # 10 production agents
-│   │   │   ├── 01_production-orchestrator.md
-│   │   │   ├── 02_episode-planner.md
-│   │   │   ├── 03_script-writer.md
-│   │   │   ├── 04_quality-claude.md
-│   │   │   ├── 05_quality-gemini.md
-│   │   │   ├── 06_feedback-synthesizer.md
-│   │   │   ├── 07_script-polisher.md
-│   │   │   ├── 08_final-reviewer.md
-│   │   │   ├── 09_tts-optimizer.md
-│   │   │   └── 10_audio-synthesizer.md
-│   │   └── research-synthesizer.md   # Stream bridge agent
+│   │   │   ├── 01_production_orchestrator.md
+│   │   │   ├── 02_episode_planner.md
+│   │   │   ├── 03_script_writer.md
+│   │   │   ├── 04_quality_claude.md
+│   │   │   ├── 05_quality_gemini.md
+│   │   │   ├── 06_feedback_synthesizer.md
+│   │   │   ├── 07_script_polisher.md
+│   │   │   ├── 08_final_reviewer.md
+│   │   │   ├── 09_tts_optimizer.md
+│   │   │   └── 10_audio_synthesizer.md
 │   ├── commands/                 # 4 production commands
 │   ├── config/                   # 5 essential configuration files
 │   ├── context/                  # 10 core learning files
@@ -200,25 +198,23 @@ pre-commit install
 
 All agents are in `.claude/agents/` (14 agents total):
 
-### Research Stream (3 agents):
-1. **01_research-orchestrator.md** - Coordinates multi-source research
-2. **02_deep-research-agent.md** - Perplexity-powered deep research  
-3. **03_question-generator.md** - Generates targeted research questions
+### Research Stream (4 agents):
+1. **01_research_orchestrator.md** - Coordinates multi-source research
+2. **02_deep_research_agent.md** - Perplexity-powered deep research
+3. **03_question_generator.md** - Generates targeted research questions
+4. **04_research_synthesizer.md** - Research → Production bridge
 
 ### Production Stream (10 agents):
-4. **01_production-orchestrator.md** - Manages complete pipeline
-5. **02_episode-planner.md** - Creates episode structure
-6. **03_script-writer.md** - Generates podcast script
-7. **04_quality-claude.md** - Claude-based quality validation
-8. **05_quality-gemini.md** - Gemini-based quality validation
-9. **06_feedback-synthesizer.md** - Combines quality feedback
-10. **07_script-polisher.md** - Final script optimization
-11. **08_final-reviewer.md** - Production approval gate
-12. **09_tts-optimizer.md** - Audio preparation
-13. **10_audio-synthesizer.md** - ElevenLabs generation
-
-### Stream Bridge (1 agent):
-14. **research-synthesizer.md** - Research → Production handoff
+5. **01_production_orchestrator.md** - Manages complete pipeline
+6. **02_episode_planner.md** - Creates episode structure
+7. **03_script_writer.md** - Generates podcast script
+8. **04_quality_claude.md** - Claude-based quality validation
+9. **05_quality_gemini.md** - Gemini-based quality validation
+10. **06_feedback_synthesizer.md** - Combines quality feedback
+11. **07_script_polisher.md** - Final script optimization
+12. **08_final_reviewer.md** - Production approval gate
+13. **09_tts_optimizer.md** - Audio preparation
+14. **10_audio_synthesizer.md** - ElevenLabs generation
 
 ---
 

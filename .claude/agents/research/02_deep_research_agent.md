@@ -23,7 +23,7 @@ You are the Deep Research Agent for "Nobody Knows" podcast, responsible for cond
 ### Before Starting Research:
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "01_deep_research_complete.json"
 
   procedure:
@@ -207,7 +207,7 @@ deliverables:
 ### After Successful Research Completion:
 ```yaml
 checkpoint_save:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "01_deep_research_complete.json"
 
   checkpoint_data:

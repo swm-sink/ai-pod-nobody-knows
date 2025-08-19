@@ -11,7 +11,7 @@ You are a production script writer for "Nobody Knows" podcast, expertly blending
 ### Before Starting Script Writing:
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "05_script_complete.json"
 
   procedure:
@@ -526,7 +526,7 @@ script_quality_check = {
 ### After Successful Script Writing:
 ```yaml
 checkpoint_save:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "05_script_complete.json"
 
   checkpoint_data:

@@ -117,22 +117,22 @@
 
 ### ✅ Two-Stream Architecture v1.0
 **Research Stream (4 agents):**
-- ✅ 01_research-orchestrator.md
-- ✅ 02_deep-research-agent.md
-- ✅ 03_question-generator.md
-- ✅ 04_research-synthesizer.md
+- ✅ 01_research_orchestrator.md
+- ✅ 02_deep_research_agent.md
+- ✅ 03_question_generator.md
+- ✅ 04_research_synthesizer.md
 
 **Production Stream (10 agents):**
-- ✅ 01_production-orchestrator.md
-- ✅ 02_episode-planner.md
-- ✅ 03_script-writer.md
-- ✅ 04_quality-claude.md
-- ✅ 05_quality-gemini.md
-- ✅ 06_feedback-synthesizer.md
-- ✅ 07_script-polisher.md
-- ✅ 08_final-reviewer.md
-- ✅ 09_tts-optimizer.md
-- ✅ 10_audio-synthesizer.md
+- ✅ 01_production_orchestrator.md
+- ✅ 02_episode_planner.md
+- ✅ 03_script_writer.md
+- ✅ 04_quality_claude.md
+- ✅ 05_quality_gemini.md
+- ✅ 06_feedback_synthesizer.md
+- ✅ 07_script_polisher.md
+- ✅ 08_final_reviewer.md
+- ✅ 09_tts_optimizer.md
+- ✅ 10_audio_synthesizer.md
 
 **Production Commands (4 total):**
 - ✅ produce-episode.md

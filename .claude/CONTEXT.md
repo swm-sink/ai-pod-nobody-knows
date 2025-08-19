@@ -9,7 +9,7 @@ Simple infrastructure overview for the AI Podcasts project using Claude Code.
 ├── agents/                # AI agents for podcast production
 │   ├── research/          # 3 research agents
 │   ├── production/        # 10 production agents
-│   └── research-synthesizer.md # Bridge agent
+│   └── research_synthesizer.md # Bridge agent
 ├── commands/              # Slash commands
 ├── config/                # Configuration files
 ├── context/               # Documentation
@@ -32,14 +32,14 @@ Simple infrastructure overview for the AI Podcasts project using Claude Code.
 ## Navigation
 
 - `/produce-research "topic"` - Start research stream
-- `/produce-episode path` - Start production stream  
+- `/produce-episode path` - Start production stream
 - `/test-episode "topic"` - Simple pipeline test
 
 ## Learning Value
 
 This teaches AI orchestration through practical podcast production, emphasizing:
 - Agent specialization and coordination
-- Quality gate implementation  
+- Quality gate implementation
 - Cost-effective AI workflows
 - Production pipeline design
 

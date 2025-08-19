@@ -19,8 +19,8 @@ Polish scripts based on quality evaluations:
 ## Polishing Process
 
 ### Input Sources
-- Original script from 03_script-writer
-- Quality feedback from 06_feedback-synthesizer
+- Original script from 03_script_writer
+- Quality feedback from 06_feedback_synthesizer
 - Consolidated improvement recommendations
 - Production standards and requirements
 

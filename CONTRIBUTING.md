@@ -75,7 +75,7 @@ done
 
 # Test with Claude Code
 # Start Claude Code and run:
-/produce-research  # Test research pipeline only
+/produce-episode   # Test complete episode production
 
 # Run pre-commit hooks
 pre-commit run --all-files
@@ -93,10 +93,9 @@ pre-commit run --all-files
 ```
 .claude/                   # 54 files total (93% reduction achieved)
 ├── agents/               # 14 specialized agents
-│   ├── research/         # 3 research agents
-│   ├── production/       # 10 production agents  
-│   └── research-synthesizer.md  # Stream bridge
-├── commands/             # 4 production commands
+│   ├── research/         # 4 research agents
+│   ├── production/       # 10 production agents
+├── commands/             # 5 production commands
 ├── config/               # 5 essential configs
 ├── context/              # 10 core learning files
 ├── docs/                 # 8 essential docs
@@ -107,7 +106,7 @@ pre-commit run --all-files
 ### Naming Conventions
 - **Directories**: `lowercase-with-hyphens`
 - **XML Files**: `lowercase_with_underscores.xml`
-- **Agents**: `##_agent_name.md` (numbered)
+- **Agents**: `##_agent_name.md` (numbered with underscores)
 - **Commands**: `verb-noun.md`
 
 ### Output File Locations

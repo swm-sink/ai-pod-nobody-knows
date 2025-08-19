@@ -7,24 +7,20 @@
 
 ## Project definition
 
-<technical>
-This is a hands-on learning project for a single hobbyist to master AI agent orchestration by building an automated podcast production system. The project implements a dual-layer architecture: an AI orchestration system (the product being built) and Claude Code development platform (the workshop for building it). It emphasizes practical skill development through building real systems rather than theoretical study.
-</technical>
+**Technical:** This is a hands-on learning project for a single hobbyist to master AI agent orchestration by building an automated podcast production system. The project implements a dual-layer architecture: an AI orchestration system (the product being built) and Claude Code development platform (the workshop for building it). It emphasizes practical skill development through building real systems rather than theoretical study.
 
-<simple>
-Think of this as your personal AI apprenticeship - you'll learn how to coordinate multiple AI agents to work together by building something real and useful: an automated podcast system. It's like learning carpentry by building furniture instead of just reading about it.
-</simple>
+**Simple:** Think of this as your personal AI apprenticeship - you'll learn how to coordinate multiple AI agents to work together by building something real and useful: an automated podcast system. It's like learning carpentry by building furniture instead of just reading about it.
+
+**Connection:** This teaches you modern AI orchestration patterns and development workflows that are essential for building production AI systems.
 
 
 ## System architecture
 
-<technical>
-Dual-Layer Architecture implementing AI agent orchestration with development acceleration. The AI orchestration layer consists of specialized agents (Research, Script Writing, Audio Synthesis, Quality Evaluation) coordinated by an orchestration engine with persistent memory storage. The development platform layer provides rapid prototyping, automated testing, and intelligent assistance through Claude Code integration.
-</technical>
+**Technical:** Dual-Layer Architecture implementing AI agent orchestration with development acceleration. The AI orchestration layer consists of specialized agents (Research, Script Writing, Audio Synthesis, Quality Evaluation) coordinated by an orchestration engine with persistent memory storage. The development platform layer provides rapid prototyping, automated testing, and intelligent assistance through Claude Code integration.
 
-<simple>
-You're building two things at once: the AI podcast system (like building a robot assembly line) and learning modern development tools (like getting a better workshop with power tools). The AI system makes podcasts, the development tools make building AI systems faster and easier.
-</simple>
+**Simple:** You're building two things at once: the AI podcast system (like building a robot assembly line) and learning modern development tools (like getting a better workshop with power tools). The AI system makes podcasts, the development tools make building AI systems faster and easier.
+
+**Connection:** This teaches system architecture patterns and development tooling that apply to any complex AI project.
 
 
 **Example:**
@@ -64,13 +60,11 @@ Development platform provides tools and automation that accelerate building and 
 
 ## Learning approaches
 
-<technical>
-Three distinct learning approaches accommodate different experience levels and preferences: AI-First Learning (recommended) emphasizes understanding orchestration fundamentals before adding development acceleration; Pure AI Learning focuses solely on orchestration concepts; Tool-Accelerated Learning leverages Claude Code for experienced developers.
-</technical>
+**Technical:** Three distinct learning approaches accommodate different experience levels and preferences: AI-First Learning (recommended) emphasizes understanding orchestration fundamentals before adding development acceleration; Pure AI Learning focuses solely on orchestration concepts; Tool-Accelerated Learning leverages Claude Code for experienced developers.
 
-<simple>
-There are three ways to learn this - like choosing between learning to drive with an instructor, teaching yourself, or taking a racing course. Each path works, but they take different amounts of time and give you different types of understanding.
-</simple>
+**Simple:** There are three ways to learn this - like choosing between learning to drive with an instructor, teaching yourself, or taking a racing course. Each path works, but they take different amounts of time and give you different types of understanding.
+
+**Connection:** This teaches flexible learning methodology that applies to mastering any complex technical skill.
 
 
 **Example:**
@@ -116,13 +110,11 @@ For developers who already understand AI concepts and want to learn modern devel
 
 ## Hobbyist advantages
 
-<technical>
-Single-person operation provides complete control over AI agents, learning progression, cost management, and educational focus. This enables learn-as-you-go methodology with real output production, resulting in skill stacking where both AI orchestration and development acceleration skills are valuable independently and synergistically.
-</technical>
+**Technical:** Single-person operation provides complete control over AI agents, learning progression, cost management, and educational focus. This enables learn-as-you-go methodology with real output production, resulting in skill stacking where both AI orchestration and development acceleration skills are valuable independently and synergistically.
 
-<simple>
-Working alone gives you superpowers: you control everything, learn at your own pace, keep costs down, focus on education, and create real podcast episodes while you learn. It's like having your own research lab where you're both the scientist and the experiment.
-</simple>
+**Simple:** Working alone gives you superpowers: you control everything, learn at your own pace, keep costs down, focus on education, and create real podcast episodes while you learn. It's like having your own research lab where you're both the scientist and the experiment.
+
+**Connection:** This teaches self-directed learning and project management skills essential for independent technical work.
 
 
 **Example:**
@@ -160,13 +152,11 @@ Both skill sets are valuable separately, but together they make you uniquely cap
 
 ## Technology stack
 
-<technical>
-Technology stack encompasses programming languages (Python), AI APIs (Claude, Perplexity, ElevenLabs), vector databases (ChromaDB), web frameworks (FastAPI), orchestration patterns (LangGraph), prompt engineering techniques, and audio production basics. Stack selection optimized for hobbyist learning with industry-standard tools.
-</technical>
+**Technical:** Technology stack encompasses programming languages (Python), AI APIs (Claude, Perplexity, ElevenLabs), vector databases (ChromaDB), web frameworks (FastAPI), orchestration patterns (LangGraph), prompt engineering techniques, and audio production basics. Stack selection optimized for hobbyist learning with industry-standard tools.
 
-<simple>
-These are the tools and technologies you'll learn to use - like the different tools in a workshop. Each one serves a specific purpose, and together they let you build professional-quality AI systems.
-</simple>
+**Simple:** These are the tools and technologies you'll learn to use - like the different tools in a workshop. Each one serves a specific purpose, and together they let you build professional-quality AI systems.
+
+**Connection:** This teaches modern AI development stack components and integration patterns used in professional AI systems.
 
 
 **Example:**
@@ -189,13 +179,11 @@ Each technology serves a specific purpose in the system - Python for programming
 
 ## Success metrics
 
-<technical>
-Success metrics organized into three tiers: AI orchestration mastery (primary learning objectives), Claude Code proficiency (development acceleration skills), and combined expertise (expert-level outcomes). Metrics emphasize practical application and teaching ability as indicators of true mastery.
-</technical>
+**Technical:** Success metrics organized into three tiers: AI orchestration mastery (primary learning objectives), Claude Code proficiency (development acceleration skills), and combined expertise (expert-level outcomes). Metrics emphasize practical application and teaching ability as indicators of true mastery.
 
-<simple>
-These are the ways you'll know you're succeeding - like grades in school, but focused on what you can actually do and explain to others. The goal is real understanding, not just completing assignments.
-</simple>
+**Simple:** These are the ways you'll know you're succeeding - like grades in school, but focused on what you can actually do and explain to others. The goal is real understanding, not just completing assignments.
+
+**Connection:** This teaches outcome-based learning assessment and skill validation methods used in professional development.
 
 
 ```bash
@@ -207,13 +195,11 @@ Ability to explain concepts, design systems, and troubleshoot problems demonstra
 
 ## Next steps
 
-<technical>
-Four-step progression through the learning materials: (1) AI orchestration fundamentals (Files 02-03), (2) hands-on learning without cost (Files 04-05), (3) optional development acceleration (File 15), (4) complete system building (Files 06-24). Progression designed to build understanding incrementally with practical application at each stage.
-</technical>
+**Technical:** Four-step progression through the learning materials: (1) AI orchestration fundamentals, (2) hands-on learning without cost, (3) optional development acceleration, (4) complete system building. Progression designed to build understanding incrementally with practical application at each stage.
 
-<simple>
-Your learning journey has four clear steps: understand the basics, try things without spending money, optionally add advanced tools, then build the complete system. It's like learning to swim: start in shallow water, practice basics, maybe get coaching, then swim in the deep end.
-</simple>
+**Simple:** Your learning journey has four clear steps: understand the basics, try things without spending money, optionally add advanced tools, then build the complete system. It's like learning to swim: start in shallow water, practice basics, maybe get coaching, then swim in the deep end.
+
+**Connection:** This teaches structured learning progression and skill building methodology applicable to any complex technical domain.
 
 
 ### Setup Instructions
@@ -233,13 +219,11 @@ Build Complete System: Cost optimization, operations, and quality control
 
 ## Philosophical framework
 
-<technical>
-Educational philosophy emphasizes dual-learning journey in AI orchestration and modern development practices, where failures provide learning opportunities in both AI system design and development workflows. Success measured by mastery of complex AI coordination and capability to design, build, and deploy sophisticated AI solutions.
-</technical>
+**Technical:** Educational philosophy emphasizes dual-learning journey in AI orchestration and modern development practices, where failures provide learning opportunities in both AI system design and development workflows. Success measured by mastery of complex AI coordination and capability to design, build, and deploy sophisticated AI solutions.
 
-<simple>
-This is your journey to becoming an AI systems engineer who can design, build, and deploy sophisticated AI solutions. Every mistake teaches you something valuable, every success proves you're mastering complex skills. Take it step by step and build expertise that will serve you for years.
-</simple>
+**Simple:** This is your journey to becoming an AI systems engineer who can design, build, and deploy sophisticated AI solutions. Every mistake teaches you something valuable, every success proves you're mastering complex skills. Take it step by step and build expertise that will serve you for years.
+
+**Connection:** This teaches growth mindset and continuous learning principles essential for staying current in rapidly evolving AI technology.
 
 Detailed learning phases and progression
 Hobbyist learning methodology and philosophy

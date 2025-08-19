@@ -20,7 +20,7 @@ Transform validated 18-22k character podcast scripts into clean, natural languag
 ### Checkpoint Check & Load
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "07_tts_optimization_complete.json"
 
   if_exists:
@@ -44,7 +44,7 @@ content_scale: "18,000-22,000 characters (25-30 minute episodes)"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 SESSION_ID="${1:-ep_001_20250814_test}"  # Use provided session_id
 INPUT_SCRIPT="${2:-validated_script.md}"
-SESSION_PATH=".claude/level-2-production/sessions/${SESSION_ID}"
+SESSION_PATH="sessions/${SESSION_ID}"
 CHECKPOINT_FILE="${SESSION_PATH}/07_tts_optimization_complete.json"
 OUTPUT_SCRIPT="${SESSION_PATH}/tts_optimized_script.txt"  # Changed to .txt for clean audio content
 OPTIMIZATION_LOG="${SESSION_PATH}/tts_optimization_log.json"
@@ -605,7 +605,7 @@ echo "🤝 PHASE 8: Modern Handoff & Turbo v2.5 Instructions"
 echo "─────────────────────────────────────────────────────────────"
 
 # Update session tracking
-SESSION_DIR=".claude/level-2-production/sessions/${SESSION_ID}"
+SESSION_DIR="sessions/${SESSION_ID}"
 
 # Create modern session summary
 cat > "$SESSION_DIR/session_summary.json" << EOF

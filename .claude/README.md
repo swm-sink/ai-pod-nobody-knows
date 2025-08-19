@@ -4,7 +4,7 @@
 
 **Core System (Ready to Use):**
 - **[agents/](./agents/)** - 14 specialized agents (research + production)
-- **[commands/](./commands/)** - 4 production commands  
+- **[commands/](./commands/)** - 4 production commands
 - **[config/](./config/)** - 5 essential configuration files
 - **[context/](./context/)** - 10 core learning files
 
@@ -23,12 +23,12 @@
 **Core Architecture:**
 - **Research Stream:** 3 agents (research → questions → synthesis)
 - **Production Stream:** 10 agents (planning → script → quality → audio)
-- **Bridge Agent:** research-synthesizer.md (connects streams)
+- **Bridge Agent:** research_synthesizer.md (connects streams)
 
 ## 📊 Simplification Results
 
 - **Before:** 775 files in .claude/
-- **After:** 216 files in .claude/ 
+- **After:** 216 files in .claude/
 - **Reduction:** 72% reduction (559 files removed)
 - **Target:** <50 files (more simplification needed)
 
@@ -36,7 +36,7 @@
 
 *Coming Soon: Web-hosted references for:*
 - Claude Code platform guides (12 files moved)
-- ElevenLabs integration guides (11 files moved)  
+- ElevenLabs integration guides (11 files moved)
 - Advanced research patterns (9 files moved)
 - Complex frameworks and templates (45+ files moved)
 
@@ -47,7 +47,7 @@
 /produce-episode
 
 # Research only
-/produce-research  
+/produce-research
 
 # Check costs
 grep "Cost:" sessions/*/production/*.json | tail -5

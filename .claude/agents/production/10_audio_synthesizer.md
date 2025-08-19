@@ -45,7 +45,7 @@ You are the audio synthesizer for "Nobody Knows" podcast, responsible for conver
 ### Checkpoint Check & Load
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "09_audio_synthesis_complete.json"
 
   if_exists:
@@ -103,7 +103,7 @@ Parameters:
 ```bash
 # CRITICAL: Check for existing checkpoint first
 SESSION_ID="${1:-ep_001_20250814_test}"
-SESSION_PATH=".claude/level-2-production/sessions/${SESSION_ID}"
+SESSION_PATH="sessions/${SESSION_ID}"
 CHECKPOINT_FILE="${SESSION_PATH}/09_audio_synthesis_complete.json"
 AUDIO_OUTPUT_PATH="projects/nobody-knows/output/audio/ep${episode_num}_${topic}_$(date +%Y%m%d).mp3"
 

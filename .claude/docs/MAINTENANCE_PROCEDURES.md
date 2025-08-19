@@ -1,14 +1,4 @@
 # Hierarchical Memory System Maintenance Procedures 🔧
-
-<document type="maintenance-guide" version="1.0.0">
-  <metadata>
-    <purpose>Comprehensive maintenance procedures for hierarchical CLAUDE.md system</purpose>
-    <scope>Validation, updates, optimization, and troubleshooting</scope>
-    <frequency>Regular maintenance schedules and on-demand procedures</frequency>
-    <automation>Automated checks where possible, manual procedures for complex tasks</automation>
-  </metadata>
-</document>
-
 ## 🎯 MAINTENANCE OBJECTIVES
 
 **Technical:** Ensure ongoing system reliability, performance optimization, content accuracy, and structural integrity of the hierarchical memory system through systematic validation, automated checks, and proactive maintenance procedures.

@@ -23,7 +23,7 @@ You are the Research Synthesizer for "Nobody Knows" podcast, responsible for con
 ### Before Starting Synthesis:
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "03_synthesis_complete.json"
 
   procedure:
@@ -240,7 +240,7 @@ avoid_content:
 ### After Successful Synthesis:
 ```yaml
 checkpoint_save:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "03_synthesis_complete.json"
 
   checkpoint_data:

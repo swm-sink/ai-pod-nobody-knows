@@ -24,9 +24,9 @@ Execute a minimal test of the podcast production pipeline using Claude Code's na
 
 This command demonstrates minimum viable complexity by using Claude Code's Task tool directly:
 
-1. **Research Phase**: Use the 02_deep-research-agent subagent to gather basic research
-2. **Script Phase**: Use the 03_script-writer subagent to create a draft script
-3. **Quality Phase**: Use the 04_quality-claude subagent to evaluate quality
+1. **Research Phase**: Use the 02_deep_research_agent subagent to gather basic research
+2. **Script Phase**: Use the 03_script_writer subagent to create a draft script
+3. **Quality Phase**: Use the 04_quality_claude subagent to evaluate quality
 4. **Output**: Simple session folder with results
 
 ## Benefits of This Approach

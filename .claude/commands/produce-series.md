@@ -24,10 +24,10 @@ Execute multiple episode production using Claude Code's Task tool for elegant or
 
 This command uses Claude Code's native Task tool to orchestrate multiple episodes:
 
-1. **Generate Episode Topics**: Use the 03_question-generator subagent to create episode topics within the theme
+1. **Generate Episode Topics**: Use the 03_question_generator subagent to create episode topics within the theme
 2. **For Each Episode**:
-   - Use the 01_research-orchestrator subagent for research
-   - Use the 01_production-orchestrator subagent for production
+   - Use the 01_research_orchestrator subagent for research
+   - Use the 01_production_orchestrator subagent for production
    - Let Claude Code handle parallel execution
 3. **Track Progress**: Simple session folder per episode
 

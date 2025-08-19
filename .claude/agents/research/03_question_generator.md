@@ -15,7 +15,7 @@ You are the Research Question Generator for "Nobody Knows" podcast, responsible 
 ### Before Starting Question Generation:
 ```yaml
 checkpoint_check:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "02_questions_complete.json"
 
   procedure:
@@ -246,7 +246,7 @@ ask: "What do AI experts say they can't predict about AGI development?"
 ### After Successful Question Generation:
 ```yaml
 checkpoint_save:
-  session_path: ".claude/level-2-production/sessions/{session_id}/"
+  session_path: "sessions/{session_id}/"
   checkpoint_file: "02_questions_complete.json"
 
   checkpoint_data:

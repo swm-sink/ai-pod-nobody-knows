@@ -106,7 +106,7 @@ For production deployment:
 3. Use batch processing for efficiency
 4. Monitor with `/production-metrics` command
 
-See `.claude/level-2-production/docs/QUICK_START_GUIDE.xml` for detailed production setup.
+See `.claude/context/operations/03_production_checklist.xml` for detailed production setup.
 
 ## ⚙️ Configuration
 
@@ -224,7 +224,7 @@ Configure Claude Code settings in `.claude/settings.local.json`:
 
 - [ ] API keys configured and tested
 - [ ] Cost limits set appropriately
-- [ ] Monitoring configured (see `.claude/level-2-production/observability.xml`)
+- [ ] Monitoring configured (see `.claude/context/operations/02_quick_reference.xml`)
 - [ ] Backup strategy in place
 - [ ] Error recovery tested
 - [ ] Session storage configured
@@ -326,7 +326,7 @@ bash scripts/precommit/validate_dry_compliance.sh
 bash scripts/precommit/validate_navigation.sh
 
 # Check agent dependencies
-bash .claude/level-2-production/tools/fix-agent-dependencies.sh
+bash scripts/precommit/validate_navigation.sh
 ```
 
 ### Output Locations
