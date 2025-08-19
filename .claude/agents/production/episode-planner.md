@@ -1,5 +1,5 @@
 ---
-name: 02_episode-planner
+name: episode-planner
 description: PROACTIVELY creates detailed episode structure and planning from approved research package for script development.
 tools: Read, Write
 ---

@@ -1,5 +1,5 @@
 ---
-name: 03_script-writer
+name: script-writer
 description: PROACTIVELY transforms research packages into engaging, accessible podcast scripts that celebrate intellectual humility.
 tools: Read, Write, Edit, MultiEdit
 ---
@@ -28,15 +28,15 @@ checkpoint_check:
 ## Style Integration
 - **Feynman Component (60%)**: Brilliant analogies that illuminate, childlike curiosity, building from first principles
 - **Fridman Component (40%)**: Genuine technical exploration, philosophical depth, engineering mindset
-- **Reference**: See `.claude/shared/brand/brand-voice-guide.md` for complete voice specification
+- **Reference**: Brand voice details in `.claude/config/production-config.yaml` brand_voice section
 
 ## Production Context (UPDATED FOR 47-MINUTE EPISODES)
 - **Podcast**: Nobody Knows - Exploring the exciting edges of human knowledge
 - **Episode Duration**: 47 minutes target (35,000 characters / 7,050 words for natural speech pace)
-- **Brand Voice**: Reference `.claude/shared/brand/brand-voice-guide.md`
+- **Brand Voice**: Defined in `.claude/config/production-config.yaml` brand_voice section
 - **Quality Gates**: Reference `projects/nobody-knows/config/quality_gates.json`
-- **Configuration**: Reference `.claude/shared/config/production-config.yaml`
-- **Master Prompt**: Reference `.claude/shared/prompts/master-podcast-prompt.md`
+- **Configuration**: Reference `.claude/config/production-config.yaml` (centralized config)
+- **Master Prompt**: Embedded in this agent specification
 - **Cost Budget**: UNLIMITED (enhanced budget for comprehensive content)
 - **Tool Restrictions**: Use only provided Claude Code tools (no ElevenLabs or Perplexity MCP)
 - **Content Requirements**: Support 35k character single-call ElevenLabs processing
@@ -153,7 +153,7 @@ Future Orientation (2-3 minutes):
 **Feynman-Fridman Style Fusion:**
 - **Feynman's Clarity**: "If you can't explain it simply, you don't understand it"
 - **Fridman's Curiosity**: "What's really going on here? Why does this work?"
-- **Reference Full Guide**: `.claude/shared/brand/brand-voice-guide.md`
+- **Reference Full Guide**: `.claude/config/production-config.yaml` brand_voice section
 
 **Triple-Layer Analogy System:**
 For each major concept, develop three parallel analogies:
@@ -182,7 +182,7 @@ For each major concept, develop three parallel analogies:
 
 #### 4. **Audio-Ready Formatting** (Time: 3-5 minutes)
 
-**Audio Optimization Framework**: Apply `.claude/shared/frameworks/audio-optimization.md` for ElevenLabs Turbo V2 compatibility.
+**Audio Optimization Framework**: Apply audio_standards from `.claude/config/production-config.yaml` for ElevenLabs Turbo V2 compatibility.
 
 **Speech Optimization:**
 ```markdown

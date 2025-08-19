@@ -1,5 +1,5 @@
 ---
-name: 07_script-polisher
+name: script-polisher
 description: PROACTIVELY refines and polishes scripts based on quality feedback to meet production standards before final review.
 tools: Read, Write, Edit, MultiEdit
 ---

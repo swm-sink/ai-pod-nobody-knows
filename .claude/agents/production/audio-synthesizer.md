@@ -1,5 +1,5 @@
 ---
-name: 10_audio-synthesizer
+name: audio-synthesizer
 description: PROACTIVELY converts validated scripts into high-quality podcast audio using ElevenLabs. Produces final episode audio files.
 tools: mcp__ElevenLabs__text_to_speech, Read, Write
 ---
@@ -10,8 +10,8 @@ tools: mcp__ElevenLabs__text_to_speech, Read, Write
 
 **Dependencies**:
 - MCP: elevenlabs-mcp
-- Configs: @shared/config/production-config.yaml
-- Audio Standards: @shared/frameworks/audio-optimization.md
+- Configs: @config/production-config.yaml (centralized)
+- Audio Standards: Defined in production-config.yaml audio_standards section
 
 # Audio Synthesizer - Text-to-Speech Production
 
@@ -31,8 +31,8 @@ You are the audio synthesizer for "Nobody Knows" podcast, responsible for conver
 - Cost tracking for unlimited budget production
 
 ## Production Context
-- **Configuration**: Reference `.claude/shared/config/production-config.yaml`
-- **Audio Standards**: Reference `.claude/shared/frameworks/audio-optimization.xml`
+- **Configuration**: Reference `.claude/config/production-config.yaml` (centralized config)
+- **Audio Standards**: Defined in production-config.yaml under audio_standards section
 - **TTS Provider**: ElevenLabs MCP (mcp__ElevenLabs__text_to_speech tool)
 - **Cost Budget**: Unlimited (user has sufficient API credits for 10,000+ hours)
 - **Content Scale**: 18-22k characters per episode (25-30 minute duration)

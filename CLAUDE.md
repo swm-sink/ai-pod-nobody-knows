@@ -55,17 +55,17 @@
 
 <navigation-hub>
   <new-user>
-    **First Time?** → @foundation/01_project_overview.xml → Follow WALK phase
+    **First Time?** → @context/01_project_overview.md → Follow WALK phase
     **Quick Setup**: python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
   </new-user>
 
   <returning-user>
-    **Welcome Back!** → Check current phase → @operations/02_quick_reference.xml
+    **Welcome Back!** → Check current phase → @context/02_quick_reference.md
     **Jump to**: Current todos with `/todolist` command
   </returning-user>
 
   <stuck-user>
-    **Need Help?** → @operations/01_troubleshooting_guide.xml
+    **Need Help?** → @context/01_troubleshooting_guide.md
     **Emergency**: Use `@` navigation to any file instantly
   </stuck-user>
 </navigation-hub>
@@ -75,7 +75,7 @@
 <current-phase>
   <phase>WALK</phase>
   <focus>Learn for FREE - No API keys needed!</focus>
-  <next-action>@foundation/04_no_api_keys_activities.xml</next-action>
+  <next-action>@context/02_walk_crawl_run_phases.md</next-action>
   <duration>Weeks 1-4</duration>
   <cost>$0</cost>
 </current-phase>
@@ -96,11 +96,9 @@
   </thinking-modes>
 
   <context-loading>
-    `@foundation/` - Project overview and learning phases
-    `@operations/` - Troubleshooting and procedures
-    `@quality/` - Standards and validation
-    `@level1/` - Development platform context
-    `@level2/` - Production system context
+    `@context/` - Project overview, troubleshooting, and guides
+    `@agents/` - 14 specialized agents (research + production)
+    `@commands/` - 4 production commands
   </context-loading>
 </essential-commands>
 
@@ -373,6 +371,131 @@
   </validation>
 </llm-anti-patterns-policy>
 
+## 🔄 MANDATORY 10-STEP META-PROMPTING PROTOCOL
+
+<meta-prompting-protocol version="1.0" enforcement="BRUTAL">
+  <scope>
+    Applies to ALL development tasks, code generation, system modifications, problem-solving, and analysis activities. NO EXCEPTIONS.
+  </scope>
+
+  <critical-mandate>
+    EVERY TASK MUST FOLLOW THE 10-STEP SEQUENCE IN EXACT ORDER
+    FAILURE TO COMPLETE ANY STEP BEFORE PROCEEDING INVALIDATES ALL WORK
+    NO BYPASS OPTIONS - NO SHORTCUTS - NO ASSUMPTIONS ALLOWED
+  </critical-mandate>
+
+  <protocol-steps>
+    <step number="1" name="THINK_ANALYZE" mandatory="ABSOLUTE">
+      <requirement>Deep analysis of current state and requirements</requirement>
+      <action>Examine problem space, constraints, and objectives comprehensively</action>
+      <validation>Must demonstrate thorough understanding before proceeding</validation>
+      <blocking-condition>NO analysis = NO progression</blocking-condition>
+    </step>
+
+    <step number="2" name="IDENTIFY_IMPACTS" mandatory="ABSOLUTE">
+      <requirement>Identify second and third order implications</requirement>
+      <action>Map consequences, dependencies, and ripple effects</action>
+      <validation>Must document potential impacts and mitigation strategies</validation>
+      <blocking-condition>NO impact analysis = NO progression</blocking-condition>
+    </step>
+
+    <step number="3" name="RESEARCH_VALIDATE" mandatory="ABSOLUTE">
+      <requirement>Use research tools if needed for knowledge gaps</requirement>
+      <action>Validate assumptions, gather authoritative sources, verify claims</action>
+      <validation>Must mark any unverified information as UNVERIFIED</validation>
+      <blocking-condition>NO verification = NO progression</blocking-condition>
+    </step>
+
+    <step number="4" name="PLAN_DESIGN" mandatory="ABSOLUTE">
+      <requirement>Create detailed implementation plan BEFORE any code</requirement>
+      <action>Design approach, sequence, validation criteria, rollback plan</action>
+      <validation>Must have complete plan with success criteria defined</validation>
+      <blocking-condition>NO PLAN = NO CODE - ZERO TOLERANCE</blocking-condition>
+      <critical-note>THIS STEP IS THE PRIMARY ENFORCEMENT GATE</critical-note>
+    </step>
+
+    <step number="5" name="DECOMPOSE" mandatory="ABSOLUTE">
+      <requirement>Break complex tasks into atomic, manageable components</requirement>
+      <action>Create sequential, independent sub-tasks with clear boundaries</action>
+      <validation>Must demonstrate task atomicity and dependency mapping</validation>
+      <blocking-condition>NO decomposition = NO complex task execution</blocking-condition>
+    </step>
+
+    <step number="6" name="IMPLEMENT_TDD" mandatory="ABSOLUTE">
+      <requirement>Follow RED-GREEN-REFACTOR cycle for all implementations</requirement>
+      <action>Test first, implement to pass, refactor for elegance</action>
+      <validation>Must show TDD cycle completion for each component</validation>
+      <blocking-condition>NO TDD = NO implementation acceptance</blocking-condition>
+    </step>
+
+    <step number="7" name="ASSESS_QUALITY" mandatory="ABSOLUTE">
+      <requirement>Comprehensive quality assessment before any commits</requirement>
+      <action>Validate against requirements, test edge cases, verify standards</action>
+      <validation>Must pass all quality gates and acceptance criteria</validation>
+      <blocking-condition>NO quality assessment = NO commits allowed</blocking-condition>
+    </step>
+
+    <step number="8" name="VALIDATE_INTEGRATION" mandatory="ABSOLUTE">
+      <requirement>Ensure production readiness and system integration</requirement>
+      <action>Test integration points, verify compatibility, validate performance</action>
+      <validation>Must demonstrate full system compatibility</validation>
+      <blocking-condition>NO integration validation = NO production deployment</blocking-condition>
+    </step>
+
+    <step number="9" name="COMMIT_CHANGES" mandatory="ABSOLUTE">
+      <requirement>Use structured commit messages following established patterns</requirement>
+      <action>Commit with clear descriptions, proper attribution, version tracking</action>
+      <validation>Must follow commit message standards and include evidence</validation>
+      <blocking-condition>NO structured commits = NO change acceptance</blocking-condition>
+    </step>
+
+    <step number="10" name="RETROSPECT_LEARN" mandatory="ABSOLUTE">
+      <requirement>Capture insights, lessons learned, and improvement opportunities</requirement>
+      <action>Document what worked, what didn't, and what to optimize next time</action>
+      <validation>Must produce actionable insights for future optimization</validation>
+      <blocking-condition>NO retrospection = NO learning captured = INCOMPLETE CYCLE</blocking-condition>
+    </step>
+  </protocol-steps>
+
+  <enforcement-mechanisms>
+    <rule id="step-sequence">Steps must be completed in exact numerical order 1→10</rule>
+    <rule id="step-validation">Each step requires explicit validation before progression</rule>
+    <rule id="no-skipping">Skipping any step immediately invalidates entire workflow</rule>
+    <rule id="plan-gate">Step 4 (PLAN_DESIGN) is the primary enforcement gate - NO CODE WITHOUT PLAN</rule>
+    <rule id="quality-gate">Step 7 (ASSESS_QUALITY) blocks all commits until quality verified</rule>
+    <rule id="learning-capture">Step 10 (RETROSPECT_LEARN) must produce transferable insights</rule>
+  </enforcement-mechanisms>
+
+  <integration-requirements>
+    <existing-protocols>
+      <integration>Must work harmoniously with Anti-Hallucination Protocol</integration>
+      <integration>Must preserve Chain-of-Thought Mandate requirements</integration>
+      <integration>Must respect Change Control Protocol approval gates</integration>
+      <integration>Must maintain LLM Anti-Pattern Enforcement standards</integration>
+    </existing-protocols>
+
+    <educational-alignment>
+      <requirement>Each step must provide Technical/Simple/Connection explanations</requirement>
+      <requirement>Must demonstrate learning value at every checkpoint</requirement>
+      <requirement>Must preserve intellectual humility philosophy</requirement>
+    </educational-alignment>
+  </integration-requirements>
+
+  <violation-consequences>
+    <immediate-stop>Any step bypass triggers immediate workflow termination</immediate-stop>
+    <work-invalidation>All work performed without proper step completion is invalid</work-invalidation>
+    <restart-required>Must restart from Step 1 after any protocol violation</restart-required>
+    <no-exceptions>NO emergency bypasses, NO special cases, NO "just this once" allowed</no-exceptions>
+  </violation-consequences>
+
+  <success-criteria>
+    <criterion>All 10 steps completed in sequence with validation evidence</criterion>
+    <criterion>Each step demonstrates clear value and learning capture</criterion>
+    <criterion>Final output meets quality standards and integration requirements</criterion>
+    <criterion>Retrospective insights captured for continuous improvement</criterion>
+  </success-criteria>
+</meta-prompting-protocol>
+
 ## 📚 CONTEXT LOADING GUIDE
 
 <context-loading-guide>
@@ -381,13 +504,9 @@
   **Connection:** This teaches efficient AI system management and resource optimization.
 
   <available-contexts>
-    - `@foundation/` - Project overview, phases, constants
-    - `@operations/` - Commands, troubleshooting, procedures
-    - `@quality/` - Standards, validation, anti-patterns
+    - `@context/` - All guides, troubleshooting, and constants
     - `@agents/` - Multi-agent orchestration
-    - `@tools/` - Implementation guides and utilities
-    - `@level1/CONTEXT.md` - Development platform details
-    - `@level2/CONTEXT.md` - Production system details
+    - `@commands/` - Production commands and workflows
   </available-contexts>
 
   <usage-pattern>
@@ -403,22 +522,22 @@
 <project-overview>
   <mission>Learn AI orchestration by building automated podcast production system</mission>
   <philosophy>Intellectual humility - celebrating what we know AND what we don't</philosophy>
-  <cost-target>$4-5 per episode (vs traditional $800-3500)</cost-target>
+  <cost-achieved>$5.51 per episode (vs traditional $800-3500)</cost-achieved>
   <learning-emphasis>Every step teaches transferable AI orchestration skills</learning-emphasis>
 </project-overview>
 
-## 🏗️ FOUR-LEVEL ARCHITECTURE
+## 🌊 TWO-STREAM ARCHITECTURE v1.0
 
 <architecture-summary>
-  **Technical:** Hierarchical separation of concerns with strict dependency management and approval gates.
-  **Simple:** Like organizing a building project with separate teams for planning, building, managing, and improving.
+  **Technical:** Simplified dual-stream design with clear separation between research and production workflows, 93% file reduction while preserving all functionality.
+  **Simple:** Like an assembly line with two stages - first we research a topic thoroughly, then we create the episode.
 
-  <levels>
-    - **Level 1**: Development Platform (.claude/level-1-dev/) - Build tools that build the system
-    - **Level 2**: Production System (.claude/level-2-production/) - Active podcast production
-    - **Level 3**: Platform Planning (.claude/level-3-platform-dev/) - Future platform design
-    - **Level 4**: Coded Platform - Future implementation (LOCKED - requires approval)
-  </levels>
+  <streams>
+    - **Research Stream**: 3 agents (.claude/agents/research/) - Multi-source research coordination
+    - **Production Stream**: 10 agents (.claude/agents/production/) - Episode creation pipeline
+    - **Stream Bridge**: 1 agent (research-synthesizer.md) - Research → Production handoff
+    - **Commands**: 4 total (.claude/commands/) - Production orchestration
+  </streams>
 </architecture-summary>
 
 ## 🎯 CURRENT PRIORITIES
@@ -427,7 +546,7 @@
   <priority-1>Complete WALK phase activities (FREE)</priority-1>
   <priority-2>Set up selective context loading system</priority-2>
   <priority-3>Test with single episode production</priority-3>
-  <priority-4>Optimize for <$5 cost per episode</priority-4>
+  <priority-4>Achieved $5.51 cost per episode (EPISODE_SPECS['duration_minutes'])</priority-4>
 </current-priorities>
 
 ## 💡 PRO TIPS
@@ -449,6 +568,6 @@ Use @ references to load detailed contexts on-demand.
 
 ---
 
-**Quick Actions**: `/init` | `/clear` | `@operations/02_quick_reference.xml` | `@foundation/01_project_overview.xml`
+**Quick Actions**: `/init` | `/clear` | `@context/02_quick_reference.md` | `@context/01_project_overview.md`
 
 **Version**: 5.0.0 | **Updated**: 2025-08-15 | **Master System Prompt**: Active | **Context**: Selective Loading

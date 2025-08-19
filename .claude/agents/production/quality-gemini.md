@@ -1,5 +1,5 @@
 ---
-name: 05_quality-gemini
+name: quality-gemini
 description: PROACTIVELY provides independent quality evaluation using Gemini CLI for comprehensive script assessment. Used in parallel with quality-claude.
 tools: Bash, Read, Write
 ---

@@ -1,5 +1,5 @@
 ---
-name: 01_production-orchestrator
+name: production-orchestrator
 description: PROACTIVELY manages the complete production pipeline from approved research to final episode audio. Coordinates 5-agent production workflow.
 tools: Read, Write, TodoWrite
 ---
@@ -60,7 +60,7 @@ Before starting, verify:
 
 5. **Agent 5: Audio Production**
    ```
-   Use the audio-producer subagent to generate final episode audio
+   Use the audio-synthesizer subagent to generate final episode audio
 
    Input: Final polished script
    Tools: mcp__ElevenLabs__text_to_speech
