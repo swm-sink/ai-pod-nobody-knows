@@ -1,5 +1,5 @@
 ---
-name: audio-synthesizer
+name: 10_audio-synthesizer
 description: PROACTIVELY converts validated scripts into high-quality podcast audio using ElevenLabs. Produces final episode audio files.
 tools: mcp__ElevenLabs__text_to_speech, Read, Write
 ---

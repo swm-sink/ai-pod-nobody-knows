@@ -1,5 +1,5 @@
 ---
-name: tts-optimizer
+name: 09_tts-optimizer
 description: PROACTIVELY optimizes scripts for TTS synthesis by applying natural language processing and SSML formatting.
 tools: Bash, Read, Write, Edit
 ---
