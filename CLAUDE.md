@@ -533,10 +533,10 @@
   **Simple:** Like an assembly line with two stages - first we research a topic thoroughly, then we create the episode.
 
   <streams>
-    - **Research Stream**: 3 agents (.claude/agents/research/) - Multi-source research coordination
+    - **Research Stream**: 4 agents (.claude/agents/research/) - Multi-source research coordination
     - **Production Stream**: 10 agents (.claude/agents/production/) - Episode creation pipeline
-    - **Stream Bridge**: 1 agent (research-synthesizer.md) - Research → Production handoff
-    - **Commands**: 4 total (.claude/commands/) - Production orchestration
+    - **Stream Bridge**: research_synthesizer.md - Research → Production handoff
+    - **Commands**: 5 total (.claude/commands/) - Production orchestration and validation
   </streams>
 </architecture-summary>
 
