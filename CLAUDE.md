@@ -98,7 +98,7 @@
   <context-loading>
     `@context/` - Project overview, troubleshooting, and guides
     `@agents/` - 14 specialized agents (research + production)
-    `@commands/` - 4 production commands
+    `@commands/` - 5 production commands
   </context-loading>
 </essential-commands>
 

@@ -4,139 +4,116 @@
 **Skill Level:** intermediate
 **Estimated Time:** 45 minutes
 
+## Anti-Hallucination Policy
 
-## Anti hallucination policy
+**Technical:** Implement systematic verification protocols that require source citation for all factual claims, confidence level disclosure for uncertain information, and multiple-source validation for technical specifications. Use automated thinking mode escalation and parallel fact-checking subagents for complex queries.
 
-## Prevention strategies
+**Simple:** Like being a careful journalist - always check your sources, admit when you're not sure, and get multiple opinions on important facts. Never guess when you can look it up.
 
-**Example:**
+**Connection:** This teaches information verification skills and source validation essential for any professional work involving research and communication.
 
-**Example:**
-RAG Implementation for API Documentation
+## Prevention Strategies
 
-```bash
-Like doing homework by reading the textbook first instead of guessing - much more accurate results
+### RAG Implementation for API Documentation
 
+**Technical:** Use Retrieval-Augmented Generation to ground all API and technical documentation claims in current, authoritative sources. Implement automated source retrieval before generating technical responses.
 
-**Example:**
-Uncertainty Acknowledgment for Performance Claims
+**Simple:** Like doing homework by reading the textbook first instead of guessing - much more accurate results.
 
-```bash
-Like a good teacher saying "Let me look that up" instead of guessing wrong information
+### Uncertainty Acknowledgment for Performance Claims
 
+**Technical:** Explicitly disclose confidence levels using standard ranges (90-100%, 70-89%, 50-69%, <50%) and avoid making performance claims without benchmark data from reliable sources.
 
-**Example:**
-Direct Quote Grounding for Technical Specifications
+**Simple:** Like a good teacher saying "Let me look that up" instead of guessing wrong information.
 
-```bash
-Like being a detective who only draws conclusions from actual evidence you can point to
+### Direct Quote Grounding for Technical Specifications
 
+**Technical:** Require direct quotes and source URLs for all technical specifications, version numbers, and compatibility information. Implement systematic citation tracking.
 
-## Validation workflow
+**Simple:** Like being a detective who only draws conclusions from actual evidence you can point to.
 
-### Setup Instructions
+## Validation Workflow
 
+### Process Steps
 
--
-        Identify all statements that assert facts (statistics, events, specifications)
+1. **Fact Identification**: Identify all statements that assert facts (statistics, events, specifications)
+2. **Source Research**: Conduct 3-10 searches with adaptive rules for conflicting information
+3. **Source Comparison**: Compare information across sources using decision tree logic
+4. **Citation Requirements**: Ensure every factual claim includes source URL and access date
+5. **Confidence Disclosure**: Disclose confidence levels using standard ranges
 
--
-        = 3 {print &quot;Minimum research completed&quot;}'">Conduct 3-10 searches with adaptive rules for conflicting information
+### Success Criteria
 
--
-        Compare information across sources using decision tree logic
+- All factual claims have source citations
+- Confidence levels disclosed for uncertain information
+- Minimum 3 sources for technical specifications
+- Uncertainty acknowledged when confidence < 80%
 
--
-        Ensure every factual claim includes source URL and access date
+## Research Categories
 
--
-        Disclose confidence levels using standard ranges (90-100%, 70-89%, 50-69%, &lt;50%)
+### Technical Specifications Validation
 
-```bash
+**Technical:** Current technical documentation from primary sources (official docs, GitHub repositories, API specifications) with version-specific validation and deprecation awareness.
 
-```bash
-All factual claims have source citations
-Confidence levels disclosed for uncertain information
-Minimum 3 sources for technical specifications
-Uncertainty acknowledged when confidence &lt; 80%
+**Simple:** Technology changes fast, so you need current sources from the people who built it.
 
-## Research categories
+### Statistics and Data Validation
 
-**Example:**
+**Technical:** Original research sources, methodology transparency, sample size disclosure, and statistical significance validation before citing any numerical claims.
 
-**Example:**
-Technical Specifications Validation
+**Simple:** Numbers can be misleading, so you need to see how they were calculated originally.
 
-```bash
-Technology changes fast, so you need current sources from the people who built it
+## Hallucination Red Flags
 
+### Specific Numbers Without Source
 
-**Example:**
-Statistics and Data Validation
+**Technical:** Any precise numerical claim (percentages, performance metrics, version numbers) without direct source attribution should be flagged for verification.
 
-```bash
-Numbers can be misleading, so you need to see how they were calculated originally
+**Simple:** Specific numbers sound authoritative but are often the most likely to be hallucinated.
 
+### Absolute Statements
 
-## Hallucination red flags
+**Technical:** Statements using "always," "never," "all," "none" without qualifying conditions or exceptions should be reviewed for accuracy and nuance.
 
-**Example:**
+**Simple:** Real world rarely has absolutes - adding nuance makes claims more accurate.
 
-**Example:**
-Red Flag: Specific Numbers Without Source
+## Claude Code Automation
 
-```bash
-Specific numbers sound authoritative but are often the most likely to be hallucinated
+### Automated Thinking Mode Escalation
 
+**Technical:** Implement automated `ultrathink` mode triggering for queries involving factual claims, technical specifications, or performance assertions.
 
-**Example:**
-Red Flag: Absolute Statements
+**Simple:** Like automatically calling in experts when dealing with difficult or dangerous situations.
 
-```bash
-Real world rarely has absolutes - adding nuance makes claims more accurate
+### Parallel Fact-Checking Subagents
 
+**Technical:** Deploy specialized subagents for concurrent source validation, cross-reference checking, and confidence assessment on complex factual queries.
 
-## Claude code automation
+**Simple:** Like having a team of specialists each check different parts of the information at the same time.
 
-**Example:**
+## Uncertainty Language
 
-**Example:**
-Automated Thinking Mode Escalation
+### High Uncertainty Expression
 
-```bash
-Like automatically calling in experts when dealing with difficult or dangerous situations
+**Examples:**
+- "Based on available sources, this appears to..."
+- "According to [Source] as of [Date], the specification indicates..."
+- "Multiple sources suggest, though with some variation..."
 
+**Simple:** Better to admit you don't know than to guess and be wrong.
 
-**Example:**
-Parallel Fact-Checking Subagents
+### Qualified Statement with Source
 
-```bash
-Like having a team of specialists each check different parts of the information at the same time
+**Format:** "[Claim] according to [Specific Source] accessed [Date]. Confidence level: [X%]"
 
+**Simple:** Shows exactly where the information comes from and when it was accurate.
 
-## Uncertainty language
+## Additional Resources
 
-**Example:**
-
-**Example:**
-High Uncertainty Expression
-
-```bash
-Better to admit you don't know than to guess and be wrong
-
-
-**Example:**
-Qualified Statement with Source
-
-```bash
-Shows exactly where the information comes from and when it was accurate
-
-Change approval workflow validation requirements
-Behavioral testing approaches for AI validation
-Systematic debugging and problem resolution
+- Change approval workflow validation requirements
+- Behavioral testing approaches for AI validation
+- Systematic debugging and problem resolution
 
 ---
 
-*Converted from XML to Markdown for elegant simplicity*
-*Original: 02_hallucination_prevention_guide.xml*
-*Conversion: Mon Aug 18 10:47:18 EDT 2025*
+**Version:** 1.0.0 | **Updated:** 2025-08-19 | **Format:** Markdown

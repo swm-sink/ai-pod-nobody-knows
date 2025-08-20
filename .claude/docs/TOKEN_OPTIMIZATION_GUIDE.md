@@ -48,11 +48,11 @@ Priority 2 (Selective): ~1,500 tokens on-demand
 ### **Automatic Inheritance Loading**
 ```markdown
 # When Claude starts in any directory, automatically loads:
-Working Directory: /.claude/level-2-production/agents/
+Working Directory: /.claude/agents/
 
 Auto-loaded chain:
-1. /.claude/level-2-production/agents/CLAUDE.md (component)
-2. /.claude/level-2-production/CLAUDE.md (domain)
+1. /.claude/agents/CLAUDE.md (component)
+2. /.claude/CLAUDE.md (domain)
 3. /.claude/CLAUDE.md (project infrastructure)
 4. /CLAUDE.md (master system prompt)
 
@@ -63,8 +63,8 @@ Result: Perfect context stack with minimal token usage
 ```markdown
 # Contexts load only when accessed:
 
-Accessing /.claude/level-1-dev/
-→ Loads: level-1-dev/CLAUDE.md (development context)
+Accessing /.claude/context/
+→ Loads: context/CONTEXT.md (development context)
 
 Accessing /.claude/context/foundation/
 → Loads: context/foundation/CLAUDE.md (learning context)
@@ -142,8 +142,8 @@ Scalability: Linear growth vs exponential duplication
 ```markdown
 # Working directory determines context loading:
 
-cd /.claude/level-2-production/agents/
-Loads: agents/ + level-2-production/ + .claude/ + root/
+cd /.claude/agents/
+Loads: agents/ + agents/ + .claude/ + root/
 
 cd /.claude/context/foundation/
 Loads: foundation/ + context/ + .claude/ + root/

@@ -48,7 +48,7 @@ MCP server connection failures despite correct API keys
 
 ```bash
 1. Check if API keys are in MCP server environment: `echo "Key exists: $(if [ -n "$PERPLEXITY_API_KEY" ]; then echo 'Yes'; else echo 'No'; fi)"`
-2. Load environment before starting Claude: `source .env &amp;&amp; claude`
+2. Load environment before starting Claude: `source .env && claude`
 3. Reconfigure MCP with explicit environment variables
 4. Create startup script that loads environment automatically
 ```

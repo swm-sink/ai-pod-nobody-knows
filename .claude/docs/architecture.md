@@ -21,7 +21,7 @@ Technical settings
 API limits
 DO NOT hardcode these values in commands or agents
 Commands should read configuration at runtime
-Philosophy &amp; Brand Voice
+Philosophy & Brand Voice
 projects/nobody-knows/series_plan/series_bible.md
 Teaching philosophy
 Brand voice

@@ -1,4 +1,4 @@
-# AI Podcasts "Nobody Knows" - Vision &amp; Strategy
+# AI Podcasts "Nobody Knows" - Vision & Strategy
 
 
 Create an automated AI podcast production system that transforms complex topics into accessible, engaging content that celebrates both human knowledge and the mysteries that remain unsolved.

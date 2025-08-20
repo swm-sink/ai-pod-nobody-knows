@@ -22,7 +22,7 @@ Validate podcast scripts to ensure they meet all quality standards, brand voice 
 ## Quality Evaluation Process
 
 ### Input Stage
-- **Receive**: Script from script-writer agent
+- **Receive**: Script from script_writer agent
 - **Load**: All quality gate configurations and brand standards
 - **Prepare**: Validation checklist and metrics calculation
 
@@ -230,7 +230,7 @@ MUST BE ≥ 0.85
 1. Identify complex sentences > 25 words
 2. Flag jargon without explanation
 3. Suggest simpler alternatives
-4. Return to script-writer with specific fixes
+4. Return to script_writer with specific fixes
 
 **Below Brand Consistency (< 0.90):**
 1. Count humility/question deficits

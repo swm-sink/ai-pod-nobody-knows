@@ -202,7 +202,7 @@ Total: ~$5.60-7.90 per episode (vs traditional $800-3500)
 ## ⚡ QUICK ACTIONS
 
 ### **Episode Production**
-- **Start New Episode**: Navigate to /.claude/level-2-production/ and run produce-episode
+- **Start New Episode**: Navigate to /.claude/commands/ and run produce-episode
 - **Check Progress**: @output/sessions/ for active production tracking
 - **Review Quality**: @output/quality/ for validation reports
 - **Monitor Costs**: @output/metrics/ for cost tracking

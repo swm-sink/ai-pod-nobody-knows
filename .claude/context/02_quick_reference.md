@@ -10,34 +10,19 @@
 ### Setup Instructions
 
 
--
-
-**Project Setup**: Create virtual environment, install dependencies, configure API keys
-
--
-
-**Daily Operations**: Start server, run tests, check code quality, view logs
-
--
-
-**Claude Code Integration**: Memory management, thinking modes, MCP servers, file operations
-
--
-
-**Emergency Recovery**: Context overflow, performance issues, cost spikes, quality degradation
-
-**Example:**
+- **Project Setup**: Create virtual environment, install dependencies, configure API keys
+- **Daily Operations**: Start server, run tests, check code quality, view logs
+- **Claude Code Integration**: Memory management, thinking modes, MCP servers, file operations
+- **Emergency Recovery**: Context overflow, performance issues, cost spikes, quality degradation
 
 **Example:**
 Start daily development workflow
 
 ```bash
-```bash
 source venv/bin/activate
 /init  # Claude Code memory initialization
 uvicorn core.orchestration.server:app --reload
-curl localhost:8000/health &amp;&amp; echo "Server OK"
-```
+curl localhost:8000/health && echo "Server OK"
 ```
 
 This sequence activates your Python environment, initializes Claude Code's project memory system, starts the FastAPI server with auto-reload, and verifies everything is working correctly.
@@ -47,21 +32,17 @@ This sequence activates your Python environment, initializes Claude Code's proje
 Debug complex multi-agent coordination issue
 
 ```bash
-```bash
 # Progressive analysis with Claude Code
 ultrathink the agent coordination patterns and failure points
 /subagent create-diagnostic-team --components="research,script,quality,audio"
 /mcp__health__comprehensive-check --include-latency
 /hooks validate-all --safe-mode
 ```
-```
 
 Uses Claude Code's advanced debugging features: deep thinking mode for analysis, specialized subagents for component testing, MCP health checks for external services, and hook validation for automation systems.
 
 
 ## Emergency procedures
-
-**Example:**
 
 **Example:**
 Context window overflow during long debugging session
@@ -76,8 +57,6 @@ No critical errors in recent logs, all services responding
 ## Automation patterns
 
 **Example:**
-
-**Example:**
 Self-healing quality assurance system
 
 ```bash
@@ -86,11 +65,10 @@ Self-healing quality assurance system
 def pre_synthesis_quality_check(context):
 if context.operation == "audio_synthesis":
 script_quality = evaluate_script_quality(context.script)
-if script_quality &lt; 0.8:
+if script_quality < 0.8:
 # Auto-regenerate with improved prompts
 context.script = improve_script(context.script)
 return context
-```
 ```
 
 Automated hook that checks script quality before expensive audio synthesis, automatically improving low-quality scripts to prevent wasted costs and poor episodes.

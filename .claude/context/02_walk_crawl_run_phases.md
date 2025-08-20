@@ -7,24 +7,20 @@
 
 ## Dual learning framework
 
-<technical>
-Progressive skill development system where you master AI orchestration fundamentals while optionally accelerating development with Claude Code tools. The framework emphasizes AI orchestration as primary learning track (80% focus) with Claude Code as development enhancement track (20% focus). Each phase builds both AI system design skills and modern development capabilities with clear integration points.
-</technical>
+**Technical:** Progressive skill development system where you master AI orchestration fundamentals while optionally accelerating development with Claude Code tools. The framework emphasizes AI orchestration as primary learning track (80% focus) with Claude Code as development enhancement track (20% focus). Each phase builds both AI system design skills and modern development capabilities with clear integration points.
 
-<simple>
-Think of it like learning to cook - first you learn basic techniques by hand (AI orchestration), then you add kitchen tools like food processors (Claude Code) to cook faster and better, but you still need to understand cooking fundamentals. Each phase teaches you more advanced techniques while giving you better tools.
-</simple>
+**Simple:** Think of it like learning to cook - first you learn basic techniques by hand (AI orchestration), then you add kitchen tools like food processors (Claude Code) to cook faster and better, but you still need to understand cooking fundamentals. Each phase teaches you more advanced techniques while giving you better tools.
+
+**Connection:** This teaches progressive skill building methodology that applies to mastering any complex technical domain.
 
 
 ## Walk phase
 
-<technical>
-WALK Phase (Weeks 1-4, FREE): Master AI orchestration fundamentals without API costs. Focus on understanding agent concepts, designing manual workflows, and building foundational multi-agent systems knowledge. Optional Claude Code integration for basic setup and project organization after understanding manual processes.
-</technical>
+**Technical:** WALK Phase (Weeks 1-4, FREE): Master AI orchestration fundamentals without API costs. Focus on understanding agent concepts, designing manual workflows, and building foundational multi-agent systems knowledge. Optional Claude Code integration for basic setup and project organization after understanding manual processes.
 
-<simple>
-The walking phase is like learning to walk before you run - you understand how AI agents work and coordinate without spending any money. You can optionally add some basic tools to help organize your learning, but the focus is on understanding the concepts deeply.
-</simple>
+**Simple:** The walking phase is like learning to walk before you run - you understand how AI agents work and coordinate without spending any money. You can optionally add some basic tools to help organize your learning, but the focus is on understanding the concepts deeply.
+
+**Connection:** This teaches risk-free learning and foundation building essential for complex system development.
 
 
 ### Setup Instructions
@@ -82,13 +78,11 @@ Deep understanding of AI orchestration concepts without any financial investment
 
 ## Crawl phase
 
-<technical>
-CRAWL Phase (Weeks 5-12, $20-50): Build working agents with API integration and supervision. Focus on first API connections, cost monitoring, basic automation, and quality validation. Claude Code integration for testing automation and external integrations. Transition from manual processes to supervised automation.
-</technical>
+**Technical:** CRAWL Phase (Weeks 5-12, $20-50): Build working agents with API integration and supervision. Focus on first API connections, cost monitoring, basic automation, and quality validation. Claude Code integration for testing automation and external integrations. Transition from manual processes to supervised automation.
 
-<simple>
-The crawling phase is like a baby learning to crawl - you start using real AI services with a small budget, building actual agents that work, but with careful monitoring and supervision. You add more development tools to help test and manage your growing system.
-</simple>
+**Simple:** The crawling phase is like a baby learning to crawl - you start using real AI services with a small budget, building actual agents that work, but with careful monitoring and supervision. You add more development tools to help test and manage your growing system.
+
+**Connection:** This teaches controlled experimentation and incremental complexity management in AI system development.
 
 
 ### Setup Instructions
@@ -144,13 +138,11 @@ Working multi-agent system producing episodes within budget constraints
 
 ## Run phase
 
-<technical>
-RUN Phase (Weeks 13+, $50-100/month): Deploy automated multi-agent systems with full production capabilities. Focus on automated production, advanced cost optimization, quality refinement, and scale implementation. Advanced Claude Code integration for sophisticated workflows and optimization patterns. Transition to fully autonomous production system.
-</technical>
+**Technical:** RUN Phase (Weeks 13+, $50-100/month): Deploy automated multi-agent systems with full production capabilities. Focus on automated production, advanced cost optimization, quality refinement, and scale implementation. Advanced Claude Code integration for sophisticated workflows and optimization patterns. Transition to fully autonomous production system.
 
-<simple>
-The running phase is like learning to run marathon - you have a fully automated system producing high-quality episodes efficiently and cost-effectively. You use advanced development tools and techniques to optimize everything and scale up production.
-</simple>
+**Simple:** The running phase is like learning to run marathon - you have a fully automated system producing high-quality episodes efficiently and cost-effectively. You use advanced development tools and techniques to optimize everything and scale up production.
+
+**Connection:** This teaches advanced system optimization and autonomous operation principles essential for production AI systems.
 
 
 ### Setup Instructions
@@ -184,7 +176,7 @@ RUN Phase Production Capabilities
 ```bash
 AI Orchestration Mastery:
 - Fully automated episode production
-- Advanced cost optimization (&lt;$5/episode)
+- Advanced cost optimization (<$5/episode)
 - Autonomous quality management
 - Batch season production
 - Cross-episode learning and improvement
@@ -206,13 +198,11 @@ Complete season production with cost targets achieved and quality standards main
 
 ## Phase transitions
 
-<technical>
-Phase transitions require meeting specific readiness criteria before progression. Each transition includes skill validation, system capability verification, and optional Claude Code integration assessment. Transitions ensure solid foundation before adding complexity and investment.
-</technical>
+**Technical:** Phase transitions require meeting specific readiness criteria before progression. Each transition includes skill validation, system capability verification, and optional Claude Code integration assessment. Transitions ensure solid foundation before adding complexity and investment.
 
-<simple>
-You don't move to the next phase until you've mastered the current one - like not learning to run until you can walk steadily. Each transition has clear checkpoints to make sure you're ready for the next level of challenge.
-</simple>
+**Simple:** You don't move to the next phase until you've mastered the current one - like not learning to run until you can walk steadily. Each transition has clear checkpoints to make sure you're ready for the next level of challenge.
+
+**Connection:** This teaches milestone-based learning progression and readiness validation essential for complex skill development.
 
 
 **Example:**
