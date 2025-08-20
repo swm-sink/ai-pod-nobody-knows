@@ -384,29 +384,41 @@
     NO BYPASS OPTIONS - NO SHORTCUTS - NO ASSUMPTIONS ALLOWED
   </critical-mandate>
 
+  <available-commands>
+    <command>/explore</command> - Problem domain investigation (Step 1)
+    <command>/research</command> - Deep knowledge research (Step 2-3)
+    <command>/plan</command> - Strategic implementation planning (Step 4)
+    <command>/decompose</command> - Task decomposition and sequencing (Step 5)
+    <command>/implement-tdd</command> - Test-driven development implementation (Step 6)
+    <command>/refactor-tdd</command> - Test-driven refactoring (Step 6 continued)
+    <command>/assess</command> - Comprehensive quality assessment (Step 7)
+    <command>/validate</command> - Integration and production validation (Step 8)
+    <command>/commit</command> - Production deployment and change management (Step 9)
+    <command>/retrospect</command> - Learning capture and process improvement (Step 10)
+
+    <command-reference>@commands/meta-prompting/ directory contains detailed specifications</command-reference>
+    <template-reference>@prompts/meta_prompts/ directory contains structured templates</template-reference>
+  </available-commands>
+
   <protocol-steps>
-    <step number="1" name="THINK_ANALYZE" mandatory="ABSOLUTE">
+    <step number="1" name="EXPLORE" mandatory="ABSOLUTE">
+      <command>/explore</command>
       <requirement>Deep analysis of current state and requirements</requirement>
       <action>Examine problem space, constraints, and objectives comprehensively</action>
       <validation>Must demonstrate thorough understanding before proceeding</validation>
       <blocking-condition>NO analysis = NO progression</blocking-condition>
     </step>
 
-    <step number="2" name="IDENTIFY_IMPACTS" mandatory="ABSOLUTE">
-      <requirement>Identify second and third order implications</requirement>
-      <action>Map consequences, dependencies, and ripple effects</action>
-      <validation>Must document potential impacts and mitigation strategies</validation>
-      <blocking-condition>NO impact analysis = NO progression</blocking-condition>
-    </step>
-
-    <step number="3" name="RESEARCH_VALIDATE" mandatory="ABSOLUTE">
-      <requirement>Use research tools if needed for knowledge gaps</requirement>
+    <step number="2-3" name="RESEARCH" mandatory="ABSOLUTE">
+      <command>/research</command>
+      <requirement>Use research tools for knowledge gaps and validation</requirement>
       <action>Validate assumptions, gather authoritative sources, verify claims</action>
       <validation>Must mark any unverified information as UNVERIFIED</validation>
       <blocking-condition>NO verification = NO progression</blocking-condition>
     </step>
 
-    <step number="4" name="PLAN_DESIGN" mandatory="ABSOLUTE">
+    <step number="4" name="PLAN" mandatory="ABSOLUTE">
+      <command>/plan</command>
       <requirement>Create detailed implementation plan BEFORE any code</requirement>
       <action>Design approach, sequence, validation criteria, rollback plan</action>
       <validation>Must have complete plan with success criteria defined</validation>
@@ -415,6 +427,7 @@
     </step>
 
     <step number="5" name="DECOMPOSE" mandatory="ABSOLUTE">
+      <command>/decompose</command>
       <requirement>Break complex tasks into atomic, manageable components</requirement>
       <action>Create sequential, independent sub-tasks with clear boundaries</action>
       <validation>Must demonstrate task atomicity and dependency mapping</validation>
@@ -422,34 +435,39 @@
     </step>
 
     <step number="6" name="IMPLEMENT_TDD" mandatory="ABSOLUTE">
+      <command>/implement-tdd</command> and <command>/refactor-tdd</command>
       <requirement>Follow RED-GREEN-REFACTOR cycle for all implementations</requirement>
       <action>Test first, implement to pass, refactor for elegance</action>
       <validation>Must show TDD cycle completion for each component</validation>
       <blocking-condition>NO TDD = NO implementation acceptance</blocking-condition>
     </step>
 
-    <step number="7" name="ASSESS_QUALITY" mandatory="ABSOLUTE">
+    <step number="7" name="ASSESS" mandatory="ABSOLUTE">
+      <command>/assess</command>
       <requirement>Comprehensive quality assessment before any commits</requirement>
       <action>Validate against requirements, test edge cases, verify standards</action>
       <validation>Must pass all quality gates and acceptance criteria</validation>
       <blocking-condition>NO quality assessment = NO commits allowed</blocking-condition>
     </step>
 
-    <step number="8" name="VALIDATE_INTEGRATION" mandatory="ABSOLUTE">
+    <step number="8" name="VALIDATE" mandatory="ABSOLUTE">
+      <command>/validate</command>
       <requirement>Ensure production readiness and system integration</requirement>
       <action>Test integration points, verify compatibility, validate performance</action>
       <validation>Must demonstrate full system compatibility</validation>
       <blocking-condition>NO integration validation = NO production deployment</blocking-condition>
     </step>
 
-    <step number="9" name="COMMIT_CHANGES" mandatory="ABSOLUTE">
+    <step number="9" name="COMMIT" mandatory="ABSOLUTE">
+      <command>/commit</command>
       <requirement>Use structured commit messages following established patterns</requirement>
       <action>Commit with clear descriptions, proper attribution, version tracking</action>
       <validation>Must follow commit message standards and include evidence</validation>
       <blocking-condition>NO structured commits = NO change acceptance</blocking-condition>
     </step>
 
-    <step number="10" name="RETROSPECT_LEARN" mandatory="ABSOLUTE">
+    <step number="10" name="RETROSPECT" mandatory="ABSOLUTE">
+      <command>/retrospect</command>
       <requirement>Capture insights, lessons learned, and improvement opportunities</requirement>
       <action>Document what worked, what didn't, and what to optimize next time</action>
       <validation>Must produce actionable insights for future optimization</validation>
@@ -458,12 +476,13 @@
   </protocol-steps>
 
   <enforcement-mechanisms>
+    <rule id="command-usage">Each step must use corresponding /command for execution</rule>
     <rule id="step-sequence">Steps must be completed in exact numerical order 1→10</rule>
     <rule id="step-validation">Each step requires explicit validation before progression</rule>
     <rule id="no-skipping">Skipping any step immediately invalidates entire workflow</rule>
-    <rule id="plan-gate">Step 4 (PLAN_DESIGN) is the primary enforcement gate - NO CODE WITHOUT PLAN</rule>
-    <rule id="quality-gate">Step 7 (ASSESS_QUALITY) blocks all commits until quality verified</rule>
-    <rule id="learning-capture">Step 10 (RETROSPECT_LEARN) must produce transferable insights</rule>
+    <rule id="plan-gate">Step 4 (/plan) is the primary enforcement gate - NO CODE WITHOUT PLAN</rule>
+    <rule id="quality-gate">Step 7 (/assess) blocks all commits until quality verified</rule>
+    <rule id="learning-capture">Step 10 (/retrospect) must produce transferable insights</rule>
   </enforcement-mechanisms>
 
   <integration-requirements>
