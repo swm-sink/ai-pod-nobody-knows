@@ -1,0 +1,309 @@
+{
+  "assignment_framework": {
+    "assignment_methodology": "Research-driven optimization based on comprehensive model analysis",
+    "optimization_criteria": [
+      "cost_efficiency",
+      "capability_alignment",
+      "quality_requirements",
+      "integration_complexity"
+    ],
+    "budget_compliance": "$33.25 per episode target with strategic allocation",
+    "research_stream_agents": {
+      "01_research_orchestrator": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Cost-efficient coordination with excellent structured task performance",
+        "fallback_model": "gemini_pro_2_5",
+        "cost_allocation": "$1.50",
+        "key_capabilities": [
+          "workflow_coordination",
+          "agent_orchestration",
+          "structured_output",
+          "cost_efficient_processing"
+        ]
+      },
+      "02_deep_research_agent": {
+        "primary_model": "perplexity_sonar_deep_research",
+        "rationale": "Specialized for comprehensive multi-source research with reasoning_effort=high",
+        "fallback_model": "perplexity_sonar_pro",
+        "cost_allocation": "$3.00",
+        "key_capabilities": [
+          "autonomous_multi_search",
+          "expert_research_emulation",
+          "iterative_reasoning",
+          "source_validation"
+        ]
+      },
+      "03_research_question_generator": {
+        "primary_model": "perplexity_sonar_reasoning",
+        "rationale": "Strategic synthesis and logical inference for question generation",
+        "fallback_model": "claude_sonnet_4",
+        "cost_allocation": "$1.00",
+        "key_capabilities": [
+          "strategic_synthesis",
+          "hypothesis_testing",
+          "logical_inference_chains",
+          "context_bridging"
+        ]
+      },
+      "04_research_synthesizer": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Excellent structured document synthesis and cross-source analysis",
+        "fallback_model": "gemini_pro_2_5",
+        "cost_allocation": "$0.50",
+        "key_capabilities": [
+          "multi_document_synthesis",
+          "structured_output_generation",
+          "cross_document_insights",
+          "research_handoff_preparation"
+        ]
+      }
+    },
+    "production_stream_agents": {
+      "01_production_orchestrator": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Superior orchestration and workflow management capabilities",
+        "fallback_model": "claude_4_1_opus",
+        "cost_allocation": "$2.00",
+        "key_capabilities": [
+          "production_coordination",
+          "multi_agent_orchestration",
+          "workflow_optimization",
+          "quality_gate_management"
+        ]
+      },
+      "02_episode_planner": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Structured planning and coordination tasks optimization",
+        "fallback_model": "gemini_pro_2_5",
+        "cost_allocation": "$1.00",
+        "key_capabilities": [
+          "structured_planning",
+          "content_organization",
+          "timeline_management",
+          "resource_coordination"
+        ]
+      },
+      "03_script_writer": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Cost-efficient bulk content generation with Opus escalation for premium segments",
+        "premium_escalation": "claude_4_1_opus",
+        "cost_allocation": "$12.00",
+        "escalation_cost": "$2.75",
+        "key_capabilities": [
+          "bulk_content_generation",
+          "narrative_development",
+          "dialogue_creation",
+          "brand_voice_consistency"
+        ],
+        "escalation_triggers": [
+          "premium_content_segments",
+          "brand_critical_messaging",
+          "complex_creative_requirements",
+          "final_quality_enhancement"
+        ]
+      },
+      "04_quality_claude": {
+        "primary_model": "claude_4_1_opus",
+        "rationale": "Advanced reasoning for nuanced quality evaluation and brand consistency",
+        "fallback_model": "claude_sonnet_4",
+        "cost_allocation": "Included in script_writer escalation budget",
+        "key_capabilities": [
+          "nuanced_quality_assessment",
+          "brand_voice_validation",
+          "creative_evaluation",
+          "editorial_review"
+        ]
+      },
+      "05_quality_gemini": {
+        "primary_model": "gemini_pro_2_5",
+        "rationale": "Specialized for systematic bias detection and CLI automation",
+        "fallback_model": "claude_sonnet_4",
+        "cost_allocation": "$2.00",
+        "key_capabilities": [
+          "automated_bias_detection",
+          "systematic_quality_assessment",
+          "cli_automation",
+          "multimodal_evaluation"
+        ]
+      },
+      "06_feedback_synthesizer": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Structured synthesis of dual evaluator feedback",
+        "fallback_model": "gemini_pro_2_5",
+        "cost_allocation": "$0.50",
+        "key_capabilities": [
+          "feedback_synthesis",
+          "structured_analysis",
+          "consensus_building",
+          "improvement_recommendations"
+        ]
+      },
+      "07_script_polisher": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Cost-efficient polish and refinement with quality validation",
+        "fallback_model": "claude_4_1_opus",
+        "cost_allocation": "$1.00",
+        "key_capabilities": [
+          "content_refinement",
+          "style_enhancement",
+          "consistency_validation",
+          "final_polish"
+        ]
+      },
+      "08_final_reviewer": {
+        "primary_model": "claude_4_1_opus",
+        "rationale": "Premium quality for final compliance and brand validation",
+        "fallback_model": "claude_sonnet_4",
+        "cost_allocation": "Included in script_writer escalation budget",
+        "key_capabilities": [
+          "final_quality_validation",
+          "brand_compliance_check",
+          "editorial_approval",
+          "production_readiness_assessment"
+        ]
+      },
+      "09_tts_optimizer": {
+        "primary_model": "claude_sonnet_4",
+        "rationale": "Structured SSML preprocessing and script optimization",
+        "fallback_model": "gemini_pro_2_5",
+        "cost_allocation": "$0.50",
+        "key_capabilities": [
+          "ssml_tag_insertion",
+          "pronunciation_optimization",
+          "pacing_analysis",
+          "audio_preparation"
+        ]
+      },
+      "10_audio_synthesizer": {
+        "primary_model": "elevenlabs_multilingual_v2",
+        "secondary_model": "elevenlabs_flash_v2_5",
+        "efficiency_model": "elevenlabs_turbo_v2_5",
+        "rationale": "Strategic model selection based on content importance and quality requirements",
+        "cost_allocation": "$7.00",
+        "key_capabilities": [
+          "professional_voice_synthesis",
+          "dynamic_model_selection",
+          "batch_processing_optimization",
+          "voice_library_management"
+        ],
+        "model_allocation": {
+          "multilingual_v2": "20% - Premium segments",
+          "flash_v2_5": "60% - Standard content",
+          "turbo_v2_5": "20% - Rapid synthesis"
+        }
+      }
+    }
+  },
+  "cost_allocation_matrix": {
+    "total_budget": "$33.25",
+    "research_stream": {
+      "total_allocation": "$6.00",
+      "percentage": "18.0%",
+      "breakdown": {
+        "research_orchestrator": "$1.50",
+        "deep_research_agent": "$3.00",
+        "research_question_generator": "$1.00",
+        "research_synthesizer": "$0.50"
+      }
+    },
+    "production_stream": {
+      "total_allocation": "$19.75",
+      "percentage": "59.4%",
+      "breakdown": {
+        "production_orchestrator": "$2.00",
+        "episode_planner": "$1.00",
+        "script_writer_base": "$12.00",
+        "script_writer_premium": "$2.75",
+        "quality_gemini": "$2.00",
+        "feedback_synthesizer": "$0.50",
+        "script_polisher": "$1.00",
+        "tts_optimizer": "$0.50"
+      }
+    },
+    "audio_stream": {
+      "total_allocation": "$7.00",
+      "percentage": "21.1%",
+      "breakdown": {
+        "audio_synthesizer": "$7.00"
+      }
+    },
+    "infrastructure_buffer": {
+      "total_allocation": "$0.50",
+      "percentage": "1.5%",
+      "purpose": "API overhead and error handling"
+    }
+  },
+  "optimization_strategies": {
+    "hybrid_deployment": {
+      "description": "Strategic use of premium models only for critical segments",
+      "implementation": "90% Sonnet 4, 10% Opus for balanced quality-cost performance",
+      "cost_savings": "60-70% reduction while maintaining premium quality"
+    },
+    "intelligent_routing": {
+      "description": "Automated model selection based on content analysis",
+      "triggers": [
+        "content_complexity_scoring",
+        "quality_requirements_assessment",
+        "budget_availability_checking",
+        "brand_criticality_evaluation"
+      ],
+      "fallback_protocols": "Multi-tier redundancy with graceful degradation"
+    },
+    "batch_processing": {
+      "description": "Grouping similar tasks for API efficiency",
+      "applications": [
+        "research_query_batching",
+        "content_generation_batching",
+        "audio_synthesis_batching",
+        "quality_evaluation_batching"
+      ],
+      "cost_reduction": "15-25% through API overhead minimization"
+    },
+    "dynamic_budget_allocation": {
+      "description": "Real-time cost optimization based on episode complexity",
+      "monitoring": "Token-level tracking with automated alerts",
+      "adjustment_triggers": [
+        "budget_threshold_warnings",
+        "quality_requirement_changes",
+        "content_complexity_variations",
+        "api_pricing_fluctuations"
+      ]
+    }
+  },
+  "quality_assurance_framework": {
+    "multi_model_validation": {
+      "primary_evaluators": ["gemini_pro_2_5", "claude_4_1_opus"],
+      "consensus_building": "Automated agreement protocols for quality decisions",
+      "escalation_procedures": "Human review for consensus failures"
+    },
+    "automated_quality_gates": {
+      "content_quality_thresholds": ">85% automated quality score",
+      "brand_consistency_requirements": ">95% brand voice alignment",
+      "bias_detection_standards": "<5% false positive rate",
+      "production_readiness_criteria": "All quality gates passed"
+    }
+  },
+  "risk_mitigation": {
+    "model_availability_risks": {
+      "fallback_models": "Pre-configured secondary model options",
+      "redundancy_protocols": "Multi-vendor approach with no single points of failure",
+      "emergency_procedures": "Simplified workflows for service continuity"
+    },
+    "cost_overrun_protection": {
+      "budget_monitoring": "Real-time cost tracking with automated alerts",
+      "automatic_cost_controls": "Budget caps with overflow prevention",
+      "emergency_budget_reserve": "10-15% contingency allocation"
+    },
+    "quality_degradation_prevention": {
+      "minimum_quality_thresholds": "Automated quality monitoring",
+      "escalation_triggers": "Automatic premium model deployment for quality issues",
+      "human_oversight_integration": "Manual review for quality-critical decisions"
+    }
+  },
+  "scalability_framework": {
+    "linear_scaling_validation": "Cost structure maintains efficiency at scale",
+    "parallel_processing_optimization": "Concurrent multi-agent operations",
+    "resource_pooling_benefits": "Shared infrastructure for cost amortization",
+    "volume_discount_opportunities": "Strategic vendor relationships for improved pricing"
+  }
+}

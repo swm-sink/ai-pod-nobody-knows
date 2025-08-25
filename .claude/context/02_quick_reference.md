@@ -9,11 +9,28 @@
 
 ### Setup Instructions
 
-
 - **Project Setup**: Create virtual environment, install dependencies, configure API keys
 - **Daily Operations**: Start server, run tests, check code quality, view logs
 - **Claude Code Integration**: Memory management, thinking modes, MCP servers, file operations
 - **Emergency Recovery**: Context overflow, performance issues, cost spikes, quality degradation
+
+### CRITICAL: MCP Environment Setup
+
+**⚠️ MUST DO BEFORE STARTING CLAUDE CODE:**
+
+```bash
+# 1. Load environment variables FIRST
+source .env
+
+# 2. Verify MCP integrations are ready
+echo "ELEVENLABS_API_KEY: $([ ! -z "$ELEVENLABS_API_KEY" ] && echo 'SET' || echo 'NOT SET')"
+echo "PERPLEXITY_API_KEY: $([ ! -z "$PERPLEXITY_API_KEY" ] && echo 'SET' || echo 'NOT SET')"
+
+# 3. ONLY THEN start Claude Code
+claude code
+```
+
+**Common Error**: Starting Claude Code without sourcing .env first causes all MCP tools to fail with "invalid_api_key" errors. MCP servers cannot access environment variables during runtime - they must be loaded at startup.
 
 **Example:**
 Start daily development workflow
@@ -25,7 +42,7 @@ uvicorn core.orchestration.server:app --reload
 curl localhost:8000/health && echo "Server OK"
 ```
 
-This sequence activates your Python environment, initializes Claude Code's project memory system, starts the FastAPI server with auto-reload, and verifies everything is working correctly.
+This sequence activates your Python environment, initializes Claude Code's project memory system, and verifies everything is working correctly.
 
 
 **Example:**

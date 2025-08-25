@@ -1,0 +1,22 @@
+{
+  "task": "episode_planning",
+  "episode_number": 1,
+  "episode_title": "The Dirty Secret: Even the Experts Are Making It Up",
+  "target_duration": "27 minutes",
+  "research_package_path": "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/sessions/ep_001_optimized_20250824_225839/complete-research-package.json",
+  "brand_requirements": {
+    "intellectual_humility": "Priority alignment >0.90",
+    "accessible_education": "Complex concepts made approachable",
+    "engaging_narrative": "Story-driven content flow"
+  },
+  "production_session": "sessions/ep_001_production_20250824_231505/production/",
+  "requirements": [
+    "Create detailed 27-minute episode structure and timing blueprint",
+    "Integrate research findings into compelling narrative flow",
+    "Design episode architecture optimized for intellectual humility brand",
+    "Generate episode plan with precise segment timing",
+    "Ensure production-ready planning with quality gates",
+    "Save complete episode_plan.json for downstream workflow"
+  ],
+  "created_at": "2025-08-24T23:15:00Z"
+}

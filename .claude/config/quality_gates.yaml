@@ -1,13 +1,19 @@
 # Quality Gates Configuration for Nobody Knows Podcast Production
-# Version: 3.1.0 - CENTRALIZED CONFIGURATION
-# Last Updated: 2025-08-18
+# Version: 4.0.0 - EMPIRICAL CALIBRATION BASED ON EPISODE 1 RESULTS
+# Last Updated: 2025-08-25
 # Purpose: Define quality thresholds and evaluation criteria for multi-agent production pipeline
 #
+# MAJOR UPDATE: Episode 1 Empirical Integration
+# - Updated WPM calculation: 206 WPM (empirical) vs 150 WPM (assumption)
+# - Added audio quality thresholds: 94.89% word accuracy, 91.23% character accuracy
+# - Integrated cost targets: $2.77 per episode (empirical vs $6.30 assumption)
+# - Added pronunciation accuracy validation for technical terms and expert names
+#
 # CONFIGURATION CENTRALIZATION:
-# This file references values from production-config.yaml (Single Source of Truth)
+# References production-voice.json for voice configuration (Single Source of Truth)
 # Target duration: 28 minutes (25-30 min range)
-# Target content: 4200 words, 21000 characters
-# IMPORTANT: Keep values synchronized with production-config.yaml
+# Target content: 5768 words (28 min * 206 WPM empirical rate)
+# IMPORTANT: All thresholds now based on Episode 1 empirical validation
 
 quality_gates:
   # Core quality thresholds (0.0 - 1.0 scale)
@@ -16,13 +22,13 @@ quality_gates:
       minimum: 0.85              # Must exceed for publication
       target: 0.90               # Quality goal
       description: "General audience understanding without prior technical knowledge"
-      weight: 0.25               # Importance in overall score
+      weight: 0.20               # Adjusted for audio quality integration
 
     brand_consistency:
       minimum: 0.90              # Core brand requirement
       target: 0.95               # Brand excellence
       description: "Alignment with Nobody Knows brand voice and philosophy"
-      weight: 0.30               # Highest importance
+      weight: 0.30               # Highest importance - brand critical
 
     engagement:
       minimum: 0.80              # Listener retention requirement
@@ -34,7 +40,33 @@ quality_gates:
       minimum: 0.85              # Factual correctness requirement
       target: 0.92               # Technical excellence
       description: "Factual correctness and proper technical explanations"
-      weight: 0.25               # Critical for credibility
+      weight: 0.15               # Adjusted for audio quality integration
+
+    audio_quality:
+      minimum: 0.85              # Episode 1 baseline: 92.1% composite
+      target: 0.92               # Episode 1 empirical performance
+      description: "Speech synthesis quality including pronunciation and accuracy"
+      weight: 0.15               # New empirical quality dimension from Episode 1
+
+      sub_metrics:
+        word_accuracy:
+          minimum: 0.90           # Episode 1 achieved: 94.89%
+          target: 0.95            # Stretch goal
+          description: "STT validation - word recognition accuracy"
+
+        character_accuracy:
+          minimum: 0.85           # Episode 1 achieved: 91.23%
+          target: 0.92            # Episode 1 empirical performance
+          description: "Character-level transcription accuracy including punctuation"
+
+        pronunciation_accuracy:
+          minimum: 0.90           # Technical terms and expert names
+          target: 0.95            # Production standard
+          description: "Correct pronunciation of technical terms and proper names"
+          critical_terms:
+            - expert_names: ["Yoshua Bengio", "Geoffrey Hinton"]
+            - technical_terms: ["OECD", "Turing", "algorithm"]
+            - statistics: ["percentages", "numerical_data"]
 
   # Brand voice requirements
   brand_metrics:
@@ -79,8 +111,8 @@ quality_gates:
     duration:
       target_minutes: 28              # Episode target duration
       tolerance_minutes: 1            # Acceptable variance
-      word_count_target: 4200         # Target word count (28 min * 150 WPM)
-      word_count_range: [3750, 4650]  # Min/max word counts
+      word_count_target: 5768         # Target word count (28 min * 206 WPM empirical rate)
+      word_count_range: [5356, 6180]  # Min/max word counts based on 26-30 min * 206 WPM
 
     segments:
       introduction:
@@ -139,23 +171,24 @@ quality_gates:
       action: "restart_from_planning"
       requires_approval: true
 
-  # Cost controls
+  # Cost controls - Updated with Episode 1 empirical results ($2.77)
   cost_limits:
-    per_episode_maximum: 9.00           # Hard limit - pipeline halt
-    per_episode_target: 6.30            # Realistic target cost
-    revision_budget: 1.50               # Budget for revisions
-    alert_threshold: 7.50               # Warning threshold
+    per_episode_maximum: 4.00           # Hard limit - pipeline halt (Episode 1: $2.77)
+    per_episode_target: 2.80            # Realistic target based on Episode 1 empirical result
+    revision_budget: 1.00               # Budget for revisions and optimization
+    alert_threshold: 3.50               # Warning threshold
 
     agent_budgets:
-      01_research_coordinator: 2.50      # Perplexity + Claude research
-      02_episode_planner: 0.25           # Planning and coordination
-      03_script_writer: 1.75             # Script generation
-      04_quality_claude: 0.50            # Quality evaluation
+      01_research_coordinator: 0.05      # Minimal LLM costs (research via web tools)
+      02_episode_planner: 0.02           # Planning and coordination
+      03_script_writer: 0.05             # Script generation
+      04_quality_claude: 0.03            # Quality evaluation
       05_quality_gemini: 0.00            # Free tier
-      06_feedback_synthesizer: 0.25      # Feedback processing
-      07_script_polisher: 0.75           # TTS preparation
-      08_final_reviewer: 0.25            # Final validation
-      09_audio_synthesizer: 6.30         # ElevenLabs TTS (major cost)
+      06_feedback_synthesizer: 0.02      # Feedback processing
+      07_script_polisher: 0.03           # TTS preparation
+      08_final_reviewer: 0.02            # Final validation
+      09_audio_synthesizer: 2.77         # ElevenLabs TTS (Episode 1 empirical cost)
+      # Total: $2.99 allows for slight variance from Episode 1 result
 
   # Progressive complexity by season
   complexity_progression:

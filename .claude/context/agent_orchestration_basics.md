@@ -1,225 +1,300 @@
-# AI Agent Orchestration with Development Acceleration
+# Claude Code Native Orchestration Patterns
 
 **Phase:** walk
 **Skill Level:** beginner
 **Estimated Time:** 2-3 hours for full understanding and initial implementation
 
+## Critical Architecture Update
 
-## Overview
+**IMPORTANT:** This guide now reflects Claude Code native patterns discovered through comprehensive research. Previous versions contained anti-patterns that violated official Claude Code architecture.
 
-## Agents overview
-
-**Example:**
-
-**Example:**
-Podcast Factory Workers
-
-```bash
-1. Research Coordinator 📚
-Job: Gathers information about the topic
-Tools: Web search, fact checking
-Output: Research document
-2. Script Writer ✍️
-Job: Turns research into engaging script
-Tools: Writing templates, brand voice
-Output: Episode script
-3. Audio Synthesizer 🎙️
-Job: Converts script to speech
-Tools: Voice synthesis AI
-Output: Audio file
-4. Quality Evaluator ✅
-Job: Checks if everything is good
-Tools: Quality metrics, checklists
-Output: Pass/fail + suggestions
+### Claude Code Native Pattern (CORRECT)
+```
+Main Chat → Task tool → Specialized sub-agents
 ```
 
-Each agent has a clear, single responsibility and produces specific outputs that feed into the next stage of the pipeline.
-
-
-## Orchestration patterns
-
-### Setup Instructions
-
-
--
-
-Set up async orchestration environment with proper error handling
-
--
-
-Create individual agent classes with single responsibilities
-
--
-
-Implement orchestrator with sequential pipeline management
-
--
-
-Test complete workflow with cost tracking and quality gates
-
-**Example:**
-
-**Example:**
-Basic Orchestration Pattern
-
-```bash
-async def orchestrate_episode_production(topic):
-# Step 1: Research
-research_result = await research_agent.execute(topic)
-if not research_result.success:
-return handle_error("Research failed")
-# Step 2: Script (uses research output)
-script_result = await script_agent.execute(research_result.data)
-if not script_result.success:
-return handle_error("Script failed")
-# Step 3: Audio (uses script output)
-audio_result = await audio_agent.execute(script_result.data)
-if not audio_result.success:
-return handle_error("Audio failed")
-# Step 4: Quality (checks everything)
-quality_result = await quality_agent.evaluate(
-research_result, script_result, audio_result
-)
-return combine_all_results()
+### Anti-Pattern (AVOIDED)
+```
+Main Chat → Orchestrator Agent → Sub-agents
 ```
 
-This demonstrates the core sequential pipeline pattern with error handling at each stage.
+## Claude Code Native Agents Overview
 
+**Technical:** Claude Code native architecture uses the main chat as orchestrator with Task tool delegation to specialized sub-agents defined in .claude/agents/ with YAML frontmatter.
 
-**Example:**
-Claude Code Enhanced Pattern with Memory and Quality Gates
+**Simple:** Think of it like being the conductor of an orchestra - you (the main chat) don't play every instrument, but you coordinate when each specialist (sub-agent) plays their part through the Task tool.
 
-```bash
-async def orchestrate_episode_production_enhanced(topic):
-# Claude Code: Load project context and patterns
-context = await claude_code.load_project_memory()
-# Step 1: Research with memory-aware optimization
-research_result = await research_agent.execute(
-topic,
-context=context.research_patterns,
-quality_gates=context.research_quality_gates
-)
-# Claude Code: Update research patterns based on results
-await claude_code.update_research_memory(research_result)
-if not research_result.success:
-# Claude Code: Intelligent error analysis
-error_analysis = await claude_code.analyze_failure(
-"research", research_result.error
-)
-return handle_error_with_learning("Research failed", error_analysis)
-# Continue with enhanced script, audio, and quality stages...
-# Each stage includes Claude Code integration for learning and optimization
+**Connection:** This teaches platform-native development patterns where leveraging built-in capabilities creates more robust and maintainable solutions.
+
+**Native Podcast Production Pipeline:**
+
+```yaml
+Sub-Agent Specialists:
+  1. deep-research-agent-enhanced 📚
+     Location: .claude/agents/deep-research-agent-enhanced.md
+     Job: Multi-round Perplexity research with WebSearch validation
+     Tools: mcp__perplexity-ask__perplexity_ask, WebSearch, Read, Write
+     Output: Comprehensive research package
+
+  2. question-generator-enhanced ❓
+     Location: .claude/agents/question-generator-enhanced.md
+     Job: Strategic question generation with complexity adaptation
+     Tools: mcp__perplexity-ask__perplexity_ask, WebSearch, Read, Write
+     Output: Prioritized question framework
+
+  3. research-synthesizer-enhanced 🧩
+     Location: .claude/agents/research-synthesizer-enhanced.md
+     Job: Knowledge integration with narrative coherence
+     Tools: mcp__perplexity-ask__perplexity_ask, WebSearch, Read, Write
+     Output: Production-ready content package
+
+  4. script-writer ✍️
+     Location: .claude/agents/script-writer.md
+     Job: Transform research into engaging scripts
+     Tools: Read, Write, mcp__perplexity-ask__perplexity_ask
+     Output: Episode script draft
+
+  5. audio-synthesizer-enhanced 🎙️
+     Location: .claude/agents/audio-synthesizer-enhanced.md
+     Job: Generate high-quality podcast audio
+     Tools: mcp__ElevenLabs__text_to_speech, Read, Write
+     Output: Final episode audio file
 ```
 
-Advanced pattern includes memory integration, automated quality gates, cost tracking, and pattern learning for continuous improvement.
+Each sub-agent has specialized expertise and operates independently with clean contexts.
 
+## Native Orchestration Patterns
 
-**Example:**
-Agent doing too much (violates single responsibility)
+### Native Orchestration Setup
 
+**Technical:** Claude Code native orchestration uses slash commands in .claude/commands/ that delegate to sub-agents via the Task tool, with hooks providing observability.
+
+**Simple:** Set up specialized slash commands that coordinate your sub-agents automatically - like having pre-built workflows that you can trigger with simple commands.
+
+**Connection:** This teaches command-driven automation and workflow orchestration essential for efficient AI system management.
+
+**Setup Steps:**
+1. Create sub-agents in `.claude/agents/` with YAML frontmatter
+2. Create slash commands in `.claude/commands/` that use Task tool delegation
+3. Configure hooks for observability and cost tracking
+4. Test complete workflow with quality gates
+
+### Native Orchestration Pattern (CORRECT)
+
+**Research Workflow Example:**
 ```bash
-class DoEverythingAgent:
-def execute(self, topic):
-# Research AND write AND synthesize
-# Too complex! Don't do this.
-research = self.research(topic)
-script = self.write_script(research)
-audio = self.synthesize_audio(script)
-return audio
+# /research-episode-enhanced 25 "The Mystery Topic"
+# This slash command coordinates the research pipeline:
+
+# Main Chat as Orchestrator:
+# Step 1: Use Task tool → deep-research-agent-enhanced
+# Step 2: Use Task tool → question-generator-enhanced
+# Step 3: Use Task tool → research-synthesizer-enhanced
+# Result: Complete research package ready for user review
 ```
 
-This violates the single responsibility principle and makes testing, debugging, and optimization much more difficult. Keep agents focused on one task.
-
-
-## Key concepts
-
-**Example:**
-
-**Example:**
-State Management
-
+**Production Workflow Example:**
 ```bash
-class ProductionState:
-current_stage = "research"  # or "script", "audio", "quality"
-stages_completed = []
-errors_encountered = []
-total_cost = 0.0
-start_time = datetime.now()
+# /produce-episode-native 25 --from-research
+# This slash command coordinates the production pipeline:
+
+# Main Chat as Orchestrator:
+# Step 1: Use Task tool → episode-planner-enhanced
+# Step 2: Use Task tool → script-writer
+# Step 3: Use Task tool → quality-claude-enhanced & quality-gemini-enhanced (parallel)
+# Step 4: Use Task tool → script-polisher-enhanced
+# Step 5: Use Task tool → audio-synthesizer-enhanced
+# Result: Final episode audio and production report
 ```
 
-Track workflow progress, costs, and errors to enable recovery and optimization.
+### Claude Code Native Benefits
 
+**Advantages of Native Pattern:**
+- **Automatic Discovery**: Sub-agents automatically appear in Claude Code interface
+- **Tool Validation**: Built-in tool access control and validation
+- **Context Management**: Clean context separation between agents
+- **Error Recovery**: Built-in error handling and recovery mechanisms
+- **Observability**: Native hooks system for monitoring and cost tracking
+- **Maintainability**: Standard patterns reduce complexity and improve reliability
 
-**Example:**
-Error Recovery with Exponential Backoff
+### Anti-Pattern Warning (AVOID)
 
+**Incorrect Orchestrator Agent Pattern:**
 ```bash
-async def execute_with_retry(agent, data, max_retries=3):
-for attempt in range(max_retries):
-try:
-result = await agent.execute(data)
-if result.success:
-return result
-except Exception as e:
-if attempt == max_retries - 1:
-raise
-await asyncio.sleep(2 ** attempt)  # Exponential backoff
+# DON'T DO THIS - Violates Claude Code native patterns
+01_production_orchestrator.md  # ❌ Anti-pattern
+01_research_orchestrator.md    # ❌ Anti-pattern
+
+# These separate orchestrator agents violate native patterns
+# Main chat should orchestrate directly via Task tool
 ```
 
-Implement resilient error recovery with progressive delays to handle temporary failures gracefully.
+**Problems with Anti-Pattern:**
+- Violates Claude Code architecture principles
+- Creates unnecessary complexity layers
+- Reduces discoverability and maintainability
+- Bypasses built-in Claude Code capabilities
 
 
-**Example:**
-Cost Tracking Integration
+## Key Concepts
 
-```bash
-class AgentResult:
-def __init__(self):
-self.success = False
-self.data = {}
-self.cost = 0.0  # Track this!
-self.duration = 0.0
-def add_api_cost(self, api_name, tokens_used):
-rates = {
-"claude": 0.003,      # per 1K tokens
-"perplexity": 0.005,  # per query
-"elevenlabs": 0.001   # per minute
+### Native State Management
+
+**Technical:** Claude Code native state management uses session directories and JSON files for persistence, with hooks providing real-time workflow tracking.
+
+**Simple:** Instead of complex code, use simple folders and files to track where you are in the workflow - like having a progress checklist that saves automatically.
+
+**Connection:** This teaches file-based state management and persistent workflow tracking essential for reliable long-running processes.
+
+**Native State Pattern:**
+```yaml
+Session Structure:
+  sessions/ep_25_20250824/
+    research/
+      research_complete.json     # Research pipeline state
+      research_summary.md        # User-readable summary
+    production/
+      production_status.json     # Production pipeline state
+      episode_audio.mp3         # Final output
+```
+
+**State Tracking Example:**
+```json
+{
+  "session_metadata": {
+    "session_id": "ep_25_research_20250824",
+    "status": "completed",
+    "total_cost": 4.75,
+    "timestamp": "2025-08-24T10:30:00Z"
+  },
+  "stage_completion": {
+    "deep_research": {"status": "completed", "cost": 2.25},
+    "question_generation": {"status": "completed", "cost": 1.50},
+    "research_synthesis": {"status": "completed", "cost": 1.00}
+  }
 }
-self.cost += rates[api_name] * tokens_used
 ```
 
-Every agent operation tracks costs to enable budget monitoring and optimization decisions.
+### Native Error Recovery
 
+**Technical:** Claude Code hooks system provides error recovery through PostToolUse event handling and session state persistence.
 
+**Simple:** When something goes wrong, the system automatically saves your progress and gives you options to restart from where you left off.
+
+**Connection:** This teaches resilient system design and graceful failure recovery essential for production workflows.
+
+**Hook-Based Recovery Pattern:**
+```json
+{
+  "PostToolUse": [{
+    "matcher": "Task",
+    "hooks": [{
+      "type": "command",
+      "command": ".claude/hooks/error-recovery-handler.sh",
+      "timeout": 10
+    }]
+  }]
+}
+```
+
+### Native Cost Tracking
+
+**Technical:** Claude Code hooks system enables comprehensive cost tracking through PreToolUse and PostToolUse event monitoring with real-time budget validation.
+
+**Simple:** Automatic cost counter that watches every action and keeps track of spending, warning you before you go over budget.
+
+**Connection:** This teaches resource monitoring and budget management essential for sustainable AI system operations.
+
+**Hooks Cost Tracking:**
+```json
+{
+  "PreToolUse": [{
+    "matcher": "*",
+    "hooks": [{
+      "type": "command",
+      "command": ".claude/hooks/pre-tool-cost-validation.sh",
+      "timeout": 5
+    }]
+  }]
+}
+```
+
+### Native Quality Gates
+
+**Technical:** Claude Code sub-agents with specialized quality evaluation tools provide automated quality assurance through standardized assessment frameworks.
+
+**Simple:** Quality checkers that automatically review your work at each step and make sure everything meets high standards before moving forward.
+
+**Connection:** This teaches automated quality assurance and systematic evaluation essential for maintaining professional content standards.
+
+**Quality Gate Pattern:**
 ```bash
+# Quality gates integrated into workflow
+# Step N: Use Task tool → quality-claude-enhanced
+# Step N+1: Use Task tool → quality-gemini-enhanced
+# Result: Dual evaluation with consensus scoring
+```
 
-```bash
+### Success Validation
 
-```bash
-All agents load without errors, error recovery tests pass, cost tracking validates within budget
+**Native Pattern Verification:**
+- ✅ Sub-agents discoverable in Claude Code interface
+- ✅ Slash commands execute Task tool delegation successfully
+- ✅ Hooks provide complete workflow observability
+- ✅ Session state persists across workflow stages
+- ✅ Error recovery enables workflow continuation
+- ✅ Cost tracking validates budget compliance
 
-## Learning progression
+## Learning Progression
 
-### Setup Instructions
+### Native Pattern Mastery Path
 
+**Level 1: Understanding Native Architecture**
+- Read sub-agent definitions in `.claude/agents/` directory
+- Trace Task tool delegation through slash commands
+- Identify specialized tool access patterns for each agent
+- Practice using `/research-episode-enhanced` and `/produce-episode-native`
 
--
-                Level 1: Read each agent's code, trace data through pipeline, identify what each agent produces
+**Level 2: Customization and Enhancement**
+- Modify sub-agent prompts while preserving YAML frontmatter structure
+- Create custom slash commands that use Task tool delegation
+- Configure hooks for workflow observability and cost tracking
+- Test different agent orchestration sequences and parameters
 
--
-                Level 2: Change prompts and adjust parameters, add logging, test different orchestration sequences
+**Level 3: Advanced Workflow Design**
+- Build new specialized sub-agents (Summary, Social Media, SEO)
+- Design custom multi-stage workflows with quality gates
+- Implement sophisticated error recovery through hooks system
+- Create cross-episode learning and knowledge building systems
 
--
-                Level 3: Build new agents (Summary, Social Media), design custom workflows, implement error recovery
+**Level 4: Expert System Optimization**
+- Master parallel Task tool execution for efficiency optimization
+- Design conditional workflow flows based on quality metrics
+- Implement advanced cost optimization and budget management
+- Create sophisticated cross-episode intelligence and pattern recognition
 
--
-                Level 4: Master parallel execution, conditional flows, cross-episode learning systems
-Cost optimization techniques for orchestrated systems
-Claude Code memory system for agent coordination
-Common orchestration problems and solutions
+### Key Learning Outcomes
+
+**Technical Mastery:**
+- Claude Code native pattern implementation
+- Task tool delegation and sub-agent coordination
+- Hooks system for observability and automation
+- Session-based state management and persistence
+
+**Practical Skills:**
+- Workflow orchestration and quality assurance
+- Cost tracking and budget optimization
+- Error recovery and resilient system design
+- Multi-stage content production pipeline management
+
+**Transferable Knowledge:**
+- Platform-native development principles
+- Event-driven architecture and automation
+- Systematic quality assurance frameworks
+- Resource monitoring and operational excellence
 
 ---
 
-*Converted from XML to Markdown for elegant simplicity*
-*Original: agent_orchestration_basics.xml*
-*Conversion: Mon Aug 18 10:47:17 EDT 2025*
+*Updated for Claude Code Native Patterns*
+*Architecture Research: August 24, 2025*
+*Previous Anti-Patterns Corrected: Orchestrator Agent Elimination*

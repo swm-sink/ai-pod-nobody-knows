@@ -137,7 +137,6 @@ Pipfile.lock
 .claude/level-2-production/output/*/*
 .claude/level-1-dev/sessions/*.json
 .claude/level-2-production/sessions/*.json
-.claude/level-3-platform-dev/sessions/*.json
 
 # Development Files
 *.orig

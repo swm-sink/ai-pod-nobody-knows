@@ -1,0 +1,30 @@
+{
+  "session_start": "2025-08-23 02:14:46",
+  "total_budget": 25.75,
+  "phase_budgets": {
+    "research": 9.25,
+    "script": 7.25,
+    "evaluation": 2.75,
+    "audio": 6.50
+  },
+  "current_utilization": {
+    "research": 0.0,
+    "script": 0.9400000000000005,
+    "evaluation": 0.0,
+    "audio": 0.0,
+    "total": 0.9400000000000005
+  },
+  "operation_count": {
+    "research": 0,
+    "script": 47,
+    "evaluation": 0,
+    "audio": 0,
+    "total": 47
+  },
+  "cost_velocity": {
+    "hourly_rate": 0.0,
+    "trend": "stable",
+    "projection_6h": 0.0,
+    "runway_hours": 999.0
+  }
+}

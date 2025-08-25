@@ -1,0 +1,27 @@
+{
+  "episode_id": "episode_3_test_consciousness_mystery",
+  "title": "Nobody Knows How Consciousness Actually Works",
+  "topic_category": "philosophical/neuroscience",
+  "validation_objectives": [
+    "Test system adaptability for abstract philosophical/neuroscience content",
+    "Validate brand voice consistency with deep uncertainty themes",
+    "Assess research quality for highly theoretical domains",
+    "Verify cost efficiency for conceptual vs. factual research",
+    "Evaluate quality score consistency with abstract topics"
+  ],
+  "validation_depth": "comprehensive",
+  "target_duration": 20,
+  "budget_limit": 33.25,
+  "quality_thresholds": {
+    "brand_voice_consistency": 90.0,
+    "research_quality": 90.0,
+    "technical_standards": 90.0,
+    "integration_success": 99.5,
+    "cost_compliance": 100.0
+  },
+  "test_parameters": {
+    "intellectual_humility_focus": "consciousness mysteries and competing theories",
+    "research_complexity": "very_high - abstract concepts, competing paradigms, limited empirical data",
+    "domain_expertise_required": "neuroscience, philosophy of mind, cognitive science, consciousness studies"
+  }
+}

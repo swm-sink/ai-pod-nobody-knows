@@ -359,7 +359,7 @@ requirements.txt.backup.*
 *.db
 !example.db
 
-# FastAPI
+# Application
 *.pid
 instance/
 

@@ -1,0 +1,328 @@
+# Model Provider Configuration
+# Defines available models, costs, capabilities, and routing preferences
+
+version: "1.0.0"
+last_updated: "2025-08-21"
+
+# Global configuration
+global_settings:
+  default_timeout: 60
+  max_retries: 3
+  circuit_breaker_threshold: 5
+  health_check_interval: 300  # 5 minutes
+
+# Model provider definitions
+providers:
+
+  # Anthropic Claude Models
+  anthropic:
+    name: "Anthropic"
+    base_url: "https://api.anthropic.com"
+    auth_type: "api_key"
+    rate_limits:
+      requests_per_minute: 1000
+      tokens_per_minute: 800000
+
+    models:
+      claude-sonnet-4:
+        id: "claude-sonnet-4-20250805"
+        display_name: "Claude 4 Sonnet"
+        cost_per_mtok:
+          input: 3.00
+          output: 15.00
+        context_length: 1000000
+        capabilities:
+          - reasoning
+          - creative_writing
+          - technical_analysis
+          - code_generation
+          - multilingual
+        optimal_tasks:
+          - general_purpose
+          - balanced_cost_performance
+          - technical_analysis
+          - reasoning_tasks
+        quality_tier: "high"
+        availability: "production"
+
+      claude-opus-4-1:
+        id: "claude-opus-4-1-20250805"
+        display_name: "Claude 4.1 Opus"
+        cost_per_mtok:
+          input: 15.00
+          output: 75.00
+        context_length: 1000000
+        capabilities:
+          - advanced_reasoning
+          - creative_writing
+          - research_synthesis
+          - complex_analysis
+          - multilingual
+        optimal_tasks:
+          - creative_writing
+          - complex_reasoning
+          - research_synthesis
+          - premium_quality
+        quality_tier: "premium"
+        availability: "production"
+
+  # OpenAI Models
+  openai:
+    name: "OpenAI"
+    base_url: "https://api.openai.com"
+    auth_type: "bearer_token"
+    rate_limits:
+      requests_per_minute: 10000
+      tokens_per_minute: 2000000
+
+    models:
+      gpt-4o-mini:
+        id: "gpt-4o-mini"
+        display_name: "GPT-4o Mini"
+        cost_per_mtok:
+          input: 0.15
+          output: 0.60
+        context_length: 128000
+        capabilities:
+          - reasoning
+          - creative_writing
+          - technical_analysis
+          - code_generation
+        optimal_tasks:
+          - cost_sensitive
+          - quick_responses
+          - budget_optimization
+        quality_tier: "standard"
+        availability: "production"
+
+      gpt-4o:
+        id: "gpt-4o"
+        display_name: "GPT-4o"
+        cost_per_mtok:
+          input: 2.50
+          output: 10.00
+        context_length: 128000
+        capabilities:
+          - reasoning
+          - creative_writing
+          - technical_analysis
+          - vision
+          - code_generation
+        optimal_tasks:
+          - balanced_performance
+          - multimodal_tasks
+          - vision_analysis
+        quality_tier: "high"
+        availability: "production"
+
+  # Perplexity Models
+  perplexity:
+    name: "Perplexity AI"
+    base_url: "https://api.perplexity.ai"
+    auth_type: "bearer_token"
+    rate_limits:
+      requests_per_minute: 200
+      tokens_per_minute: 500000
+
+    models:
+      sonar-reasoning:
+        id: "sonar-reasoning"
+        display_name: "Sonar Reasoning"
+        cost_per_mtok:
+          input: 5.00
+          output: 5.00
+        context_length: 127000
+        capabilities:
+          - web_search
+          - real_time_data
+          - research
+          - reasoning
+          - fact_checking
+        optimal_tasks:
+          - research_intensive
+          - fact_checking
+          - current_events
+          - web_search
+        quality_tier: "specialized"
+        availability: "production"
+
+# Task-based routing configuration
+routing_rules:
+
+  creative_writing:
+    description: "Script writing, storytelling, creative content"
+    primary_model: "claude-opus-4-1"
+    fallback_models:
+      - "claude-sonnet-4"
+      - "gpt-4o"
+    budget_alternative: "gpt-4o-mini"
+    quality_threshold: 85
+    cost_weight: 0.3
+    quality_weight: 0.7
+
+  research_intensive:
+    description: "Deep research, fact-checking, current events"
+    primary_model: "sonar-reasoning"
+    fallback_models:
+      - "claude-sonnet-4"
+      - "gpt-4o"
+    budget_alternative: "claude-sonnet-4"
+    quality_threshold: 80
+    cost_weight: 0.4
+    quality_weight: 0.6
+
+  technical_analysis:
+    description: "Code analysis, technical documentation, system design"
+    primary_model: "claude-sonnet-4"
+    fallback_models:
+      - "claude-opus-4-1"
+      - "gpt-4o"
+    budget_alternative: "gpt-4o-mini"
+    quality_threshold: 80
+    cost_weight: 0.5
+    quality_weight: 0.5
+
+  cost_sensitive:
+    description: "Tasks where cost optimization is priority"
+    primary_model: "gpt-4o-mini"
+    fallback_models:
+      - "claude-sonnet-4"
+    quality_upgrade: "claude-sonnet-4"
+    quality_threshold: 70
+    cost_weight: 0.8
+    quality_weight: 0.2
+
+  reasoning_heavy:
+    description: "Complex logical reasoning, problem solving"
+    primary_model: "claude-sonnet-4"
+    fallback_models:
+      - "claude-opus-4-1"
+      - "gpt-4o"
+    budget_alternative: "gpt-4o-mini"
+    quality_threshold: 85
+    cost_weight: 0.2
+    quality_weight: 0.8
+
+# Budget-based routing thresholds
+budget_thresholds:
+  green_zone:
+    threshold: 50  # Under 50% budget used
+    strategy: "optimal_quality"
+    allowed_models: "all"
+
+  yellow_zone:
+    threshold: 75  # 50-75% budget used
+    strategy: "balanced_optimization"
+    allowed_models:
+      - "claude-sonnet-4"
+      - "gpt-4o"
+      - "gpt-4o-mini"
+      - "sonar-reasoning"
+
+  orange_zone:
+    threshold: 90  # 75-90% budget used
+    strategy: "cost_conscious"
+    allowed_models:
+      - "gpt-4o-mini"
+      - "claude-sonnet-4"
+
+  red_zone:
+    threshold: 100  # Over 90% budget used
+    strategy: "emergency_only"
+    allowed_models:
+      - "gpt-4o-mini"
+    queue_non_essential: true
+
+# Quality assessment criteria
+quality_metrics:
+  accuracy:
+    weight: 0.3
+    measurement: "factual_correctness"
+
+  coherence:
+    weight: 0.25
+    measurement: "logical_flow"
+
+  completeness:
+    weight: 0.2
+    measurement: "requirements_coverage"
+
+  style_consistency:
+    weight: 0.15
+    measurement: "brand_voice_adherence"
+
+  technical_depth:
+    weight: 0.1
+    measurement: "technical_accuracy"
+
+# Failover and reliability settings
+reliability:
+  circuit_breaker:
+    failure_threshold: 5  # failures before circuit opens
+    timeout_seconds: 60   # circuit open duration
+    half_open_max_calls: 3  # test calls in half-open state
+
+  retry_policy:
+    max_retries: 3
+    backoff_strategy: "exponential"
+    base_delay_ms: 1000
+    max_delay_ms: 30000
+
+  health_checks:
+    interval_seconds: 300
+    timeout_seconds: 10
+    success_threshold: 2  # consecutive successes to mark healthy
+    failure_threshold: 3  # consecutive failures to mark unhealthy
+
+# Cost optimization settings
+cost_optimization:
+  prediction_window_hours: 24
+  rebalancing_trigger: 10  # percentage change threshold
+  emergency_budget_reserve: 5  # percentage of budget to reserve
+
+  cost_tracking:
+    granularity: "per_task_type"
+    reporting_interval: "hourly"
+    alerting_thresholds:
+      warning: 75   # percentage of budget
+      critical: 90  # percentage of budget
+
+# Monitoring and observability
+monitoring:
+  metrics_retention_days: 30
+  log_level: "info"
+
+  tracked_metrics:
+    - "response_time_ms"
+    - "cost_per_request"
+    - "quality_score"
+    - "availability_percentage"
+    - "error_rate_percentage"
+    - "token_efficiency"
+
+  alerting:
+    channels:
+      - "logs"
+      - "hooks"
+    conditions:
+      high_error_rate: "> 5%"
+      slow_response: "> 30s"
+      cost_spike: "> 20% above baseline"
+      quality_drop: "< 70 average"
+
+# Local and alternative providers (for future expansion)
+alternative_providers:
+  local_models:
+    enabled: false
+    base_url: "http://localhost:8000"
+    models: []
+
+  azure_openai:
+    enabled: false
+    base_url: "https://{resource}.openai.azure.com"
+    models: []
+
+  google_vertex:
+    enabled: false
+    base_url: "https://us-central1-aiplatform.googleapis.com"
+    models: []

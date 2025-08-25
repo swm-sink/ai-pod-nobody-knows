@@ -1,0 +1,29 @@
+{
+  "episodes": {
+    "ep_2025_test_001": {
+      "title": "The Future of AI Development - Quality Gate 6 Validation",
+      "current_phase": "script-development",
+      "phases": {
+        "research-excellence": {
+          "agent": "research-orchestrator-enhanced",
+          "status": "completed",
+          "quality_score": 0.89,
+          "cost": 1.85,
+          "duration_seconds": 145,
+          "completion_time": 1724383500
+        },
+        "script-development": {
+          "agent": "script-writer-enhanced",
+          "status": "active",
+          "quality_score": 0.92,
+          "cost": 2.40,
+          "duration_seconds": 89,
+          "completion_time": null
+        }
+      },
+      "total_cost": 4.25,
+      "last_updated": 1724383500
+    }
+  },
+  "active_phases": {}
+}

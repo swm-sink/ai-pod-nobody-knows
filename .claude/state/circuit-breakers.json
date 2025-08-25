@@ -1,0 +1,20 @@
+{
+  "api_states": {
+    "perplexity": {
+      "state": "closed",
+      "failures": 0,
+      "successes": 1,
+      "last_success": "2025-08-23T05:19:07.3NZ"
+    },
+    "elevenlabs": {
+      "state": "closed",
+      "failures": 0,
+      "successes": 0
+    },
+    "claude": {
+      "state": "closed",
+      "failures": 0,
+      "successes": 0
+    }
+  }
+}

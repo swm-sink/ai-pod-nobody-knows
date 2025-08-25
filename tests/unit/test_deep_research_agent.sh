@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Test Configuration
-AGENT_FILE=".claude/agents/research/02_deep-research-agent.md"
+AGENT_FILE=".claude/agents/research-deep-dive.md"
 TEST_SESSION_DIR="tests/data/test_session_research"
 MOCK_MODE="${MOCK_MODE:-false}"
 

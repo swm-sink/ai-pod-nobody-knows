@@ -34,16 +34,6 @@
       "quality_agent": false,
       "production_command": false,
       "mcp_configured": false
-    },
-    "level_3": {
-      "requirements_doc": false,
-      "architecture_design": false,
-      "test_harness": false,
-      "migration_plan": false
-    },
-    "level_4": {
-      "status": "NOT_STARTED",
-      "note": "Requires explicit approval"
     }
   },
 

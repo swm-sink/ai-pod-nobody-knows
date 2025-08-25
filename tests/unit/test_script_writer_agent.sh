@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Test Configuration
-AGENT_FILE=".claude/agents/production/03_script-writer.md"
+AGENT_FILE=".claude/agents/script-writer.md"
 TEST_SESSION_DIR="tests/data/test_session_script"
 MOCK_MODE="${MOCK_MODE:-false}"
 

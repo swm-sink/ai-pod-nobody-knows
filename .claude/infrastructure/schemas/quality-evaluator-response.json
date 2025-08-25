@@ -1,0 +1,346 @@
+{
+  "$schema": "https://json-schema.org/draft/2025-08/schema",
+  "$id": "https://ai-podcasts-nobody-knows.com/schemas/quality-evaluator-response.json",
+  "title": "Quality Evaluator Response Schema",
+  "description": "Schema for three-evaluator consensus system (Claude, Gemini, Perplexity) quality assessment responses",
+  "allOf": [
+    {
+      "$ref": "./base-agent-response.json"
+    }
+  ],
+  "properties": {
+    "evaluator_specialization": {
+      "type": "object",
+      "properties": {
+        "evaluator_type": {
+          "type": "string",
+          "enum": ["claude", "gemini", "perplexity"],
+          "description": "Type of quality evaluator"
+        },
+        "specialization_focus": {
+          "type": "string",
+          "enum": [
+            "creative_content_assessment",
+            "technical_production_compliance",
+            "research_accuracy_validation"
+          ],
+          "description": "Primary specialization area for this evaluator"
+        },
+        "consensus_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight in three-evaluator consensus (Claude: 0.35, Gemini: 0.30, Perplexity: 0.35)"
+        }
+      },
+      "required": ["evaluator_type", "specialization_focus", "consensus_weight"],
+      "additionalProperties": false
+    },
+    "quality_assessment_scores": {
+      "type": "object",
+      "properties": {
+        "overall_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall quality score from this evaluator"
+        },
+        "quality_dimensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "type": "object",
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": ["high", "medium", "low"]
+                },
+                "assessment_notes": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["score", "confidence", "assessment_notes"],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "description": "Evaluator-specific quality dimensions with scores and confidence"
+        }
+      },
+      "required": ["overall_quality", "quality_dimensions"],
+      "additionalProperties": false
+    },
+    "evaluation_analysis": {
+      "type": "object",
+      "properties": {
+        "critical_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "issue_id": {
+                "type": "string",
+                "pattern": "^[a-z_]+_\\d{3}$",
+                "examples": ["acc_001", "fmt_001", "fact_001"]
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "content_accuracy",
+                  "narrative_coherence",
+                  "brand_voice_alignment",
+                  "engagement_optimization",
+                  "technical_compliance",
+                  "production_format",
+                  "audio_synthesis_readiness",
+                  "structural_engineering",
+                  "fact_verification",
+                  "expert_authentication",
+                  "information_currency"
+                ]
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["low", "medium", "high", "critical"]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "location": {
+                "type": "string",
+                "description": "Location in script where issue occurs"
+              },
+              "recommended_fix": {
+                "type": "string",
+                "minLength": 1
+              },
+              "impact_assessment": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": ["issue_id", "category", "severity", "description", "recommended_fix", "impact_assessment"],
+            "additionalProperties": false
+          }
+        },
+        "improvement_recommendations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "recommendation_id": {
+                "type": "string",
+                "pattern": "^[a-z_]+_\\d{3}$"
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "content_accuracy",
+                  "narrative_coherence",
+                  "brand_voice_alignment",
+                  "engagement_optimization",
+                  "technical_compliance",
+                  "production_format",
+                  "audio_synthesis_readiness",
+                  "structural_engineering",
+                  "fact_verification",
+                  "expert_authentication",
+                  "information_currency"
+                ]
+              },
+              "priority": {
+                "type": "string",
+                "enum": ["low", "medium", "high"]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expected_improvement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "implementation_effort": {
+                "type": "string",
+                "enum": ["low", "medium", "high"]
+              }
+            },
+            "required": ["recommendation_id", "category", "priority", "description", "expected_improvement", "implementation_effort"],
+            "additionalProperties": false
+          }
+        },
+        "strength_analysis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "strength_id": {
+                "type": "string",
+                "pattern": "^[a-z_]+_\\d{3}$"
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "content_accuracy",
+                  "narrative_coherence",
+                  "brand_voice_alignment",
+                  "engagement_optimization",
+                  "technical_compliance",
+                  "production_format",
+                  "audio_synthesis_readiness",
+                  "structural_engineering",
+                  "fact_verification",
+                  "expert_authentication",
+                  "information_currency"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "preservation_note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": ["strength_id", "category", "description", "preservation_note"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["critical_issues", "improvement_recommendations", "strength_analysis"],
+      "additionalProperties": false
+    },
+    "advancement_decision": {
+      "type": "object",
+      "properties": {
+        "advancement_status": {
+          "type": "string",
+          "enum": ["approved", "conditional_approval", "revision_required", "major_rework_needed"],
+          "description": "This evaluator's recommendation for script advancement"
+        },
+        "advancement_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Conditions that must be met for advancement"
+        },
+        "estimated_revision_time": {
+          "type": "string",
+          "pattern": "^\\d+_minutes$",
+          "description": "Estimated time to address issues",
+          "examples": ["15_minutes", "45_minutes"]
+        },
+        "quality_gate_status": {
+          "type": "string",
+          "enum": ["passed", "failed", "pending_consensus", "pending_revision"],
+          "description": "Status relative to quality gates"
+        }
+      },
+      "required": ["advancement_status", "advancement_conditions", "estimated_revision_time", "quality_gate_status"],
+      "additionalProperties": false
+    },
+    "consensus_preparation": {
+      "type": "object",
+      "properties": {
+        "evaluation_confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "This evaluator's confidence in assessment"
+        },
+        "areas_requiring_cross_validation": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Areas where other evaluators should focus validation"
+        },
+        "potential_disagreement_points": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Areas where this evaluator expects possible disagreement"
+        },
+        "consensus_requirements": {
+          "type": "object",
+          "properties": {
+            "minimum_agreement_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Minimum consensus threshold for advancement"
+            },
+            "critical_issue_agreement": {
+              "type": "string",
+              "enum": ["required", "preferred", "optional"],
+              "description": "Level of agreement needed on critical issues"
+            },
+            "advancement_decision_consensus": {
+              "type": "string",
+              "enum": ["required", "majority", "any_approval"],
+              "description": "Consensus requirement for advancement decision"
+            }
+          },
+          "required": ["minimum_agreement_threshold", "critical_issue_agreement", "advancement_decision_consensus"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["evaluation_confidence", "areas_requiring_cross_validation", "potential_disagreement_points", "consensus_requirements"],
+      "additionalProperties": false
+    },
+    "next_evaluator_context": {
+      "type": "object",
+      "properties": {
+        "focus_areas_for_next": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Suggested focus areas for next evaluator"
+        },
+        "constraints_for_consensus": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Constraints that should be preserved in consensus"
+        },
+        "handoff_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when evaluation completed and ready for handoff"
+        }
+      },
+      "required": ["focus_areas_for_next", "constraints_for_consensus", "handoff_timestamp"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "evaluator_specialization",
+    "quality_assessment_scores",
+    "evaluation_analysis",
+    "advancement_decision",
+    "consensus_preparation",
+    "next_evaluator_context"
+  ],
+  "additionalProperties": false
+}

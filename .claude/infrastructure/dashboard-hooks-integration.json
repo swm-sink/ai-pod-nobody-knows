@@ -1,0 +1,275 @@
+{
+  "dashboard_hooks_integration": {
+    "technical_explanation": "Enhanced Claude Code hooks configuration that integrates comprehensive dashboard event aggregation with existing production pipeline monitoring for unified real-time observability",
+    "simple_explanation": "Updated hooks settings that tell Claude Code to also send dashboard information whenever production activities happen, creating a complete real-time monitoring system",
+    "connection": "This teaches hooks-based integration patterns where new observability capabilities layer seamlessly onto existing systems without disrupting established workflows"
+  },
+
+  "integration_strategy": {
+    "additive_approach": "Add dashboard hooks alongside existing hooks without modifying proven production monitoring",
+    "parallel_execution": "Dashboard event aggregation runs in parallel with existing hooks for minimal performance impact",
+    "unified_observability": "Single dashboard view combining data from all existing hooks plus new dashboard-specific collection",
+    "backwards_compatibility": "Maintains full compatibility with existing production pipeline and checkpoint systems"
+  },
+
+  "enhanced_hooks_configuration": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-tool-deadlock-guard.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-tool-cost-validation.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-event-aggregator.sh \"pre-tool-use\" \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-tool-coordination-cleanup.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 12
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-event-aggregator.sh \"post-tool-use\" \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-write-quality-check.sh \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-task-checkpoint.sh \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__perplexity__perplexity_ask",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-research-cost-tracking.sh \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__ElevenLabs__*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-audio-cost-tracking.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOOL_ARGS\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/user-prompt-analysis.sh",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-event-aggregator.sh \"user-prompt\" \"user_interaction\" \"{}\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/notification-handler.sh \"$CLAUDE_NOTIFICATION_TYPE\" \"$CLAUDE_NOTIFICATION_MESSAGE\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-event-aggregator.sh \"notification\" \"$CLAUDE_NOTIFICATION_TYPE\" \"$CLAUDE_NOTIFICATION_MESSAGE\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/session-cleanup.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-event-aggregator.sh \"stop\" \"session_end\" \"{}\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/subagent-completion.sh \"$CLAUDE_SUBAGENT_ID\" \"$CLAUDE_SUBAGENT_RESULT\"",
+            "timeout": 8
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/dashboard-production-phase-tracker.sh \"track\" \"$CLAUDE_SUBAGENT_ID\" \"current_episode\" \"$CLAUDE_SUBAGENT_ID\" \"completed\" \"0.85\" \"2.50\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+
+  "dashboard_specific_hooks": {
+    "production_phase_tracking": {
+      "description": "Specialized hooks that track production phases for comprehensive dashboard visualization",
+      "integration_points": [
+        "SubagentStop: Track agent completion and phase transitions",
+        "PostToolUse: Monitor tool usage patterns and performance",
+        "Notification: Capture system alerts and status updates",
+        "Stop: Aggregate session metrics and final statistics"
+      ]
+    },
+
+    "quality_metrics_collection": {
+      "description": "Enhanced quality tracking through dashboard hooks integration",
+      "data_sources": [
+        "post-write-quality-check.sh: Content quality assessment results",
+        "post-research-cost-tracking.sh: Research quality and cost correlation",
+        "subagent-completion.sh: Agent-specific quality scores",
+        "dashboard-event-aggregator.sh: Unified quality metrics collection"
+      ]
+    },
+
+    "cost_analytics_enhancement": {
+      "description": "Comprehensive cost tracking across all system operations",
+      "tracking_mechanisms": [
+        "pre-tool-cost-validation.sh: Pre-operation cost estimation",
+        "post-research-cost-tracking.sh: Research phase cost aggregation",
+        "post-audio-cost-tracking.sh: Audio synthesis cost monitoring",
+        "dashboard-production-phase-tracker.sh: Phase-specific cost accumulation"
+      ]
+    },
+
+    "performance_monitoring_integration": {
+      "description": "Real-time performance metrics collection for dashboard analytics",
+      "performance_indicators": [
+        "Tool execution times from pre/post tool use hooks",
+        "Agent completion durations from subagent stop hooks",
+        "Error rates and recovery times from coordination cleanup",
+        "API response times from research and audio tracking"
+      ]
+    }
+  },
+
+  "dashboard_activation": {
+    "startup_sequence": {
+      "step_1": "Initialize dashboard data directories (.claude/logs/dashboard, .claude/state)",
+      "step_2": "Start dashboard API server (node .claude/infrastructure/dashboard-api-server.js)",
+      "step_3": "Verify hook integration (check all dashboard hooks are executable)",
+      "step_4": "Access dashboard interface (http://localhost:3000/dashboard)"
+    },
+
+    "validation_checklist": [
+      "Dashboard event aggregator script is executable",
+      "Production phase tracker script is executable",
+      "API server starts without errors",
+      "Dashboard web interface loads correctly",
+      "WebSocket connections function for real-time updates",
+      "All hook integrations execute within timeout limits"
+    ],
+
+    "monitoring_verification": [
+      "Events appear in .claude/logs/dashboard/event-stream.jsonl",
+      "Metrics update in .claude/logs/dashboard/metrics-aggregate.json",
+      "Production state tracked in .claude/state/production-phase-state.json",
+      "Dashboard displays real-time production data",
+      "Quality scores update as episodes progress",
+      "Cost tracking reflects actual system usage"
+    ]
+  },
+
+  "maintenance_and_optimization": {
+    "performance_tuning": {
+      "hook_timeout_optimization": "Dashboard hooks use minimal timeouts (3-5s) for low latency",
+      "data_retention_management": "Automatic cleanup of event data older than 30 days",
+      "aggregation_efficiency": "Batch processing of events for optimal resource utilization",
+      "real_time_balance": "Balance between update frequency and system performance"
+    },
+
+    "scalability_considerations": {
+      "event_volume_management": "Handle high-frequency events without performance degradation",
+      "concurrent_episode_support": "Track multiple episodes simultaneously in dashboard",
+      "historical_data_compression": "Efficient storage of trend data for analytics",
+      "dashboard_responsiveness": "Maintain <100ms dashboard update latency"
+    },
+
+    "troubleshooting_guides": {
+      "hook_failure_recovery": "Automated recovery when dashboard hooks timeout or fail",
+      "data_consistency_validation": "Regular validation of dashboard data accuracy",
+      "performance_impact_monitoring": "Continuous monitoring of dashboard overhead",
+      "integration_health_checks": "Automated verification of all integration points"
+    }
+  },
+
+  "success_metrics": {
+    "observability_completeness": {
+      "production_pipeline_coverage": "100% visibility across all production phases",
+      "quality_assessment_tracking": "Real-time quality metrics for all episodes",
+      "cost_monitoring_accuracy": "Precise cost tracking with <1% variance",
+      "performance_analytics_depth": "Comprehensive performance insights across all agents"
+    },
+
+    "user_experience_excellence": {
+      "dashboard_responsiveness": "<100ms update latency for real-time data",
+      "interface_intuitiveness": "Zero training required for basic monitoring tasks",
+      "mobile_accessibility": "Full functionality on mobile devices",
+      "export_capabilities": "Complete data export for external analysis"
+    },
+
+    "operational_intelligence_impact": {
+      "proactive_issue_detection": ">95% of issues identified before operational impact",
+      "optimization_opportunity_identification": "Automated detection of improvement opportunities",
+      "decision_support_enhancement": "Data-driven insights for strategic decisions",
+      "efficiency_improvement_measurement": "Quantifiable operational efficiency gains"
+    }
+  }
+}

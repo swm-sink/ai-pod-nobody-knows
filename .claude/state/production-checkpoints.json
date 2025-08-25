@@ -1,0 +1,45 @@
+{
+  "active_episodes": {
+    "test-001": {
+      "phases": {
+        "research-excellence": {
+          "status": "completed",
+          "quality_score": 0.92,
+          "cost": 2.45,
+          "agent": "research-orchestrator-enhanced",
+          "timestamp": "2025-08-23T05:12:57.3NZ"
+        },
+        "script-development": {
+          "status": "failed",
+          "quality_score": 0.82,
+          "cost": 1.50,
+          "agent": "script-writer",
+          "timestamp": "2025-08-23T05:13:05.3NZ"
+        }
+      },
+      "current_phase": "script-development",
+      "status": "failed",
+      "last_updated": "2025-08-23T05:13:05.3NZ"
+    }
+  },
+  "checkpoint_history": [
+    {
+      "episode_id": "test-001",
+      "phase": "research-excellence",
+      "status": "completed",
+      "quality_score": 0.92,
+      "cost": 2.45,
+      "agent": "research-orchestrator-enhanced",
+      "timestamp": "2025-08-23T05:12:57.3NZ"
+    },
+    {
+      "episode_id": "test-001",
+      "phase": "script-development",
+      "status": "failed",
+      "quality_score": 0.82,
+      "cost": 1.50,
+      "agent": "script-writer",
+      "timestamp": "2025-08-23T05:13:05.3NZ"
+    }
+  ]
+}

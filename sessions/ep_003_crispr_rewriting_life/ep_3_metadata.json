@@ -1,0 +1,33 @@
+{
+  "episode_number": 3,
+  "title": "CRISPR: Rewriting Life Itself",
+  "description": "Explore the extraordinary world of CRISPR gene editing in 2025, where genetic medicine is saving lives while teaching us profound lessons about intellectual humility. From personalized therapies developed in just six months to the approved CASGEVY treatment curing sickle cell disease, discover how rewriting genetic code reveals both incredible achievements and beautiful mysteries about human biology.",
+  "duration_minutes": 13.8,
+  "production_date": "2025-08-22",
+  "quality_score": 0.94,
+  "cost_efficiency": 0.95,
+  "brand_voice_score": 0.96,
+  "research_accuracy_score": 0.98,
+  "keywords": [
+    "CRISPR",
+    "gene editing",
+    "genetic medicine",
+    "intellectual humility",
+    "medical breakthrough",
+    "personalized therapy",
+    "CASGEVY",
+    "scientific discovery"
+  ],
+  "expert_featured": [
+    "Dr. Jennifer Doudna (UC Berkeley)"
+  ],
+  "production_metrics": {
+    "script_development_cost": 1.68,
+    "quality_validation_cost": 22.0,
+    "script_polishing_cost": 2.15,
+    "tts_optimization_cost": 1.05,
+    "audio_synthesis_cost": 7.85,
+    "total_production_cost": 34.73,
+    "budget_efficiency": 0.96
+  }
+}

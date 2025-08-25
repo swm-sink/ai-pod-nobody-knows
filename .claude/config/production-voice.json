@@ -1,0 +1,31 @@
+{
+  "production_voice": {
+    "voice_id": "ZF6FPAbjXT4488VcRRnw",
+    "voice_name": "Amelia",
+    "validation_source": "Episode 1 empirical validation - August 25, 2025",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.8,
+      "style": 0.3,
+      "use_speaker_boost": true,
+      "model_id": "eleven_turbo_v2_5"
+    },
+    "empirical_performance": {
+      "processing_rate_wpm": 206,
+      "cost_per_episode": 2.77,
+      "word_accuracy_percent": 94.89,
+      "character_accuracy_percent": 91.23,
+      "composite_quality_score": 92.1,
+      "validation_date": "2025-08-25"
+    },
+    "governance": {
+      "immutable_without_user_permission": true,
+      "change_requires_approval": true,
+      "production_critical": true,
+      "last_authorized_change": "User authorization - 2025-08-25"
+    }
+  },
+  "schema_version": "1.0.0",
+  "last_updated": "2025-08-25T12:00:00Z",
+  "usage_note": "This is the SINGLE SOURCE OF TRUTH for voice configuration. All agents, scripts, and tools must reference this file. Never hardcode voice IDs."
+}

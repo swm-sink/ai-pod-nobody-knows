@@ -1,0 +1,59 @@
+{
+  "name": "ai-podcasts-nobody-knows",
+  "version": "1.0.0",
+  "description": "AI Podcast Production System - Comprehensive real-time dashboard and production pipeline for educational AI orchestration learning",
+  "main": ".claude/infrastructure/dashboard-api-server.js",
+  "scripts": {
+    "dashboard": "node .claude/infrastructure/dashboard-api-server.js",
+    "dashboard-start": ".claude/infrastructure/dashboard-startup-script.sh",
+    "dashboard-test": ".claude/infrastructure/dashboard-test-suite.sh",
+    "test": ".claude/infrastructure/dashboard-test-suite.sh",
+    "start": "node .claude/infrastructure/dashboard-api-server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "ai",
+    "podcast",
+    "production",
+    "dashboard",
+    "monitoring",
+    "claude-code",
+    "real-time",
+    "analytics"
+  ],
+  "author": "Nobody Knows AI Podcast Production",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ai-podcasts-nobody-knows.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dashboard": {
+    "port": 3000,
+    "features": [
+      "real-time monitoring",
+      "production pipeline tracking",
+      "quality metrics visualization",
+      "cost analytics",
+      "performance monitoring",
+      "error recovery status",
+      "mobile responsive interface",
+      "websocket real-time updates"
+    ],
+    "api_endpoints": {
+      "base": "/dashboard/api",
+      "metrics": "/dashboard/api/metrics",
+      "production": "/dashboard/api/production",
+      "quality": "/dashboard/api/quality",
+      "costs": "/dashboard/api/costs",
+      "performance": "/dashboard/api/performance",
+      "errors": "/dashboard/api/errors",
+      "events": "/dashboard/api/events"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "prompt_boundary_markers": {
+    "technical_explanation": "Simple prompt boundary markers to separate system instructions from user content",
+    "simple_explanation": "Like clear signs that separate different areas - this keeps instructions separate from user content",
+    "connection": "This teaches basic prompt security and content isolation"
+  },
+
+  "boundary_markers": {
+    "system_start": "=== SYSTEM INSTRUCTIONS START ===",
+    "system_end": "=== SYSTEM INSTRUCTIONS END ===",
+    "user_start": "=== USER CONTENT START ===",
+    "user_end": "=== USER CONTENT END ===",
+    "agent_start": "=== AGENT RESPONSE START ===",
+    "agent_end": "=== AGENT RESPONSE END ==="
+  },
+
+  "usage_patterns": {
+    "agent_prompts": {
+      "format": "[SYSTEM_START]Agent instructions[SYSTEM_END][USER_START]User input[USER_END]",
+      "purpose": "Clearly separate agent instructions from user input",
+      "validation": "Ensure markers are present and properly closed"
+    },
+
+    "content_processing": {
+      "format": "[USER_START]Content to process[USER_END]",
+      "purpose": "Mark user-provided content for processing",
+      "validation": "Only process content within user boundaries"
+    },
+
+    "response_formatting": {
+      "format": "[AGENT_START]Response content[AGENT_END]",
+      "purpose": "Clearly mark agent-generated responses",
+      "validation": "Ensure responses are properly bounded"
+    }
+  },
+
+  "security_benefits": {
+    "prompt_injection_prevention": "Clear boundaries make injection attempts more visible",
+    "content_isolation": "User content cannot interfere with system instructions",
+    "debugging_aid": "Easy to identify where content originates",
+    "audit_trail": "Clear separation helps with security reviews"
+  },
+
+  "implementation": {
+    "enforcement": "Add markers automatically in pre-tool-use hooks",
+    "validation": "Check for proper markers in post-tool-use hooks",
+    "logging": "Log any boundary violations for security monitoring",
+    "fallback": "Reject requests with malformed or missing boundaries"
+  }
+}

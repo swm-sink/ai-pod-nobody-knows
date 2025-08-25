@@ -1,0 +1,24 @@
+{
+  "agent_preparation": {
+    "agent_name": "quality-claude-enhanced",
+    "required_schema": "quality-evaluator-response.json",
+    "schema_path": ".claude/infrastructure/schemas/quality-evaluator-response.json",
+    "preparation_timestamp": "2025-08-22T13:13:33Z",
+    "validation_required": true,
+    "compliance_mandatory": true
+  },
+  "schema_requirements": {
+    "output_format": "JSON conforming to designated schema",
+    "validation_commands": [
+      "jq empty output.json",
+      "jsonschema -i output.json .claude/infrastructure/schemas/quality-evaluator-response.json"
+    ],
+    "dual_format_required": true,
+    "handoff_validation": true
+  },
+  "execution_context": {
+    "hooks_enabled": true,
+    "post_validation_hook": "post-agent-json-validation.sh",
+    "validation_log": ".claude/state/json-preparation.log"
+  }
+}

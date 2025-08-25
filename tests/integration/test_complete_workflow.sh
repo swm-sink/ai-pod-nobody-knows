@@ -32,9 +32,9 @@ test_architecture_validation() {
 
     # Check research stream agents exist
     local research_agents=(
-        ".claude/agents/research/01_research-orchestrator.md"
-        ".claude/agents/research/02_deep-research-agent.md"
-        ".claude/agents/research/03_question-generator.md"
+        ".claude/agents/research-discovery.md"
+        ".claude/agents/research-deep-dive.md"
+        ".claude/agents/question-generator.md"
     )
 
     for agent in "${research_agents[@]}"; do
@@ -47,18 +47,18 @@ test_architecture_validation() {
     done
 
     # Check bridge agent exists
-    if [ -f "$PROJECT_ROOT/.claude/agents/research/04_research-synthesizer.md" ]; then
-        log_test "✓ Bridge agent found: research-synthesizer"
+    if [ -f "$PROJECT_ROOT/.claude/agents/research-synthesis.md" ]; then
+        log_test "✓ Bridge agent found: research-synthesis"
     else
-        log_fail "Missing bridge agent: research-synthesizer"
+        log_fail "Missing bridge agent: research-synthesis"
         return 1
     fi
 
     # Check production stream agents exist (sample key agents)
     local production_agents=(
-        ".claude/agents/production/01_production-orchestrator.md"
-        ".claude/agents/production/03_script-writer.md"
-        ".claude/agents/production/10_audio-synthesizer.md"
+        ".claude/agents/episode-planner.md"
+        ".claude/agents/script-writer.md"
+        ".claude/agents/audio-synthesizer.md"
     )
 
     for agent in "${production_agents[@]}"; do

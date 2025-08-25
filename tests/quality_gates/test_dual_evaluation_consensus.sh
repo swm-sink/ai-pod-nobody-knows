@@ -7,7 +7,7 @@ set -euo pipefail
 # Test Configuration
 TEST_DATA_DIR="tests/quality_gates/test_data"
 RESULTS_DIR="tests/results"
-FEEDBACK_SYNTHESIZER=".claude/agents/production/06_feedback-synthesizer.md"
+FEEDBACK_SYNTHESIZER=".claude/agents/script-polisher.md"
 
 # Test Statistics
 TESTS_RUN=0

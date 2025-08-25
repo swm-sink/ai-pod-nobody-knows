@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Test Configuration
-AGENT_FILE=".claude/agents/production/10_audio-synthesizer.md"
+AGENT_FILE=".claude/agents/audio-synthesizer.md"
 TEST_SESSION_DIR="tests/data/test_session_audio"
 MOCK_MODE="${MOCK_MODE:-false}"
 

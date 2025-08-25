@@ -316,11 +316,6 @@ All agents are in `.claude/agents/` (14 agents total):
 3. Monitor costs with production metrics
 4. Scale to batch production when comfortable
 
-### 🔒 Future (Requires Approval)
-- **Level 3:** Documentation only
-- **Level 4:** Python/FastAPI with OpenRouter + Langfuse
-- **⚠️ GATE:** DO NOT implement Level 4 without explicit "Approved for Level 4 implementation"
-
 ---
 
 ## 📚 Key Documentation

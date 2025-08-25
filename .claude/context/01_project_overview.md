@@ -152,7 +152,7 @@ Both skill sets are valuable separately, but together they make you uniquely cap
 
 ## Technology stack
 
-**Technical:** Technology stack encompasses programming languages (Python), AI APIs (Claude, Perplexity, ElevenLabs), vector databases (ChromaDB), web frameworks (FastAPI), orchestration patterns (LangGraph), prompt engineering techniques, and audio production basics. Stack selection optimized for hobbyist learning with industry-standard tools.
+**Technical:** Technology stack encompasses programming languages (Python), AI APIs (Claude, Perplexity, ElevenLabs), vector databases (ChromaDB), orchestration patterns (LangGraph), prompt engineering techniques, and audio production basics. Stack selection optimized for hobbyist learning with industry-standard tools.
 
 **Simple:** These are the tools and technologies you'll learn to use - like the different tools in a workshop. Each one serves a specific purpose, and together they let you build professional-quality AI systems.
 
@@ -168,7 +168,7 @@ Core Technology Components
 1. Python Programming (if new to you)
 2. AI APIs (Claude, Perplexity, ElevenLabs)
 3. Vector Databases (ChromaDB)
-4. Web APIs (FastAPI)
+4. Claude Code Integration
 5. Agent Orchestration (LangGraph patterns)
 6. Prompt Engineering
 7. Audio Production Basics

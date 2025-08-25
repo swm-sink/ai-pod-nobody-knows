@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pipeline Status Schema",
+  "description": "Validation schema for research pipeline execution status",
+  "type": "object",
+  "required": [
+    "session_id",
+    "episode_number",
+    "episode_topic",
+    "created_timestamp",
+    "pipeline_status",
+    "stages_completed",
+    "current_stage",
+    "memory_optimization",
+    "cost_tracking"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "pattern": "^ep_\\d+_optimized_\\d{8}_\\d{6}$"
+    },
+    "episode_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "episode_topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "pipeline_status": {
+      "type": "string",
+      "enum": [
+        "initialized",
+        "stage_discovery_completed",
+        "stage_deep_dive_completed",
+        "stage_validation_completed",
+        "stage_synthesis_completed",
+        "completed",
+        "failed",
+        "error"
+      ]
+    },
+    "stages_completed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["discovery", "deep_dive", "validation", "synthesis"]
+      }
+    },
+    "current_stage": {
+      "type": "string",
+      "enum": ["discovery", "deep_dive", "validation", "synthesis", "completed"]
+    },
+    "memory_optimization": {
+      "type": "object",
+      "required": ["external_state_persistence", "streaming_processing", "garbage_collection"],
+      "properties": {
+        "external_state_persistence": {
+          "type": "boolean"
+        },
+        "streaming_processing": {
+          "type": "boolean"
+        },
+        "garbage_collection": {
+          "type": "boolean"
+        }
+      }
+    },
+    "cost_tracking": {
+      "type": "object",
+      "required": ["total_budget", "spent", "remaining"],
+      "properties": {
+        "total_budget": {
+          "type": "number",
+          "minimum": 0
+        },
+        "spent": {
+          "type": "number",
+          "minimum": 0
+        },
+        "remaining": {
+          "type": "number",
+          "minimum": 0
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

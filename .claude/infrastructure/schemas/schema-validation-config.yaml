@@ -1,0 +1,190 @@
+# Schema Validation Configuration for AI Podcast Production System
+# Version: 1.0.0
+# Last Updated: 2025-08-22
+
+schema_registry:
+  version: "1.0.0"
+  base_url: "https://ai-podcasts-nobody-knows.com/schemas"
+  validation_mode: "strict"  # strict, permissive, disabled
+
+schemas:
+  base_agent_response:
+    file: "base-agent-response.json"
+    description: "Core schema that all agents must conform to"
+    required_for: ["all_agents"]
+    validation_level: "strict"
+
+  quality_evaluator_response:
+    file: "quality-evaluator-response.json"
+    description: "Schema for three-evaluator consensus system responses"
+    required_for:
+      - "quality-claude-enhanced"
+      - "quality-gemini-enhanced"
+      - "quality-perplexity-enhanced"
+    validation_level: "strict"
+    consensus_requirements:
+      weight_validation: true
+      score_range_check: true
+      advancement_consistency: true
+
+  research_agent_response:
+    file: "research-agent-response.json"
+    description: "Schema for research stream agent responses"
+    required_for:
+      - "research-orchestrator-enhanced"
+      - "deep-research-agent-enhanced"
+    validation_level: "strict"
+    research_requirements:
+      source_validation: true
+      query_tracking: true
+      cost_monitoring: true
+
+  production_agent_response:
+    file: "production-agent-response.json"
+    description: "Schema for production stream agent responses"
+    required_for:
+      - "script-writer"
+      - "audio-synthesizer-enhanced"
+      - "tts-optimizer-enhanced"
+      - "script-polisher-enhanced"
+    validation_level: "strict"
+    production_requirements:
+      duration_compliance: true
+      brand_voice_validation: true
+      tts_optimization_check: true
+
+  consensus_coordination_response:
+    file: "consensus-coordination-response.json"
+    description: "Schema for three-evaluator consensus coordination"
+    required_for:
+      - "consensus-coordinator"
+    validation_level: "strict"
+    consensus_requirements:
+      weight_sum_validation: true  # Weights must sum to 1.0
+      disagreement_handling: true
+      quality_gate_enforcement: true
+
+  error_response:
+    file: "error-response.json"
+    description: "Standardized error response schema"
+    required_for: ["all_agents"]
+    validation_level: "strict"
+    error_requirements:
+      recovery_documentation: true
+      impact_assessment: true
+      monitoring_integration: true
+
+validation_rules:
+  cost_tracking:
+    budget_compliance: true
+    token_usage_validation: true
+    optimization_tracking: true
+    episode_budget_limit: 33.25  # USD
+
+  consensus_system:
+    claude_weight: 0.35
+    gemini_weight: 0.30
+    perplexity_weight: 0.35
+    weight_tolerance: 0.01  # Allowed deviation
+    minimum_consensus_threshold: 0.80
+
+  quality_gates:
+    content_accuracy_threshold: 0.90
+    brand_voice_threshold: 0.85
+    technical_compliance_threshold: 0.95
+    research_accuracy_threshold: 0.95
+    production_readiness_threshold: 0.85
+
+  agent_identification:
+    agent_id_pattern: "^[a-z][a-z0-9-]*[a-z0-9]$"
+    session_id_pattern: "^[a-z_]+_\\d{8}_\\d{6}$"
+    version_pattern: "^\\d+\\.\\d+\\.\\d+$"
+
+  timing_requirements:
+    execution_timeout: 300  # seconds
+    response_time_warning: 120  # seconds
+    recovery_timeout: 60  # seconds
+
+validation_hooks:
+  pre_execution:
+    - validate_agent_metadata
+    - verify_cost_budget
+    - check_input_schema
+
+  post_execution:
+    - validate_output_schema
+    - verify_cost_tracking
+    - check_quality_gates
+    - update_consensus_data
+
+  error_handling:
+    - validate_error_schema
+    - assess_recovery_success
+    - update_monitoring_data
+    - trigger_alerts
+
+enforcement_levels:
+  strict:
+    block_on_validation_failure: true
+    require_all_fields: true
+    enforce_type_constraints: true
+    validate_business_logic: true
+
+  permissive:
+    block_on_validation_failure: false
+    require_all_fields: false
+    enforce_type_constraints: true
+    validate_business_logic: false
+
+  disabled:
+    block_on_validation_failure: false
+    require_all_fields: false
+    enforce_type_constraints: false
+    validate_business_logic: false
+
+monitoring_configuration:
+  schema_validation_metrics:
+    track_validation_success_rate: true
+    track_validation_performance: true
+    track_schema_evolution: true
+    track_error_patterns: true
+
+  alerting_thresholds:
+    validation_failure_rate: 0.05  # 5%
+    schema_performance_degradation: 2.0  # 2x slower
+    error_rate_spike: 0.10  # 10%
+
+  reporting:
+    daily_validation_summary: true
+    weekly_schema_health_report: true
+    monthly_evolution_analysis: true
+
+integration_points:
+  claude_code_hooks:
+    pre_tool_use: "validate_agent_input"
+    post_tool_use: "validate_agent_output"
+    user_prompt_submit: "validate_consensus_requirements"
+    notification: "report_validation_status"
+    stop: "generate_validation_summary"
+
+  quality_assurance:
+    integration_with_quality_gates: true
+    consensus_validation: true
+    cost_compliance_checking: true
+
+  error_handling:
+    automatic_schema_recovery: true
+    fallback_validation_modes: true
+    error_escalation_integration: true
+
+schema_evolution:
+  versioning_strategy: "semantic_versioning"
+  backward_compatibility: "one_version_support"
+  migration_automation: true
+  deprecation_warning_period: "30_days"
+
+  change_management:
+    schema_change_approval: "required"
+    impact_assessment: "mandatory"
+    testing_requirements: "comprehensive"
+    rollback_procedures: "documented"

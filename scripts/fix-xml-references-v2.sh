@@ -18,7 +18,7 @@ FILES=(
     ".claude/context/operations/NAVIGATION.md"
     ".claude/context/elevenlabs/NAVIGATION.md"
     ".claude/CONTEXT.md"
-    ".claude/agents/production/10_audio-synthesizer.md"
+    ".claude/agents/audio-synthesizer.md"
     ".claude/NAVIGATION.md"
     ".claude/shared/templates/documentation/doc-template.md"
     ".claude/shared/templates/documentation/constants-template.md"

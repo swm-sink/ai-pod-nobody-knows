@@ -1,0 +1,18 @@
+{
+  "total_operations": 1193,
+  "successful_operations": 1193,
+  "failed_operations": 0,
+  "agent_stats": {
+    "main-session": {
+      "operations": 1193,
+      "last_activity": 1756006291.609683
+    }
+  },
+  "tool_stats": {
+    "": {
+      "usage_count": 1193,
+      "success_count": 1193
+    }
+  },
+  "last_updated": "1756006291.60969"
+}

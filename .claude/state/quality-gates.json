@@ -1,0 +1,42 @@
+{
+  "quality_gates": {
+    "test-002": {
+      "research_quality": {
+        "status": "passed",
+        "score": 0.92,
+        "timestamp": "2025-08-23T05:14:48.3NZ"
+      }
+    },
+    "test-003": {
+      "comprehensive": {
+        "status": "passed",
+        "score": 0.90,
+        "timestamp": "2025-08-23T05:15:04.3NZ"
+      }
+    }
+  },
+  "validation_history": [
+    {
+      "episode_id": "test-002",
+      "gate": "research_quality",
+      "score": 0.92,
+      "status": "passed",
+      "timestamp": "2025-08-23T05:14:48.3NZ"
+    },
+    {
+      "episode_id": "test-003",
+      "gate": "comprehensive",
+      "score": 0.90,
+      "status": "passed",
+      "timestamp": "2025-08-23T05:15:04.3NZ"
+    }
+  ],
+  "quality_trends": {
+    "research_quality": [
+      0.92
+    ],
+    "comprehensive": [
+      0.90
+    ]
+  }
+}

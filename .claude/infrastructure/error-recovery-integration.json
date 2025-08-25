@@ -1,0 +1,248 @@
+{
+  "error_recovery_integration": {
+    "technical_explanation": "Comprehensive error recovery system integrating circuit breaker patterns, exponential backoff retry mechanisms, graceful degradation strategies, and intelligent fallback workflows with existing checkpoint and quality validation infrastructure",
+    "simple_explanation": "Like having a skilled repair team that automatically fixes problems when equipment breaks, trying different solutions and backup plans to keep production running smoothly",
+    "connection": "This teaches production system resilience, fault tolerance engineering, and automated error recovery essential for reliable content production workflows"
+  },
+
+  "error_types_and_recovery_strategies": {
+    "api_failure_recovery": {
+      "trigger_conditions": [
+        "HTTP timeout errors",
+        "Rate limit exceeded responses",
+        "Service unavailable (5xx) errors",
+        "Authentication failures",
+        "Network connectivity issues"
+      ],
+      "recovery_mechanisms": {
+        "circuit_breaker": {
+          "failure_threshold": 5,
+          "timeout_duration": "5 minutes",
+          "states": ["closed", "open", "half-open"],
+          "success_threshold_for_close": 3
+        },
+        "exponential_backoff": {
+          "base_delay": "2 seconds",
+          "max_retries": 3,
+          "multiplier": 2,
+          "max_delay": "16 seconds"
+        },
+        "fallback_strategies": {
+          "perplexity_api": "Use cached research data or alternative research methods",
+          "elevenlabs_api": "Use alternative TTS provider or pre-synthesized segments",
+          "claude_api": "Use alternative model or cached responses"
+        }
+      }
+    },
+
+    "quality_gate_failure_recovery": {
+      "trigger_conditions": [
+        "Research quality score < 0.85",
+        "Brand voice consistency < 0.85",
+        "Consensus confidence < 0.75",
+        "Audio quality score < 0.90"
+      ],
+      "recovery_mechanisms": {
+        "research_enhancement": {
+          "action": "Trigger additional research queries with enhanced fact-checking",
+          "fallback": "Use cached high-quality research from previous episodes",
+          "degradation": "Accept slightly lower quality with explicit uncertainty marking"
+        },
+        "script_revision": {
+          "action": "Re-run script generation with enhanced brand voice prompting",
+          "fallback": "Use template-based script generation with manual review checkpoints",
+          "degradation": "Proceed with quality warning and additional post-processing"
+        },
+        "consensus_enhancement": {
+          "action": "Trigger additional evaluation rounds with tiebreaker protocols",
+          "fallback": "Use weighted average of available evaluations",
+          "degradation": "Accept lower confidence with explicit uncertainty acknowledgment"
+        },
+        "audio_reprocessing": {
+          "action": "Re-synthesize audio with optimized TTS parameters",
+          "fallback": "Use alternative voice model or synthesis settings",
+          "degradation": "Accept audio quality with post-processing enhancement"
+        }
+      }
+    },
+
+    "timeout_recovery": {
+      "trigger_conditions": [
+        "Agent execution timeout (>5 minutes)",
+        "API response timeout (>30 seconds)",
+        "File processing timeout (>2 minutes)",
+        "Synthesis timeout (>10 minutes)"
+      ],
+      "recovery_mechanisms": {
+        "graceful_degradation": {
+          "research_phase": "Use simplified research strategy or cached data",
+          "script_phase": "Use template-based generation with key content insertion",
+          "consensus_phase": "Skip lowest-priority evaluator if others available",
+          "audio_phase": "Use faster synthesis parameters with quality trade-off"
+        },
+        "resource_optimization": {
+          "parallel_reduction": "Reduce concurrent operations to prevent resource contention",
+          "memory_cleanup": "Force garbage collection and release unused resources",
+          "priority_rebalancing": "Focus resources on critical path operations"
+        }
+      }
+    },
+
+    "budget_exhaustion_recovery": {
+      "trigger_conditions": [
+        "Episode cost exceeding $15 budget",
+        "Phase cost exceeding allocated budget",
+        "Projected total cost exceeding limits"
+      ],
+      "recovery_mechanisms": {
+        "cost_optimization": {
+          "research_optimization": "Use cached research and reduce query complexity",
+          "model_optimization": "Use cost-efficient models where quality permits",
+          "synthesis_optimization": "Use optimized TTS parameters to reduce character usage",
+          "parallel_reduction": "Serialize operations to reduce concurrent API costs"
+        },
+        "intelligent_degradation": {
+          "quality_vs_cost_tradeoff": "Accept slightly lower quality scores within acceptable ranges",
+          "feature_reduction": "Disable non-essential features (advanced SSML, multiple consensus rounds)",
+          "caching_maximization": "Maximize use of cached content and previous results"
+        }
+      }
+    }
+  },
+
+  "integration_with_production_workflow": {
+    "checkpoint_integration": {
+      "error_detection": "Checkpoint hooks detect failures and trigger error recovery",
+      "recovery_monitoring": "Track recovery attempts and success rates per phase",
+      "state_persistence": "Maintain recovery state across episode production phases",
+      "rollback_capability": "Enable rollback to last successful checkpoint on critical failures"
+    },
+
+    "quality_gate_integration": {
+      "automatic_retry": "Quality gate failures trigger automatic enhancement attempts",
+      "threshold_adjustment": "Temporary threshold relaxation during degraded operation",
+      "quality_tracking": "Monitor quality impact of recovery strategies",
+      "escalation_protocols": "Manual review triggers for repeated quality failures"
+    },
+
+    "cost_tracking_integration": {
+      "budget_monitoring": "Real-time cost tracking with recovery trigger points",
+      "cost_prediction": "Predictive cost modeling to prevent budget overruns",
+      "optimization_triggers": "Automatic cost optimization when approaching limits",
+      "emergency_stops": "Hard stops at budget limits with graceful termination"
+    }
+  },
+
+  "hooks_configuration_examples": {
+    "error_recovery_hooks": {
+      "post_tool_use_error": {
+        "trigger": "tool_execution_error OR api_timeout OR quality_gate_failure",
+        "command": ".claude/hooks/error-recovery-handler.sh --error-type ${ERROR_TYPE} --episode-id ${EPISODE_ID} --phase ${PHASE} --agent ${AGENT_NAME} --message '${ERROR_MESSAGE}' --api ${API_PROVIDER}",
+        "timeout": 30,
+        "continue_on_error": false
+      },
+
+      "pre_tool_use_circuit_check": {
+        "trigger": "before_api_calls",
+        "command": ".claude/hooks/error-recovery-handler.sh --error-type circuit_check --api ${API_PROVIDER}",
+        "timeout": 5,
+        "continue_on_error": true
+      },
+
+      "budget_threshold_warning": {
+        "trigger": "cost_approaching_limit",
+        "command": ".claude/hooks/error-recovery-handler.sh --error-type budget_warning --episode-id ${EPISODE_ID} --retry-count ${CURRENT_COST}",
+        "timeout": 10,
+        "continue_on_error": true
+      }
+    }
+  },
+
+  "recovery_success_metrics": {
+    "api_failure_recovery": {
+      "target_success_rate": "95%",
+      "maximum_recovery_time": "30 seconds",
+      "circuit_breaker_effectiveness": "90% of failures prevented after opening"
+    },
+
+    "quality_failure_recovery": {
+      "enhancement_success_rate": "85%",
+      "quality_improvement_average": "0.15 points",
+      "degradation_acceptance_rate": "10% max"
+    },
+
+    "timeout_recovery": {
+      "graceful_degradation_success": "100%",
+      "quality_preservation": "80% of original quality maintained",
+      "completion_rate": "95% of episodes complete despite timeouts"
+    },
+
+    "budget_recovery": {
+      "cost_optimization_effectiveness": "20% average cost reduction",
+      "quality_preservation": "90% of original quality maintained",
+      "budget_compliance": "100% of episodes within $15 limit"
+    }
+  },
+
+  "monitoring_and_alerting": {
+    "error_frequency_monitoring": {
+      "api_failure_rates": "Track failures per API provider per hour",
+      "quality_failure_trends": "Monitor quality gate failures by phase and episode type",
+      "timeout_patterns": "Identify timeout patterns by phase and resource usage",
+      "budget_consumption_trends": "Track cost patterns and optimization effectiveness"
+    },
+
+    "automated_alerting": {
+      "circuit_breaker_open": "Immediate alert when any API circuit breaker opens",
+      "repeated_quality_failures": "Alert when episode fails quality gates 3+ times",
+      "budget_exhaustion_risk": "Proactive alert at 80% budget consumption",
+      "recovery_system_failure": "Critical alert when error recovery system itself fails"
+    },
+
+    "dashboard_integration": {
+      "recovery_success_rates": "Real-time recovery success rate visualization",
+      "circuit_breaker_status": "Current circuit breaker states for all APIs",
+      "degradation_indicators": "Active degradation modes and quality impacts",
+      "cost_optimization_status": "Current cost optimization strategies and effectiveness"
+    }
+  },
+
+  "testing_and_validation": {
+    "chaos_engineering": {
+      "api_failure_injection": "Randomly inject API failures to test recovery mechanisms",
+      "timeout_simulation": "Simulate various timeout scenarios across production phases",
+      "budget_exhaustion_testing": "Test cost optimization and degradation strategies",
+      "quality_failure_scenarios": "Inject quality failures to validate enhancement protocols"
+    },
+
+    "recovery_validation": {
+      "unit_recovery_tests": "Test individual recovery strategies in isolation",
+      "integration_recovery_tests": "Test recovery coordination across multiple failure types",
+      "load_recovery_tests": "Test recovery effectiveness under high episode production load",
+      "cascading_failure_tests": "Test recovery when multiple systems fail simultaneously"
+    },
+
+    "quality_assurance": {
+      "recovery_time_validation": "Ensure all recoveries complete within SLA times",
+      "quality_preservation_validation": "Verify quality degradation stays within acceptable limits",
+      "cost_impact_validation": "Ensure recovery mechanisms don't cause budget overruns",
+      "user_experience_validation": "Confirm transparent recovery doesn't impact end-user experience"
+    }
+  },
+
+  "continuous_improvement": {
+    "recovery_analytics": {
+      "failure_pattern_analysis": "Identify common failure patterns for proactive prevention",
+      "recovery_effectiveness_trends": "Track recovery strategy success rates over time",
+      "quality_impact_analysis": "Measure quality preservation effectiveness across recovery types",
+      "cost_optimization_learning": "Learn optimal cost-quality tradeoffs from recovery data"
+    },
+
+    "strategy_optimization": {
+      "dynamic_threshold_adjustment": "Automatically optimize recovery trigger thresholds",
+      "fallback_strategy_learning": "Improve fallback strategies based on success patterns",
+      "circuit_breaker_tuning": "Optimize circuit breaker parameters for each API",
+      "degradation_strategy_refinement": "Refine graceful degradation strategies based on outcome quality"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "recovery_attempts": {
+    "test-001": [
+      {
+        "error_type": "api_failure",
+        "recovery_action": "",
+        "status": "success",
+        "timestamp": "2025-08-23T05:19:07.3NZ"
+      }
+    ],
+    "test-002": [
+      {
+        "error_type": "quality_failure",
+        "recovery_action": "{\"status\": \"recovery\", \"action\": \"script_revision\", \"message\": \"Triggering script revision with focused brand voice enhancement\"}",
+        "status": "success",
+        "timestamp": "2025-08-23T05:19:11.3NZ"
+      }
+    ],
+    "test-003": [
+      {
+        "error_type": "budget_exhaustion",
+        "recovery_action": "{\"status\": \"degraded\", \"strategy\": \"cost_optimization\", \"message\": \"Implementing cost optimization due to budget constraints\"}",
+        "status": "success",
+        "timestamp": "2025-08-23T05:19:16.3NZ"
+      }
+    ],
+    "test-004": [
+      {
+        "error_type": "timeout",
+        "recovery_action": "{\"status\": \"degraded\", \"strategy\": \"fast_synthesis\", \"message\": \"Using faster audio synthesis parameters due to timeout\"}",
+        "status": "success",
+        "timestamp": "2025-08-23T05:19:21.3NZ"
+      }
+    ],
+    "test-resilience": [
+      {
+        "error_type": "api_failure",
+        "recovery_action": "",
+        "status": "success",
+        "timestamp": "2025-08-23T06:42:39.3NZ"
+      }
+    ],
+    "recovery-speed-test": [
+      {
+        "error_type": "api_failure",
+        "recovery_action": "",
+        "status": "success",
+        "timestamp": "2025-08-23T06:43:16.3NZ"
+      }
+    ]
+  },
+  "fallback_strategies": {},
+  "degradation_status": {
+    "test-003": {
+      "active": true,
+      "strategy": "cost_optimization",
+      "activated_at": "2025-08-23T05:19:16.3NZ",
+      "reason": "budget_exhaustion"
+    }
+  }
+}

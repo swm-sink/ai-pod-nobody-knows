@@ -1,0 +1,17 @@
+{
+  "apis": {
+    "perplexity": {
+      "status": "healthy",
+      "last_check": "2025-08-23T06:35:01.3NZ"
+    },
+    "elevenlabs": {
+      "status": "healthy",
+      "last_check": "2025-08-23T06:35:01.3NZ"
+    },
+    "claude": {
+      "status": "healthy",
+      "last_check": "2025-08-23T06:35:01.3NZ"
+    }
+  },
+  "last_check": "2025-08-23T06:35:01.3NZ"
+}

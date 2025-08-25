@@ -1,0 +1,51 @@
+{
+  "session_id": "ep_batch_1-5_research_20250824",
+  "session_type": "research_batch_processing",
+  "creation_timestamp": "2025-08-24T10:00:00Z",
+  "episodes": [
+    {
+      "episode_number": 1,
+      "title": "The Dirty Secret: Even the Experts Are Making It Up",
+      "description": "Why the people building AI are just as confused as you are—and why that's actually reassuring",
+      "complexity_level": 1,
+      "target_duration": 15,
+      "research_focus": "expert_uncertainty_ai_development"
+    },
+    {
+      "episode_number": 2,
+      "title": "The Emperor's New Neural Network",
+      "description": "How an entire industry learned to nod along while secretly googling basic terms",
+      "complexity_level": 1,
+      "target_duration": 15,
+      "research_focus": "industry_knowledge_gaps"
+    },
+    {
+      "episode_number": 3,
+      "title": "Confession Time: I Asked ChatGPT How ChatGPT Works",
+      "description": "What happens when AI explains AI, and why the answer is both hilarious and terrifying",
+      "complexity_level": 2,
+      "target_duration": 15,
+      "research_focus": "ai_self_explanation_paradox"
+    },
+    {
+      "episode_number": 4,
+      "title": "The PhD Who Admitted He Was Lost",
+      "description": "A Stanford researcher's honest moment that changed everything we thought about expertise",
+      "complexity_level": 1,
+      "target_duration": 15,
+      "research_focus": "academic_humility_expertise"
+    },
+    {
+      "episode_number": 5,
+      "title": "Your Teenager Doesn't Actually Understand AI Either",
+      "description": "Debunking the myth that digital natives magically 'get' artificial intelligence",
+      "complexity_level": 1,
+      "target_duration": 15,
+      "research_focus": "generational_ai_understanding_myths"
+    }
+  ],
+  "research_methodology": "multi_agent_batch_processing",
+  "total_budget_allocated": 10.00,
+  "budget_per_episode": 2.00,
+  "status": "initializing"
+}
