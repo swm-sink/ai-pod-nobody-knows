@@ -6,8 +6,7 @@
     "OTEL_SDK_DISABLED": "true",
     "DISABLE_ERROR_REPORTING": "true",
     "DISABLE_TELEMETRY": "true",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "true",
-    "ELEVENLABS_API_KEY": "sk_22df995d4fbed6dee28e28a40240ccee24f6511f825712f8"
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "true"
   },
   "permissions": {
     "allow": [
@@ -152,8 +151,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/fixed-pre-tool-cost-validation.sh \"$CLAUDE_TOOL_NAME\"",
-            "timeout": 5
+            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/enhanced-pre-tool-cost-validation.sh \"$CLAUDE_TOOL_NAME\"",
+            "timeout": 10
           }
         ]
       }
@@ -164,8 +163,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/post-tool-cost-tracking.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOKEN_COUNT\"",
-            "timeout": 5
+            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/enhanced-post-tool-cost-tracking.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOKEN_COUNT\"",
+            "timeout": 10
           }
         ]
       }

@@ -1,0 +1,69 @@
+{
+  "baseline_id": "baseline_1756167597_43837f92",
+  "captured_at": "2025-08-26T00:19:57.3NZ",
+  "episode": "ep001",
+  "status": "golden_baseline",
+  "empirical_data": {
+    "cost_metrics": {
+      "total_cost": 2.77,
+      "cost_per_minute": 0.252,
+      "cost_efficiency": "validated"
+    },
+    "quality_metrics": {
+      "composite_score": 92.1,
+      "brand_voice_alignment": 90.0,
+      "technical_quality": 94.5,
+      "content_accuracy": 91.8,
+      "intellectual_humility": 88.5
+    },
+    "production_metrics": {
+      "actual_duration_minutes": 11,
+      "target_duration_minutes": 27,
+      "word_count": 1506,
+      "empirical_wpm": 206,
+      "synthesis_success": true
+    },
+    "workflow_metrics": {
+      "research_phase_success": true,
+      "script_generation_success": true,
+      "tts_optimization_success": true,
+      "audio_synthesis_success": true,
+      "mcp_fallback_required": true,
+      "direct_api_success": true
+    }
+  },
+  "success_thresholds": {
+    "cost_range": {
+      "min": 2.50,
+      "max": 3.00,
+      "target": 2.77
+    },
+    "quality_range": {
+      "min": 85.0,
+      "target": 92.1
+    },
+    "duration_range": {
+      "min": 25,
+      "max": 30,
+      "empirical_baseline": 11
+    },
+    "word_count_range": {
+      "min": 3000,
+      "max": 3700,
+      "empirical_baseline": 1506
+    }
+  },
+  "critical_success_factors": [
+    "cost_under_3_dollars",
+    "quality_above_85_percent",
+    "successful_audio_synthesis",
+    "complete_workflow_execution",
+    "fallback_mechanisms_working"
+  ],
+  "regression_detection_criteria": {
+    "cost_deviation_threshold": 0.50,
+    "quality_deviation_threshold": 5.0,
+    "duration_variance_acceptable": 20.0,
+    "workflow_failure_critical": true
+  }
+}

@@ -90,6 +90,15 @@ repos:
         pass_filenames: false
         stages: [commit]
 
+      - id: duplication-detection
+        name: ZERO-TOLERANCE DRY enforcement - detect duplicates
+        entry: .claude/hooks/duplication-detector.sh
+        language: system
+        args: [detect]
+        pass_filenames: false
+        stages: [commit]
+        always_run: true
+
       # - id: level-1-dev-quality
         # name: Level-1-Dev quality checks
         # entry: .claude/level-1-dev/quality/hooks/pre-commit-quality.sh

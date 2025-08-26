@@ -1,0 +1,10 @@
+{
+  "episode_name": "ep001",
+  "last_updated": "2025-08-26T00:38:05.3NZ",
+  "last_shadow_id": "shadow_1756168685_0d461ad7",
+  "consecutive_failures": 0,
+  "consecutive_successes": 1,
+  "alert_state": "none",
+  "total_validations": 1,
+  "last_validation_success": true
+}

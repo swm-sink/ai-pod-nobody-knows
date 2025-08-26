@@ -51,6 +51,7 @@
 - `@.claude/architecture/native-patterns.md` - Claude Code native architecture
 - `@.claude/workflows/meta-prompting.md` - 10-step protocol details
 - `@.claude/systems/hooks-documentation.md` - Hooks system comprehensive guide
+- `@.claude/templates/template_usage_guide.md` - Single-source documentation templates
 
 ## 📍 CURRENT STATUS
 
@@ -97,6 +98,145 @@ claude code
 - **Anti-Hallucination:** Every claim must be tool-verified or marked UNVERIFIED
 - **Change Control:** All modifications require user approval and validation
 - **Zero Tolerance:** No bypasses, no exceptions, no assumptions
+
+## 🚨 ZERO-TOLERANCE DRY ENFORCEMENT - ABSOLUTE PROHIBITION
+
+**CRITICAL SYSTEM INTEGRITY POLICY - NO EXCEPTIONS**
+
+**DUPLICATION IS FORBIDDEN - VIOLATIONS STOP ALL WORK IMMEDIATELY**
+
+**Enforcement Level:** MAXIMUM - Nuclear Option Activated
+**Scope:** Entire project - all files, directories, configurations
+**Status:** ✅ ACTIVE - Automated pre-commit detection enforcing zero tolerance
+
+### 📋 DUPLICATION REGISTRY STATUS
+**Current Crisis Level:** RESOLVED (2025-08-26)
+**Files Audited:** 100+ duplicates eliminated
+**Cleanup Status:** Phase 1-3 Complete
+
+**Protected Patterns:**
+- **Hooks:** Only enhanced-* versions allowed (10 files total)
+- **Agents:** Only current production agents (16 files maximum)
+- **Sessions:** One active session per episode
+- **Documentation:** Single-source with @references only
+
+### 🛡️ BRUTAL ENFORCEMENT MECHANISMS
+
+**Automated Detection:** ✅ ACTIVE
+```bash
+# Pre-commit hooks scan for duplicates - INSTALLED & ACTIVE
+.claude/hooks/duplication-detector.sh detect
+# Integrated with .pre-commit-config.yaml
+# Blocks ALL commits with duplicates - ZERO tolerance enforced
+```
+
+**Manual Validation Required:**
+- Before ANY new file creation → Check for existing equivalent
+- Before ANY file modification → Ensure single-source principle
+- Before ANY commit → Run duplication audit
+
+### ⚙️ APPROVED SINGLE-SOURCE PATTERNS
+
+**Configuration Management:**
+- `.claude/config/production-voice.json` (ONLY voice config)
+- `.claude/settings.json` (ONLY enhanced hooks)
+- `.env` (ONLY environment variables)
+
+**Hook System (12 files maximum):**
+- `enhanced-pre-tool-cost-validation.sh` ✅
+- `enhanced-post-tool-cost-tracking.sh` ✅
+- `mcp-reliability-monitor.sh` ✅
+- `baseline-metrics-capture.sh` ✅
+- `config-protection-system.sh` ✅
+- `automated-billing-reconciliation.sh` ✅
+- `realtime-cost-attribution.sh` ✅
+- `mcp-diagnostics-validator.sh` ✅
+- `shadow-mode-validation.sh` ✅
+- `session-cleanup.sh` ✅
+- `error-recovery-handler.sh` ✅
+- `user-prompt-submit.sh` ✅
+
+**Agent System (16 files maximum):**
+- research-discovery.md, research-deep-dive.md, research-validation.md, research-synthesis.md
+- question-generator.md, episode-planner.md, script-writer.md, brand-voice-validator.md
+- quality-claude.md, quality-gemini.md, quality-perplexity.md
+- script-polisher.md, tts-optimizer.md
+- audio-synthesizer.md, audio-synthesizer-direct-api.md, audio-quality-validator.md
+
+### 🚫 IMMEDIATE VIOLATION CONSEQUENCES
+
+**File Creation Violations:**
+- Creation blocked immediately
+- All associated work invalidated
+- Must eliminate duplicate before continuing
+
+**File Modification Violations:**
+- Changes rejected
+- Must consolidate to single-source first
+- No bypass mechanisms available
+
+**Commit Violations:**
+- Pre-commit hooks block with detailed failure report
+- Must resolve ALL duplicates before any commit
+- No override flags or escape hatches
+
+### 📊 AUDIT REQUIREMENTS
+
+**Daily Compliance Check:**
+```bash
+find . -name "*.md" -o -name "*.sh" -o -name "*.json" | \
+grep -v ".git" | sort | uniq -d
+# Must return ZERO results
+```
+
+**Weekly Deep Audit:**
+```bash
+.claude/hooks/comprehensive-duplication-audit.sh
+# Generates compliance report
+# Any violations require immediate resolution
+```
+
+### 🔧 APPROVED CONSOLIDATION PATTERNS
+
+**Documentation Cross-References:** ✅ IMPLEMENTED
+- Use `@.claude/path/file.md` references - Template system active
+- Never copy-paste content between files - Automated detection enforces
+- Single source of truth per topic - Templates in `.claude/templates/`
+
+**Configuration Inheritance:**
+- Central config files with referencing
+- No hardcoded values in scripts
+- Environment variable indirection
+
+**Script Modularity:**
+- Shared functions in single utility file
+- Source inclusion, never duplication
+- Version control for shared components
+
+### ⚡ EMERGENCY PROCEDURES
+
+**Duplication Detected:**
+1. Stop all current work immediately
+2. Identify single-source-of-truth version
+3. Delete all duplicates
+4. Update all references
+5. Verify no functionality lost
+6. Resume work only after cleanup complete
+
+**Archive Management:**
+- External backups only (not in project)
+- Git history sufficient for recovery
+- No local archive directories
+
+### 🎯 SUCCESS METRICS
+
+**Zero Tolerance Achieved:**
+- 0 duplicate files detected
+- 0 duplicate configurations
+- 0 duplicate logic patterns
+- 100% single-source compliance
+
+**This policy is NON-NEGOTIABLE and ABSOLUTE.**
 
 ## 🏗️ NATIVE CLAUDE CODE ARCHITECTURE
 
