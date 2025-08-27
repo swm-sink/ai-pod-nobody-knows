@@ -1,10 +1,7 @@
 ---
 name: audio-quality-validator
 description: "PROACTIVELY validates synthesized audio quality using direct ElevenLabs API speech-to-text verification, pronunciation accuracy checking, pacing analysis, and comprehensive audio quality assessment for professional podcast production standards"
-tools: ["Read", "Write", "Grep", "Bash"]
-version: 3.0.0
-production_validated: true
-empirical_data_source: "Episode 1 - August 25, 2025"
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Audio Quality Validator - Speech-to-Text Validation Loop

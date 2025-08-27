@@ -23,23 +23,23 @@ Execute comprehensive research for a "Nobody Knows" podcast episode using Claude
 
 ## Native Claude Code Orchestration
 
-This command demonstrates proper Claude Code architecture where **the main chat acts as orchestrator** and uses the **Task tool** to delegate to specialized sub-agents, rather than using separate orchestrator agents (which violate native patterns).
+This command demonstrates proper Claude Code architecture where **the main chat acts as orchestrator** and **directly invokes specialized research agents**, using native orchestration patterns for optimal agent execution and tool access.
 
 ### Research Workflow Architecture
 
 **Native Pattern (This Command)**:
 ```
-Main Chat → Task tool → Specialized research agents
+Main Chat → Direct Agent Invocation → Specialized research agents
 ```
 
 **Anti-Pattern (Avoided)**:
 ```
-Main Chat → Orchestrator Agent → Sub-agents
+Main Chat → Task Tool Delegation → Simulated agent responses
 ```
 
 ## Research Pipeline Execution
 
-I will coordinate the complete research pipeline using Task tool delegation:
+I will coordinate the complete research pipeline using direct orchestrator invocation:
 
 ### Step 1: Initialize Research Session
 ```
@@ -48,9 +48,9 @@ Set up tracking for three-agent research workflow
 Initialize cost tracking and quality gates
 ```
 
-### Step 2: Task Delegation to Deep Research Agent
+### Step 2: Direct Invocation of Deep Research Agent
 ```
-Use Task tool to delegate to deep-research-agent-enhanced:
+Use the research-deep-dive agent to conduct comprehensive investigation:
 
 REQUIREMENTS:
 - Multi-round Perplexity searches (10+ rounds with current date context August 2025)
@@ -62,9 +62,9 @@ REQUIREMENTS:
 - Focus on intellectual humility brand alignment (>85% threshold target)
 ```
 
-### Step 3: Task Delegation to Question Generator Agent
+### Step 3: Direct Invocation of Question Generator Agent
 ```
-Use Task tool to delegate to question-generator-enhanced:
+Have the question-generator agent create strategic research questions:
 
 INPUT: Deep research findings from Step 2
 REQUIREMENTS:
@@ -77,9 +77,9 @@ REQUIREMENTS:
 - Save comprehensive question framework with quality validation criteria
 ```
 
-### Step 4: Task Delegation to Research Synthesizer Agent
+### Step 4: Direct Invocation of Research Synthesizer Agent
 ```
-Use Task tool to delegate to research-synthesizer-enhanced:
+Use the research-synthesis agent to create production-ready package:
 
 INPUT: All research findings + generated questions
 REQUIREMENTS:
@@ -176,7 +176,7 @@ Coordinate session completion:
 
 ## Success Criteria
 
-- ✅ All three research agents completed successfully via Task tool delegation
+- ✅ All three research agents completed successfully via direct orchestrator invocation
 - ✅ COMPLETE research data saved with empirical quality validation metrics
 - ✅ External tools (WebSearch, Perplexity MCP) successfully integrated with authority scoring
 - ✅ Research package ready for user review with >85% quality threshold validation
@@ -201,7 +201,7 @@ This enhanced research command demonstrates proper Claude Code native orchestrat
 
 ## Technical Implementation Notes
 
-- Uses **Task tool delegation** instead of separate orchestrator agents
+- Uses **direct agent invocation** instead of Task tool delegation patterns
 - **Main chat maintains context** and coordinates all research activities
 - **Sub-agents operate independently** with clean contexts and specialized expertise
 - **External tool integration** enhances research depth and validation

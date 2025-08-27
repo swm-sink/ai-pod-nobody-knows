@@ -68,11 +68,18 @@ RESEARCH_SESSION_DIR=$(find_research_session $EPISODE_NUM)
 
 echo "Producing Episode $N/125: Using research from $RESEARCH_SESSION_DIR"
 
-# Use existing production command with research integration
-Use Task tool to delegate to produce-episode-native:
-INPUT: $EPISODE_NUM --from-research
-RESEARCH_SOURCE: $RESEARCH_SESSION_DIR/complete-research-package.json
-OUTPUT: Final episode audio + production data
+# Use existing production command with direct sub-agent orchestration
+/produce-episode-native $EPISODE_NUM --from-research
+
+This will coordinate the complete 5-stage production pipeline:
+1. Episode planner → Structure creation → episode-plan.json
+2. Script writer → Engaging script → script-draft.md
+3. Quality validation → Brand voice check → quality-report.json
+4. Audio synthesizer → ElevenLabs API → episode-audio.mp3
+5. Quality validator → Final validation → production-complete.json
+
+INPUT: Episode $EPISODE_NUM with research from $RESEARCH_SESSION_DIR
+OUTPUT: Final episode audio + comprehensive production data
 ```
 
 ### Step 4: Production Progress Tracking & Cost Monitoring

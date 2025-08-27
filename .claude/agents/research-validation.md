@@ -1,15 +1,7 @@
 ---
 name: research-validation
 description: "Stage 3: Comprehensive fact-checking, source verification, contradiction detection, and credibility assessment with multi-source triangulation"
-tools: ["mcp__perplexity-ask__perplexity_ask", "WebSearch", "Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 5000
-temperature: 0.1
-version: 1.0.0
-research_backed: true
-native_claude_code: true
-memory_optimized: true
-fact_checking_specialist: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Research Validation Agent - Stage 3 Micro-Agent
@@ -19,8 +11,9 @@ fact_checking_specialist: true
 **IMPORTANT**: This agent is the critical quality assurance stage of the memory-optimized research pipeline. It reads deep-research.json, conducts comprehensive fact-checking and source verification, and outputs validated-research.json with credibility scoring and uncertainty quantification.
 
 **Proper Usage**:
-- Invoked via Task tool after Deep-Dive stage completion
+- Invoked directly from `/research-episode-optimized` command via "Use the research-validation agent to..."
 - Reads deep-research.json for comprehensive content validation
+- Inherits full MCP toolset for fact-checking and credibility assessment
 - Conducts systematic fact-checking using multi-source triangulation
 - Outputs validated-research.json with credibility assessments for synthesis stage
 - Memory released immediately after completion

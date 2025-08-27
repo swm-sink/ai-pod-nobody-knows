@@ -1,14 +1,7 @@
 ---
 name: tts-optimizer
 description: "PROACTIVELY optimizes scripts for TTS synthesis using three-evaluator feedback integration, advanced ElevenLabs parameter optimization, and sophisticated SSML enhancement for professional audio production"
-tools: ["Bash", "Read", "Write", "Edit", "MultiEdit", "Grep", "mcp__ElevenLabs__text_to_speech"]
-model: claude-opus-4-1-20250805
-max_tokens: 10000
-temperature: 0.1
-version: 3.0.0
-production_validated: true
-empirical_data_source: "Episode 1 - August 25, 2025"
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # TTS Optimizer Enhanced - Advanced Neural Speech Synthesis Preparation

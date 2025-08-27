@@ -47,8 +47,8 @@ Episode Topic Input
 
 ### Stage 1: Strategic Discovery
 ```bash
-# Execute research-discovery micro-agent
-Use Task tool to delegate to research-discovery agent with:
+# Execute research-discovery micro-agent (Direct Orchestrator Invocation)
+Use the research-discovery agent to investigate the episode topic:
 - Episode topic: $ARGUMENTS
 - Session ID: ep_[NUMBER]_optimized_[TIMESTAMP]
 - Budget allocation: $0.50
@@ -70,8 +70,8 @@ Use Task tool to delegate to research-discovery agent with:
 
 ### Stage 2: Comprehensive Deep-Dive
 ```bash
-# Execute research-deep-dive micro-agent
-Use Task tool to delegate to research-deep-dive agent with:
+# Execute research-deep-dive micro-agent (Direct Orchestrator Invocation)
+Have the research-deep-dive agent conduct comprehensive investigation:
 - Input: Load discovery-results.json from session directory
 - Focus areas: Priority themes from discovery stage
 - Budget allocation: $1.00
@@ -94,8 +94,8 @@ Use Task tool to delegate to research-deep-dive agent with:
 
 ### Stage 3: Comprehensive Validation
 ```bash
-# Execute research-validation micro-agent
-Use Task tool to delegate to research-validation agent with:
+# Execute research-validation micro-agent (Direct Orchestrator Invocation)
+Use the research-validation agent to verify research accuracy:
 - Input: Load deep-research.json from session directory
 - Validation focus: Fact-checking and credibility assessment
 - Budget allocation: $0.35
@@ -118,8 +118,8 @@ Use Task tool to delegate to research-validation agent with:
 
 ### Stage 4: Master Synthesis
 ```bash
-# Execute research-synthesis micro-agent
-Use Task tool to delegate to research-synthesis agent with:
+# Execute research-synthesis micro-agent (Direct Orchestrator Invocation)
+Have the research-synthesis agent create production-ready package:
 - Input: Load validated-research.json from session directory
 - Synthesis focus: Narrative optimization and brand integration
 - Budget allocation: $0.15

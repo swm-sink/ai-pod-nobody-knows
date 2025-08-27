@@ -1,12 +1,7 @@
 ---
 name: quality-perplexity
 description: "PROACTIVELY provides specialized research accuracy and fact verification using Perplexity MCP for real-time validation, source verification, and currency assessment"
-tools: ["mcp__perplexity-ask__perplexity_ask", "Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 12000
-temperature: 0.05
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Quality Perplexity Enhanced - Research Accuracy & Fact Verification Specialist

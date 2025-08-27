@@ -21,6 +21,11 @@
 **Usage:** Episode production completion summaries
 **Variables:** {EPISODE_NUMBER}, {EPISODE_TOPIC}, {PRODUCTION_DATE}, etc.
 
+### 4. Agent Template Best Practices
+**File:** `@.claude/templates/agent-template-best-practices.md`
+**Usage:** Creating new Claude Code sub-agents with optimal configuration
+**Variables:** {AGENT_NAME}, {AGENT_DESCRIPTION}, {TOOL_LIST}, {SYSTEM_PROMPT}, etc.
+
 ## Cross-Reference Usage Pattern
 
 **Instead of creating new templates:**
@@ -55,6 +60,11 @@ Welcome to Nobody Knows...
 - ALWAYS reference `@.claude/templates/production_summary_template.md`
 - Populate all cost and quality metrics
 - NEVER create new summary formats
+
+### Agent Development
+- ALWAYS reference `@.claude/templates/agent-template-best-practices.md`
+- Follow YAML frontmatter best practices
+- NEVER create agents without template validation
 
 ## Template Variable System
 

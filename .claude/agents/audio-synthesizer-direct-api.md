@@ -1,7 +1,7 @@
 ---
 name: audio-synthesizer-direct-api
 description: "PROACTIVELY synthesizes high-quality podcast audio using direct ElevenLabs API integration, advanced SSML processing, chunked synthesis, and professional production standards with comprehensive quality assurance"
-tools: ["Read", "Write", "Bash", "Grep"]
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Audio Synthesizer - Direct ElevenLabs API Integration

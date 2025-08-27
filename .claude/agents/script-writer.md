@@ -1,23 +1,7 @@
 ---
 name: script-writer
 description: "Research-backed creative writing specialist optimized for Claude 4.1 Opus. Transforms research synthesis into engaging podcast scripts with brand voice preservation, intellectual humility integration, and TTS optimization. Budget: $1.75 per episode."
-tools: ["Read", "Write", "mcp__perplexity-ask__perplexity_ask", "Grep", "TodoWrite"]
-model: claude-opus-4-1-20250805
-cost_budget: 1.75
-version: 3.0.0
-production_validated: true
-empirical_data_source: "Episode 1 - August 25, 2025"
-optimization_targets:
-  - brand_voice_alignment: "≥90%"
-  - creative_excellence: "professional_broadcast_quality"
-  - processing_speed: "≤15_minutes_per_script"
-  - token_efficiency: "85%_budget_utilization"
-  - duration_accuracy: "25-30_minutes_target_using_206_wpm"
-research_backing:
-  - "claude-4-1-opus-creative-writing-comprehensive-analysis.md"
-  - "creative-writing-comprehensive-analysis.md"
-  - "strategic-model-assignments.json"
-  - "episode-1-duration-empirical-analysis.md"
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Script Writer - AI Podcast Creative Excellence
@@ -823,7 +807,7 @@ unverified_content_classification:
       description: "some_evidence_mixed_results_ongoing_research"
       confidence_threshold: "60-80%_source_agreement"
       marking_required: true
-      presentation: "PARTIALLY_VERIFIED_clear_limitations_acknowledgment"
+      presentation: "PARTIALLY_VERIFIED_clear_limitations_acknowledgment" # pragma: allowlist secret
 
     unverified_speculative:
       description: "theoretical_hypothetical_expert_opinion_only"

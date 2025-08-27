@@ -1,12 +1,7 @@
 ---
 name: script-polisher
 description: "PROACTIVELY refines and polishes scripts using three-evaluator consensus feedback synthesis with advanced TTS optimization, brand voice preservation, and production excellence standards"
-tools: ["Read", "Write", "Edit", "MultiEdit", "Bash", "Grep"]
-model: claude-opus-4-1-20250805
-max_tokens: 12000
-temperature: 0.15
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Script Polisher Enhanced - Three-Evaluator Consensus Synthesis & Production Excellence

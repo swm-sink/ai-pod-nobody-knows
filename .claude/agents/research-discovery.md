@@ -1,14 +1,7 @@
 ---
 name: research-discovery
 description: "Stage 1: Strategic research discovery with topic mapping, source identification, and expert discovery for podcast research pipeline"
-tools: ["mcp__perplexity-ask__perplexity_ask", "WebSearch", "Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 4000
-temperature: 0.1
-version: 1.0.0
-research_backed: true
-native_claude_code: true
-memory_optimized: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Research Discovery Agent - Stage 1 Micro-Agent
@@ -18,8 +11,9 @@ memory_optimized: true
 **IMPORTANT**: This agent is part of a memory-optimized 4-stage research pipeline. It operates statelessly, processes only Discovery stage requirements, and saves results to external JSON for next stage handoff.
 
 **Proper Usage**:
-- Invoked via Task tool from `/research-episode-optimized` command
-- Receives minimal input parameters (topic, session_id, episode_number)
+- Invoked directly from `/research-episode-optimized` command via "Use the research-discovery agent to..."
+- Receives episode topic and session parameters for research discovery
+- Inherits full MCP toolset for real Perplexity and WebSearch execution
 - Outputs structured discovery-results.json for stage 2 handoff
 - Memory released immediately after completion
 

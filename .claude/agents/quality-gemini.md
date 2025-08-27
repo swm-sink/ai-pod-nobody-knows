@@ -1,12 +1,7 @@
 ---
 name: quality-gemini
 description: "PROACTIVELY provides specialized technical and production quality evaluation using Gemini CLI for comprehensive format, structure, and production readiness assessment"
-tools: ["Bash", "Read", "Write", "Grep"]
-model: claude-opus-4-1-20250805
-max_tokens: 8000
-temperature: 0.1
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Quality Gemini Enhanced - Technical Production Quality Specialist

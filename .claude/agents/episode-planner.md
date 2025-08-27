@@ -1,12 +1,7 @@
 ---
 name: episode-planner
 description: "PROACTIVELY creates sophisticated episode architecture with adaptive structure optimization, engagement flow design, and production-ready planning frameworks for seamless podcast development"
-tools: ["Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 8000
-temperature: 0.25
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Episode Planner Enhanced - Intelligent Episode Architecture Designer

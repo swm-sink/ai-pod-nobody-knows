@@ -46,6 +46,8 @@
 **Context Loading:** Use `@` references to load specific content on-demand
 
 **Navigation Strategy:**
+- `@.claude/context/sub-agent-architecture.md` - **ESSENTIAL** Sub-agent invocation patterns (2025-08-26)
+- `@.claude/context/mcp-tool-inheritance.md` - MCP tool integration for sub-agents
 - `@.claude/protocols/enforcement.md` - All brutal enforcement protocols
 - `@.claude/protocols/validation.md` - 50-step validation and quality gates
 - `@.claude/architecture/native-patterns.md` - Claude Code native architecture
@@ -240,17 +242,26 @@ grep -v ".git" | sort | uniq -d
 
 ## 🏗️ NATIVE CLAUDE CODE ARCHITECTURE
 
-**Architecture Details:** `@.claude/architecture/native-patterns.md`
+**🚨 CRITICAL:** Before modifying any agent or command, load: `@.claude/context/sub-agent-architecture.md`
 
-**Core Patterns:**
-- Main Chat Orchestrator uses Task tool delegation
-- Specialized Sub-Agents (14 enhanced agents in `.claude/agents/`)
-- Slash Command Workflows (`.claude/commands/`)
-- Hooks Observability for cost tracking and quality assurance
+**Architecture Details:**
+- `@.claude/context/sub-agent-architecture.md` - **REQUIRED READING** for agent modifications
+- `@.claude/context/mcp-tool-inheritance.md` - MCP tool integration patterns
 
-**Research-First Workflow:**
-- Research Pipeline: `/research-episode-enhanced` → 3 agents → User checkpoint
-- Production Pipeline: `/produce-episode-native` → 5 agents → Final audio
+**Core Patterns (CORRECTED 2025-08-26):**
+- **Main Chat Orchestrator** uses **direct sub-agent invocation** (NOT Task tool delegation)
+- **Specialized Sub-Agents** (16 enhanced agents in `.claude/agents/`) with full MCP tool inheritance
+- **Slash Command Workflows** (`.claude/commands/`) using correct invocation patterns
+- **Hooks Observability** for cost tracking, validation, and architecture compliance
+
+**Correct Invocation Pattern:**
+```markdown
+Use the [agent-name] agent to [action]: "specific requirements"
+```
+
+**Research-First Workflow (Updated):**
+- Research Pipeline: Direct sub-agent invocation → MCP tools → Real execution (>0 tool uses)
+- Production Pipeline: Sequential agent coordination → ElevenLabs integration → Final audio
 
 ## 🔄 WORKFLOW PROTOCOLS
 

@@ -144,54 +144,6 @@
     ]
   },
   "model": "claude-sonnet-4-20250514",
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/enhanced-pre-tool-cost-validation.sh \"$CLAUDE_TOOL_NAME\"",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/enhanced-post-tool-cost-tracking.sh \"$CLAUDE_TOOL_NAME\" \"$CLAUDE_TOKEN_COUNT\"",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/user-prompt-submit.sh \"$CLAUDE_USER_PROMPT\"",
-            "timeout": 3
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.claude/hooks/session-cleanup.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
-  },
   "telemetry": {
     "enabled": false
   },

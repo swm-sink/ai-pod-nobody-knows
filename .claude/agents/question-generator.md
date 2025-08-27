@@ -1,12 +1,7 @@
 ---
 name: question-generator
 description: "PROACTIVELY generates strategic, high-impact research questions with adaptive complexity, brand alignment validation, and cross-episode intelligence for comprehensive podcast research optimization"
-tools: ["mcp__perplexity-ask__perplexity_ask", "WebSearch", "Read", "Write", "Grep", "Bash"]
-model: claude-sonnet-4-20250514
-max_tokens: 8000
-temperature: 0.3
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Question Generator Enhanced - Strategic Research Question Intelligence

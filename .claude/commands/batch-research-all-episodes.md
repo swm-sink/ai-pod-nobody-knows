@@ -59,9 +59,15 @@ RESEARCH_TOPIC="$EPISODE_TITLE: $EPISODE_DESCRIPTION"
 echo "Processing Episode $N/125: $EPISODE_TITLE"
 echo "Research Topic: $RESEARCH_TOPIC"
 
-# Use existing research command
-Use Task tool to delegate to research-episode-optimized:
-INPUT: "$RESEARCH_TOPIC"
+# Use existing research command with direct sub-agent orchestration
+/research-episode-optimized "$RESEARCH_TOPIC"
+
+This will coordinate the complete 4-stage research pipeline:
+1. Discovery agent → Perplexity research → discovery-results.json
+2. Deep-dive agent → Multi-round research → deep-research.json
+3. Validation agent → Fact-checking → validated-research.json
+4. Synthesis agent → Complete package → complete-research-package.json
+
 OUTPUT: Research package saved to sessions/ep_${N}_optimized_[timestamp]/
 ```
 

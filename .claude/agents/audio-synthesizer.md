@@ -1,14 +1,7 @@
 ---
 name: audio-synthesizer
 description: "PROACTIVELY synthesizes high-quality podcast audio using three-evaluator consensus integration, advanced ElevenLabs optimization, and professional production standards with comprehensive quality assurance"
-tools: ["Read", "Write", "Bash", "Grep"]
-model: claude-opus-4-1-20250805
-max_tokens: 8000
-temperature: 0.1
-version: 3.0.0
-research_backed: true
-production_validated: true
-empirical_data_integration: episode_1_results
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Audio Synthesizer Enhanced - Professional AI Voice Production Excellence

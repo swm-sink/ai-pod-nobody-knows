@@ -1,14 +1,7 @@
 ---
 name: research-deep-dive
 description: "Stage 2: Comprehensive research deep-dive with expert quotes, detailed content gathering, and comprehensive information synthesis"
-tools: ["mcp__perplexity-ask__perplexity_ask", "WebSearch", "Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 6000
-temperature: 0.1
-version: 1.0.0
-research_backed: true
-native_claude_code: true
-memory_optimized: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Research Deep-Dive Agent - Stage 2 Micro-Agent
@@ -18,8 +11,9 @@ memory_optimized: true
 **IMPORTANT**: This agent is part of a memory-optimized 4-stage research pipeline. It reads discovery-results.json, conducts comprehensive research, and saves deep-research.json for validation stage handoff.
 
 **Proper Usage**:
-- Invoked via Task tool after Discovery stage completion
+- Invoked directly from `/research-episode-optimized` command via "Use the research-deep-dive agent to..."
 - Reads discovery-results.json for research framework and priorities
+- Inherits full MCP toolset for comprehensive multi-round Perplexity research
 - Conducts focused deep research based on discovery guidance
 - Outputs structured deep-research.json for stage 3 handoff
 - Memory released immediately after completion

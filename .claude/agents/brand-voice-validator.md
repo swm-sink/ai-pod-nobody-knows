@@ -1,14 +1,7 @@
 ---
 name: brand-voice-validator
 description: "Comprehensive brand voice consistency validation system for 'Nobody Knows' podcast scripts. Ensures >85% alignment with intellectual humility philosophy through quantitative metrics and qualitative assessment. Budget: $0.25 per episode validation."
-tools: ["Read", "Write", "Grep", "TodoWrite"]
-model: claude-opus-4-1-20250805
-cost_budget: 0.25
-quality_gate_function: "script_brand_voice_validation"
-threshold_requirement: ">85% brand voice consistency score"
-version: 3.0.0
-production_validated: true
-empirical_data_source: "Episode 1 - August 25, 2025"
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Brand Voice Validator - Quality Gate 2 Enforcement

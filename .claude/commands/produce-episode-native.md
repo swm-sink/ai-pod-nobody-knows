@@ -23,23 +23,23 @@ Execute comprehensive episode production for a "Nobody Knows" podcast using Clau
 
 ## Native Claude Code Orchestration
 
-This command demonstrates proper Claude Code architecture where **the main chat acts as orchestrator** and uses the **Task tool** to delegate to specialized production agents, rather than using separate orchestrator agents (which violate native patterns).
+This command demonstrates proper Claude Code architecture where **the main chat acts as orchestrator** and **directly invokes specialized production agents**, using native orchestration patterns for optimal agent execution and tool access.
 
 ### Production Workflow Architecture
 
 **Native Pattern (This Command)**:
 ```
-Main Chat → Task tool → Specialized production agents
+Main Chat → Direct Agent Invocation → Specialized production agents
 ```
 
 **Anti-Pattern (Avoided)**:
 ```
-Main Chat → Production Orchestrator Agent → Sub-agents
+Main Chat → Task Tool Delegation → Simulated agent responses
 ```
 
 ## Production Pipeline Execution
 
-I will coordinate the complete production pipeline using Task tool delegation:
+I will coordinate the complete production pipeline using direct orchestrator invocation:
 
 ### Prerequisites Validation
 ```
@@ -58,9 +58,9 @@ Initialize cost tracking and quality gates
 Load research package if using --from-research flag
 ```
 
-### Step 2: Task Delegation to Episode Planner Agent
+### Step 2: Direct Invocation of Episode Planner Agent
 ```
-Use Task tool to delegate to episode-planner:
+Use the episode-planner agent to create episode structure:
 
 INPUT: Research package (if available) or episode topic
 REQUIREMENTS:
@@ -72,9 +72,9 @@ REQUIREMENTS:
 - Save episode_plan.json with complete structure
 ```
 
-### Step 3: Task Delegation to Script Writer Agent
+### Step 3: Direct Invocation of Script Writer Agent
 ```
-Use Task tool to delegate to script-writer (enhanced):
+Have the script-writer agent create the episode script:
 
 INPUT: Episode plan + research data package
 REQUIREMENTS:
@@ -88,18 +88,18 @@ REQUIREMENTS:
 - Save script_draft.md with complete script
 ```
 
-### Step 4: Parallel Task Delegation to Quality Evaluation Agents
+### Step 4: Parallel Direct Invocation of Quality Evaluation Agents
 ```
-Simultaneously delegate to dual quality agents:
+Simultaneously use dual quality agents for evaluation:
 
-AGENT A - Use Task tool to delegate to quality-claude:
+AGENT A - Use the quality-claude agent to evaluate script quality:
 - Evaluate script for brand consistency (>85% threshold - empirically achievable)
 - Assess technical accuracy and comprehension
 - Check engagement and educational value
 - Validate intellectual humility alignment
 - Generate quality_claude_report.json
 
-AGENT B - Use Task tool to delegate to quality-gemini:
+AGENT B - Have the quality-gemini agent provide independent assessment:
 - Independent quality assessment and validation
 - Cross-verify brand voice consistency (>85% composite score - Episode 1 validated)
 - Evaluate production readiness metrics
@@ -107,38 +107,24 @@ AGENT B - Use Task tool to delegate to quality-gemini:
 - Generate quality_gemini_report.json
 ```
 
-### Step 5: Task Delegation to Feedback Synthesis Agent
+### Step 5: Direct Invocation of Script Polisher Agent
 ```
-Use Task tool to delegate to feedback-synthesizer:
+Use the script-polisher agent to improve script based on quality feedback:
 
-INPUT: Both quality evaluation reports
+INPUT: Script draft + both quality evaluation reports
 REQUIREMENTS:
-- Consolidate quality evaluations into unified feedback
-- Prioritize improvement recommendations by impact
-- Generate consensus-based improvement plan
-- Identify critical issues requiring script revision
-- Create feedback_synthesis.json with actionable guidance
+- Consolidate quality evaluations into unified improvements
+- Prioritize enhancement recommendations by impact
+- Apply consensus-based refinement approach
+- Address critical issues requiring script revision
+- Generate improved script ready for TTS optimization
 ```
 
-### Step 6: Task Delegation to Script Polisher Agent
+### Step 6: Direct Invocation of TTS Optimizer Agent
 ```
-Use Task tool to delegate to script-polisher:
+Have the tts-optimizer agent prepare script for audio synthesis:
 
-INPUT: Script draft + consolidated feedback + research package
-REQUIREMENTS:
-- Address all critical quality issues identified
-- Refine script based on dual evaluation feedback
-- Maintain brand voice while improving quality
-- Optimize for TTS synthesis compatibility
-- Ensure 27-minute target duration maintained
-- Generate script_final.md ready for audio production
-```
-
-### Step 7: Task Delegation to TTS Optimizer Agent
-```
-Use Task tool to delegate to tts-optimizer:
-
-INPUT: Final polished script
+INPUT: Polished script from previous step
 REQUIREMENTS:
 - Optimize script for ElevenLabs TTS synthesis using empirical effectiveness data
 - Add strategic SSML markup: 1s+ breaks (95% effective) vs 500ms breaks (40% effective)
@@ -148,18 +134,29 @@ REQUIREMENTS:
 - Generate tts_optimized_script.ssml ready for direct API synthesis
 ```
 
-### Step 8: Task Delegation to Audio Synthesizer Agent
+### Step 7: Direct Invocation of Audio Synthesizer Agent
 ```
-Use Task tool to delegate to audio-synthesizer:
+Use the audio-synthesizer-direct-api agent to create final episode audio:
 
 INPUT: TTS-optimized script with SSML markup
 REQUIREMENTS:
-- Generate final episode audio using ElevenLabs DIRECT API (MCP fallback documented as unreliable)
+- Generate final episode audio using ElevenLabs DIRECT API integration
 - Use production-validated single-call synthesis method
 - Apply Amelia voice settings: stability=0.65, similarity=0.8, style=0.3, speed=1.0
-- Validate audio duration (25-30 minutes target - 206 WPM empirical rate)
-- Ensure professional audio quality standards (94.89% word accuracy achievable)
-- Save episode_audio.mp3 with metadata and cost tracking ($2.77 Episode 1 actual)
+- Implement chunked synthesis for optimal quality and reliability
+- Generate high-quality MP3 output ready for distribution
+- Save final episode audio to production directory
+```
+
+### Step 8: Final Quality Validation & Session Completion
+```
+Coordinate final validation and completion:
+- Validate all production stages completed successfully
+- Verify audio meets duration and quality targets (25-30 minutes, >94% accuracy)
+- Generate production summary with cost analysis and performance metrics
+- Archive session materials in structured format
+- Update episode tracking database with production results
+- Prepare final deliverable package for distribution
 ```
 
 ### Step 9: Final Quality Validation & Session Completion

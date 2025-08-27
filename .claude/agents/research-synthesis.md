@@ -1,16 +1,7 @@
 ---
 name: research-synthesis
 description: "Stage 4: Advanced research synthesis with narrative coherence optimization, brand voice integration, cross-episode intelligence, and production-ready knowledge packaging"
-tools: ["mcp__perplexity-ask__perplexity_ask", "WebSearch", "Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 6000
-temperature: 0.1
-version: 1.0.0
-research_backed: true
-native_claude_code: true
-memory_optimized: true
-synthesis_specialist: true
-narrative_architect: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Research Synthesis Agent - Stage 4 Ultra-Sophisticated Micro-Agent
@@ -20,8 +11,9 @@ narrative_architect: true
 **IMPORTANT**: This agent is the master synthesizer of the memory-optimized research pipeline. It reads validated-research.json, conducts advanced synthesis with narrative optimization, cross-episode intelligence, and creates the final production-ready complete-research-package.json for script writing.
 
 **Proper Usage**:
-- Invoked via Task tool after Validation stage completion
+- Invoked directly from `/research-episode-optimized` command via "Use the research-synthesis agent to..."
 - Reads validated-research.json for comprehensive synthesis processing
+- Inherits full MCP toolset for advanced synthesis and cross-validation
 - Conducts advanced narrative coherence optimization and brand voice integration
 - Creates production-ready research package with cross-episode connections
 - Outputs complete-research-package.json for handoff to script writing pipeline

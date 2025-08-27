@@ -1,12 +1,7 @@
 ---
 name: quality-claude
 description: "PROACTIVELY evaluates script quality using advanced Claude analysis with multi-dimensional assessment, brand voice validation, and adaptive evaluation frameworks for comprehensive quality assurance"
-tools: ["Read", "Write", "Grep", "Bash"]
-model: claude-opus-4-1-20250805
-max_tokens: 10000
-temperature: 0.1
-version: 2.0.0
-research_backed: true
+# tools: # REMOVED - Now inherits ALL tools including full MCP suite from main thread
 ---
 
 # Quality Claude Enhanced - Advanced Script Quality Intelligence

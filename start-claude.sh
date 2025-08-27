@@ -1,38 +1,28 @@
 #!/bin/bash
-# This script loads environment variables and starts Claude Code with MCP servers
+# Start Claude Code with proper environment variables loaded
 
-# Set default environment variables for portability
-export PWD="$(pwd)"
-export NODE_EXTRA_CA_CERTS="${NODE_EXTRA_CA_CERTS:-/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/certifi/cacert.pem}"
-export CLAUDE_CODE_BUILDER_PATH="${CLAUDE_CODE_BUILDER_PATH:-/Users/smenssink/Documents/GitHub/claude-code-builder}"
-
-# Load environment variables from .env if it exists
+# Load environment variables
 if [ -f .env ]; then
-    echo "Loading API keys from .env file..."
-    # Load .env safely without exporting unrelated variables
-    set -a
     source .env
-    set +a
-
-    # Verify keys are loaded
-    if [ -n "$PERPLEXITY_API_KEY" ]; then
-        echo "✓ Perplexity API key loaded"
-    else
-        echo "✗ Perplexity API key not found in .env"
-    fi
-
-    if [ -n "$ELEVENLABS_API_KEY" ]; then
-        echo "✓ ElevenLabs API key loaded"
-    else
-        echo "✗ ElevenLabs API key not found in .env"
-    fi
+    echo "✅ Environment variables loaded from .env"
 else
-    echo "Warning: .env file not found. MCP servers may not connect."
-    echo "Create one quickly with:\n  cp .env.example .env && $EDITOR .env"
+    echo "❌ .env file not found"
     exit 1
 fi
 
+# Verify key variables are set
+if [ -z "$ELEVENLABS_API_KEY" ]; then
+    echo "❌ ELEVENLABS_API_KEY not set"
+    exit 1
+fi
+
+if [ -z "$PERPLEXITY_API_KEY" ]; then
+    echo "❌ PERPLEXITY_API_KEY not set"
+    exit 1
+fi
+
+echo "✅ All required API keys are set"
+echo "🚀 Starting Claude Code..."
+
 # Start Claude Code
-echo "Starting Claude Code with MCP servers..."
-claude
-exit $?
+claude code
