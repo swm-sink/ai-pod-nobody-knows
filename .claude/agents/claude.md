@@ -1,5 +1,5 @@
 ---
-name: quality-claude
+name: claude
 description: "PROACTIVELY evaluates script quality using advanced Claude analysis with multi-dimensional assessment, brand voice validation, and adaptive evaluation frameworks for comprehensive quality assurance"
 ---
 

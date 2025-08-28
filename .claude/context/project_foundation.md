@@ -101,12 +101,12 @@ pipeline_phases:
     cost_allocation: "$1.75 (32% of $5.51 target)"
 
   phase_3_quality:
-    agents: "quality-claude, quality-gemini, quality-perplexity, brand-voice-validator"
+    agents: "claude, gemini, perplexity, brand-validator"
     output: "Multi-evaluator consensus with quality scoring"
     cost_allocation: "$1.50 (27% of $5.51 target)"
 
   phase_4_audio:
-    agents: "tts-optimizer, audio-synthesizer, audio-quality-validator"
+    agents: "optimizer, synthesizer, audio-validator"
     output: "Professional MP3 with validation metrics"
     cost_allocation: "$1.00 (18% of $5.51 target)"
 ```

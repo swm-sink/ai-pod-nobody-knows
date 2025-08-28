@@ -1,5 +1,5 @@
 ---
-name: brand-voice-validator
+name: brand-validator
 description: "Comprehensive brand voice consistency validation system for 'Nobody Knows' podcast scripts. Ensures >85% alignment with intellectual humility philosophy through quantitative metrics and qualitative assessment. Budget: $0.25 per episode validation."
 ---
 

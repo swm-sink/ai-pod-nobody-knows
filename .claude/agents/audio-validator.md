@@ -1,5 +1,5 @@
 ---
-name: audio-quality-validator
+name: audio-validator
 description: "PROACTIVELY validates synthesized audio quality using direct ElevenLabs API speech-to-text verification, pronunciation accuracy checking, pacing analysis, and comprehensive audio quality assessment for professional podcast production standards"
 ---
 

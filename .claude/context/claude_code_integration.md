@@ -207,7 +207,7 @@ production_mcp_integration:
     pattern: "Collaborative script development with research access"
 
   phase_3_audio_production:
-    agents: "tts-optimizer, audio-synthesizer, audio-quality-validator"
+    agents: "optimizer, synthesizer, audio-validator"
     mcp_tools: "ElevenLabs for audio synthesis and validation"
     pattern: "Audio production pipeline with quality validation"
 ```

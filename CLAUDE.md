@@ -76,7 +76,7 @@ specialized_contexts:
 
 workflow_contexts:
   - claude_code_integration.md (MCP integration and sub-agent coordination)
-  - 03_meta_prompting_workflow_summary.md (10-step methodology execution)
+  - 03_meta_prompting_workflow_summary.md (13-step methodology execution)
   - 02_quick_reference.md (Essential commands and navigation)
 
 user_experience:

@@ -1,5 +1,5 @@
 ---
-name: quality-perplexity
+name: perplexity
 description: "PROACTIVELY provides specialized research accuracy and fact verification using Perplexity MCP for real-time validation, source verification, and currency assessment"
 ---
 

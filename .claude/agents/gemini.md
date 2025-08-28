@@ -1,5 +1,5 @@
 ---
-name: quality-gemini
+name: gemini
 description: "PROACTIVELY provides specialized technical and production quality evaluation using Gemini CLI for comprehensive format, structure, and production readiness assessment"
 ---
 
