@@ -39,21 +39,56 @@
 **Welcome Back!** → Check current phase → `@context/02_quick_reference.md`
 **Need Help?** → `@context/01_troubleshooting_guide.md`
 
-## 📚 MODULAR DOCUMENTATION ARCHITECTURE
+## 📚 CRITICAL CONTEXT MANAGEMENT GOVERNANCE
 
-**Entry Point:** This file (CLAUDE.md) - high-level overview and navigation hub
-**Domain Files:** Focused documents for specific concerns
-**Context Loading:** Use `@` references to load specific content on-demand
+**CONTEXT SPRAWL PREVENTION - MAXIMUM 15 FILES ENFORCED**
 
-**Navigation Strategy:**
-- `@.claude/context/sub-agent-architecture.md` - **ESSENTIAL** Sub-agent invocation patterns (2025-08-26)
-- `@.claude/context/mcp-tool-inheritance.md` - MCP tool integration for sub-agents
-- `@.claude/protocols/enforcement.md` - All brutal enforcement protocols
-- `@.claude/protocols/validation.md` - 50-step validation and quality gates
-- `@.claude/architecture/native-patterns.md` - Claude Code native architecture
-- `@.claude/workflows/meta-prompting.md` - 10-step protocol details
-- `@.claude/systems/hooks-documentation.md` - Hooks system comprehensive guide
-- `@.claude/templates/template_usage_guide.md` - Single-source documentation templates
+**Context Management Rules:**
+- **Maximum Context Files**: 15 total files in `.claude/context/` directory
+- **Single Source Truth**: Each topic covered in exactly ONE context file
+- **Usage Documentation**: Every context file must have clear operational purpose
+- **Automatic Archival**: Unused files archived after 30 days without access
+
+**Enforcement Mechanisms:**
+```yaml
+context_governance_enforcement:
+  file_limit: "Block new context creation if >15 files exist"
+  duplication_detection: "Pre-commit hooks prevent topic overlap"
+  usage_tracking: "Monitor file access patterns for archival decisions"
+  periodic_audit: "Monthly context directory cleanup and consolidation"
+```
+
+**STREAMLINED CONTEXT ARCHITECTURE (15 FILES ACHIEVED):**
+```yaml
+core_contexts:
+  - 01_current_system_status.md (System health and operational status)
+  - 02_deployment_instructions.md (Production deployment protocols)
+  - project_foundation.md (Mission, philosophy, quality standards, architecture)
+  - agent_orchestration_complete.md (Sub-agent patterns, MCP inheritance, orchestration)
+  - troubleshooting_unified.md (Complete issue resolution framework)
+
+specialized_contexts:
+  - perplexity_integration.md (Complete Perplexity research framework)
+  - cost_optimization_unified.md (Complete cost management and optimization)
+  - audio_synthesis_unified.md (Complete audio production framework)
+  - quality_validation_unified.md (Complete quality assurance system)
+  - batch_processing_scalability.md (High-volume production architecture)
+
+workflow_contexts:
+  - claude_code_integration.md (MCP integration and sub-agent coordination)
+  - 03_meta_prompting_workflow_summary.md (10-step methodology execution)
+  - 02_quick_reference.md (Essential commands and navigation)
+
+user_experience:
+  - 02_hallucination_prevention_guide.md (Anti-hallucination protocols)
+  - 02_walk_crawl_run_phases.md (Learning progression framework)
+```
+
+**Context Loading Strategy:**
+- **Entry Point:** This CLAUDE.md file - navigation hub only
+- **Domain Files:** Maximum 15 focused documents for specific concerns
+- **On-Demand Loading:** Use `@` references to load specific content when needed
+- **No Duplication:** Violation of single-source principle immediately stops all work
 
 ## 📍 CURRENT STATUS
 
@@ -159,11 +194,11 @@ claude code
 - `user-prompt-submit.sh` ✅
 
 **Agent System (16 files maximum):**
-- research-discovery.md, research-deep-dive.md, research-validation.md, research-synthesis.md
-- question-generator.md, episode-planner.md, script-writer.md, brand-voice-validator.md
-- quality-claude.md, quality-gemini.md, quality-perplexity.md
-- script-polisher.md, tts-optimizer.md
-- audio-synthesizer.md, audio-synthesizer-direct-api.md, audio-quality-validator.md
+- discovery.md, deep-dive.md, research-validate.md, synthesis.md
+- generator.md, planner.md, writer.md, brand-validator.md
+- claude.md, gemini.md, perplexity.md
+- polisher.md, optimizer.md
+- synthesizer.md, synthesizer-direct.md, audio-validator.md
 
 ### 🚫 IMMEDIATE VIOLATION CONSEQUENCES
 
