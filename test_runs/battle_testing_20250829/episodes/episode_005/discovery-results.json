@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "discovery",
+  "agent_metadata": {
+    "agent_id": "research-discovery",
+    "session_id": "episode_005_battle_testing_20250829",
+    "execution_timestamp": "2025-08-29T14:30:00Z",
+    "episode_context": {
+      "episode_number": 5,
+      "topic": "Fall of Rome Historical Parallels",
+      "target_duration_minutes": 15
+    }
+  },
+  "cost_tracking": {
+    "execution_cost": 0.15,
+    "budget_allocated": 0.25,
+    "budget_remaining": 0.10,
+    "query_count": 3
+  },
+  "execution_status": {
+    "status": "completed",
+    "completion_timestamp": "2025-08-29T14:35:00Z",
+    "quality_gate_status": "passed"
+  },
+  "discovery_findings": {
+    "priority_investigation_areas": [
+      {
+        "area_id": "roman_decline_factors",
+        "priority": "high",
+        "research_focus": "Internal fragmentation, economic weakness, external pressures",
+        "expert_focus": ["Chris Wickham", "Peter Heather", "Bryan Ward-Perkins"],
+        "key_questions": [
+          "What do current historians agree on about Roman decline?",
+          "How do archaeological findings support different theories?",
+          "What role did internal vs external factors play?"
+        ]
+      },
+      {
+        "area_id": "modern_parallels_analysis",
+        "priority": "high",
+        "research_focus": "Contemporary expert perspectives on historical analogies",
+        "expert_focus": ["Political scientists", "Comparative historians"],
+        "key_questions": [
+          "What parallels do experts see with modern nations?",
+          "What are the dangers of oversimplified comparisons?",
+          "How do scholars approach empire decline patterns?"
+        ]
+      },
+      {
+        "area_id": "intellectual_humility_examples",
+        "priority": "medium",
+        "research_focus": "Historical uncertainty and knowledge limits",
+        "expert_focus": ["Mary Beard", "Methodological historians"],
+        "key_questions": [
+          "What do historians admit they don't know?",
+          "How do experts handle historical prediction uncertainty?",
+          "What are the limits of historical analogies?"
+        ]
+      }
+    ],
+    "expert_identification": {
+      "primary_experts": [
+        {
+          "expert_name": "Chris Wickham",
+          "institution": "Oxford University",
+          "expertise": "Early medieval Europe, Roman transition",
+          "recent_work": "The Inheritance of Rome (2023 edition)",
+          "credibility_score": 0.95
+        },
+        {
+          "expert_name": "Peter Heather",
+          "institution": "King's College London",
+          "expertise": "Late Roman Empire, barbarian migrations",
+          "recent_work": "The Fall of the Roman Empire (2024 revised)",
+          "credibility_score": 0.95
+        },
+        {
+          "expert_name": "Bryan Ward-Perkins",
+          "institution": "Trinity College Oxford",
+          "expertise": "Late antiquity, archaeological evidence",
+          "recent_work": "The Fall of Rome and the End of Civilization (2022)",
+          "credibility_score": 0.90
+        }
+      ]
+    },
+    "research_framework": {
+      "historical_complexity_focus": "Multifaceted decline process with internal/external factors",
+      "modern_parallel_approach": "Cautious comparison emphasizing contextual differences",
+      "uncertainty_celebration": "Intellectual humility about historical causation and prediction"
+    },
+    "content_direction": {
+      "narrative_structure": "Journey through scholarly consensus and uncertainty",
+      "key_themes": ["Historical complexity", "Analogy limitations", "Knowledge humility"],
+      "brand_alignment_opportunities": [
+        "Expert admissions of uncertainty",
+        "Scholarly debate acknowledgment",
+        "Prediction limitation discussions"
+      ]
+    }
+  },
+  "quality_assurance": {
+    "source_verification_rate": 0.95,
+    "expert_credibility_score": 0.93,
+    "recency_compliance": 0.90,
+    "research_depth_score": 0.88
+  }
+}

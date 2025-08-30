@@ -98,5 +98,5 @@ Complete command definitions and configurations
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: 02_quick_reference.xml*
+*Original: 02_quick_reference.md*
 *Conversion: Mon Aug 18 10:47:18 EDT 2025*

@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "discovery",
+  "agent_metadata": {
+    "agent_id": "research-discovery",
+    "session_id": "episode_002_quantum_computing_20250829",
+    "execution_timestamp": "2025-08-29T12:00:00Z",
+    "episode_context": {
+      "episode_number": 2,
+      "topic": "Quantum Computing Breakthroughs",
+      "target_duration_minutes": 15
+    }
+  },
+  "cost_tracking": {
+    "execution_cost": 0.15,
+    "budget_allocated": 0.25,
+    "budget_remaining": 0.10,
+    "query_count": 1
+  },
+  "execution_status": {
+    "status": "completed",
+    "completion_timestamp": "2025-08-29T12:15:00Z",
+    "quality_gate_status": "passed"
+  },
+  "priority_investigation_areas": [
+    {
+      "theme": "Error Correction Revolution",
+      "priority_level": "high",
+      "experts_to_focus": [
+        "Google Quantum AI Team",
+        "Dr. Michael Biercuk (University of Sydney)"
+      ],
+      "technical_complexity": "medium",
+      "uncertainty_areas": [
+        "Scalability vs error rates trade-off",
+        "GKP code practical implementation timeline"
+      ]
+    },
+    {
+      "theme": "Quantum Memory Breakthroughs",
+      "priority_level": "high",
+      "experts_to_focus": [
+        "Prof. Michael Mirhosseini (Caltech)"
+      ],
+      "technical_complexity": "high",
+      "uncertainty_areas": [
+        "Production-grade speed limitations",
+        "Integration challenges with existing systems"
+      ]
+    },
+    {
+      "theme": "Multi-Chip Quantum Systems",
+      "priority_level": "medium",
+      "experts_to_focus": [
+        "Dr. Mayur Ramgir (Riggedi Computing)",
+        "INQ team"
+      ],
+      "technical_complexity": "high",
+      "uncertainty_areas": [
+        "Synchronization challenges at scale",
+        "Energy demands and infrastructure requirements"
+      ]
+    },
+    {
+      "theme": "Real-World Applications",
+      "priority_level": "medium",
+      "experts_to_focus": [
+        "Pasqal team (Georges Olivier Reymond)"
+      ],
+      "technical_complexity": "low-medium",
+      "uncertainty_areas": [
+        "Timeline for widespread commercial adoption",
+        "ROI validation for early adopters"
+      ]
+    }
+  ],
+  "expert_source_mapping": {
+    "leading_authorities": [
+      {
+        "name": "Google Quantum AI Team",
+        "expertise": "Willow chip, multi-processor interconnects",
+        "recent_work": "2024-2025 breakthrough demonstrations"
+      },
+      {
+        "name": "Prof. Michael Mirhosseini",
+        "institution": "Caltech",
+        "expertise": "Sound-powered quantum memory",
+        "recent_work": "30-fold coherence time improvement"
+      },
+      {
+        "name": "Dr. Michael Biercuk",
+        "institution": "University of Sydney Quantum Control Laboratory",
+        "expertise": "Single-atom logic gates, GKP error correction",
+        "recent_work": "Universal quantum logic gate development"
+      },
+      {
+        "name": "Dr. Mayur Ramgir",
+        "institution": "Riggedi Computing",
+        "expertise": "Multi-chip quantum computers",
+        "recent_work": "Record-low error rate multi-chip systems"
+      }
+    ]
+  },
+  "content_depth_requirements": {
+    "technical_explanation_level": "accessible to general audience",
+    "expert_quote_targets": 15,
+    "case_study_targets": 3,
+    "uncertainty_exploration": "high priority - intellectual humility focus"
+  },
+  "budget_allocation_guidance": {
+    "deep_research_budget": 1.00,
+    "query_distribution": {
+      "error_correction_deep_dive": 0.30,
+      "quantum_memory_technical": 0.30,
+      "applications_and_limitations": 0.25,
+      "expert_perspectives_uncertainty": 0.15
+    }
+  }
+}

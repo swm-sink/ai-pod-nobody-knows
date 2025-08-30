@@ -99,6 +99,22 @@ repos:
         stages: [commit]
         always_run: true
 
+      - id: file-lifecycle-enforcement
+        name: File lifecycle management enforcement
+        entry: .claude/hooks/file-lifecycle-enforcement.sh
+        language: system
+        pass_filenames: false
+        stages: [commit]
+        always_run: true
+
+      - id: documentation-governance
+        name: Documentation quality and governance
+        entry: .claude/governance/documentation-governance-hook.sh
+        language: system
+        files: \.md$
+        pass_filenames: true
+        stages: [commit]
+
       # - id: level-1-dev-quality
         # name: Level-1-Dev quality checks
         # entry: .claude/level-1-dev/quality/hooks/pre-commit-quality.sh

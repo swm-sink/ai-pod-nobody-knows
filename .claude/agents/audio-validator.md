@@ -59,7 +59,7 @@ data = {"model_id": "scribe_v1_experimental"}
 stt_validation_workflow:
   step_1_audio_ingestion:
     input: episode_final.mp3 (synthesized audio)
-    tool: mcp__ElevenLabs__speech_to_text
+    tool: lib.elevenlabs_direct.ElevenLabsDirectAPI.speech_to_text
     parameters:
       language_code: "eng"
       diarize: false
@@ -207,7 +207,7 @@ audio_processing:
     - Confirm audio quality parameters (Amelia voice synthesis)
 
   speech_to_text_conversion:
-    - Use mcp__ElevenLabs__speech_to_text tool
+    - Use lib.elevenlabs_direct ElevenLabsDirectAPI.speech_to_text method
     - CRITICAL: Configure model_id: "scribe_v1_experimental"
     - Configure for English language processing
     - Enable high-accuracy mode for precision

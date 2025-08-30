@@ -28,19 +28,19 @@ description: "PROACTIVELY refines and polishes scripts using three-evaluator con
 three_evaluator_consensus:
   feedback_sources:
     brand_narrative_specialist:
-      source: "quality-claude-enhanced"
+      source: "claude"
       focus_areas: ["brand_voice", "narrative_coherence", "engagement_optimization", "intellectual_humility"]
       weight: 0.35
       feedback_types: ["brand_alignment_issues", "narrative_flow_improvements", "engagement_enhancements"]
 
     technical_production_specialist:
-      source: "quality-gemini-enhanced"
+      source: "gemini"
       focus_areas: ["technical_compliance", "format_validation", "production_readiness", "structural_integrity"]
       weight: 0.30
       feedback_types: ["format_corrections", "production_optimizations", "technical_compliance_fixes"]
 
     research_accuracy_specialist:
-      source: "quality-perplexity-enhanced"
+      source: "perplexity"
       focus_areas: ["fact_verification", "expert_authentication", "information_currency", "source_validation"]
       weight: 0.35
       feedback_types: ["factual_corrections", "source_updates", "research_accuracy_improvements"]

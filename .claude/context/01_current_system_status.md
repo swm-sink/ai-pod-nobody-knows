@@ -87,7 +87,7 @@ cd /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows
 ### Environment Requirements
 1. **Startup Method**: MUST use `./start-claude.sh` (not direct `claude code`)
 2. **API Key Loading**: Environment variables must be loaded before startup
-3. **MCP Validation**: First action should be `mcp__elevenlabs__check_subscription`
+3. **MCP Validation**: First action should be `Direct_API_elevenlabs_check_subscription`
 4. **Expected Result**: Should return subscription data, not 401 error
 
 ### Production Test Plan

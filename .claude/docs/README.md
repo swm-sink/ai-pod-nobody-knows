@@ -27,12 +27,12 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 - **Emergency Navigation**: `@08_troubleshooting_guide.md → @09_quick_reference.md`
 
 ### 🔑 Constants Files (Start Here!)
-- **[00_global_constants.xml](./00_global_constants.xml)** ⭐ - Project-wide specifications (125 episodes, $4-5 target cost)
-- **[context/elevenlabs/00_elevenlabs_constants.xml](./context/elevenlabs/00_elevenlabs_constants.xml)** - Voice synthesis specs
-- **[context/claude-code/00_claude_code_constants.xml](./context/claude-code/00_claude_code_constants.xml)** - Development platform specs
-- **[context/foundation/00_project_constants.xml](./context/foundation/00_project_constants.xml)** - Learning structure specs
-- **[context/quality/00_quality_constants.xml](./context/quality/00_quality_constants.xml)** - Quality standards
-- **[context/operations/00_operations_constants.xml](./context/operations/00_operations_constants.xml)** - System management
+- **[00_global_constants.md](./00_global_constants.md)** ⭐ - Project-wide specifications (125 episodes, $4-5 target cost)
+- **[context/elevenlabs/00_elevenlabs_constants.md](./context/elevenlabs/00_elevenlabs_constants.md)** - Voice synthesis specs
+- **[context/claude-code/00_claude_code_constants.md](./context/claude-code/00_claude_code_constants.md)** - Development platform specs
+- **[context/foundation/00_project_constants.md](./context/foundation/00_project_constants.md)** - Learning structure specs
+- **[context/quality/00_quality_constants.md](./context/quality/00_quality_constants.md)** - Quality standards
+- **[context/operations/00_operations_constants.md](./context/operations/00_operations_constants.md)** - System management
 
 ---
 
@@ -40,16 +40,16 @@ This project follows strict DRY (Don't Repeat Yourself) principles. **All consta
 
 ### 🏗️ Foundation (Start Your Journey)
 **[context/foundation/NAVIGATION.md](./context/foundation/NAVIGATION.md)**
-1. [Project Overview](./context/foundation/01_project_overview.xml) - What this project is about
-2. [Walk-Crawl-Run Phases](./context/foundation/02_walk_crawl_run_phases.xml) - Learning progression
-3. [Hobbyist Focus](./context/foundation/03_hobbyist_focus.xml) - Why this works for individuals
-4. [No API Keys Activities](./context/foundation/04_no_api_keys_activities.xml) - Learn for FREE first!
-5. [Learning Milestones](./context/foundation/05_learning_milestones.xml) - Track your progress
+1. [Project Overview](./context/foundation/01_project_overview.md) - What this project is about
+2. [Walk-Crawl-Run Phases](./context/foundation/02_walk_crawl_run_phases.md) - Learning progression
+3. [Hobbyist Focus](./context/foundation/03_hobbyist_focus.md) - Why this works for individuals
+4. [No API Keys Activities](./context/foundation/04_no_api_keys_activities.md) - Learn for FREE first!
+5. [Learning Milestones](./context/foundation/05_learning_milestones.md) - Track your progress
 
 ### 🤖 AI Orchestration (Core Learning)
 2 comprehensive guides on coordinating multiple AI agents:
-5. [Agent Orchestration Basics](./context/ai-orchestration/agent-orchestration-basics.xml)
-6. [Cost Optimization Strategies](./context/ai-orchestration/cost-optimization-strategies.xml)
+5. [Agent Orchestration Basics](./context/ai-orchestration/agent-orchestration-basics.md)
+6. [Cost Optimization Strategies](./context/ai-orchestration/cost-optimization-strategies.md)
 
 ### 🎙️ ElevenLabs Voice Synthesis (Production System)
 **[context/elevenlabs/README.md](./context/elevenlabs/README.md)** ✅ Already DRY-compliant
@@ -75,15 +75,15 @@ Complete voice synthesis implementation (10 guides) - All reference constants fi
 ## 🎓 Learning Paths
 
 ### Path 1: Quick Start (2-3 hours)
-1. Read [Global Constants](./00_global_constants.xml) - Understand the project scope
-2. Read [Project Overview](./context/foundation/01_project_overview.xml) - Get the big picture
-3. Follow [No API Keys Activities](./context/foundation/04_no_api_keys_activities.xml) - Start for FREE
+1. Read [Global Constants](./00_global_constants.md) - Understand the project scope
+2. Read [Project Overview](./context/foundation/01_project_overview.md) - Get the big picture
+3. Follow [No API Keys Activities](./context/foundation/04_no_api_keys_activities.md) - Start for FREE
 
 ### Path 2: AI Orchestration Focus (8-12 hours)
 1. Complete Quick Start path
-2. Read [Agent Orchestration Basics](./context/ai-orchestration/agent-orchestration-basics.xml)
-3. Read [Cost Optimization](./context/ai-orchestration/cost-optimization-strategies.xml)
-4. Study [ElevenLabs Overview](./context/elevenlabs/15_elevenlabs_overview.xml)
+2. Read [Agent Orchestration Basics](./context/ai-orchestration/agent-orchestration-basics.md)
+3. Read [Cost Optimization](./context/ai-orchestration/cost-optimization-strategies.md)
+4. Study [ElevenLabs Overview](./context/elevenlabs/15_elevenlabs_overview.md)
 
 ### Path 3: Production Ready (20+ hours)
 1. Complete AI Orchestration path
@@ -144,8 +144,8 @@ ai-podcasts-nobody-knows/
 
 ### Most Important Files
 1. **[CLAUDE.md](./CLAUDE.md)** - Start here! Project setup and rules
-2. **[00_global_constants.xml](./00_global_constants.xml)** - All project specifications
-3. **[Project Overview](./context/foundation/01_project_overview.xml)** - What you're building
+2. **[00_global_constants.md](./00_global_constants.md)** - All project specifications
+3. **[Project Overview](./context/foundation/01_project_overview.md)** - What you're building
 
 ### Find Information Quickly
 - **Project specs**: Global Constants → `PROJECT` section
@@ -164,7 +164,7 @@ ai-podcasts-nobody-knows/
 
 ## 🎯 Project Goals Summary
 
-Reference values from [Global Constants](./00_global_constants.xml):
+Reference values from [Global Constants](./00_global_constants.md):
 
 - **Project**: `PROJECT['name']` - `PROJECT['description']`
 - **Episodes**: `EPISODE_SPECS['total_episodes']` episodes, `EPISODE_SPECS['duration_minutes']` minutes each
@@ -215,7 +215,7 @@ The DRY principle ensures consistency and maintainability while preserving educa
 ## 🔄 Maintenance & Updates
 
 ### When ElevenLabs Updates Their API:
-1. Update **only** `context/elevenlabs/00_elevenlabs_constants.xml`
+1. Update **only** `context/elevenlabs/00_elevenlabs_constants.md`
 2. All 10+ ElevenLabs guides automatically use new values
 3. Test and validate changes
 4. Done! ✅

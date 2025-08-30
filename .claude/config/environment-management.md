@@ -102,5 +102,5 @@ Security Validation
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: environment-management.xml*
+*Original: environment-management.md*
 *Conversion: Mon Aug 18 00:01:17 EDT 2025*

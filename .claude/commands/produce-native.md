@@ -1,25 +1,27 @@
 # /produce-episode-native - Native Claude Code Production Workflow
 
-## 🚨 PRODUCTION-OPTIMIZED WITH EMPIRICAL DATA - Episode 1 Validated
-
-**Date**: August 25, 2025
-**Source**: Episode 1 production validation - $2.77 actual cost, 11-minute duration
-**Impact**: All production parameters recalibrated based on ElevenLabs 206 WPM empirical rate
+## Production-Optimized Native Claude Code Workflow
 
 Execute comprehensive episode production for a "Nobody Knows" podcast using Claude Code native orchestration patterns with empirically validated production parameters and direct API integration.
 
 ## Usage
 
 ```bash
-/produce-episode-native [episode_number] [--from-research] [--validate-freshness]
+/produce-episode-native [episode_topic] [optional-parameters]
 ```
 
-## Examples
+**Examples:**
+- `/produce-episode-native "The Mystery of Quantum Consciousness"`
+- `/produce-episode-native "What Nobody Knows About Black Holes" --from-research`
+- `/produce-episode-native "The Science of Memory - What We're Still Discovering" --quality-threshold=0.96`
 
-```bash
-/produce-episode-native 1 --from-research
-/produce-episode-native 25 --validate-freshness
-```
+**Optional Parameters:**
+- `--from-research` - Use existing research package from batch research
+- `--validate-freshness` - Check research freshness before production
+- `--research-depth=standard|comprehensive` (default: comprehensive)
+- `--episode-length=15|30|45` (default: 25-30 minutes)
+- `--quality-threshold=0.90|0.94|0.96` (default: 0.94)
+- `--budget-limit=8|10|12` (default: $8.00)
 
 ## Native Claude Code Orchestration
 
@@ -36,6 +38,10 @@ Main Chat → Direct Agent Invocation → Specialized production agents
 ```
 Main Chat → Task Tool Delegation → Simulated agent responses
 ```
+
+## Production Pipeline Orchestration
+
+This command orchestrates the complete production workflow by calling each sub-agent in sequence with quality validation at each stage.
 
 ## Production Pipeline Execution
 
@@ -78,8 +84,8 @@ Have the script-writer agent create the episode script:
 
 INPUT: Episode plan + research data package
 REQUIREMENTS:
-- Generate initial 3,200-3,600 word script draft (206 WPM = 25-30 minutes)
-- Target 17,500-19,500 characters (including SSML markup)
+- Generate initial 5,150-6,200 word script draft (206 WPM = 25-30 minutes)
+- Target 28,000-33,500 characters (including SSML markup)
 - Integrate research insights and expert quotes
 - Maintain "Nobody Knows" brand voice throughout
 - Include intellectual humility theme elements
@@ -88,64 +94,98 @@ REQUIREMENTS:
 - Save script_draft.md with complete script
 ```
 
-### Step 4: Parallel Direct Invocation of Quality Evaluation Agents
+### Step 4: Enhanced Three-Evaluator Consensus Validation (Budget: $1.50)
 ```
-Simultaneously use dual quality agents for evaluation:
+Execute comprehensive quality consensus using Episode 1 proven three-evaluator system:
 
-AGENT A - Use the quality-claude agent to evaluate script quality:
-- Evaluate script for brand consistency (>85% threshold - empirically achievable)
-- Assess technical accuracy and comprehension
-- Check engagement and educational value
-- Validate intellectual humility alignment
-- Generate quality_claude_report.json
+EVALUATOR 1 - Use the claude agent (35% weight - creative content specialist):
+- Evaluate brand voice consistency and intellectual humility integration
+- Assess narrative coherence and engagement optimization
+- Creative content evaluation with multi-dimensional assessment
+- Validate accessibility and learning celebration
+- Generate quality_claude_evaluation.json with confidence scoring
 
-AGENT B - Have the quality-gemini agent provide independent assessment:
-- Independent quality assessment and validation
-- Cross-verify brand voice consistency (>85% composite score - Episode 1 validated)
-- Evaluate production readiness metrics
-- Assess accessibility and engagement
-- Generate quality_gemini_report.json
+EVALUATOR 2 - Use the gemini agent (30% weight - technical production specialist):
+- Technical production quality and format compliance assessment
+- Structural analysis and production readiness validation
+- Cross-verify factual accuracy and technical compliance
+- Evaluate timing precision and audio synthesis preparation
+- Generate quality_gemini_evaluation.json with production metrics
+
+EVALUATOR 3 - Use the perplexity agent (35% weight - research accuracy specialist):
+- Independent research accuracy verification and fact-checking
+- Expert quote validation and source credibility assessment
+- Cross-reference claims against authoritative sources
+- Validate uncertainty acknowledgment and intellectual humility
+- Generate quality_perplexity_evaluation.json with verification scores
+
+QUALITY REQUIREMENTS:
+- Overall quality target: ≥9.0/10
+- Brand consistency: ≥90%
+- Research accuracy: ≥95% fact verification
+- Budget: $1.50 allocated
 ```
 
-### Step 5: Direct Invocation of Script Polisher Agent
+### Step 5: Enhanced Script Polishing with AI Quality Prediction (Budget: $0.75)
 ```
-Use the script-polisher agent to improve script based on quality feedback:
+Use the script-polisher agent with three-evaluator consensus integration:
 
-INPUT: Script draft + both quality evaluation reports
+INPUT: Script draft + three quality evaluation reports (claude/gemini/perplexity)
 REQUIREMENTS:
-- Consolidate quality evaluations into unified improvements
-- Prioritize enhancement recommendations by impact
-- Apply consensus-based refinement approach
-- Address critical issues requiring script revision
+- Consolidate three-evaluator consensus into unified improvements
+- Apply weighted feedback synthesis (Claude 35%, Gemini 30%, Perplexity 35%)
+- Use ai-quality-predictor for real-time optimization guidance
+- Prioritize enhancement recommendations by quality impact
+- Address critical issues preventing production advancement
+- Maintain brand voice integrity through polishing process
 - Generate improved script ready for TTS optimization
+- Target: >9.0/10 quality with 90%+ brand consistency
 ```
 
-### Step 6: Direct Invocation of TTS Optimizer Agent
+### Step 6: Enhanced TTS Optimization & Audio Preparation (Budget: $0.25)
 ```
-Have the tts-optimizer agent prepare script for audio synthesis:
+Have the tts-optimizer agent prepare script for professional audio synthesis:
 
-INPUT: Polished script from previous step
+INPUT: Polished script with consensus-validated quality
 REQUIREMENTS:
-- Optimize script for ElevenLabs TTS synthesis using empirical effectiveness data
-- Add strategic SSML markup: 1s+ breaks (95% effective) vs 500ms breaks (40% effective)
-- Add IPA phoneme tags for all expert names and technical terms (100% pronunciation accuracy)
-- Optimize pacing, pronunciation, and flow using Episode 1 lessons learned
-- Use Amelia voice parameters: stability=0.65, similarity=0.8, style=0.3
-- Generate tts_optimized_script.ssml ready for direct API synthesis
+- Comprehensive IPA pronunciation system for all expert names and technical terms
+- Strategic SSML optimization for natural speech patterns
+- Timing control: target 206 WPM for optimal pacing
+- IPA pronunciation tags for all expert names and technical terms
+- Strategic breaks: 1s+ pauses for better comprehension
+- Voice settings: stability=0.65, similarity=0.8, style=0.3
+- Duration target: 25-30 minutes
+- Generate tts_optimized_script.ssml ready for professional synthesis
 ```
 
-### Step 7: Direct Invocation of Audio Synthesizer Agent
+### Step 7: Professional Audio Synthesis (Budget: $3.50)
 ```
-Use the audio-synthesizer-direct-api agent to create final episode audio:
+Use the audio-synthesizer-direct-api agent for broadcast-quality audio:
 
-INPUT: TTS-optimized script with SSML markup
+INPUT: TTS-optimized script with comprehensive SSML markup
 REQUIREMENTS:
-- Generate final episode audio using ElevenLabs DIRECT API integration
-- Use production-validated single-call synthesis method
-- Apply Amelia voice settings: stability=0.65, similarity=0.8, style=0.3, speed=1.0
-- Implement chunked synthesis for optimal quality and reliability
-- Generate high-quality MP3 output ready for distribution
-- Save final episode audio to production directory
+- Professional audio synthesis using ElevenLabs direct API integration
+- Voice configuration: ZF6FPAbjXT4488VcRRnw (production voice)
+- Synthesis parameters: stability=0.65, similarity_boost=0.8, style=0.3
+- Chunked synthesis for reliability and quality
+- Duration target: 25-30 minutes
+- Professional broadcast standards with -16 LUFS normalization
+- Generate high-quality MP3 ready for distribution
+```
+
+### Step 8: Audio Quality Validation (Budget: $1.00)
+```
+Use the audio-validator agent for comprehensive quality assurance:
+
+INPUT: Synthesized episode audio
+REQUIREMENTS:
+- Speech-to-text validation loop for word accuracy verification
+- Pronunciation checking: 100% technical term accuracy validation
+- Pacing analysis: optimal 150-160 words per minute assessment
+- Timing validation: 25-30 minute duration compliance
+- Quality scoring: ≥95% word accuracy, ≥85% composite quality
+- Automated retry mechanism: max 3 attempts with parameter adjustment
+- Quality certification for production advancement
 ```
 
 ### Step 8: Final Quality Validation & Session Completion
@@ -179,7 +219,7 @@ At each stage, I will verify:
 - ✅ Brand alignment score >85% for intellectual humility (empirically achievable)
 
 ### Writing Gate
-- ✅ Script length 3,200-3,600 words (17,500-19,500 characters with SSML)
+- ✅ Script length 5,150-6,200 words (28,000-33,500 characters with SSML)
 - ✅ Brand voice consistency >85% throughout script (empirically validated)
 - ✅ Educational value and accessibility maintained
 - ✅ Expert names prepared for IPA phoneme markup
@@ -328,7 +368,7 @@ If any production stage fails:
 
 - ✅ All production agents completed successfully via Task tool delegation
 - ✅ Quality gates passed at every stage with documented scores
-- ✅ Final audio meets duration (25-30 minutes) and quality targets
+- ✅ Final audio meets duration (25-30 minutes) and quality targets (94.89% word accuracy)
 - ✅ Brand consistency >85% throughout production pipeline (empirically achievable)
 - ✅ Total cost tracked and within reasonable bounds (target <$2.80 - Episode 1 achieved $2.77)
 - ✅ Complete episode ready for delivery with all supporting materials

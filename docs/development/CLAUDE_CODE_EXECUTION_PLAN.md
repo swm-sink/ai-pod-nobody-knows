@@ -180,7 +180,7 @@ This plan provides precise, actionable instructions for Claude Code Sonnet 4 to 
    - "27 minutes" → `EPISODE_SPECS['duration_minutes']`
    - "$4-5" → `COST_TARGETS['target_cost']`
 
-2. Update constants in `.claude/00_global_constants.xml`
+2. Update constants in `.claude/00_global_constants.md`
 3. Run validation to confirm compliance
 
 ## Documentation Updates

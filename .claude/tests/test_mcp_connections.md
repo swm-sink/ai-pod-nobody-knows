@@ -9,7 +9,7 @@ Verify that all MCP servers (ElevenLabs, Perplexity, GitHub) are properly connec
 **Expected**: ElevenLabs API calls succeed without authentication errors
 **Test Method**: Direct MCP tool invocation
 ```
-WHEN: mcp__elevenlabs__check_subscription is called
+WHEN: Direct_API_elevenlabs_check_subscription is called
 THEN: Should return subscription data without 401 error
 AND: Should show valid API key status
 ```

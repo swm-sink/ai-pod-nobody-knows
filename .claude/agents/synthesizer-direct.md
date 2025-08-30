@@ -16,71 +16,43 @@ description: "PROACTIVELY synthesizes high-quality podcast audio using direct El
 
 ### Direct API Integration Architecture
 ```python
-# Production-Ready ElevenLabs Integration
-import requests
+# Production-Ready ElevenLabs Integration using lib.elevenlabs_direct
+from lib.elevenlabs_direct import ElevenLabsDirectAPI
 import json
 import time
 import os
 from pathlib import Path
 import logging
 
-class ElevenLabsDirectAPI:
-    def __init__(self, api_key: str, voice_id: str = "pNInz6obpgDQGcFmaJgB"):
-        self.api_key = api_key
-        self.voice_id = voice_id  # Amelia - young and enthusiastic
-        self.base_url = "https://api.elevenlabs.io/v1"
-        self.headers = {
-            "xi-api-key": self.api_key,
-            "Content-Type": "application/json"
+# Initialize with environment variables (ELEVENLABS_API_KEY, PRODUCTION_VOICE_ID)
+api = ElevenLabsDirectAPI()
+
+# Production voice ID: ZF6FPAbjXT4488VcRRnw (Amelia - validated for Episode 1)
+
+def synthesize_episode_audio(script_content: str, output_path: str):
+    """
+    Synthesize episode using lib.elevenlabs_direct with production parameters
+    """
+    result = api.text_to_speech(
+        text=script_content,
+        voice_id=api.PRODUCTION_VOICE_ID,  # ZF6FPAbjXT4488VcRRnw
+        output_path=output_path,
+        model_id="eleven_turbo_v2_5",
+        stability=0.65,
+        similarity_boost=0.8,
+        style=0.3,
+        use_speaker_boost=True
+    )
+
+    if result['success']:
+        return {
+            "success": True,
+            "file_path": result['output_path'],
+            "size": result['audio_size_bytes'],
+            "cost": len(script_content) * 0.18 / 1000  # Empirical cost calculation
         }
-
-    def synthesize_text_to_speech(self, text: str, output_path: str,
-                                model_id: str = "eleven_turbo_v2_5",
-                                stability: float = 0.65,
-                                similarity_boost: float = 0.8,
-                                style: float = 0.3,
-                                use_speaker_boost: bool = True):
-        """
-        Synthesize text to speech using ElevenLabs API with production parameters
-        """
-        payload = {
-            "text": text,
-            "model_id": model_id,
-            "voice_settings": {
-                "stability": stability,
-                "similarity_boost": similarity_boost,
-                "style": style,
-                "use_speaker_boost": use_speaker_boost
-            }
-        }
-
-        try:
-            response = requests.post(
-                f"{self.base_url}/text-to-speech/{self.voice_id}",
-                headers=self.headers,
-                json=payload,
-                timeout=300
-            )
-
-            if response.status_code == 200:
-                with open(output_path, 'wb') as f:
-                    f.write(response.content)
-                return {"success": True, "file_path": output_path, "size": len(response.content)}
-
-            elif response.status_code == 401:
-                return {"success": False, "error": "Authentication failed - check API key"}
-
-            elif response.status_code == 429:
-                return {"success": False, "error": "Rate limit exceeded - implement backoff"}
-
-            elif response.status_code == 422:
-                return {"success": False, "error": "Invalid input - check SSML formatting"}
-
-            else:
-                return {"success": False, "error": f"API error: {response.status_code} - {response.text}"}
-
-        except requests.exceptions.RequestException as e:
-            return {"success": False, "error": f"Network error: {str(e)}"}
+    else:
+        return {"success": False, "error": result['message']}
 
     def chunk_large_text(self, text: str, max_chunk_size: int = 800) -> list:
         """

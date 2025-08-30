@@ -160,7 +160,7 @@ Implementation Plan:
 
 Technical Approach:
 - Add personalization-optimizer agent
-- Extend brand-voice-validator for audience alignment
+- Extend brand-validator for audience alignment
 - Create adaptive episode-planner configurations
 - Implement A/B testing framework for optimizations
 ```
@@ -212,7 +212,7 @@ Implementation Plan:
 
 Technical Approach:
 - Extend research agents with language parameters
-- Add localization support to brand-voice-validator
+- Add localization support to brand-validator
 - Create international expansion planning templates
 - Implement multi-market analytics tracking
 ```
@@ -263,7 +263,7 @@ Implementation Plan:
 4. Add accessibility compliance checking (audio descriptions)
 
 Technical Approach:
-- Enhance audio-quality-validator with advanced metrics
+- Enhance audio-validator with advanced metrics
 - Add pronunciation validation to TTS optimization
 - Create audio-accessibility-checker micro-agent
 - Implement cross-episode audio consistency monitoring

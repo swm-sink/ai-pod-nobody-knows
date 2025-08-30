@@ -1,0 +1,59 @@
+{
+  "battle_testing_session": {
+    "session_id": "battle_testing_20250829",
+    "test_mode": true,
+    "base_directory": "test_runs/battle_testing_20250829",
+    "isolation_enabled": true,
+    "production_protection": true,
+    "monitoring": {
+      "cost_tracking": true,
+      "performance_metrics": true,
+      "quality_validation": true,
+      "error_logging": true
+    },
+    "agents": {
+      "all_agents_test_mode": true,
+      "output_directory_override": "test_runs/battle_testing_20250829",
+      "production_voice_override": false
+    },
+    "quality_thresholds": {
+      "research_quality": 7.0,
+      "brand_consistency": 7.0,
+      "audio_quality": 7.0,
+      "cost_limit_per_episode": 10.0,
+      "overall_success_rate": 0.95
+    },
+    "episode_topics": [
+      {
+        "id": "episode_001",
+        "title": "AI Regulation Global Developments 2025",
+        "complexity": "high",
+        "focus": "complex_research_validation"
+      },
+      {
+        "id": "episode_002",
+        "title": "Quantum Computing Breakthroughs",
+        "complexity": "high",
+        "focus": "technical_depth_assessment"
+      },
+      {
+        "id": "episode_003",
+        "title": "Stoicism Modern Applications",
+        "complexity": "medium",
+        "focus": "philosophy_practical_blend"
+      },
+      {
+        "id": "episode_004",
+        "title": "CRISPR Gene Editing Ethics",
+        "complexity": "high",
+        "focus": "multi_perspective_analysis"
+      },
+      {
+        "id": "episode_005",
+        "title": "Fall of Rome Historical Parallels",
+        "complexity": "medium",
+        "focus": "historical_research_depth"
+      }
+    ]
+  }
+}

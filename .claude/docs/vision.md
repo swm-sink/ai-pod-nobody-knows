@@ -65,5 +65,5 @@ Leave listeners feeling curious and empowered
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: vision.xml*
+*Original: vision.md*
 *Conversion: Mon Aug 18 00:01:18 EDT 2025*

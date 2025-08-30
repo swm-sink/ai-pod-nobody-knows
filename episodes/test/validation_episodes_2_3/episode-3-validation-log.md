@@ -28,8 +28,8 @@
 **Production Stream for Abstract Content:**
 - episode-planner-enhanced: ✅ Structure complex theoretical discussions
 - script-writer: ✅ Translate abstract concepts to accessible language
-- quality-claude-enhanced: ✅ Philosophical accuracy assessment
-- quality-gemini-enhanced: ✅ Theoretical framework validation
+- claude: ✅ Philosophical accuracy assessment
+- gemini: ✅ Theoretical framework validation
 - TTS optimization: ✅ Handle philosophical and scientific terminology
 
 #### Budget Projection for Abstract Domain

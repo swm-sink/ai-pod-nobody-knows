@@ -106,7 +106,7 @@ For production deployment:
 3. Use batch processing for efficiency
 4. Monitor with `/production-metrics` command
 
-See `.claude/context/operations/03_production_checklist.xml` for detailed production setup.
+See `.claude/context/operations/03_production_checklist.md` for detailed production setup.
 
 ## ⚙️ Configuration
 
@@ -224,7 +224,7 @@ Configure Claude Code settings in `.claude/settings.local.json`:
 
 - [ ] API keys configured and tested
 - [ ] Cost limits set appropriately
-- [ ] Monitoring configured (see `.claude/context/operations/02_quick_reference.xml`)
+- [ ] Monitoring configured (see `.claude/context/operations/02_quick_reference.md`)
 - [ ] Backup strategy in place
 - [ ] Error recovery tested
 - [ ] Session storage configured
@@ -340,10 +340,10 @@ bash scripts/precommit/validate_navigation.sh
 ## 📖 Learning Resources
 
 ### Documentation Structure
-- **Quick Start**: `.claude/context/foundation/01_project_overview.xml`
-- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.xml`
-- **Free Activities**: `.claude/context/foundation/04_no_api_keys_activities.xml`
-- **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.xml`
+- **Quick Start**: `.claude/context/foundation/01_project_overview.md`
+- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.md`
+- **Free Activities**: `.claude/context/foundation/04_no_api_keys_activities.md`
+- **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.md`
 
 ### Educational Progression
 1. **WALK Phase** (Weeks 1-4): Learn concepts without spending
@@ -359,7 +359,7 @@ bash scripts/precommit/validate_navigation.sh
 
 ### Getting Help
 
-1. **Documentation First**: Check `.claude/context/operations/01_troubleshooting_guide.xml`
+1. **Documentation First**: Check `.claude/context/operations/01_troubleshooting_guide.md`
 2. **GitHub Issues**: [Create an issue](https://github.com/swm-sink/ai-podcasts-nobody-knows/issues)
 3. **GitHub Discussions**: Share experiences and tips
 4. **Context Files**: Extensive documentation in `.claude/context/`

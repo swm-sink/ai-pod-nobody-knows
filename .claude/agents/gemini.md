@@ -562,7 +562,7 @@ automated_assessment:
 {
   "schema_version": "1.0.0",
   "agent_metadata": {
-    "agent_id": "quality-gemini-enhanced",
+    "agent_id": "gemini",
     "session_id": "ep_001_20250822_154500",
     "execution_timestamp": "2025-08-22T15:45:00Z",
     "evaluation_type": "technical_production_quality",

@@ -85,7 +85,7 @@ mcp_requirements:
   environment_loading:
     critical: "Environment variables must be loaded BEFORE Claude Code starts"
     method: "Use ./start-claude.sh or source .env before claude code"
-    validation: "mcp__elevenlabs__check_subscription should return data"
+    validation: "Direct_API_elevenlabs_check_subscription should return data"
 
   agent_configuration:
     inheritance: "Omit 'tools' field for full MCP access"

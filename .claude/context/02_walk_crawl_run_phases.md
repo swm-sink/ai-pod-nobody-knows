@@ -265,5 +265,5 @@ Phase specifications and constants
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: 02_walk_crawl_run_phases.xml*
+*Original: 02_walk_crawl_run_phases.md*
 *Conversion: Mon Aug 18 10:47:18 EDT 2025*

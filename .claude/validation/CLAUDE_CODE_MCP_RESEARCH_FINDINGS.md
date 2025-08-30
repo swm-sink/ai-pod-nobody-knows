@@ -70,7 +70,7 @@ model: claude-opus-4-1-20250805
       "command": "npx",
       "args": ["-y", "server-perplexity-ask"],
       "env": {
-        "PERPLEXITY_API_KEY": "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" // pragma: allowlist secret
+        "PERPLEXITY_API_KEY": "pplx-YOUR-API-KEY-HERE" // pragma: allowlist secret
       }
     }
   }

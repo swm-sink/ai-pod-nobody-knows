@@ -215,7 +215,7 @@ Implementation:
 - Interactive episode guides with embedded resources
 
 Technical Approach:
-- Enhance audio-quality-validator with transcription capabilities
+- Enhance audio-validator with transcription capabilities
 - Create content-formatter agent for multi-platform optimization
 - Add SEO optimization to content generation pipeline
 - Implement accessibility compliance for all content formats
@@ -261,7 +261,7 @@ Implementation:
 
 Technical Approach:
 - Add personalization-optimizer agent to production pipeline
-- Extend brand-voice-validator for audience alignment checking
+- Extend brand-validator for audience alignment checking
 - Create adaptive episode-planner configurations
 - Implement audience segmentation and targeting systems
 ```
@@ -324,7 +324,7 @@ Implementation:
 - Legal compliance and intellectual property protection automation
 
 Technical Approach:
-- Enhance existing brand-voice-validator with IP protection features
+- Enhance existing brand-validator with IP protection features
 - Create competitive analysis and positioning optimization systems
 - Add legal compliance checking to content generation pipeline
 - Implement comprehensive attribution and originality tracking

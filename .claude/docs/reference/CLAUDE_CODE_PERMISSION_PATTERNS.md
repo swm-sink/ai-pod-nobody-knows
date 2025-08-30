@@ -51,7 +51,7 @@
 ## 🔧 MCP Tool Integration
 ```json
 "mcp__perplexity-ask__perplexity_ask",
-"mcp__elevenlabs__text_to_speech"
+"Direct_API_elevenlabs_text_to_speech"
 ```
 
 ## 🏗️ Best Practices

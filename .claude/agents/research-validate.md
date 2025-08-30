@@ -9,6 +9,8 @@ description: "Stage 3: Comprehensive fact-checking, source verification, contrad
 
 **IMPORTANT**: This agent is the critical quality assurance stage of the memory-optimized research pipeline. It reads deep-research.json, conducts comprehensive fact-checking and source verification, and outputs validated-research.json with credibility scoring and uncertainty quantification.
 
+**Episode 1 Enhancement**: Implements expanded 8-10 Perplexity query strategy (vs 4-query baseline) with cross-verification protocols, expert diversification targeting 15+ sources, and real-time fact-checking integration for 9.4+/10 research quality achievement.
+
 **Proper Usage**:
 - Invoked directly from `/research-episode-optimized` command via "Use the research-validation agent to..."
 - Reads deep-research.json for comprehensive content validation
@@ -24,6 +26,74 @@ description: "Stage 3: Comprehensive fact-checking, source verification, contrad
 **Simple:** Like having a team of professional fact-checkers with forensic attention to detail who verify every claim, check every source, spot contradictions, and clearly mark what's certain vs uncertain.
 
 **Connection:** This teaches critical thinking, systematic verification methodologies, and information integrity assurance essential for reliable knowledge creation and combating misinformation.
+
+## Episode 1 Enhanced Research Strategy
+
+### Enhanced Perplexity Query Strategy (8-10 Strategic Queries)
+
+**Research Framework Enhancement (Episode 1 Battle Testing):**
+```yaml
+comprehensive_query_strategy:
+  foundational_queries:
+    query_1_context_establishment:
+      purpose: "Broad topic landscape and key stakeholder identification"
+      budget_allocation: "$0.15"
+      expected_output: "Topic complexity assessment, primary expert identification"
+
+    query_2_expert_perspective_mapping:
+      purpose: "Diverse expert viewpoints and credentialed source identification"
+      budget_allocation: "$0.15"
+      expected_output: "5-7 expert sources with institutional affiliations"
+
+  specialized_deep_dive_queries:
+    query_3_technical_deep_dive:
+      purpose: "Technical complexity and implementation detail exploration"
+      budget_allocation: "$0.20"
+      expected_output: "Technical mechanisms, process explanations"
+
+    query_4_stakeholder_analysis:
+      purpose: "Multi-perspective stakeholder impact analysis"
+      budget_allocation: "$0.20"
+      expected_output: "Diverse stakeholder perspectives, conflict areas"
+
+    query_5_historical_evolution:
+      purpose: "Historical context, trend analysis, evolutionary patterns"
+      budget_allocation: "$0.15"
+      expected_output: "Timeline development, trend identification"
+
+    query_6_uncertainty_exploration:
+      purpose: "Knowledge gaps, expert disagreements, unknown territories"
+      budget_allocation: "$0.15"
+      expected_output: "Uncertainty areas, expert humility moments"
+
+  validation_queries:
+    query_7_cross_verification:
+      purpose: "Fact-checking through independent source triangulation"
+      budget_allocation: "$0.10"
+      expected_output: "Claim verification, source consistency analysis"
+
+    query_8_future_implications:
+      purpose: "Predictive analysis and future scenario exploration"
+      budget_allocation: "$0.10"
+      expected_output: "Expert predictions, scenario analysis"
+
+  optional_enhancement_queries:
+    query_9_expert_controversy:
+      purpose: "Controversial aspects and expert debate documentation"
+      budget_allocation: "$0.15"
+      condition: "if_significant_disagreement_identified"
+
+    query_10_methodology_validation:
+      purpose: "Research methodology and study design verification"
+      budget_allocation: "$0.10"
+      condition: "if_research_studies_central_to_topic"
+```
+
+**Enhanced Research Quality Targets:**
+- **Research Quality**: 9.4+/10 (enhanced from Episode 1's 8.5/10)
+- **Expert Sources**: 15+ diverse expert quotes (enhanced from 12)
+- **Cross-verification**: 100% of major claims triangulated
+- **Cost Efficiency**: $1.35 research budget (optimized from $2.50)
 
 ## Ultra-Deep Validation Capabilities
 

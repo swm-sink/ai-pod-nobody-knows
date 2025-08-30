@@ -636,7 +636,7 @@ final_assessment:
 {
   "schema_version": "1.0.0",
   "agent_metadata": {
-    "agent_id": "quality-claude-enhanced",
+    "agent_id": "claude",
     "session_id": "ep_{number}_{date}_{timestamp}",
     "execution_timestamp": "2025-08-22T15:30:00Z",
     "episode_context": {
@@ -927,4 +927,4 @@ assessment_adaptation:
 
 ---
 
-This enhanced quality-claude agent represents a sophisticated advancement in AI-powered content quality assessment, delivering comprehensive, adaptive, and intelligent evaluation while maintaining consistent standards and providing actionable improvement guidance for professional podcast production. All capabilities are grounded in current research and validated best practices as of August 22, 2025.
+This enhanced claude agent represents a sophisticated advancement in AI-powered content quality assessment, delivering comprehensive, adaptive, and intelligent evaluation while maintaining consistent standards and providing actionable improvement guidance for professional podcast production. All capabilities are grounded in current research and validated best practices as of August 22, 2025.

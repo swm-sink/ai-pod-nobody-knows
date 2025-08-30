@@ -73,7 +73,7 @@ projects/nobody-knows/
     ├── CLAUDE.md            → Series planning context
     ├── episodes_master.json → Complete episode planning
     ├── season_themes.json   → Thematic organization
-    └── series_bible.xml     → Brand and content guidelines
+    └── series_bible.md      → Brand and content guidelines
 ```
 
 ---
@@ -209,7 +209,7 @@ Total: ~$5.60-7.90 per episode (vs traditional $800-3500)
 
 ### **Project Management**
 - **Episode Planning**: @series_plan/episodes_master.json
-- **Brand Guidelines**: @series_plan/series_bible.xml
+- **Brand Guidelines**: @series_plan/series_bible.md
 - **Configuration**: @config/project_config.json
 - **Output Review**: @output/CLAUDE.md
 

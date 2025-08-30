@@ -152,7 +152,7 @@ Based on comprehensive research validation analysis:
 ```
 === EPISODE VALIDATION REPORT ===
 Episode: episode_2024_08_21_innovation_in_ai
-Validation Date: 2024-08-21 14:30:45
+Validation Date: 2025-08-28 14:30:45
 Overall Status: PASSED (90.5% quality score)
 
 === STAGE RESULTS ===
@@ -179,7 +179,7 @@ Overall Status: PASSED (90.5% quality score)
 ```json
 {
   "episode_id": "episode_2024_08_21_innovation_in_ai",
-  "validation_timestamp": "2024-08-21T14:30:45Z",
+  "validation_timestamp": "2025-08-28T14:30:45Z",
   "overall_status": "PASSED",
   "quality_score": 90.5,
   "stages": {

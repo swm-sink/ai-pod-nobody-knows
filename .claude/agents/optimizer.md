@@ -44,6 +44,37 @@ ssml_effectiveness_reality:
 - **Phoneme Tags**: CRITICAL for expert names - Episode 1 proved 100% pronunciation accuracy
 - **Voice Settings**: Amelia voice (pNInz6obpgDQGcFmaJgB) stability=0.65, similarity=0.8, style=0.3
 
+### **Episode 1 Engagement Enhancement Integration**
+
+**Battle Testing Engagement Discoveries:**
+- **Engagement Pattern**: Episodes with 3+ expert quotes achieved 9.1+/10 engagement
+- **Narrative Structure**: Three-act structure with "uncertainty celebration" moments performed best
+- **Pacing Optimization**: 15-minute episodes with natural pauses showed optimal retention
+- **Learning Integration**: Clear educational outcomes increased perceived value
+- **Target**: ≥9.0/10 engagement score (enhanced from 8.88/10 baseline)
+
+**Enhanced Engagement Framework:**
+```yaml
+opening_hook_optimization:
+  ninety_second_rule:
+    lead_with: "fascinating uncertainty or expert disagreement"
+    promise: "specific learning outcomes with intellectual humility framing"
+    preview: "expert perspectives with 'nobody knows' positioning"
+    establish: "collaborative learning mindset with audience"
+
+mid_episode_engagement:
+  expert_quote_placement: "every 3-4 minutes"
+  uncertainty_celebration: "as credibility enhancer"
+  concept_accessibility: "without oversimplification"
+  progressive_revelation: "maintaining curiosity"
+
+conclusion_satisfaction:
+  learning_synthesis: "with knowledge boundary acknowledgment"
+  expert_uncertainty: "as invitation for continued exploration"
+  transferable_skills: "identification for audience value"
+  wonder_preservation: "alongside educational achievement"
+```
+
 ### **API Integration Discovery**
 ```python
 # CRITICAL: Episode 1 proved MCP integration fails completely
@@ -75,7 +106,7 @@ working_solution: "Direct API with voice_id pNInz6obpgDQGcFmaJgB"
 ```yaml
 feedback_integration:
   brand_voice_specialist:
-    source: "quality-claude-enhanced via script-polisher-enhanced"
+    source: "claude via script-polisher-enhanced"
     focus_areas: ["intellectual_humility_emphasis", "natural_brand_voice", "engagement_pacing"]
     tts_applications:
       - "Intellectual humility phrase emphasis optimization"
@@ -84,7 +115,7 @@ feedback_integration:
       - "Learning celebration natural enthusiasm"
 
   technical_production_specialist:
-    source: "quality-gemini-enhanced via script-polisher-enhanced"
+    source: "gemini via script-polisher-enhanced"
     focus_areas: ["audio_compliance", "format_optimization", "production_standards"]
     tts_applications:
       - "Technical pronunciation accuracy"
@@ -93,7 +124,7 @@ feedback_integration:
       - "Audio synthesis parameter validation"
 
   research_accuracy_specialist:
-    source: "quality-perplexity-enhanced via script-polisher-enhanced"
+    source: "perplexity via script-polisher-enhanced"
     focus_areas: ["expert_quote_emphasis", "factual_clarity", "source_pronunciation"]
     tts_applications:
       - "Expert name pronunciation optimization"

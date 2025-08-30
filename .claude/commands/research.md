@@ -1,14 +1,138 @@
-# /research - Deep Knowledge Research
+# /research - Enhanced Deep Knowledge Research
 
-Execute comprehensive knowledge research for: **$ARGUMENTS**
+Execute comprehensive research for a "Nobody Knows" podcast episode using Claude Code native orchestration patterns with multi-stage research pipeline and quality validation.
+
+## Usage
+
+```bash
+/research [episode_number] [topic] [--batch-mode]
+```
+
+## Examples
+
+```bash
+/research 1 "The Dirty Secret: Even the Experts Are Making It Up"
+/research 25 "Season Finale: What We've Learned About Not Knowing" --batch-mode
+```
 
 ## Purpose
-Conduct systematic, evidence-based research to fill knowledge gaps using multi-source validation and structured synthesis frameworks.
+Conduct systematic, evidence-based research using multi-query strategy with cross-verification, expert diversification, and intellectual humility integration.
+
+## Research Strategy Framework
+
+**Comprehensive Research Approach:**
+- **Foundation Building**: Topic landscape, stakeholder identification, expert discovery
+- **Deep Investigation**: Technical complexity, multiple perspectives, historical context
+- **Uncertainty Exploration**: Knowledge gaps, expert disagreements, areas of active debate
+- **Validation**: Cross-verification, fact-checking, source triangulation
+- **Future Context**: Expert predictions, scenario analysis, emerging developments
+
+**Quality Targets:**
+- **Research Quality**: ≥9.0/10 comprehensive coverage
+- **Expert Sources**: 10+ diverse expert quotes from multiple institutions
+- **Cross-verification**: Major claims verified through multiple sources
+- **Budget**: $1.35 research allocation
 
 ## When to Use
-- **REQUIRED for:** Knowledge gaps from exploration, technology evaluation, best practices investigation
-- **Forbidden without:** Minimum 5 high-quality sources, comparative analysis framework, source validation
-- **Quality gate:** Confidence ≥7/10, evidence-based recommendations, validated source synthesis
+- **REQUIRED for:** Episode research requiring comprehensive expert integration
+- **Requirements:** Multi-query strategy, cross-verification protocols, expert diversification
+- **Quality gate:** Research quality ≥9.0/10, brand consistency ≥90%, source authority ≥90%
+
+## Native Claude Code Orchestration
+
+This command demonstrates proper Claude Code architecture where **the main chat acts as orchestrator** and **directly invokes specialized research agents**, using native orchestration patterns for optimal agent execution and tool access.
+
+### Research Workflow Architecture
+
+**Native Pattern (This Command)**:
+```
+Main Chat → Direct Agent Invocation → Specialized research agents
+```
+
+**Anti-Pattern (Avoided)**:
+```
+Main Chat → Task Tool Delegation → Simulated agent responses
+```
+
+## Research Pipeline Execution
+
+I will coordinate the complete research pipeline using direct orchestrator invocation:
+
+### Step 1: Initialize Research Session
+```
+Create session directory: sessions/ep_{number}_{timestamp}/research/
+Set up tracking for three-agent research workflow
+Initialize cost tracking and quality gates
+```
+
+### Step 2: Direct Invocation of Research Discovery Agent
+```
+Use the research-discovery agent to establish research foundation:
+
+REQUIREMENTS:
+- Strategic research questions with adaptive complexity scaling
+- Topic mapping with stakeholder identification and authority assessment
+- Expert discovery targeting diverse institutional sources
+- Source identification with credibility scoring and verification protocols
+- Cross-episode awareness and thematic connections
+- Brand alignment with intellectual humility philosophy
+```
+
+### Step 3: Direct Invocation of Research Deep Dive Agent
+```
+Use the research-deep-dive agent for comprehensive investigation:
+
+INPUT: Research foundation from Step 2 (strategic questions + sources)
+REQUIREMENTS:
+- Execute comprehensive multi-query Perplexity research strategy
+- Expert quote collection with pronunciation validation (IPA markup)
+- Comprehensive content gathering with cross-verification protocols
+- Expert source diversification from multiple institutional types
+- Information synthesis with authority validation and bias assessment
+- Knowledge gap identification and uncertainty celebration
+- Save complete research data with quality metrics validation
+```
+
+### Step 4: Direct Invocation of Research Validation Agent
+```
+Use the research-validation agent for fact-checking and verification:
+
+INPUT: Deep research findings (comprehensive multi-query data)
+REQUIREMENTS:
+- Multi-source triangulation with minimum 2 independent sources per claim
+- Expert quote verification and attribution accuracy checking
+- Statistical and technical fact-checking with methodology assessment
+- Contradiction detection and expert disagreement documentation
+- Credibility assessment and source authority scoring
+- Uncertainty quantification and intellectual humility alignment
+- Cross-verification using WebSearch for additional validation
+```
+
+### Step 5: Direct Invocation of Research Synthesis Agent
+```
+Use the research-synthesis agent to create production-ready package:
+
+INPUT: Validated research findings + verification results
+REQUIREMENTS:
+- Cross-verification protocols with triangulated validation
+- Expert source diversification documentation and pronunciation guides
+- Intelligent knowledge graph management for series-level insights
+- Brand voice preservation throughout synthesis (≥90% consistency)
+- Production-ready knowledge package with quality gates integration
+- Research accuracy verification against production requirements
+- Expert name pronunciation accuracy preparation for TTS optimization
+```
+
+### Step 6: Session Management & User Review
+```
+Coordinate session completion:
+- Aggregate all agent outputs into comprehensive research package
+- Create readable summary: sessions/ep_{number}_{timestamp}/research/research_summary.md
+- Save complete research data: sessions/ep_{number}_{timestamp}/research/research_complete.json
+- Track costs and validate quality gates using production-calibrated thresholds
+- Include pronunciation guide for all expert names and technical terms
+- Prepare user review checkpoint with production readiness assessment
+```
 
 ## Process
 

@@ -43,10 +43,58 @@ Production Stream (10 agents):
 
 ---
 
-## 📁 Simplified File Structure v1.0
+## 🚀 Quick Setup Instructions
 
-**Technical:** Streamlined organization with 93% file reduction while preserving all core functionality
-**Simple:** Like a clean, organized workshop - everything essential is easy to find, complexity is removed
+### Prerequisites
+- **Claude Code** installed and configured
+- API keys for ElevenLabs and Perplexity
+- Node.js 18+ (optional, for advanced workflows)
+
+### Setup Steps
+
+1. **Clone and Setup Environment**
+   ```bash
+   git clone https://github.com/swm-sink/ai-podcasts-nobody-knows.git
+   cd ai-podcasts-nobody-knows
+   cp .env.example .env
+   ```
+
+2. **Configure API Keys in .env**
+   ```bash
+   # Required
+   ELEVENLABS_API_KEY=your-elevenlabs-api-key-here
+   PERPLEXITY_API_KEY=pplx-your-perplexity-api-key-here
+
+   # Production Voice (DO NOT CHANGE)
+   PRODUCTION_VOICE_ID=ZF6FPAbjXT4488VcRRnw
+   ```
+
+3. **Verify MCP Connections**
+   ```bash
+   claude mcp list
+   # Should show: ✓ Connected for perplexity and elevenlabs
+   ```
+
+4. **Test the System**
+   ```bash
+   # Open Claude Code and navigate to CLAUDE.md
+   # Follow the WALK → CRAWL → RUN progression
+   ```
+
+### Getting API Keys
+
+**ElevenLabs**: https://elevenlabs.io/app/settings
+- Create account → Settings → API Keys → Generate
+- Recommended: Set usage limits for cost control
+
+**Perplexity**: https://www.perplexity.ai/settings/api
+- Create account → Settings → API → Generate Key
+- Choose Pro plan for best research quality
+
+## 📁 Optimized File Structure v2.0
+
+**Technical:** Claude 4 optimized with selective loading, token budgeting, and context consolidation
+**Simple:** Like a smart filing system that only shows you what you need when you need it
 
 ```
 ai-podcasts-nobody-knows/

@@ -51,7 +51,7 @@
 **Evidence**:
 - research-synthesizer-enhanced.md: Cross-domain validation
 - script-writer.md: Multi-source verification
-- quality-perplexity-enhanced.md: Triangulation protocols
+- perplexity.md: Triangulation protocols
 - deep-research-agent-enhanced.md: Multi-source triangulation framework
 
 **Assessment**: ROBUST implementation across pipeline

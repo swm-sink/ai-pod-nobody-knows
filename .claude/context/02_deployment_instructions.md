@@ -26,11 +26,11 @@ cd /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows
 ### Phase 1: Environment Validation (First 5 Minutes)
 ```bash
 # Test 1: Verify MCP Authentication
-mcp__elevenlabs__check_subscription
+Direct API: api.check_subscription() using lib.elevenlabs_direct
 # Expected: Subscription data returned (NOT 401 error)
 
 # Test 2: Confirm Production Voice Access
-mcp__elevenlabs__get_voice --voice_id ZF6FPAbjXT4488VcRRnw
+Direct API: api.get_voice_info('ZF6FPAbjXT4488VcRRnw') using lib.elevenlabs_direct
 # Expected: Voice metadata for Amelia production voice
 
 # Test 3: Validate Agent MCP Inheritance

@@ -89,7 +89,7 @@ Validator must digitally sign off confirming complete validation execution
 ### Integration with Existing Protocols
 
 **Meta-prompting:**
-Must complete /validate step before /commit step in 10-step meta-prompting process
+Must complete /validate step before /commit step in 13-step meta-prompting process
 
 **Change Control:**
 All change control protocol modifications must pass complete 50-step validation

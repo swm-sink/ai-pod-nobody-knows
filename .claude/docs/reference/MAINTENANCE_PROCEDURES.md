@@ -404,7 +404,7 @@ echo "Template files count: $(find .claude/templates -name "*.md" | wc -l)"
 ```markdown
 # Problem: @navigation links not working
 # Diagnosis:
-1. Check link syntax: @filename.xml or @directory/filename.md
+1. Check link syntax: @filename.md or @directory/filename.md
 2. Verify target file exists
 3. Confirm file path resolution
 4. Test navigation manually

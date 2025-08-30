@@ -21,8 +21,8 @@
 - production-orchestrator-enhanced: ✅ Advanced workflow coordination
 - episode-planner-enhanced: ✅ Structure optimization for medical/historical content
 - script-writer: ✅ Brand voice consistency with technical adaptation
-- quality-claude-enhanced: ✅ Medical accuracy verification capabilities
-- quality-gemini-enhanced: ✅ Historical context validation
+- claude: ✅ Medical accuracy verification capabilities
+- gemini: ✅ Historical context validation
 - script-polisher-enhanced: ✅ TTS optimization for medical terminology
 - tts-optimizer-enhanced: ✅ Pronunciation guides for medical/historical terms
 - audio-synthesizer-enhanced: ✅ Professional broadcast quality with emphasis control

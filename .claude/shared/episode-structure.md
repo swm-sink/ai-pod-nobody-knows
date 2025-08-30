@@ -107,5 +107,5 @@ Brand Voice Guidelines
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: episode-structure.xml*
+*Original: episode-structure.md*
 *Conversion: Mon Aug 18 00:01:18 EDT 2025*

@@ -302,7 +302,7 @@ calculate_evidence_quality() {
 ### Structured Research Summary
 ```markdown
 # Research Summary: [Topic]
-**Query Date:** 2024-08-21
+**Query Date:** 2025-08-28
 **Research Depth:** Comprehensive
 **Sources Analyzed:** 8
 **Budget Utilized:** $3.25 / $4.50
@@ -344,7 +344,7 @@ calculate_evidence_quality() {
 {
   "research_metadata": {
     "topic": "AI reasoning capabilities development",
-    "query_timestamp": "2024-08-21T14:30:45Z",
+    "query_timestamp": "2025-08-28T14:30:45Z",
     "research_depth": "comprehensive",
     "budget_utilized": 3.25,
     "total_sources": 8,

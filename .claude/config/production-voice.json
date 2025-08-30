@@ -2,7 +2,7 @@
   "production_voice": {
     "voice_id": "ZF6FPAbjXT4488VcRRnw",
     "voice_name": "Amelia",
-    "validation_source": "Episode 1 empirical validation - August 25, 2025",
+    "validation_source": "Production validation - August 30, 2025",
     "settings": {
       "stability": 0.65,
       "similarity_boost": 0.8,
@@ -22,10 +22,10 @@
       "immutable_without_user_permission": true,
       "change_requires_approval": true,
       "production_critical": true,
-      "last_authorized_change": "User authorization - 2025-08-25"
+      "last_authorized_change": "User authorization - 2025-08-30"
     }
   },
   "schema_version": "1.0.0",
-  "last_updated": "2025-08-25T12:00:00Z",
+  "last_updated": "2025-08-30T12:00:00Z",
   "usage_note": "This is the SINGLE SOURCE OF TRUTH for voice configuration. All agents, scripts, and tools must reference this file. Never hardcode voice IDs."
 }

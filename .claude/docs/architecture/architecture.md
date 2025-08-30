@@ -173,5 +173,5 @@ Educational: Demonstrates proper system design
 ---
 
 *Converted from XML to Markdown for elegant simplicity*
-*Original: architecture.xml*
+*Original: architecture.md*
 *Conversion: Mon Aug 18 00:01:19 EDT 2025*

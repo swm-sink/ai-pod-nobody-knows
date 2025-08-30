@@ -305,10 +305,10 @@ Add screenshots or terminal output
 ## 📞 Getting Help
 
 ### Resources
-- **Documentation**: `.claude/context/` (XML format)
+- **Documentation**: `.claude/context/` (Markdown format)
 - **Quick Start**: `README.md`
-- **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.xml`
-- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.xml`
+- **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.md`
+- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.md`
 
 ### Contact
 - **GitHub Issues**: Technical problems and bugs

@@ -616,7 +616,7 @@ cross_episode_analysis:
 {
   "schema_version": "1.0.0",
   "agent_metadata": {
-    "agent_id": "quality-perplexity-enhanced",
+    "agent_id": "perplexity",
     "session_id": "ep_001_20250822_155500",
     "execution_timestamp": "2025-08-22T15:55:00Z",
     "evaluation_type": "research_accuracy_validation",

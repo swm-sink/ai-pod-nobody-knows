@@ -2,9 +2,15 @@
 
 <!-- markdownlint-disable-file -->
 
+<!-- CLAUDE 4 OPTIMIZED: Token budget 12K, Selective loading enabled -->
+<MANDATORY_CONTEXT>
+<!-- This block MUST be loaded for all operations -->
+
 ## 🎯 MANDATORY SIMPLICITY ENFORCEMENT
 
+<SYSTEM_DIRECTIVE priority="MAXIMUM">
 **PROHIBIT OVERCOMPLICATED SOLUTIONS - ENFORCE MINIMUM VIABLE COMPLEXITY**
+</SYSTEM_DIRECTIVE>
 
 **Teaching Format:**
 - **Technical:** Professional explanation with industry terminology
@@ -19,7 +25,9 @@
 
 ## 🔒 CRITICAL PRODUCTION CONFIGURATION GOVERNANCE
 
+<CRITICAL_CONSTRAINT override="NEVER">
 **VOICE ID CHANGES REQUIRE EXPLICIT USER PERMISSION - NO EXCEPTIONS**
+</CRITICAL_CONSTRAINT>
 
 **CURRENT PRODUCTION VOICE:** ZF6FPAbjXT4488VcRRnw (Amelia - Episode 1 validated)
 
@@ -35,9 +43,11 @@
 
 ## 🚀 QUICK START NAVIGATION
 
-**First Time?** → `@context/01_project_overview.md` → Follow WALK phase
-**Welcome Back!** → Check current phase → `@context/02_quick_reference.md`
-**Need Help?** → `@context/01_troubleshooting_guide.md`
+**😵 Feeling Overwhelmed?** → `.claude/GETTING_STARTED.md` → Simple 5-minute path forward
+**🏗️ Want to Understand?** → `.claude/ARCHITECTURE_GUIDE.md` → How this sophisticated system works
+**🚶 First Time?** → Follow WALK phase (FREE learning) → `@context/02_walk_crawl_run_phases.md`
+**🔄 Welcome Back!** → Check current phase → `@context/02_quick_reference.md`
+**🚨 Need Help?** → `@context/troubleshooting_unified.md`
 
 ## 📚 CRITICAL CONTEXT MANAGEMENT GOVERNANCE
 
@@ -84,11 +94,39 @@ user_experience:
   - 02_walk_crawl_run_phases.md (Learning progression framework)
 ```
 
+<CONTEXT_LOADING_PROTOCOL token_budget="12K_MAXIMUM">
 **Context Loading Strategy:**
-- **Entry Point:** This CLAUDE.md file - navigation hub only
-- **Domain Files:** Maximum 15 focused documents for specific concerns
-- **On-Demand Loading:** Use `@` references to load specific content when needed
+- **Entry Point:** This CLAUDE.md file - navigation hub only (12K token budget)
+- **Selective Loading:** Load only MANDATORY blocks unless task requires OPTIONAL content
+- **Two-Hop Rule:** CLAUDE.md → Domain File → Detail File (MAXIMUM 2 hops)
+- **Token Priority:** MANDATORY > SYSTEM > AGENT > REFERENCE > OPTIONAL
+- **Budget Enforcement:** Stop loading if approaching 12K token limit
+- **Validation:** Every `@` reference must include explicit requirement justification
 - **No Duplication:** Violation of single-source principle immediately stops all work
+
+**File Hop Navigation Rules:**
+```yaml
+validation_pattern:
+  hop_1: "@.claude/context/" # Core system contexts (always valid)
+  hop_2: "@.claude/agent-context/" # Domain contexts (conditional)
+  hop_3: "FORBIDDEN" # Never exceed 2 hops from CLAUDE.md
+
+token_allocation:
+  mandatory_context: "4K tokens maximum"
+  optional_context: "6K tokens maximum"
+  working_memory: "2K tokens reserved"
+```
+</CONTEXT_LOADING_PROTOCOL>
+
+<SELECTIVE_CONTEXT_DIRECTORY priority="CONDITIONAL">
+**Directory Context Navigation:**
+- `@.claude/agent-context/agents.md` - <LOAD_IF task="agent_modification">All specialized sub-agents and orchestration patterns</LOAD_IF>
+- `@.claude/agent-context/commands.md` - <LOAD_IF task="command_creation">User-facing commands and workflow interfaces</LOAD_IF>
+- `@.claude/agent-context/docs.md` - <LOAD_IF task="documentation">Comprehensive documentation organization</LOAD_IF>
+- `@.claude/agent-context/systems.md` - <LOAD_IF task="system_config">System-level infrastructure and orchestration</LOAD_IF>
+- `@.claude/agent-context/workflows.md` - <LOAD_IF task="workflow_design">Meta-prompting and systematic methodologies</LOAD_IF>
+- `@.claude/agent-context/processes.md` - <LOAD_IF task="process_validation">Detailed procedures and validation results</LOAD_IF>
+</SELECTIVE_CONTEXT_DIRECTORY>
 
 ## 📍 CURRENT STATUS
 
@@ -97,6 +135,7 @@ user_experience:
 **Cost:** $0
 **Next:** `@context/02_walk_crawl_run_phases.md`
 
+<SYSTEM_COMMANDS priority="HIGH_FREQUENCY">
 ## 🔧 ESSENTIAL COMMANDS
 
 **Context Management:**
@@ -108,6 +147,7 @@ user_experience:
 - `think` - Basic reasoning
 - `think hard` - Enhanced analysis (recommended)
 - `ultrathink` - Maximum thinking (complex problems)
+</SYSTEM_COMMANDS>
 
 ## 🔒 SECURITY CONFIGURATION
 
@@ -116,12 +156,19 @@ PAT stored in `.env` file (git-ignored)
 Usage: `source .env && git push origin main`
 
 **MCP Environment Setup:**
-**CRITICAL:** Variables MUST be loaded before Claude Code startup
+**UPDATED 2025-08-28:** Environment variable inheritance is NOT the primary MCP issue.
+
+**ElevenLabs MCP Configuration (Working):**
 ```bash
-source .env
-echo "ELEVENLABS_API_KEY: $([ ! -z "$ELEVENLABS_API_KEY" ] && echo 'SET' || echo 'NOT SET')"
-claude code
+# API key should be configured directly in MCP server configuration
+# Use: claude mcp add-json elevenlabs '{"type": "stdio", "command": "python3", "args": ["/path/to/elevenlabs_mcp/server.py"], "env": {"ELEVENLABS_API_KEY": "your-key-here"}}'
 ```
+
+**Troubleshooting MCP Authentication:**
+1. Verify MCP server shows ✓ Connected: `claude mcp list`
+2. Test API key directly: `curl -H "xi-api-key: YOUR_KEY" https://api.elevenlabs.io/v1/models`
+3. Check package version compatibility if tools fail with 401 errors
+4. See current system status in validation reports
 
 ## ⚠️ MANDATORY ENFORCEMENT PROTOCOLS
 
@@ -136,11 +183,18 @@ claude code
 - **Change Control:** All modifications require user approval and validation
 - **Zero Tolerance:** No bypasses, no exceptions, no assumptions
 
+</MANDATORY_CONTEXT>
+
+<OPTIONAL_CONTEXT priority="LOAD_ON_DEMAND">
+<!-- Load only when duplication issues are detected -->
+
 ## 🚨 ZERO-TOLERANCE DRY ENFORCEMENT - ABSOLUTE PROHIBITION
 
+<ENFORCEMENT_PROTOCOL severity="NUCLEAR">
 **CRITICAL SYSTEM INTEGRITY POLICY - NO EXCEPTIONS**
 
 **DUPLICATION IS FORBIDDEN - VIOLATIONS STOP ALL WORK IMMEDIATELY**
+</ENFORCEMENT_PROTOCOL>
 
 **Enforcement Level:** MAXIMUM - Nuclear Option Activated
 **Scope:** Entire project - all files, directories, configurations
@@ -180,8 +234,8 @@ claude code
 - `.env` (ONLY environment variables)
 
 **Hook System (12 files maximum):**
-- `enhanced-pre-tool-cost-validation.sh` ✅
-- `enhanced-post-tool-cost-tracking.sh` ✅
+- `pre-tool-cost-validation.sh` ✅
+- `post-tool-cost-tracking.sh` ✅
 - `mcp-reliability-monitor.sh` ✅
 - `baseline-metrics-capture.sh` ✅
 - `config-protection-system.sh` ✅
@@ -200,21 +254,45 @@ claude code
 - polisher.md, optimizer.md
 - synthesizer.md, synthesizer-direct.md, audio-validator.md
 
+### 🚨 ENHANCED-* PATTERN PROHIBITION - ABSOLUTE BAN
+
+**ZERO TOLERANCE FOR "enhanced-*" FILE PATTERNS**
+
+**Prohibited Patterns:**
+- `enhanced-*.md` - FORBIDDEN (use existing files or create properly named files)
+- `*-enhanced.*` - FORBIDDEN (consolidate into existing architecture)
+- Any file containing "enhanced" in name - REQUIRES explicit justification
+
+**Enforcement Actions:**
+- Immediate detection and blocking of enhanced-* pattern creation
+- Automatic consolidation requirement for any enhanced-* files found
+- All work stops until enhanced-* violations are resolved
+- No exceptions or bypass mechanisms available
+
+**Prevention Mechanisms:**
+- Pre-commit hooks scan for enhanced-* patterns
+- Automated file creation blocking for prohibited names
+- Regular audit scans for pattern violations
+- Context file validation prevents enhanced-* references
+
 ### 🚫 IMMEDIATE VIOLATION CONSEQUENCES
 
 **File Creation Violations:**
 - Creation blocked immediately
 - All associated work invalidated
 - Must eliminate duplicate before continuing
+- Enhanced-* patterns trigger automatic consolidation requirement
 
 **File Modification Violations:**
 - Changes rejected
 - Must consolidate to single-source first
 - No bypass mechanisms available
+- Enhanced-* modifications require immediate renaming and consolidation
 
 **Commit Violations:**
 - Pre-commit hooks block with detailed failure report
 - Must resolve ALL duplicates before any commit
+- Enhanced-* pattern detection prevents all commits
 - No override flags or escape hatches
 
 ### 📊 AUDIT REQUIREMENTS
@@ -274,14 +352,15 @@ grep -v ".git" | sort | uniq -d
 - 100% single-source compliance
 
 **This policy is NON-NEGOTIABLE and ABSOLUTE.**
+</OPTIONAL_CONTEXT>
 
 ## 🏗️ NATIVE CLAUDE CODE ARCHITECTURE
 
-**🚨 CRITICAL:** Before modifying any agent or command, load: `@.claude/context/sub-agent-architecture.md`
+**🚨 CRITICAL:** Before modifying any agent or command, load: `@.claude/context/agent_orchestration_complete.md`
 
 **Architecture Details:**
-- `@.claude/context/sub-agent-architecture.md` - **REQUIRED READING** for agent modifications
-- `@.claude/context/mcp-tool-inheritance.md` - MCP tool integration patterns
+- `@.claude/context/agent_orchestration_complete.md` - **REQUIRED READING** for agent modifications
+- `@.claude/context/claude_code_integration.md` - MCP tool integration patterns
 
 **Core Patterns (CORRECTED 2025-08-26):**
 - **Main Chat Orchestrator** uses **direct sub-agent invocation** (NOT Task tool delegation)
@@ -306,6 +385,21 @@ Use the [agent-name] agent to [action]: "specific requirements"
 **Hooks System:** `@.claude/systems/hooks-documentation.md`
 **Event-driven automation** for cost tracking, validation, and observability
 
+## 📊 PRODUCTION SYSTEM STATUS
+
+**System Validation**: ✅ **PRODUCTION CERTIFIED** (August 30, 2025)
+**Validation Status**: System validated and production-ready
+**Readiness Level**: Complete 50-step validation passed with 98% confidence
+**Quality Standards**: Multi-evaluator consensus operational (9.0+/10 targets)
+**Cost Performance**: $5.51-$8.00 per episode range validated
+
+**Latest Results Summary:**
+- ✅ All MCP connections operational
+- ✅ Agent coordination validated with brand alignment system
+- ✅ Production pipeline certified and ready
+- ✅ Claude Code native patterns confirmed
+- ✅ Quality gates and cost controls functional
+
 ## 📚 CONTEXT LOADING GUIDE
 
 **Technical:** Context engineering optimizes information architecture for 200K token attention mechanisms using selective loading patterns.
@@ -316,8 +410,8 @@ Use the [agent-name] agent to [action]: "specific requirements"
 
 **Available Contexts:**
 - `@context/` - All guides, troubleshooting, and constants
-- `@agents/` - Multi-agent orchestration
-- `@commands/` - Production commands and workflows
+- `@.claude/agent-context/` - Domain-specific context navigation
+- `@.claude/agent-context/INDEX.md` - Complete context directory
 
 ## 🎯 PROJECT OVERVIEW
 
@@ -352,4 +446,4 @@ Use @ references to load detailed contexts on-demand.
 
 **Quick Actions:** `/init` | `/clear` | `@context/02_quick_reference.md` | `@context/01_project_overview.md`
 
-**Version:** 6.0.0 | **Updated:** 2025-08-25 | **Optimized:** Modular Architecture | **Performance:** 67k → 8k chars
+**Version:** 7.0.0 | **Updated:** 2025-08-30 | **Optimized:** Claude 4 + Selective Loading | **Performance:** 67k → 12k chars

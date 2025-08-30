@@ -1,0 +1,81 @@
+{
+  "episode_metadata": {
+    "episode_number": 5,
+    "title": "Fall of Rome Historical Parallels",
+    "target_duration_minutes": 15,
+    "estimated_word_count": 1500,
+    "production_date": "2025-08-29"
+  },
+  "voice_configuration": {
+    "voice_id": "ZF6FPAbjXT4488VcRRnw",
+    "voice_name": "Amelia",
+    "model_id": "eleven_turbo_v2_5",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.8,
+      "style": 0.3,
+      "use_speaker_boost": true
+    },
+    "output_format": "mp3_44100_128"
+  },
+  "synthesis_segments": [
+    {
+      "segment_id": "intro",
+      "start_time": "0:00",
+      "end_time": "1:30",
+      "word_count": 150,
+      "content_type": "hook_introduction",
+      "estimated_cost": 0.41
+    },
+    {
+      "segment_id": "historian_knowledge",
+      "start_time": "1:30",
+      "end_time": "5:30",
+      "word_count": 400,
+      "content_type": "expert_analysis",
+      "estimated_cost": 1.10
+    },
+    {
+      "segment_id": "modern_parallels",
+      "start_time": "5:30",
+      "end_time": "9:30",
+      "word_count": 400,
+      "content_type": "comparative_analysis",
+      "estimated_cost": 1.10
+    },
+    {
+      "segment_id": "uncertainties",
+      "start_time": "9:30",
+      "end_time": "13:00",
+      "word_count": 350,
+      "content_type": "intellectual_humility",
+      "estimated_cost": 0.96
+    },
+    {
+      "segment_id": "conclusion",
+      "start_time": "13:00",
+      "end_time": "15:00",
+      "word_count": 200,
+      "content_type": "wrap_up",
+      "estimated_cost": 0.55
+    }
+  ],
+  "cost_analysis": {
+    "estimated_total_cost": 4.12,
+    "cost_per_word": 0.00275,
+    "cost_per_minute": 0.275,
+    "cost_efficiency_rating": "excellent"
+  },
+  "quality_targets": {
+    "word_accuracy_percent": 95.0,
+    "character_accuracy_percent": 92.0,
+    "processing_rate_wpm": 206,
+    "composite_quality_score": 92.0
+  },
+  "production_notes": {
+    "voice_justification": "Amelia (ZF6FPAbjXT4488VcRRnw) empirically validated for historical content in Episode 1 with 92.1 composite quality score",
+    "content_complexity": "High - Historical analysis with expert quotes and intellectual humility themes",
+    "synthesis_approach": "Professional narrative style appropriate for educational historical content",
+    "quality_assurance": "Post-synthesis validation against empirical performance benchmarks"
+  }
+}

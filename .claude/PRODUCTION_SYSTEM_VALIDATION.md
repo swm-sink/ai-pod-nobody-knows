@@ -46,9 +46,9 @@
 4. `episode-planner-enhanced` - Structures episode content
 5. `script-writer` - Creates engaging script
 6. `script-polisher-enhanced` - Refines script quality
-7. `quality-claude-enhanced` - Brand voice evaluation
-8. `quality-gemini-enhanced` - Technical quality assessment
-9. `quality-perplexity-enhanced` - Research accuracy verification
+7. `claude` - Brand voice evaluation
+8. `gemini` - Technical quality assessment
+9. `perplexity` - Research accuracy verification
 10. `brand-voice-validator` - Intellectual humility consistency
 11. `tts-optimizer-enhanced` - SSML preparation for TTS
 12. `audio-synthesizer-enhanced` - Professional audio generation
@@ -84,9 +84,9 @@ Phase 2: Script Development ($1.75)
   Step 06: script-polisher-enhanced → refined script
 
 Phase 3: Quality Consensus ($1.50)
-  Step 07: quality-claude-enhanced → brand voice evaluation
-  Step 08: quality-gemini-enhanced → technical assessment
-  Step 09: quality-perplexity-enhanced → research verification
+  Step 07: claude → brand voice evaluation
+  Step 08: gemini → technical assessment
+  Step 09: perplexity → research verification
   Step 10: brand-voice-validator → consistency check
 
 Phase 4: Audio Production ($7.25)

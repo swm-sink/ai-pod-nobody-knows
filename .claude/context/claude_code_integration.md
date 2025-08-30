@@ -105,8 +105,8 @@ agent_yaml_structure:
   mcp_tool_access: |
     # Agent can use all configured MCP tools:
     # - mcp__perplexity-ask__perplexity_ask
-    # - mcp__elevenlabs__text_to_speech
-    # - mcp__elevenlabs__check_subscription
+    # - Direct API: api.text_to_speech() via lib.elevenlabs_direct
+    # - Direct API: api.check_subscription() via lib.elevenlabs_direct
     # - All other configured MCP tools
 ```
 
@@ -140,7 +140,7 @@ mcp_troubleshooting:
     symptoms: "MCP tools return 'invalid_api_key' despite valid keys"
     root_cause: "Environment variables not loaded before Claude Code startup"
     solution: "Use ./start-claude.sh or source .env before claude code"
-    validation: "mcp__elevenlabs__check_subscription should return data"
+    validation: "Direct API: api.check_subscription() via lib.elevenlabs_direct should return data"
 
   issue_2_tool_not_found:
     symptoms: "MCP tools not available in sub-agents"
@@ -169,7 +169,7 @@ echo "Expected: All configured servers show 'connected'"
 
 # Step 2: Test direct MCP access
 echo "2. Direct MCP Tool Test:"
-echo "Run: mcp__elevenlabs__check_subscription"
+echo "Run: Direct API: api.check_subscription() via lib.elevenlabs_direct"
 echo "Expected: Subscription data returned (not 401 error)"
 
 # Step 3: Test sub-agent MCP inheritance
