@@ -99,7 +99,7 @@ This document provides comprehensive documentation for all 16 agents in the AI P
 **Budget**: $0.10
 **Purpose**: Creates targeted research questions
 **Location**: `.claude/agents/generator.md` → `src/agents/question_generator.py`
-**Status**: ⏳ Pending Migration
+**Status**: ✅ Migrated to LangGraph
 
 **Inputs**:
 - Topic
@@ -357,17 +357,17 @@ Target: Reduce from $6.75 to $5.51 (18.4% reduction)
 
 ## 🔄 MIGRATION STATUS
 
-### Completed (4/16 - 25.0%)
+### Completed (5/16 - 31.25%)
 - ✅ research-discovery
 - ✅ research-deep-dive
 - ✅ research-validate
 - ✅ research-synthesis
+- ✅ question-generator
 
 ### In Progress (0/16)
 None currently
 
-### Pending (12/16 - 75.0%)
-- ⏳ question-generator
+### Pending (11/16 - 68.75%)
 - ⏳ episode-planner
 - ⏳ script-writer
 - ⏳ script-polisher
