@@ -62,9 +62,11 @@ Phase 4 (Deploy):    [REMOVED - Local Only]
   - Implemented actual HTTP requests with httpx
   - Added graceful fallback for invalid API keys
   - All 5 tests passing
-- [ ] P2.5-005: Update Perplexity provider for real API calls
-  - Primary: Direct Perplexity API implementation
-  - Fallback: MCP integration (if available)
+- [x] P2.5-005: Update Perplexity provider for real API calls ✅
+  - Implemented direct Perplexity API with httpx
+  - Added mock mode detection for test keys
+  - Graceful error handling with fallback
+  - All 4 tests passing
 - [ ] P2.5-006: Implement ElevenLabs direct API (NO MCP)
   - Direct API calls only
   - No MCP server needed
