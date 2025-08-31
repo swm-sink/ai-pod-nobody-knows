@@ -111,7 +111,7 @@ class OpenRouterProvider(LLMProvider):
             # )
 
             # Fetch available models
-            # self._fetch_available_models()
+            self._fetch_available_models()
 
             logger.info(f"OpenRouter client initialized with default model: {self.default_model}")
 
