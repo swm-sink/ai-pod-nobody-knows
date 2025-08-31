@@ -1,0 +1,165 @@
+# Provider configurations for AI Podcast Production System
+# Version: 1.0.0
+# Date: August 2025
+
+# Orchestration providers - easily swap between different systems
+orchestration:
+  default: "langgraph"
+
+  providers:
+    langgraph:
+      enabled: true
+      class: "adapters.langgraph.provider.LangGraphProvider"
+      config:
+        max_iterations: 10
+        recursion_limit: 25
+        checkpointer: "memory"
+        debug: false
+
+    temporal:
+      enabled: false
+      class: "adapters.temporal.provider.TemporalProvider"
+      config:
+        namespace: "podcast-production"
+        task_queue: "podcast-tasks"
+        workflow_timeout: 600
+
+    prefect:
+      enabled: false
+      class: "adapters.prefect.provider.PrefectProvider"
+      config:
+        project: "podcast-production"
+        flow_run_timeout: 600
+
+# Observability providers
+observability:
+  default: "langfuse"
+
+  providers:
+    langfuse:
+      enabled: true
+      class: "adapters.langfuse.provider.LangFuseProvider"
+      config:
+        public_key: "${LANGFUSE_PUBLIC_KEY}"
+        secret_key: "${LANGFUSE_SECRET_KEY}"
+        host: "https://cloud.langfuse.com"
+        flush_at: 10
+        flush_interval: 10
+        max_retries: 3
+        timeout: 30
+
+    wandb:
+      enabled: false
+      class: "adapters.wandb.provider.WandBProvider"
+      config:
+        api_key: "${WANDB_API_KEY}"
+        project: "podcast-production"
+        entity: "ai-podcasts"
+
+# LLM providers
+llm:
+  default: "openai"
+
+  providers:
+    openai:
+      enabled: true
+      class: "adapters.openai.provider.OpenAIProvider"
+      config:
+        api_key: "${OPENAI_API_KEY}"
+        model: "gpt-4-turbo-2024-08"
+        temperature: 0.7
+        max_tokens: 4000
+        timeout: 60
+
+    anthropic:
+      enabled: true
+      class: "adapters.anthropic.provider.AnthropicProvider"
+      config:
+        api_key: "${ANTHROPIC_API_KEY}"
+        model: "claude-3-opus-20240229"
+        temperature: 0.7
+        max_tokens: 4000
+        timeout: 60
+
+    gemini:
+      enabled: false
+      class: "adapters.gemini.provider.GeminiProvider"
+      config:
+        api_key: "${GEMINI_API_KEY}"
+        model: "gemini-1.5-pro"
+        temperature: 0.7
+        max_tokens: 4000
+
+# Research providers
+research:
+  default: "perplexity"
+
+  providers:
+    perplexity:
+      enabled: true
+      class: "adapters.perplexity.provider.PerplexityProvider"
+      config:
+        api_key: "${PERPLEXITY_API_KEY}"
+        model: "sonar-deep"
+        search_domain_filter: []
+        search_recency_filter: "week"
+        return_images: false
+        return_related_questions: true
+        max_tokens: 4000
+        temperature: 0.2
+        timeout: 30
+
+    tavily:
+      enabled: false
+      class: "adapters.tavily.provider.TavilyProvider"
+      config:
+        api_key: "${TAVILY_API_KEY}"
+        search_depth: "advanced"
+        max_results: 10
+
+# Audio synthesis providers
+audio:
+  default: "elevenlabs"
+
+  providers:
+    elevenlabs:
+      enabled: true
+      class: "adapters.elevenlabs.provider.ElevenLabsProvider"
+      config:
+        api_key: "${ELEVENLABS_API_KEY}"
+        voice_id: "ZF6FPAbjXT4488VcRRnw"  # Amelia - validated
+        model_id: "eleven_turbo_v2_5"
+        stability: 0.71
+        similarity_boost: 0.75
+        style: 0.0
+        use_speaker_boost: true
+        chunk_size: 1024
+        timeout: 120
+
+    azure:
+      enabled: false
+      class: "adapters.azure.provider.AzureTTSProvider"
+      config:
+        api_key: "${AZURE_SPEECH_KEY}"
+        region: "eastus"
+        voice_name: "en-US-AriaNeural"
+
+# Vector database providers
+vectordb:
+  default: "chroma"
+
+  providers:
+    chroma:
+      enabled: true
+      class: "adapters.chroma.provider.ChromaProvider"
+      config:
+        persist_directory: "./chroma_db"
+        collection_name: "podcast_knowledge"
+
+    pinecone:
+      enabled: false
+      class: "adapters.pinecone.provider.PineconeProvider"
+      config:
+        api_key: "${PINECONE_API_KEY}"
+        environment: "us-east-1"
+        index_name: "podcast-knowledge"
