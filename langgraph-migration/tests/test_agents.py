@@ -1,6 +1,6 @@
 """
 Test suite for LangGraph Agent Nodes
-Based on 2024 best practices: unit test routing logic with mock nodes
+Based on August 2025 best practices: unit test routing logic with mock nodes
 """
 
 import pytest

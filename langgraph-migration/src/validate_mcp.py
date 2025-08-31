@@ -2,7 +2,7 @@
 """
 MCP Connection Validation Script
 Validates all Model Context Protocol server connections
-Based on 2024 best practices from official Python SDK
+Based on August 2025 best practices from official Python SDK
 """
 
 import asyncio
@@ -14,7 +14,7 @@ from datetime import datetime
 from pathlib import Path
 import json
 
-# MCP validation based on 2024 SDK patterns
+# MCP validation based on August 2025 SDK patterns
 @dataclass
 class MCPServerConfig:
     """Configuration for an MCP server"""

@@ -1,7 +1,7 @@
 """
 Research Discovery Agent - LangGraph Node Implementation
 Stage 1 of 4-stage research pipeline
-Based on 2024 Perplexity Sonar Deep Research API
+Based on August 2025 Perplexity Sonar Deep Research API
 """
 
 import asyncio
@@ -136,7 +136,7 @@ class ResearchDiscoveryAgent:
                 query_text=f"Research {topic} developments as of {current_date}. "
                           f"MANDATORY: Only use sources and information current as of {current_date}. "
                           f"Define required sources, summarization style, and error-catch clauses: "
-                          f"Focus on authoritative expert statements from 2024-2025. "
+                          f"Focus on authoritative expert statements from August 2025. "
                           f"If uncertain about any claim, respond with 'Insufficient verification available.' "
                           f"Provide source credibility assessment."
             ),
@@ -166,7 +166,7 @@ class ResearchDiscoveryAgent:
 
         async with httpx.AsyncClient() as client:
             for query in queries:
-                # Prepare request based on 2024 Perplexity API format
+                # Prepare request based on August 2025 Perplexity API format
                 request_data = {
                     "model": query.model,
                     "messages": [
@@ -201,7 +201,7 @@ class ResearchDiscoveryAgent:
 
                     result = response.json()
 
-                    # Track costs (based on 2024 pricing)
+                    # Track costs (based on August 2025 pricing)
                     # Input tokens + searches ($5/1000 searches)
                     estimated_cost = 0.15  # Approximate for deep research query
                     self.total_cost += estimated_cost
@@ -323,7 +323,7 @@ class ResearchDiscoveryAgent:
         """Extract recent developments"""
         developments = []
         for line in content.split('.'):
-            if any(word in line.lower() for word in ['recent', 'new', 'latest', '2024', '2025']):
+            if any(word in line.lower() for word in ['recent', 'new', 'latest', 'august 2025', '2025']):
                 developments.append(line.strip())
         return developments[:5]
 

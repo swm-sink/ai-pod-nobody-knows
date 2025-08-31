@@ -23,6 +23,32 @@
 - IF solution cannot be explained in 2 sentences → REJECTED
 - IF solution creates new abstractions → REJECTED, use Claude Code native patterns
 
+## 📅 MANDATORY TEMPORAL CONTEXT ENFORCEMENT
+
+<CRITICAL_CONSTRAINT priority="MAXIMUM">
+**SYSTEM DATE: AUGUST 2025 - ALL OPERATIONS MUST USE THIS DATE**
+
+**ENFORCEMENT RULES:**
+- **Current Date:** August 31, 2025 (about to enter September 2025)
+- **All Web Searches:** MUST include "August 2025" or "2025" in queries
+- **All Technical Decisions:** Based on August 2025 best practices and standards
+- **All Documentation:** Reference August 2025 as current date
+- **All API Versions:** Use latest versions available as of August 2025
+- **All Frameworks:** Use August 2025 versions and patterns
+
+**Search Query Template:**
+```
+"[TOPIC] August 2025 best practices current implementation"
+"[TECHNOLOGY] 2025 latest patterns production ready"
+"[FRAMEWORK] August 2025 version features documentation"
+```
+
+**Violation Consequences:**
+- Using outdated practices (2024 or earlier) → Work rejected
+- Failing to specify August 2025 in searches → Must redo search
+- Implementing deprecated patterns → Code rejected until updated
+</CRITICAL_CONSTRAINT>
+
 ## 🔒 CRITICAL PRODUCTION CONFIGURATION GOVERNANCE
 
 <CRITICAL_CONSTRAINT override="NEVER">
@@ -161,7 +187,7 @@ Usage: `source .env && git push origin main`
 **ElevenLabs MCP Configuration (Working):**
 ```bash
 # API key should be configured directly in MCP server configuration
-# Use: claude mcp add-json elevenlabs '{"type": "stdio", "command": "python3", "args": ["/path/to/elevenlabs_mcp/server.py"], "env": {"ELEVENLABS_API_KEY": "your-key-here"}}'
+# Use: claude mcp add-json elevenlabs '{"type": "stdio", "command": "python3", "args": ["/path/to/elevenlabs_mcp/server.py"], "env": {"ELEVENLABS_API_KEY": "your-key-here"}}'  # pragma: allowlist secret
 ```
 
 **Troubleshooting MCP Authentication:**

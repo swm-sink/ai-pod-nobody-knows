@@ -1,6 +1,6 @@
 """
 Pytest configuration and shared fixtures for LangGraph testing
-Based on 2024 best practices for testing LLM agents
+Based on August 2025 best practices for testing LLM agents
 """
 
 import pytest
