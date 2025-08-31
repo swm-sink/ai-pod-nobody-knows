@@ -42,7 +42,7 @@ observability:
       config:
         public_key: "${LANGFUSE_PUBLIC_KEY}"
         secret_key: "${LANGFUSE_SECRET_KEY}"
-        host: "https://cloud.langfuse.com"
+        host: "${LANGFUSE_HOST}"
         flush_at: 10
         flush_interval: 10
         max_retries: 3
@@ -89,6 +89,20 @@ llm:
         model: "gemini-1.5-pro"
         temperature: 0.7
         max_tokens: 4000
+
+    openrouter:
+      enabled: true
+      class: "adapters.openrouter.provider.OpenRouterProvider"
+      config:
+        api_key: "${OPENROUTER_API_KEY}"
+        base_url: "${OPENROUTER_BASE_URL}"
+        model: "anthropic/claude-3-opus"
+        temperature: 0.7
+        max_tokens: 4000
+        timeout: 60
+        headers:
+          HTTP-Referer: "https://github.com/ai-podcasts-nobody-knows"
+          X-Title: "AI Podcast Production System"
 
 # Research providers
 research:

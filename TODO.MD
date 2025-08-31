@@ -99,7 +99,26 @@ Phase 4 (Deploy):    [░░░░░░░░░░] 0%
 - [ ] P2-020: Implement state recovery mechanisms
 - [ ] P2-021: Add state validation and sanitization
 
-### 2.3 Orchestration Layer
+### 2.3 API Key Management & Provider Integration (ADDED)
+- [ ] P2-API-001: Create secure .env file with project API keys
+- [ ] P2-API-002: Update config.example with new key placeholders
+- [ ] P2-API-003: Update providers.yaml with environment variable references
+- [ ] P2-API-004: Create LangFuse observability provider adapter
+- [ ] P2-API-005: Create Perplexity research provider adapter
+- [ ] P2-API-006: Create OpenRouter LLM routing provider adapter
+- [ ] P2-API-007: Implement API key validation script
+- [ ] P2-API-008: Create provider integration test suite
+- [ ] P2-API-009: Validate all API connections working
+- [ ] P2-API-010: Implement secure key masking in logs
+
+### 🚦 API Integration Validation Gate
+- [ ] VG-API-001: All API keys securely stored (not in git)
+- [ ] VG-API-002: All three providers successfully connect
+- [ ] VG-API-003: Provider switching works seamlessly
+- [ ] VG-API-004: Keys are masked in all outputs
+- [ ] VG-API-005: Integration tests pass with >95% coverage
+
+### 2.4 Orchestration Layer
 - [ ] P2-022: Build LangGraph supervisor workflow
 - [ ] P2-023: Implement conditional routing logic
 - [ ] P2-024: Create dynamic agent selection
