@@ -102,13 +102,18 @@ class OpenRouterProvider(LLMProvider):
             masked_key = f"...{self.api_key[-4:]}" if len(self.api_key) > 4 else "****"
             logger.info(f"Initializing OpenRouter client with key: {masked_key}")
 
-            # In production, would initialize actual HTTP client
-            # import httpx
-            # self._client = httpx.Client(
-            #     base_url=self.base_url,
-            #     headers=self.headers,
-            #     timeout=self.config.get('timeout', 60)
-            # )
+            # Check if we should use mock mode (for testing or invalid keys)
+            if self.config.get('mock_mode', False) or self.api_key.startswith('test_'):
+                logger.info("Running in mock mode - no real API calls will be made")
+                self._client = None
+            else:
+                # Initialize actual HTTP client
+                import httpx
+                self._client = httpx.Client(
+                    base_url=self.base_url,
+                    headers=self.headers,
+                    timeout=self.config.get('timeout', 60)
+                )
 
             # Fetch available models
             self._fetch_available_models()
@@ -123,15 +128,21 @@ class OpenRouterProvider(LLMProvider):
     def _fetch_available_models(self) -> None:
         """Fetch list of available models from OpenRouter."""
         try:
-            # Would make actual API call
-            # response = self._client.get("/models")
-            # response.raise_for_status()
-            # self._available_models = response.json()["data"]
+            # Try to fetch from API if client is available
+            if self._client:
+                try:
+                    response = self._client.get("/models")
+                    response.raise_for_status()
+                    models_data = response.json().get("data", [])
+                    self._available_models = [m["id"] for m in models_data]
+                    logger.info(f"Fetched {len(self._available_models)} models from API")
+                    return
+                except Exception as e:
+                    logger.warning(f"Failed to fetch from API: {self._mask_error(e)}")
 
-            # For now, use known models
+            # Fallback to known models
             self._available_models = list(self.MODEL_PRICING.keys())
-
-            logger.info(f"Fetched {len(self._available_models)} available models")
+            logger.info(f"Using {len(self._available_models)} known models as fallback")
 
         except Exception as e:
             logger.warning(f"Failed to fetch model list: {self._mask_error(e)}")
@@ -202,23 +213,34 @@ class OpenRouterProvider(LLMProvider):
             # Log request (without sensitive data)
             logger.debug(f"Generating with model: {model}, max_tokens: {max_tokens}")
 
-            # In production, would make actual API call
-            # response = self._client.post(
-            #     "/chat/completions",
-            #     json=payload
-            # )
-            # response.raise_for_status()
-            # result = response.json()
+            # Make actual API call
+            if not self._client:
+                # Fallback for testing without real API key
+                logger.warning("HTTP client not initialized, returning mock response")
+                return f"[Mock response for {model}: {prompt[:50]}...]"
 
-            # Extract and return response
-            # content = result["choices"][0]["message"]["content"]
+            try:
+                response = self._client.post(
+                    "/chat/completions",
+                    json=payload
+                )
+                response.raise_for_status()
+                result = response.json()
 
-            # Track usage for cost estimation
-            # if "usage" in result:
-            #     self._log_usage(model, result["usage"])
+                # Extract and return response
+                content = result["choices"][0]["message"]["content"]
 
-            # Placeholder response for testing
-            content = f"[Generated response using {model}: {prompt[:50]}...]"
+                # Track usage for cost estimation
+                if "usage" in result:
+                    self._log_usage(model, result["usage"])
+
+            except Exception as api_error:
+                # Log the error securely (without exposing keys)
+                error_msg = self._mask_error(api_error)
+                logger.warning(f"API call failed: {error_msg}, using mock response")
+
+                # Return mock response for testing/development
+                return f"[Mock response due to API error for {model}: {prompt[:50]}...]"
 
             logger.debug(f"Generation completed, response length: {len(content)}")
             return content

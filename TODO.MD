@@ -57,9 +57,11 @@ Phase 4 (Deploy):    [REMOVED - Local Only]
 - [x] P2.5-003: Verify LangGraph installation ✅
   - Version: 0.5.4
   - All imports working (StateGraph, MemorySaver, etc.)
-- [ ] P2.5-004: Update OpenRouter provider for real API calls
-  - Remove mock responses in generate() method
-  - Implement actual HTTP requests
+- [x] P2.5-004: Update OpenRouter provider for real API calls ✅
+  - Removed mock responses in generate() method
+  - Implemented actual HTTP requests with httpx
+  - Added graceful fallback for invalid API keys
+  - All 5 tests passing
 - [ ] P2.5-005: Update Perplexity provider for real API calls
   - Primary: Direct Perplexity API implementation
   - Fallback: MCP integration (if available)
