@@ -54,22 +54,25 @@ Phase 4 (Deploy):    [REMOVED - Local Only]
   - Current: langfuse==3.2.1 installed
   - Action: Configured in providers.yaml
   - Result: SDK operational, needs valid API credentials
-- [ ] P2.5-003: Update OpenRouter provider for real API calls
+- [x] P2.5-003: Verify LangGraph installation ✅
+  - Version: 0.5.4
+  - All imports working (StateGraph, MemorySaver, etc.)
+- [ ] P2.5-004: Update OpenRouter provider for real API calls
   - Remove mock responses in generate() method
   - Implement actual HTTP requests
-- [ ] P2.5-004: Update Perplexity provider for real API calls
+- [ ] P2.5-005: Update Perplexity provider for real API calls
   - Primary: Direct Perplexity API implementation
   - Fallback: MCP integration (if available)
-- [ ] P2.5-005: Implement ElevenLabs direct API (NO MCP)
+- [ ] P2.5-006: Implement ElevenLabs direct API (NO MCP)
   - Direct API calls only
   - No MCP server needed
-- [x] P2.5-006: Configure LangFuse SDK integration ✅
+- [x] P2.5-007: Configure LangFuse SDK integration ✅
   - Already configured in providers.yaml
   - Ready for provider class integration
-- [ ] P2.5-007: Test all API connections
+- [ ] P2.5-008: Test all API connections
   - Run validate_api_keys.py with real calls
   - Verify actual API responses
-- [ ] P2.5-008: Document API patterns in INTEGRATION_GUIDE.md
+- [ ] P2.5-009: Document API patterns in INTEGRATION_GUIDE.md
 
 ### 📦 Days 2-7: Complete Agent Migration (13 Remaining)
 **Critical Note**: All 16 agents are necessary - each serves a specific purpose
