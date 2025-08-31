@@ -66,7 +66,7 @@ Phase 4 (Deploy):    [░░░░░░░░░░] 0%
 
 ### 2.1 Agent Extraction & Adaptation
 - [x] P2-001: Extract research-discovery agent to LangGraph node
-- [ ] P2-002: Extract research-deep-dive agent to LangGraph node
+- [x] P2-002: Extract research-deep-dive agent to LangGraph node
 - [ ] P2-003: Extract research-validate agent to LangGraph node
 - [ ] P2-004: Extract research-synthesis agent to LangGraph node
 - [ ] P2-005: Extract question-generator agent to LangGraph node
