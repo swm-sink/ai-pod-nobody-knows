@@ -83,11 +83,11 @@ repos:
         language: system
         files: \.(md|xml|yaml|json)$
 
-      - id: prevent-root-pollution
-        name: prevent root directory pollution
-        entry: scripts/precommit/prevent_root_pollution.sh
+      - id: directory-structure-validation
+        name: Validate Professional Directory Structure
+        entry: .claude/governance/validate-root-limit.sh
         language: system
-        pass_filenames: false
+        always_run: true
         stages: [commit]
 
       - id: duplication-detection

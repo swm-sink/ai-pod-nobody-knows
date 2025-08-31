@@ -91,15 +91,47 @@ Production Stream (10 agents):
 - Create account → Settings → API → Generate Key
 - Choose Pro plan for best research quality
 
-## 📁 Optimized File Structure v2.0
+## 📁 Professional Directory Structure v1.0.0
 
-**Technical:** Claude 4 optimized with selective loading, token budgeting, and context consolidation
-**Simple:** Like a smart filing system that only shows you what you need when you need it
+**Technical:** Professional standard directory organization following Python and documentation best practices
+**Simple:** Like a well-organized office - everything has its proper place for easy navigation
 
 ```
 ai-podcasts-nobody-knows/
-├── CLAUDE.md                      # Master system configuration
 ├── README.md                      # This file
+├── ARCHITECTURE.md                # System architecture overview
+├── CONTRIBUTING.md                # Contribution guidelines
+├── CLAUDE.md                      # Master system configuration
+├── requirements.txt               # Consolidated Python dependencies
+├── .env.example                   # Template for environment variables
+├── package.json                   # Node.js dependencies for MCP servers
+├── LICENSE                        # Project license
+│
+├── src/                           # Python source code
+│   ├── audio/                     # Audio processing (tts_*.py)
+│   ├── validation/                # Validation scripts (stt_*.py, ssml_*.py)
+│   └── utils/                     # Utility scripts (test_*.py)
+│
+├── docs/                          # All documentation organized by category
+│   ├── architecture/              # Detailed architecture documents
+│   ├── deployment/                # Deployment guides (DEPLOYMENT.md)
+│   ├── development/               # Implementation guides (ROADMAP_*.md)
+│   ├── reports/                   # Assessment reports (AI_PODCAST_*.md)
+│   └── legacy/                    # Outdated documentation
+│
+├── tests/                         # Test files and validation
+│   ├── validation/                # Validation files (validation_*.md)
+│   ├── unit/                      # Unit tests
+│   └── integration/               # Integration tests
+│
+├── config/                        # Configuration files
+│   ├── environments/              # Environment-specific configs
+│   └── templates/                 # Configuration templates
+│
+├── build/                         # Build and deployment tools
+│   ├── scripts/                   # Build scripts (start-claude.sh)
+│   └── tools/                     # Development tools
+│
 ├── .env                           # API keys (git-ignored)
 │
 ├── .claude/                       # Simplified Claude Code configuration (54 files)
@@ -178,8 +210,7 @@ cp .env.example .env
 5. **Install dev dependencies (recommended)**
 
 ```bash
-python3 -m pip install -r requirements.txt
-python3 -m pip install -r dev-requirements.txt
+python3 -m pip install -r requirements.txt  # Now consolidated - includes dev dependencies
 pre-commit install
 ```
 

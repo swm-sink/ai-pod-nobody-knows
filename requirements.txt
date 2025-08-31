@@ -1,10 +1,22 @@
-# Minimal Python dependencies for test scripts only
-# This is NOT a Python application - it's Native Claude Code
+# AI Podcast Production System - Consolidated Dependencies
+# This is Native Claude Code with minimal Python requirements
 
-# For test scripts in .claude/scripts/
+# Core dependencies (from original requirements.txt)
 python-dotenv==1.0.1    # Load .env file
 requests==2.32.3        # API testing
 
-# Note: The MCP servers have their own dependencies:
+# Development dependencies (from dev-requirements.txt)
+pre-commit==3.7.1       # Pre-commit hooks
+detect-secrets==1.5.0   # Security scanning
+
+# Dashboard dependencies (from dashboard_requirements.txt)
+streamlit>=1.28.0       # Dashboard framework
+pandas>=1.5.0          # Data manipulation
+numpy>=1.24.0          # Numerical operations
+plotly>=5.15.0         # Interactive visualizations
+packaging>=21.0        # Version utilities
+jsonschema>=4.19.0     # JSON validation
+
+# Note: MCP servers have separate dependency management:
 # - ElevenLabs MCP: Installed via pip in .claude/mcp-servers/elevenlabs-mcp/
 # - Perplexity MCP: Node.js based in .claude/mcp-servers/perplexity-mcp/

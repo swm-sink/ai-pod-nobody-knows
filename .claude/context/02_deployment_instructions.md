@@ -12,14 +12,14 @@ The current Claude Code session **cannot access MCP tools** due to environment v
 ```bash
 # REQUIRED BEFORE ANY PRODUCTION TESTING
 cd /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows
-./start-claude.sh
+./build/scripts/start-claude.sh
 ```
 
 **Why This Is Critical**:
 - Current session: ElevenLabs tools return 401 authentication errors
 - API keys not loaded: Environment variables missing in MCP context
 - Production blocked: Cannot synthesize audio without proper authentication
-- Solution validated: `start-claude.sh` properly loads all required environment variables
+- Solution validated: `build/scripts/start-claude.sh` properly loads all required environment variables
 
 ## 🎯 POST-RESTART DEPLOYMENT PROTOCOL
 
@@ -83,7 +83,7 @@ validation_checklist:
 ```
 /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/
 ├── .env                          # API keys (51-53 char lengths validated)
-├── start-claude.sh               # Environment loading script (executable)
+├── build/scripts/start-claude.sh  # Environment loading script (executable)
 ├── .claude/
 │   ├── settings.json            # MCP tool permissions (22 ElevenLabs tools)
 │   ├── config/

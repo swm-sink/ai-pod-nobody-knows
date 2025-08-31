@@ -425,7 +425,7 @@ environment_problems:
   package_installation:
     issue: "Missing or incompatible packages"
     solution: "Install requirements in clean virtual environment"
-    verification: "pip install -r requirements.txt"
+    verification: "pip install -r requirements.txt"  # Note: Now consolidated from multiple requirement files
 
   api_configuration:
     issue: "API keys not properly configured"

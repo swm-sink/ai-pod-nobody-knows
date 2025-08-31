@@ -183,6 +183,61 @@ Usage: `source .env && git push origin main`
 - **Change Control:** All modifications require user approval and validation
 - **Zero Tolerance:** No bypasses, no exceptions, no assumptions
 
+## 📁 DIRECTORY STRUCTURE ENFORCEMENT
+
+**PROFESSIONAL STANDARD DIRECTORY ORGANIZATION - ABSOLUTE REQUIREMENT**
+
+**Current Structure (v1.0.0 Production Standard):**
+```
+/
+├── src/                    # Python source code
+│   ├── audio/             # Audio processing (tts_*.py)
+│   ├── validation/        # Validation scripts (stt_*.py, ssml_*.py)
+│   └── utils/            # Utility scripts (test_*.py)
+├── docs/                  # All documentation
+│   ├── architecture/     # Detailed architecture docs
+│   ├── deployment/       # Deployment guides (DEPLOYMENT.md)
+│   ├── development/      # Implementation guides (ROADMAP_*.md)
+│   ├── reports/          # Assessment reports (AI_PODCAST_*.md)
+│   └── legacy/           # Outdated documentation
+├── tests/                 # Test files and validation
+│   ├── validation/       # Test validation files (validation_*.md)
+│   ├── unit/            # Unit tests
+│   └── integration/     # Integration tests
+├── config/                # Configuration files
+│   ├── environments/    # Environment-specific configs
+│   └── templates/       # Configuration templates
+├── build/                 # Build and deployment tools
+│   ├── scripts/         # Build scripts (start-claude.sh)
+│   └── tools/           # Development tools
+└── Root (≤8 files only): README.md, ARCHITECTURE.md, CONTRIBUTING.md,
+                          LICENSE, .env.example, requirements.txt,
+                          package.json, CLAUDE.md
+```
+
+**Directory Governance Rules:**
+- **Root Directory Limit**: Maximum 8 files (navigation and essential configs only)
+- **No Code in Root**: All Python files → `src/` directories by type
+- **Documentation Categorization**: All .md files → `docs/` subdirectories by purpose
+- **Test Organization**: All test/validation files → `tests/` subdirectories
+- **Configuration Centralization**: All config files → `config/` or appropriate subdirectories
+- **Build Tooling**: All scripts → `build/scripts/`, tools → `build/tools/`
+
+**Enforcement Mechanisms:**
+```yaml
+directory_structure_enforcement:
+  pre_commit_hooks: "Validate directory compliance before commits"
+  root_file_limit: "Block commits if root has >8 files"
+  categorization_check: "Ensure files are in correct directories"
+  governance_validation: ".claude/governance/directory-structure-enforcement.md"
+```
+
+**Violation Consequences:**
+- Root directory violations immediately block all commits
+- Misplaced files trigger automatic reorganization requirements
+- Directory governance violations stop all work until resolved
+- No exceptions or bypass mechanisms - professional standards enforced
+
 </MANDATORY_CONTEXT>
 
 <OPTIONAL_CONTEXT priority="LOAD_ON_DEMAND">

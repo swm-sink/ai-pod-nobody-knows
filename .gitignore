@@ -1,5 +1,24 @@
-# Prevent root directory pollution
-# Development files should go in appropriate directories
+# Prevent root directory pollution - Professional v1.0.0 Structure
+# Development files must go in appropriate directories: src/, docs/, tests/, config/, build/
+
+# NEW STRUCTURE PATTERNS (v1.0.0)
+# Temporary build outputs
+build/dist/
+build/tmp/
+
+# Development documentation drafts
+docs/drafts/
+
+# Test results and coverage
+tests/coverage/
+tests/results/
+
+# Configuration overrides
+config/local/
+
+# Source code build artifacts
+src/**/*.pyc
+src/**/__pycache__/
 
 # Logs
 *.log
@@ -27,7 +46,6 @@ sessions/archive/
 /*validation*.*
 # Exceptions for required root files
 !requirements.txt
-!dev-requirements.txt
 !LICENSE
 
 # Byte-compiled / optimized / DLL files
@@ -40,14 +58,11 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
