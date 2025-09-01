@@ -1,0 +1,26 @@
+[Unit]
+Description=AI Podcast Production System
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=podcast
+Group=podcast
+WorkingDirectory=/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents
+Environment=ENVIRONMENT=production
+EnvironmentFile=/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/.env.production
+ExecStart=/usr/bin/python3 /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/production/server/app.py
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ai-podcast-production
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/data /Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/production/logs
+
+[Install]
+WantedBy=multi-user.target

@@ -6,8 +6,8 @@ Audio synthesis and validation nodes.
 """
 
 from core.node_wrapper import create_agent_node
-from agents.audio_synthesizer import AudioSynthesizerAgent
-from agents.audio_validator import AudioValidatorAgent
+from legacy_agents.audio_synthesizer import AudioSynthesizerAgent
+from legacy_agents.audio_validator import AudioValidatorAgent
 
 
 # Global node function storage - simple caching

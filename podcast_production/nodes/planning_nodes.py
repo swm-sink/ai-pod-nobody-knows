@@ -1,15 +1,15 @@
 """
-Planning Pipeline Node Functions  
+Planning Pipeline Node Functions
 Simple wrapper implementations - August 2025 pattern
 
 Question generation, episode planning, script writing, and brand validation nodes.
 """
 
 from core.node_wrapper import create_agent_node
-from agents.question_generator import QuestionGeneratorAgent
-from agents.episode_planner import EpisodePlannerAgent
-from agents.script_writer import ScriptWriterAgent
-from agents.brand_validator import BrandValidatorAgent
+from legacy_agents.question_generator import QuestionGeneratorAgent
+from legacy_agents.episode_planner import EpisodePlannerAgent
+from legacy_agents.script_writer import ScriptWriterAgent
+from legacy_agents.brand_validator import BrandValidatorAgent
 
 
 # Global node function storage - simple caching

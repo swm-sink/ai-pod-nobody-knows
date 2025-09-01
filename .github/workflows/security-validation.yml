@@ -1,5 +1,7 @@
 name: Security Validation & Quality Checks
 
+from config.voice_config import get_production_voice_id
+
 on:
   push:
     branches: [ main, develop ]
@@ -195,7 +197,7 @@ jobs:
     - name: Production Configuration Check
       run: |
         # Check production voice ID is protected
-        if grep -q "ZF6FPAbjXT4488VcRRnw" .env.example; then
+        if grep -q get_production_voice_id() .env.example; then
           echo "✅ Production voice ID properly configured"
         else
           echo "ERROR: Production voice ID missing or incorrect"

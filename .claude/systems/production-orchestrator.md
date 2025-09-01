@@ -1,5 +1,7 @@
 # Enhanced Production Pipeline Orchestrator
 
+from config.voice_config import get_production_voice_id
+
 ## Purpose
 Optimize production pipeline architecture based on battle testing validation for scalable deployment.
 
@@ -77,7 +79,7 @@ class EnhancedProductionOrchestrator:
         # Audio phase with direct API integration
         audio_results = self.audio_pipeline.execute_direct(
             content_results,
-            voice_id="ZF6FPAbjXT4488VcRRnw"  # Validated production voice
+            voice_id=get_production_voice_id()  # Validated production voice
         )
 
         # Quality validation with automated scoring

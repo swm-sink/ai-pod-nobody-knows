@@ -69,7 +69,7 @@ class ElevenLabsAPI:
             "Content-Type": "application/json"
         }
 
-    def text_to_speech(self, text: str, voice_id: str = "ZF6FPAbjXT4488VcRRnw") -> bytes:
+    def text_to_speech(self, text: str, voice_id: str = get_production_voice_id()) -> bytes:
         """Convert text to speech using ElevenLabs API"""
         url = f"{self.base_url}/text-to-speech/{voice_id}"
 
@@ -90,6 +90,8 @@ class ElevenLabsAPI:
 
     def check_subscription(self) -> Dict[str, Any]:
         """Check subscription status and remaining characters"""
+
+from config.voice_config import get_production_voice_id
         url = f"{self.base_url}/subscription"
         response = requests.get(url, headers=self.headers)
         response.raise_for_status()
@@ -269,7 +271,7 @@ audio_production_stages:
 ### Production Voice Configuration
 ```yaml
 production_voice_settings:
-  voice_id: "ZF6FPAbjXT4488VcRRnw"
+  voice_id: get_production_voice_id()
   voice_name: "Amelia"
   model_id: "eleven_multilingual_v2"
 

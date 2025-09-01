@@ -6,27 +6,46 @@
 <MANDATORY_CONTEXT>
 <!-- This block MUST be loaded for all operations -->
 
-## 🎯 MANDATORY SIMPLICITY ENFORCEMENT
+## 🎯 DUAL-MODE ARCHITECTURE ENFORCEMENT
 
 <SYSTEM_DIRECTIVE priority="MAXIMUM">
-**PROHIBIT OVERCOMPLICATED SOLUTIONS - ENFORCE MINIMUM VIABLE COMPLEXITY**
+**DUAL-MODE OPERATION: Claude Code builds LangGraph; LangGraph executes production**
 </SYSTEM_DIRECTIVE>
+
+**System Architecture:**
+- **Development Mode**: Claude Code with specialized agents builds LangGraph components
+- **Production Mode A**: Direct LangGraph execution (`cd podcast_production && python main.py`)
+- **Production Mode B**: Claude Code orchestrates LangGraph subprocess (`/prod-episode`)
 
 **Teaching Format:**
 - **Technical:** Professional explanation with industry terminology
 - **Simple:** "Think of it like..." analogy-based explanation
 - **Connection:** "This helps you learn..." learning value and transferable skills
 
-**Brutal Enforcement Rules:**
-- IF solution has more than 3 moving parts → REJECTED
-- IF solution requires new infrastructure → REJECTED, use existing tools
-- IF solution cannot be explained in 2 sentences → REJECTED
-- IF solution creates new abstractions → REJECTED, use Claude Code native patterns
+**Operational Principles:**
+- Claude Code = Development tools and optional orchestration
+- LangGraph = Production system execution
+- Clear separation between building and running
+- Dual execution paths for automation and interaction
 
 ## 📅 MANDATORY TEMPORAL CONTEXT ENFORCEMENT
 
-<CRITICAL_CONSTRAINT priority="MAXIMUM">
-**SYSTEM DATE: AUGUST 2025 - ALL OPERATIONS MUST USE THIS DATE**
+<CRITICAL_CONSTRAINT priority="MAXIMUM" override="NEVER">
+**SYSTEM DATE: AUGUST 2025 - NO TRAINING DATA POLICY ENFORCED**
+
+**TRAINING DATA CUTOFF:** October 2024 - ALL technical knowledge is OUTDATED
+**VALIDATION REQUIRED:** Every technical decision must use current sources
+
+**MANDATORY VALIDATION PROTOCOL:**
+- **BEFORE any technical implementation** → Search current patterns with Perplexity MCP
+- **BEFORE any library usage** → Verify August 2025 compatibility via web search
+- **BEFORE any architecture decision** → Validate against current best practices
+- **PROHIBITED:** Relying on training data for ANY technical implementation
+
+**REQUIRED TOOLS for Validation:**
+- **Perplexity MCP:** `mcp__perplexity-ask__perplexity_ask` for technical patterns
+- **Web Search:** `WebSearch` for current documentation and standards
+- **Both Required:** Use BOTH tools for critical technical decisions
 
 **ENFORCEMENT RULES:**
 - **Current Date:** August 31, 2025 (about to enter September 2025)
@@ -43,10 +62,12 @@
 "[FRAMEWORK] August 2025 version features documentation"
 ```
 
-**Violation Consequences:**
-- Using outdated practices (2024 or earlier) → Work rejected
+**VIOLATION CONSEQUENCES:**
+- Using outdated training data patterns → Work immediately rejected
+- Implementing without validation → Must redo with current sources
 - Failing to specify August 2025 in searches → Must redo search
-- Implementing deprecated patterns → Code rejected until updated
+- Using deprecated patterns → Code rejected until updated
+- **ZERO TOLERANCE:** No exceptions or bypasses allowed
 </CRITICAL_CONSTRAINT>
 
 ## 🔒 CRITICAL PRODUCTION CONFIGURATION GOVERNANCE
@@ -145,24 +166,52 @@ token_allocation:
 </CONTEXT_LOADING_PROTOCOL>
 
 <SELECTIVE_CONTEXT_DIRECTORY priority="CONDITIONAL">
-**Directory Context Navigation:**
-- `@.claude/agent-context/agents.md` - <LOAD_IF task="agent_modification">All specialized sub-agents and orchestration patterns</LOAD_IF>
-- `@.claude/agent-context/commands.md` - <LOAD_IF task="command_creation">User-facing commands and workflow interfaces</LOAD_IF>
-- `@.claude/agent-context/docs.md` - <LOAD_IF task="documentation">Comprehensive documentation organization</LOAD_IF>
-- `@.claude/agent-context/systems.md` - <LOAD_IF task="system_config">System-level infrastructure and orchestration</LOAD_IF>
-- `@.claude/agent-context/workflows.md` - <LOAD_IF task="workflow_design">Meta-prompting and systematic methodologies</LOAD_IF>
-- `@.claude/agent-context/processes.md` - <LOAD_IF task="process_validation">Detailed procedures and validation results</LOAD_IF>
+**Dual-Mode Context Navigation:**
+- `@.claude/CLAUDE_DEV.md` - <LOAD_IF task="development">Development orchestration and LangGraph building</LOAD_IF>
+- `@.claude/CLAUDE_BRIDGE.md` - <LOAD_IF task="production_orchestration">Claude Code → LangGraph production orchestration</LOAD_IF>
+
+**Development Agents (Building LangGraph):**
+- `@.claude/agents/dev/langgraph-builder.md` - <LOAD_IF task="build_component">Build LangGraph nodes and workflows</LOAD_IF>
+- `@.claude/agents/dev/state-architect.md` - <LOAD_IF task="state_management">Design state schemas and transitions</LOAD_IF>
+- `@.claude/agents/dev/migration-specialist.md` - <LOAD_IF task="migrate_agent">Migrate Claude agents to LangGraph</LOAD_IF>
+- `@.claude/agents/dev/test-harness.md` - <LOAD_IF task="testing">Create comprehensive test suites</LOAD_IF>
+
+**Bridge Agents (Orchestrating LangGraph):**
+- `@.claude/agents/bridge/production-orchestrator.md` - <LOAD_IF task="run_episode">Orchestrate LangGraph subprocess execution</LOAD_IF>
+
+**Development Commands:**
+- `@.claude/commands/dev/build-langgraph.md` - <LOAD_IF task="build">Build LangGraph components with validation</LOAD_IF>
+
+**Production Commands:**
+- `@.claude/commands/prod/run-episode.md` - <LOAD_IF task="episode_production">Full episode production via LangGraph</LOAD_IF>
+
+**Planning & Tracking:**
+- `@podcast_production/TODO_dev.yaml` - <LOAD_IF task="development_planning">Development task tracking</LOAD_IF>
+- `@podcast_production/TODO_prod.yaml` - <LOAD_IF task="production_planning">Episode production planning</LOAD_IF>
 </SELECTIVE_CONTEXT_DIRECTORY>
 
 ## 📍 CURRENT STATUS
 
-**Phase:** WALK
-**Focus:** Learn for FREE - No API keys needed!
-**Cost:** $0
-**Next:** `@context/02_walk_crawl_run_phases.md`
+**Phase:** Architecture Stabilization (75% complete)
+**LangGraph Migration:** 12/16 agents complete
+**System Mode:** Dual-mode (Development + Production)
+**Focus:** Complete remaining agent migrations and production readiness
+**Cost Target:** $5.51 per episode maintained
 
 <SYSTEM_COMMANDS priority="HIGH_FREQUENCY">
-## 🔧 ESSENTIAL COMMANDS
+## 🔧 DUAL-MODE COMMANDS
+
+**Development Commands (Building LangGraph):**
+- `/dev-build` - Build LangGraph component
+- `/dev-test` - Test LangGraph pipeline
+- `/dev-migrate` - Migrate Claude agent to LangGraph
+- `/dev-state` - Design state management
+
+**Production Commands (Running LangGraph):**
+- `/prod-episode` - Full episode production via LangGraph
+- `/prod-research` - Research pipeline only
+- `/prod-monitor` - Monitor production progress
+- `/prod-analyze` - Analyze production metrics
 
 **Context Management:**
 - `/init` - Initialize project memory
@@ -435,28 +484,42 @@ grep -v ".git" | sort | uniq -d
 **This policy is NON-NEGOTIABLE and ABSOLUTE.**
 </OPTIONAL_CONTEXT>
 
-## 🏗️ NATIVE CLAUDE CODE ARCHITECTURE
+## 🏗️ DUAL-MODE LANGGRAPH ARCHITECTURE
 
-**🚨 CRITICAL:** Before modifying any agent or command, load: `@.claude/context/agent_orchestration_complete.md`
+**🚨 CRITICAL:** This system operates in two distinct modes with clear separation of concerns.
 
-**Architecture Details:**
-- `@.claude/context/agent_orchestration_complete.md` - **REQUIRED READING** for agent modifications
-- `@.claude/context/claude_code_integration.md` - MCP tool integration patterns
-
-**Core Patterns (CORRECTED 2025-08-26):**
-- **Main Chat Orchestrator** uses **direct sub-agent invocation** (NOT Task tool delegation)
-- **Specialized Sub-Agents** (16 enhanced agents in `.claude/agents/`) with full MCP tool inheritance
-- **Slash Command Workflows** (`.claude/commands/`) using correct invocation patterns
-- **Hooks Observability** for cost tracking, validation, and architecture compliance
-
-**Correct Invocation Pattern:**
-```markdown
-Use the [agent-name] agent to [action]: "specific requirements"
+**Architecture Overview:**
+```
+Claude Code (Development & Optional Orchestration)
+    ↓ builds and optionally orchestrates
+LangGraph (Production Execution System)
+    ↓ executes via
+Python Subprocess (podcast_production/main.py)
 ```
 
-**Research-First Workflow (Updated):**
-- Research Pipeline: Direct sub-agent invocation → MCP tools → Real execution (>0 tool uses)
-- Production Pipeline: Sequential agent coordination → ElevenLabs integration → Final audio
+**Mode 1: Development (Claude Code):**
+- **Purpose**: Build, test, and migrate LangGraph components
+- **Agents**: langgraph-builder, state-architect, migration-specialist, test-harness
+- **Commands**: `/dev-build`, `/dev-test`, `/dev-migrate`, `/dev-state`
+- **Output**: LangGraph-compatible Python code in `podcast_production/`
+
+**Mode 2A: Direct Production (LangGraph):**
+- **Purpose**: Automated episode production without Claude Code
+- **Execution**: `cd podcast_production && python main.py --topic "Topic"`
+- **Use Case**: Batch processing, automated systems, CI/CD integration
+
+**Mode 2B: Orchestrated Production (Claude Code → LangGraph):**
+- **Purpose**: Interactive production with monitoring and control
+- **Agents**: production-orchestrator, monitor-agent, recovery-agent
+- **Commands**: `/prod-episode`, `/prod-research`, `/prod-monitor`
+- **Execution**: Subprocess orchestration with real-time feedback
+
+**LangGraph Production System:**
+- **Location**: `podcast_production/` directory
+- **State Management**: PodcastState TypedDict with msgpack serialization
+- **Cost Tracking**: CostTracker with budget enforcement
+- **Workflows**: StateGraph with checkpointing and recovery
+- **Agent Implementation**: 12/16 agents migrated (75% complete)
 
 ## 🔄 WORKFLOW PROTOCOLS
 
@@ -503,10 +566,25 @@ Use the [agent-name] agent to [action]: "specific requirements"
 
 ## 🎯 CURRENT PRIORITIES
 
-1. Complete WALK phase activities (FREE)
-2. Set up selective context loading system
-3. Test with single episode production
-4. Maintain $5.51 cost per episode
+1. **Complete LangGraph Migration** (4 agents remaining):
+   - script-writer ($1.75 budget) - CRITICAL
+   - brand-validator ($0.25 budget) - HIGH
+   - episode-planner ($0.20 budget) - MEDIUM
+   - question-generator ($0.10 budget) - LOW
+
+2. **Finish Architecture Stabilization**:
+   - Complete StateManager implementation and testing
+   - Implement AgentOrchestrator for workflow coordination
+   - Consolidate configuration management
+
+3. **Production Readiness Validation**:
+   - Test dual-mode architecture end-to-end
+   - Validate cost tracking accuracy (≤ $5.51/episode)
+   - Ensure quality standards maintained (≥ 8.0)
+
+4. **Launch Production Pipeline**:
+   - First post-migration validation episode
+   - Regular production schedule (2 episodes/week target)
 
 ## 💡 PRO TIPS
 
@@ -525,6 +603,6 @@ Use @ references to load detailed contexts on-demand.
 
 ---
 
-**Quick Actions:** `/init` | `/clear` | `@context/02_quick_reference.md` | `@context/01_project_overview.md`
+**Quick Actions:** `/dev-build` | `/prod-episode` | `/clear` | `@.claude/CLAUDE_DEV.md` | `@.claude/CLAUDE_BRIDGE.md`
 
-**Version:** 7.0.0 | **Updated:** 2025-08-30 | **Optimized:** Claude 4 + Selective Loading | **Performance:** 67k → 12k chars
+**Version:** 8.0.0 | **Updated:** 2025-09-01 | **Architecture:** Dual-Mode LangGraph | **Migration:** 75% Complete

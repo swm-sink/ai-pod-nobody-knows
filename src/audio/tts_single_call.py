@@ -5,6 +5,8 @@ Production-Ready Implementation for 27-Minute Episodes
 Based on verified API limits: 40,000 chars/40 minutes for Flash/Turbo v2.5
 """
 
+from config.voice_config import get_production_voice_id
+
 import requests
 import json
 import time
@@ -15,7 +17,7 @@ from pathlib import Path
 class ElevenLabsSingleCall:
     """Simplified ElevenLabs client for single-call long-form synthesis"""
 
-    def __init__(self, api_key: str, voice_id: str = "ZF6FPAbjXT4488VcRRnw"):
+    def __init__(self, api_key: str, voice_id: str = get_production_voice_id()):
         """
         Initialize ElevenLabs client with Amelia voice for single-call synthesis
 
@@ -416,7 +418,7 @@ def main():
         print("   Please run: export ELEVENLABS_API_KEY=your_api_key")
         return
 
-    AMELIA_VOICE_ID = "ZF6FPAbjXT4488VcRRnw"  # Episode 1 empirically validated voice ID
+    AMELIA_VOICE_ID = get_production_voice_id()  # Episode 1 empirically validated voice ID
 
     SCRIPT_PATH = "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/sessions/ep_001_production_20250824_231505/production/tts_optimized_script.ssml"
     OUTPUT_DIR = "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/sessions/ep_001_production_20250824_231505/audio_single_call"

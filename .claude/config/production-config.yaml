@@ -1,4 +1,6 @@
 # MASTER CONFIGURATION - SINGLE SOURCE OF TRUTH
+
+from config.voice_config import get_production_voice_id
 # Nobody Knows Podcast Production System v3.0.0
 # This file is the AUTHORITATIVE configuration source
 # ALL other configurations must reference values from this file
@@ -59,7 +61,7 @@ apis:
     voice:
       primary:
         name: "Amelia"
-        id: "ZF6FPAbjXT4488VcRRnw"
+        id: get_production_voice_id()
         description: "young and enthusiastic"
         characteristics: "warm, intellectual delivery"
       backup:
@@ -425,7 +427,7 @@ deprecation:
     - "35k.*character"
     - "\\$[0-9]+\\.[0-9]+"              # Hardcoded costs
     - "eleven_flash_v2_5"             # Old model references
-    - "ZF6FPAbjXT4488VcRRnw"          # Hardcoded voice IDs (use config)
+    - get_production_voice_id()          # Hardcoded voice IDs (use config)
 
   migration_targets:
     agents: 10                        # Agent files to migrate

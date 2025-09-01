@@ -6,7 +6,7 @@ Demonstrates minimum viable complexity approach.
 """
 
 from core.node_wrapper import create_agent_node
-from agents.question_generator import QuestionGeneratorAgent
+from legacy_agents.question_generator import QuestionGeneratorAgent
 
 
 # Create the node function - ONE LINE solution!
@@ -19,11 +19,11 @@ async def get_question_generator_node():
     Simple lazy initialization pattern.
     """
     global question_generator_node
-    
+
     if question_generator_node is None:
         # Create with no special config - keep it simple
         question_generator_node = await create_agent_node(QuestionGeneratorAgent)
-    
+
     return question_generator_node
 
 

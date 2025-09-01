@@ -1,6 +1,8 @@
 {
+
+from config.voice_config import get_production_voice_id
   "production_voice": {
-    "voice_id": "ZF6FPAbjXT4488VcRRnw",
+    "voice_id": get_production_voice_id(),
     "voice_name": "Amelia",
     "validation_source": "Production validation - August 30, 2025",
     "settings": {

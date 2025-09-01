@@ -6,8 +6,8 @@ Claude and Gemini evaluator nodes for quality assessment.
 """
 
 from core.node_wrapper import create_agent_node
-from agents.claude_evaluator import ClaudeEvaluatorAgent
-from agents.gemini_evaluator import GeminiEvaluatorAgent
+from legacy_agents.claude_evaluator import ClaudeEvaluatorAgent
+from legacy_agents.gemini_evaluator import GeminiEvaluatorAgent
 
 
 # Global node function storage - simple caching

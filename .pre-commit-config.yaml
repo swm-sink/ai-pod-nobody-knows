@@ -137,7 +137,7 @@ repos:
         args:
           - -c
           - |
-            if grep -r "ZF6FPAbjXT4488VcRRnw" podcast_production/ --include="*.py" --exclude="config/voice_config.py" --exclude="*test*.py" --exclude="*setup*.py" --exclude="*validate*.py" 2>/dev/null; then 
+            if grep -r "ZF6FPAbjXT4488VcRRnw" podcast_production/ --include="*.py" --exclude="config/voice_config.py" --exclude="*test*.py" --exclude="*setup*.py" --exclude="*validate*.py" 2>/dev/null; then
               echo "ERROR: Hardcoded voice IDs detected in production code. Use get_production_voice_id() instead."
               exit 1
             fi

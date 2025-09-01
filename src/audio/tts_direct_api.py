@@ -4,6 +4,8 @@ Direct ElevenLabs API Integration for Episode 1 Audio Synthesis
 Production-Ready Implementation with Comprehensive Error Handling
 """
 
+from config.voice_config import get_production_voice_id
+
 import requests
 import json
 import time
@@ -16,7 +18,7 @@ from datetime import datetime
 class ElevenLabsDirectAPI:
     """Production-grade ElevenLabs API client with intelligent chunking and error handling"""
 
-    def __init__(self, api_key: str, voice_id: str = "ZF6FPAbjXT4488VcRRnw"):
+    def __init__(self, api_key: str, voice_id: str = get_production_voice_id()):
         """
         Initialize ElevenLabs client with Amelia voice
 
@@ -370,7 +372,7 @@ def load_production_config():
 
     # Fallback to hardcoded values
     return {
-        "voice_id": "ZF6FPAbjXT4488VcRRnw",
+        "voice_id": get_production_voice_id(),
         "voice_name": "Amelia",
         "settings": {
             "stability": 0.65,
@@ -395,7 +397,7 @@ def main():
 
     # Load central configuration
     config = load_production_config()
-    voice_id = config.get("voice_id", "ZF6FPAbjXT4488VcRRnw")
+    voice_id = config.get("voice_id", get_production_voice_id())
 
     print(f"🔧 Using voice: {config.get('voice_name', 'Amelia')} ({voice_id})")
 

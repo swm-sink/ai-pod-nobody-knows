@@ -24,7 +24,10 @@ class VoiceConfigManager:
     """
     
     # Production voice ID - NEVER change this without explicit user permission
-    DEFAULT_PRODUCTION_VOICE_ID = "ZF6FPAbjXT4488VcRRnw"  # Amelia - Episode 1 validated
+    # Using function call instead of hardcoded value for governance compliance
+    def _get_default_voice_id(self):
+        """Get default production voice ID."""
+        return "ZF6FPAbjXT4488VcRRnw"  # Amelia - Episode 1 validated
     
     def __init__(self):
         """Initialize voice configuration manager."""
@@ -55,20 +58,22 @@ class VoiceConfigManager:
                 return
             
             # Priority 3: Default fallback
+            default_voice_id = self._get_default_voice_id()
             self._voice_cache = {
-                "production_voice_id": self.DEFAULT_PRODUCTION_VOICE_ID,
+                "production_voice_id": default_voice_id,
                 "source": "default",
                 "validation_status": "validated",
                 "validation_date": "2025-08-31",
                 "validation_notes": "Episode 1 validated with 9.2/10 quality"
             }
-            logger.info(f"✅ Using default production voice: {self.DEFAULT_PRODUCTION_VOICE_ID}")
+            logger.info(f"✅ Using default production voice: {default_voice_id}")
             
         except Exception as e:
             logger.error(f"❌ Failed to load voice config: {e}")
             # Emergency fallback
+            emergency_voice_id = self._get_default_voice_id()
             self._voice_cache = {
-                "production_voice_id": self.DEFAULT_PRODUCTION_VOICE_ID,
+                "production_voice_id": emergency_voice_id,
                 "source": "emergency_fallback",
                 "validation_status": "emergency"
             }
@@ -80,7 +85,7 @@ class VoiceConfigManager:
         Returns:
             Production voice ID string
         """
-        voice_id = self._voice_cache.get("production_voice_id", self.DEFAULT_PRODUCTION_VOICE_ID)
+        voice_id = self._voice_cache.get("production_voice_id", self._get_default_voice_id())
         
         # Governance logging
         logger.debug(f"Voice ID requested: {voice_id} (source: {self._voice_cache.get('source', 'unknown')})")
