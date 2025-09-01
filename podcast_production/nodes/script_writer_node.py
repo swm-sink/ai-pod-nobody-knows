@@ -4,7 +4,7 @@ High-value agent with $1.75 budget allocation
 """
 
 from core.node_wrapper import create_agent_node
-from legacy_agents.script_writer import ScriptWriterAgent
+from agents.script_writer import ScriptWriterAgent
 
 
 # Global node function storage - simple caching

@@ -31,6 +31,7 @@ load_dotenv()
 from core.config.manager import ConfigManager, get_config_manager
 from core.state import create_initial_state, validate_state
 from core.logging_config import setup_logging as setup_app_logging
+from core.security import validate_api_keys, check_required_keys, sanitize_topic
 from workflows.main_workflow import execute_workflow
 
 
@@ -52,8 +53,29 @@ def load_configuration() -> ConfigManager:
 
 
 def validate_environment() -> None:
-    """Validate environment and dependencies."""
+    """Validate environment and dependencies with security validation."""
     logger = logging.getLogger(__name__)
+
+    # Security validation using core.security module
+    try:
+        api_key_results = validate_api_keys()
+        valid_count = sum(api_key_results.values())
+        total_count = len(api_key_results)
+        
+        if valid_count == 0:
+            logger.error("No valid API keys found")
+        elif valid_count < total_count:
+            logger.warning(f"Only {valid_count}/{total_count} API keys are valid")
+            logger.warning("Use --dry-run to test without APIs")
+        else:
+            logger.info(f"All {valid_count} API keys validated successfully")
+        
+        required_valid, required_msg = check_required_keys()
+        if not required_valid:
+            logger.warning(f"Required API keys check: {required_msg}")
+        
+    except Exception as e:
+        logger.error(f"Security validation error: {e}")
 
     # Check required environment variables for non-dry runs
     required_envs = {
@@ -163,14 +185,23 @@ async def main() -> None:
         # Validate environment
         validate_environment()
 
+        # Sanitize topic for security
+        try:
+            sanitized_topic = sanitize_topic(args.topic)
+            if args.topic != sanitized_topic:
+                logger.info(f"Topic sanitized for security: '{args.topic}' -> '{sanitized_topic}'")
+        except ValueError as e:
+            logger.error(f"Topic validation failed: {e}")
+            sys.exit(1)
+
         # Create output directory
         output_dir = Path(args.output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
         logger.info(f"Output directory created: {output_dir}")
 
-        # Create initial state
+        # Create initial state (topic already sanitized by create_initial_state)
         initial_state = create_initial_state(
-            topic=args.topic,
+            topic=args.topic,  # Will be sanitized again inside create_initial_state
             budget=args.budget,
             output_dir=str(output_dir),
             dry_run=args.dry_run,

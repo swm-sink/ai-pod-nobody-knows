@@ -4,7 +4,7 @@ Planning agent with $0.20 budget allocation
 """
 
 from core.node_wrapper import create_agent_node
-from legacy_agents.episode_planner import EpisodePlannerAgent
+from agents.episode_planner import EpisodePlannerAgent
 
 
 # Global node function storage - simple caching

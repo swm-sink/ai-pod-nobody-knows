@@ -6,7 +6,7 @@ Demonstrates minimum viable complexity approach.
 """
 
 from core.node_wrapper import create_agent_node
-from legacy_agents.question_generator import QuestionGeneratorAgent
+from agents.question_generator import QuestionGeneratorAgent
 
 
 # Create the node function - ONE LINE solution!

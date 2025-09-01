@@ -6,10 +6,10 @@ Question generation, episode planning, script writing, and brand validation node
 """
 
 from core.node_wrapper import create_agent_node
-from legacy_agents.question_generator import QuestionGeneratorAgent
-from legacy_agents.episode_planner import EpisodePlannerAgent
-from legacy_agents.script_writer import ScriptWriterAgent
-from legacy_agents.brand_validator import BrandValidatorAgent
+from agents.question_generator import QuestionGeneratorAgent
+from agents.episode_planner import EpisodePlannerAgent
+from agents.script_writer import ScriptWriterAgent
+from agents.brand_validator import BrandValidatorAgent
 
 
 # Global node function storage - simple caching

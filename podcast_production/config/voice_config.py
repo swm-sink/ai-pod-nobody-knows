@@ -18,23 +18,23 @@ logger = logging.getLogger(__name__)
 class VoiceConfigManager:
     """
     Centralized voice configuration manager.
-    
+
     Ensures compliance with CLAUDE.md governance requirement:
     "Voice ID changes require explicit user permission - NO EXCEPTIONS"
     """
-    
+
     # Production voice ID - NEVER change this without explicit user permission
     # Using function call instead of hardcoded value for governance compliance
     def _get_default_voice_id(self):
         """Get default production voice ID."""
         return "ZF6FPAbjXT4488VcRRnw"  # Amelia - Episode 1 validated
-    
+
     def __init__(self):
         """Initialize voice configuration manager."""
         self.config_file = Path("config/production-voice.json")
         self._voice_cache = {}
         self._load_config()
-    
+
     def _load_config(self):
         """Load voice configuration from file or environment."""
         try:
@@ -45,7 +45,7 @@ class VoiceConfigManager:
                     self._voice_cache = config
                     logger.info(f"✅ Voice config loaded from {self.config_file}")
                     return
-            
+
             # Priority 2: Environment variable
             env_voice_id = os.getenv("PRODUCTION_VOICE_ID")
             if env_voice_id:
@@ -56,7 +56,7 @@ class VoiceConfigManager:
                 }
                 logger.info(f"✅ Voice config loaded from environment: {env_voice_id}")
                 return
-            
+
             # Priority 3: Default fallback
             default_voice_id = self._get_default_voice_id()
             self._voice_cache = {
@@ -67,7 +67,7 @@ class VoiceConfigManager:
                 "validation_notes": "Episode 1 validated with 9.2/10 quality"
             }
             logger.info(f"✅ Using default production voice: {default_voice_id}")
-            
+
         except Exception as e:
             logger.error(f"❌ Failed to load voice config: {e}")
             # Emergency fallback
@@ -77,38 +77,38 @@ class VoiceConfigManager:
                 "source": "emergency_fallback",
                 "validation_status": "emergency"
             }
-    
+
     def get_production_voice_id(self) -> str:
         """
         Get the production voice ID.
-        
+
         Returns:
             Production voice ID string
         """
         voice_id = self._voice_cache.get("production_voice_id", self._get_default_voice_id())
-        
+
         # Governance logging
         logger.debug(f"Voice ID requested: {voice_id} (source: {self._voice_cache.get('source', 'unknown')})")
-        
+
         return voice_id
-    
+
     def get_voice_config(self) -> Dict[str, Any]:
         """
         Get complete voice configuration.
-        
+
         Returns:
             Complete voice configuration dictionary
         """
         return self._voice_cache.copy()
-    
+
     def update_voice_id(self, new_voice_id: str, user_authorized: bool = False) -> bool:
         """
         Update voice ID with governance controls.
-        
+
         Args:
             new_voice_id: New voice ID to set
             user_authorized: REQUIRED - Must be True to confirm user authorization
-            
+
         Returns:
             True if update successful, False if blocked by governance
         """
@@ -116,13 +116,13 @@ class VoiceConfigManager:
             logger.error("❌ GOVERNANCE VIOLATION: Voice ID change attempted without user authorization")
             logger.error("❌ As per CLAUDE.md: 'Voice ID changes require explicit user permission - NO EXCEPTIONS'")
             return False
-        
+
         if new_voice_id == self.get_production_voice_id():
             logger.info("ℹ️ Voice ID unchanged, no update needed")
             return True
-        
+
         old_voice_id = self.get_production_voice_id()
-        
+
         # Update configuration
         self._voice_cache.update({
             "production_voice_id": new_voice_id,
@@ -132,25 +132,25 @@ class VoiceConfigManager:
             "previous_voice_id": old_voice_id,
             "user_authorized": True
         })
-        
+
         # Save to config file
         try:
             self.config_file.parent.mkdir(parents=True, exist_ok=True)
             with open(self.config_file, 'w') as f:
                 json.dump(self._voice_cache, f, indent=2)
-            
+
             logger.info(f"✅ Voice ID updated: {old_voice_id} → {new_voice_id}")
             logger.info(f"✅ Change authorized by user and saved to {self.config_file}")
             return True
-            
+
         except Exception as e:
             logger.error(f"❌ Failed to save voice config: {e}")
             return False
-    
+
     def validate_current_voice(self, quality_score: float = None) -> None:
         """
         Mark current voice as validated.
-        
+
         Args:
             quality_score: Optional quality score from validation
         """
@@ -159,7 +159,7 @@ class VoiceConfigManager:
             "validation_date": "2025-09-01",
             "validation_score": quality_score
         })
-        
+
         # Save validation status
         try:
             if self.config_file.exists():
@@ -184,10 +184,10 @@ def get_voice_config_manager() -> VoiceConfigManager:
 def get_production_voice_id() -> str:
     """
     Get the production voice ID - GOVERNANCE COMPLIANT.
-    
+
     This is the ONLY way to get voice ID in the codebase.
     All hardcoded voice IDs are governance violations.
-    
+
     Returns:
         Production voice ID string
     """
@@ -197,11 +197,11 @@ def get_production_voice_id() -> str:
 def update_production_voice_id(new_voice_id: str, user_authorized: bool = False) -> bool:
     """
     Update production voice ID with governance controls.
-    
+
     Args:
         new_voice_id: New voice ID
         user_authorized: Must be True - confirms user permission
-        
+
     Returns:
         True if successful, False if blocked by governance
     """

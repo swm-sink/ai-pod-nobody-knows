@@ -14,7 +14,7 @@ from core.retry_handler import RetryHandler, RetryConfig, CircuitBreakerState
 
 import logging
 import os
-from typing import Dict, Any, Literal
+from typing import Dict, Any, Literal, List, Optional, Union
 from pathlib import Path
 import json
 
@@ -53,7 +53,7 @@ from core.cost_tracker import CostTracker, BudgetExceededException, create_cost_
 from core.cost_tracker_manager import get_cost_tracker_manager
 from core.checkpoint_manager import get_checkpoint_manager, create_workflow_checkpoint
 
-# Import all migrated agents
+# Import all production agents
 from agents.research_discovery import ResearchDiscoveryAgent
 from agents.research_deep_dive import ResearchDeepDiveAgent
 from agents.research_validation import ResearchValidationAgent
