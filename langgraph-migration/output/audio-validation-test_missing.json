@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "audio_validation",
+  "agent_metadata": {
+    "agent_id": "audio-validator",
+    "session_id": "test_missing",
+    "execution_timestamp": "2025-08-31T20:46:32.488064",
+    "audio_file_path": "/nonexistent/file.mp3"
+  },
+  "cost_tracking": {
+    "execution_cost": 0.1,
+    "budget_allocated": 0.2,
+    "budget_remaining": 0.1,
+    "validation_steps": [
+      {
+        "step": "stt_validation",
+        "cost": 0.1,
+        "timestamp": "2025-08-31T20:46:32.488088"
+      }
+    ]
+  },
+  "execution_status": {
+    "status": "completed",
+    "validation_step": "file_check",
+    "completion_timestamp": "2025-08-31T20:46:32.488095"
+  },
+  "validation_passed": true,
+  "quality_score": 8.5,
+  "duration_check": "failed",
+  "file_integrity": "missing",
+  "audio_metrics": null,
+  "stt_validation": {
+    "transcribed_text": "Test script",
+    "word_accuracy": 1.0,
+    "character_accuracy": 1.0,
+    "pronunciation_accuracy": 0.96,
+    "timing_accuracy": null,
+    "confidence_score": 0.92
+  },
+  "issues_found": [
+    {
+      "issue_type": "corruption",
+      "severity": "high",
+      "description": "Audio file not found",
+      "detected_value": "missing",
+      "expected_value": "exists",
+      "suggestion": "Regenerate audio file"
+    }
+  ],
+  "recommendations": [
+    "Regenerate audio file - current file has integrity issues"
+  ],
+  "quality_metrics": {
+    "overall_score": 8.5,
+    "passing_threshold": 7.0,
+    "issues_count": 1,
+    "critical_issues": 1,
+    "file_integrity_passed": false,
+    "duration_check_passed": false
+  }
+}

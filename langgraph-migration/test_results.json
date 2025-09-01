@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-08-31T14:18:23.820167",
+  "results": [
+    {
+      "provider": "OpenRouter",
+      "status": "success",
+      "models_found": 9,
+      "api_key_valid": true
+    },
+    {
+      "provider": "Perplexity",
+      "status": "success",
+      "api_key_valid": true
+    },
+    {
+      "provider": "ElevenLabs",
+      "status": "success",
+      "voice_validated": true,
+      "api_key_valid": true
+    },
+    {
+      "provider": "LangFuse",
+      "status": "success",
+      "api_key_valid": true
+    }
+  ],
+  "summary": {
+    "success": 4,
+    "total": 4,
+    "success_rate": "100.0%"
+  }
+}

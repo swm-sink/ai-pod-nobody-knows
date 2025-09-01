@@ -1,0 +1,43 @@
+# AI Podcast Production System - LangGraph Migration
+# Core dependencies for the podcast production workflow
+# Version: 1.0.0
+# Date: August 2025
+
+# Core workflow orchestration
+langgraph>=0.2.0
+langgraph-checkpoint>=1.0.0
+
+# Observability and monitoring
+langfuse>=2.0.0
+
+# HTTP client for API calls
+httpx>=0.25.0
+
+# Retry and resilience
+tenacity>=8.0.0
+
+# Configuration management
+pyyaml>=6.0.0
+
+# Type checking and validation
+typing-extensions>=4.0.0
+
+# Async support
+asyncio
+
+# Development and testing
+pytest>=7.0.0
+pytest-asyncio>=0.23.0
+
+# Optional dependencies for specific providers
+# openai>=1.0.0  # For OpenAI integration
+# anthropic>=0.25.0  # For Anthropic Claude integration
+# google-generativeai>=0.3.0  # For Gemini integration
+
+# Audio processing (when implemented)
+# elevenlabs>=0.2.0  # For ElevenLabs TTS
+# pydub>=0.25.0  # For audio manipulation
+
+# Vector databases (when implemented)
+# chromadb>=0.4.0  # For Chroma vector store
+# pinecone-client>=2.2.0  # For Pinecone vector store

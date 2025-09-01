@@ -138,7 +138,7 @@ This document provides comprehensive documentation for all 16 agents in the AI P
 **Budget**: $1.75
 **Purpose**: Core content creation - transforms research into script
 **Location**: `.claude/agents/writer.md` → `src/agents/script_writer.py`
-**Status**: ⏳ Pending Migration
+**Status**: ✅ Migrated to LangGraph
 
 **Inputs**:
 - Episode plan
@@ -258,7 +258,7 @@ This document provides comprehensive documentation for all 16 agents in the AI P
 **Budget**: $0.50
 **Purpose**: Primary audio generation via ElevenLabs
 **Location**: `.claude/agents/synthesizer.md` → `src/agents/audio_synthesizer.py`
-**Status**: ⏳ Pending Migration
+**Status**: ✅ Migrated to LangGraph
 
 **Inputs**:
 - SSML script
@@ -297,7 +297,7 @@ This document provides comprehensive documentation for all 16 agents in the AI P
 **Budget**: $0.20
 **Purpose**: Validates audio quality and correctness
 **Location**: `.claude/agents/audio-validator.md` → `src/agents/audio_validator.py`
-**Status**: ⏳ Pending Migration
+**Status**: ✅ Migrated to LangGraph
 
 **Inputs**:
 - Generated audio
@@ -357,27 +357,27 @@ Target: Reduce from $6.75 to $5.51 (18.4% reduction)
 
 ## 🔄 MIGRATION STATUS
 
-### Completed (5/16 - 31.25%)
+### Completed (8/16 - 50.0%)
 - ✅ research-discovery
 - ✅ research-deep-dive
 - ✅ research-validate
 - ✅ research-synthesis
 - ✅ question-generator
+- ✅ script-writer
+- ✅ audio-synthesizer
+- ✅ audio-validator
 
 ### In Progress (0/16)
 None currently
 
-### Pending (11/16 - 68.75%)
+### Pending (8/16 - 50.0%)
 - ⏳ episode-planner
-- ⏳ script-writer
 - ⏳ script-polisher
 - ⏳ brand-validator
 - ⏳ claude-evaluator
 - ⏳ gemini-evaluator
 - ⏳ tts-optimizer
-- ⏳ audio-synthesizer
 - ⏳ audio-synthesizer-direct
-- ⏳ audio-validator
 - ⏳ perplexity-agent
 
 ---
@@ -422,7 +422,7 @@ Each agent implements:
 
 ## 📝 MAINTENANCE NOTES
 
-**Last Updated**: August 31, 2025
+**Last Updated**: August 31, 2025 (Model versions updated to August 2025 standards)
 **Maintainer**: Solo Developer (Hobby Project)
 **Review Frequency**: After each migration
 

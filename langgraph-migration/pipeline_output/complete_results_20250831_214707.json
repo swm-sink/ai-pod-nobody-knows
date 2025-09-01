@@ -1,0 +1,120 @@
+{
+  "topic": "Test episode",
+  "stage": "completed",
+  "results": {
+    "episode_id": "ep_20250831_214707_22916840",
+    "topic": "Test episode",
+    "timestamp": "2025-08-31T21:47:07.608901",
+    "research_discovery": {
+      "mock": "discovery_data"
+    },
+    "research_deep_dive": {
+      "mock": "deep_dive_data"
+    },
+    "research_validation": {
+      "mock": "validation_data"
+    },
+    "research_synthesis": {
+      "mock": "synthesis_data"
+    },
+    "research_questions": [
+      "What is the main concept?",
+      "How does it work?",
+      "What are the implications?"
+    ],
+    "episode_plan": {
+      "structure": "intro_main_conclusion",
+      "estimated_duration": 15,
+      "key_points": [
+        "What is the main concept?",
+        "How does it work?",
+        "What are the implications?"
+      ],
+      "mock": true
+    },
+    "script_raw": "# Test episode\n\nWelcome to our exploration of Test episode. Today we'll examine the key insights\nfrom our research and help you understand this fascinating subject.\n\n## Main Discussion\n\nBased on our research, here are the key points:\n- What is the main concept?\n- How does it work?\n- What are the implications?\n\n## Conclusion\n\nTest episode represents an important area of study with ongoing developments.\nThank you for joining us today!",
+    "script_polished": "# Test episode\n\nWelcome to our exploration of Test episode. Today we'll examine the key insights\nfrom our research and help you understand this fascinating subject.\n\n## Main Discussion\n\nBased on our research, here are the key points:\n- What is the main concept?\n- How does it work?\n- What are the implications?\n\n## Conclusion\n\nTest episode represents an important area of study with ongoing developments.\nThank you for joining us today!",
+    "audio_config": {
+      "voice_id": "ZF6FPAbjXT4488VcRRnw",
+      "model": "eleven_turbo_v2_5",
+      "mock": true
+    },
+    "audio_file_path": "pipeline_output/ep_20250831_214707_22916840_audio.mp3",
+    "quality_scores": {
+      "brand_alignment": 8.5,
+      "technical_accuracy": 9.0,
+      "engagement": 8.0,
+      "overall": 8.5,
+      "mock": true
+    },
+    "cost_data": {
+      "budget_limit": 5.51,
+      "episode_id": "ep_20250831_214707_22916840",
+      "total_cost": 0.0,
+      "cost_by_agent": {
+        "research_discovery": 0.0
+      },
+      "cost_by_provider": {
+        "mock": 0.0
+      },
+      "operation_count": 1,
+      "last_5_operations": [
+        {
+          "timestamp": "2025-08-31T21:47:07.620317",
+          "episode_id": "ep_20250831_214707_22916840",
+          "agent": "research_discovery",
+          "provider": "mock",
+          "model": "mock",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "characters": 0,
+          "cost": 0.0,
+          "cumulative_cost": 0.0,
+          "budget_remaining": 5.51,
+          "operation": "mock_discovery"
+        }
+      ]
+    },
+    "total_cost": 0.0,
+    "current_stage": "completed",
+    "errors": [],
+    "retry_count": 0,
+    "research_data": {
+      "discovery": {
+        "mock": "discovery_data"
+      },
+      "deep_dive": {
+        "mock": "deep_dive_data"
+      },
+      "validation": {
+        "mock": "validation_data"
+      },
+      "synthesis": {
+        "mock": "synthesis_data"
+      },
+      "question_generation": {
+        "mock": "question_data"
+      }
+    },
+    "research_sources": [],
+    "research_queries": [],
+    "cost_breakdown": {
+      "discovery": 0.0,
+      "deep_dive": 0.0,
+      "validation": 0.0,
+      "synthesis": 0.0,
+      "question_generation": 0.0,
+      "planning": 0.0,
+      "writing": 0.0,
+      "polishing": 0.0,
+      "audio_generation": 0.0
+    },
+    "error_log": [],
+    "budget_limit": 5.51,
+    "output_directory": "./pipeline_output",
+    "dry_run": true,
+    "verbose": false
+  },
+  "cost": {},
+  "error": []
+}

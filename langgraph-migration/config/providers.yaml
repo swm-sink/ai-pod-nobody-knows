@@ -66,7 +66,7 @@ llm:
       class: "adapters.openai.provider.OpenAIProvider"
       config:
         api_key: "${OPENAI_API_KEY}"
-        model: "gpt-4-turbo-2024-08"
+        model: "gpt-5"  # August 2025
         temperature: 0.7
         max_tokens: 4000
         timeout: 60
@@ -76,7 +76,7 @@ llm:
       class: "adapters.anthropic.provider.AnthropicProvider"
       config:
         api_key: "${ANTHROPIC_API_KEY}"
-        model: "claude-3-opus-20240229"
+        model: "claude-opus-4.1"  # August 2025
         temperature: 0.7
         max_tokens: 4000
         timeout: 60
@@ -86,7 +86,7 @@ llm:
       class: "adapters.gemini.provider.GeminiProvider"
       config:
         api_key: "${GEMINI_API_KEY}"
-        model: "gemini-1.5-pro"
+        model: "gemini-pro-2.5"  # August 2025
         temperature: 0.7
         max_tokens: 4000
 
@@ -96,7 +96,7 @@ llm:
       config:
         api_key: "${OPENROUTER_API_KEY}"
         base_url: "${OPENROUTER_BASE_URL}"
-        model: "anthropic/claude-3-opus"
+        model: "anthropic/claude-opus-4.1"  # August 2025
         temperature: 0.7
         max_tokens: 4000
         timeout: 60

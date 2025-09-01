@@ -20,7 +20,10 @@ from ..core.interfaces.provider import (
 )
 from ..core.config.manager import get_config_manager
 from ..core.di.container import get_container, inject
-from ..agents.research_discovery_v2 import create_discovery_agent
+from ..agents.research_discovery import ResearchDiscoveryAgent
+from ..agents.research_deep_dive import ResearchDeepDiveAgent
+from ..agents.research_validation import ResearchValidationAgent
+from ..agents.research_synthesis import ResearchSynthesisAgent
 
 
 logger = logging.getLogger(__name__)
@@ -161,7 +164,7 @@ class ResearchPipelineWorkflow:
         self.orchestrator.add_edge(self.workflow, 'deep_dive', 'validation')
         self.orchestrator.add_edge(self.workflow, 'validation', 'synthesis')
 
-    def _discovery_node(self, state: AgentState) -> AgentState:
+    async def _discovery_node(self, state: AgentState) -> AgentState:
         """Execute discovery research."""
         logger.info("Executing discovery node")
 
@@ -175,8 +178,8 @@ class ResearchPipelineWorkflow:
             )
 
         # Create and execute discovery agent
-        agent = create_discovery_agent()
-        result_state = agent.execute(state)
+        agent = ResearchDiscoveryAgent()
+        result_state = await agent.execute(state)
 
         # Log completion
         if self.observability:
@@ -189,84 +192,96 @@ class ResearchPipelineWorkflow:
 
         return result_state
 
-    def _deep_dive_node(self, state: AgentState) -> AgentState:
+    async def _deep_dive_node(self, state: AgentState) -> AgentState:
         """Execute deep dive research."""
         logger.info("Executing deep dive node")
 
-        # For now, mock the deep dive
-        # In production, would create and execute deep_dive agent
-        state.stage = 'deep_dive_complete'
-        state.data['deep_dive'] = {
-            'detailed_analysis': 'Comprehensive analysis would go here',
-            'expert_quotes': [],
-            'technical_details': {}
-        }
-        state.cost_tracking['deep_dive'] = 1.00
+        # Log to observability if available
+        if self.observability:
+            self.observability.log_execution(
+                execution_id=state.data.get('execution_id', 'unknown'),
+                workflow_id=self.workflow_id,
+                state=state,
+                stage='deep_dive_start'
+            )
 
+        # Create and execute deep dive agent
+        agent = ResearchDeepDiveAgent()
+        result_state = await agent.execute(state)
+
+        # Log completion
         if self.observability:
             self.observability.log_cost(
-                execution_id=state.data.get('execution_id', 'unknown'),
+                execution_id=result_state.data.get('execution_id', 'unknown'),
                 cost_type='deep_dive',
-                amount=1.00,
+                amount=result_state.cost_tracking.get('deep_dive', 0),
                 metadata={'stage': 'deep_dive'}
             )
 
-        return state
+        return result_state
 
-    def _validation_node(self, state: AgentState) -> AgentState:
+    async def _validation_node(self, state: AgentState) -> AgentState:
         """Execute fact validation."""
         logger.info("Executing validation node")
 
-        # For now, mock validation
-        # In production, would create and execute validation agent
-        state.stage = 'validation_complete'
-        state.data['validation'] = {
-            'verified_facts': [],
-            'disputed_claims': [],
-            'confidence_scores': {}
-        }
-        state.cost_tracking['validation'] = 0.35
+        # Log to observability if available
+        if self.observability:
+            self.observability.log_execution(
+                execution_id=state.data.get('execution_id', 'unknown'),
+                workflow_id=self.workflow_id,
+                state=state,
+                stage='validation_start'
+            )
 
+        # Create and execute validation agent
+        agent = ResearchValidationAgent()
+        result_state = await agent.execute(state)
+
+        # Log completion
         if self.observability:
             self.observability.log_cost(
-                execution_id=state.data.get('execution_id', 'unknown'),
+                execution_id=result_state.data.get('execution_id', 'unknown'),
                 cost_type='validation',
-                amount=0.35,
+                amount=result_state.cost_tracking.get('validation', 0),
                 metadata={'stage': 'validation'}
             )
 
-        return state
+        return result_state
 
-    def _synthesis_node(self, state: AgentState) -> AgentState:
+    async def _synthesis_node(self, state: AgentState) -> AgentState:
         """Execute research synthesis."""
         logger.info("Executing synthesis node")
 
-        # For now, mock synthesis
-        # In production, would create and execute synthesis agent
-        state.stage = 'synthesis_complete'
-        state.data['synthesis'] = {
-            'narrative': 'Synthesized research narrative',
-            'key_findings': [],
-            'recommendations': []
-        }
-        state.cost_tracking['synthesis'] = 0.15
+        # Log to observability if available
+        if self.observability:
+            self.observability.log_execution(
+                execution_id=state.data.get('execution_id', 'unknown'),
+                workflow_id=self.workflow_id,
+                state=state,
+                stage='synthesis_start'
+            )
+
+        # Create and execute synthesis agent
+        agent = ResearchSynthesisAgent()
+        result_state = await agent.execute(state)
 
         # Calculate total cost
-        total_cost = sum(state.cost_tracking.values())
-        state.cost_tracking['total'] = total_cost
+        total_cost = sum(result_state.cost_tracking.values())
+        result_state.cost_tracking['total'] = total_cost
 
+        # Log completion
         if self.observability:
             self.observability.log_cost(
-                execution_id=state.data.get('execution_id', 'unknown'),
+                execution_id=result_state.data.get('execution_id', 'unknown'),
                 cost_type='total',
                 amount=total_cost,
-                metadata={'stage': 'complete', 'all_stages': state.cost_tracking}
+                metadata={'stage': 'complete', 'all_stages': result_state.cost_tracking}
             )
 
         logger.info(f"Research pipeline complete. Total cost: ${total_cost:.2f}")
-        return state
+        return result_state
 
-    def execute(
+    async def execute(
         self,
         topic: str,
         focus_areas: Optional[str] = None,
@@ -368,7 +383,7 @@ def create_research_pipeline() -> ResearchPipelineWorkflow:
     return ResearchPipelineWorkflow()
 
 
-def run_research_pipeline(
+async def run_research_pipeline(
     topic: str,
     provider: str = 'langgraph'
 ) -> Dict[str, Any]:
@@ -400,7 +415,7 @@ def run_research_pipeline(
 
     # Create and execute pipeline
     pipeline = create_research_pipeline()
-    result = pipeline.execute(topic)
+    result = await pipeline.execute(topic)
 
     # Return results as dictionary
     return {

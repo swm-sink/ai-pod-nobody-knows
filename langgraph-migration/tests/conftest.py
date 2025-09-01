@@ -111,7 +111,7 @@ def mock_redis_client():
 @pytest.fixture
 def mock_llm_response():
     """Mock LLM response generator"""
-    def _generate_response(prompt: str, model: str = "gpt-4") -> str:
+    def _generate_response(prompt: str, model: str = "gpt-5") -> str:
         responses = {
             "research": "Mock research findings about the topic",
             "script": "Mock script content for podcast episode",

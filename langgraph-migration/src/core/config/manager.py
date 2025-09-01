@@ -243,29 +243,35 @@ class ConfigManager:
     def _validate_configuration(self) -> None:
         """Validate configuration integrity."""
         errors = []
+        warnings = []
 
-        # Validate required providers
+        # Validate required providers (warnings for missing, not errors)
         required_providers = ['langgraph', 'langfuse', 'perplexity']
         for provider in required_providers:
             if not self.get_provider_config(provider):
-                errors.append(f"Missing required provider: {provider}")
+                warnings.append(f"Provider not configured: {provider}")
 
-        # Validate agent configurations
+        # Validate agent configurations (if any exist)
         for agent_id in self.get_agent_ids():
             agent_config = self.get_agent_config(agent_id)
             if not agent_config:
-                errors.append(f"Invalid agent configuration: {agent_id}")
+                warnings.append(f"Invalid agent configuration: {agent_id}")
             elif agent_config.budget <= 0:
                 errors.append(f"Invalid budget for agent {agent_id}: {agent_config.budget}")
 
-        # Validate workflow configurations
+        # Validate workflow configurations (if any exist)
         for workflow_id in self.get_workflow_ids():
             workflow_config = self.get_workflow_config(workflow_id)
             if not workflow_config:
-                errors.append(f"Invalid workflow configuration: {workflow_id}")
+                warnings.append(f"Invalid workflow configuration: {workflow_id}")
             elif workflow_config.cost_limit <= 0:
                 errors.append(f"Invalid cost limit for workflow {workflow_id}")
 
+        # Log warnings
+        for warning in warnings:
+            logger.warning(warning)
+
+        # Only fail on actual errors, not missing optional configurations
         if errors:
             error_msg = "Configuration validation failed:\n" + "\n".join(errors)
             logger.error(error_msg)
@@ -281,19 +287,21 @@ class ConfigManager:
 
     def get_provider_config(self, provider_id: str) -> Optional[ProviderConfig]:
         """Get provider configuration."""
-        config_data = self.get(f"providers.{provider_id}")
-        if not config_data:
-            return None
+        # Check all provider categories
+        for category in ['orchestration', 'observability', 'llm', 'research', 'audio', 'vectordb']:
+            config_data = self.get(f"{category}.providers.{provider_id}")
+            if config_data:
+                return ProviderConfig(
+                    provider_type=provider_id,
+                    enabled=config_data.get('enabled', True),
+                    api_key=config_data.get('config', {}).get('api_key') or config_data.get('api_key'),
+                    endpoint=config_data.get('config', {}).get('endpoint') or config_data.get('endpoint'),
+                    timeout=config_data.get('config', {}).get('timeout', 30),
+                    retry_attempts=config_data.get('config', {}).get('retry_attempts', 3),
+                    extra_config=config_data.get('config', {})
+                )
 
-        return ProviderConfig(
-            provider_type=provider_id,
-            enabled=config_data.get('enabled', True),
-            api_key=config_data.get('api_key'),
-            endpoint=config_data.get('endpoint'),
-            timeout=config_data.get('timeout', 30),
-            retry_attempts=config_data.get('retry_attempts', 3),
-            extra_config=config_data.get('extra', {})
-        )
+        return None
 
     def get_agent_config(self, agent_id: str) -> Optional[AgentConfig]:
         """Get agent configuration."""

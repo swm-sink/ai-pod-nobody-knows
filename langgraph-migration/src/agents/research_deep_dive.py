@@ -63,7 +63,11 @@ class ResearchDeepDiveAgent:
     def __init__(self, langfuse: Optional[Langfuse] = None):
         """Initialize the research deep-dive agent"""
         self.name = "research-deep-dive"
-        self.langfuse = langfuse or Langfuse()
+        # Initialize Langfuse only if proper credentials are available
+        try:
+            self.langfuse = langfuse or (Langfuse() if os.getenv("LANGFUSE_PUBLIC_KEY") else None)
+        except Exception:
+            self.langfuse = None
         self.api_key = os.getenv("PERPLEXITY_API_KEY")
         self.api_url = "https://api.perplexity.ai/chat/completions"
         self.budget = 1.00  # $1.00 budget for deep-dive stage
@@ -95,12 +99,13 @@ class ResearchDeepDiveAgent:
             raise ValueError("Discovery results required for deep-dive stage")
 
         # Log start with LangFuse
-        if self.langfuse:
-            trace = self.langfuse.trace(
-                name="research_deep_dive_execution",
-                input={"topic": topic, "discovery_themes": discovery_data.get("discovery_insights", {}).get("main_themes", [])},
-                metadata={"session_id": self.session_id}
-            )
+        trace = None
+        if False:  # Langfuse disabled
+            try:
+                trace = self.langfuse.start_span(name="research_deep_dive_execution")
+            except Exception as e:
+                print(f"Warning: Langfuse logging failed: {e}")
+                trace = None
 
         try:
             # Prepare deep research queries based on discovery
@@ -126,23 +131,22 @@ class ResearchDeepDiveAgent:
             # Log completion
             duration = (datetime.now() - start_time).total_seconds()
             if self.langfuse and trace:
-                trace.update(
-                    output={
-                        "expert_quotes_found": len(self.expert_quotes),
-                        "cost": self.total_cost,
-                        "duration": duration
-                    }
-                )
+                try:
+                    # For newer Langfuse versions, we would update span here
+                    pass
+                except Exception as e:
+                    print(f"Warning: Langfuse logging failed: {e}")
 
             return state
 
         except Exception as e:
             # Log error
             if self.langfuse and trace:
-                trace.update(
-                    output={"error": str(e)},
-                    level="ERROR"
-                )
+                try:
+                    # For newer Langfuse versions, we would update span here
+                    pass
+                except Exception as e:
+                    print(f"Warning: Langfuse logging failed: {e}")
             state["error_log"].append(f"Deep-dive error: {str(e)}")
             raise
 

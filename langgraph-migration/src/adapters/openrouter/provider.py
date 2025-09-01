@@ -32,13 +32,14 @@ class OpenRouterProvider(LLMProvider):
 
     # Model pricing cache (as of August 2025)
     MODEL_PRICING = {
-        "anthropic/claude-3-opus": {"input": 15.0, "output": 75.0},  # per 1M tokens
-        "anthropic/claude-3-sonnet": {"input": 3.0, "output": 15.0},
+        "anthropic/claude-opus-4.1": {"input": 12.0, "output": 60.0},  # per 1M tokens - August 2025
+        "anthropic/claude-sonnet-4": {"input": 2.5, "output": 12.0},  # August 2025
         "anthropic/claude-3-haiku": {"input": 0.25, "output": 1.25},
+        "openai/gpt-5": {"input": 8.0, "output": 24.0},  # August 2025 release
         "openai/gpt-4-turbo": {"input": 10.0, "output": 30.0},
-        "openai/gpt-4": {"input": 30.0, "output": 60.0},
         "openai/gpt-3.5-turbo": {"input": 0.5, "output": 1.5},
-        "google/gemini-pro-1.5": {"input": 3.5, "output": 10.5},
+        "google/gemini-pro-2.5": {"input": 2.8, "output": 8.4},  # August 2025
+        "google/gemini-flash-2.5": {"input": 0.3, "output": 0.9},  # August 2025
         "meta-llama/llama-3-70b": {"input": 0.7, "output": 0.9},
         "mistralai/mixtral-8x7b": {"input": 0.24, "output": 0.24},
     }
@@ -53,7 +54,7 @@ class OpenRouterProvider(LLMProvider):
         super().__init__(config)
         self.api_key = config.get('api_key')
         self.base_url = config.get('base_url', 'https://openrouter.ai/api/v1')
-        self.default_model = config.get('model', 'anthropic/claude-3-opus')
+        self.default_model = config.get('model', 'anthropic/claude-opus-4.1')
         self.headers = self._prepare_headers()
         self._client = None
         self._available_models = []
@@ -441,13 +442,14 @@ class OpenRouterProvider(LLMProvider):
         """
         # Context lengths as of August 2025
         context_lengths = {
-            "anthropic/claude-3-opus": 200000,
-            "anthropic/claude-3-sonnet": 200000,
+            "anthropic/claude-opus-4.1": 250000,  # August 2025
+            "anthropic/claude-sonnet-4": 250000,  # August 2025
             "anthropic/claude-3-haiku": 200000,
+            "openai/gpt-5": 150000,  # August 2025
             "openai/gpt-4-turbo": 128000,
-            "openai/gpt-4": 8192,
             "openai/gpt-3.5-turbo": 16384,
-            "google/gemini-pro-1.5": 1000000,
+            "google/gemini-pro-2.5": 1200000,  # August 2025
+            "google/gemini-flash-2.5": 1200000,  # August 2025
             "meta-llama/llama-3-70b": 8192,
             "mistralai/mixtral-8x7b": 32768,
         }

@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 from adapters.langfuse.provider import LangFuseProvider
 from adapters.perplexity.provider import PerplexityProvider
 from adapters.openrouter.provider import OpenRouterProvider
+from adapters.elevenlabs.provider import ElevenLabsProvider
 from core.interfaces.provider import AgentState
 
 
@@ -126,7 +127,7 @@ class TestLangFuseProvider:
             execution_id='exec-123',
             cost_type='llm',
             amount=0.05,
-            metadata={'model': 'gpt-4'}
+            metadata={'model': 'gpt-5'}
         )
 
     def test_create_prompt_experiment(self, provider):
@@ -214,26 +215,26 @@ class TestOpenRouterProvider:
         config = {
             'api_key': 'sk-or-test-api-key',  # pragma: allowlist secret
             'base_url': 'https://openrouter.ai/api/v1',
-            'model': 'anthropic/claude-3-opus'
+            'model': 'anthropic/claude-opus-4.1'
         }
         return OpenRouterProvider(config)
 
     def test_model_selection(self, provider):
         """Test model selection and validation."""
         # Default model should be set
-        assert provider.default_model == 'anthropic/claude-3-opus'
+        assert provider.default_model == 'anthropic/claude-opus-4.1'
 
         # Should have pricing information
-        assert 'anthropic/claude-3-opus' in provider.MODEL_PRICING
+        assert 'anthropic/claude-opus-4.1' in provider.MODEL_PRICING
 
     def test_generate_with_model_override(self, provider):
         """Test generation with different model."""
         response = provider.generate(
             prompt="Test prompt",
-            model='openai/gpt-4-turbo'
+            model='openai/gpt-5-turbo'
         )
 
-        assert 'gpt-4-turbo' in response
+        assert 'gpt-5-turbo' in response
 
     def test_list_models(self, provider):
         """Test model listing functionality."""
@@ -247,7 +248,7 @@ class TestOpenRouterProvider:
 
     def test_compare_models(self, provider):
         """Test model comparison functionality."""
-        models = ['anthropic/claude-3-opus', 'openai/gpt-4-turbo']
+        models = ['anthropic/claude-opus-4.1', 'openai/gpt-5-turbo']
         results = provider.compare_models(
             prompt="Test prompt",
             models=models,
@@ -280,6 +281,121 @@ class TestOpenRouterProvider:
         assert headers['X-Title'] == 'Test App'
 
 
+class TestElevenLabsProvider:
+    """Test ElevenLabs audio synthesis provider implementation."""
+
+    @pytest.fixture
+    def provider(self):
+        """Create an ElevenLabs provider instance."""
+        config = {
+            'api_key': 'test_elevenlabs_key',  # pragma: allowlist secret
+            'voice_id': 'ZF6FPAbjXT4488VcRRnw',
+            'model_id': 'eleven_turbo_v2_5',
+            'output_dir': '/tmp/test_audio'
+        }
+        return ElevenLabsProvider(config)
+
+    def test_production_voice_configured(self, provider):
+        """Test that production voice is properly configured."""
+        assert provider.voice_id == 'ZF6FPAbjXT4488VcRRnw'
+        assert provider.PRODUCTION_VOICE_ID == 'ZF6FPAbjXT4488VcRRnw'
+
+    def test_generate_audio(self, provider):
+        """Test audio generation returns file path."""
+        response = provider.generate("Test audio synthesis")
+
+        # Should return a file path
+        assert 'mock_audio' in response
+        assert response.endswith('.mp3')
+
+    def test_estimate_cost_by_characters(self, provider):
+        """Test cost estimation based on character count."""
+        # Short text
+        cost_short = provider.estimate_cost("Hello world", max_tokens=0)
+
+        # Long text (1000 characters)
+        long_text = "a" * 1000
+        cost_long = provider.estimate_cost(long_text, max_tokens=0)
+
+        # Cost should scale with character count
+        assert cost_short < cost_long
+        assert 0 < cost_short < 1.0
+        assert 0 < cost_long < 5.0
+
+    def test_ssml_processing(self, provider):
+        """Test SSML markup processing."""
+        ssml_text = '<speak>Hello <break time="1s"/> <emphasis>world</emphasis>!</speak>'
+
+        # Process SSML
+        processed = provider._process_ssml(ssml_text)
+
+        # Should convert breaks to commas and emphasis to uppercase
+        assert 'Hello' in processed
+        assert 'WORLD' in processed  # Emphasis converted to uppercase
+        assert '<' not in processed  # No XML tags
+
+    def test_voice_validation(self, provider):
+        """Test voice ID validation."""
+        # Production voice should be valid
+        is_valid = provider.validate_voice('ZF6FPAbjXT4488VcRRnw')
+        assert is_valid is True
+
+        # Invalid voice should fail
+        is_invalid = provider.validate_voice('invalid_voice_id')
+        assert is_invalid is False
+
+    def test_get_voices_returns_list(self, provider):
+        """Test getting available voices."""
+        voices = provider.get_voices()
+
+        assert isinstance(voices, list)
+        assert len(voices) > 0
+
+        # Check first voice has required fields
+        first_voice = voices[0]
+        assert 'voice_id' in first_voice
+        assert 'name' in first_voice
+
+    def test_subscription_info(self, provider):
+        """Test getting subscription information."""
+        info = provider.get_subscription_info()
+
+        assert isinstance(info, dict)
+        assert 'tier' in info
+        assert 'character_count' in info
+        assert 'character_limit' in info
+
+    def test_model_validation(self):
+        """Test model validation in config."""
+        # Valid model should work
+        config_valid = {
+            'api_key': 'test_key',  # pragma: allowlist secret
+            'model_id': 'eleven_turbo_v2_5'
+        }
+        provider = ElevenLabsProvider(config_valid)
+        assert provider.model_id == 'eleven_turbo_v2_5'
+
+        # Invalid model should raise error
+        config_invalid = {
+            'api_key': 'test_key',  # pragma: allowlist secret
+            'model_id': 'invalid_model'
+        }
+        with pytest.raises(ValueError, match="Invalid ElevenLabs model"):
+            ElevenLabsProvider(config_invalid)
+
+    def test_headers_include_api_key(self):
+        """Test that headers are properly configured."""
+        config = {
+            'api_key': 'test_xi_api_key_123',  # pragma: allowlist secret
+            'mock_mode': True
+        }
+
+        provider = ElevenLabsProvider(config)
+
+        # In mock mode, client is None but we can verify the initialization logged
+        assert provider.api_key == 'test_xi_api_key_123'  # pragma: allowlist secret
+
+
 class TestProviderIntegration:
     """Test integration between providers."""
 
@@ -296,6 +412,10 @@ class TestProviderIntegration:
             }),
             OpenRouterProvider({
                 'api_key': 'sk-or-test'  # pragma: allowlist secret
+            }),
+            ElevenLabsProvider({
+                'api_key': 'test-elevenlabs',  # pragma: allowlist secret
+                'output_dir': '/tmp/test_audio'
             })
         ]
 
