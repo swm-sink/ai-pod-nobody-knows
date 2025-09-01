@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "discovery",
+  "agent_metadata": {
+    "agent_id": "research-discovery",
+    "session_id": "ep_20250901_055108_3f093ff4",
+    "execution_timestamp": "2025-09-01T05:51:08.721264",
+    "episode_context": {
+      "topic": "Test Topic for Agent Validation",
+      "target_duration_minutes": 15
+    }
+  },
+  "cost_tracking": {
+    "execution_cost": 0.0,
+    "budget_allocated": 0.5,
+    "budget_remaining": 0.5,
+    "query_count": 3
+  },
+  "execution_status": {
+    "status": "completed",
+    "errors": [],
+    "warnings": []
+  },
+  "discovery_insights": {
+    "main_themes": [
+      "Mock response for topic_landscape: Research findings about the topic"
+    ],
+    "recent_developments": [],
+    "consensus_areas": [],
+    "raw_content": "Mock response for topic_landscape: Research findings about the topic"
+  },
+  "expert_mapping": {
+    "identified_experts": [
+      {
+        "name": "Dr. Example Expert",
+        "affiliation": "University of Research",
+        "expertise": "Topic expertise"
+      }
+    ],
+    "institutions": [],
+    "publications": [
+      "Mock response for expert_discovery: Research findings about the topic"
+    ],
+    "raw_content": "Mock response for expert_discovery: Research findings about the topic"
+  },
+  "source_diversity": {},
+  "research_framework": {
+    "knowledge_gaps": [
+      "Mock response for uncertainty_documentation: Research findings about the topic"
+    ],
+    "ongoing_debates": [],
+    "future_research": [],
+    "raw_content": "Mock response for uncertainty_documentation: Research findings about the topic"
+  },
+  "raw_responses": [
+    {
+      "query_type": "topic_landscape",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "Mock response for topic_landscape: Research findings about the topic"
+            }
+          }
+        ],
+        "citations": []
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    },
+    {
+      "query_type": "expert_discovery",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "Mock response for expert_discovery: Research findings about the topic"
+            }
+          }
+        ],
+        "citations": []
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    },
+    {
+      "query_type": "uncertainty_documentation",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "Mock response for uncertainty_documentation: Research findings about the topic"
+            }
+          }
+        ],
+        "citations": []
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    }
+  ]
+}

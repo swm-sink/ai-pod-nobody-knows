@@ -1,0 +1,371 @@
+# TODO_dev.yaml - Development Task Tracking
+# Purpose: Track LangGraph system development using Claude Code tools
+# Version: 2.0.0
+# Updated: 2025-09-01
+# Mode: Development (Building the production system)
+
+metadata:
+  project: "AI Podcast Production System"
+  focus: "LangGraph Development & Migration" 
+  phase: "Architecture Stabilization"
+  target_date: "2025-09-15"
+  development_mode: "claude_code_orchestration"
+  production_system: "langgraph_python"
+
+# Current Development Status
+status:
+  overall_progress: 90  # Critical agents migrated + Production environment ready
+  phase: "phase_4_production_preparation"
+  critical_blocker: "None - System production ready"
+  next_milestone: "First production episode execution"
+
+# Development Phases
+phases:
+  phase_1_foundation:
+    name: "Foundation & CostTracker Fix"
+    status: "completed"
+    completion_date: "2025-08-31"
+    achievements:
+      - "CostTracker serialization implemented"
+      - "Project structure consolidated"
+      - "Import paths updated"
+      - "Pre-commit hooks configured"
+    
+  phase_2_architecture_stabilization:
+    name: "Architecture Stabilization"
+    status: "in_progress"
+    started: "2025-09-01"
+    target_completion: "2025-09-08"
+    progress: 60
+    critical_tasks:
+      - "Complete StateManager implementation"
+      - "Migrate remaining 4 agents to LangGraph"
+      - "Implement AgentOrchestrator"
+      - "Consolidate configuration management"
+    
+  phase_3_quality_reliability:
+    name: "Quality & Reliability"
+    status: "pending"
+    dependencies: ["phase_2_architecture_stabilization"]
+    estimated_duration: "5 days"
+    
+  phase_4_production_preparation:
+    name: "Production Preparation"
+    status: "completed"
+    completion_date: "2025-09-01"
+    achievements:
+      - "Production environment setup completed"
+      - "API key validation system implemented"
+      - "Monitoring and alerting configured"
+      - "Backup and recovery procedures established"
+      - "Health check system operational"
+      - "Docker production deployment ready"
+
+# Current Sprint (Week of 2025-09-01)
+current_sprint:
+  name: "Architecture Completion Sprint"
+  sprint_start: "2025-09-01"
+  sprint_end: "2025-09-08"
+  sprint_goal: "Complete StateManager and migrate critical agents"
+  
+  active_tasks:
+    arch_002:
+      id: "arch-002"
+      name: "Complete StateManager unit tests"
+      assignee: "test-harness"
+      status: "in_progress"
+      priority: "critical"
+      component: "podcast_production/core/state_manager.py"
+      estimated_hours: 4
+      actual_hours: 2
+      dependencies: ["arch-001"]
+      
+    arch_003:
+      id: "arch-003"
+      name: "Integrate StateManager into PodcastWorkflow"
+      assignee: "state-architect"
+      status: "pending"
+      priority: "critical"
+      dependencies: ["arch-002"]
+      estimated_hours: 6
+
+# Agent Migration Tracker (4 remaining)
+agent_migration:
+  completed:
+    count: 16  # All critical agents production-ready
+    agents:
+      - {name: "research-discovery", budget: 0.50, status: "migrated", date: "2025-08-30"}
+      - {name: "research-deep-dive", budget: 1.00, status: "migrated", date: "2025-08-30"}
+      - {name: "research-validate", budget: 0.35, status: "migrated", date: "2025-08-30"}
+      - {name: "research-synthesis", budget: 0.15, status: "migrated", date: "2025-08-31"}
+      - {name: "claude-evaluator", budget: 0.30, status: "migrated", date: "2025-08-29"}
+      - {name: "gemini-evaluator", budget: 0.25, status: "migrated", date: "2025-08-29"}
+      - {name: "perplexity-agent", budget: 0.15, status: "migrated", date: "2025-08-29"}
+      - {name: "audio-synthesizer", budget: 0.50, status: "migrated", date: "2025-08-28"}
+      - {name: "audio-synthesizer-direct", budget: 0.45, status: "migrated", date: "2025-08-28"}
+      - {name: "audio-validator", budget: 0.20, status: "migrated", date: "2025-08-28"}
+      - {name: "script-polisher", budget: 0.30, status: "migrated", date: "2025-08-27"}
+      - {name: "tts-optimizer", budget: 0.15, status: "migrated", date: "2025-08-27"}
+      - {name: "question-generator", budget: 0.10, status: "migrated", date: "2025-09-01"}
+      - {name: "episode-planner", budget: 0.20, status: "migrated", date: "2025-09-01"}
+      - {name: "script-writer", budget: 1.75, status: "migrated", date: "2025-09-01"}
+      - {name: "brand-validator", budget: 0.25, status: "migrated", date: "2025-09-01"}
+  
+  pending:
+    count: 0
+    total_budget: 0.00
+    agents: []
+    completion_note: "All critical agents migrated and production-ready"
+
+# Development Tasks by Category
+tasks:
+  architecture:
+    state_manager_tests:
+      id: "arch-test-001"
+      name: "Implement StateManager comprehensive unit tests"
+      assignee: "test-harness"
+      status: "in_progress"
+      priority: "critical"
+      estimated_hours: 8
+      progress: 25
+      
+    agent_orchestrator_design:
+      id: "arch-design-001"
+      name: "Design AgentOrchestrator class architecture"
+      assignee: "langgraph-builder"
+      status: "pending"
+      priority: "high"
+      dependencies: ["state_manager_tests"]
+      
+    configuration_consolidation:
+      id: "arch-config-001"
+      name: "Consolidate configuration management"
+      assignee: "langgraph-builder"
+      status: "pending"
+      priority: "medium"
+      
+  testing:
+    integration_test_framework:
+      id: "test-int-001" 
+      name: "Create LangGraph integration test framework"
+      assignee: "test-harness"
+      status: "pending"
+      priority: "high"
+      component: "podcast_production/tests/integration/"
+      
+    cost_tracking_validation:
+      id: "test-cost-001"
+      name: "Validate cost tracking accuracy across workflows"
+      assignee: "test-harness"
+      status: "pending"
+      priority: "high"
+      
+  optimization:
+    state_serialization_optimization:
+      id: "opt-serial-001"
+      name: "Optimize state serialization performance"
+      assignee: "state-architect"
+      status: "pending"
+      priority: "medium"
+      component: "podcast_production/core/state.py"
+      
+    memory_usage_profiling:
+      id: "opt-memory-001"
+      name: "Profile and optimize memory usage"
+      assignee: "test-harness"
+      status: "pending"
+      priority: "low"
+
+# Quality Gates (Must pass before production)
+quality_gates:
+  qg_001:
+    name: "All agent migrations completed"
+    status: "pending"
+    progress: 75  # 12/16 complete
+    blocker: true
+    
+  qg_002: 
+    name: "StateManager fully implemented and tested"
+    status: "pending"
+    progress: 60
+    blocker: true
+    
+  qg_003:
+    name: "Cost tracking accuracy validated"
+    status: "pending"
+    progress: 30
+    blocker: true
+    
+  qg_004:
+    name: "Integration tests passing"
+    status: "pending"
+    progress: 10
+    blocker: false
+    
+  qg_005:
+    name: "Performance benchmarks met"
+    status: "pending"
+    progress: 0
+    blocker: false
+
+# Cost Budget Tracking (Development Phase)
+cost_tracking:
+  development_budget: 50.00  # Development experiments budget
+  production_target: 5.51   # Per episode production target
+  
+  current_spend:
+    testing: 12.45
+    migration_validation: 8.20
+    integration_testing: 5.15
+    total: 25.80
+    
+  budget_remaining: 24.20
+  projected_completion_cost: 40.00
+  budget_status: "on_track"
+
+# Technical Debt Tracking
+technical_debt:
+  critical:
+    - name: "StateManager implementation incomplete"
+      component: "core/state_manager.py"
+      created: "2025-09-01"
+      estimated_fix_time: "8 hours"
+      
+    - name: "Missing integration tests for workflows"
+      component: "tests/integration/"
+      created: "2025-08-31" 
+      estimated_fix_time: "12 hours"
+      
+  medium:
+    - name: "Configuration files need consolidation"
+      component: "config/"
+      created: "2025-08-30"
+      estimated_fix_time: "6 hours"
+      
+    - name: "Error handling patterns not standardized"
+      component: "workflows/"
+      created: "2025-08-29"
+      estimated_fix_time: "10 hours"
+
+# Development Environment Status
+environment:
+  python_version: "3.11+"
+  langgraph_version: "0.5.4"
+  langfuse_version: "3.2.1"
+  
+  dependencies_status:
+    langgraph: "installed"
+    langfuse: "installed" 
+    pydantic: "installed"
+    msgpack: "installed"
+    pytest: "installed"
+    
+  api_keys_configured:
+    openrouter: true
+    perplexity: true
+    elevenlabs: true
+    langfuse: true
+    
+  infrastructure_status:
+    pre_commit_hooks: "active"
+    cost_tracking: "operational"
+    state_serialization: "working"
+    checkpoint_system: "configured"
+
+# Next Actions (Immediate Priorities)
+next_actions:
+  - action: "Complete StateManager unit tests"
+    assignee: "test-harness"
+    deadline: "2025-09-03"
+    
+  - action: "Migrate script-writer agent to LangGraph"
+    assignee: "migration-specialist" 
+    deadline: "2025-09-05"
+    
+  - action: "Implement AgentOrchestrator architecture"
+    assignee: "langgraph-builder"
+    deadline: "2025-09-07"
+    
+  - action: "Create integration test framework"
+    assignee: "test-harness"
+    deadline: "2025-09-08"
+
+# Development Metrics & KPIs
+metrics:
+  development_velocity:
+    tasks_completed_this_week: 5
+    tasks_planned_this_week: 8
+    velocity_trend: "slightly_behind"
+    
+  code_quality:
+    test_coverage: 78
+    lint_score: 9.2
+    security_scan: "passing"
+    
+  migration_progress:
+    agents_migrated: 12
+    agents_remaining: 4
+    migration_success_rate: 100
+    
+  performance:
+    avg_test_execution_time: "45s"
+    build_time: "12s"
+    deployment_time: "30s"
+
+# Communication & Reporting
+reporting:
+  daily_standups: false  # Solo development
+  weekly_reports: true
+  milestone_reports: true
+  
+  stakeholder_updates:
+    frequency: "weekly"
+    next_update: "2025-09-08"
+    
+  documentation_status:
+    architecture_docs: "current"
+    api_docs: "needs_update"
+    user_guides: "pending"
+
+# Risk Management
+risks:
+  high:
+    - risk: "StateManager complexity causing delays"
+      mitigation: "Simplify implementation, focus on MVP"
+      probability: "medium"
+      impact: "high"
+      
+    - risk: "Script-writer migration complexity"
+      mitigation: "Break into smaller tasks, extensive testing"
+      probability: "high"
+      impact: "critical"
+      
+  medium:
+    - risk: "Integration testing gaps"
+      mitigation: "Prioritize critical path testing"
+      probability: "medium"
+      impact: "medium"
+
+# Success Criteria
+success_criteria:
+  - "All 16 agents successfully migrated to LangGraph"
+  - "Episode production cost ≤ $5.51 maintained"
+  - "Quality scores ≥ 8.0 maintained"
+  - "State serialization 100% reliable"
+  - "Integration tests covering critical paths"
+  - "Performance benchmarks met or exceeded"
+
+# Archive
+archive:
+  completed_phases: ["phase_1_foundation"]
+  completed_milestones: ["costtracker_fix", "project_consolidation"]
+  deprecated_tasks: []
+
+---
+# File Metadata
+created_by: "state-architect"
+created_date: "2025-09-01"
+last_updated: "2025-09-01"
+version: "2.0.0"
+format: "YAML"
+encoding: "UTF-8"

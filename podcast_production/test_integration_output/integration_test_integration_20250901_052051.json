@@ -1,0 +1,30 @@
+{
+  "test_id": "integration_20250901_052051",
+  "timestamp": "2025-09-01T05:20:51.036756",
+  "pipeline_stages": [],
+  "total_cost": 0.0,
+  "budget_limit": 5.51,
+  "quality_scores": {},
+  "state_transitions": [],
+  "error_recovery_tests": [
+    {
+      "test": "budget_overflow_protection",
+      "status": "FAILED",
+      "reason": "Wrong error type: Research synthesis is required for script writing"
+    },
+    {
+      "test": "invalid_state_recovery",
+      "status": "PASSED",
+      "reason": "Invalid state properly rejected"
+    }
+  ],
+  "performance_metrics": {
+    "total_duration_seconds": 0.0001468658447265625,
+    "stages_completed": 0,
+    "cost_per_stage": 0.0,
+    "cost_efficiency": 0,
+    "throughput_stages_per_minute": 0
+  },
+  "success": false,
+  "failure_reason": "'StateManager' object has no attribute 'get_current_state'"
+}

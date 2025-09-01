@@ -1,0 +1,43 @@
+{
+  "episode_id": "ep_20250901_055303_186521e8",
+  "workflow_type": "orchestrated",
+  "failure_timestamp": "2025-09-01T05:53:03.647573",
+  "failed_stage": "error_handling",
+  "errors": [
+    {
+      "timestamp": "2025-09-01T05:53:07.728623",
+      "stage": "episode_planner",
+      "error": "Agent episode_planner execution failed: Research synthesis or questions required for episode planning"
+    }
+  ],
+  "cost_at_failure": 0.0,
+  "orchestrator_status": {
+    "registered_agents": [
+      "research_discovery",
+      "research_deep_dive",
+      "research_validation",
+      "research_synthesis",
+      "question_generator",
+      "episode_planner",
+      "script_writer",
+      "brand_validator",
+      "claude_evaluator",
+      "gemini_evaluator",
+      "audio_synthesizer",
+      "audio_validator"
+    ],
+    "workflow_phases": [
+      "research_pipeline",
+      "planning_pipeline",
+      "production_pipeline",
+      "quality_pipeline",
+      "audio_pipeline"
+    ],
+    "active_executions": 0,
+    "total_metrics_collected": 6,
+    "cost_tracker_active": true,
+    "current_budget_remaining": 5.51,
+    "checkpointing_enabled": true,
+    "performance_monitoring": true
+  }
+}

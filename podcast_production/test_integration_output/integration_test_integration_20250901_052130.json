@@ -1,0 +1,51 @@
+{
+  "test_id": "integration_20250901_052130",
+  "timestamp": "2025-09-01T05:21:30.694717",
+  "pipeline_stages": [],
+  "total_cost": 0.0,
+  "budget_limit": 5.51,
+  "quality_scores": {},
+  "state_transitions": [
+    {
+      "stage": "initialization",
+      "timestamp": "2025-09-01T05:21:30.204038",
+      "state_fields": [
+        "episode_id",
+        "topic",
+        "budget_limit",
+        "created_at",
+        "updated_at",
+        "research_data",
+        "script_content",
+        "audio_file_path",
+        "quality_scores",
+        "cost_breakdown",
+        "current_stage",
+        "completed_stages",
+        "metadata"
+      ],
+      "cost": 0.0
+    }
+  ],
+  "error_recovery_tests": [
+    {
+      "test": "budget_overflow_protection",
+      "status": "FAILED",
+      "reason": "Wrong error type: Research synthesis is required for script writing"
+    },
+    {
+      "test": "invalid_state_recovery",
+      "status": "PASSED",
+      "reason": "Invalid state properly rejected"
+    }
+  ],
+  "performance_metrics": {
+    "total_duration_seconds": 0.490847110748291,
+    "stages_completed": 0,
+    "cost_per_stage": 0.0,
+    "cost_efficiency": 0,
+    "throughput_stages_per_minute": 0
+  },
+  "success": false,
+  "failure_reason": "'research_data'"
+}

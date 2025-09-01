@@ -1,0 +1,151 @@
+# Production Docker Compose Configuration
+# AI Podcast Production System
+# Date: August 31, 2025
+# Based on August 2025 LangGraph + Redis best practices
+
+version: '3.8'
+
+services:
+  # Redis for memory persistence and caching
+  redis:
+    image: redis:7-alpine
+    container_name: podcast_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - podcast_network
+
+  # PostgreSQL for persistent data storage (optional, fallback)
+  postgres:
+    image: postgres:15-alpine
+    container_name: podcast_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-podcast_production}
+      POSTGRES_USER: ${POSTGRES_USER:-podcast_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_in_production}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backup/postgres_init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-podcast_user}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - podcast_network
+
+  # Main podcast production application
+  podcast_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    container_name: podcast_app
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      # Load from .env file
+      - REDIS_URI=redis://redis:6379
+      - POSTGRES_URI=postgresql://${POSTGRES_USER:-podcast_user}:${POSTGRES_PASSWORD:-change_me_in_production}@postgres:5432/${POSTGRES_DB:-podcast_production}
+      - PRODUCTION_MODE=true
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./output:/app/output
+      - ./audio_output:/app/audio_output
+      - ./research_data:/app/research_data
+      - ./config:/app/config:ro
+    ports:
+      - "8000:8000"  # API server port
+    healthcheck:
+      test: ["CMD", "python", "health_check.py"]
+      interval: 60s
+      timeout: 30s
+      retries: 3
+      start_period: 40s
+    networks:
+      - podcast_network
+
+  # Prometheus monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: podcast_prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    networks:
+      - podcast_network
+
+  # Grafana dashboard
+  grafana:
+    image: grafana/grafana:latest
+    container_name: podcast_grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+    networks:
+      - podcast_network
+
+  # Redis Exporter for Prometheus
+  redis_exporter:
+    image: oliver006/redis_exporter:latest
+    container_name: podcast_redis_exporter
+    restart: unless-stopped
+    ports:
+      - "9121:9121"
+    environment:
+      - REDIS_ADDR=redis://redis:6379
+    depends_on:
+      - redis
+    networks:
+      - podcast_network
+
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  podcast_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

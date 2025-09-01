@@ -1,0 +1,15 @@
+{
+  "test_timestamp": "2025-08-31T21:05:33.425690",
+  "episode_id": "ep_20250831_210533_0fb8efe5",
+  "final_stage": "testing",
+  "total_cost": 0.25,
+  "script_length": 0,
+  "errors": [
+    {
+      "timestamp": "2025-08-31T21:05:33.438144",
+      "stage": "workflow",
+      "error": "Workflow execution failed: Type is not msgpack serializable: CostTracker"
+    }
+  ],
+  "success": false
+}

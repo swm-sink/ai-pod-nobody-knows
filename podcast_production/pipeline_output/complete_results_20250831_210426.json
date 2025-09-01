@@ -1,0 +1,77 @@
+{
+  "topic": "Why do we dream?",
+  "stage": "initialized",
+  "results": {
+    "episode_id": "ep_20250831_210426_aeecdbe8",
+    "topic": "Why do we dream?",
+    "timestamp": "2025-08-31T21:04:26.360217",
+    "research_discovery": {},
+    "research_deep_dive": {},
+    "research_validation": {},
+    "research_synthesis": {},
+    "research_questions": [],
+    "episode_plan": {},
+    "script_raw": "",
+    "script_polished": "",
+    "audio_config": {},
+    "audio_file_path": "",
+    "quality_scores": {},
+    "cost_tracking": {},
+    "total_cost": 0.0,
+    "current_stage": "initialized",
+    "errors": [
+      {
+        "timestamp": "2025-08-31T21:04:26.374660",
+        "stage": "workflow",
+        "error": "Workflow execution failed: Type is not msgpack serializable: CostTracker"
+      }
+    ],
+    "retry_count": 0,
+    "research_data": {
+      "discovery": {
+        "mock": "discovery_data"
+      },
+      "deep_dive": {
+        "mock": "deep_dive_data"
+      },
+      "validation": {
+        "mock": "validation_data"
+      },
+      "synthesis": {
+        "mock": "synthesis_data"
+      },
+      "question_generation": {
+        "mock": "question_data"
+      }
+    },
+    "research_sources": [],
+    "research_queries": [],
+    "cost_breakdown": {
+      "discovery": 0.0,
+      "deep_dive": 0.0,
+      "validation": 0.0,
+      "synthesis": 0.0,
+      "question_generation": 0.0,
+      "planning": 0.0,
+      "writing": 0.0,
+      "polishing": 0.0,
+      "audio_generation": 0.0
+    },
+    "error_log": [
+      "[workflow] Workflow execution failed: Type is not msgpack serializable: CostTracker"
+    ],
+    "budget_limit": 5.51,
+    "output_directory": "./pipeline_output",
+    "dry_run": true,
+    "verbose": false,
+    "cost_tracker": "<src.core.cost_tracker.CostTracker object at 0x104a9b9d0>"
+  },
+  "cost": {},
+  "error": [
+    {
+      "timestamp": "2025-08-31T21:04:26.374660",
+      "stage": "workflow",
+      "error": "Workflow execution failed: Type is not msgpack serializable: CostTracker"
+    }
+  ]
+}

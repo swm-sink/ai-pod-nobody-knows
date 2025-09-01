@@ -1,0 +1,58 @@
+# Production Dockerfile
+# AI Podcast Production System
+# Date: August 31, 2025
+# Based on August 2025 Python and LangGraph best practices
+
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    curl \
+    redis-tools \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables
+ENV PYTHONPATH=/app \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Create non-root user for security
+RUN groupadd -r podcast && useradd -r -g podcast podcast
+
+# Copy requirements first for better caching
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p logs output audio_output research_data backup monitoring \
+    && chown -R podcast:podcast /app
+
+# Set permissions
+RUN chmod +x production_setup.py \
+    && chmod +x health_check.py \
+    && chmod +x setup_production_env.sh
+
+# Switch to non-root user
+USER podcast
+
+# Health check
+HEALTHCHECK --interval=60s --timeout=30s --start-period=40s --retries=3 \
+    CMD python health_check.py || exit 1
+
+# Expose port
+EXPOSE 8000
+
+# Default command
+CMD ["python", "main.py", "--mode", "production", "--port", "8000"]

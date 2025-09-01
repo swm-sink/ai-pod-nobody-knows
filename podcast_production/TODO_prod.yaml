@@ -1,0 +1,421 @@
+# TODO_prod.yaml - Production Task Tracking  
+
+from config.voice_config import get_production_voice_id
+# Purpose: Track episode production planning and execution via LangGraph
+# Version: 2.0.0
+# Updated: 2025-09-01
+# Mode: Production (Running the completed system)
+
+metadata:
+  project: "AI Podcast Production System"
+  focus: "Episode Production via LangGraph"
+  series: "Nobody Knows Podcast"
+  production_philosophy: "Intellectual Humility & Learning"
+  target_cost_per_episode: 5.51
+  target_quality_score: 8.0
+
+# Production System Status
+system_status:
+  readiness_level: "development"  # development | testing | production
+  langgraph_migration: 75  # 12/16 agents complete
+  system_health: "stable_with_limitations"
+  last_health_check: "2025-09-01T10:00:00Z"
+  
+  operational_components:
+    research_pipeline: "operational"     # 4/4 agents migrated
+    audio_pipeline: "operational"       # 3/3 agents migrated  
+    quality_pipeline: "operational"     # 3/3 agents migrated
+    production_pipeline: "partial"      # 2/4 agents migrated
+    
+  blocked_components:
+    script_generation: "blocked"        # script-writer not migrated
+    brand_validation: "blocked"         # brand-validator not migrated
+    episode_planning: "blocked"         # episode-planner not migrated
+
+# Production Modes
+execution_modes:
+  direct_langgraph:
+    command: "cd podcast_production && python main.py --topic 'Topic'"
+    description: "Direct LangGraph execution without Claude Code"
+    status: "available"
+    use_case: "Automated production, batch processing"
+    
+  claude_orchestrated:
+    command: "/prod-episode 'Topic'"
+    description: "Claude Code orchestrating LangGraph subprocess"
+    status: "development"
+    use_case: "Interactive production, monitoring, debugging"
+    
+  hybrid_mode:
+    description: "Claude Code for development, LangGraph for production"
+    status: "preferred"
+    use_case: "Development with production execution"
+
+# Episode Production Pipeline
+production_pipeline:
+  stages:
+    research:
+      name: "Research & Discovery"
+      agents: ["research-discovery", "research-deep-dive", "research-validate", "research-synthesis"]
+      budget_allocation: 2.00
+      estimated_duration: "8-12 minutes"
+      status: "operational"
+      
+    planning:
+      name: "Episode Planning & Structure"
+      agents: ["question-generator", "episode-planner"]
+      budget_allocation: 0.30
+      estimated_duration: "2-3 minutes"
+      status: "blocked"  # episode-planner not migrated
+      blocker: "episode-planner agent migration required"
+      
+    scripting:
+      name: "Script Generation & Validation"
+      agents: ["script-writer", "brand-validator"]
+      budget_allocation: 2.00
+      estimated_duration: "10-15 minutes"
+      status: "blocked"  # script-writer not migrated
+      blocker: "script-writer agent migration required"
+      
+    audio:
+      name: "Audio Synthesis & Validation"
+      agents: ["script-polisher", "tts-optimizer", "audio-synthesizer", "audio-validator"]
+      budget_allocation: 1.21
+      estimated_duration: "5-8 minutes"
+      status: "operational"
+      
+    quality:
+      name: "Quality Assurance"
+      agents: ["claude-evaluator", "gemini-evaluator", "perplexity-agent"]
+      budget_allocation: 0.70
+      estimated_duration: "3-5 minutes"
+      status: "operational"
+
+# Episode Queue & Planning
+episode_queue:
+  planning:
+    - id: "ep-q-001"
+      topic: "Quantum Computing Myths vs Reality"
+      priority: "high"
+      estimated_cost: 5.45
+      target_quality: 8.5
+      research_complexity: "high"
+      planned_date: "2025-09-15"
+      notes: "Complex technical topic, requires careful fact-checking"
+      
+    - id: "ep-q-002"
+      topic: "Climate Engineering: Promising or Perilous?"
+      priority: "high"
+      estimated_cost: 5.20
+      target_quality: 8.0
+      research_complexity: "high"
+      planned_date: "2025-09-20"
+      notes: "Controversial topic, multiple perspectives needed"
+      
+    - id: "ep-q-003"
+      topic: "The Limits of AI Understanding"
+      priority: "medium"
+      estimated_cost: 5.10
+      target_quality: 8.0
+      research_complexity: "medium"
+      planned_date: "2025-09-25"
+      notes: "Meta-cognitive topic, fits brand well"
+      
+    - id: "ep-q-004"
+      topic: "Space Exploration: What We Don't Know"
+      priority: "medium"
+      estimated_cost: 5.30
+      target_quality: 8.0
+      research_complexity: "medium"
+      planned_date: "2025-09-30"
+      
+    - id: "ep-q-005"
+      topic: "Consciousness: The Ultimate Mystery"
+      priority: "low"
+      estimated_cost: 5.40
+      target_quality: 8.5
+      research_complexity: "very_high"
+      planned_date: "2025-10-05"
+      notes: "Philosophical complexity, requires careful treatment"
+
+  in_development:
+    - id: "ep-dev-001"
+      topic: "Testing Episode - Development Validation"
+      status: "research_pipeline_testing"
+      started: "2025-09-01T09:00:00Z"
+      mode: "dry_run"
+      purpose: "Validate research pipeline post-migration"
+      current_cost: 0.15
+      notes: "Development testing only, not for publication"
+
+  blocked_pending_migration:
+    - id: "ep-blocked-001"
+      topic: "AI Safety Misconceptions"
+      status: "blocked"
+      blocker: "script-writer agent not migrated"
+      estimated_cost: 5.35
+      priority: "high"
+      
+    - id: "ep-blocked-002"
+      topic: "The Unknowns of Genetic Engineering"
+      status: "blocked"
+      blocker: "episode-planner agent not migrated"
+      estimated_cost: 5.25
+      priority: "medium"
+
+# Production History & Analytics
+production_history:
+  episodes_completed: 0  # Post-migration count
+  episodes_in_progress: 1  # Development testing
+  
+  cost_performance:
+    target_per_episode: 5.51
+    average_cost: 0.00  # No completed episodes yet
+    cost_variance: 0.00
+    budget_efficiency: "pending"
+    
+  quality_performance:
+    target_quality: 8.0
+    average_quality: 0.0  # No completed episodes yet
+    quality_consistency: "pending"
+    
+  production_velocity:
+    episodes_per_week_target: 2
+    episodes_per_week_actual: 0
+    velocity_trend: "pending"
+
+# Quality Standards & Validation
+quality_standards:
+  brand_alignment:
+    intellectual_humility_score: 8.5
+    question_to_answer_ratio: "60:40"  # More questions than answers
+    uncertainty_acknowledgment: "required"
+    expert_perspective_diversity: "minimum_3"
+    
+  technical_accuracy:
+    fact_checking_required: true
+    source_citation_minimum: 3
+    expert_quotes_minimum: 2
+    uncertainty_quantification: "required"
+    
+  engagement_metrics:
+    readability_score: "8th_grade_level"
+    narrative_structure: "problem_exploration_insights"
+    emotional_connection: "curiosity_and_wonder"
+    
+  audio_quality:
+    voice_consistency: get_production_voice_id()  # Production voice
+    audio_clarity: "minimum_95%"
+    pacing_naturalness: "conversational"
+    ssml_optimization: "required"
+
+# Cost Management & Optimization
+cost_management:
+  budget_per_episode: 5.51
+  budget_allocation:
+    research: 36.3  # $2.00 / $5.51
+    planning: 5.4   # $0.30 / $5.51  
+    scripting: 36.3 # $2.00 / $5.51
+    audio: 22.0     # $1.21 / $5.51
+    
+  cost_optimization_targets:
+    research_efficiency: "Reduce to $1.80 while maintaining quality"
+    scripting_efficiency: "Optimize script-writer to $1.60"
+    audio_efficiency: "Maintain current $1.21 allocation"
+    
+  budget_alerts:
+    warning_threshold: 4.96  # 90% of budget
+    critical_threshold: 5.51 # 100% of budget
+    emergency_stop: 6.06     # 110% of budget
+
+# Production Workflows
+workflows:
+  full_episode_production:
+    name: "Complete Episode Production"
+    command: "/prod-episode 'Topic'"
+    stages: ["research", "planning", "scripting", "audio", "quality"]
+    estimated_duration: "25-35 minutes"
+    estimated_cost: 5.51
+    prerequisites: ["All agents migrated", "System health check passed"]
+    
+  research_only:
+    name: "Research Pipeline Only"
+    command: "/prod-research 'Topic'"  
+    stages: ["research"]
+    estimated_duration: "8-12 minutes"
+    estimated_cost: 2.00
+    status: "operational"
+    use_case: "Research validation, topic exploration"
+    
+  script_development:
+    name: "Script Development Workflow"
+    command: "/prod-script 'Topic'"
+    stages: ["planning", "scripting"] 
+    estimated_duration: "12-18 minutes"
+    estimated_cost: 2.30
+    status: "blocked"  # Requires script-writer migration
+    
+  audio_production:
+    name: "Audio Synthesis Workflow"
+    command: "/prod-audio 'Script_Path'"
+    stages: ["audio"]
+    estimated_duration: "5-8 minutes" 
+    estimated_cost: 1.21
+    status: "operational"
+
+# Monitoring & Observability
+monitoring:
+  real_time_metrics:
+    cost_accumulation: "enabled"
+    quality_score_tracking: "enabled"
+    stage_progress_monitoring: "enabled"
+    resource_usage_monitoring: "enabled"
+    
+  alerting:
+    budget_overrun: "enabled"
+    quality_below_threshold: "enabled"
+    production_failures: "enabled"
+    performance_degradation: "enabled"
+    
+  reporting:
+    episode_production_report: "automatic"
+    weekly_analytics: "manual"
+    monthly_optimization_review: "manual"
+
+# Production Environment
+environment:
+  voice_configuration:
+    production_voice_id: get_production_voice_id()  # Amelia
+    voice_stability: 0.75
+    voice_clarity: 0.85
+    voice_enhancement: true
+    
+  output_configuration:
+    audio_format: "mp3"
+    audio_quality: "high"
+    sample_rate: "44.1kHz"
+    bitrate: "320kbps"
+    
+  storage_configuration:
+    episode_directory: "episodes/production/"
+    backup_directory: "episodes/backups/"
+    archive_directory: "episodes/archive/"
+    
+  api_configuration:
+    rate_limiting: "conservative"
+    retry_logic: "exponential_backoff"
+    timeout_settings: "generous"
+    error_handling: "graceful_degradation"
+
+# Series Planning & Content Strategy
+series_strategy:
+  content_themes:
+    - "Scientific Uncertainties & Unknowns"
+    - "Technology Limitations & Misconceptions" 
+    - "Complex Systems We Don't Fully Understand"
+    - "Historical Mysteries & Ongoing Debates"
+    - "Philosophical Questions Without Clear Answers"
+    
+  episode_frequency:
+    target: "2 episodes per week"
+    minimum: "1 episode per week"
+    maximum: "3 episodes per week"
+    
+  seasonal_planning:
+    fall_2025: "Technology & AI focus"
+    winter_2025: "Science & Discovery focus"
+    spring_2026: "History & Society focus"
+    summer_2026: "Philosophy & Consciousness focus"
+
+# Risk Management
+risks:
+  production:
+    high:
+      - risk: "LangGraph migration incomplete blocks production"
+        probability: "high"
+        impact: "critical"
+        mitigation: "Prioritize critical agent migrations"
+        
+      - risk: "Cost overruns during production episodes"
+        probability: "medium"
+        impact: "high"
+        mitigation: "Real-time cost monitoring with hard stops"
+        
+    medium:
+      - risk: "Quality degradation during migration"
+        probability: "medium"
+        impact: "medium"
+        mitigation: "Comprehensive quality validation framework"
+        
+  business:
+    - risk: "Content quality inconsistency affects brand"
+      mitigation: "Strict quality gates and brand validation"
+      
+    - risk: "Production delays affect release schedule"
+      mitigation: "Build episode buffer, flexible scheduling"
+
+# Success Metrics & KPIs
+success_metrics:
+  production_efficiency:
+    episodes_per_week: 2.0
+    average_production_time: "30 minutes"
+    production_success_rate: "95%"
+    
+  cost_efficiency:
+    average_cost_per_episode: "≤ $5.51"
+    cost_variance: "≤ 10%"
+    budget_utilization_efficiency: "90-100%"
+    
+  quality_metrics:
+    average_quality_score: "≥ 8.0"
+    quality_consistency: "≤ 0.5 score variance"
+    brand_alignment_score: "≥ 8.5"
+    
+  audience_metrics:
+    content_depth_rating: "≥ 8.0"
+    intellectual_humility_rating: "≥ 8.5"
+    learning_value_rating: "≥ 8.0"
+
+# Next Actions (Production Readiness)
+next_actions:
+  immediate:
+    - action: "Complete script-writer agent migration"
+      priority: "critical"
+      deadline: "2025-09-05"
+      blocker_for: ["script development", "full episode production"]
+      
+    - action: "Complete brand-validator agent migration" 
+      priority: "critical"
+      deadline: "2025-09-06"
+      blocker_for: ["brand consistency", "quality validation"]
+      
+  short_term:
+    - action: "Complete episode-planner agent migration"
+      priority: "high"
+      deadline: "2025-09-07"
+      enables: ["structured episode planning", "content optimization"]
+      
+    - action: "Validate full production pipeline end-to-end"
+      priority: "high"
+      deadline: "2025-09-09"
+      prerequisites: ["All agent migrations complete"]
+      
+  medium_term:
+    - action: "Produce first post-migration validation episode"
+      priority: "medium"
+      deadline: "2025-09-12"
+      topic: "Testing Episode - System Validation"
+      
+    - action: "Launch regular production schedule"
+      priority: "medium"
+      deadline: "2025-09-15"
+      prerequisites: ["Validation episode successful"]
+
+---
+# File Metadata  
+created_by: "production-orchestrator"
+created_date: "2025-09-01"
+last_updated: "2025-09-01"
+version: "2.0.0"
+format: "YAML"
+encoding: "UTF-8"

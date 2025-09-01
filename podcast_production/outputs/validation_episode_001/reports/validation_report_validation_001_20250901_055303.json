@@ -1,0 +1,36 @@
+{
+  "validation_id": "validation_001_20250901_055303",
+  "topic": "The Future of AI Assistants: Promise vs Reality",
+  "budget_limit": 5.51,
+  "start_time": "2025-09-01T05:53:03.641688",
+  "end_time": "2025-09-01T05:53:07.733837",
+  "duration_seconds": 4.092149,
+  "success": false,
+  "final_cost": 0.0,
+  "budget_compliance": true,
+  "quality_scores": {},
+  "pipeline_stages": {},
+  "performance_metrics": {
+    "workflow_duration": 4.08565878868103
+  },
+  "errors": [
+    {
+      "error": "unsupported operand type(s) for /: 'NoneType' and 'int'",
+      "stage": "validation_runner",
+      "timestamp": "2025-09-01T05:53:07.733693",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/podcast_production/validation_episodes/episode_validation_001.py\", line 129, in run_validation\n    await self._validate_results(final_state)\n  File \"/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/.conductor/real-agents/podcast_production/validation_episodes/episode_validation_001.py\", line 331, in _validate_results\n    duration_minutes = self.validation_results[\"duration_seconds\"] / 60\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~\nTypeError: unsupported operand type(s) for /: 'NoneType' and 'int'\n"
+    }
+  ],
+  "warnings": [],
+  "system_health": {
+    "config_manager": true,
+    "import_availability": {
+      "workflows.orchestrated_workflow": true,
+      "core.agent_orchestrator": true,
+      "core.state": true
+    },
+    "directory_structure": true,
+    "memory_available": true
+  },
+  "recommendations": []
+}

@@ -1,0 +1,352 @@
+# Orchestration Configuration - August 2025
+
+from config.voice_config import get_production_voice_id
+# Centralized configuration for AgentOrchestrator workflow coordination
+# Version: 1.0.0
+
+# Global orchestration settings
+orchestration:
+  version: "1.0.0"
+  max_parallel_agents: 5
+  default_timeout_minutes: 10
+  enable_performance_monitoring: true
+  enable_checkpointing: true
+  checkpoint_directory: "./checkpoints"
+
+# Budget and cost management
+budget:
+  default_episode_budget: 5.51
+  warning_threshold_percent: 80
+  critical_threshold_percent: 90
+  emergency_stop_enabled: true
+  cost_tracking_precision: 4  # decimal places
+
+# Agent execution policies
+execution:
+  retry_policy:
+    default_max_retries: 2
+    backoff_multiplier: 2.0
+    max_backoff_seconds: 300
+  
+  timeout_policy:
+    research_agents: 15      # minutes
+    planning_agents: 5       # minutes
+    production_agents: 12    # minutes
+    evaluation_agents: 8     # minutes
+    audio_agents: 10         # minutes
+    
+  concurrency:
+    max_concurrent_research: 2
+    max_concurrent_evaluation: 2
+    max_concurrent_audio: 1
+    max_concurrent_total: 5
+
+# Workflow phases configuration
+phases:
+  research_pipeline:
+    name: "Research Pipeline"
+    description: "Discovery, deep dive, validation, and synthesis"
+    agents:
+      - research_discovery
+      - research_deep_dive
+      - research_validation
+      - research_synthesis
+    execution_mode: "sequential"
+    timeout_minutes: 15
+    retry_count: 2
+    cost_budget: 2.00
+    required_for_completion: true
+    failure_tolerance: "low"  # stop on first failure
+    
+  planning_pipeline:
+    name: "Planning Pipeline"
+    description: "Question generation and episode planning"
+    agents:
+      - question_generator
+      - episode_planner
+    execution_mode: "sequential"
+    timeout_minutes: 5
+    retry_count: 1
+    cost_budget: 0.30
+    required_for_completion: true
+    dependencies:
+      - research_pipeline
+    failure_tolerance: "medium"
+    
+  production_pipeline:
+    name: "Production Pipeline"
+    description: "Script writing and brand validation"
+    agents:
+      - script_writer
+      - brand_validator
+    execution_mode: "sequential"
+    timeout_minutes: 12
+    retry_count: 2
+    cost_budget: 2.00
+    required_for_completion: true
+    dependencies:
+      - planning_pipeline
+    failure_tolerance: "low"
+    
+  quality_pipeline:
+    name: "Quality Pipeline"
+    description: "Multi-evaluator quality assessment"
+    agents:
+      - claude_evaluator
+      - gemini_evaluator
+    execution_mode: "parallel"
+    timeout_minutes: 8
+    retry_count: 1
+    cost_budget: 0.55
+    parallel_limit: 2
+    required_for_completion: true
+    dependencies:
+      - production_pipeline
+    failure_tolerance: "high"  # can continue with partial results
+    
+  audio_pipeline:
+    name: "Audio Pipeline"
+    description: "Audio synthesis and validation"
+    agents:
+      - audio_synthesizer
+      - audio_validator
+    execution_mode: "sequential"
+    timeout_minutes: 10
+    retry_count: 1
+    cost_budget: 0.66
+    required_for_completion: false  # optional for cost savings
+    dependencies:
+      - quality_pipeline
+    failure_tolerance: "high"
+
+# Agent-specific configurations
+agents:
+  research_discovery:
+    priority: "high"
+    estimated_cost: 0.50
+    timeout_minutes: 5
+    model_preferences:
+      primary: "perplexity/llama-3.1-sonar-large-128k-online"
+      fallback: "perplexity/llama-3.1-sonar-small-128k-online"
+    
+  research_deep_dive:
+    priority: "high"
+    estimated_cost: 1.00
+    timeout_minutes: 8
+    model_preferences:
+      primary: "anthropic/claude-3-5-sonnet-20241022"
+      fallback: "anthropic/claude-3-haiku-20240307"
+      
+  research_validation:
+    priority: "medium"
+    estimated_cost: 0.35
+    timeout_minutes: 4
+    model_preferences:
+      primary: "openai/gpt-4o"
+      fallback: "openai/gpt-4o-mini"
+      
+  research_synthesis:
+    priority: "high"
+    estimated_cost: 0.15
+    timeout_minutes: 3
+    
+  question_generator:
+    priority: "low"
+    estimated_cost: 0.10
+    timeout_minutes: 2
+    
+  episode_planner:
+    priority: "medium"
+    estimated_cost: 0.20
+    timeout_minutes: 3
+    
+  script_writer:
+    priority: "critical"
+    estimated_cost: 1.75
+    timeout_minutes: 10
+    model_preferences:
+      primary: "anthropic/claude-3-5-sonnet-20241022"
+      
+  brand_validator:
+    priority: "high"
+    estimated_cost: 0.25
+    timeout_minutes: 4
+    
+  claude_evaluator:
+    priority: "medium"
+    estimated_cost: 0.30
+    timeout_minutes: 5
+    
+  gemini_evaluator:
+    priority: "medium"
+    estimated_cost: 0.25
+    timeout_minutes: 5
+    
+  audio_synthesizer:
+    priority: "medium"
+    estimated_cost: 0.50
+    timeout_minutes: 8
+    model_preferences:
+      voice_id: get_production_voice_id()  # Production voice - Amelia
+      model: "eleven_turbo_v2_5"
+      
+  audio_validator:
+    priority: "low"
+    estimated_cost: 0.16
+    timeout_minutes: 3
+
+# Performance monitoring
+monitoring:
+  metrics_collection: true
+  detailed_timing: true
+  memory_profiling: false
+  cost_attribution: true
+  
+  reporting:
+    generate_reports: true
+    report_formats: ["json", "text"]
+    include_agent_metrics: true
+    include_phase_metrics: true
+    include_cost_breakdown: true
+    
+  thresholds:
+    max_execution_time_minutes: 30
+    max_memory_usage_mb: 512
+    max_cost_variance_percent: 20
+
+# Error handling and recovery
+error_handling:
+  strategy: "graceful_degradation"
+  
+  recovery_modes:
+    research_failure: "retry_with_fallback"
+    planning_failure: "retry_once"
+    production_failure: "retry_with_reduced_quality"
+    evaluation_failure: "continue_partial"
+    audio_failure: "skip_audio_generation"
+    
+  notification:
+    log_level: "WARNING"
+    include_stack_traces: false
+    alert_on_budget_exceeded: true
+    alert_on_critical_failure: true
+
+# State management
+state_management:
+  checkpointing:
+    enabled: true
+    frequency: "after_each_phase"
+    retention_count: 10
+    compression: true
+    
+  serialization:
+    format: "msgpack"  # August 2025 standard
+    include_transient: false
+    validate_integrity: true
+    
+  recovery:
+    auto_recovery_enabled: true
+    max_recovery_attempts: 3
+    recovery_timeout_minutes: 5
+
+# Quality gates
+quality_gates:
+  research_completeness:
+    min_sources: 3
+    min_confidence: 0.7
+    required_fields: ["topic_summary", "key_points", "sources"]
+    
+  script_quality:
+    min_length_chars: 500
+    max_length_chars: 15000
+    required_sections: ["introduction", "main_content", "conclusion"]
+    brand_alignment_threshold: 7.5
+    
+  overall_quality:
+    min_score: 8.0
+    evaluator_agreement_threshold: 0.8
+    required_evaluators: 2
+
+# Resource management
+resources:
+  memory:
+    max_state_size_mb: 10
+    garbage_collection_frequency: "after_each_phase"
+    
+  storage:
+    temp_file_cleanup: true
+    max_log_size_mb: 100
+    checkpoint_cleanup_days: 7
+    
+  network:
+    connection_timeout_seconds: 30
+    read_timeout_seconds: 300
+    max_retries_per_request: 3
+
+# Development and debugging
+development:
+  debug_mode: false
+  verbose_logging: false
+  dry_run_support: true
+  mock_expensive_operations: false
+  
+  testing:
+    enable_test_mode: false
+    mock_all_agents: false
+    accelerated_timeouts: false
+    skip_cost_tracking: false
+
+# Production optimizations
+production:
+  optimize_for_cost: true
+  optimize_for_speed: false
+  optimize_for_quality: true
+  
+  scaling:
+    auto_scale_parallel_limit: false
+    max_scale_factor: 2.0
+    scale_based_on_load: false
+    
+  caching:
+    enable_response_caching: false
+    cache_duration_minutes: 60
+    cache_size_mb: 100
+
+# Integration settings
+integrations:
+  langfuse:
+    enabled: true
+    trace_all_operations: true
+    include_costs: true
+    
+  elevenlabs:
+    enabled: true
+    voice_id: get_production_voice_id()
+    model: "eleven_turbo_v2_5"
+    
+  cost_tracking:
+    csv_logging: true
+    real_time_updates: true
+    budget_alerts: true
+
+# Compliance and governance
+compliance:
+  data_retention_days: 30
+  audit_trail: true
+  gdpr_compliance: true
+  cost_transparency: true
+  
+  security:
+    encrypt_state_at_rest: false
+    secure_api_keys: true
+    log_sanitization: true
+
+---
+# Configuration metadata
+metadata:
+  version: "1.0.0"
+  created_by: "orchestrator-system"
+  created_date: "2025-09-01"
+  last_updated: "2025-09-01"
+  schema_version: "1.0"
+  description: "Production orchestration configuration for AI podcast system"

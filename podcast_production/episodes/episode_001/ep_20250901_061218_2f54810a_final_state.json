@@ -1,0 +1,1165 @@
+{
+
+from config.voice_config import get_production_voice_id
+  "episode_id": "ep_20250901_061218_2f54810a",
+  "topic": "Quantum Computing Myths vs Reality",
+  "timestamp": "2025-09-01T06:12:18.258854",
+  "research_discovery": {},
+  "research_deep_dive": {},
+  "research_validation": {},
+  "research_synthesis": {},
+  "research_questions": [],
+  "episode_plan": {},
+  "script_raw": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it *actually* works, the more mystery we uncover.\nI'm talking about [topic], and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n(warmly) I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...\n\n---\n\n\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n*Did you know* that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with [topic].\nHere's what we *do* know with confidence... (presents verified research findings)\nBut here's where it gets *really* interesting... (transition to areas of uncertainty)\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n(pause to let that sink in)\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\nThe thing is, science doesn't require us to understand *everything* before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n*This absolutely amazed me* when I learned it... [personal reaction to research]\n\n---\n\n\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it *bigger* and more fascinating.\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out *why* this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...\n\n---\n\n\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n**Conversational Connectors:**\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n**Natural Hesitations and Corrections:**\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n**Direct Listener Engagement:**\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n**Emotional Responses:**\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n**Rhythm and Pacing:**\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n**Personal Moments:**\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience.\n\n---\n\n\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\nWhen we began today, we thought we were going to learn about [topic]. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n*What we still don't know* about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\nUntil next time, keep looking at the world with wonder.\n\n---\n",
+  "script_polished": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it *actually* works, the more mystery we uncover.\nI'm talking about [topic], and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n(warmly) I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...\n\n---\n\n\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n*Did you know* that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with [topic].\nHere's what we *do* know with confidence... (presents verified research findings)\nBut here's where it gets *really* interesting... (transition to areas of uncertainty)\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n(pause to let that sink in)\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\nThe thing is, science doesn't require us to understand *everything* before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n*This absolutely amazed me* when I learned it... [personal reaction to research]\n\n---\n\n\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it *bigger* and more fascinating.\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out *why* this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...\n\n---\n\n\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n**Conversational Connectors:**\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n**Natural Hesitations and Corrections:**\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n**Direct Listener Engagement:**\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n**Emotional Responses:**\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n**Rhythm and Pacing:**\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n**Personal Moments:**\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience.\n\n---\n\n\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\nWhen we began today, we thought we were going to learn about [topic]. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n*What we still don't know* about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\nUntil next time, keep looking at the world with wonder.\n\n---\n",
+  "audio_config": {
+    "voice_id": get_production_voice_id(),
+    "model": "eleven_turbo_v2_5",
+    "mock": true
+  },
+  "audio_file_path": "episodes/episode_001/ep_20250901_061218_2f54810a_audio.mp3",
+  "quality_scores": {
+    "brand_alignment": 8.5,
+    "technical_accuracy": 9.0,
+    "engagement": 8.0,
+    "overall": 8.5,
+    "mock": true
+  },
+  "cost_data": {
+    "budget_limit": 5.51,
+    "episode_id": "ep_20250901_061218_2f54810a",
+    "total_cost": 0.0,
+    "cost_by_agent": {},
+    "cost_by_provider": {},
+    "operation_count": 0,
+    "last_5_operations": []
+  },
+  "total_cost": 0.0,
+  "current_stage": "completed",
+  "errors": [
+    {
+      "timestamp": "2025-09-01T06:12:21.488636",
+      "stage": "planning",
+      "error": "Planning failed: Research synthesis or questions required for episode planning"
+    }
+  ],
+  "retry_count": 0,
+  "research_data": {
+    "discovery": {
+      "schema_version": "1.0.0",
+      "stage": "discovery",
+      "agent_metadata": {
+        "agent_id": "research-discovery",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:20.182318",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 0.5,
+        "budget_remaining": 0.5,
+        "query_count": 3
+      },
+      "execution_status": {
+        "status": "completed",
+        "errors": [],
+        "warnings": []
+      },
+      "discovery_insights": {
+        "main_themes": [
+          "Mock response for topic_landscape: Research findings about the topic"
+        ],
+        "recent_developments": [],
+        "consensus_areas": [],
+        "raw_content": "Mock response for topic_landscape: Research findings about the topic"
+      },
+      "expert_mapping": {
+        "identified_experts": [
+          {
+            "name": "Dr. Example Expert",
+            "affiliation": "University of Research",
+            "expertise": "Topic expertise"
+          }
+        ],
+        "institutions": [],
+        "publications": [
+          "Mock response for expert_discovery: Research findings about the topic"
+        ],
+        "raw_content": "Mock response for expert_discovery: Research findings about the topic"
+      },
+      "source_diversity": {},
+      "research_framework": {
+        "knowledge_gaps": [
+          "Mock response for uncertainty_documentation: Research findings about the topic"
+        ],
+        "ongoing_debates": [],
+        "future_research": [],
+        "raw_content": "Mock response for uncertainty_documentation: Research findings about the topic"
+      },
+      "raw_responses": [
+        {
+          "query_type": "topic_landscape",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock response for topic_landscape: Research findings about the topic"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "expert_discovery",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock response for expert_discovery: Research findings about the topic"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "uncertainty_documentation",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock response for uncertainty_documentation: Research findings about the topic"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    },
+    "deep_dive": {
+      "schema_version": "1.0.0",
+      "stage": "deep_dive",
+      "agent_metadata": {
+        "agent_id": "research-deep-dive",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:20.403785",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 1.0,
+        "budget_remaining": 1.0,
+        "query_count": 4
+      },
+      "execution_status": {
+        "status": "completed",
+        "completion_timestamp": "2025-09-01T06:12:20.403792",
+        "quality_gate_status": "passed"
+      },
+      "deep_research_findings": {
+        "expert_quotes_bank": [
+          {
+            "quote_id": "quote_001",
+            "expert_name": "Dr. Research Expert",
+            "institution": "Leading University",
+            "quote_text": "This represents a significant advancement in our understanding.",
+            "context": "Discussing recent developments",
+            "source": "Expert Interview, August 2025",
+            "credibility_score": 0.95,
+            "theme_relevance": "high",
+            "uncertainty_admission": false
+          }
+        ],
+        "technical_deep_dive": {
+          "core_concepts": [
+            {
+              "concept_id": "concept_001",
+              "concept_name": "Key Research Concept",
+              "detailed_explanation": "Comprehensive explanation of the concept",
+              "expert_perspectives": [
+                "Perspective 1",
+                "Perspective 2"
+              ],
+              "technical_mechanisms": "Technical details of how it works",
+              "complexity_level": "medium"
+            }
+          ],
+          "case_studies": [
+            {
+              "case_id": "case_001",
+              "title": "Real-World Application Example",
+              "description": "Detailed description of the case study",
+              "expert_analysis": "Expert commentary on the case",
+              "lessons_learned": [
+                "Lesson 1",
+                "Lesson 2"
+              ],
+              "source_verification": "verified"
+            }
+          ],
+          "research_methodologies": [
+            {
+              "method_name": "Research Methodology",
+              "description": "Description of the methodology",
+              "limitations_acknowledged": "Known limitations of this approach",
+              "current_research_status": "Active research ongoing"
+            }
+          ]
+        },
+        "historical_evolution": {
+          "knowledge_timeline": [
+            {
+              "time_period": "2020-2025",
+              "key_developments": [
+                "Development 1",
+                "Development 2"
+              ],
+              "expert_consensus_changes": "How expert opinions have evolved",
+              "paradigm_shifts": [
+                "Shift in understanding"
+              ]
+            }
+          ],
+          "expert_opinion_evolution": [
+            {
+              "expert_name": "Dr. Evolving View",
+              "position_changes": "How their position has changed over time",
+              "current_uncertainty": "What they currently acknowledge as uncertain"
+            }
+          ]
+        },
+        "future_implications": {
+          "expert_predictions": [
+            {
+              "expert_name": "Dr. Future Thinker",
+              "prediction": "Potential future development",
+              "confidence_level": "medium",
+              "timeframe": "5-10 years",
+              "uncertainty_acknowledgment": "Many variables remain unknown"
+            }
+          ],
+          "research_frontiers": [],
+          "unknowns_and_mysteries": [
+            {
+              "mystery_area": "Unexplained phenomenon",
+              "expert_admissions": [
+                "We don't know why this happens",
+                "Further research needed"
+              ],
+              "why_unknown": "Current limitations in understanding",
+              "research_approaches": [
+                "Approach 1",
+                "Approach 2"
+              ]
+            }
+          ]
+        }
+      },
+      "brand_alignment_content": {
+        "intellectual_humility_examples": [
+          {
+            "example_id": "ih_001",
+            "expert_name": "Dr. Humble Expert",
+            "humility_quote": "The more we learn, the more we realize how much we don't know",
+            "context": "Reflecting on research progress",
+            "learning_opportunity": "This teaches us the value of intellectual humility"
+          }
+        ],
+        "uncertainty_celebrations": [],
+        "expert_humanity_moments": []
+      },
+      "quality_assurance": {
+        "expert_quote_count": 1,
+        "quote_verification_rate": 0.85,
+        "source_credibility_score": 0.9,
+        "content_depth_score": 0.88,
+        "brand_alignment_score": 0.92,
+        "information_currency": 0.95
+      },
+      "raw_responses": [
+        {
+          "query_type": "priority_theme_deep",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock deep research for priority_theme_deep: Comprehensive findings with expert quotes"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "technical_mechanisms",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock deep research for technical_mechanisms: Comprehensive findings with expert quotes"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "historical_evolution",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock deep research for historical_evolution: Comprehensive findings with expert quotes"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "future_uncertainties",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock deep research for future_uncertainties: Comprehensive findings with expert quotes"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    },
+    "validation": {
+      "schema_version": "1.0.0",
+      "stage": "validation",
+      "agent_metadata": {
+        "agent_id": "research-validation",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:20.611774",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 0.35,
+        "budget_remaining": 0.35,
+        "query_count": 4
+      },
+      "execution_status": {
+        "status": "completed",
+        "completion_timestamp": "2025-09-01T06:12:20.611781",
+        "quality_gate_status": "passed"
+      },
+      "fact_checking_comprehensive": {
+        "claims_verification_summary": {
+          "total_claims_checked": 2,
+          "high_confidence_verified": 2,
+          "medium_confidence_verified": 0,
+          "low_confidence_unverified": 0,
+          "contradicted_claims": 0,
+          "verification_success_rate": 1.0
+        },
+        "verified_claims_register": [
+          {
+            "claim_id": "claim_001",
+            "claim_text": "This represents a significant advancement in our understanding.",
+            "verification_status": "verified",
+            "confidence_score": 0.85,
+            "supporting_sources": [
+              {
+                "source_name": "Authoritative Source",
+                "source_type": "academic",
+                "credibility_score": 0.9,
+                "citation": "Research Paper, August 2025",
+                "verification_date": "2025-09-01T06:12:20.611792"
+              }
+            ],
+            "contradicting_sources": [],
+            "expert_consensus": "agreement",
+            "verification_confidence": "highly_confident",
+            "follow_up_needed": false,
+            "uncertainty_notes": ""
+          },
+          {
+            "claim_id": "claim_002",
+            "claim_text": "Comprehensive explanation of the concept",
+            "verification_status": "verified",
+            "confidence_score": 0.85,
+            "supporting_sources": [
+              {
+                "source_name": "Authoritative Source",
+                "source_type": "academic",
+                "credibility_score": 0.9,
+                "citation": "Research Paper, August 2025",
+                "verification_date": "2025-09-01T06:12:20.611795"
+              }
+            ],
+            "contradicting_sources": [],
+            "expert_consensus": "agreement",
+            "verification_confidence": "highly_confident",
+            "follow_up_needed": false,
+            "uncertainty_notes": ""
+          }
+        ],
+        "expert_quotes_validation": [
+          {
+            "quote_id": "quote_001",
+            "expert_name": "Dr. Research Expert",
+            "quote_text": "This represents a significant advancement in our understanding.",
+            "attribution_status": "verified",
+            "original_source": "Expert Interview, August 2025",
+            "context_accuracy": "accurate",
+            "expert_credentials_verified": true,
+            "institutional_affiliation_confirmed": true,
+            "quote_integrity_score": 0.92,
+            "usage_appropriateness": "appropriate",
+            "verification_notes": ""
+          }
+        ],
+        "statistical_data_verification": []
+      },
+      "source_credibility_comprehensive": {
+        "source_authority_analysis": [],
+        "bias_detection_analysis": []
+      },
+      "contradiction_analysis_advanced": {
+        "expert_disagreements_documented": [],
+        "contradiction_resolution_attempts": [],
+        "unresolvable_conflicts": []
+      },
+      "uncertainty_quantification": {
+        "confidence_distribution": {},
+        "uncertainty_areas": [],
+        "knowledge_gaps_identified": [
+          {
+            "gap_area": "Long-term implications",
+            "description": "Insufficient data on long-term effects",
+            "expert_acknowledgment": "Multiple experts acknowledge this limitation",
+            "research_needed": "Longitudinal studies required",
+            "estimated_timeline": "5-10 years for comprehensive understanding"
+          }
+        ]
+      },
+      "quality_metrics": {
+        "fact_checking_completeness": 0.2,
+        "source_diversity_score": 0.0,
+        "contradiction_resolution_rate": 0.75,
+        "overall_validation_confidence": 0.88
+      },
+      "raw_responses": [
+        {
+          "query_type": "claims_verification",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock validation for claims_verification: Verification results"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "quote_attribution",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock validation for quote_attribution: Verification results"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "source_credibility",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock validation for source_credibility: Verification results"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "contradiction_analysis",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "Mock validation for contradiction_analysis: Verification results"
+                }
+              }
+            ],
+            "citations": []
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://api.perplexity.ai/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    },
+    "synthesis": {
+      "schema_version": "1.0.0",
+      "stage": "synthesis",
+      "agent_metadata": {
+        "agent_id": "research-synthesis",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:21.066862",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 0.15,
+        "budget_remaining": 0.15,
+        "query_count": 4
+      },
+      "execution_status": {
+        "status": "completed",
+        "completion_timestamp": "2025-09-01T06:12:21.066866",
+        "quality_gate_status": "passed"
+      },
+      "synthesized_knowledge": {
+        "thematic_threads": [
+          {
+            "title": "Foundational Understanding",
+            "concepts": [
+              "Core principles",
+              "Basic mechanisms"
+            ],
+            "evidence": [
+              "Research Study A",
+              "Expert Quote 1"
+            ],
+            "experts": [
+              "Dr. Foundation"
+            ],
+            "hook": "What if everything you thought you knew was just the beginning?",
+            "confidence": "high",
+            "gaps": []
+          },
+          {
+            "title": "Current Applications",
+            "concepts": [
+              "Real-world usage",
+              "Implementation challenges"
+            ],
+            "evidence": [
+              "Case Study B",
+              "Industry Report C"
+            ],
+            "experts": [
+              "Prof. Practical"
+            ],
+            "hook": "Here's how this changes everything we do daily",
+            "confidence": "medium",
+            "gaps": [
+              "Long-term effects unknown"
+            ]
+          },
+          {
+            "title": "Future Possibilities",
+            "concepts": [
+              "Emerging trends",
+              "Potential developments"
+            ],
+            "evidence": [
+              "Research Projection D"
+            ],
+            "experts": [
+              "Dr. Future"
+            ],
+            "hook": "The implications for tomorrow are mind-bending",
+            "confidence": "low",
+            "gaps": [
+              "Timeline uncertainty",
+              "Technology limitations"
+            ]
+          }
+        ],
+        "key_insights_consolidated": [],
+        "evidence_mapping": {},
+        "expert_consensus_summary": {}
+      },
+      "narrative_structure": {
+        "episode_flow": {
+          "opening_hook": "Compelling opening that draws listeners in",
+          "main_segments": [
+            {
+              "segment": "Foundation",
+              "duration_minutes": 3,
+              "key_points": [
+                "Core concepts"
+              ]
+            },
+            {
+              "segment": "Applications",
+              "duration_minutes": 4,
+              "key_points": [
+                "Current usage"
+              ]
+            },
+            {
+              "segment": "Future",
+              "duration_minutes": 3,
+              "key_points": [
+                "Emerging trends"
+              ]
+            }
+          ],
+          "transitions": [
+            "From theory to practice...",
+            "Looking toward the horizon..."
+          ],
+          "conclusion": "Tying it all together while embracing what we don't yet know"
+        },
+        "transition_points": [],
+        "engagement_moments": [],
+        "intellectual_humility_integration": [
+          {
+            "moment": "Foundation discussion",
+            "humility_approach": "Acknowledge the limits of current understanding",
+            "technique": "Present what we know while noting ongoing research"
+          },
+          {
+            "moment": "Future projections",
+            "humility_approach": "Embrace uncertainty as exciting opportunity",
+            "technique": "Frame unknowns as areas for continued discovery"
+          }
+        ]
+      },
+      "episode_hooks": {
+        "opening_hooks": [
+          "What if I told you that everything you think you know about this topic might be just the beginning?",
+          "Here's a fact that will completely change how you think about your daily life..."
+        ],
+        "curiosity_moments": [
+          "But here's where it gets really interesting...",
+          "What experts don't yet know might be the most fascinating part..."
+        ],
+        "wonder_points": [
+          "Think about this the next time you...",
+          "The implications are still unfolding..."
+        ],
+        "call_to_curiosity": "Remember, the best questions often lead to the most amazing discoveries."
+      },
+      "research_consolidation": {
+        "concepts_integrated": 1,
+        "expert_perspectives_included": 1,
+        "verified_facts_incorporated": 2,
+        "knowledge_gaps_addressed": 1
+      },
+      "quality_metrics": {
+        "narrative_coherence": 0.85,
+        "evidence_integration": 0.82,
+        "engagement_potential": 0.88,
+        "synthesis_confidence": 0.84
+      },
+      "raw_responses": [
+        {
+          "query_type": "thematic_synthesis",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Thematic Synthesis Results\n\n            ## Theme 1: Foundation Concepts\n            Key concepts include fundamental principles and underlying mechanisms.\n            Supporting evidence from multiple expert sources demonstrates consensus.\n\n            ## Theme 2: Current Applications\n            Real-world implementations showcase practical implications.\n            Expert perspectives highlight both successes and challenges.\n\n            ## Theme 3: Future Implications\n            Emerging trends and potential developments create forward-looking narrative.\n            Knowledge gaps reveal exciting areas for continued research.\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "narrative_structure",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Episode Narrative Structure\n\n            ## Opening Hook (0-2 minutes)\n            Start with surprising statistic or thought-provoking question\n\n            ## Main Content (2-12 minutes)\n            - Theme 1: Foundation (3 minutes)\n            - Transition: Connect to practical applications\n            - Theme 2: Current State (4 minutes)\n            - Transition: Look toward future implications\n            - Theme 3: Future Outlook (3 minutes)\n\n            ## Conclusion (12-15 minutes)\n            Tie themes together, acknowledge uncertainties, inspire curiosity\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "knowledge_integration",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Knowledge Integration with Intellectual Humility\n\n            ## Confident Knowledge\n            Areas where research shows strong consensus and reliable evidence\n\n            ## Areas of Uncertainty\n            Topics where experts acknowledge limitations or disagreements\n\n            ## Open Questions\n            Fascinating unknowns that drive continued research and discovery\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "episode_hooks_generation",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Episode Engagement Hooks\n\n            ## Opening Hook\n            \"Did you know that [surprising fact] could change how we think about everything?\"\n\n            ## Curiosity Moments\n            - \"Here's what's fascinating...\"\n            - \"But here's where it gets interesting...\"\n            - \"What experts don't yet know might surprise you...\"\n\n            ## Conclusion Call-to-Curiosity\n            \"The next time you [relatable situation], remember that we're still learning...\"\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    },
+    "question_generation": {
+      "schema_version": "1.0.0",
+      "stage": "question_generation",
+      "agent_metadata": {
+        "agent_id": "question-generator",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:21.487691",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 0.1,
+        "budget_remaining": 0.1,
+        "query_count": 4
+      },
+      "execution_status": {
+        "status": "completed",
+        "completion_timestamp": "2025-09-01T06:12:21.487698",
+        "quality_gate_status": "passed"
+      },
+      "research_questions": {
+        "high_priority": [
+          "What are the fundamental principles underlying this topic?",
+          "How does this impact people in real-world scenarios?",
+          "What do experts agree on, and where do they disagree?",
+          "What are the most significant recent developments?"
+        ],
+        "medium_priority": [
+          "How has understanding evolved over time?",
+          "What role do social and economic factors play?",
+          "What are potential unintended consequences?",
+          "How does this connect to other fields?"
+        ],
+        "exploration_questions": [
+          "What questions can researchers now ask that they couldn't before?",
+          "What would a major breakthrough look like?",
+          "What remains mysterious even to experts?"
+        ]
+      },
+      "exploration_angles": {
+        "angle_categories": [
+          "Cross-disciplinary connections",
+          "Human impact perspectives",
+          "Ethical implications",
+          "Historical context",
+          "Future implications"
+        ],
+        "unique_perspectives": [
+          "The intersection with psychology reveals hidden motivations",
+          "Economic factors that aren't immediately obvious",
+          "Personal stories that illustrate broader principles"
+        ],
+        "cross_disciplinary_connections": [
+          "How this connects to cognitive science",
+          "Links to environmental science",
+          "Parallels in historical social movements"
+        ]
+      },
+      "curiosity_hooks": {
+        "opening_hooks": [
+          "What if everything you thought you knew about this was just the beginning?",
+          "Did you know that this seemingly simple topic connects to nearly every aspect of modern life?"
+        ],
+        "transition_hooks": [
+          "But here's where it gets really interesting...",
+          "This raises an even more fascinating question..."
+        ],
+        "mystery_hooks": [
+          "Here's what puzzles even the leading experts...",
+          "The question no one can answer yet is..."
+        ],
+        "connection_hooks": [
+          "Think about how this applies to your own daily experience...",
+          "This might change how you see the world around you..."
+        ]
+      },
+      "narrative_enhancement": {
+        "structural_questions": [
+          "Have you ever wondered why this happens?",
+          "But this raises an even bigger question...",
+          "So what does this mean for how we understand...?"
+        ],
+        "engagement_moments": [
+          "Let me ask you this...",
+          "Here's something that might surprise you...",
+          "Think about this for a moment..."
+        ],
+        "flow_transitions": [
+          "This brings us to our next important question...",
+          "But there's another side to this story...",
+          "Now, here's where it gets fascinating..."
+        ]
+      },
+      "quality_metrics": {
+        "question_diversity": 1.0,
+        "engagement_potential": 0.85,
+        "narrative_coherence": 0.82,
+        "intellectual_humility_integration": 0.88
+      },
+      "raw_responses": [
+        {
+          "query_type": "primary_research_questions",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Primary Research Questions\n\n            ## High Priority Questions\n            1. What are the fundamental mechanisms that drive this phenomenon?\n            2. How does this impact real people in their daily lives?\n            3. What do the leading experts agree on, and where do they disagree?\n            4. What are the most promising recent developments?\n\n            ## Medium Priority Questions\n            5. How has our understanding evolved over the past decade?\n            6. What role do economic/social factors play?\n            7. What are the potential unintended consequences?\n            8. How does this connect to other fields of study?\n\n            ## Exploration Questions\n            9. What questions are researchers asking that they couldn't ask before?\n            10. What would a breakthrough look like in this field?\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "curiosity_hooks_generation",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Curiosity Hooks and Engaging Questions\n\n            ## \"What If\" Scenarios\n            - What if everything we thought we knew about this turned out to be incomplete?\n            - What if the opposite were true?\n\n            ## \"Did You Know\" Surprises\n            - Did you know that [surprising statistic] challenges our basic assumptions?\n            - Did you know that this connects to [unexpected field]?\n\n            ## Mystery Questions\n            - Here's what puzzles even the experts...\n            - The question no one can answer yet is...\n\n            ## Connection Questions\n            - How might this change the way you think about [relatable experience]?\n            - What does this mean for your daily life?\n\n            ## Paradox Questions\n            - Why do [seemingly contradictory facts] both seem to be true?\n            - How can something be both [opposite characteristics]?\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "exploration_angles",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Unique Exploration Angles\n\n            ## Cross-Disciplinary Connections\n            - The intersection with psychology reveals...\n            - Economic implications that aren't obvious...\n            - Historical parallels that illuminate modern challenges...\n\n            ## Human Impact Perspectives\n            - Personal stories that illustrate broader principles\n            - Community-level effects often overlooked\n            - Individual experiences that challenge stereotypes\n\n            ## Ethical and Philosophical Dimensions\n            - Questions about responsibility and consequences\n            - Values conflicts that arise in practice\n            - Long-term implications for society\n\n            ## Intellectual Humility Angles\n            - What experts freely admit they don't understand\n            - Areas where the science is still evolving\n            - Questions that may not have simple answers\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "narrative_enhancement_questions",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n            # Narrative Enhancement Questions\n\n            ## Opening Engagement\n            - Have you ever wondered why...?\n            - What if I told you that [surprising fact]?\n\n            ## Transition Questions\n            - But this raises an even bigger question...\n            - So how does this connect to...?\n\n            ## Reflection Questions\n            - Think about how this applies to your own experience...\n            - What does this suggest about...?\n\n            ## Challenge Questions\n            - But wait - if that's true, then why do we also see...?\n            - How do we reconcile this with what we know about...?\n\n            ## Conclusion Questions\n            - So what does this mean for how we think about...?\n            - What questions does this leave us with?\n            - Where should curious minds explore next?\n            "
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    },
+    "script_writing": {
+      "schema_version": "1.0.0",
+      "stage": "script_writing",
+      "agent_metadata": {
+        "agent_id": "script-writer",
+        "session_id": "ep_20250901_061218_2f54810a",
+        "execution_timestamp": "2025-09-01T06:12:21.969902",
+        "episode_context": {
+          "topic": "Quantum Computing Myths vs Reality",
+          "target_duration_minutes": 15,
+          "target_word_count": "2000-2500"
+        }
+      },
+      "cost_tracking": {
+        "execution_cost": 0.0,
+        "budget_allocated": 1.75,
+        "budget_remaining": 1.75,
+        "cost_per_segment": 0.0
+      },
+      "execution_status": {
+        "status": "completed",
+        "completion_timestamp": "2025-09-01T06:12:21.969911",
+        "quality_gate_status": "ready_for_review"
+      },
+      "script_content": {
+        "full_script": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it *actually* works, the more mystery we uncover.\nI'm talking about [topic], and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n(warmly) I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...\n\n---\n\n\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n*Did you know* that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with [topic].\nHere's what we *do* know with confidence... (presents verified research findings)\nBut here's where it gets *really* interesting... (transition to areas of uncertainty)\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n(pause to let that sink in)\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\nThe thing is, science doesn't require us to understand *everything* before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n*This absolutely amazed me* when I learned it... [personal reaction to research]\n\n---\n\n\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it *bigger* and more fascinating.\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out *why* this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...\n\n---\n\n\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n**Conversational Connectors:**\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n**Natural Hesitations and Corrections:**\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n**Direct Listener Engagement:**\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n**Emotional Responses:**\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n**Rhythm and Pacing:**\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n**Personal Moments:**\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience.\n\n---\n\n\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\nWhen we began today, we thought we were going to learn about [topic]. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n*What we still don't know* about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\nUntil next time, keep looking at the world with wonder.\n\n---\n",
+        "segments": {
+          "opening_hook_and_intro": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it *actually* works, the more mystery we uncover.\nI'm talking about [topic], and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n(warmly) I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...",
+          "main_content_development": "\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n*Did you know* that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with [topic].\nHere's what we *do* know with confidence... (presents verified research findings)\nBut here's where it gets *really* interesting... (transition to areas of uncertainty)\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n(pause to let that sink in)\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\nThe thing is, science doesn't require us to understand *everything* before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n*This absolutely amazed me* when I learned it... [personal reaction to research]",
+          "intellectual_humility_integration": "\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it *bigger* and more fascinating.\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out *why* this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...",
+          "closing_and_call_to_curiosity": "\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\nWhen we began today, we thought we were going to learn about [topic]. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n*What we still don't know* about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\nUntil next time, keep looking at the world with wonder.",
+          "conversational_enhancement_and_flow": "\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n**Conversational Connectors:**\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n**Natural Hesitations and Corrections:**\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n**Direct Listener Engagement:**\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n**Emotional Responses:**\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n**Rhythm and Pacing:**\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n**Personal Moments:**\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience."
+        },
+        "tts_optimized": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it <emphasis level=\"moderate\">actually<emphasis level=\"moderate\"> works, the more mystery we uncover.\nI'm talking about <phoneme alphabet=\"ipa\" ph=\"[topic]\">topic</phoneme>, and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n<break time=\"1s\"/> I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...\n\n---\n\n\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n<emphasis level=\"moderate\">Did you know<emphasis level=\"moderate\"> that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with <phoneme alphabet=\"ipa\" ph=\"[topic]\">topic</phoneme>.\nHere's what we <emphasis level=\"moderate\">do<emphasis level=\"moderate\"> know with confidence... (presents verified research findings)\nBut here's where it gets <emphasis level=\"moderate\">really<emphasis level=\"moderate\"> interesting... (transition to areas of uncertainty)\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n(pause to let that sink in)\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\nThe thing is, science doesn't require us to understand <emphasis level=\"moderate\">everything<emphasis level=\"moderate\"> before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n<emphasis level=\"moderate\">This absolutely amazed me<emphasis level=\"moderate\"> when I learned it... [personal reaction to research]\n\n---\n\n\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it <emphasis level=\"moderate\">bigger<emphasis level=\"moderate\"> and more fascinating.\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out <emphasis level=\"moderate\">why<emphasis level=\"moderate\"> this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...\n\n---\n\n\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Conversational Connectors:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Natural Hesitations and Corrections:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Direct Listener Engagement:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Emotional Responses:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Rhythm and Pacing:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n<emphasis level=\"moderate\"><emphasis level=\"moderate\">Personal Moments:<emphasis level=\"moderate\"><emphasis level=\"moderate\">\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience.\n\n---\n\n\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\nWhen we began today, we thought we were going to learn about <phoneme alphabet=\"ipa\" ph=\"[topic]\">topic</phoneme>. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n<emphasis level=\"moderate\">What we still don't know<emphasis level=\"moderate\"> about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\nUntil next time, keep looking at the world with wonder.\n\n---\n",
+        "markdown_formatted": ""
+      },
+      "conversational_analysis": {
+        "personality_integration": {
+          "curiosity_expressions": 3,
+          "enthusiastic_language": 14,
+          "personal_connections": 5
+        },
+        "speech_pattern_optimization": {
+          "contractions_used": 53,
+          "varied_sentence_lengths": "optimized",
+          "natural_transitions": 8
+        },
+        "engagement_elements": [
+          {
+            "type": "rhetorical_questions",
+            "count": 15
+          },
+          {
+            "type": "direct_address",
+            "count": 18
+          },
+          {
+            "type": "emotional_moments",
+            "count": 12
+          }
+        ]
+      },
+      "brand_voice_integration": {
+        "intellectual_humility_moments": [
+          {
+            "phrase": "we're still learning",
+            "context": "research limitations"
+          },
+          {
+            "phrase": "what we don't know yet",
+            "context": "mystery celebration"
+          },
+          {
+            "phrase": "current evidence suggests",
+            "context": "uncertainty acknowledgment"
+          }
+        ],
+        "curiosity_building_elements": [
+          {
+            "phrase": "what if",
+            "context": "possibility exploration"
+          },
+          {
+            "phrase": "here's what fascinates me",
+            "context": "personal wonder"
+          },
+          {
+            "phrase": "isn't that incredible",
+            "context": "shared amazement"
+          }
+        ],
+        "wonder_celebration_points": [
+          {
+            "phrase": "beautiful scientific mysteries",
+            "context": "uncertainty as positive"
+          },
+          {
+            "phrase": "invitation to explore",
+            "context": "unknowns as opportunities"
+          },
+          {
+            "phrase": "journey of discovery",
+            "context": "learning process celebration"
+          }
+        ],
+        "accessible_explanations": [
+          {
+            "technique": "analogies",
+            "count": 0
+          },
+          {
+            "technique": "relatable_examples",
+            "count": 0
+          },
+          {
+            "technique": "step_by_step",
+            "count": 0
+          }
+        ]
+      },
+      "quality_metrics": {
+        "word_count": 1060,
+        "estimated_duration": 7.066666666666666,
+        "brand_voice_consistency": 0.88,
+        "conversational_naturalness": 0.91,
+        "engagement_potential": 0.85
+      },
+      "production_notes": {
+        "pronunciation_guides": {
+          "technical_terms": {},
+          "proper_names": {}
+        },
+        "emphasis_points": [
+          "actually",
+          "do",
+          "really",
+          "everything",
+          "bigger",
+          "why"
+        ],
+        "pacing_instructions": [
+          "Natural conversational pace throughout",
+          "Slight pause after rhetorical questions",
+          "Emphasis on wonder and curiosity moments"
+        ],
+        "tts_optimization_notes": [
+          "Use conversational voice settings",
+          "Ensure natural rhythm and breathing spaces",
+          "Emphasize intellectual humility moments appropriately"
+        ]
+      },
+      "raw_responses": [
+        {
+          "query_type": "opening_hook_and_intro",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n# Opening Hook and Introduction\n\nWhat if I told you that the thing you use every single day... (pause for effect) the technology that's literally in your pocket right now... works through a process that even the smartest engineers in the world can't fully explain?\n\nYou're probably thinking, \"Come on, we built it, we must understand it completely, right?\" Well, here's what absolutely fascinates me... we've created something incredible, but the deeper we dig into how it *actually* works, the more mystery we uncover.\n\nI'm talking about [topic], and today we're going on a journey that's going to change how you think about what we know... and what we don't know. And honestly? The parts we don't understand yet might be the most exciting parts of all.\n\n(warmly) I'm [host], and I have to tell you, when I first started researching this topic, I thought I'd find clear-cut answers. Instead, I found something so much better... I found wonder.\n\nSo grab your favorite drink, get comfortable, and let's explore this amazing puzzle together...\n"
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "main_content_development",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n# Main Content Development\n\nLet me start with something that's going to sound impossible, but I promise you it's true... [fascinating fact related to topic].\n\n*Did you know* that every time you [common activity], something absolutely extraordinary happens that has scientists genuinely puzzled? Dr. Sarah Chen from Stanford puts it beautifully when she says, \"We can observe what happens, we can measure the results, but the underlying mechanism still holds surprises for us every day.\"\n\nThink of it like this... (analogy explanation) You know how when you're driving at night and you can see the road ahead with your headlights, but everything beyond that light is still mysterious? That's exactly where we are with [topic].\n\nHere's what we *do* know with confidence... (presents verified research findings)\n\nBut here's where it gets *really* interesting... (transition to areas of uncertainty)\n\nWhat keeps researchers up at night - and I mean this in the best possible way - is this fascinating question: [key research question].\n\n(pause to let that sink in)\n\nYou might be wondering, \"If we don't understand it completely, how can we be so confident in using it?\" And that's such a great question...\n\nThe thing is, science doesn't require us to understand *everything* before we can learn something valuable. Sometimes the most incredible breakthroughs come from admitting what we don't know yet.\n\nHere's what Professor Maria Rodriguez discovered when she... [research finding]\n\n*This absolutely amazed me* when I learned it... [personal reaction to research]\n"
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "intellectual_humility_integration",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n# Intellectual Humility Integration\n\nYou know what I find most beautiful about this whole topic? It's how the smartest people working on this - the Nobel Prize winners, the leading researchers, the brilliant engineers - are the first ones to say, \"We're still learning.\"\n\nDr. James Wilson, who's been studying this for thirty years, recently told me, \"Every answer we find opens up three new questions we never thought to ask.\"\n\nIsn't that incredible? Instead of making the field smaller and more predictable, our growing knowledge is making it *bigger* and more fascinating.\n\nCurrent evidence suggests that [finding], but here's what's so exciting - we're still figuring out *why* this happens. The mechanism behind it remains one of those beautiful scientific mysteries.\n\nAnd honestly? I think that's exactly how it should be. If we understood everything completely, where would the wonder be? Where would the excitement of discovery go?\n\nWhat we don't know yet isn't a limitation - it's an invitation. It's the universe saying, \"Hey, there's still so much amazing stuff waiting to be discovered.\"\n\nThe next time you encounter [relatable situation], remember that we're all part of this incredible ongoing story of discovery...\n"
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "closing_and_call_to_curiosity",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n# Closing and Call to Curiosity\n\nSo here we are, at the end of our journey together... but actually, that's not quite right, is it? Because the real journey - the one of curiosity and discovery - that's just getting started.\n\nWhen we began today, we thought we were going to learn about [topic]. And we did! We discovered [key learning 1], we explored [key learning 2], and we marveled at [key learning 3].\n\nBut what strikes me most is this: every answer we found led to even more fascinating questions. And isn't that just perfect?\n\n*What we still don't know* about this topic could fill libraries. The questions that current research is opening up are mind-bending. The possibilities for what we might discover in the next ten years... they're absolutely thrilling.\n\nHere's what I want you to take with you: the next time you [encounter relatable situation], pause for just a moment and think about the incredible complexity and mystery underlying even the simplest things in our world.\n\nWe live in a universe full of wonder, where even our most advanced knowledge is just the beginning of the story.\n\nAnd you know what? That doesn't make us small or ignorant. It makes us explorers, fellow travelers on this amazing journey of discovery.\n\nKeep wondering. Keep questioning. Keep that beautiful curiosity alive.\n\nBecause the moment we think we know everything... that's exactly when we stop learning the most incredible things.\n\nUntil next time, keep looking at the world with wonder.\n"
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        },
+        {
+          "query_type": "conversational_enhancement_and_flow",
+          "response": {
+            "choices": [
+              {
+                "message": {
+                  "content": "\n# Conversational Enhancement and Flow\n\nHere are natural speech patterns to integrate throughout:\n\n**Conversational Connectors:**\n- \"You know what's wild about this?\"\n- \"Here's the thing that blew my mind...\"\n- \"But wait, there's something even more interesting...\"\n- \"Now, you might be thinking...\"\n\n**Natural Hesitations and Corrections:**\n- \"Actually, let me put that another way...\"\n- \"Well, not exactly... it's more like...\"\n- \"I should probably clarify that...\"\n\n**Direct Listener Engagement:**\n- \"I bet you're wondering...\"\n- \"You've probably experienced this yourself...\"\n- \"Think about the last time you...\"\n\n**Emotional Responses:**\n- \"This absolutely fascinated me when I learned it...\"\n- \"I have to admit, this kept me awake thinking about it...\"\n- \"My first reaction was disbelief, but then...\"\n\n**Rhythm and Pacing:**\n(Include varied sentence lengths, natural pauses, and breathing room)\nShort punchy statements. Followed by longer explanatory sentences that flow naturally and give the listener time to process what they're hearing. Then back to impact statements.\n\n**Personal Moments:**\n- \"The first time I encountered this concept...\"\n- \"I remember thinking...\"\n- \"It reminds me of...\"\n\nThese elements should be woven naturally throughout the script to create an engaging, conversational experience.\n"
+                }
+              }
+            ]
+          },
+          "cost": 0.0,
+          "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+        }
+      ]
+    }
+  },
+  "research_sources": [],
+  "research_queries": [
+    "Research Quantum Computing Myths vs Reality developments as of September 2025. MANDATORY: Only use sources and information current as of September 2025. Define required sources, summarization style, and error-catch clauses: Focus on authoritative expert statements from August 2025. If uncertain about any claim, respond with 'Insufficient verification available.' Provide source credibility assessment.",
+    "Identify leading Quantum Computing Myths vs Reality authorities with institutional verification as of September 2025. MANDATORY: Only use current information as of September 2025. Required: Full institutional affiliations, recent publication record, expertise validation. If authority uncertain, mark as 'Unverified expert status.' Target: Academic institutions, research organizations, industry leaders.",
+    "Document expert uncertainty and knowledge gaps in Quantum Computing Myths vs Reality as of September 2025. MANDATORY: Only use sources current as of September 2025. Required: Specific expert quotes admitting ignorance, ongoing debates with multiple perspectives, areas requiring further research. Celebrate what experts acknowledge they don't know."
+  ],
+  "cost_breakdown": {
+    "research_discovery": 0.0,
+    "research_deep_dive": 0.0,
+    "research_validation": 0.0,
+    "research_synthesis": 0.0,
+    "question_generation": 0.0,
+    "script_writing": 0.0,
+    "brand_validation": 0.0,
+    "audio_generation": 0.0
+  },
+  "error_log": [
+    "[planning] Planning failed: Research synthesis or questions required for episode planning"
+  ],
+  "budget_limit": 5.51,
+  "output_directory": "episodes/episode_001",
+  "dry_run": false,
+  "verbose": true
+}

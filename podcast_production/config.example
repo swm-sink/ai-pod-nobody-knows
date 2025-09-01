@@ -1,0 +1,56 @@
+# LangGraph/LangFuse Migration Environment Configuration
+# Copy this file to .env and fill in your actual API keys
+
+# LLM Provider Keys
+OPENAI_API_KEY=your-openai-api-key-here
+ANTHROPIC_API_KEY=your-anthropic-api-key-here
+
+# Audio Synthesis
+ELEVENLABS_API_KEY=your-elevenlabs-api-key-here
+PRODUCTION_VOICE_ID=ZF6FPAbjXT4488VcRRnw
+
+# Research & Search
+PERPLEXITY_API_KEY=your-perplexity-api-key-here
+
+# Observability & Evaluation
+LANGFUSE_PUBLIC_KEY=your-langfuse-public-key-here
+LANGFUSE_SECRET_KEY=your-langfuse-secret-key-here
+LANGFUSE_HOST=https://us.cloud.langfuse.com
+
+# OpenRouter LLM Routing
+OPENROUTER_API_KEY=your-openrouter-api-key-here
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+
+# Version Control
+GITHUB_TOKEN=your-github-personal-access-token-here
+
+# Production Settings
+MAX_EPISODE_COST=6.00
+QUALITY_THRESHOLD=0.85
+MAX_RETRIES=3
+TIMEOUT_SECONDS=600
+
+# Redis Configuration
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+REDIS_PASSWORD=
+
+# API Server Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+API_WORKERS=4
+
+# Batch Processing
+BATCH_SIZE=10
+PARALLEL_WORKERS=3
+
+# Logging
+LOG_LEVEL=INFO
+LOG_FILE=logs/podcast-production.log
+
+# Feature Flags
+ENABLE_A_B_TESTING=true
+ENABLE_CACHING=true
+ENABLE_METRICS=true
+ENABLE_TRACING=true

@@ -1,0 +1,47 @@
+{
+  "alerting": {
+    "enabled": true,
+    "channels": {
+      "slack": {
+        "webhook_url": "${SLACK_WEBHOOK_URL}",
+        "channel": "#podcast-production-alerts"
+      },
+      "email": {
+        "smtp_server": "${SMTP_SERVER}",
+        "recipients": [
+          "${ALERT_EMAIL}"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "name": "Episode Cost Exceeded",
+        "condition": "episode_cost > 10.0",
+        "severity": "critical",
+        "channels": [
+          "slack",
+          "email"
+        ],
+        "message": "Episode cost exceeded $10.00 limit"
+      },
+      {
+        "name": "Quality Score Low",
+        "condition": "quality_score < 8.0",
+        "severity": "warning",
+        "channels": [
+          "slack"
+        ],
+        "message": "Episode quality score below threshold"
+      },
+      {
+        "name": "API Rate Limit",
+        "condition": "api_rate_limit_hit == true",
+        "severity": "warning",
+        "channels": [
+          "slack"
+        ],
+        "message": "API rate limit reached"
+      }
+    ]
+  }
+}

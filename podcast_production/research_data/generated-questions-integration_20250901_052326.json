@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "question_generation",
+  "agent_metadata": {
+    "agent_id": "question-generator",
+    "session_id": "integration_20250901_052326",
+    "execution_timestamp": "2025-09-01T05:23:27.248615",
+    "episode_context": {
+      "topic": "AI-Powered Learning Systems",
+      "target_duration_minutes": 15
+    }
+  },
+  "cost_tracking": {
+    "execution_cost": 0.0,
+    "budget_allocated": 0.1,
+    "budget_remaining": 0.1,
+    "query_count": 4
+  },
+  "execution_status": {
+    "status": "completed",
+    "completion_timestamp": "2025-09-01T05:23:27.248621",
+    "quality_gate_status": "passed"
+  },
+  "research_questions": {
+    "high_priority": [
+      "What are the fundamental principles underlying this topic?",
+      "How does this impact people in real-world scenarios?",
+      "What do experts agree on, and where do they disagree?",
+      "What are the most significant recent developments?"
+    ],
+    "medium_priority": [
+      "How has understanding evolved over time?",
+      "What role do social and economic factors play?",
+      "What are potential unintended consequences?",
+      "How does this connect to other fields?"
+    ],
+    "exploration_questions": [
+      "What questions can researchers now ask that they couldn't before?",
+      "What would a major breakthrough look like?",
+      "What remains mysterious even to experts?"
+    ]
+  },
+  "exploration_angles": {
+    "angle_categories": [
+      "Cross-disciplinary connections",
+      "Human impact perspectives",
+      "Ethical implications",
+      "Historical context",
+      "Future implications"
+    ],
+    "unique_perspectives": [
+      "The intersection with psychology reveals hidden motivations",
+      "Economic factors that aren't immediately obvious",
+      "Personal stories that illustrate broader principles"
+    ],
+    "cross_disciplinary_connections": [
+      "How this connects to cognitive science",
+      "Links to environmental science",
+      "Parallels in historical social movements"
+    ]
+  },
+  "curiosity_hooks": {
+    "opening_hooks": [
+      "What if everything you thought you knew about this was just the beginning?",
+      "Did you know that this seemingly simple topic connects to nearly every aspect of modern life?"
+    ],
+    "transition_hooks": [
+      "But here's where it gets really interesting...",
+      "This raises an even more fascinating question..."
+    ],
+    "mystery_hooks": [
+      "Here's what puzzles even the leading experts...",
+      "The question no one can answer yet is..."
+    ],
+    "connection_hooks": [
+      "Think about how this applies to your own daily experience...",
+      "This might change how you see the world around you..."
+    ]
+  },
+  "narrative_enhancement": {
+    "structural_questions": [
+      "Have you ever wondered why this happens?",
+      "But this raises an even bigger question...",
+      "So what does this mean for how we understand...?"
+    ],
+    "engagement_moments": [
+      "Let me ask you this...",
+      "Here's something that might surprise you...",
+      "Think about this for a moment..."
+    ],
+    "flow_transitions": [
+      "This brings us to our next important question...",
+      "But there's another side to this story...",
+      "Now, here's where it gets fascinating..."
+    ]
+  },
+  "quality_metrics": {
+    "question_diversity": 1.0,
+    "engagement_potential": 0.85,
+    "narrative_coherence": 0.82,
+    "intellectual_humility_integration": 0.88
+  },
+  "raw_responses": [
+    {
+      "query_type": "primary_research_questions",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "\n            # Primary Research Questions\n\n            ## High Priority Questions\n            1. What are the fundamental mechanisms that drive this phenomenon?\n            2. How does this impact real people in their daily lives?\n            3. What do the leading experts agree on, and where do they disagree?\n            4. What are the most promising recent developments?\n\n            ## Medium Priority Questions\n            5. How has our understanding evolved over the past decade?\n            6. What role do economic/social factors play?\n            7. What are the potential unintended consequences?\n            8. How does this connect to other fields of study?\n\n            ## Exploration Questions\n            9. What questions are researchers asking that they couldn't ask before?\n            10. What would a breakthrough look like in this field?\n            "
+            }
+          }
+        ]
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    },
+    {
+      "query_type": "curiosity_hooks_generation",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "\n            # Curiosity Hooks and Engaging Questions\n\n            ## \"What If\" Scenarios\n            - What if everything we thought we knew about this turned out to be incomplete?\n            - What if the opposite were true?\n\n            ## \"Did You Know\" Surprises\n            - Did you know that [surprising statistic] challenges our basic assumptions?\n            - Did you know that this connects to [unexpected field]?\n\n            ## Mystery Questions\n            - Here's what puzzles even the experts...\n            - The question no one can answer yet is...\n\n            ## Connection Questions\n            - How might this change the way you think about [relatable experience]?\n            - What does this mean for your daily life?\n\n            ## Paradox Questions\n            - Why do [seemingly contradictory facts] both seem to be true?\n            - How can something be both [opposite characteristics]?\n            "
+            }
+          }
+        ]
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    },
+    {
+      "query_type": "exploration_angles",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "\n            # Unique Exploration Angles\n\n            ## Cross-Disciplinary Connections\n            - The intersection with psychology reveals...\n            - Economic implications that aren't obvious...\n            - Historical parallels that illuminate modern challenges...\n\n            ## Human Impact Perspectives\n            - Personal stories that illustrate broader principles\n            - Community-level effects often overlooked\n            - Individual experiences that challenge stereotypes\n\n            ## Ethical and Philosophical Dimensions\n            - Questions about responsibility and consequences\n            - Values conflicts that arise in practice\n            - Long-term implications for society\n\n            ## Intellectual Humility Angles\n            - What experts freely admit they don't understand\n            - Areas where the science is still evolving\n            - Questions that may not have simple answers\n            "
+            }
+          }
+        ]
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    },
+    {
+      "query_type": "narrative_enhancement_questions",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "content": "\n            # Narrative Enhancement Questions\n\n            ## Opening Engagement\n            - Have you ever wondered why...?\n            - What if I told you that [surprising fact]?\n\n            ## Transition Questions\n            - But this raises an even bigger question...\n            - So how does this connect to...?\n\n            ## Reflection Questions\n            - Think about how this applies to your own experience...\n            - What does this suggest about...?\n\n            ## Challenge Questions\n            - But wait - if that's true, then why do we also see...?\n            - How do we reconcile this with what we know about...?\n\n            ## Conclusion Questions\n            - So what does this mean for how we think about...?\n            - What questions does this leave us with?\n            - Where should curious minds explore next?\n            "
+            }
+          }
+        ]
+      },
+      "cost": 0.0,
+      "error": "Client error '401 Unauthorized' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
+    }
+  ]
+}
