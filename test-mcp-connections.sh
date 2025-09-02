@@ -23,7 +23,7 @@ print_result() {
     local test_name="$1"
     local result="$2"
     local message="$3"
-    
+
     if [ "$result" = "PASS" ]; then
         echo -e "✅ ${GREEN}PASS${NC}: $test_name"
         if [ -n "$message" ]; then
@@ -54,11 +54,11 @@ fi
 echo "🔑 Test 2: API Key Configuration"
 missing_keys=()
 
-if [ -z "$ELEVENLABS_API_KEY" ] || [ "$ELEVENLABS_API_KEY" = "your-elevenlabs-api-key-here" ]; then
+if [ -z "$ELEVENLABS_API_KEY" ] || [ "$ELEVENLABS_API_KEY" = "your-elevenlabs-api-key-here" ]; then  # pragma: allowlist secret
     missing_keys+=("ELEVENLABS_API_KEY")
 fi
 
-if [ -z "$PERPLEXITY_API_KEY" ] || [ "$PERPLEXITY_API_KEY" = "pplx-your-perplexity-api-key-here" ]; then
+if [ -z "$PERPLEXITY_API_KEY" ] || [ "$PERPLEXITY_API_KEY" = "pplx-your-perplexity-api-key-here" ]; then  # pragma: allowlist secret
     missing_keys+=("PERPLEXITY_API_KEY")
 fi
 
@@ -73,14 +73,14 @@ fi
 echo "🔧 Test 3: MCP Server Configuration"
 if command -v claude >/dev/null 2>&1; then
     print_result "Claude CLI available" "PASS" "Claude command line tool found"
-    
+
     # List MCP servers
     echo "   Checking MCP server configuration..."
     if claude mcp list >/dev/null 2>&1; then
         mcp_output=$(claude mcp list 2>/dev/null)
         echo "   MCP Servers:"
         echo "$mcp_output" | sed 's/^/     /'
-        
+
         # Check for specific servers
         if echo "$mcp_output" | grep -q "perplexity\|elevenlabs"; then
             print_result "MCP servers configured" "PASS" "Found MCP servers"

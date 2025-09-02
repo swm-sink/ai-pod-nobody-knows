@@ -22,7 +22,7 @@ validate() {
     local item="$1"
     local status="$2"
     local message="$3"
-    
+
     case $status in
         "OK")
             echo -e "✅ ${GREEN}OK${NC}    $item"
@@ -50,28 +50,28 @@ echo
 # Check .env file
 if [ -f .env ]; then
     validate ".env file exists" "OK"
-    
+
     # Source and check required variables
     source .env
-    
-    if [ -n "$ELEVENLABS_API_KEY" ] && [ "$ELEVENLABS_API_KEY" != "your-elevenlabs-api-key-here" ]; then
+
+    if [ -n "$ELEVENLABS_API_KEY" ] && [ "$ELEVENLABS_API_KEY" != "your-elevenlabs-api-key-here" ]; then  # pragma: allowlist secret
         validate "ElevenLabs API key configured" "OK"
     else
         validate "ElevenLabs API key configured" "ERROR" "Missing or placeholder value"
     fi
-    
-    if [ -n "$PERPLEXITY_API_KEY" ] && [ "$PERPLEXITY_API_KEY" != "pplx-your-perplexity-api-key-here" ]; then
+
+    if [ -n "$PERPLEXITY_API_KEY" ] && [ "$PERPLEXITY_API_KEY" != "pplx-your-perplexity-api-key-here" ]; then  # pragma: allowlist secret
         validate "Perplexity API key configured" "OK"
     else
         validate "Perplexity API key configured" "ERROR" "Missing or placeholder value"
     fi
-    
+
     if [ -n "$PRODUCTION_VOICE_ID" ] && [ "$PRODUCTION_VOICE_ID" = "ZF6FPAbjXT4488VcRRnw" ]; then
         validate "Production voice ID correct" "OK"
     else
         validate "Production voice ID correct" "ERROR" "Must be ZF6FPAbjXT4488VcRRnw"
     fi
-    
+
 else
     validate ".env file exists" "ERROR" "Create .env file from .env.example"
 fi
@@ -82,7 +82,7 @@ echo "🎤 Checking Voice Configuration..."
 # Check production voice configuration
 if [ -f .claude/config/production-voice.json ]; then
     validate "Production voice config exists" "OK"
-    
+
     # Parse JSON and check voice ID
     if command -v jq >/dev/null 2>&1; then
         voice_id=$(jq -r '.production_voice.voice_id' .claude/config/production-voice.json 2>/dev/null)
@@ -91,7 +91,7 @@ if [ -f .claude/config/production-voice.json ]; then
         else
             validate "Voice ID in JSON matches standard" "ERROR" "Voice ID mismatch: $voice_id"
         fi
-        
+
         voice_name=$(jq -r '.production_voice.voice_name' .claude/config/production-voice.json 2>/dev/null)
         if [ "$voice_name" = "Amelia" ]; then
             validate "Voice name is correct" "OK"
@@ -152,7 +152,7 @@ echo "🤖 Checking Simplified Agents..."
 # Check simplified agents
 agent_files=(
     ".claude/agents/simplified/researcher.md"
-    ".claude/agents/simplified/fact-checker.md" 
+    ".claude/agents/simplified/fact-checker.md"
     ".claude/agents/simplified/synthesizer.md"
     ".claude/agents/simplified/writer.md"
     ".claude/agents/simplified/polisher.md"

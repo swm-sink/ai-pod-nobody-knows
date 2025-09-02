@@ -1,0 +1,28 @@
+{
+  "episode_number": null,
+  "topic": "",
+  "status": "planned",
+  "created_date": "",
+  "research": {
+    "status": "not_started",
+    "assigned_agent": "researcher",
+    "cost_estimate": 1.00
+  },
+  "script": {
+    "status": "not_started",
+    "assigned_agents": ["writer", "polisher"],
+    "cost_estimate": 1.50
+  },
+  "audio": {
+    "status": "not_started",
+    "assigned_agents": ["audio-producer", "audio-validator"],
+    "cost_estimate": 2.00
+  },
+  "quality": {
+    "status": "not_started",
+    "assigned_agent": "judge",
+    "cost_estimate": 0.50
+  },
+  "total_cost_estimate": 5.00,
+  "notes": "Create episodes dynamically as needed - no pre-creation"
+}

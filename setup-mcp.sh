@@ -22,11 +22,11 @@ source .env
 # Verify required API keys
 missing_keys=()
 
-if [ -z "$ELEVENLABS_API_KEY" ] || [ "$ELEVENLABS_API_KEY" = "your-elevenlabs-api-key-here" ]; then
+if [ -z "$ELEVENLABS_API_KEY" ] || [ "$ELEVENLABS_API_KEY" = "your-elevenlabs-api-key-here" ]; then  # pragma: allowlist secret
     missing_keys+=("ELEVENLABS_API_KEY")
 fi
 
-if [ -z "$PERPLEXITY_API_KEY" ] || [ "$PERPLEXITY_API_KEY" = "pplx-your-perplexity-api-key-here" ]; then
+if [ -z "$PERPLEXITY_API_KEY" ] || [ "$PERPLEXITY_API_KEY" = "pplx-your-perplexity-api-key-here" ]; then  # pragma: allowlist secret
     missing_keys+=("PERPLEXITY_API_KEY")
 fi
 
