@@ -195,217 +195,24 @@ advanced_hopping_patterns:
 - `@.claude/context/simplified/CONTEXT_INDEX.md` - <LOAD_IF task="migration|consolidation">Complete context mapping and URLs</LOAD_IF>
 </SELECTIVE_CONTEXT_DIRECTORY>
 
-## 🏛️ ADVANCED MEMORY ARCHITECTURE PATTERNS
+## 📁 Simple System Structure
 
-<MULTI_HIERARCHY_MEMORY_SYSTEM research="comprehensive" sources="50+" date="2025">
-**Enterprise-Grade Memory Management:** Based on 2025 research into hierarchical memory systems, context optimization, and AI orchestration patterns.
+**Agents:** `.claude/agents/simplified/` - AI workers that do specific tasks  
+**Commands:** `.claude/commands/` - Workflows you can run
+**Config:** `.claude/config/` - Settings and API keys
+**Context:** `.claude/context/simple/` - Basic documentation
 
-### **Tier 1: Global Memory Layer**
-```yaml
-global_context:
-  location: "~/.claude/CLAUDE.md"
-  purpose: "Cross-project user preferences and standards"
-  inheritance: "Inherits to all projects automatically"
-  token_budget: "500 tokens maximum"
+## 🎙️ Simple Production Workflow
 
-global_patterns:
-  coding_standards: "Personal development preferences"
-  ai_orchestration: "User-specific agent interaction patterns"
-  quality_thresholds: "Personal quality standards"
-  cost_controls: "User budget preferences"
-```
+**How it works:**
+1. **Research**: Find information about topic
+2. **Script**: Write episode script  
+3. **Audio**: Generate speech with ElevenLabs
+4. **Quality**: Check it meets standards
 
-### **Tier 2: Project Master Memory**
-```yaml
-project_master:
-  location: "/CLAUDE.md (this file)"
-  purpose: "Project-wide coordination and navigation hub"
-  token_budget: "12K maximum (current file)"
-  inheritance: "Inherits from global, provides to all subsystems"
-
-master_responsibilities:
-  navigation_hub: "@ reference orchestration"
-  memory_loading: "Hierarchical context activation"
-  quality_enforcement: "Project standards and philosophy"
-  system_coordination: "Agent and command orchestration"
-```
-
-### **Tier 3: Domain Memory Layers**
-```yaml
-domain_contexts:
-  workflow_domain:
-    file: "@.claude/context/simplified/workflow.md"
-    purpose: "Complete methodology and production workflows"
-    triggers: "workflow|methodology|commands|production"
-    token_budget: "3K tokens"
-
-  agents_domain:
-    file: "@.claude/context/simplified/agents.md"
-    purpose: "Agent architecture and MCP integration"
-    triggers: "agents|mcp|integration|orchestration"
-    token_budget: "3K tokens"
-
-  quality_domain:
-    file: "@.claude/context/simplified/quality.md"
-    purpose: "Quality standards and cost optimization"
-    triggers: "quality|cost|brand|validation"
-    token_budget: "3K tokens"
-
-  operations_domain:
-    file: "@.claude/context/simplified/troubleshooting.md"
-    purpose: "System operations and error recovery"
-    triggers: "error|debug|operations|recovery"
-    token_budget: "2K tokens"
-```
-
-### **Tier 4: Component Memory Layers**
-```yaml
-component_contexts:
-  research_agents:
-    location: "/.claude/agents/simplified/researcher.md"
-    auto_load: "When working in research workflows"
-    inheritance: "Gets workflow + agents domain contexts"
-
-  production_agents:
-    location: "/.claude/agents/simplified/writer.md"
-    auto_load: "When working in script production"
-    inheritance: "Gets workflow + quality domain contexts"
-
-  audio_agents:
-    location: "/.claude/agents/simplified/audio-producer.md"
-    auto_load: "When working in audio synthesis"
-    inheritance: "Gets quality + operations domain contexts"
-
-specialized_commands:
-  podcast_workflow: "@.claude/commands/simplified/podcast-workflow.md"
-  research_workflow: "@.claude/commands/simplified/research-workflow.md"
-  audio_workflow: "@.claude/commands/simplified/audio-workflow.md"
-  meta_chain: "@.claude/commands/simplified/meta-chain.md"
-```
-
-### **Advanced @ Hopping Intelligence**
-```yaml
-intelligent_navigation:
-  context_prediction:
-    research_tasks: "Auto-load @workflow.md + @agents.md"
-    production_tasks: "Auto-load @quality.md + @agents.md"
-    debugging_tasks: "Auto-load @troubleshooting.md + @operations.md"
-
-  cascade_optimization:
-    pattern: "@primary.md loads @secondary.md conditionally"
-    example: "@workflow.md → @agents.md → specific agent files"
-    benefit: "Perfect context without manual navigation"
-
-  session_persistence:
-    loaded_contexts: "Cached for entire session"
-    hop_resolution: "Resolved once, reused throughout"
-    memory_efficiency: "No redundant loading"
-
-research_validated_benefits:
-  token_efficiency: "60% reduction vs traditional loading"
-  context_accuracy: "95% relevant information retention"
-  navigation_speed: "70% faster context discovery"
-  maintenance_ease: "Single-source updates cascade automatically"
-```
-
-**Simple:** Like having a brilliant librarian who automatically brings you exactly the right books for your current task, remembers what you've used before, and organizes everything perfectly.
-
-**Connection:** This teaches advanced software architecture principles including dependency injection, hierarchical systems design, caching strategies, and memory optimization that are fundamental to enterprise-scale applications.
-</MULTI_HIERARCHY_MEMORY_SYSTEM>
-
-## 🎙️ PODCAST PRODUCTION MEMORY INTEGRATION
-
-<PRODUCTION_MEMORY_WORKFLOW research="validated" integration="deep">
-**Memory-Optimized Production Pipeline:** How hierarchical memory architecture enables $2.77/episode cost efficiency through intelligent context management.
-
-### **Memory Loading During Production Phases**
-
-**Phase 1: Research (`/research-workflow`)**
-```yaml
-memory_activation:
-  automatic_loading:
-    - Tier 2: Master project context (this CLAUDE.md)
-    - Tier 3: @workflow.md + @agents.md domains
-    - Tier 4: @researcher.md + @fact-checker.md components
-
-  context_optimization:
-    perplexity_integration: "MCP tools inherit automatically"
-    research_patterns: "4-stage methodology loaded"
-    cost_tracking: "Session state activated"
-    quality_gates: "Validation thresholds loaded"
-
-  token_efficiency:
-    loaded: "~8K tokens for complete research context"
-    unused: "Audio contexts remain unloaded"
-    savings: "40% vs loading entire system"
-```
-
-**Phase 2: Script Production (`/production-workflow`)**
-```yaml
-memory_activation:
-  context_transition:
-    from: "Research-focused contexts"
-    to: "Production-focused contexts"
-    method: "Selective unload + targeted load"
-
-  automatic_loading:
-    - Tier 3: @quality.md + @agents.md domains
-    - Tier 4: @writer.md + @polisher.md + @judge.md components
-
-  inherited_knowledge:
-    research_package: "From Phase 1 session state"
-    brand_standards: "From quality domain context"
-    production_patterns: "From workflow domain context"
-
-  cost_optimization:
-    three_evaluator_consensus: "Parallel context loading"
-    quality_gates: "Cached validation patterns"
-    session_persistence: "No context reloading"
-```
-
-**Phase 3: Audio Production (`/audio-workflow`)**
-```yaml
-memory_activation:
-  context_specialization:
-    audio_focused: "@quality.md + @troubleshooting.md domains"
-    component_loading: "@audio-producer.md + @audio-validator.md"
-
-  elevenlabs_integration:
-    mcp_inheritance: "Voice synthesis tools automatically available"
-    voice_configuration: "ZF6FPAbjXT4488VcRRnw locked settings"
-    optimization_patterns: "40K single-call synthesis"
-
-  quality_validation:
-    stt_verification: "Word accuracy ≥90% using inherited standards"
-    pronunciation_check: "IPA patterns from quality domain"
-    duration_validation: "28±1 minute target from workflow domain"
-```
-
-### **Cross-Phase Memory Continuity**
-```yaml
-session_intelligence:
-  state_persistence:
-    location: ".claude/state/session-state.json"
-    purpose: "Maintains context between workflow phases"
-    includes: "Cost tracking, quality metrics, error recovery state"
-
-  knowledge_inheritance:
-    research_to_production: "Research package seamlessly available"
-    production_to_audio: "Script + quality scores seamlessly available"
-    cross_phase_optimization: "No context rebuilding required"
-
-  cost_attribution:
-    per_phase_tracking: "Precise cost assignment to workflow stages"
-    budget_enforcement: "$4.00 maximum per complete episode"
-    optimization_feedback: "Memory efficiency improves cost efficiency"
-```
-
-**Technical:** Memory architecture enables 99.65% cost reduction through intelligent context loading, eliminating redundant processing, and optimizing token usage across the complete production pipeline.
-
-**Simple:** Like having a perfectly organized workshop where every tool is exactly where you need it, when you need it, and nothing gets in your way - making professional work both faster and cheaper.
-
-**Connection:** This demonstrates how sophisticated memory management enables practical cost optimization and teaches enterprise software patterns for resource-efficient AI system design.
-</PRODUCTION_MEMORY_WORKFLOW>
+**Cost:** Target $3-5 per episode  
+**Time:** 15-30 minutes
+**Output:** 28-minute podcast episode
 
 ## 🌐 COMPLETE HIERARCHICAL MEMORY SYSTEM
 
@@ -556,69 +363,16 @@ optimization_patterns:
 - `think hard` - Enhanced analysis (recommended)
 - `ultrathink` - Maximum thinking (complex problems)
 
-## 🧠 /init FUNCTION DEEP ANALYSIS
+## 🧠 /init FUNCTION
 
-<INIT_FUNCTION_RESEARCH sources="50+" validation="2025-research">
-**Function Purpose:** Advanced project memory initialization implementing hierarchical context loading, session state management, and multi-tier memory architecture activation.
+**Purpose:** Initialize project memory and session tracking.
 
-**Technical Implementation:** The `/init` command triggers a cascade of memory loading protocols:
+**What it does:**
+- Loads this CLAUDE.md file  
+- Sets up cost tracking
+- Initializes session for episode creation
 
-### **Memory Initialization Sequence**
-```yaml
-init_sequence:
-  tier_1_global: "~/.claude/CLAUDE.md (user preferences)"
-  tier_2_project: "/CLAUDE.md (master system prompt)"
-  tier_3_domain: "/.claude/context/simplified/* (selective loading)"
-  tier_4_component: "/.claude/agents/simplified/* (on-demand)"
-
-session_activation:
-  state_file: ".claude/state/session-state.json"
-  cost_tracking: ".claude/logs/cost-tracking.log"
-  error_recovery: ".claude/logs/error-recovery.log"
-
-memory_optimization:
-  token_budget: "12K maximum (4K+6K+2K allocation)"
-  selective_loading: "LOAD_IF conditions activate contexts"
-  inheritance_chain: "Automatic parent directory loading"
-  hop_validation: "Maximum 2-hop @ references"
-```
-
-### **Research-Validated Memory Patterns**
-Based on 2025 Claude Code research and 50+ sources:
-
-**Hierarchical Inheritance Loading (Auto-Active):**
-1. **Global User Context** - Personal preferences across projects
-2. **Project Master Context** - Team-wide standards and philosophy
-3. **Domain Context** - Feature-specific knowledge (agents/commands/config)
-4. **Component Context** - Task-specific implementation details
-
-**Selective On-Demand Loading (Conditional):**
-- Domain contexts load only when working in specific directories
-- Component contexts activate via @ references
-- Project contexts load when accessing projects/* directories
-- Import chains resolve recursively up to 5 hops maximum
-
-### **Session State Management**
-```json
-{
-  "session_id": "timestamp_generated",
-  "type": "development|production",
-  "start_time": "ISO_timestamp",
-  "status": "active",
-  "memory_loaded": {
-    "tier_1_global": true,
-    "tier_2_project": true,
-    "tier_3_domain": ["context/simplified"],
-    "tier_4_component": []
-  },
-  "total_cost": 0,
-  "operations": 0,
-  "checkpoints": []
-}
-```
-
-**Connection:** This teaches enterprise-grade memory management, context engineering, and hierarchical state management essential for scalable AI system architecture.
-</INIT_FUNCTION_RESEARCH>
+**Usage:** Just run `/init` before starting work.
 </SYSTEM_COMMANDS>
 
 ## 🔒 SECURITY CONFIGURATION
