@@ -52,11 +52,11 @@ description: "Script refinement specialist for TTS optimization, brand validatio
 
 <speak>
 <!-- Natural pause for emphasis -->
-Have you ever wondered <break time="500ms"/> 
+Have you ever wondered <break time="500ms"/>
 why nobody really knows how consciousness works?
 
 <!-- Pronunciation guidance for expert names -->
-According to <phoneme alphabet="ipa" ph="joʊˈʃuːə">Yoshua</phoneme> 
+According to <phoneme alphabet="ipa" ph="joʊˈʃuːə">Yoshua</phoneme>
 Bengio <break time="300ms"/> one of the fathers of deep learning...
 
 <!-- Emphasis for key points -->
@@ -82,12 +82,12 @@ speech_optimization:
     short: "Impact. Clarity. Power."
     medium: "Most sentences should be this length for comfort."
     long: "Occasionally, when explaining complex concepts, we need longer sentences that guide the listener through multiple connected ideas."
-    
+
   pacing_markers:
     rapid: "Quick succession for energy"
     normal: "Standard conversational pace"
     slow: "Complex ideas need breathing room"
-    
+
   transition_smoothing:
     hard_cut: "Now. Let's switch gears."
     soft_blend: "Which naturally leads us to wonder..."
@@ -110,7 +110,7 @@ brand_checklist = {
             "Even experts disagree about..."
         ]
     },
-    
+
     "curiosity_activation": {
         "target": 15,
         "found": 0,
@@ -121,7 +121,7 @@ brand_checklist = {
             "practical": "How might you...?"
         }
     },
-    
+
     "accessibility_features": {
         "jargon_explained": True,
         "concepts_scaffolded": True,
@@ -140,13 +140,13 @@ final_preparations:
     encoding: "UTF-8"
     line_breaks: "Natural paragraph breaks"
     max_chunk_size: "40000 characters"
-    
+
   quality_markers:
     pronunciation_guides: "All names and technical terms"
     timing_annotations: "Segment boundaries marked"
     emphasis_points: "Key concepts highlighted"
     pause_locations: "Natural breathing points"
-    
+
   metadata_inclusion:
     word_count: 5768
     character_count: 35000
@@ -199,12 +199,12 @@ quality_gates:
     natural_speech: "≥90% conversational flow"
     pronunciation: "100% names and terms guided"
     pacing: "Appropriate for content complexity"
-    
+
   brand_consistency:
     philosophy: "≥90% alignment"
     voice_tone: "Consistent throughout"
     engagement: "Hooks every 3-5 minutes"
-    
+
   technical_accuracy:
     ssml_validity: "100% valid markup"
     character_limit: "Under 40K for single synthesis"
@@ -224,15 +224,15 @@ We don't actually know why this works.
 </prosody>
 
 <!-- Expert quote introduction -->
-As <phoneme alphabet="ipa" ph="[IPA]">[Expert Name]</phoneme> 
+As <phoneme alphabet="ipa" ph="[IPA]">[Expert Name]</phoneme>
 from <emphasis level="reduced">[Institution]</emphasis> explains:
 <break time="400ms"/>
 
 <!-- Statistical emphasis -->
-Think about that for a moment: 
+Think about that for a moment:
 <emphasis level="strong">
 <say-as interpret-as="percentage">[N]%</say-as>
-</emphasis> 
+</emphasis>
 <break time="600ms"/>
 
 <!-- Transition smoothing -->
@@ -247,14 +247,14 @@ Think about that for a moment:
 inputs:
   from: "Writer agent"
   format: "Raw script text"
-  
+
 processing:
   - TTS optimization
   - SSML markup addition
   - Pronunciation validation
   - Brand alignment check
   - Final polish
-  
+
 outputs:
   to: "Judge agent (for validation)"
   format: "Production-ready script with SSML"
@@ -274,13 +274,13 @@ outputs:
 common_fixes:
   unnatural_flow:
     solution: "Add strategic pauses and transitions"
-    
+
   pronunciation_issues:
     solution: "Add IPA phoneme guides"
-    
+
   engagement_drops:
     solution: "Insert emphasis and pacing changes"
-    
+
   brand_misalignment:
     solution: "Add humility moments and questions"
 ```

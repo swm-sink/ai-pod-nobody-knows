@@ -50,12 +50,12 @@ perplexity_integration:
   models:
     primary: "sonar-deep-research"
     fallback: "sonar-pro"
-  
+
   query_strategy:
     discovery: "1-2 broad landscape queries"
     deep_dive: "3-4 focused investigation queries"
     verification: "1-2 fact-checking queries"
-    
+
 web_search_validation:
   purpose: "Cross-reference and verify findings"
   targets: "Official sources, institutional sites"
@@ -162,11 +162,11 @@ retry_strategy:
   perplexity_failure:
     action: "Fallback to alternative model"
     max_retries: 3
-    
+
   insufficient_sources:
     action: "Expand search parameters"
     fallback: "Use WebSearch for additional sources"
-    
+
   verification_failure:
     action: "Mark as unverified"
     requirement: "Document uncertainty"

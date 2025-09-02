@@ -30,7 +30,7 @@ native_claude_patterns:
   tool_inheritance: "Omit tools field for MCP access"
   command_orchestration: "Sequential pipeline with data passing"
   hook_system: "Event-driven automation"
-  
+
 simplification_metrics:
   agents: 19 → 10 (47% reduction)
   commands: 28 → 5 (82% reduction)
@@ -100,9 +100,9 @@ Each agent demonstrates perfect single-responsibility design with clear:
 **Example Excellence:**
 ```python
 Query 1 - Topic Landscape:
-"Research [TOPIC] developments as of 2025. Focus on authoritative 
-expert statements from 2024-2025. Include current consensus, debates, 
-and uncertainties. If uncertain about any claim, mark as 
+"Research [TOPIC] developments as of 2025. Focus on authoritative
+expert statements from 2024-2025. Include current consensus, debates,
+and uncertainties. If uncertain about any claim, mark as
 'Requires verification'."
 ```
 

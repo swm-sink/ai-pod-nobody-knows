@@ -74,7 +74,7 @@ Options:
 2. Request revisions (specify changes)
 3. Abort production
 
-Response: 
+Response:
 ```
 
 ### Phase 3: Audio Production (After Approval)
@@ -95,23 +95,23 @@ Expected outputs:
 ```yaml
 master_session:
   root: sessions/ep_{number}_{timestamp}/
-  
+
   phases:
     research/:
       - research_findings.json
       - validation_report.json
       - synthesis_package.json
-      
+
     production/:
       - initial_script.md
       - polished_script.md
       - quality_report.json
-      
+
     audio/:
       - episode_{number}.mp3
       - audio_metrics.json
       - validation_report.json
-      
+
     final/:
       - episode_complete.json
       - cost_summary.json
@@ -124,13 +124,13 @@ master_session:
 episode_budget:
   total_limit: $4.00
   target: $2.80
-  
+
   phase_allocation:
     research: $1.35
     production: $0.15
     audio: $2.80
     buffer: $0.70
-    
+
   monitoring:
     real_time: true
     alerts: [50%, 75%, 90%]
@@ -145,12 +145,12 @@ phase_gates:
     - Research depth ≥9.0/10
     - Sources verified ≥90%
     - Expert quotes ≥10
-    
+
   post_production:
     - Brand consistency ≥90%
     - All quality gates passed
     - Word count within range
-    
+
   post_audio:
     - Word accuracy ≥90%
     - Duration 28±1 minutes
@@ -162,7 +162,7 @@ phase_gates:
 ```yaml
 status_updates:
   frequency: "After each phase"
-  
+
   format: |
     =====================================
     Episode [number] Production Status
@@ -170,7 +170,7 @@ status_updates:
     ✅ Research: Complete ([time])
     ✅ Script: Complete ([time])
     ⏳ Audio: In Progress...
-    
+
     Quality: [X.X]/10
     Cost: $[X.XX]/$4.00
     Time: [XX] minutes
@@ -184,17 +184,17 @@ failure_modes:
   research_failure:
     retry: "Alternative sources"
     fallback: "Manual research input"
-    
+
   quality_failure:
     minor: "Targeted revisions"
     major: "Phase restart"
     critical: "Complete restart"
-    
+
   cost_overrun:
     action: "Immediate halt"
     state: "Preserved for resume"
     notification: "User alert required"
-    
+
   audio_failure:
     retry: "Re-synthesis with adjusted parameters"
     fallback: "Alternative voice settings"
@@ -208,12 +208,12 @@ episode_package:
     file: episode_{number}.mp3
     format: "MP3, 128kbps"
     duration: "28 minutes"
-    
+
   documentation:
     script: "Full script with timestamps"
     research: "Source documentation"
     metrics: "Quality and cost reports"
-    
+
   metadata:
     title: "Episode title"
     description: "Episode summary"

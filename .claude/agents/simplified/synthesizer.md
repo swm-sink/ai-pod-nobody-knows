@@ -53,13 +53,13 @@ content_organization:
     hook: "Compelling opening question or fact"
     thesis: "Episode's core exploration"
     preview: "What listeners will discover"
-    
+
   body_structure:
     foundation: "Basic concepts for understanding"
     development: "Building complexity progressively"
     exploration: "Deep dive into uncertainties"
     application: "Real-world implications"
-    
+
   conclusion_elements:
     synthesis: "Key insights summary"
     humility: "What we still don't know"
@@ -103,14 +103,14 @@ intellectual_humility_insertion:
     - "This is where our knowledge hits a wall..."
     - "Scientists are still debating whether..."
     - "Nobody fully understands why..."
-    
+
 curiosity_activation:
   question_types:
     wonder: "Have you ever wondered why...?"
     challenge: "What if everything we think we know is wrong?"
     explore: "How might this change if...?"
     connect: "Could this be related to...?"
-    
+
 feynman_explanations:
   structure:
     analogy: "It's like..."
@@ -168,13 +168,13 @@ feynman_explanations:
 inputs:
   research_data: "From researcher agent"
   validation_report: "From fact-checker agent"
-  
+
 processing:
   - Extract key narratives
   - Structure for engagement
   - Embed brand voice
   - Optimize for production
-  
+
 outputs:
   to: "Writer agent"
   format: "Production-ready synthesis"
@@ -199,7 +199,7 @@ episode_memory:
   experts_featured: "Avoid repetition, ensure diversity"
   questions_raised: "Follow up in future episodes"
   themes_developed: "Build series-wide narratives"
-  
+
 continuity_management:
   backwards_references: "Maximum 2 per episode"
   forward_setup: "1 teaser for next episode"
@@ -215,7 +215,7 @@ script_preparation:
     introduction: "206-412 words"
     body: "4944-5356 words"
     conclusion: "206-412 words"
-    
+
 timing_guidance:
   natural_pauses: "Mark with [PAUSE]"
   emphasis_points: "Mark with [EMPHASIS]"
@@ -236,13 +236,13 @@ timing_guidance:
 synthesis_challenges:
   information_overload:
     solution: "Prioritize by narrative importance"
-    
+
   complexity_spikes:
     solution: "Add bridging explanations"
-    
+
   brand_misalignment:
     solution: "Inject humility moments"
-    
+
   narrative_gaps:
     solution: "Use questions to bridge"
 ```

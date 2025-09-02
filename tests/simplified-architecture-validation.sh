@@ -54,7 +54,7 @@ initialize_tests() {
 
 test_agent_files() {
     log_test "Testing simplified agent files existence"
-    
+
     local agents=(
         "researcher.md"
         "fact-checker.md"
@@ -67,7 +67,7 @@ test_agent_files() {
         "batch-processor.md"
         "cost-monitor.md"
     )
-    
+
     local all_exist=true
     for agent in "${agents[@]}"; do
         if [[ -f "$SIMPLIFIED_DIR/agents/simplified/$agent" ]]; then
@@ -77,7 +77,7 @@ test_agent_files() {
             all_exist=false
         fi
     done
-    
+
     if $all_exist; then
         log_pass "All 10 simplified agents exist"
     else
@@ -88,7 +88,7 @@ test_agent_files() {
 
 test_command_files() {
     log_test "Testing simplified command files existence"
-    
+
     local commands=(
         "research-workflow.md"
         "production-workflow.md"
@@ -96,7 +96,7 @@ test_command_files() {
         "podcast-workflow.md"
         "meta-chain.md"
     )
-    
+
     local all_exist=true
     for command in "${commands[@]}"; do
         if [[ -f "$SIMPLIFIED_DIR/commands/simplified/$command" ]]; then
@@ -106,7 +106,7 @@ test_command_files() {
             all_exist=false
         fi
     done
-    
+
     if $all_exist; then
         log_pass "All 5 simplified commands exist"
     else
@@ -117,13 +117,13 @@ test_command_files() {
 
 test_hook_files() {
     log_test "Testing simplified hook files existence"
-    
+
     local hooks=(
         "pre-tool-validation.sh"
         "post-tool-tracking.sh"
         "session-lifecycle.sh"
     )
-    
+
     local all_exist=true
     for hook in "${hooks[@]}"; do
         if [[ -f "$SIMPLIFIED_DIR/hooks/simplified/$hook" ]]; then
@@ -139,7 +139,7 @@ test_hook_files() {
             all_exist=false
         fi
     done
-    
+
     if $all_exist; then
         log_pass "All 3 simplified hooks exist and are executable"
     else
@@ -150,7 +150,7 @@ test_hook_files() {
 
 test_context_files() {
     log_test "Testing simplified context files existence"
-    
+
     local contexts=(
         "workflow.md"
         "agents.md"
@@ -158,7 +158,7 @@ test_context_files() {
         "troubleshooting.md"
         "CONTEXT_INDEX.md"
     )
-    
+
     local all_exist=true
     for context in "${contexts[@]}"; do
         if [[ -f "$SIMPLIFIED_DIR/context/simplified/$context" ]]; then
@@ -168,7 +168,7 @@ test_context_files() {
             all_exist=false
         fi
     done
-    
+
     if $all_exist; then
         log_pass "All 5 simplified contexts exist"
     else
@@ -183,7 +183,7 @@ test_context_files() {
 
 test_hook_functionality() {
     log_test "Testing hook basic functionality"
-    
+
     # Test session lifecycle
     local session_status=$("$SIMPLIFIED_DIR/hooks/simplified/session-lifecycle.sh" status 2>&1)
     if [[ "$session_status" == *"No active session"* ]] || [[ "$session_status" == *"session_id"* ]]; then
@@ -192,7 +192,7 @@ test_hook_functionality() {
         log_fail "Session lifecycle hook error: $session_status"
         return 1
     fi
-    
+
     # Test pre-tool validation (mock test)
     if "$SIMPLIFIED_DIR/hooks/simplified/pre-tool-validation.sh" "test_tool" 1000 2>&1 | grep -q "PRE-VALIDATION.*Complete"; then
         log_pass "Pre-tool validation hook functional"
@@ -204,10 +204,10 @@ test_hook_functionality() {
 
 test_agent_structure() {
     log_test "Testing agent structure and patterns"
-    
+
     # Check for proper invocation pattern in agents
     local agent_file="$SIMPLIFIED_DIR/agents/simplified/researcher.md"
-    
+
     if grep -q "## Purpose" "$agent_file" && \
        grep -q "## Core Capabilities" "$agent_file" && \
        grep -q "name: researcher" "$agent_file"; then
@@ -220,10 +220,10 @@ test_agent_structure() {
 
 test_command_orchestration() {
     log_test "Testing command orchestration patterns"
-    
+
     # Check podcast-workflow chains other commands
     local workflow_file="$SIMPLIFIED_DIR/commands/simplified/podcast-workflow.md"
-    
+
     if grep -q "research-workflow" "$workflow_file" && \
        grep -q "production-workflow" "$workflow_file" && \
        grep -q "audio-workflow" "$workflow_file"; then
@@ -240,10 +240,10 @@ test_command_orchestration() {
 
 test_cost_configuration() {
     log_test "Testing cost optimization configuration"
-    
+
     # Check quality.md for cost targets
     local quality_file="$SIMPLIFIED_DIR/context/simplified/quality.md"
-    
+
     if grep -q "\$2.80" "$quality_file" && \
        grep -q "\$4.00" "$quality_file"; then
         log_pass "Cost targets properly configured"
@@ -255,11 +255,11 @@ test_cost_configuration() {
 
 test_voice_configuration() {
     log_test "Testing voice configuration governance"
-    
+
     # Check for Amelia voice ID
     local voice_id="ZF6FPAbjXT4488VcRRnw"
     local config_file="$SIMPLIFIED_DIR/config/production-voice.json"
-    
+
     if [[ -f "$config_file" ]]; then
         if grep -q "$voice_id" "$config_file"; then
             log_pass "Voice configuration correct (Amelia)"
@@ -275,10 +275,10 @@ test_voice_configuration() {
 
 test_quality_gates() {
     log_test "Testing quality gate configuration"
-    
+
     # Check quality gates YAML
     local gates_file="$SIMPLIFIED_DIR/config/quality_gates.yaml"
-    
+
     if [[ -f "$gates_file" ]]; then
         if grep -q "brand_consistency:" "$gates_file" && \
            grep -q "minimum: 0.90" "$gates_file"; then
@@ -299,18 +299,18 @@ test_quality_gates() {
 
 test_reduction_metrics() {
     log_test "Testing reduction metrics achievement"
-    
+
     # Count files in simplified directories
     local agent_count=$(ls "$SIMPLIFIED_DIR/agents/simplified/"*.md 2>/dev/null | wc -l)
     local command_count=$(ls "$SIMPLIFIED_DIR/commands/simplified/"*.md 2>/dev/null | wc -l)
     local hook_count=$(ls "$SIMPLIFIED_DIR/hooks/simplified/"*.sh 2>/dev/null | wc -l)
     local context_count=$(ls "$SIMPLIFIED_DIR/context/simplified/"*.md 2>/dev/null | wc -l)
-    
+
     echo "  Agents: $agent_count (target: 10)" >> "$TEST_RESULTS"
     echo "  Commands: $command_count (target: 5)" >> "$TEST_RESULTS"
     echo "  Hooks: $hook_count (target: 3)" >> "$TEST_RESULTS"
     echo "  Contexts: $context_count (target: 5)" >> "$TEST_RESULTS"
-    
+
     if [[ $agent_count -eq 10 ]] && \
        [[ $command_count -eq 5 ]] && \
        [[ $hook_count -eq 3 ]] && \
@@ -328,39 +328,39 @@ test_reduction_metrics() {
 
 main() {
     initialize_tests
-    
+
     echo ""
     echo "===== UNIT TESTS =====" | tee -a "$TEST_RESULTS"
     test_agent_files || true
     test_command_files || true
     test_hook_files || true
     test_context_files || true
-    
+
     echo ""
     echo "===== INTEGRATION TESTS =====" | tee -a "$TEST_RESULTS"
     test_hook_functionality || true
     test_agent_structure || true
     test_command_orchestration || true
-    
+
     echo ""
     echo "===== QUALITY VALIDATION =====" | tee -a "$TEST_RESULTS"
     test_cost_configuration || true
     test_voice_configuration || true
     test_quality_gates || true
-    
+
     echo ""
     echo "===== REDUCTION VALIDATION =====" | tee -a "$TEST_RESULTS"
     test_reduction_metrics || true
-    
+
     echo ""
     echo "===== TEST SUMMARY =====" | tee -a "$TEST_RESULTS"
     echo "Tests Run: $TESTS_RUN" | tee -a "$TEST_RESULTS"
     echo "Tests Passed: $TESTS_PASSED" | tee -a "$TEST_RESULTS"
     echo "Tests Failed: $TESTS_FAILED" | tee -a "$TEST_RESULTS"
-    
+
     local pass_rate=$((TESTS_PASSED * 100 / TESTS_RUN))
     echo "Pass Rate: ${pass_rate}%" | tee -a "$TEST_RESULTS"
-    
+
     if [[ $TESTS_FAILED -eq 0 ]]; then
         echo -e "${GREEN}✓ All tests passed!${NC}" | tee -a "$TEST_RESULTS"
         exit 0

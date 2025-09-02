@@ -64,7 +64,7 @@ Use the judge agent for consensus evaluation:
 Requirements:
 - Three-evaluator consensus system:
   * Claude: Creative & brand assessment (55% weight)
-  * Gemini: Technical compliance (45% weight)  
+  * Gemini: Technical compliance (45% weight)
   * Perplexity: Fact verification (integrated)
 - Quality gates enforcement:
   * Brand consistency ≥90%
@@ -96,7 +96,7 @@ required_scores:
   engagement: 0.80         # Listener retention
   technical_accuracy: 0.85 # Factual correctness
   comprehension: 0.85      # General audience
-  
+
 revision_triggers:
   minor: "1-2 gates fail by <5%"
   major: "3+ gates fail OR any by >10%"
@@ -118,15 +118,15 @@ episode_structure:
   introduction:
     duration: "1-2 minutes"
     elements: [hook, thesis, preview]
-    
+
   body:
     duration: "24-26 minutes"
     elements: [foundation, complexity, examples, humility]
-    
+
   conclusion:
     duration: "1-2 minutes"
     elements: [takeaways, curiosity_prompt, next_tease]
-    
+
 brand_requirements:
   intellectual_humility: "3-5 expressions"
   questions_per_1000_words: "2-4"
@@ -141,7 +141,7 @@ quality_failures:
   first_attempt: "Targeted revision based on feedback"
   second_attempt: "Comprehensive repolishing"
   third_attempt: "Complete rewrite from research"
-  
+
 cost_overrun:
   action: "Immediate halt with state preservation"
   recovery: "Resume from last checkpoint"

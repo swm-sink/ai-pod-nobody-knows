@@ -45,11 +45,11 @@ solutions:
   immediate:
     - "Restart Claude Code with environment:"
     - "./build/scripts/start-claude.sh"
-    
+
   permanent:
     - "Configure MCP with API key:"
     - "claude mcp add-json elevenlabs '{...}'"
-    
+
   fallback:
     - "Use direct API implementation:"
     - "python src/audio/tts_direct_api.py"
@@ -75,12 +75,12 @@ solutions:
   immediate:
     - "Increase budget temporarily:"
     - "export BUDGET_LIMIT=50.00"
-    
+
   investigation:
     - "Review cost attribution logs"
     - "Identify expensive operations"
     - "Check for runaway loops"
-    
+
   prevention:
     - "Enable shadow mode first"
     - "Test with small batches"
@@ -107,12 +107,12 @@ solutions:
   immediate:
     - "Restore correct voice ID"
     - "Revert any config changes"
-    
+
   validation:
     - "Config shows correct ID"
     - "Test synthesis uses Amelia"
     - "Hook validates properly"
-    
+
 prevention:
   - "Config protection hook active"
   - "Version control on config"
@@ -137,12 +137,12 @@ solutions:
     - "Apply judge feedback"
     - "Re-run polisher agent"
     - "Validate improvements"
-    
+
   iteration_2:
     - "Adjust prompts"
     - "Add more examples"
     - "Increase question density"
-    
+
   escalation:
     - "Human review required"
     - "Analyze systemic issues"
@@ -170,12 +170,12 @@ solutions:
     - "Add content sections"
     - "Increase SSML pauses"
     - "Expand explanations"
-    
+
   too_long:
     - "Trim redundant content"
     - "Increase speech rate"
     - "Reduce SSML pauses"
-    
+
   calibration:
     - "Update WPM constant (206)"
     - "Adjust calculation formula"
@@ -203,12 +203,12 @@ solutions:
     - "Cache common queries"
     - "Reduce search depth"
     - "Reuse prior research"
-    
+
   synthesis_optimization:
     - "Single-call mode (<40K)"
     - "Avoid regeneration"
     - "Optimize chunking"
-    
+
   model_selection:
     - "Use appropriate models"
     - "Claude Haiku for simple"
@@ -238,12 +238,12 @@ solutions:
     - "Run research concurrently"
     - "Batch similar operations"
     - "Pipeline stages"
-    
+
   caching:
     - "Cache research results"
     - "Store validated scripts"
     - "Reuse audio chunks"
-    
+
   optimization:
     - "Reduce context size"
     - "Streamline prompts"
@@ -266,12 +266,12 @@ solutions:
     - "Add IPA phonetics"
     - "Use SSML phoneme tags"
     - "Custom dictionary"
-    
+
   synthesis:
     - "Adjust voice settings"
     - "Improve SSML markup"
     - "Test alternatives"
-    
+
   validation:
     - "Manual spot checks"
     - "Focus on key terms"
@@ -364,16 +364,16 @@ monitoring_points:
     perplexity: "< 3 seconds"
     elevenlabs: "< 30 seconds"
     claude: "< 5 seconds"
-    
+
   processing_time:
     research: "5-10 minutes"
     script: "5-10 minutes"
     audio: "5-10 minutes"
-    
+
   error_rates:
     target: "< 5%"
     critical: "< 1%"
-    
+
   cost_efficiency:
     target: "$2.80/episode"
     maximum: "$4.00/episode"

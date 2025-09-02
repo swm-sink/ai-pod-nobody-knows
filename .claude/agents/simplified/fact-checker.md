@@ -49,12 +49,12 @@ description: "Research validation specialist for fact-checking, source triangula
 perplexity_verification:
   model: "sonar-pro"
   strategy: "Multi-query verification"
-  
+
   query_patterns:
     fact_check: "[CLAIM] verification 2024-2025 sources"
     source_verify: "[EXPERT NAME] [INSTITUTION] affiliation current"
     stat_check: "[STATISTIC] official data source verification"
-    
+
 web_search_validation:
   targets:
     - Official institutional websites
@@ -169,7 +169,7 @@ minimum_requirements:
   expert_quotes: "Original source required"
   technical_facts: "Peer-reviewed preferred"
   controversial_topics: "3+ diverse sources"
-  
+
 red_flags:
   - Single source only
   - Anonymous attribution
@@ -185,11 +185,11 @@ verification_failures:
   cannot_verify:
     action: "Mark as UNVERIFIED"
     disclosure: "Required in script"
-    
+
   contradictory_sources:
     action: "Document all positions"
     presentation: "Balanced coverage"
-    
+
   expert_disagreement:
     action: "Celebrate uncertainty"
     framing: "Intellectual humility moment"
@@ -201,11 +201,11 @@ verification_failures:
 inputs:
   from: researcher_agent
   format: research_findings.json
-  
+
 outputs:
   to: synthesizer_agent
   format: validation_report.json
-  
+
 session_data:
   location: sessions/ep_{number}/research/
   files:

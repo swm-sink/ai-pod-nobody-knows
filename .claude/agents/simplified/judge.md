@@ -54,23 +54,23 @@ claude_evaluation:
       - Intellectual humility present?
       - Curiosity activation effective?
       - Accessibility maintained?
-    
+
     tone_consistency:
       - Conversational yet authoritative?
       - Appropriate humor/lightness?
       - Empathy and inclusion?
-    
+
     narrative_quality:
       - Story arc compelling?
       - Transitions smooth?
       - Engagement maintained?
-    
+
   creative_excellence:
     originality: "Fresh perspectives and insights"
     analogies: "Feynman explanations effective"
     questions: "Thought-provoking and relevant"
     hooks: "Attention capture and retention"
-    
+
   scoring_dimensions:
     brand_consistency: 0.0-1.0
     creative_engagement: 0.0-1.0
@@ -87,22 +87,22 @@ gemini_evaluation:
       - Facts correctly stated?
       - Technical terms properly used?
       - Logical consistency maintained?
-    
+
     structural_compliance:
       - Three-act structure present?
       - Segment timing appropriate?
       - Word count within range?
-    
+
     format_verification:
       - SSML markup valid?
       - Pronunciation guides complete?
       - Production specs met?
-    
+
   production_readiness:
     audio_optimization: "TTS-friendly formatting"
     timing_precision: "28±1 minute target"
     technical_completeness: "All requirements met"
-    
+
   scoring_dimensions:
     technical_accuracy: 0.0-1.0
     structural_integrity: 0.0-1.0
@@ -119,17 +119,17 @@ perplexity_validation:
       - Claims verified against sources
       - Statistics confirmed accurate
       - Dates and timelines correct
-    
+
     expert_validation:
       - Quotes accurately attributed
       - Credentials properly stated
       - Context preserved
-    
+
     source_quality:
       - Authority of sources confirmed
       - Currency (2024-2025) verified
       - Diversity of perspectives included
-    
+
   accuracy_metrics:
     fact_accuracy: 0.0-1.0
     source_authority: 0.0-1.0
@@ -146,21 +146,21 @@ def calculate_consensus(claude_score, gemini_score, perplexity_score):
     # Base weights
     claude_weight = 0.55
     gemini_weight = 0.45
-    
+
     # Calculate weighted average
     consensus = (
         claude_score * claude_weight +
         gemini_score * gemini_weight
     )
-    
+
     # Integrate Perplexity validation
     if perplexity_score < 0.85:
         # Accuracy issues override other scores
         consensus *= perplexity_score
-        
+
     # Check for significant disagreement
     disagreement = abs(claude_score - gemini_score)
-    
+
     if disagreement > 0.15:
         # Major disagreement - use conservative score
         consensus = min(claude_score, gemini_score)
@@ -171,7 +171,7 @@ def calculate_consensus(claude_score, gemini_score, perplexity_score):
         flag = "MINOR_CONFLICT"
     else:
         flag = "CONSENSUS_ACHIEVED"
-    
+
     return {
         "consensus_score": consensus,
         "confidence": 1.0 - disagreement,
@@ -234,16 +234,16 @@ gate_requirements:
     engagement: 0.80
     technical_accuracy: 0.85
     comprehension: 0.85
-    
+
   revision_triggers:
     minor:
       condition: "1-2 gates fail by <5%"
       action: "Targeted improvements"
-      
+
     major:
       condition: "3+ gates fail OR any by >10%"
       action: "Significant revision"
-      
+
     critical:
       condition: "Any score <0.70"
       action: "Complete rewrite"
@@ -257,17 +257,17 @@ evaluation_scenarios:
     condition: "All evaluators within 5%"
     interpretation: "High confidence in quality"
     action: "Proceed to production"
-    
+
   creative_technical_split:
     condition: "Claude high, Gemini low"
     interpretation: "Good story, needs structure"
     action: "Technical revision only"
-    
+
   technical_creative_split:
     condition: "Gemini high, Claude low"
     interpretation: "Correct but boring"
     action: "Creative enhancement"
-    
+
   accuracy_concern:
     condition: "Perplexity flag raised"
     interpretation: "Fact issues detected"
@@ -281,14 +281,14 @@ inputs:
   script: "From polisher agent"
   research: "Original research data"
   quality_config: "quality_gates.yaml"
-  
+
 evaluation_process:
   - Claude creative assessment
   - Gemini technical validation
   - Perplexity fact checking
   - Consensus calculation
   - Recommendation generation
-  
+
 outputs:
   to: "Production decision point"
   format: "Consensus report with scores"
@@ -310,15 +310,15 @@ decision_logic:
   consensus >= 0.90:
     action: "APPROVE for production"
     confidence: "High"
-    
+
   consensus 0.85-0.89:
     action: "APPROVE with minor revisions"
     confidence: "Medium"
-    
+
   consensus 0.80-0.84:
     action: "REVISE before production"
     confidence: "Low"
-    
+
   consensus < 0.80:
     action: "REJECT - Major revision required"
     confidence: "Insufficient"

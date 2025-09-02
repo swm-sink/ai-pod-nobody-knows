@@ -17,7 +17,7 @@ security:
       missing_key_action: "abort"
       invalid_key_action: "abort"
       expired_key_action: "alert"
-  
+
   input_validation:
     max_input_length: 50000  # characters
     max_topic_length: 500
@@ -25,7 +25,7 @@ security:
     sql_injection_check: true
     xss_prevention: true
     command_injection_check: true
-    
+
   rate_limiting:
     api_calls:
       perplexity:
@@ -40,7 +40,7 @@ security:
         per_minute: 60
         per_hour: 1000
         burst_size: 20
-    
+
   audit_logging:
     enabled: true
     log_api_calls: true
@@ -48,7 +48,7 @@ security:
     log_errors: true
     log_security_events: true
     retention_days: 90
-    
+
 reliability:
   error_handling:
     retry_strategy:
@@ -57,35 +57,35 @@ reliability:
       initial_delay: 1  # seconds
       max_delay: 60
       jitter: true
-    
+
     circuit_breaker:
       enabled: true
       failure_threshold: 5
       reset_timeout: 300  # seconds
       half_open_requests: 2
-    
+
     fallback:
       use_cache: true
       degraded_mode: true
       alert_on_fallback: true
-  
+
   resource_limits:
     memory:
       max_mb: 2048
       warning_threshold_mb: 1536
       action_on_exceed: "garbage_collect"
-    
+
     disk:
       max_gb: 10
       warning_threshold_gb: 8
       cleanup_threshold_gb: 9
       action_on_exceed: "cleanup_old_sessions"
-    
+
     concurrent_operations:
       max_agents: 5
       max_api_calls: 10
       queue_overflow_action: "reject"
-  
+
   health_checks:
     enabled: true
     interval_seconds: 60
@@ -95,7 +95,7 @@ reliability:
       - disk_space
       - memory_usage
       - error_rate
-    
+
     thresholds:
       error_rate_percent: 5
       response_time_ms: 5000
@@ -113,13 +113,13 @@ operations:
         - cost_per_operation
         - quality_scores
         - resource_usage
-    
+
     alerting:
       enabled: true
       channels:
         - console
         - log_file
-      
+
       alerts:
         - name: "High Error Rate"
           condition: "error_rate > 5%"
@@ -133,13 +133,13 @@ operations:
         - name: "High Memory Usage"
           condition: "memory_percent > 85"
           severity: "warning"
-  
+
   session_management:
     checkpoint_interval: 300  # seconds
     max_session_age: 86400  # 24 hours
     cleanup_old_sessions: true
     archive_completed: true
-    
+
   performance:
     cache:
       enabled: true
@@ -147,7 +147,7 @@ operations:
       max_entries: 1000
       cache_research: true
       cache_scripts: false  # Always regenerate for freshness
-    
+
     optimization:
       parallel_research: true
       batch_operations: true
@@ -163,14 +163,14 @@ validation:
       - quality_gates_configured
       - hooks_executable
       - logs_writable
-    
+
   runtime:
     continuous_validation:
       - api_availability
       - cost_tracking_active
       - quality_thresholds_met
       - error_rate_acceptable
-    
+
   post_production:
     validation_reports:
       - cost_analysis
@@ -186,14 +186,14 @@ claude_code_compliance:
     - bash_hooks_only  # No Python/JS hooks
     - selective_context  # <15K token files
     - command_orchestration  # Commands don't implement
-  
+
   forbidden_patterns:
     - task_tool_usage
     - custom_frameworks
     - hardcoded_api_calls
     - monolithic_contexts
     - non_bash_hooks
-  
+
   validation_on:
     - pre_commit
     - pull_request

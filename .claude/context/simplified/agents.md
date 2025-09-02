@@ -211,7 +211,7 @@ models:
     purpose: "Deep research with citations"
     context: 127K tokens
     pricing: "$5 per 1M tokens"
-    
+
   sonar-reasoning:
     purpose: "Logical analysis and reasoning"
     context: 127K tokens
@@ -222,7 +222,7 @@ research_patterns:
     queries: 3-5
     depth: "Comprehensive"
     sources: "100+ automatic"
-    
+
   validation:
     queries: 2-3
     depth: "Targeted"
@@ -242,7 +242,7 @@ synthesis_modes:
     coverage: "95% of episodes"
     time: "20-30 seconds"
     quality: "Consistent throughout"
-    
+
   chunked:
     chunk_size: 5000
     overlap: 100
@@ -260,7 +260,7 @@ ssml_processing:
   short_breaks: "40% reliability"
   medium_breaks: "80% reliability"
   long_breaks: "95% reliability"
-  
+
 pronunciation:
   ipa_support: true
   phoneme_tags: true
@@ -279,7 +279,7 @@ timing_formula:
   base: "word_count / adjusted_wpm"
   ssml: "sum(break_duration * processing_rate)"
   total: "base + ssml"
-  
+
 target_duration:
   ideal: "28 minutes"
   acceptable: "25-30 minutes"

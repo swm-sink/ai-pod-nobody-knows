@@ -62,7 +62,7 @@ log_warn() {
 
 validate_api_keys() {
     log_header "API KEY SECURITY VALIDATION"
-    
+
     log_test "Checking API keys are not exposed in code"
     if grep -r "sk-ant-\|sk_\|pplx-" "$PROJECT_ROOT" --exclude-dir=.git --exclude-dir=.env --exclude="*.log" 2>/dev/null | grep -v "example\|template"; then
         log_fail "API keys found in code!"
@@ -70,7 +70,7 @@ validate_api_keys() {
     else
         log_pass "No API keys exposed in code"
     fi
-    
+
     log_test "Checking .env file is git-ignored"
     if grep -q "^\.env$" "$PROJECT_ROOT/.gitignore"; then
         log_pass ".env properly git-ignored"
@@ -78,7 +78,7 @@ validate_api_keys() {
         log_fail ".env not in .gitignore!"
         return 1
     fi
-    
+
     log_test "Checking API key masking in logs"
     local log_files=$(find "$PROJECT_ROOT/.claude/logs" -name "*.log" 2>/dev/null)
     if [[ -n "$log_files" ]]; then
@@ -94,7 +94,7 @@ validate_api_keys() {
 
 validate_input_sanitization() {
     log_header "INPUT VALIDATION SECURITY"
-    
+
     log_test "Checking input validation configuration"
     if [[ -f "$HARDENING_CONFIG" ]]; then
         if grep -q "input_validation:" "$HARDENING_CONFIG"; then
@@ -107,14 +107,14 @@ validate_input_sanitization() {
         log_fail "Hardening config missing"
         return 1
     fi
-    
+
     log_test "Checking SQL injection prevention"
     if grep -q "sql_injection_check: true" "$HARDENING_CONFIG"; then
         log_pass "SQL injection prevention enabled"
     else
         log_warn "SQL injection prevention not enabled"
     fi
-    
+
     log_test "Checking XSS prevention"
     if grep -q "xss_prevention: true" "$HARDENING_CONFIG"; then
         log_pass "XSS prevention enabled"
@@ -125,11 +125,11 @@ validate_input_sanitization() {
 
 validate_rate_limiting() {
     log_header "RATE LIMITING VALIDATION"
-    
+
     log_test "Checking rate limiting configuration"
     if grep -q "rate_limiting:" "$HARDENING_CONFIG"; then
         log_pass "Rate limiting configured"
-        
+
         # Check specific API limits
         for api in perplexity elevenlabs anthropic; do
             if grep -q "$api:" "$HARDENING_CONFIG"; then
@@ -146,7 +146,7 @@ validate_rate_limiting() {
 
 validate_audit_logging() {
     log_header "AUDIT LOGGING VALIDATION"
-    
+
     log_test "Checking audit logging configuration"
     if grep -q "audit_logging:" "$HARDENING_CONFIG" && grep -q "enabled: true" "$HARDENING_CONFIG"; then
         log_pass "Audit logging enabled"
@@ -154,7 +154,7 @@ validate_audit_logging() {
         log_fail "Audit logging not enabled"
         return 1
     fi
-    
+
     log_test "Checking log directory permissions"
     local log_dir="$PROJECT_ROOT/.claude/logs"
     if [[ -d "$log_dir" ]]; then
@@ -177,7 +177,7 @@ validate_audit_logging() {
 
 validate_error_handling() {
     log_header "ERROR HANDLING VALIDATION"
-    
+
     log_test "Checking retry configuration"
     if grep -q "retry_strategy:" "$HARDENING_CONFIG" && grep -q "max_attempts:" "$HARDENING_CONFIG"; then
         log_pass "Retry strategy configured"
@@ -185,14 +185,14 @@ validate_error_handling() {
         log_fail "Retry strategy not configured"
         return 1
     fi
-    
+
     log_test "Checking circuit breaker configuration"
     if grep -q "circuit_breaker:" "$HARDENING_CONFIG" && grep -q "enabled: true" "$HARDENING_CONFIG"; then
         log_pass "Circuit breaker enabled"
     else
         log_warn "Circuit breaker not enabled"
     fi
-    
+
     log_test "Checking fallback mechanisms"
     if grep -q "fallback:" "$HARDENING_CONFIG" && grep -q "use_cache: true" "$HARDENING_CONFIG"; then
         log_pass "Fallback mechanisms configured"
@@ -203,7 +203,7 @@ validate_error_handling() {
 
 validate_resource_limits() {
     log_header "RESOURCE LIMITS VALIDATION"
-    
+
     log_test "Checking memory limits"
     if grep -q "memory:" "$HARDENING_CONFIG" && grep -q "max_mb:" "$HARDENING_CONFIG"; then
         log_pass "Memory limits configured"
@@ -211,7 +211,7 @@ validate_resource_limits() {
         log_fail "Memory limits not configured"
         return 1
     fi
-    
+
     log_test "Checking disk limits"
     if grep -q "disk:" "$HARDENING_CONFIG" && grep -q "max_gb:" "$HARDENING_CONFIG"; then
         log_pass "Disk limits configured"
@@ -219,7 +219,7 @@ validate_resource_limits() {
         log_fail "Disk limits not configured"
         return 1
     fi
-    
+
     log_test "Checking concurrent operation limits"
     if grep -q "concurrent_operations:" "$HARDENING_CONFIG"; then
         log_pass "Concurrent operation limits configured"
@@ -230,7 +230,7 @@ validate_resource_limits() {
 
 validate_health_checks() {
     log_header "HEALTH CHECK VALIDATION"
-    
+
     log_test "Checking health check configuration"
     if grep -q "health_checks:" "$HARDENING_CONFIG" && grep -q "enabled: true" "$HARDENING_CONFIG"; then
         log_pass "Health checks enabled"
@@ -238,7 +238,7 @@ validate_health_checks() {
         log_fail "Health checks not enabled"
         return 1
     fi
-    
+
     log_test "Testing MCP connectivity check"
     if command -v claude &> /dev/null; then
         if claude mcp list &> /dev/null; then
@@ -257,7 +257,7 @@ validate_health_checks() {
 
 validate_monitoring() {
     log_header "MONITORING VALIDATION"
-    
+
     log_test "Checking monitoring configuration"
     if grep -q "monitoring:" "$HARDENING_CONFIG" && grep -q "enabled: true" "$HARDENING_CONFIG"; then
         log_pass "Monitoring enabled"
@@ -265,7 +265,7 @@ validate_monitoring() {
         log_fail "Monitoring not enabled"
         return 1
     fi
-    
+
     log_test "Checking alerting configuration"
     if grep -q "alerting:" "$HARDENING_CONFIG" && grep -q "enabled: true" "$HARDENING_CONFIG"; then
         log_pass "Alerting enabled"
@@ -276,7 +276,7 @@ validate_monitoring() {
 
 validate_session_management() {
     log_header "SESSION MANAGEMENT VALIDATION"
-    
+
     log_test "Checking session lifecycle hook"
     local session_hook="$PROJECT_ROOT/.claude/hooks/simplified/session-lifecycle.sh"
     if [[ -f "$session_hook" ]]; then
@@ -291,7 +291,7 @@ validate_session_management() {
         log_fail "Session lifecycle hook missing"
         return 1
     fi
-    
+
     log_test "Checking checkpoint configuration"
     if grep -q "checkpoint_interval:" "$HARDENING_CONFIG"; then
         log_pass "Checkpoint interval configured"
@@ -306,7 +306,7 @@ validate_session_management() {
 
 validate_claude_code_patterns() {
     log_header "CLAUDE CODE NATIVE PATTERNS VALIDATION"
-    
+
     log_test "Checking for Task tool usage (forbidden)"
     if grep -r "Task tool\|task_tool" "$PROJECT_ROOT/.claude" --include="*.md" 2>/dev/null | grep -v "NOT\|forbidden\|prohibited"; then
         log_fail "Task tool references found!"
@@ -314,7 +314,7 @@ validate_claude_code_patterns() {
     else
         log_pass "No Task tool usage found"
     fi
-    
+
     log_test "Checking agent YAML structure"
     local agent_files=$(find "$PROJECT_ROOT/.claude/agents/simplified" -name "*.md" 2>/dev/null)
     local all_valid=true
@@ -326,14 +326,14 @@ validate_claude_code_patterns() {
             fi
         fi
     done
-    
+
     if $all_valid; then
         log_pass "All agents use MCP inheritance correctly"
     else
         log_fail "Some agents have hardcoded tools"
         return 1
     fi
-    
+
     log_test "Checking hook scripts are bash-only"
     local hook_files=$(find "$PROJECT_ROOT/.claude/hooks" -name "*.sh" 2>/dev/null)
     local all_bash=true
@@ -343,7 +343,7 @@ validate_claude_code_patterns() {
             all_bash=false
         fi
     done
-    
+
     if $all_bash; then
         log_pass "All hooks are bash scripts"
     else
@@ -358,11 +358,11 @@ validate_claude_code_patterns() {
 
 validate_production_readiness() {
     log_header "PRODUCTION READINESS VALIDATION"
-    
+
     local ready=true
-    
+
     log_test "Checking critical configurations"
-    
+
     # Check voice ID
     if grep -q "ZF6FPAbjXT4488VcRRnw" "$PROJECT_ROOT/.claude/config/production-voice.json" 2>/dev/null; then
         echo "  ✓ Production voice ID correct" >> "$VALIDATION_LOG"
@@ -370,7 +370,7 @@ validate_production_readiness() {
         echo "  ✗ Production voice ID incorrect!" >> "$VALIDATION_LOG"
         ready=false
     fi
-    
+
     # Check quality gates
     if [[ -f "$PROJECT_ROOT/.claude/config/quality_gates.yaml" ]]; then
         echo "  ✓ Quality gates configured" >> "$VALIDATION_LOG"
@@ -378,7 +378,7 @@ validate_production_readiness() {
         echo "  ✗ Quality gates missing!" >> "$VALIDATION_LOG"
         ready=false
     fi
-    
+
     # Check cost tracking
     if [[ -f "$PROJECT_ROOT/.claude/hooks/simplified/post-tool-tracking.sh" ]]; then
         echo "  ✓ Cost tracking configured" >> "$VALIDATION_LOG"
@@ -386,7 +386,7 @@ validate_production_readiness() {
         echo "  ✗ Cost tracking missing!" >> "$VALIDATION_LOG"
         ready=false
     fi
-    
+
     if $ready; then
         log_pass "System is production ready"
     else
@@ -404,28 +404,28 @@ main() {
     echo "Date: $(date)" | tee -a "$VALIDATION_LOG"
     echo "Project: $PROJECT_ROOT" | tee -a "$VALIDATION_LOG"
     echo "" | tee -a "$VALIDATION_LOG"
-    
+
     # Security Validation
     validate_api_keys || true
     validate_input_sanitization || true
     validate_rate_limiting || true
     validate_audit_logging || true
-    
+
     # Reliability Validation
     validate_error_handling || true
     validate_resource_limits || true
     validate_health_checks || true
-    
+
     # Operational Validation
     validate_monitoring || true
     validate_session_management || true
-    
+
     # Claude Code Native Validation
     validate_claude_code_patterns || true
-    
+
     # Production Readiness
     validate_production_readiness || true
-    
+
     # Summary
     echo "" | tee -a "$VALIDATION_LOG"
     log_header "VALIDATION SUMMARY"
@@ -433,10 +433,10 @@ main() {
     echo "Tests Passed: $TESTS_PASSED" | tee -a "$VALIDATION_LOG"
     echo "Tests Failed: $TESTS_FAILED" | tee -a "$VALIDATION_LOG"
     echo "Warnings: $WARNINGS" | tee -a "$VALIDATION_LOG"
-    
+
     local pass_rate=$((TESTS_PASSED * 100 / TESTS_RUN))
     echo "Pass Rate: ${pass_rate}%" | tee -a "$VALIDATION_LOG"
-    
+
     if [[ $TESTS_FAILED -eq 0 ]]; then
         echo -e "${GREEN}✓ All critical hardening measures validated!${NC}" | tee -a "$VALIDATION_LOG"
         echo -e "${GREEN}System is HARDENED and PRODUCTION READY${NC}" | tee -a "$VALIDATION_LOG"

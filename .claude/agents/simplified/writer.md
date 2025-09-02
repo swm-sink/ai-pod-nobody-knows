@@ -57,7 +57,7 @@ episode_blueprint:
       - Surprising statistic
       - Relatable scenario
       - Mystery setup
-    
+
   introduction:
     duration: "1.5 minutes"
     components:
@@ -65,24 +65,24 @@ episode_blueprint:
       - Episode thesis
       - Journey preview
       - Stakes establishment
-    
+
   body_segments:
     segment_1_foundation:
       duration: "6 minutes"
       content: "Core concepts and context"
-      
+
     segment_2_exploration:
       duration: "8 minutes"
       content: "Deep dive and expert insights"
-      
+
     segment_3_complexity:
       duration: "6 minutes"
       content: "Contradictions and debates"
-      
+
     segment_4_application:
       duration: "4 minutes"
       content: "Real-world implications"
-    
+
   conclusion:
     duration: "2 minutes"
     components:
@@ -103,7 +103,7 @@ script_elements = {
         "historical_context": "How we got here",
         "future_implications": "Where we're going"
     },
-    
+
     "educational_tools": {
         "feynman_analogies": [
             "Complex concept → Everyday comparison",
@@ -114,7 +114,7 @@ script_elements = {
         "repetition_with_variation": "Key concepts reinforced differently",
         "active_learning_prompts": "Pause and think moments"
     },
-    
+
     "engagement_techniques": {
         "questions": "2-4 per 1000 words",
         "surprises": "Unexpected revelations",
@@ -234,7 +234,7 @@ quality_requirements:
   engagement: "Hook every 3-5 minutes"
   accessibility: "Avoid unnecessary jargon"
   accuracy: "All facts from validated research"
-  
+
 brand_requirements:
   tone: "Conversational yet authoritative"
   philosophy: "Celebrate not knowing"
@@ -250,7 +250,7 @@ inputs:
   synthesis: "From synthesizer agent"
   research: "Original research data"
   brand_guide: "Nobody Knows philosophy"
-  
+
 outputs:
   to: "Polisher agent"
   format: "Complete episode script"
@@ -271,13 +271,13 @@ outputs:
 common_issues:
   pacing_problems:
     solution: "Redistribute content across segments"
-    
+
   complexity_spikes:
     solution: "Add bridging explanations"
-    
+
   engagement_drops:
     solution: "Insert questions or surprises"
-    
+
   word_count_issues:
     solution: "Adjust segment lengths proportionally"
 ```

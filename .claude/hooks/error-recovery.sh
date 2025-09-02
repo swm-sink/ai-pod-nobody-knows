@@ -32,7 +32,7 @@ mkdir -p "$(dirname "$STATE_FILE")"
 calculate_backoff_delay() {
     local attempt=$1
     local delay=$INITIAL_DELAY
-    
+
     for ((i=1; i<attempt; i++)); do
         delay=$((delay * BACKOFF_MULTIPLIER))
         if [[ $delay -gt $MAX_DELAY ]]; then
@@ -40,11 +40,11 @@ calculate_backoff_delay() {
             break
         fi
     done
-    
+
     # Add jitter (0-25% random variation)
     local jitter=$((RANDOM % (delay / 4)))
     delay=$((delay + jitter))
-    
+
     echo "$delay"
 }
 
@@ -53,14 +53,14 @@ retry_with_backoff() {
     local operation="${2:-operation}"
     local attempt=0
     local success=false
-    
+
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting retry for: $operation" >> "$RECOVERY_LOG"
-    
+
     while [[ $attempt -lt $MAX_RETRIES ]]; do
         ((attempt++))
-        
+
         echo "[RETRY] Attempt $attempt/$MAX_RETRIES for $operation" >> "$ERROR_LOG"
-        
+
         if eval "$command"; then
             echo "[SUCCESS] $operation succeeded on attempt $attempt" >> "$ERROR_LOG"
             success=true
@@ -68,7 +68,7 @@ retry_with_backoff() {
         else
             local exit_code=$?
             echo "[FAILURE] $operation failed with code $exit_code on attempt $attempt" >> "$ERROR_LOG"
-            
+
             if [[ $attempt -lt $MAX_RETRIES ]]; then
                 local delay=$(calculate_backoff_delay "$attempt")
                 echo "[BACKOFF] Waiting ${delay}s before retry..." >> "$ERROR_LOG"
@@ -76,7 +76,7 @@ retry_with_backoff() {
             fi
         fi
     done
-    
+
     if $success; then
         return 0
     else
@@ -111,7 +111,7 @@ get_circuit_state() {
 update_circuit_state() {
     local new_state="$1"
     local timestamp=$(date +%s)
-    
+
     jq --arg state "$new_state" --arg ts "$timestamp" \
         '.state = $state | .last_update = ($ts | tonumber)' \
         "$STATE_FILE" > "${STATE_FILE}.tmp" && mv "${STATE_FILE}.tmp" "$STATE_FILE"
@@ -121,11 +121,11 @@ record_failure() {
     local timestamp=$(date +%s)
     local current_failures=$(jq -r '.failure_count' "$STATE_FILE")
     ((current_failures++))
-    
+
     jq --arg ts "$timestamp" --arg fc "$current_failures" \
         '.failure_count = ($fc | tonumber) | .last_failure = ($ts | tonumber)' \
         "$STATE_FILE" > "${STATE_FILE}.tmp" && mv "${STATE_FILE}.tmp" "$STATE_FILE"
-    
+
     # Check if we should open the circuit
     if [[ $current_failures -ge $FAILURE_THRESHOLD ]]; then
         echo "[CIRCUIT BREAKER] Opening circuit after $current_failures failures" >> "$ERROR_LOG"
@@ -136,11 +136,11 @@ record_failure() {
 record_success() {
     local timestamp=$(date +%s)
     local current_state=$(get_circuit_state)
-    
+
     if [[ "$current_state" == "half_open" ]]; then
         local half_open_count=$(jq -r '.half_open_count' "$STATE_FILE")
         ((half_open_count++))
-        
+
         if [[ $half_open_count -ge $HALF_OPEN_REQUESTS ]]; then
             echo "[CIRCUIT BREAKER] Closing circuit after successful half-open requests" >> "$ERROR_LOG"
             jq --arg ts "$timestamp" \
@@ -160,12 +160,12 @@ record_success() {
 
 check_circuit_timeout() {
     local current_state=$(get_circuit_state)
-    
+
     if [[ "$current_state" == "open" ]]; then
         local last_failure=$(jq -r '.last_failure' "$STATE_FILE")
         local current_time=$(date +%s)
         local time_diff=$((current_time - last_failure))
-        
+
         if [[ $time_diff -ge $RESET_TIMEOUT ]]; then
             echo "[CIRCUIT BREAKER] Moving to half-open state after timeout" >> "$ERROR_LOG"
             update_circuit_state "half_open"
@@ -178,12 +178,12 @@ check_circuit_timeout() {
 execute_with_circuit_breaker() {
     local command="$1"
     local operation="${2:-operation}"
-    
+
     init_circuit_breaker
     check_circuit_timeout
-    
+
     local state=$(get_circuit_state)
-    
+
     case "$state" in
         "open")
             echo "[CIRCUIT BREAKER] Circuit is OPEN - rejecting $operation" >> "$ERROR_LOG"
@@ -218,11 +218,11 @@ execute_with_circuit_breaker() {
 fallback_to_cache() {
     local operation="$1"
     local cache_file="$PROJECT_ROOT/.claude/cache/${operation}.cache"
-    
+
     if [[ -f "$cache_file" ]]; then
         local cache_age=$(( $(date +%s) - $(stat -f %m "$cache_file" 2>/dev/null || stat -c %Y "$cache_file") ))
         local max_cache_age=3600  # 1 hour
-        
+
         if [[ $cache_age -lt $max_cache_age ]]; then
             echo "[FALLBACK] Using cached result for $operation (age: ${cache_age}s)" >> "$ERROR_LOG"
             cat "$cache_file"
@@ -241,27 +241,27 @@ degraded_mode_operation() {
     local full_command="$1"
     local degraded_command="$2"
     local operation="${3:-operation}"
-    
+
     echo "[DEGRADED MODE] Attempting full operation: $operation" >> "$ERROR_LOG"
-    
+
     if execute_with_circuit_breaker "$full_command" "$operation"; then
         return 0
     else
         echo "[DEGRADED MODE] Full operation failed, trying degraded mode" >> "$ERROR_LOG"
-        
+
         if [[ -n "$degraded_command" ]]; then
             if eval "$degraded_command"; then
                 echo "[DEGRADED MODE] Degraded operation succeeded" >> "$ERROR_LOG"
                 return 0
             fi
         fi
-        
+
         # Last resort: try cache
         if fallback_to_cache "$operation"; then
             echo "[DEGRADED MODE] Cache fallback succeeded" >> "$ERROR_LOG"
             return 0
         fi
-        
+
         echo "[DEGRADED MODE] All fallback options exhausted" >> "$ERROR_LOG"
         return 1
     fi
@@ -274,7 +274,7 @@ degraded_mode_operation() {
 categorize_error() {
     local exit_code=$1
     local error_message="${2:-}"
-    
+
     case "$exit_code" in
         1)
             echo "general_error"
@@ -309,9 +309,9 @@ categorize_error() {
 handle_error_by_type() {
     local error_type="$1"
     local operation="$2"
-    
+
     echo "[ERROR HANDLER] Handling $error_type for $operation" >> "$ERROR_LOG"
-    
+
     case "$error_type" in
         "auth_error")
             echo "[ACTION] Checking API key validity..." >> "$ERROR_LOG"
@@ -344,15 +344,15 @@ recover_from_error() {
     local exit_code=$1
     local operation="${2:-unknown}"
     local error_message="${3:-}"
-    
+
     echo "[RECOVERY] Starting recovery for $operation (exit code: $exit_code)" >> "$ERROR_LOG"
-    
+
     # Categorize the error
     local error_type=$(categorize_error "$exit_code" "$error_message")
-    
+
     # Handle specific error types
     handle_error_by_type "$error_type" "$operation"
-    
+
     # Determine if retry is appropriate
     case "$error_type" in
         "auth_error"|"permission_denied"|"command_not_found")
@@ -373,7 +373,7 @@ recover_from_error() {
 main() {
     local action="${1:-status}"
     shift
-    
+
     case "$action" in
         retry)
             local command="$1"

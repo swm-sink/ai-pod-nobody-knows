@@ -54,19 +54,19 @@ batch_configurations:
     strategy: "Sequential with parallel research"
     duration: "3-4 hours"
     use_case: "Testing and validation"
-    
+
   medium_batch:
     size: 50
     strategy: "Parallel research, queued production"
     duration: "12-16 hours"
     use_case: "Weekly production runs"
-    
+
   large_batch:
     size: 125
     strategy: "Full pipeline parallelization"
     duration: "36-48 hours"
     use_case: "Season production"
-    
+
   optimization:
     max_parallel_research: 5
     max_parallel_synthesis: 3
@@ -97,7 +97,7 @@ class BatchSession:
             "start_time": datetime.now(),
             "checkpoints": []
         }
-    
+
     def create_episode_session(self, episode_num):
         return {
             "episode_number": episode_num,
@@ -121,36 +121,36 @@ execution_pipeline:
   phase_1_research:
     parallelism: 5
     rate_limit: "10 requests/minute"
-    
+
     workflow:
       - Load episode topics from master list
       - Create research queue
       - Spawn parallel research agents
       - Monitor progress and costs
       - Aggregate results
-    
+
     error_handling:
       retry: "Failed episodes re-queued"
       fallback: "Sequential processing"
-      
+
   phase_2_production:
     parallelism: 3
     dependency: "Research complete"
-    
+
     workflow:
       - Queue completed research
       - Process scripts sequentially
       - Validate quality gates
       - Queue for audio synthesis
-    
+
     quality_gates:
       enforce: "All must pass"
       revision: "Automatic retry"
-      
+
   phase_3_audio:
     parallelism: 2
     rate_limit: "ElevenLabs API limits"
-    
+
     workflow:
       - Queue approved scripts
       - Synthesize with rate limiting
@@ -167,7 +167,7 @@ def generate_progress_report(batch_session):
     """
     elapsed = datetime.now() - batch_session.start_time
     eps_per_hour = batch_session.progress["completed"] / (elapsed.seconds / 3600)
-    
+
     report = f"""
     ╔════════════════════════════════════════╗
     ║     BATCH PRODUCTION DASHBOARD         ║
@@ -244,17 +244,17 @@ performance_targets:
     duration: "3-4 hours"
     throughput: "2.5-3.3 episodes/hour"
     cost: "$40-50 total"
-    
+
   medium_batch_50:
     duration: "12-16 hours"
     throughput: "3.1-4.2 episodes/hour"
     cost: "$200-250 total"
-    
+
   large_batch_125:
     duration: "36-48 hours"
     throughput: "2.6-3.5 episodes/hour"
     cost: "$500-625 total"
-    
+
   optimization_achieved:
     parallel_efficiency: 0.85
     resource_utilization: 0.92
@@ -269,12 +269,12 @@ resource_pools:
     perplexity: "10 requests/minute"
     elevenlabs: "100 requests/minute"
     websearch: "30 requests/minute"
-    
+
   concurrent_limits:
     research_agents: 5
     production_agents: 3
     audio_agents: 2
-    
+
   memory_management:
     max_sessions_in_memory: 10
     checkpoint_frequency: "Every 5 episodes"
@@ -289,15 +289,15 @@ failure_handling:
     action: "Isolate and continue batch"
     retry: "After batch completion"
     max_retries: 3
-    
+
   api_failure:
     action: "Exponential backoff"
     queue: "Failed episodes re-queued"
-    
+
   quality_failure:
     action: "Mark for revision"
     continue: "Process other episodes"
-    
+
   catastrophic_failure:
     action: "Save all checkpoints"
     recovery: "Resume from last checkpoint"
@@ -312,12 +312,12 @@ orchestration:
     - /research-workflow (parallel)
     - /production-workflow (sequential)
     - /audio-workflow (rate-limited)
-    
+
   monitoring:
     - Real-time progress dashboard
     - Cost aggregation tracking
     - Quality metrics rollup
-    
+
   outputs:
     batch_report: "Complete summary"
     episode_packages: "Individual results"

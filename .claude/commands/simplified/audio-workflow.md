@@ -89,13 +89,13 @@ voice_configuration:
   voice_id: "ZF6FPAbjXT4488VcRRnw"  # IMMUTABLE
   voice_name: "Amelia"
   model_id: "eleven_turbo_v2_5"
-  
+
   settings:
     stability: 0.65
     similarity_boost: 0.80
     style: 0.30
     use_speaker_boost: true
-    
+
   governance:
     immutable_without_permission: true
     source: ".claude/config/production-voice.json"
@@ -109,17 +109,17 @@ audio_quality_gates:
     minimum: 0.90
     target: 0.95
     episode_1_achieved: 0.9489
-    
+
   character_accuracy:
     minimum: 0.85
     target: 0.92
     episode_1_achieved: 0.9123
-    
+
   pronunciation_accuracy:
     minimum: 0.90
     target: 0.95
     critical_terms: [expert_names, technical_terms]
-    
+
   duration:
     target_minutes: 28
     tolerance: 1
@@ -141,12 +141,12 @@ synthesis_errors:
   api_failure:
     action: "Exponential backoff retry"
     max_attempts: 3
-    
+
   quality_failure:
     word_accuracy_low: "Adjust pronunciation guides"
     pacing_issues: "Modify SSML timing"
     artifacts: "Re-synthesize affected chunks"
-    
+
 cost_overrun:
   threshold: $4.00
   action: "Immediate halt"
@@ -159,13 +159,13 @@ cost_overrun:
 synthesis_strategy:
   default: "Single API call for entire script"
   threshold: 40000  # Characters
-  
+
   benefits:
     - No audio concatenation needed
     - Consistent voice characteristics
     - Natural flow maintained
     - 95% of episodes fit limit
-    
+
   chunking_fallback:
     when: "Script >40K characters"
     strategy: "Intelligent paragraph breaks"

@@ -43,12 +43,12 @@
 meta_prompting:
   13_steps: [explore, research, plan, decompose, implement, refactor, assess, validate-integration, validate-context, validate-system, validate-learning, validate-production, commit]
   quality_gates: "Each step requires measurable evidence"
-  
+
 walk_crawl_run:
   walk_phase: "FREE learning, no API keys"
   crawl_phase: "Limited API usage, <$10"
   run_phase: "Full production, optimized costs"
-  
+
 batch_processing:
   single_call_limit: "40,000 characters via ElevenLabs"
   batch_sizes: [10, 50, 125]
@@ -74,7 +74,7 @@ agent_patterns:
   invocation: "Use the [agent-name] agent to [action]"
   tool_inheritance: "Omit tools field for full MCP inheritance"
   specialization: "10 focused agents vs 19 over-specialized"
-  
+
 mcp_integrations:
   perplexity:
     models: ["sonar-pro", "sonar-reasoning"]
@@ -84,7 +84,7 @@ mcp_integrations:
     voices: "ZF6FPAbjXT4488VcRRnw (Amelia)"
     chunking: "Intelligent 5000 char chunks"
     ssml_support: "Full prosody control"
-    
+
 research_pipeline:
   depth: "4-stage research (discovery → deep-dive → validate → synthesis)"
   quality: "3-evaluator consensus (Claude, Gemini, Perplexity)"
@@ -114,17 +114,17 @@ quality_gates:
     word_accuracy: 0.90
     pronunciation: 0.85
     mos_score: 4.8/5.0
-    
+
 brand_voice:
   philosophy: "Intellectual humility"
   question_density: "8-10 per episode"
   tone: "Curious, humble, engaging"
-  
+
 cost_controls:
   per_episode_max: $4.00
   per_episode_target: $2.80
   budget_warning: "80% threshold"
-  
+
 anti_hallucination:
   verification: "Every claim must be tool-verified"
   citations: "Sources required for all facts"
@@ -155,12 +155,12 @@ common_issues:
   quality_failures:
     symptom: "Score below threshold"
     solution: "Review 3-evaluator consensus feedback"
-    
+
 system_health:
   mcp_servers: ["perplexity", "elevenlabs", "github"]
   critical_configs: ["production-voice.json", "quality_gates.yaml"]
   log_locations: [".claude/logs/", "sessions/"]
-  
+
 recovery_procedures:
   checkpoint_restore: "session-lifecycle.sh restore [checkpoint]"
   error_recovery: "session-lifecycle.sh error [code]"
@@ -295,7 +295,7 @@ recovery_procedures:
 ## 🎯 Next Steps
 
 1. **Review this index** for completeness
-2. **Validate preservation checklist** 
+2. **Validate preservation checklist**
 3. **Begin Phase A** content extraction
 4. **Create consolidated files** in order:
    - workflow.md (most complex)

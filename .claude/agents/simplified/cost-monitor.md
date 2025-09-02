@@ -88,7 +88,7 @@ class CostTracker:
         }
         self.api_calls = []
         self.start_time = datetime.now()
-    
+
     def track_api_call(self, provider, operation, units, cost):
         """
         Record individual API call costs
@@ -101,13 +101,13 @@ class CostTracker:
             "cost": cost,
             "running_total": self.costs["total"] + cost
         }
-        
+
         self.api_calls.append(call_record)
         self.update_totals(operation, cost)
         self.check_budget_status()
-        
+
         return call_record
-    
+
     def check_budget_status(self):
         """
         Enforce budget limits and alerts
@@ -116,7 +116,7 @@ class CostTracker:
             raise BudgetExceededError(
                 f"HARD STOP: Budget exceeded ${self.costs['total']:.2f}/${self.episode_budget:.2f}"
             )
-        
+
         if self.costs["total"] >= self.warning_threshold:
             self.send_warning_alert()
 ```
@@ -130,19 +130,19 @@ pre_execution_estimation:
     estimated_tokens: 15000
     websearch_queries: 3
     estimated_cost: $1.35
-    
+
   production_phase:
     script_generation: 8000 tokens
     quality_evaluation: 5000 tokens
     polish_operations: 3000 tokens
     estimated_cost: $0.15
-    
+
   audio_phase:
     script_characters: 35000
     synthesis_cost: $2.77
     validation_stt: $0.03
     estimated_cost: $2.80
-    
+
   total_estimate: $4.30
   budget_available: $4.00
   decision: "Optimize or increase budget"
@@ -156,7 +156,7 @@ def optimize_costs(current_usage):
     Provide cost optimization recommendations
     """
     optimizations = []
-    
+
     # Research optimization
     if current_usage["perplexity_tokens_per_query"] > 3000:
         optimizations.append({
@@ -165,7 +165,7 @@ def optimize_costs(current_usage):
             "recommendation": "Use more focused queries",
             "potential_savings": "$0.20-0.30 per episode"
         })
-    
+
     # Model tier optimization
     if current_usage["using_opus_for_simple_tasks"]:
         optimizations.append({
@@ -174,7 +174,7 @@ def optimize_costs(current_usage):
             "recommendation": "Use Sonnet for simple tasks",
             "potential_savings": "$0.10-0.15 per episode"
         })
-    
+
     # Batch processing savings
     if current_usage["episodes_per_batch"] < 10:
         optimizations.append({
@@ -183,7 +183,7 @@ def optimize_costs(current_usage):
             "recommendation": "Process 10+ episodes together",
             "potential_savings": "15-20% on API costs"
         })
-    
+
     return optimizations
 ```
 
@@ -194,7 +194,7 @@ def optimize_costs(current_usage):
   "cost_report": {
     "episode_number": 1,
     "timestamp": "2025-09-01T12:00:00Z",
-    
+
     "cost_breakdown": {
       "research": {
         "perplexity": 1.25,
@@ -214,21 +214,21 @@ def optimize_costs(current_usage):
       },
       "total": 4.30
     },
-    
+
     "budget_analysis": {
       "allocated": 4.00,
       "spent": 4.30,
       "overrun": 0.30,
       "percentage_used": 107.5
     },
-    
+
     "api_usage": {
       "perplexity_queries": 5,
       "perplexity_tokens": 15234,
       "elevenlabs_characters": 35421,
       "websearch_queries": 3
     },
-    
+
     "optimization_opportunities": [
       {
         "area": "research",
@@ -236,7 +236,7 @@ def optimize_costs(current_usage):
         "recommendation": "Reduce query scope"
       }
     ],
-    
+
     "trends": {
       "vs_previous_episode": "+5%",
       "vs_average": "+7.5%",
@@ -254,17 +254,17 @@ budget_governance:
     hard_limit: 4.00
     target: 2.80
     warning: 3.20
-    
+
   phase_allocation:
     research: 1.35  # 34%
     production: 0.15  # 4%
     audio: 2.80  # 62%
-    
+
   enforcement:
     pre_execution: "Estimate and verify"
     during_execution: "Real-time tracking"
     post_execution: "Reconciliation"
-    
+
   escalation:
     80_percent: "Warning alert"
     90_percent: "Approval required"
@@ -287,21 +287,21 @@ def generate_financial_dashboard(episodes_data):
             "min_cost": min(e["cost"] for e in episodes_data),
             "max_cost": max(e["cost"] for e in episodes_data)
         },
-        
+
         "cost_trends": {
             "weekly_average": calculate_weekly_average(episodes_data),
             "month_over_month": calculate_mom_change(episodes_data),
             "cost_per_minute": calculate_cost_per_minute(episodes_data),
             "efficiency_score": calculate_efficiency(episodes_data)
         },
-        
+
         "provider_breakdown": {
             "perplexity": sum_provider_costs(episodes_data, "perplexity"),
             "elevenlabs": sum_provider_costs(episodes_data, "elevenlabs"),
             "anthropic": sum_provider_costs(episodes_data, "anthropic"),
             "websearch": sum_provider_costs(episodes_data, "websearch")
         },
-        
+
         "roi_analysis": {
             "cost_per_episode": 4.27,
             "traditional_cost": 2150,  # Average traditional podcast cost
@@ -320,22 +320,22 @@ alert_configurations:
       threshold: 0.80
       message: "80% of budget consumed"
       action: "Notify and continue"
-      
+
     critical_90:
       threshold: 0.90
       message: "90% of budget - approval needed"
       action: "Pause for approval"
-      
+
     exceeded_100:
       threshold: 1.00
       message: "Budget exceeded - halting"
       action: "Immediate stop"
-  
+
   trend_alerts:
     cost_spike:
       condition: "Episode cost >20% above average"
       action: "Investigation required"
-      
+
     inefficiency:
       condition: "Cost per minute >$0.20"
       action: "Optimization review"
@@ -348,11 +348,11 @@ integration:
   hooks:
     pre_tool: "Cost estimation before execution"
     post_tool: "Actual cost recording"
-    
+
   monitoring:
     real_time: "Dashboard updates"
     session_tracking: "Episode cost aggregation"
-    
+
   reporting:
     per_episode: "Detailed breakdown"
     batch_summary: "Aggregate analytics"

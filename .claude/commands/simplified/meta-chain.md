@@ -238,7 +238,7 @@ progress_dashboard:
   completion_percentage: XX%
   time_elapsed: XX:XX
   confidence_level: X/10
-  
+
   checklist:
     ✅ Explore
     ✅ Research
@@ -264,7 +264,7 @@ core_principles:
   documentation: "Every step produces artifacts"
   validation: "Built-in quality checks"
   learning: "Continuous improvement focus"
-  
+
 execution_modes:
   full_chain: "Complete 13-step execution"
   selective: "Choose specific steps"
@@ -279,7 +279,7 @@ typical_duration:
   full_methodology: "8-12 hours"
   fast_track: "3-4 hours"
   per_step_average: "45 minutes"
-  
+
 optimization_tips:
   - Parallel research activities
   - Reuse existing patterns
@@ -313,16 +313,16 @@ step_validation:
 problem_types:
   feature_development:
     emphasis: [implement, refactor, test]
-    
+
   bug_fixing:
     emphasis: [explore, research, implement]
-    
+
   optimization:
     emphasis: [assess, iterate, validate]
-    
+
   architecture:
     emphasis: [research, plan, decompose]
-    
+
   documentation:
     emphasis: [research, complete]
 ```

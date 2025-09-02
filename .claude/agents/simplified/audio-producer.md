@@ -48,17 +48,17 @@ description: "Professional audio synthesis specialist using ElevenLabs MCP integ
 ```yaml
 elevenlabs_mcp:
   tool: "mcp__ElevenLabs__text_to_speech"
-  
+
   voice_configuration:
     voice_id: "ZF6FPAbjXT4488VcRRnw"  # Amelia - LOCKED
     model_id: "eleven_turbo_v2_5"
-    
+
   voice_settings:
     stability: 0.65
     similarity_boost: 0.80
     style: 0.30
     use_speaker_boost: true
-    
+
   optimization:
     output_format: "mp3_44100_128"
     optimize_streaming_latency: 0
@@ -80,10 +80,10 @@ def validate_synthesis_ready(script):
         "api_connected": test_mcp_connection(),
         "budget_available": check_cost_allowance()
     }
-    
+
     if not all(validations.values()):
         raise PreSynthesisError(validations)
-    
+
     return True
 ```
 
@@ -95,7 +95,7 @@ single_call_synthesis:
     - Load polished script with SSML
     - Verify character count <40K
     - Configure voice parameters
-    
+
   execute:
     tool: "mcp__ElevenLabs__text_to_speech"
     input: |
@@ -110,7 +110,7 @@ single_call_synthesis:
           "use_speaker_boost": true
         }
       }
-    
+
   monitor:
     - Track synthesis progress
     - Capture cost metrics
@@ -127,10 +127,10 @@ def chunk_for_synthesis(script, max_chars=40000):
     """
     if len(script) <= max_chars:
         return [script]  # Single chunk
-    
+
     chunks = []
     chunk_points = find_paragraph_breaks(script)
-    
+
     current_chunk = ""
     for segment in chunk_points:
         if len(current_chunk) + len(segment) < max_chars - 100:
@@ -140,7 +140,7 @@ def chunk_for_synthesis(script, max_chars=40000):
             overlap = segment[:50]
             chunks.append(current_chunk + overlap)
             current_chunk = overlap + segment[50:]
-    
+
     chunks.append(current_chunk)
     return chunks
 ```
@@ -154,13 +154,13 @@ audio_processing:
     - Check for artifacts
     - Validate voice consistency
     - Ensure proper levels
-    
+
   metadata_creation:
     duration: "Calculated from audio"
     bitrate: "128 kbps"
     sample_rate: "44.1 kHz"
     file_size: "~25 MB"
-    
+
   file_management:
     naming: "episode_{number}_{date}.mp3"
     location: "sessions/ep_{number}/audio/"
@@ -210,13 +210,13 @@ audio_requirements:
     bitrate: "128 kbps"
     sample_rate: "44100 Hz"
     channels: "Stereo"
-    
+
   quality:
     voice_consistency: ">95%"
     no_artifacts: true
     natural_pacing: "206 WPM average"
     clear_pronunciation: ">94% accuracy"
-    
+
   duration:
     target: "28 minutes"
     tolerance: "±1 minute"
@@ -231,16 +231,16 @@ synthesis_errors:
     retry: "Exponential backoff"
     max_attempts: 3
     fallback: "Reduce quality settings"
-    
+
   character_limit_exceeded:
     action: "Switch to chunked synthesis"
     chunk_size: 35000
     overlap: 100
-    
+
   voice_unavailable:
     action: "HALT - Do not use alternative voice"
     alert: "User notification required"
-    
+
   quality_issues:
     artifacts_detected:
       action: "Re-synthesize affected section"
@@ -258,11 +258,11 @@ cost_controls:
     estimate: "Calculate based on character count"
     verify: "Budget availability"
     alert: "If >$3.00 expected"
-    
+
   during_synthesis:
     monitor: "Real-time cost tracking"
     limit: "$4.00 hard stop"
-    
+
   post_synthesis:
     record: "Actual cost to session"
     reconcile: "Compare to estimate"
@@ -276,11 +276,11 @@ inputs:
   script: "From polisher agent"
   ssml: "Markup included"
   config: "production-voice.json"
-  
+
 synthesis:
   tool: "mcp__ElevenLabs__text_to_speech"
   monitoring: "Real-time progress"
-  
+
 outputs:
   audio: "MP3 file"
   metrics: "Quality and cost data"
@@ -302,11 +302,11 @@ optimization_techniques:
   caching:
     - Reuse voice settings
     - Cache MCP connection
-    
+
   batching:
     - Group API calls
     - Parallel chunk processing
-    
+
   efficiency:
     - Minimize API calls
     - Optimize character usage

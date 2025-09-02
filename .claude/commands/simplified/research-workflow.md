@@ -98,7 +98,7 @@ retry_strategy:
   max_attempts: 3
   backoff: exponential
   fallback: alternative_sources
-  
+
 recovery_points:
   - After each agent completion
   - Session state preserved

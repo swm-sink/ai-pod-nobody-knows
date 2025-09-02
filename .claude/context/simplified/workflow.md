@@ -82,12 +82,12 @@ validated_performance:
   production_time: 15-30 minutes
   quality_score: 9.1/10
   word_accuracy: 94.89%
-  
+
 scale_economics:
   10_episodes: $25.00 total
-  50_episodes: $110.00 total  
+  50_episodes: $110.00 total
   125_episodes: $250.00 total
-  
+
 quality_thresholds:
   brand_consistency: ≥0.90
   technical_accuracy: ≥0.85
@@ -195,19 +195,19 @@ stages:
     agents: [researcher, fact-checker, synthesizer]
     output: research_synthesis.json
     cost: ~$0.50-1.00
-    
+
   2_production:
     command: /production-workflow
     agents: [writer, polisher, judge]
     output: final_script.md
     cost: ~$0.75-1.50
-    
+
   3_audio:
     command: /audio-workflow
     agents: [audio-producer, audio-validator]
     output: episode.mp3
     cost: ~$1.50-2.00
-    
+
   total_cost: $2.75-4.50
   total_time: 15-30 minutes
 ```
@@ -223,12 +223,12 @@ optimization:
   parallel_research: "Run 5 research tasks concurrently"
   script_batching: "Process 10 scripts together"
   audio_synthesis: "Single-call for scripts <40K chars"
-  
+
 performance:
   10_episodes: "2-3 hours"
   50_episodes: "8-12 hours"
   125_episodes: "2-3 days"
-  
+
 cost_at_scale:
   per_episode: "$2.00-2.80 (30% savings)"
   total_125: "$250-350"
@@ -244,7 +244,7 @@ single_call_synthesis:
     - "Consistent voice throughout"
     - "20-30 second synthesis time"
     - "Simplified error handling"
-  
+
 fallback_chunking:
   trigger: ">40000 characters"
   chunk_size: 5000

@@ -48,12 +48,12 @@ description: "Audio quality assurance specialist using STT validation and compre
 ```yaml
 elevenlabs_stt:
   tool: "mcp__ElevenLabs__speech_to_text"
-  
+
   configuration:
     model: "whisper_large_v3"
     language: "en"
     include_timestamps: true
-    
+
   validation_targets:
     word_accuracy: 0.90
     character_accuracy: 0.85
@@ -70,7 +70,7 @@ transcription_process:
     - Load synthesized audio file
     - Load original script for comparison
     - Initialize metrics tracking
-    
+
   execute:
     tool: "mcp__ElevenLabs__speech_to_text"
     input: |
@@ -80,7 +80,7 @@ transcription_process:
         "language": "en",
         "include_timestamps": true
       }
-    
+
   capture:
     - Full transcript
     - Word timestamps
@@ -98,17 +98,17 @@ def calculate_accuracy_metrics(original_script, stt_transcript):
     original_words = tokenize(original_script)
     stt_words = tokenize(stt_transcript)
     word_accuracy = calculate_word_match(original_words, stt_words)
-    
+
     # Character-level accuracy
     char_accuracy = calculate_character_match(
-        original_script, 
+        original_script,
         stt_transcript
     )
-    
+
     # Critical term accuracy
     critical_terms = extract_critical_terms(original_script)
     term_accuracy = verify_critical_terms(critical_terms, stt_transcript)
-    
+
     return {
         "word_accuracy": word_accuracy,      # Target: ≥0.90
         "character_accuracy": char_accuracy,  # Target: ≥0.85
@@ -129,29 +129,29 @@ quality_checks:
     glitches:
       detection: "Sudden amplitude changes"
       threshold: "±20dB variation"
-      
+
     distortion:
       detection: "Frequency analysis"
       threshold: "THD <1%"
-      
+
     dropouts:
       detection: "Silence gaps >100ms"
       threshold: "0 acceptable"
-  
+
   voice_consistency:
     stability:
       metric: "Pitch variation"
       acceptable_range: "±10%"
-      
+
     character:
       metric: "Voice fingerprint"
       correlation: ">0.95"
-  
+
   pacing_analysis:
     average_wpm: 206
     acceptable_range: [190, 220]
     pause_distribution: "Natural"
-    
+
   duration_validation:
     target_minutes: 28
     tolerance: 1
@@ -171,7 +171,7 @@ def identify_issues(validation_results):
         "minor": [],       # Can fix if time
         "notes": []        # For future improvement
     }
-    
+
     # Critical issues - block release
     if validation_results["word_accuracy"] < 0.85:
         issues["critical"].append({
@@ -180,7 +180,7 @@ def identify_issues(validation_results):
             "value": validation_results["word_accuracy"],
             "action": "Re-synthesize with adjusted parameters"
         })
-    
+
     # Major issues - need attention
     if validation_results["pronunciation_errors"]:
         for error in validation_results["pronunciation_errors"]:
@@ -190,7 +190,7 @@ def identify_issues(validation_results):
                     "term": error["term"],
                     "action": "Update phoneme guide"
                 })
-    
+
     # Minor issues - quality improvements
     if validation_results["pacing_variation"] > 0.15:
         issues["minor"].append({
@@ -198,7 +198,7 @@ def identify_issues(validation_results):
             "variation": validation_results["pacing_variation"],
             "action": "Adjust SSML timing marks"
         })
-    
+
     return issues
 ```
 
@@ -209,28 +209,28 @@ def identify_issues(validation_results):
   "validation_report": {
     "audio_file": "episode_001.mp3",
     "validation_timestamp": "2025-09-01T11:30:00Z",
-    
+
     "accuracy_metrics": {
       "word_accuracy": 0.9489,
       "character_accuracy": 0.9123,
       "pronunciation_accuracy": 0.93,
       "composite_score": 0.935
     },
-    
+
     "quality_metrics": {
       "audio_clarity": 0.96,
       "voice_consistency": 0.98,
       "pacing_accuracy": 0.94,
       "artifact_free": true
     },
-    
+
     "duration_analysis": {
       "target_minutes": 28,
       "actual_minutes": 28.3,
       "within_tolerance": true,
       "average_wpm": 204
     },
-    
+
     "issues_found": {
       "critical": [],
       "major": [
@@ -244,7 +244,7 @@ def identify_issues(validation_results):
       "minor": [],
       "notes": []
     },
-    
+
     "validation_decision": {
       "status": "APPROVED_WITH_NOTES",
       "confidence": 0.92,
@@ -265,12 +265,12 @@ quality_gates:
     character_accuracy: 0.85
     no_critical_issues: true
     duration_compliance: true
-    
+
   targets:
     word_accuracy: 0.95
     character_accuracy: 0.92
     pronunciation_perfect: 1.00
-    
+
   episode_1_baseline:
     word_accuracy: 0.9489
     character_accuracy: 0.9123
@@ -287,21 +287,21 @@ approval_logic:
       - No critical issues
       - Composite score ≥0.90
     action: "Ready for publication"
-    
+
   APPROVED_WITH_NOTES:
     conditions:
       - All mandatory gates passed
       - Minor issues only
       - Composite score ≥0.85
     action: "Publish with documentation"
-    
+
   REVISION_REQUIRED:
     conditions:
       - Any mandatory gate failed
       - Major issues present
       - Composite score <0.85
     action: "Return to synthesis"
-    
+
   REJECTED:
     conditions:
       - Critical issues found
@@ -317,11 +317,11 @@ inputs:
   audio: "From audio-producer agent"
   original_script: "For comparison"
   quality_config: "Validation thresholds"
-  
+
 validation:
   stt_tool: "mcp__ElevenLabs__speech_to_text"
   analysis: "Comprehensive metrics"
-  
+
 outputs:
   report: "Validation results"
   decision: "Go/no-go determination"
@@ -343,11 +343,11 @@ validation_errors:
   stt_failure:
     retry: "With different model settings"
     fallback: "Manual review required"
-    
+
   metrics_below_threshold:
     action: "Detailed diagnostic report"
     recommendation: "Specific fixes"
-    
+
   unexpected_duration:
     investigation: "Check synthesis parameters"
     correction: "Adjust script or synthesis"
