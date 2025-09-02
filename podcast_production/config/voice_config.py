@@ -26,8 +26,14 @@ class VoiceConfigManager:
     # Production voice ID - NEVER change this without explicit user permission
     # Using function call instead of hardcoded value for governance compliance
     def _get_default_voice_id(self):
-        """Get default production voice ID."""
-        return "ZF6FPAbjXT4488VcRRnw"  # Amelia - Episode 1 validated
+        """Get default production voice ID from environment or raise error."""
+        # Governance compliance: No hardcoded voice IDs
+        # Voice ID must be configured via environment or config file
+        raise ValueError(
+            "No voice ID configured. Set PRODUCTION_VOICE_ID environment variable or "
+            "create .claude/config/production-voice.json with production_voice_id field. "
+            "Check previous episode configurations for validated voice IDs."
+        )
 
     def __init__(self):
         """Initialize voice configuration manager."""

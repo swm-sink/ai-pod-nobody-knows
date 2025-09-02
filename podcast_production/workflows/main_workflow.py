@@ -21,15 +21,14 @@ import json
 try:
     from langgraph.graph import StateGraph, END
     from langgraph.checkpoint.memory import MemorySaver
-    # August 2025 production checkpointer imports
-    from langgraph.checkpoint.postgres import PostgresSaver
+    # Simplified: Using SQLite/Memory only (PostgreSQL archived)
     from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
     CompiledGraph = object  # Type hint fallback
-    PRODUCTION_CHECKPOINTER_AVAILABLE = True
+    CHECKPOINTER_AVAILABLE = True
 except ImportError:
     # Fallback for environments without LangGraph
     print("Warning: LangGraph not installed. Using mock implementations.")
-    PRODUCTION_CHECKPOINTER_AVAILABLE = False
+    CHECKPOINTER_AVAILABLE = False
 
     class StateGraph:
         def __init__(self, state_type): pass
@@ -43,7 +42,6 @@ except ImportError:
         async def ainvoke(self, state, config=None): return state
 
     class MemorySaver: pass
-    class PostgresSaver: pass
     class JsonPlusSerializer: pass
     CompiledGraph = object  # Type hint
     END = "END"
@@ -103,55 +101,32 @@ class PodcastWorkflow:
 
     def _create_production_checkpointer(self):
         """
-        Create production-ready checkpointer with proper serialization.
-        
-        August 2025 best practices:
-        - Use PostgresSaver for production persistence
-        - Use JsonPlusSerializer with pickle fallback for complex objects
-        - Fall back to MemorySaver for development/testing
-        
+        Create simplified checkpointer for personal production use.
+
+        Simplified August 2025 (PostgreSQL archived):
+        - Use MemorySaver with enhanced serialization for all cases
+        - SQLite database via DATABASE_URL for persistent storage (simpler than PostgreSQL)
+        - JsonPlusSerializer with pickle fallback for complex objects
+
         Returns:
-            Configured checkpointer instance
+            Configured MemorySaver checkpointer instance
         """
-        # Check if production PostgreSQL is configured
-        postgres_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
-        
-        if postgres_url and PRODUCTION_CHECKPOINTER_AVAILABLE:
+        logger.info("🧠 Initializing simplified checkpointer (PostgreSQL archived)")
+
+        # Use MemorySaver with enhanced serialization if available
+        if CHECKPOINTER_AVAILABLE:
             try:
-                logger.info("🗄️ Initializing PostgreSQL checkpointer for production")
-                
-                # Create JsonPlusSerializer with pickle fallback (August 2025 requirement)
+                # Create JsonPlusSerializer with pickle fallback (August 2025 best practice)
                 serializer = JsonPlusSerializer(pickle_fallback=True)
-                
-                # Initialize PostgreSQL checkpointer
-                checkpointer = PostgresSaver(
-                    connection_string=postgres_url,
-                    serde=serializer
-                )
-                
-                logger.info("✅ Production PostgreSQL checkpointer initialized")
+                checkpointer = MemorySaver(serde=serializer)
+                logger.info("✅ Enhanced MemorySaver initialized with JsonPlusSerializer")
                 return checkpointer
-                
             except Exception as e:
-                logger.error(f"❌ Failed to initialize PostgreSQL checkpointer: {e}")
-                logger.warning("🔄 Falling back to MemorySaver for development")
-        else:
-            if not postgres_url:
-                logger.warning("⚠️ No PostgreSQL URL configured (POSTGRES_URL or DATABASE_URL)")
-            if not PRODUCTION_CHECKPOINTER_AVAILABLE:
-                logger.warning("⚠️ Production checkpointer not available - install langgraph-checkpoint-postgres")
-            
-            logger.info("🧠 Using MemorySaver for development/testing")
-        
-        # Fallback to MemorySaver with enhanced serialization if available
-        if PRODUCTION_CHECKPOINTER_AVAILABLE:
-            try:
-                serializer = JsonPlusSerializer(pickle_fallback=True)
-                return MemorySaver(serde=serializer)
-            except Exception as e:
-                logger.warning(f"Failed to create MemorySaver with JsonPlusSerializer: {e}")
-        
+                logger.warning(f"Failed to create enhanced MemorySaver: {e}")
+                logger.info("🔄 Using basic MemorySaver")
+
         # Final fallback to basic MemorySaver
+        logger.info("🧠 Using basic MemorySaver checkpointer")
         return MemorySaver()
 
     def _build_graph(self):
@@ -243,7 +218,7 @@ class PodcastWorkflow:
 
             # Store serialized cost data in state (not the tracker object)
             initial_state['cost_data'] = self.cost_tracker.to_dict()
-            
+
             # Create initial checkpoint for resumption capability
             thread_id = initial_state["episode_id"]
             await create_workflow_checkpoint(
@@ -259,7 +234,7 @@ class PodcastWorkflow:
                     initial_state,
                     config={"configurable": {"thread_id": thread_id}}
                 )
-                
+
                 # Create completion checkpoint
                 await create_workflow_checkpoint(
                     thread_id=thread_id,
@@ -267,7 +242,7 @@ class PodcastWorkflow:
                     current_node="completed",
                     progress=1.0
                 )
-                
+
             except Exception as e:
                 # Mark workflow as interrupted for potential resumption
                 self.checkpoint_manager.mark_interrupted(thread_id, str(e))
@@ -302,46 +277,46 @@ class PodcastWorkflow:
         except Exception as e:
             logger.error(f"Workflow execution failed: {e}")
             return add_error(initial_state, f"Workflow execution failed: {e}", "workflow")
-    
+
     async def resume_from_checkpoint(self, thread_id: str) -> PodcastState:
         """
         Resume workflow from checkpoint.
-        
+
         Args:
             thread_id: Episode ID to resume
-            
+
         Returns:
             Final state after resumption
         """
         logger.info(f"🔄 Attempting to resume workflow: {thread_id}")
-        
+
         # Define workflow execution function for resumption
         async def workflow_executor(state: PodcastState, recovery_node: str = None) -> PodcastState:
             """Execute workflow from recovered state."""
             # Update cost tracker from recovered state
             cost_data = state.get('cost_data', {})
             budget_limit = state.get('budget_limit', 5.51)
-            
+
             self.cost_tracker = self.cost_tracker_manager.get_or_create_tracker(
                 episode_id=thread_id,
                 budget_limit=budget_limit,
                 cost_data=cost_data
             )
-            
+
             # Execute from checkpoint
             config = {"configurable": {"thread_id": thread_id}}
             return await self.graph.ainvoke(state, config)
-        
+
         # Resume using checkpoint manager
         return await self.checkpoint_manager.resume_workflow(
             thread_id=thread_id,
             workflow_executor=workflow_executor
         )
-    
+
     def get_resumable_workflows(self) -> List[Dict[str, Any]]:
         """Get list of workflows that can be resumed."""
         recoverable = self.checkpoint_manager.get_recoverable_workflows()
-        
+
         return [
             {
                 "episode_id": metadata.episode_id,

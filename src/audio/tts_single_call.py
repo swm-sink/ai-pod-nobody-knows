@@ -23,7 +23,7 @@ class ElevenLabsSingleCall:
 
         Args:
             api_key: ElevenLabs API key (from environment variable)
-            voice_id: Amelia voice ID (ZF6FPAbjXT4488VcRRnw) - Episode 1 validated
+            voice_id: Production voice ID from configuration
         """
         self.api_key = api_key
         self.voice_id = voice_id  # Amelia - young and enthusiastic
@@ -42,7 +42,7 @@ class ElevenLabsSingleCall:
         }
 
         print(f"✅ ElevenLabs Single-Call Client Initialized")
-        print(f"   Voice: Amelia (ZF6FPAbjXT4488VcRRnw) - Episode 1 validated")
+        print(f"   Voice: Production voice ({self.voice_id})")
         print(f"   Model Target: eleven_turbo_v2_5 (40k chars/40min limit)")
         print(f"   Settings: Stability={self.voice_settings['stability']}, Similarity={self.voice_settings['similarity_boost']}")
 
@@ -407,7 +407,7 @@ def main():
     print("📚 Episode 1 Empirical Discoveries:")
     print("   ✅ ElevenLabs processes at 206 WPM (not 150 WPM)")
     print("   ✅ Direct API integration required (MCP integration failed)")
-    print("   ✅ Amelia voice (ZF6FPAbjXT4488VcRRnw) stability=0.65, similarity=0.8, style=0.3")
+    print("   ✅ Production voice settings: stability=0.65, similarity=0.8, style=0.3")
     print("   ✅ Cost accuracy: $2.77 actual vs $2.70 estimated (99.7% accuracy)")
     print("=" * 70)
 
@@ -473,7 +473,7 @@ def main():
 
         print(f"🚀 Method: Single API call (no chunking)")
         print(f"📈 Model: {result.get('model_used', 'N/A')}")
-        print(f"🎙️ Voice: Amelia ({AMELIA_VOICE_ID}) - Episode 1 validated")
+        print(f"🎙️ Voice: Production voice ({AMELIA_VOICE_ID})")
     else:
         print("❌ Status: FAILED")
         print(f"🚨 Error: {result.get('error', 'Unknown error')}")

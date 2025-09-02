@@ -184,8 +184,10 @@ class SystemHealthChecker:
             voice_id = get_production_voice_id()
             response_time = (time.time() - start_time) * 1000
 
-            # Expected production voice ID
-            expected_voice = "ZF6FPAbjXT4488VcRRnw"
+            # Get expected production voice ID from config
+            from src.podcast_production.config.voice_config import VoiceConfig
+            voice_config = VoiceConfig()
+            expected_voice = voice_config.production_voice_id
 
             if voice_id == expected_voice:
                 return HealthCheckResult(

@@ -1,22 +1,22 @@
 {
-  "timestamp": "2025-09-02T05:36:35.741460+00:00",
-  "validation_duration_seconds": 0.18,
-  "overall_score": 47,
+  "timestamp": "2025-09-02T01:57:18.469472+00:00",
+  "validation_duration_seconds": 0.19,
+  "overall_score": 18,
   "total_max_score": 78,
-  "overall_percentage": 60,
+  "overall_percentage": 23,
   "readiness_level": "NEEDS IMPROVEMENT",
   "readiness_status": "\u274c INSUFFICIENT",
   "production_ready_95_percent": false,
   "category_results": {
     "Architecture Compliance": {
-      "score": 8,
+      "score": 0,
       "max_score": 10,
-      "percentage": 80
+      "percentage": 0
     },
     "Error Handling System": {
-      "score": 8,
+      "score": 0,
       "max_score": 8,
-      "percentage": 100
+      "percentage": 0
     },
     "Cost Control System": {
       "score": 6,
@@ -29,19 +29,19 @@
       "percentage": 0
     },
     "Quality Assurance": {
-      "score": 6,
+      "score": 4,
       "max_score": 6,
-      "percentage": 100
+      "percentage": 66
     },
     "Deployment Readiness": {
-      "score": 8,
+      "score": 0,
       "max_score": 10,
-      "percentage": 80
+      "percentage": 0
     },
     "Environment Configuration": {
-      "score": 1,
+      "score": 3,
       "max_score": 8,
-      "percentage": 12
+      "percentage": 37
     },
     "Governance Compliance": {
       "score": 2,
@@ -49,21 +49,23 @@
       "percentage": 33
     },
     "Observability System": {
-      "score": 6,
+      "score": 3,
       "max_score": 6,
-      "percentage": 100
+      "percentage": 50
     },
     "System Health Check": {
-      "score": 2,
+      "score": 0,
       "max_score": 10,
-      "percentage": 20
+      "percentage": 0
     }
   },
   "recommendations": [
+    "\ud83d\udd27 Improve Architecture Compliance: 0% - needs attention",
+    "\ud83d\udd27 Improve Error Handling System: 0% - needs attention",
     "\ud83d\udd27 Improve Database System: 0% - needs attention",
-    "\ud83d\udd27 Improve Environment Configuration: 12% - needs attention",
-    "\ud83d\udd27 Improve System Health Check: 20% - needs attention",
+    "\ud83d\udee1\ufe0f Implement comprehensive error handling and retry logic",
     "\ud83d\uddc4\ufe0f Configure and test database connectivity",
+    "\ud83d\ude80 Set up deployment automation and health checks",
     "\u2699\ufe0f Complete environment configuration and validation"
   ],
   "system_info": {

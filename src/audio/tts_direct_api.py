@@ -24,7 +24,7 @@ class ElevenLabsDirectAPI:
 
         Args:
             api_key: ElevenLabs API key (from environment variable for security)
-            voice_id: Amelia voice ID (ZF6FPAbjXT4488VcRRnw) - Episode 1 validated
+            voice_id: Production voice ID from configuration
         """
         if not api_key:
             raise ValueError("API key is required for TTS synthesis")
@@ -46,7 +46,7 @@ class ElevenLabsDirectAPI:
         }
 
         print(f"✅ ElevenLabs client initialized")
-        print(f"   Voice: Amelia (ZF6FPAbjXT4488VcRRnw)")
+        print(f"   Voice: Production voice ({self.voice_id})")
         print(f"   Settings: Stability={self.voice_settings['stability']}, Similarity={self.voice_settings['similarity_boost']}")
 
     def validate_api_key(self):

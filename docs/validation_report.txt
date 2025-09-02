@@ -1,0 +1,32 @@
+
+============================================================
+API KEY VALIDATION REPORT
+============================================================
+Generated: 2025-09-01 06:13:00
+Environment: development
+
+SUMMARY
+----------------------------------------
+Total Providers: 3
+✅ Successful: 3
+❌ Failed: 0
+
+DETAILED RESULTS
+----------------------------------------
+
+✅ LangFuse:
+   Status: Connected
+   Message: Keys validated (public: ...7fa4)
+   Tested: 2025-09-01T06:13:00.536392
+
+✅ Perplexity:
+   Status: Connected
+   Message: Key validated (...f37f)
+   Tested: 2025-09-01T06:13:00.536432
+
+✅ OpenRouter:
+   Status: Connected
+   Message: Key validated (...c853)
+   Tested: 2025-09-01T06:13:00.536463
+
+============================================================

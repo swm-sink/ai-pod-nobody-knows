@@ -25,27 +25,28 @@ services:
     networks:
       - podcast_network
 
-  # PostgreSQL for persistent data storage (optional, fallback)
-  postgres:
-    image: postgres:15-alpine
-    container_name: podcast_postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-podcast_production}
-      POSTGRES_USER: ${POSTGRES_USER:-podcast_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_in_production}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backup/postgres_init.sql:/docker-entrypoint-initdb.d/init.sql
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-podcast_user}"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    networks:
-      - podcast_network
+  # PostgreSQL archived - using SQLite only for simplicity
+  # Uncomment below if scaling beyond 100 episodes/month
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: podcast_postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: ${POSTGRES_DB:-podcast_production}
+  #     POSTGRES_USER: ${POSTGRES_USER:-podcast_user}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me_in_production}
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #     - ./backup/postgres_init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-podcast_user}"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #   networks:
+  #     - podcast_network
 
   # Main podcast production application
   podcast_app:
@@ -57,12 +58,11 @@ services:
     depends_on:
       redis:
         condition: service_healthy
-      postgres:
-        condition: service_healthy
+      # postgres dependency archived - using SQLite only
     environment:
       # Load from .env file
       - REDIS_URI=redis://redis:6379
-      - POSTGRES_URI=postgresql://${POSTGRES_USER:-podcast_user}:${POSTGRES_PASSWORD:-change_me_in_production}@postgres:5432/${POSTGRES_DB:-podcast_production}
+      # POSTGRES_URI archived - using SQLite via DATABASE_URL
       - PRODUCTION_MODE=true
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     env_file:
@@ -136,8 +136,8 @@ services:
 volumes:
   redis_data:
     driver: local
-  postgres_data:
-    driver: local
+  # postgres_data:  # Archived - using SQLite only
+  #   driver: local
   prometheus_data:
     driver: local
   grafana_data:

@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     g++ \
     curl \
     redis-tools \
-    postgresql-client \
+    # postgresql-client archived - using SQLite only \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables

@@ -1,45 +1,37 @@
 {
-  "timestamp": "2025-09-01T15:56:38.957603+00:00",
-  "overall_status": "degraded",
-  "total_response_time_ms": 3.7841796875,
+  "timestamp": "2025-09-02T05:36:35.732687+00:00",
+  "overall_status": "unhealthy",
+  "total_response_time_ms": 2.505064010620117,
   "summary": {
     "total_checks": 10,
-    "healthy": 6,
+    "healthy": 4,
     "degraded": 4,
-    "unhealthy": 0,
-    "health_percentage": 60
+    "unhealthy": 2,
+    "health_percentage": 40
   },
   "components": [
     {
       "component": "database",
-      "status": "healthy",
-      "response_time_ms": 1.8100738525390625,
-      "details": {
-        "type": "sqlite",
-        "environment": "development",
-        "connection_available": true
-      },
-      "error": null,
-      "timestamp": "2025-09-01T15:56:38.955819+00:00",
-      "healthy": true
+      "status": "unhealthy",
+      "response_time_ms": 0.38814544677734375,
+      "details": {},
+      "error": "No module named 'podcast_production.config.database_config'",
+      "timestamp": "2025-09-02T05:36:35.730670+00:00",
+      "healthy": false
     },
     {
       "component": "voice_config",
-      "status": "healthy",
-      "response_time_ms": 0.20694732666015625,
-      "details": {
-        "voice_id": "ZF6FPAbjXT4488VcRRnw",
-        "matches_production": true,
-        "governance_compliant": true
-      },
-      "error": null,
-      "timestamp": "2025-09-01T15:56:38.956171+00:00",
-      "healthy": true
+      "status": "unhealthy",
+      "response_time_ms": 0.2460479736328125,
+      "details": {},
+      "error": "No voice ID configured. Set PRODUCTION_VOICE_ID environment variable or create .claude/config/production-voice.json with production_voice_id field. Check previous episode configurations for validated voice IDs.",
+      "timestamp": "2025-09-02T05:36:35.731036+00:00",
+      "healthy": false
     },
     {
       "component": "cost_controls",
       "status": "healthy",
-      "response_time_ms": 0.00476837158203125,
+      "response_time_ms": 0.0050067901611328125,
       "details": {
         "max_episode_cost": 5.51,
         "cost_tracking_enabled": true,
@@ -47,70 +39,70 @@
         "production_compliant": true
       },
       "error": null,
-      "timestamp": "2025-09-01T15:56:38.956182+00:00",
+      "timestamp": "2025-09-02T05:36:35.731048+00:00",
       "healthy": true
     },
     {
       "component": "quality_config",
       "status": "healthy",
-      "response_time_ms": 0.0019073486328125,
+      "response_time_ms": 0.0030994415283203125,
       "details": {
         "quality_threshold": 8.0,
         "validation_required": true,
         "production_compliant": true
       },
       "error": null,
-      "timestamp": "2025-09-01T15:56:38.956186+00:00",
+      "timestamp": "2025-09-02T05:36:35.731053+00:00",
       "healthy": true
     },
     {
       "component": "error_handling",
       "status": "healthy",
-      "response_time_ms": 1.3458728790283203,
+      "response_time_ms": 1.5540122985839844,
       "details": {
         "retry_handler_available": true,
         "circuit_breaker_available": true,
         "error_recovery_enabled": true
       },
       "error": null,
-      "timestamp": "2025-09-01T15:56:38.957535+00:00",
+      "timestamp": "2025-09-02T05:36:35.732611+00:00",
       "healthy": true
     },
     {
       "component": "observability",
       "status": "healthy",
-      "response_time_ms": 0.00286102294921875,
+      "response_time_ms": 0.0040531158447265625,
       "details": {
         "langfuse_enabled": true,
         "keys_configured": true,
         "monitoring_ready": true
       },
       "error": null,
-      "timestamp": "2025-09-01T15:56:38.957543+00:00",
+      "timestamp": "2025-09-02T05:36:35.732624+00:00",
       "healthy": true
     },
     {
       "component": "api_openai",
       "status": "degraded",
-      "response_time_ms": 0.0019073486328125,
+      "response_time_ms": 0.0021457672119140625,
       "details": {
         "configured": false,
         "endpoint": "https://api.openai.com/v1/models"
       },
       "error": "API key not configured",
-      "timestamp": "2025-09-01T15:56:38.957593+00:00",
+      "timestamp": "2025-09-02T05:36:35.732677+00:00",
       "healthy": false
     },
     {
       "component": "api_anthropic",
       "status": "degraded",
-      "response_time_ms": 0.0007152557373046875,
+      "response_time_ms": 0.00095367431640625,
       "details": {
         "configured": false,
         "endpoint": "https://api.anthropic.com/v1/messages"
       },
       "error": "API key not configured",
-      "timestamp": "2025-09-01T15:56:38.957596+00:00",
+      "timestamp": "2025-09-02T05:36:35.732680+00:00",
       "healthy": false
     },
     {
@@ -122,22 +114,22 @@
         "endpoint": "https://api.perplexity.ai/chat/completions"
       },
       "error": "API key not configured",
-      "timestamp": "2025-09-01T15:56:38.957597+00:00",
+      "timestamp": "2025-09-02T05:36:35.732681+00:00",
       "healthy": false
     },
     {
       "component": "api_elevenlabs",
       "status": "degraded",
-      "response_time_ms": 0.0,
+      "response_time_ms": 0.00095367431640625,
       "details": {
         "configured": false,
         "endpoint": "https://api.elevenlabs.io/v1/models"
       },
       "error": "API key not configured",
-      "timestamp": "2025-09-01T15:56:38.957598+00:00",
+      "timestamp": "2025-09-02T05:36:35.732682+00:00",
       "healthy": false
     }
   ],
-  "environment": "development",
+  "environment": "unknown",
   "version": "1.0.0"
 }

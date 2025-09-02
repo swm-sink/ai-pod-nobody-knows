@@ -32,6 +32,7 @@ from core.config.manager import ConfigManager, get_config_manager
 from core.state import create_initial_state, validate_state
 from core.logging_config import setup_logging as setup_app_logging
 from core.security import validate_api_keys, check_required_keys, sanitize_topic
+from core.monitoring import create_simple_monitor
 from workflows.main_workflow import execute_workflow
 
 
@@ -61,7 +62,7 @@ def validate_environment() -> None:
         api_key_results = validate_api_keys()
         valid_count = sum(api_key_results.values())
         total_count = len(api_key_results)
-        
+
         if valid_count == 0:
             logger.error("No valid API keys found")
         elif valid_count < total_count:
@@ -69,11 +70,11 @@ def validate_environment() -> None:
             logger.warning("Use --dry-run to test without APIs")
         else:
             logger.info(f"All {valid_count} API keys validated successfully")
-        
+
         required_valid, required_msg = check_required_keys()
         if not required_valid:
             logger.warning(f"Required API keys check: {required_msg}")
-        
+
     except Exception as e:
         logger.error(f"Security validation error: {e}")
 
@@ -218,9 +219,21 @@ async def main() -> None:
 
         logger.info(f"Episode ID: {initial_state['episode_id']}")
 
-        # Execute workflow
-        logger.info("Starting podcast production workflow...")
-        final_state = await execute_workflow(
+        # Initialize monitoring system
+        logger.info("Initializing production monitoring...")
+        monitor = create_simple_monitor(budget_limit=args.budget)
+
+        # Start monitoring the full episode production
+        with monitor.monitor_stage("full_episode_production", expected_cost=args.budget) as metrics:
+            logger.info("Starting podcast production workflow...")
+
+            # Track initial metrics (PerformanceMetrics doesn't have metadata)
+            logger.info(f"Monitoring episode: {initial_state['episode_id']}")
+            logger.info(f"Topic: {sanitized_topic}")
+            logger.info(f"Budget: ${args.budget:.2f}")
+
+            # Execute workflow
+            final_state = await execute_workflow(
             topic=args.topic,
             budget=args.budget,
             output_dir=str(output_dir),
@@ -228,6 +241,45 @@ async def main() -> None:
             verbose=args.verbose,
             config=config_manager._config_cache
         )
+
+            # Complete monitoring and check cost thresholds
+            total_cost = final_state.get('total_cost', 0.0)
+
+            # Log final metrics (PerformanceMetrics tracks internally)
+            workflow_success = final_state.get('current_stage') == 'completed'
+            logger.info(f"Final cost: ${total_cost:.4f}")
+            logger.info(f"Workflow success: {workflow_success}")
+            logger.info(f"Final stage: {final_state.get('current_stage', 'unknown')}")
+
+            # Check cost thresholds and alert
+            if total_cost > 0:
+                monitor.check_cost_threshold(total_cost, operation="episode_production")
+
+                # Budget compliance logging
+                budget_usage = (total_cost / args.budget) * 100
+                if budget_usage > 90:
+                    logger.error(f"💸 BUDGET EXCEEDED: Used ${total_cost:.4f} of ${args.budget:.2f} budget ({budget_usage:.1f}%)")
+                elif budget_usage > 80:
+                    logger.warning(f"⚠️ HIGH BUDGET USAGE: Used ${total_cost:.4f} of ${args.budget:.2f} budget ({budget_usage:.1f}%)")
+                else:
+                    logger.info(f"💰 Budget usage: ${total_cost:.4f} of ${args.budget:.2f} ({budget_usage:.1f}%)")
+
+        # Get monitoring summary
+        monitoring_summary = monitor.get_summary()
+        performance_alerts = monitor.get_performance_alerts()
+
+        # Log performance summary
+        logger.info("📊 Production Performance Summary:")
+        logger.info(f"  Total Duration: {monitoring_summary.get('total_duration_seconds', 0):.1f} seconds")
+        logger.info(f"  Final Cost: ${monitoring_summary.get('total_cost_dollars', 0):.4f}")
+        logger.info(f"  Budget Utilization: {monitoring_summary.get('budget_utilization_percent', 0):.1f}%")
+        logger.info(f"  Stages Completed: {monitoring_summary.get('successful_stages', 0)}")
+
+        # Log alerts if any
+        if performance_alerts:
+            logger.warning("⚠️ Performance Alerts:")
+            for alert in performance_alerts:
+                logger.warning(f"  - {alert['type']}: {alert['message']}")
 
         # Report results
         print("\n" + "=" * 60)
