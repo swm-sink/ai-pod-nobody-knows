@@ -19,6 +19,7 @@ from core.observability import get_observability, observe_agent, PodcastObservab
 
 import logging
 import os
+import asyncio
 from typing import Dict, Any, Literal, List, Optional, Union
 from pathlib import Path
 import json
@@ -73,6 +74,15 @@ from core.state import PodcastState, update_stage, add_error, update_cost, is_ov
 from core.cost_tracker import CostTracker, BudgetExceededException, create_cost_tracker
 from core.cost_tracker_manager import get_cost_tracker_manager
 from core.checkpoint_manager import get_checkpoint_manager, create_workflow_checkpoint
+
+# September 2025 Enhanced Features
+from core.provider_failover import (
+    ProviderFailoverManager, 
+    ProviderConfig, 
+    LoadBalancingStrategy
+)
+from core.parallel_executor import ParallelExecutor, ParallelTask, TaskPriority
+from core.brand_consistency import BrandConsistencyEngine
 
 # Import all production agents
 from agents.research_discovery import ResearchDiscoveryAgent
@@ -139,6 +149,25 @@ class PodcastWorkflow:
                 logger.info("   CallbackHandler created without constructor args")
             except Exception as e:
                 logger.warning(f"Failed to initialize LangFuse: {e}")
+        
+        # September 2025 Enhanced Features Initialization
+        # Initialize provider failover manager for resilient API calls
+        self.failover_manager = self._init_failover_manager()
+        
+        # Initialize parallel executor for concurrent operations
+        self.parallel_executor = ParallelExecutor(
+            max_concurrent=self.config.get("max_parallel", 5),
+            enable_monitoring=True
+        )
+        
+        # Initialize brand consistency engine for quality validation
+        self.brand_engine = BrandConsistencyEngine(
+            model_name="all-MiniLM-L6-v2",
+            exemplar_path=self.config.get("brand_exemplars"),
+            enable_adaptive_learning=True
+        )
+        
+        logger.info("✅ Enhanced features initialized: Failover, Parallel Processing, Brand Consistency")
         
         self.graph = self._build_graph()
 
@@ -978,6 +1007,44 @@ Thank you for joining us today!
             return "skip"
 
         return "generate"
+    
+    def _init_failover_manager(self) -> ProviderFailoverManager:
+        """
+        Initialize provider failover manager with September 2025 patterns.
+        
+        Configures multiple providers with health monitoring and automatic failover.
+        """
+        providers = [
+            ProviderConfig(
+                name="perplexity",
+                base_url="https://api.perplexity.ai",
+                api_key=self.config.get("perplexity_api_key", os.getenv("PERPLEXITY_API_KEY", "")),
+                priority=1,
+                weight=2.0,
+                models=["llama-3.1-sonar-large-128k-online", "llama-3.1-sonar-small-128k-online"],
+                health_endpoint="/v1/models"
+            ),
+            ProviderConfig(
+                name="openrouter",
+                base_url="https://openrouter.ai/api/v1",
+                api_key=self.config.get("openrouter_api_key", os.getenv("OPENROUTER_API_KEY", "")),
+                priority=2,
+                weight=1.5,
+                models=["anthropic/claude-3-opus", "anthropic/claude-3-sonnet"],
+                health_endpoint="/models"
+            )
+        ]
+        
+        manager = ProviderFailoverManager(
+            providers=providers,
+            strategy=LoadBalancingStrategy.WEIGHTED_ROUND_ROBIN,
+            health_check_interval=60,  # Check health every 60 seconds
+            enable_circuit_breaker=True,
+            enable_monitoring=True
+        )
+        
+        logger.info("✅ Provider failover manager initialized with weighted round-robin")
+        return manager
 
 
 def create_workflow(config: Dict[str, Any] = None) -> PodcastWorkflow:
