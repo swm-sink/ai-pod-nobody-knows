@@ -4,7 +4,7 @@ title = "ai-podcasts-nobody-knows gitleaks config"
 description = "Ignore generated/local artifacts and common false positives"
 paths = [
   "audio-output/.*",
-  "projects/nobody-knows/output/.*",
+  "nobody-knows/output/.*",
   "\\.claude/mcp-servers/.*",
   "\\.secrets\\.baseline",
   "node_modules/",

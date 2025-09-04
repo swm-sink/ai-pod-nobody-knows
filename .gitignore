@@ -32,9 +32,9 @@ logs/
 docs/archive/
 
 # Test sessions
-sessions/test_*/
-sessions/ep_test_*/
-sessions/archive/
+nobody-knows/production/test_*/
+nobody-knows/production/ep_test_*/
+nobody-knows/production/archive/
 
 # Analysis and working files
 /*.txt

@@ -134,7 +134,7 @@ fi
 
 # Test 7: Check basic file structure
 echo "📁 Test 7: File Structure"
-required_dirs=(".claude/agents/simplified" ".claude/commands/simplified" ".claude/hooks/simplified")
+required_dirs=(".claude/agents" ".claude/commands" ".claude/hooks" ".claude/config" ".claude/context")
 missing_dirs=()
 
 for dir in "${required_dirs[@]}"; do

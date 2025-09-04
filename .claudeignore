@@ -35,7 +35,7 @@ venv/
 
 # Prevent auto-loading of project outputs
 projects/*/output/
-projects/*/sessions/
+nobody-knows/production/ep_*/
 logs/
 temp/
 
