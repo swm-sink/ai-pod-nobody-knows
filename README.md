@@ -344,40 +344,51 @@ All agents are in `.claude/agents/` (14 agents total):
 ---
 
 
-## 🚶‍♂️ WALK-CRAWL-RUN Learning Progression
+## 🚀 Your Learning Journey
 
-**Technical:** Progressive complexity introduction with cost-gated milestones
+**Technical:** Progressive complexity introduction with cost-gated milestones for optimal AI orchestration mastery
 **Simple:** Like learning to cook - first read recipes, then try simple dishes, finally create feasts
 
-### 🚶 WALK Phase (Weeks 1-4) - Complete ✅
-- **Cost:** FREE - No API keys needed
-- **Focus:** Understanding concepts without spending money
-- **Activities:**
-  - ✅ Set up environment
-  - ✅ Read all context files
-  - ✅ Create agent/command structures
-  - ✅ Test with mock data
-- **Status:** Complete - Ready for CRAWL phase
+### 🚶 WALK → 🐾 CRAWL → 🏃 RUN
 
-### 🐾 CRAWL Phase (Weeks 5-12) - Current Phase 🎯
-- **Cost:** $20-50 total
-- **Focus:** Connect APIs, produce first episodes
-- **Activities:**
-  - ✅ Configure MCP servers
-  - ⏳ Test with small batches
-  - ⏳ Monitor costs closely
-  - ⏳ Optimize prompts
-- **Status:** Ready to begin production
+| Phase | Cost | Goal | Status | Next Action |
+|-------|------|------|---------|-------------|
+| **🚶 WALK** | FREE | Learn concepts | ✅ Complete | [✅ Ready for CRAWL](#crawl-ready) |
+| **🐾 CRAWL** | $5-10 | First episode | 🎯 Current | [🚀 Begin Production](#crawl-start) |
+| **🏃 RUN** | $50+/mo | Scale up | 🔒 Locked | Complete CRAWL first |
 
-### 🏃 RUN Phase (Weeks 13+)
-- **Cost:** $50-100/month
-- **Focus:** Scale production
-- **Activities:**
-  - Batch production
-  - Season management
-  - Quality automation
-  - Cost optimization
-- **Status:** Future phase
+<details>
+<summary>📖 <strong>Phase Details</strong> (expand to learn more)</summary>
+
+#### 🚶 WALK Phase - Learning Foundation
+**🎯 Goal**: Understand the system without spending money  
+**⏱️ Time**: 2-4 hours  
+**✅ You've Completed**: Environment setup, documentation review, concept understanding
+
+#### 🐾 CRAWL Phase - First Success {#crawl-ready}
+**🎯 Goal**: Produce your first professional podcast episode  
+**⏱️ Time**: 1-2 hours  
+**💰 Budget**: $5-10 total  
+**🚀 Ready to start**: All systems tested and validated
+
+#### 🏃 RUN Phase - Production Scale
+**🎯 Goal**: Reliable podcast production at $5.51/episode  
+**⏱️ Time**: Ongoing  
+**💰 Budget**: $50-100/month for regular production
+
+</details>
+
+### ✅ CRAWL Phase Readiness Check {#crawl-start}
+
+**Before spending money, confirm you can answer YES to each:**
+- [ ] I understand what this system does (creates professional podcasts)
+- [ ] I know my control method (slash commands in main chat)
+- [ ] I've run system validation commands successfully  
+- [ ] I'm ready to spend $5-10 on my first episode
+- [ ] I have a topic in mind for my first podcast
+
+**All YES?** → You're ready to produce your first episode!  
+**Any NO?** → Review the documentation and run validation commands
 
 ---
 
@@ -413,7 +424,7 @@ All agents are in `.claude/agents/` (14 agents total):
 - `CLAUDE.md` - Master system prompt with educational requirements
 - `.claude/README.md` - Technical details and structure
 - `.claude/sessions/` - Project status and handovers
-- `.claude/context/foundation/` - Core concepts and phases
+- `.claude/context/` - Core concepts, phases, and system guides
 
 ---
 

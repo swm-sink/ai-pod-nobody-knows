@@ -20,7 +20,7 @@ repos:
       - id: detect-secrets
         args:
           - --baseline
-          - .secrets.baseline
+          - config/.secrets.baseline
         exclude: |
           (?x)^(
             node_modules/|

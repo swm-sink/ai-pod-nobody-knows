@@ -1,0 +1,105 @@
+title = "Gitleaks Configuration for AI Podcast Production"
+
+[extend]
+# Use default rules and add custom ones
+useDefault = true
+
+# Custom rules for project-specific API keys
+[[rules]]
+id = "elevenlabs-api-key"
+description = "ElevenLabs API Key"
+regex = '''(?i)(elevenlabs[_\-\s]?(api)?[_\-\s]?key|ELEVENLABS_API_KEY)\s*[=:]\s*['"]?([a-zA-Z0-9]{32,})['"]?'''
+tags = ["key", "elevenlabs"]
+
+[[rules]]
+id = "perplexity-api-key"
+description = "Perplexity API Key"
+regex = '''(?i)(perplexity[_\-\s]?(api)?[_\-\s]?key|PERPLEXITY_API_KEY)\s*[=:]\s*['"]?(pplx-[a-zA-Z0-9]{48,})['"]?'''
+tags = ["key", "perplexity"]
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API Key"
+regex = '''(?i)(anthropic[_\-\s]?(api)?[_\-\s]?key|ANTHROPIC_API_KEY)\s*[=:]\s*['"]?(sk-ant-[a-zA-Z0-9-]{48,})['"]?'''
+tags = ["key", "anthropic"]
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API Key"
+regex = '''(?i)(openai[_\-\s]?(api)?[_\-\s]?key|OPENAI_API_KEY)\s*[=:]\s*['"]?(sk-[a-zA-Z0-9]{48,})['"]?'''
+tags = ["key", "openai"]
+
+[[rules]]
+id = "google-api-key"
+description = "Google API Key"
+regex = '''(?i)(google[_\-\s]?(api)?[_\-\s]?key|GOOGLE_API_KEY)\s*[=:]\s*['"]?(AIza[a-zA-Z0-9-_]{35})['"]?'''
+tags = ["key", "google"]
+
+[[rules]]
+id = "langfuse-secret"
+description = "Langfuse Secret Key"
+regex = '''(?i)(langfuse[_\-\s]?secret[_\-\s]?key|LANGFUSE_SECRET_KEY)\s*[=:]\s*['"]?([a-zA-Z0-9]{32,})['"]?'''
+tags = ["key", "langfuse"]
+
+[[rules]]
+id = "openrouter-api-key"
+description = "OpenRouter API Key"
+regex = '''(?i)(openrouter[_\-\s]?(api)?[_\-\s]?key|OPENROUTER_API_KEY)\s*[=:]\s*['"]?(sk-or-[a-zA-Z0-9]{48,})['"]?'''
+tags = ["key", "openrouter"]
+
+# Allowlist configuration
+[allowlist]
+# Files that may contain example keys
+paths = [
+    '''\.env\.example$''',
+    '''\.env\.template$''',
+    '''\.env\..+\.template$''',
+    '''.*\.example\.yml$''',
+    '''.*\.template$''',
+    '''test_.*\.py$''',
+    '''TEST_.*\.md$''',
+    '''docs/.*\.md$''',
+    '''README\.md$''',
+    '''\.claude/.*\.md$'''
+]
+# Regex patterns to allowlist (ignore these patterns)
+regexes = [
+    '''test[_\-]?data''',
+    '''example[_\-]?key''',
+    '''your[_\-]?api[_\-]?key''',
+    '''placeholder''',
+    '''xxx+'''
+]
+
+# Files to always scan regardless of gitignore
+[[rules]]
+id = "env-file-scan"
+description = "Scan for actual .env files"
+path = '''\.env$'''
+regex = '''.*'''
+tags = ["env", "critical"]
+
+# Additional patterns for common mistakes
+[[rules]]
+id = "hardcoded-localhost-key"
+description = "Hardcoded API key in localhost URL"
+regex = '''localhost:[0-9]+/[a-zA-Z0-9]{32,}'''
+tags = ["hardcoded", "localhost"]
+
+[[rules]]
+id = "base64-encoded-secret"
+description = "Base64 encoded secret"
+regex = '''(?i)(secret|key|token|password)[_\-\s]?(?:=|:)\s*['"]?[A-Za-z0-9+/]{40,}={0,2}['"]?'''
+tags = ["base64", "encoded"]
+
+
+# Global configuration
+[config]
+# Scan depth for git history (0 = current state only)
+depth = 0
+
+# Exit with non-zero code on finding secrets
+exitCode = 1
+
+# Don't scan files larger than 100MB
+maxFileSize = 104857600

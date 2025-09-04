@@ -52,37 +52,73 @@ Each file is like a specialized employee:
 
 **You don't manage the employees - you just give direction to the system.**
 
-## 📚 Learning Path (Choose Your Speed)
+## 🗺️ Your Learning Path
 
-### 🚶 WALK: Free Learning (Start Here!)
-**Time**: 1-2 hours | **Cost**: $0
+### 🎯 Quick Start (Choose Your Path)
 
-1. **Read**: `CLAUDE.md` (project overview)
-2. **Understand**: `.claude/ARCHITECTURE_GUIDE.md` (system explanation)
-3. **Practice**: Commands like `/init`, `/health`, `/clear`
-4. **Explore**: Browse documentation without API costs
+<table>
+<tr>
+<td width="33%">
 
-**Goal**: Understand how the system works before spending money.
+**🚶 WALK**  
+*Learn FREE*
+- 🕒 **30 mins**
+- 💰 **$0**  
+- 🎯 **Understand system**
 
-### 🏃 CRAWL: First Episode ($5-8)
-**Time**: 2-3 hours | **Cost**: ~$6 total
+[**▶️ Start Walking**](#walk-begin)
 
-1. **Research**: `/research "simple topic"` (try quantum physics!)
-2. **Create**: `/produce-native` to make your first episode
-3. **Learn**: See the 4-stage research and 3-evaluator consensus in action
-4. **Celebrate**: You just created a professional podcast!
+</td>
+<td width="33%">
 
-**Goal**: Create your first episode and see the magic happen.
+**🐾 CRAWL**  
+*First Episode*
+- 🕒 **1 hour**  
+- 💰 **$5-8**  
+- 🎯 **Create podcast**
 
-### 🚀 RUN: Production Ready ($5-8 per episode)
-**Time**: 1 hour per episode | **Cost**: $5.51 average
+[**🔒 Complete WALK first**]()
 
-1. **Batch Production**: `/batch-produce` for multiple episodes
-2. **Quality Optimization**: Use full validation pipeline
-3. **Advanced Features**: Custom voices, brand optimization
-4. **Scale Up**: Produce series of 10+ episodes efficiently
+</td>
+<td width="33%">
 
-**Goal**: Reliable, professional podcast production at scale.
+**🏃 RUN**  
+*Scale Production*
+- 🕒 **Ongoing**  
+- 💰 **$5.51/episode**  
+- 🎯 **Professional workflow**
+
+[**🔒 Complete CRAWL first**]()
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🚶 WALK Phase - Start Here! {#walk-begin}
+
+**🎯 30-Minute Quick Start**
+
+| Step | Action | Time | Why This Matters |
+|------|---------|------|------------------|
+| 1 | Run `/init` | 2 min | Sets up your workspace |
+| 2 | Run `/health` | 1 min | Confirms system works |
+| 3 | Explore with `/help` | 10 min | Learn available commands |
+| 4 | Read mission in CLAUDE.md | 15 min | Understand the "why" |
+
+**✅ WALK Complete When**: You understand the system and feel ready to create content
+
+[**🐾 Ready for CRAWL? Click here →**](#crawl-phase)
+
+<details>
+<summary>📚 <strong>Want to go deeper?</strong> (optional reading)</summary>
+
+- **System Architecture**: `.claude/ARCHITECTURE_GUIDE.md`
+- **Command Reference**: `.claude/context/02_quick_reference.md`  
+- **Philosophy**: Learn why "intellectual humility" makes better podcasts
+
+</details>
 
 ## 🧭 Navigation Made Simple
 

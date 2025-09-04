@@ -42,7 +42,7 @@ validate_reference_integrity() {
 
     for ref in $claude_refs; do
         # Convert @ reference to actual file path
-        local file_path="$PROJECT_ROOT/.claude/context/${ref#@}"
+        local file_path="$PROJECT_ROOT/${ref#@}"
 
         if [[ ! -f "$file_path" ]]; then
             log_error "Broken reference in CLAUDE.md: $ref → $file_path (file not found)"
@@ -67,14 +67,14 @@ validate_phase_progression() {
     fi
 
     # Check phase progression files exist
-    local phase_file="$PROJECT_ROOT/.claude/context/foundation/02_walk_crawl_run_phases.md"
+    local phase_file="$PROJECT_ROOT/.claude/context/02_walk_crawl_run_phases.md"
     if [[ ! -f "$phase_file" ]]; then
         log_error "Phase progression file missing: $phase_file"
         ((issues++))
     fi
 
     # Validate cost progression ($0 → $20-50 → $50-100/month)
-    local foundation_context="$PROJECT_ROOT/.claude/context/foundation/CONTEXT.md"
+    local foundation_context="$PROJECT_ROOT/.claude/context/project_foundation.md"
     if [[ -f "$foundation_context" ]]; then
         if ! grep -q "WALK.*\$0.*CRAWL.*\$20-50.*RUN.*\$50-100" "$foundation_context"; then
             log_warning "Cost progression pattern not found in expected format"
@@ -99,7 +99,7 @@ validate_educational_scaffolding() {
     )
 
     for file in "${foundation_files[@]}"; do
-        local full_path="$PROJECT_ROOT/.claude/context/foundation/$file"
+        local full_path="$PROJECT_ROOT/.claude/context/$file"
         if [[ ! -f "$full_path" ]]; then
             log_error "Foundation learning file missing: $file"
             ((issues++))
@@ -152,7 +152,7 @@ validate_navigation_consistency() {
     local nav_files=(
         ".claude/NAVIGATION.md"
         ".claude/NAVIGATION_SIMPLIFIED.md"
-        ".claude/context/foundation/NAVIGATION.md"
+        ".claude/docs/NAVIGATION_INDEX.md"
     )
 
     for nav_file in "${nav_files[@]}"; do
@@ -213,8 +213,8 @@ integrate_with_quality_system() {
     # Run quality checks on key learning files
     local key_files=(
         "CLAUDE.md"
-        ".claude/context/foundation/CONTEXT.md"
-        ".claude/context/foundation/02_walk_crawl_run_phases.md"
+        ".claude/context/project_foundation.md"
+        ".claude/context/02_walk_crawl_run_phases.md"
     )
 
     for file in "${key_files[@]}"; do

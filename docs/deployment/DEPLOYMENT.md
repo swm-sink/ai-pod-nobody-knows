@@ -340,9 +340,9 @@ bash scripts/precommit/validate_navigation.sh
 ## 📖 Learning Resources
 
 ### Documentation Structure
-- **Quick Start**: `.claude/context/foundation/01_project_overview.md`
-- **Learning Path**: `.claude/context/foundation/02_walk_crawl_run_phases.md`
-- **Free Activities**: `.claude/context/foundation/04_no_api_keys_activities.md`
+- **Quick Start**: `.claude/context/project_foundation.md`
+- **Learning Path**: `.claude/context/02_walk_crawl_run_phases.md`
+- **Free Activities**: `.claude/context/02_walk_crawl_run_phases.md` (WALK phase section)
 - **Troubleshooting**: `.claude/context/operations/01_troubleshooting_guide.md`
 
 ### Educational Progression

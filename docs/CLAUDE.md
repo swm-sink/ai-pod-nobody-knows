@@ -15,7 +15,7 @@ docs/
 ├── README.md                    # Project overview
 ├── GETTING_STARTED.md          # Quick start guide
 ├── ARCHITECTURE.md             # System design
-└── WALK_CRAWL_RUN.md          # Learning progression
+└── (.claude/context/02_walk_crawl_run_phases.md)  # Learning progression
 ```
 
 ### Production Guides
@@ -70,7 +70,7 @@ docs/reports/
 ### Beginner Path
 1. `README.md` - Understand the mission
 2. `GETTING_STARTED.md` - First steps
-3. `WALK_CRAWL_RUN.md` - Progressive learning
+3. `.claude/context/02_walk_crawl_run_phases.md` - Progressive learning
 4. Run first dry-run episode
 
 ### Intermediate Path
