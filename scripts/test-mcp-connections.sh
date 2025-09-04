@@ -175,7 +175,7 @@ else
     echo "Please fix the issues above before using the system."
     echo ""
     echo "Common fixes:"
-    echo "1. Run ./setup-mcp.sh to configure MCP servers"
+    echo "1. Run ./scripts/setup-mcp.sh to configure MCP servers"
     echo "2. Check your .env file has valid API keys"
     echo "3. Restart Claude Code after configuration changes"
     exit 1

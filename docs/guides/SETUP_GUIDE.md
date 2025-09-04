@@ -76,7 +76,7 @@ If all checks pass ✅, you're ready for the next step!
 ### One-Command Setup
 ```bash
 # Configure everything automatically
-./setup-mcp.sh
+./scripts/setup-mcp.sh
 ```
 
 This script will:
@@ -88,7 +88,7 @@ This script will:
 ### Verify Setup
 ```bash
 # Test all connections
-./test-mcp-connections.sh
+./scripts/test-mcp-connections.sh
 ```
 
 You should see:
@@ -168,7 +168,7 @@ claude mcp list
 # ✓ Connected: elevenlabs
 ```
 
-**Fix**: If not connected, run `./setup-mcp.sh` again
+**Fix**: If not connected, run `./scripts/setup-mcp.sh` again
 
 ### High Costs  
 **Problem**: Episode costs more than expected
@@ -240,12 +240,12 @@ After your first successful episode:
 ## 📞 Getting Help
 
 **Configuration Issues**: Run `./validate-config.sh` for comprehensive diagnosis  
-**Connection Problems**: Run `./test-mcp-connections.sh` to test everything  
+**Connection Problems**: Run `./scripts/test-mcp-connections.sh` to test everything  
 **System Status**: Use `/status` command in Claude Code  
 **Cost Monitoring**: Check `.claude/logs/cost-tracking.log`  
 
 ---
 
-**Ready to begin?** Run `./setup-mcp.sh` and start creating professional podcasts! 🎙️
+**Ready to begin?** Run `./scripts/setup-mcp.sh` and start creating professional podcasts! 🎙️
 
 *This system has produced episodes with 95/100 quality scores at $2.77-$5.51 cost vs $800-3500 traditional production.*

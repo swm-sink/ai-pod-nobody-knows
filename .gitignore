@@ -404,3 +404,13 @@ projects/nobody-knows/output/
 
 # Scripts containing local-only experimentation
 .claude/scripts/
+
+# Cleanup-specific ignores for generated/test files
+stress_test_*.json
+coverage.json
+integration_test_report.json
+production_optimization_validation.json
+test_debug.backup.*
+stress_test_state_*.json
+stress_test_flags_*.json
+validation_results_*.md

@@ -134,8 +134,8 @@ critical_files=(
     ".claude/config/production-voice.json"
     "CLAUDE.md"
     "README.md"
-    "setup-mcp.sh"
-    "test-mcp-connections.sh"
+    "scripts/setup-mcp.sh"
+    "scripts/test-mcp-connections.sh"
 )
 
 for file in "${critical_files[@]}"; do
@@ -278,7 +278,7 @@ if [ $ERRORS -eq 0 ]; then
     fi
     echo ""
     echo "Ready to use:"
-    echo "- Run ./test-mcp-connections.sh to test MCP setup"
+    echo "- Run ./scripts/test-mcp-connections.sh to test MCP setup"
     echo "- Create your first episode with: /podcast 'Your Topic'"
     exit 0
 else
@@ -287,7 +287,7 @@ else
     echo ""
     echo "Common fixes:"
     echo "- Create or update .env file with valid API keys"
-    echo "- Run ./setup-mcp.sh to restore missing files"
+    echo "- Run ./scripts/setup-mcp.sh to restore missing files"
     echo "- Check file permissions for hooks"
     exit 1
 fi

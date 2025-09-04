@@ -14,9 +14,9 @@
 
 ```bash
 # First Time Setup (10 minutes)
-./setup-mcp.sh              # Configure MCP servers
+./scripts/setup-mcp.sh              # Configure MCP servers
 cp .env.example .env         # Add API keys
-./test-mcp-connections.sh    # Validate setup
+./scripts/test-mcp-connections.sh    # Validate setup
 
 # Create Episode (15-30 minutes)
 /init                        # Initialize session
@@ -149,7 +149,7 @@ total_optimal: 20000      # Performance sweet spot
 
 **Development:**
 - `./validate-config.sh` - Check configuration
-- `./test-mcp-connections.sh` - Test MCP servers
+- `./scripts/test-mcp-connections.sh` - Test MCP servers
 - See: @.claude/commands/meta-chain.md for advanced
 
 ## 📚 QUICK REFERENCE
@@ -167,8 +167,8 @@ total_optimal: 20000      # Performance sweet spot
 - Project Config: `nobody-knows/content/config/project_config.json`
 
 ### Support Resources
-- [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Detailed setup
-- [ARCHITECTURE.md](./ARCHITECTURE.md) - System design
+- [SETUP_GUIDE.md](./docs/guides/SETUP_GUIDE.md) - Detailed setup
+- [ARCHITECTURE.md](./docs/architecture/ARCHITECTURE.md) - System design
 - [PROJECT_HANDOFF_SUMMARY.md](./PROJECT_HANDOFF_SUMMARY.md) - Complete overview
 
 ### 2025 Optimization Resources ✅ **NEW**
@@ -183,7 +183,7 @@ total_optimal: 20000      # Performance sweet spot
 
 ## 🚀 NEXT ACTIONS
 
-1. **New User?** → Start with SETUP_GUIDE.md
+1. **New User?** → Start with docs/guides/SETUP_GUIDE.md
 2. **Returning?** → Check TODO.md for current priorities
 3. **Testing?** → Run `/podcast-workflow` with test topic
 4. **Debugging?** → Check `.claude/logs/` for details

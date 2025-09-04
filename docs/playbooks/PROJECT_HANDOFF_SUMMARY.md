@@ -41,7 +41,7 @@ AI-powered podcast production system creating "Nobody Knows" episodes exploring 
 │   ├── output/                # Final deliverables
 │   └── src/                   # Python utilities
 ├── CLAUDE.md                  # Enhanced system guide (220 lines)
-├── SETUP_GUIDE.md             # User setup instructions
+├── docs/guides/SETUP_GUIDE.md   # User setup instructions
 └── README.md                  # Project overview
 ```
 
@@ -50,7 +50,7 @@ AI-powered podcast production system creating "Nobody Knows" episodes exploring 
 - **Commands**: 5 workflows in `.claude/commands/`
 - **MCP Integration**: Perplexity + ElevenLabs (confirmed connected)
 - **Voice Config**: Amelia settings validated (ZF6FPAbjXT4488VcRRnw)
-- **Setup Scripts**: setup-mcp.sh, test-mcp-connections.sh, validate-config.sh
+- **Setup Scripts**: scripts/setup-mcp.sh, scripts/test-mcp-connections.sh, scripts/validate-config.sh
 
 ---
 
@@ -104,8 +104,8 @@ AI-powered podcast production system creating "Nobody Knows" episodes exploring 
 ### **Core Files (Essential)**
 - **CLAUDE.md**: Enhanced with operational knowledge (220 lines)
 - **README.md**: Project overview and quick start
-- **SETUP_GUIDE.md**: Comprehensive setup instructions
-- **ARCHITECTURE.md**: System architecture documentation (needs review)
+- **docs/guides/SETUP_GUIDE.md**: Comprehensive setup instructions
+- **docs/architecture/ARCHITECTURE.md**: System architecture documentation (needs review)
 
 ### **Configuration (Minimal & Functional)**
 - **.env.example**: Template for environment variables

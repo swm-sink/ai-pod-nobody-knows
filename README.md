@@ -99,7 +99,7 @@ Production Stream (10 agents):
 ```
 ai-podcasts-nobody-knows/
 ├── README.md                      # This file
-├── ARCHITECTURE.md                # System architecture overview
+├── docs/architecture/ARCHITECTURE.md  # System architecture overview
 ├── CONTRIBUTING.md                # Contribution guidelines
 ├── CLAUDE.md                      # Master system configuration
 ├── requirements.txt               # Consolidated Python dependencies
