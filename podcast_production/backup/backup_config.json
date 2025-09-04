@@ -1,0 +1,55 @@
+{
+  "backup": {
+    "enabled": true,
+    "schedule": "daily_3am",
+    "retention_days": 30,
+    "components": [
+      {
+        "name": "configuration",
+        "source": "config/",
+        "type": "file_backup"
+      },
+      {
+        "name": "episode_data",
+        "source": [
+          "output/",
+          "research_data/",
+          "audio_output/"
+        ],
+        "type": "incremental_backup"
+      },
+      {
+        "name": "redis_state",
+        "source": "redis://localhost:6379",
+        "type": "redis_dump"
+      },
+      {
+        "name": "logs",
+        "source": "logs/",
+        "type": "compressed_backup"
+      }
+    ]
+  },
+  "recovery": {
+    "procedures": [
+      {
+        "scenario": "complete_system_failure",
+        "steps": [
+          "Restore configuration files",
+          "Restore Redis state",
+          "Validate API connections",
+          "Run system health check"
+        ]
+      },
+      {
+        "scenario": "data_corruption",
+        "steps": [
+          "Identify corrupt data",
+          "Restore from latest backup",
+          "Validate data integrity",
+          "Resume production"
+        ]
+      }
+    ]
+  }
+}

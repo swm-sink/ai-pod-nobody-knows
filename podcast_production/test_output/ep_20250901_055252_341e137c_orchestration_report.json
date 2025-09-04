@@ -1,0 +1,18 @@
+{
+  "episode_id": "ep_20250901_055252_341e137c",
+  "workflow_type": "orchestrated",
+  "timestamp": "2025-09-01T05:52:52.907070",
+  "total_cost": 0.0,
+  "budget_limit": 5.51,
+  "phases_completed": [],
+  "orchestrator_metrics": {},
+  "quality_scores": {},
+  "errors": [
+    {
+      "timestamp": "2025-09-01T05:52:54.727073",
+      "stage": "episode_planner",
+      "error": "Agent episode_planner execution failed: Research synthesis or questions required for episode planning"
+    }
+  ],
+  "final_stage": "failed"
+}
