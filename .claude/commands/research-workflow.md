@@ -1,6 +1,6 @@
-# /research-workflow - Native Research Orchestration
+# /research-workflow - MCP-Native Research Pipeline
 
-Execute comprehensive research pipeline using specialized agents for the "Nobody Knows" podcast.
+Execute comprehensive research using native Claude Code MCP integration for current, verified information with zero training data reliance.
 
 ## Usage
 
@@ -16,59 +16,66 @@ Execute comprehensive research pipeline using specialized agents for the "Nobody
 
 ## Purpose
 
-Orchestrate the complete research pipeline through direct agent invocation, maintaining the 4-stage depth while simplifying coordination.
+Execute zero-training-data research pipeline using MCP tools for current, verified information with automatic source citation and fact-checking.
 
-## Research Orchestration Flow
+## MCP Research Pipeline
 
-I will coordinate the research pipeline using our specialized agents:
+Streamlined research orchestration using native MCP integration:
 
-### Step 1: Deep Investigation
+### Step 1: MCP Deep Investigation
+```yaml
+agent: researcher
+mcp_tool: "mcp__perplexity-ask__perplexity_ask"
+
+research_execution:
+  discovery_queries: "2 broad landscape exploration queries"
+  investigation_queries: "3 focused technical analysis queries"
+  verification_queries: "1-2 fact-checking and validation queries"
+  source_requirement: "2024-2025 current information ONLY"
+  
+benefits:
+  - No API key management required
+  - Built-in source verification and dating
+  - Automatic citation generation
+  - Real-time access to current expert statements
+  - Native Claude Code integration reliability
 ```
-Use the researcher agent to investigate the topic:
-"$ARGUMENTS"
 
-Requirements:
-- Topic landscape mapping with 2024-2025 focus
-- Expert discovery with institutional verification
-- Multi-query Perplexity research (Sonar-Deep-Research model)
-- Source diversification across academic/industry/news
-- Knowledge gap identification
-- Output: Comprehensive research findings
-```
+### Step 2: MCP Fact Verification
+```yaml
+agent: fact-checker
+mcp_tool: "mcp__perplexity-ask__perplexity_ask"
 
-### Step 2: Fact Verification
-```
-Use the fact-checker agent to validate research:
-[Pass researcher output]
-
-Requirements:
-- Source triangulation and cross-verification
-- Contradiction detection and resolution
-- Expert quote verification
-- Statistical accuracy checking
-- Currency validation (2024-2025 sources)
-- Output: Validated research package
+verification_process:
+  triangulation: "Cross-reference claims across multiple current sources"
+  contradiction_detection: "Identify conflicting expert positions"
+  quote_authentication: "Verify exact quotations and institutional context"
+  statistical_validation: "Confirm numerical claims with official data"
+  
+benefits:
+  - Automatic multi-source cross-referencing
+  - Built-in credibility assessment
+  - Real-time verification against current sources
+  - Integrated citation management
 ```
 
 ### Step 3: Knowledge Synthesis
-```
-Use the synthesizer agent to package for production:
-[Pass validated research]
+```yaml
+agent: synthesizer
+input_sources: "MCP-verified research findings"
 
-Requirements:
-- Narrative coherence optimization
-- Cross-episode intelligence integration
-- Brand voice alignment preparation
-- Educational framework structuring
-- Intellectual humility moments identification
-- Output: Production-ready research package
+synthesis_approach:
+  intellectual_humility: "Balance known/unknown/uncertain elements"
+  narrative_coherence: "Production-ready knowledge packaging"
+  expert_integration: "Verified quotes with current credentials"
+  uncertainty_mapping: "Explicit documentation of research gaps"
 ```
 
 ## Session Management
 
 ```yaml
 session_structure:
-  directory: sessions/ep_{number}_{timestamp}/research/
+  directory: nobody-knows/production/ep_{number}_{timestamp}/research/
   outputs:
     - research_findings.json
     - validation_report.json

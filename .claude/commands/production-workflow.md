@@ -16,7 +16,7 @@ Execute complete script production pipeline with quality validation for the "Nob
 
 ## Prerequisites
 
-- Research package must exist in `sessions/ep_{number}/research/`
+- Research package must exist in `nobody-knows/production/ep_{number}/research/`
 - Quality gates configured in `.claude/config/quality_gates.yaml`
 
 ## Purpose
@@ -77,7 +77,7 @@ Requirements:
 
 ```yaml
 session_structure:
-  directory: sessions/ep_{number}_{timestamp}/production/
+  directory: nobody-knows/production/ep_{number}_{timestamp}/script/
   inputs:
     - research/synthesis_package.json
   outputs:

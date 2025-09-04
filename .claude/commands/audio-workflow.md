@@ -1,6 +1,6 @@
-# /audio-workflow - Native Audio Production Orchestration
+# /audio-workflow - MCP-Native Audio Production
 
-Execute professional audio synthesis and validation pipeline for the "Nobody Knows" podcast.
+Execute professional audio synthesis and validation using native Claude Code MCP integration for streamlined, reliable podcast production.
 
 ## Usage
 
@@ -16,65 +16,71 @@ Execute professional audio synthesis and validation pipeline for the "Nobody Kno
 
 ## Prerequisites
 
-- Polished script must exist in `sessions/ep_{number}/production/`
+- Polished script ready for synthesis 
 - Quality validation passed (≥80% all gates)
-- ElevenLabs MCP server connected
-- Production voice configured (Amelia: ZF6FPAbjXT4488VcRRnw)
+- ElevenLabs MCP server connected ✅ 
+- User-level MCP authentication configured
+- Production voice locked (Amelia: ZF6FPAbjXT4488VcRRnw)
 
 ## Purpose
 
-Orchestrate audio production from validated script through final MP3 delivery with quality assurance.
+Orchestrate MCP-native audio production from script to validated MP3 using built-in Claude Code reliability.
 
-## Audio Orchestration Flow
+## MCP Audio Production Pipeline
 
-I will coordinate the audio pipeline using our specialized agents:
+Streamlined orchestration using native MCP tools without custom API management:
 
-### Step 1: Audio Synthesis
+### Step 1: MCP Audio Synthesis
+```yaml
+agent: audio-producer
+mcp_tool: "mcp__elevenlabs__text_to_speech"
+
+execution:
+  input: "TTS-optimized SSML script"
+  voice_id: "ZF6FPAbjXT4488VcRRnw"  # Amelia - PRODUCTION LOCKED
+  model_id: "eleven_turbo_v2_5"
+  settings:
+    stability: 0.65
+    similarity_boost: 0.80
+    style: 0.30
+    use_speaker_boost: true
+    output_format: "mp3_44100_128"
+    
+benefits:
+  - No API key management needed
+  - Built-in error handling and retries
+  - Automatic file management
+  - Native Claude Code integration
 ```
-Use the audio-producer agent to generate audio:
-[Load polished script with SSML]
 
-Requirements:
-- Voice: Amelia (ZF6FPAbjXT4488VcRRnw) - LOCKED
-- Model: eleven_turbo_v2_5
-- Settings:
-  * Stability: 0.65
-  * Similarity: 0.80
-  * Style: 0.30
-  * Speaker boost: enabled
-- Single-call synthesis (up to 40K chars)
-- Intelligent chunking for longer content
-- SSML processing for natural speech
-- Output: High-quality MP3 audio
-```
+### Step 2: MCP Quality Validation
+```yaml
+agent: audio-validator
+mcp_tool: "mcp__elevenlabs__speech_to_text"
 
-### Step 2: Audio Validation
-```
-Use the audio-validator agent to verify quality:
-[Pass synthesized audio]
-
-Requirements:
-- STT verification using ElevenLabs
-- Quality metrics:
-  * Word accuracy ≥90% (target: 95%)
-  * Character accuracy ≥85% (target: 92%)
-  * Pronunciation accuracy ≥90%
-- Duration validation (28±1 minutes)
-- Audio quality assessment:
-  * No artifacts or glitches
-  * Consistent voice characteristics
-  * Natural pacing (206 WPM)
-- Output: Validation report with metrics
+validation:
+  input: "Synthesized MP3 audio file"
+  model_id: "scribe_v1_experimental"
+  thresholds:
+    word_accuracy: 94.89     # Episode 1 empirical baseline
+    character_accuracy: 91.23 # Episode 1 empirical baseline
+    composite_quality: 92.1   # Episode 1 empirical baseline
+    
+benefits:
+  - Automatic transcript generation
+  - Built-in accuracy calculations
+  - No custom STT client needed
+  - Integrated quality assessment
 ```
 
 ## Session Management
 
 ```yaml
 session_structure:
-  directory: sessions/ep_{number}_{timestamp}/audio/
+  directory: nobody-knows/production/ep_{number}_{timestamp}/audio/
   inputs:
-    - production/polished_script.md
-    - production/script_with_ssml.txt
+    - script/polished_script.md
+    - script/script_with_ssml.txt
   outputs:
     - episode_{number}.mp3
     - audio_metrics.json
