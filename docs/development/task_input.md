@@ -10,7 +10,7 @@ Episode Details:
 Research Requirements:
 - Execute 4-stage research pipeline (Discovery → Deep-Dive → Validation → Synthesis)
 - Budget allocation: $2.00
-- Target 5+ Perplexity queries with current date context (August 2025)
+- Target 5+ Perplexity queries with current date context (September 2025)
 - Focus on intellectual humility and expert uncertainty themes
 - Generate comprehensive research package with expert quotes
 - Save complete structured output to sessions/ep_batch_1-5_research_20250824/research/episode_1_deep_research.json
