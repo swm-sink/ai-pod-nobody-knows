@@ -322,6 +322,8 @@ orchestration:
     batch_report: "Complete summary"
     episode_packages: "Individual results"
     checkpoint_files: "Recovery data"
+    session_data: "nobody-knows/production/"
+    batch_summary: "nobody-knows/production/batch_XXX_summary.json"
 ```
 
 ## Best Practices

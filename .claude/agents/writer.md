@@ -243,13 +243,21 @@ brand_requirements:
   inclusivity: "Welcome all learners"
 ```
 
+## Reference Materials
+
+**Access series context from content directory:**
+- Brand philosophy: `nobody-knows/content/series-bible/series_bible.md`
+- Teaching methodology: `nobody-knows/content/series-bible/teaching_philosophy.md`
+- Episode examples: `nobody-knows/content/reference-scripts/ep00X_original.md`
+- Quality standards: `nobody-knows/content/config/quality_gates.json`
+
 ## Integration Points
 
 ```yaml
 inputs:
   synthesis: "From synthesizer agent"
   research: "Original research data"
-  brand_guide: "Nobody Knows philosophy"
+  brand_guide: "nobody-knows/content/series-bible/"
 
 outputs:
   to: "Polisher agent"

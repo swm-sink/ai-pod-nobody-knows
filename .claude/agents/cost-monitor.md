@@ -357,6 +357,8 @@ integration:
     per_episode: "Detailed breakdown"
     batch_summary: "Aggregate analytics"
     financial_dashboard: "Executive summary"
+    session_data: "nobody-knows/production/ep_{number}/cost_tracking.json"
+    cost_logs: "nobody-knows/production/cost_history.json"
 ```
 
 ## Best Practices

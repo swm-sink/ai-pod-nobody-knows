@@ -258,6 +258,8 @@ processing:
 outputs:
   to: "Judge agent (for validation)"
   format: "Production-ready script with SSML"
+  location: "nobody-knows/production/ep_{number}/script/polished_script.md"
+  quality_config: "nobody-knows/content/config/quality_gates.json"
 ```
 
 ## Best Practices

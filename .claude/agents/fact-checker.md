@@ -43,19 +43,25 @@ description: "Research validation specialist for fact-checking, source triangula
 - Confirm publication sources
 - Document pronunciation guides
 
-## MCP Tool Usage
+## MCP Tool Configuration
 
 ```yaml
-perplexity_verification:
-  model: "sonar-pro"
-  strategy: "Multi-query verification"
+primary_tool: "mcp__perplexity-ask__perplexity_ask"
+purpose: "Multi-source verification and fact-checking"
 
-  query_patterns:
-    fact_check: "[CLAIM] verification 2024-2025 sources"
-    source_verify: "[EXPERT NAME] [INSTITUTION] affiliation current"
-    stat_check: "[STATISTIC] official data source verification"
+verification_approach:
+  triangulation: "Cross-reference claims across 3+ sources"
+  contradiction_detection: "Identify conflicting expert positions"
+  statistical_validation: "Verify numerical claims and methodologies"
+  quote_authentication: "Confirm exact quotations and context"
 
-web_search_validation:
+mcp_benefits:
+  - No API key management required
+  - Built-in source credibility assessment
+  - Automatic citation generation
+  - Real-time verification against current sources
+  - Native Claude Code integration for reliability
+```
   targets:
     - Official institutional websites
     - Academic databases
@@ -207,7 +213,7 @@ outputs:
   format: validation_report.json
 
 session_data:
-  location: sessions/ep_{number}/research/
+  location: nobody-knows/production/ep_{number}/research/
   files:
     - validation_report.json
     - contradiction_log.json

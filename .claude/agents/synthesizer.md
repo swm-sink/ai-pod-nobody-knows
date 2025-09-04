@@ -178,6 +178,8 @@ processing:
 outputs:
   to: "Writer agent"
   format: "Production-ready synthesis"
+  location: "nobody-knows/production/ep_{number}/research/synthesis_package.json"
+  reference_materials: "nobody-knows/content/series-bible/series_bible.md"
 ```
 
 ## Quality Standards

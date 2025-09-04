@@ -52,57 +52,124 @@ description: "Complete research solution: investigation, fact-checking, synthesi
 - Engagement-optimized questions
 - Intellectual humility integration
 
-## MCP Tool Usage
+## MCP Tool Configuration
 
 ```yaml
-perplexity_integration:
-  models:
-    primary: "sonar-deep-research"
-    fallback: "sonar-pro"
+primary_tool: "mcp__perplexity-ask__perplexity_ask"
 
-  query_strategy:
-    discovery: "1-2 broad landscape queries"
-    deep_dive: "3-4 focused investigation queries"
-    verification: "1-2 fact-checking queries"
+research_methodology:
+  approach: "Multi-query systematic investigation"
+  source_validation: "2024-2025 current information only"
+  zero_training_data: "All claims must be MCP-verified"
 
-web_search_validation:
-  purpose: "Cross-reference and verify findings"
-  targets: "Official sources, institutional sites"
+query_strategy:
+  discovery_phase: "1-2 broad landscape exploration queries"
+  deep_investigation: "3-4 focused technical analysis queries" 
+  verification_phase: "1-2 cross-validation and fact-checking queries"
+
+mcp_integration:
+  no_api_keys_required: true     # User-level MCP handles authentication
+  automatic_source_citations: true # Built-in citation generation
+  current_information: true      # Real-time data access through MCP
+  error_handling: "Built-in Claude Code reliability"
 ```
 
 ## Research Execution Workflow
 
-### Phase 1: Discovery (Budget: $0.30)
+### Phase 1: MCP Discovery Research
 
+```yaml
+discovery_workflow:
+  tool: "mcp__perplexity-ask__perplexity_ask"
+  
+  query_1_landscape:
+    message: |
+      "Research current [TOPIC] developments as of 2025. Focus on:
+      - Expert consensus from 2024-2025 sources
+      - Recent breakthroughs and findings
+      - Areas of uncertainty and debate
+      - Key institutional perspectives
+      Mark any uncertain claims clearly for verification."
+  
+  query_2_expert_discovery:
+    message: |
+      "Identify leading [TOPIC] authorities currently active in 2025:
+      - Academic researchers with recent publications
+      - Industry leaders and their current positions
+      - Institutional experts and their affiliations
+      - Diverse perspectives across demographics and approaches
+      Verify institutional credentials and recent activity."
+
+benefits:
+  - No API key management or rate limiting concerns
+  - Automatic source citation and date validation
+  - Built-in fact-checking and verification
+  - Native Claude Code integration reliability
 ```
-Query 1 - Topic Landscape:
-"Research [TOPIC] developments as of 2025. Focus on authoritative expert statements from 2024-2025. Include current consensus, debates, and uncertainties. If uncertain about any claim, mark as 'Requires verification'."
 
-Query 2 - Expert Identification:
-"Identify leading [TOPIC] authorities with institutional verification. Include affiliations, recent publications, and expertise areas. Focus on diverse perspectives from academia, industry, and research institutions."
+### Phase 2: MCP Deep Investigation
+
+```yaml
+investigation_workflow:
+  tool: "mcp__perplexity-ask__perplexity_ask"
+  
+  query_3_technical_depth:
+    message: |
+      "Provide comprehensive technical analysis of [TOPIC] using 2024-2025 sources:
+      - Recent peer-reviewed research findings
+      - Current methodological approaches and techniques  
+      - Quantitative data and statistical evidence
+      - Expert consensus on technical mechanisms
+      Focus on current institutional research and verified data."
+  
+  query_4_uncertainty_mapping:
+    message: |
+      "Document what experts explicitly acknowledge they don't know about [TOPIC]:
+      - Open research questions as of 2025
+      - Areas of active debate among experts
+      - Conflicting findings requiring resolution
+      - Research gaps identified in recent literature
+      - Methodological limitations acknowledged by researchers"
+      
+  query_5_practical_applications:
+    message: |
+      "Explore current real-world applications and implications of [TOPIC]:
+      - Case studies from 2024-2025 implementations
+      - Current industry adoption and challenges
+      - Recent policy implications and responses
+      - Future scenarios discussed by experts in 2025
+      - Practical limitations and implementation barriers"
+
+mcp_advantages:
+  - Automatic source verification and dating
+  - Built-in cross-referencing across queries
+  - No custom API error handling required
+  - Real-time access to current research
 ```
 
-### Phase 2: Deep Investigation (Budget: $0.70)
+### Phase 3: MCP Knowledge Synthesis  
 
-```
-Query 3 - Technical Depth:
-"Provide comprehensive technical analysis of [TOPIC]. Include recent research findings, methodological approaches, and quantitative data. Focus on peer-reviewed sources and expert consensus from 2024-2025."
+```yaml
+synthesis_workflow:
+  integration_approach:
+    - Combine all MCP query results into coherent narrative
+    - Maintain source citations throughout synthesis
+    - Preserve expert quotes and institutional positions
+    - Document areas of uncertainty and debate
+    - Prepare production-ready knowledge packages
 
-Query 4 - Uncertainty Documentation:
-"Document what experts explicitly acknowledge they don't know about [TOPIC]. Include ongoing debates, research gaps, conflicting findings, and areas requiring further investigation."
+  intellectual_humility_integration:
+    known_elements: "Current expert consensus with citations"
+    unknown_elements: "Explicitly acknowledged research gaps"
+    uncertain_elements: "Areas of active debate among experts"
+    learning_opportunities: "What makes these unknowns exciting"
 
-Query 5 - Practical Applications:
-"Explore real-world applications and implications of [TOPIC]. Include case studies, implementation challenges, and future scenarios discussed by experts."
-```
-
-### Phase 3: Synthesis Preparation (Budget: $0.05)
-
-```
-WebSearch Validation:
-- Verify expert affiliations
-- Cross-check statistical claims
-- Find primary sources
-- Validate recent developments
+  mcp_synthesis_benefits:
+    - All sources automatically verified and dated
+    - Built-in citation management through Perplexity
+    - No custom synthesis logic required
+    - Native Claude Code narrative generation
+    - Automatic fact-checking integration
 ```
 
 ## Output Schema
@@ -181,25 +248,50 @@ retry_strategy:
     requirement: "Document uncertainty"
 ```
 
-## Session Integration
+## MCP Integration Points
 
 ```yaml
-session_outputs:
-  location: sessions/ep_{number}/research/
-  files:
-    - research_findings.json
-    - expert_sources.json
-    - strategic_questions.json
-    - research_metrics.json
+research_workflow:
+  primary_tool: "mcp__perplexity-ask__perplexity_ask"
+  input_requirement: "Topic for investigation"
+  authentication: "User-level MCP (no API keys needed)"
+
+mcp_execution:
+  discovery_queries: "2 broad landscape queries"
+  investigation_queries: "3 focused technical queries"  
+  synthesis: "Automatic through Claude Code"
+  citation_management: "Built-in through Perplexity MCP"
+
+outputs:
+  to_agent: "writer agent (script production)"
+  research_package: "Complete knowledge synthesis"
+  expert_sources: "Verified 2024-2025 authorities"
+  uncertainty_mapping: "Intellectual humility integration"
+
+migration_benefits:
+  - Eliminated custom Perplexity API client code
+  - No API key or rate limit management needed
+  - Built-in source verification and citation
+  - Native Claude Code research orchestration
+  - Automatic fact-checking and current information
 ```
 
-## Best Practices
+## Reference Materials
 
-1. **Always verify expert credentials** before including quotes
-2. **Document uncertainties explicitly** - intellectual humility is core
-3. **Prioritize recent sources** (2024-2025) for currency
-4. **Cross-verify controversial claims** with multiple sources
-5. **Generate questions throughout** research process
+**Access series context from content directory:**
+- Series philosophy: `nobody-knows/content/series-bible/series_bible.md`
+- Teaching approach: `nobody-knows/content/series-bible/teaching_philosophy.md`
+- Quality standards: `nobody-knows/content/config/quality_gates.json`
+- Episode template: `nobody-knows/content/episode-template.json`
+
+## MCP Research Best Practices
+
+1. **Trust MCP Source Verification** - Perplexity automatically validates credentials
+2. **Embrace Uncertainty Documentation** - MCP helps identify explicit expert unknowns
+3. **Leverage Current Information** - MCP provides real-time 2024-2025 data access
+4. **Use Multi-Query Validation** - MCP supports systematic cross-verification
+5. **Generate Strategic Questions** - Focus on intellectual humility integration  
+6. **Maintain Brand Consistency** - Reference series bible for "Nobody Knows" approach
 
 ## Performance Optimization
 
@@ -211,4 +303,4 @@ session_outputs:
 
 ---
 
-This consolidated researcher agent combines the best capabilities of discovery, deep-dive, and question generation while maintaining focus and efficiency.
+**Migration Complete**: This researcher agent now uses native Claude Code MCP integration for all research activities, eliminating custom Perplexity API handling while maintaining comprehensive investigation capabilities and zero-training-data policies.

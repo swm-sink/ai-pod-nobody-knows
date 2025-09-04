@@ -274,18 +274,24 @@ evaluation_scenarios:
     action: "Research verification required"
 ```
 
+## Reference Materials
+
+**Quality standards configuration:**
+- Quality gates: `nobody-knows/content/config/quality_gates.json`
+- Brand guidelines: `nobody-knows/content/series-bible/series_bible.md`
+
 ## Integration Points
 
 ```yaml
 inputs:
   script: "From polisher agent"
   research: "Original research data"
-  quality_config: "quality_gates.yaml"
+  quality_config: "nobody-knows/content/config/quality_gates.json"
 
 evaluation_process:
-  - Claude creative assessment
-  - Gemini technical validation
-  - Perplexity fact checking
+  - Claude creative assessment (55% weight)
+  - Gemini technical validation (45% weight)
+  - Perplexity fact checking (accuracy gate)
   - Consensus calculation
   - Recommendation generation
 
