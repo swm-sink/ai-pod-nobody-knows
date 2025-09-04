@@ -1,0 +1,89 @@
+# Whitelist Patterns - False Positive Exclusions
+# These patterns are known to be safe and should not trigger security alerts
+
+# Documentation Examples
+your-api-key-here
+your-key-here
+your_api_key_here
+YOUR_API_KEY_HERE
+YOUR_KEY_HERE
+<YOUR_API_KEY>
+<your-api-key>
+${API_KEY}
+${OPENAI_API_KEY}
+${ANTHROPIC_API_KEY}
+${ELEVENLABS_API_KEY}
+${PERPLEXITY_API_KEY}
+$API_KEY
+$OPENAI_API_KEY
+process.env.API_KEY
+os.getenv("API_KEY")
+os.environ["API_KEY"]
+
+# Example/Test Keys
+sk-test123
+test-api-key
+example-api-key
+sample-api-key
+demo-api-key
+dummy-api-key
+fake-api-key
+mock-api-key
+placeholder-api-key
+
+# Common Documentation Patterns
+api_key=None
+api_key=""
+api_key=''
+API_KEY=None
+API_KEY=""
+API_KEY=''
+api_key: str
+API_KEY: str
+
+# File Patterns to Skip
+.env.example
+.env.template
+example.env
+template.env
+README.md
+SETUP_GUIDE.md
+CONTRIBUTING.md
+docs/
+documentation/
+examples/
+templates/
+.archived/
+archived/
+backup/
+
+# Code Comments
+# API_KEY
+// API_KEY
+/* API_KEY
+* API_KEY
+
+# Type Definitions and Variables (without actual values)
+api_key: Optional[str]
+api_key: str = 
+API_KEY: Final[str]
+const API_KEY
+let API_KEY
+var API_KEY
+
+# Configuration Schema Definitions
+"api_key": {
+"API_KEY": {
+'api_key': {
+'API_KEY': {
+
+# Test Assertions
+assert api_key
+expect(api_key)
+assertEqual(api_key
+
+# Import Statements
+from api_key import
+import api_key
+require('api_key')
+require("api_key")

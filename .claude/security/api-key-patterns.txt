@@ -1,0 +1,74 @@
+# API Key Detection Patterns
+# Format: PROVIDER|PATTERN|DESCRIPTION
+# Lines starting with # are comments
+
+# OpenAI
+OPENAI|sk-[a-zA-Z0-9]{48}|OpenAI API Key (Legacy)
+OPENAI|sk-proj-[a-zA-Z0-9]{48}|OpenAI Project API Key
+OPENAI|sk-[a-zA-Z0-9]{20,}|OpenAI API Key (Generic)
+
+# Anthropic
+ANTHROPIC|sk-ant-api[0-9]{2}-[a-zA-Z0-9-]{95}|Anthropic API Key (Full)
+ANTHROPIC|sk-ant-[a-zA-Z0-9-]{50,}|Anthropic API Key (Generic)
+
+# ElevenLabs
+ELEVENLABS|[a-f0-9]{32}|ElevenLabs API Key (32 hex chars)
+ELEVENLABS|xi-[a-zA-Z0-9]{32}|ElevenLabs API Key with prefix
+
+# Perplexity
+PERPLEXITY|pplx-[a-f0-9]{48}|Perplexity API Key
+
+# Google/GCP
+GOOGLE|AIza[a-zA-Z0-9-_]{35}|Google API Key
+GOOGLE|[0-9]+-[a-z0-9]{32}\.apps\.googleusercontent\.com|Google OAuth Client ID
+
+# GitHub
+GITHUB|ghp_[a-zA-Z0-9]{36}|GitHub Personal Access Token
+GITHUB|gho_[a-zA-Z0-9]{36}|GitHub OAuth Token
+GITHUB|ghu_[a-zA-Z0-9]{36}|GitHub User Token
+GITHUB|ghs_[a-zA-Z0-9]{36}|GitHub Server Token
+GITHUB|ghr_[a-zA-Z0-9]{36}|GitHub Refresh Token
+GITHUB|github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}|GitHub Fine-grained PAT
+
+# AWS
+AWS|AKIA[0-9A-Z]{16}|AWS Access Key ID
+AWS|[a-zA-Z0-9]{40}|AWS Secret Access Key (when paired with AKIA)
+
+# Slack
+SLACK|xox[baprs]-[0-9]{10,12}-[0-9]{10,12}-[a-zA-Z0-9]{24,32}|Slack Token
+
+# Discord
+DISCORD|[MN][a-zA-Z0-9]{23}\.[a-zA-Z0-9]{6}\.[a-zA-Z0-9]{27}|Discord Bot Token
+
+# Stripe
+STRIPE|sk_live_[a-zA-Z0-9]{24,}|Stripe Live Secret Key
+STRIPE|rk_live_[a-zA-Z0-9]{24,}|Stripe Live Restricted Key
+STRIPE|pk_live_[a-zA-Z0-9]{24,}|Stripe Live Public Key
+STRIPE|sk_test_[a-zA-Z0-9]{24,}|Stripe Test Secret Key
+
+# SendGrid
+SENDGRID|SG\.[a-zA-Z0-9]{22}\.[a-zA-Z0-9]{43}|SendGrid API Key
+
+# Twilio
+TWILIO|SK[a-f0-9]{32}|Twilio Secret Key
+TWILIO|AC[a-f0-9]{32}|Twilio Account SID
+
+# JWT Tokens
+JWT|eyJ[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9_-]+|JSON Web Token
+
+# Generic Patterns (High Risk) - Simplified for grep compatibility
+GENERIC|api_key.*=.*[a-zA-Z0-9]{20,}|Generic API Key Assignment
+GENERIC|apikey.*=.*[a-zA-Z0-9]{20,}|Generic API Key Assignment Alt
+GENERIC|api_secret.*=.*[a-zA-Z0-9]{20,}|API Secret Assignment
+GENERIC|password.*=.*[a-zA-Z0-9]{8,}|Password Assignment
+GENERIC|secret.*=.*[a-zA-Z0-9]{20,}|Secret Assignment
+GENERIC|private_key.*=.*[a-zA-Z0-9]{20,}|Private Key Assignment
+GENERIC|Bearer [a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+|Bearer Token
+
+# Base64 Encoded Secrets (potential)
+BASE64|[A-Za-z0-9]{40,}==|Potential Base64 Encoded Secret (40+ chars)
+
+# Environment Variable Exports (Shell)
+ENV_EXPORT|export\s+[A-Z_]*KEY[A-Z_]*=["']?[a-zA-Z0-9]{20,}|Shell Export with Key
+ENV_EXPORT|export\s+[A-Z_]*TOKEN[A-Z_]*=["']?[a-zA-Z0-9]{20,}|Shell Export with Token
+ENV_EXPORT|export\s+[A-Z_]*SECRET[A-Z_]*=["']?[a-zA-Z0-9]{20,}|Shell Export with Secret
