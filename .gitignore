@@ -1,406 +1,176 @@
-# Prevent root directory pollution - Professional v1.0.0 Structure
-# Development files must go in appropriate directories: src/, docs/, tests/, config/, build/
+# AI Podcast Production System - Professional .gitignore
+# Maintains clean root directory and proper file organization
 
-# NEW STRUCTURE PATTERNS (v1.0.0)
-# Temporary build outputs
-build/dist/
-build/tmp/
+# Environment and secrets - CRITICAL: Never commit these
+.env
+.env.*
+!.env.example
+!.env.*.template
+*.env.local
+*.env.*.local
+*.key
+*.pem
+secrets/
 
-# Development documentation drafts
-docs/drafts/
+# Database passwords - NEVER commit
+database-configs/docker-compose.yml
+database-configs/.env
+**/docker-compose.yml
+!**/docker-compose.example.yml
 
-# Test results and coverage
-tests/coverage/
-tests/results/
-
-# Configuration overrides
-config/local/
-
-# Source code build artifacts
-src/**/*.pyc
-src/**/__pycache__/
-
-# Logs
-*.log
-logs/
-
-# Backups and temporary files
-*.backup
-*~
-
-# Archives
-docs/archive/
-
-# Test sessions
-sessions/test_*/
-sessions/ep_test_*/
-sessions/archive/
-
-# Analysis and working files
-/*.txt
-/*.xml
-/*analysis*.json
-/*transformation*.json
-/*report*.*
-/*audit*.*
-/*validation*.*
-# Exceptions for required root files
-!requirements.txt
-!LICENSE
-
-# Byte-compiled / optimized / DLL files
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
+build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
+lib/
+lib64/
 parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# poetry
-poetry.lock
-
-# pdm
-.pdm.toml
-.pdm-python
-.pdm-build/
-
-# PEP 582
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.envrc
-.venv
-env/
+# Virtual environments
+.venv/
 venv/
 ENV/
-env.bak/
-venv.bak/
+env/
+.virtualenv/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# Testing and coverage
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+tests/coverage/
+tests/results/
 
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# ChromaDB specific
-chroma_db/
-.chroma/
-*.chroma.sqlite3
-chromadb_data/
-chroma_collections/
-
-# Vector embeddings cache
-embeddings_cache/
-*.embeddings.cache
-.embeddings/
-
-# AI/ML Model files
-models/
-*.h5
-*.pkl
-*.pth
-*.ckpt
-*.pt
-*.safetensors
-checkpoints/
-model_weights/
-
-# Dataset files
-data/raw/
-data/processed/
-*.csv
-*.parquet
-*.feather
-datasets/
-*.db
-
-# Audio files (keep samples in repo if needed)
-*.mp3
-*.wav
-*.flac
-*.ogg
-*.m4a
-audio_output/
-audio-output/
-audio_cache/
-
-# Cache files
-.cache/
-*.cache
-cache/
-tmp/
-temp/
-
-# Log files
-logs/
-*.log
-*.log.*
-
-# IDE and Editor files
-.idea/
+# IDE
 .vscode/
+.idea/
 *.swp
 *.swo
 *~
 .DS_Store
 Thumbs.db
 
-# Project specific
-episodes_output/
-transcripts/
-*.transcript.json
-*.episode.json
-
-# API keys and secrets
-secrets/
-*.key
-*.pem
-*.crt
-credentials.json
-service-account.json
-
-# Temporary files
+# Logs and temporary files
+*.log
+logs/
 *.tmp
-*.bak
+*.temp
 *.backup
-*.old
-*.orig
+*~
 
-# Test outputs
-test_output/
-test_results/
+# Archive directories - cleaned structure
+archive/
+**/archive/
+**/backups/
 
-# Monitoring and metrics
-metrics/
-prometheus_data/
-grafana_data/
+# Episode storage (keep structure, ignore large files)
+episodes/*/audio/*.mp3
+episodes/*/audio/*.wav
+episodes/archive/*.tar.gz
 
-# Documentation builds
-docs/_build/
-docs/generated/
-
-# Local Claude configuration (personal settings)
-.claude/CLAUDE.local.md
-CLAUDE.local.md
-
-# MCP Servers (project-local installations)
-.claude/mcp-servers/
-mcp-servers/
-**/elevenlabs-mcp/
-**/perplexity-mcp/
-node_modules/
-.mcp.json
-*.mcp.json
-!.mcp.json.example
-
-# Production data
-production_data/
-production_logs/
-
-# Ruff
+# Development artifacts
+docs/drafts/
+.mypy_cache/
 .ruff_cache/
 
-# Streamlit
-.streamlit/secrets.toml
+# Node.js (for dashboard)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Memory databases
-memory_store/
-*.memory.db
+# Configuration overrides
+config/local/
+config/.env.*
+!config/.env.example
+!config/.env.*.template
+config/environments/.env.*
+!config/environments/.env.example
 
-# Cost tracking
+# Audio files (except samples)
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+audio_output/
+audio_cache/
+
+# Cache and temporary
+.cache/
+*.cache
+cache/
+tmp/
+temp/
+
+# AI/ML artifacts
+models/
+*.h5
+*.pkl
+*.pth
+*.ckpt
+*.pt
+embeddings_cache/
+*.embeddings.cache
+
+# MCP and Claude specific
+.claude/mcp-servers/
+.claude/sessions/backups/
+.claude/settings.local.json
+.claude/logs/
+.claude/cache/
+mcp-servers/
+.mcp.json
+!.mcp.json.example
+
+# Project specific ignores
+production_data/
 cost_reports/
-*.cost.json
-
-# Quality reports
 quality_reports/
-*.quality.json
-
-# Batch processing
 batch_queue/
 batch_results/
 
-# Multi-project temporary files
-projects/*/temp/
-projects/*/cache/
-projects/*/output/
-
-# Lock files (except poetry.lock if using poetry)
+# Lock files (keep essential ones)
 *.lock
 !poetry.lock
 
-# OS specific
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Python virtual environments
-bin/
-include/
-lib/
-lib64/
-share/
-pyvenv.cfg
-
-# Backup files
-*.backup
-*.bkp
-*~
-*.backup.*
-README.md.backup.*
-requirements.txt.backup.*
-
-# Archives and backup directories (anywhere in the tree)
-# - Matches: archive/, archives/, archived/, Archive/, Backups/, backup_2025-*, etc.
-**/[Aa]rchive*/
-**/[Aa]rchive*/**
-**/[Bb]ackup*/
-**/[Bb]ackup*/**
-
-# Claude session backups
-.claude/**/sessions/backups/
-.claude/**/sessions/backups/**
-
-# Session files
-*.session
-*.session.lock
-
-# Development databases
+# Database files
 *.sqlite
 *.sqlite3
 *.db
 !example.db
 
-# Application
-*.pid
-instance/
-
-# Ignore all .env files except .env.example
-.env*
-!.env.example
-
-# TDD Enforcement - Prevent premature implementation
-# Only allow implementation after tests are written and approved
-core/
-# Claude-specific safe ignores
-.claude/config/mcp-config.json
-.claude/config/*.local.*
-.claude/mocks/
-.claude/logs/
-.claude/cache/
-.claude/**/logs/
-# Production outputs should be in projects/, not .claude/
-projects/nobody-knows/output/
-
-# Claude session state and local settings
-.claude/sessions/
-.claude/settings.local.json
-
-# Local test data (not for version control)
-.claude/test-data/
-
-# Scripts containing local-only experimentation
-.claude/scripts/
+# Keep essential root files only
+!requirements.txt
+!LICENSE
+!README.md
+!CLAUDE.md
+!CONTRIBUTING.md
+!CHANGELOG.md
+!SECURITY.md
+!Makefile
+!check_health.py
+!.editorconfig
+!.gitignore
+!pyproject.toml
+!package.json
