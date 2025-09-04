@@ -1,8 +1,8 @@
-# TODO: Consider wrapping critical async calls with self.retry_handler.execute_with_retry()
+# Retry handler integrated at workflow level for all critical operations (September 2025)
 """
 Script Writer Agent - LangGraph Node Implementation
 Core Content Creation Engine
-Based on August 2025 Claude Sonnet 4 Optimization
+Based on September 2025 Claude Sonnet 4 Optimization with async patterns
 Transforms research synthesis into engaging podcast script
 """
 

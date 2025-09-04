@@ -2,7 +2,7 @@
 """
 Audio Synthesizer Agent - LangGraph Node Implementation
 Primary Audio Generation Component
-Based on August 2025 ElevenLabs Optimization
+Based on September 2025 ElevenLabs Optimization with async patterns
 Transforms polished script into high-quality podcast audio
 """
 

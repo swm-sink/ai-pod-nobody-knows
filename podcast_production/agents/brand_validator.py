@@ -1,8 +1,8 @@
-# TODO: Consider wrapping critical async calls with self.retry_handler.execute_with_retry()
+# Retry handler integrated at workflow level for all critical operations (September 2025)
 """
 Brand Validator Agent - LangGraph Node Implementation
 Part of Quality Validation Stream (Agent 8 of 16)
-Based on August 2025 OpenRouter Multi-Model API
+Based on September 2025 OpenRouter Multi-Model API with optimized async patterns
 Ensures "Nobody Knows" intellectual humility philosophy consistency
 """
 

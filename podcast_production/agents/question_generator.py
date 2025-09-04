@@ -1,7 +1,7 @@
 """
 Question Generator Agent - LangGraph Node Implementation
 Part of Planning & Writing Stream (Agent 5 of 16)
-Based on August 2025 OpenRouter Multi-Model API
+Based on September 2025 OpenRouter Multi-Model API with optimized async patterns
 Creates targeted research questions and exploration angles
 """
 

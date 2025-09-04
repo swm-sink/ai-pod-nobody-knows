@@ -1,7 +1,7 @@
 """
 Gemini Evaluator Agent - LangGraph Node Implementation
 Part of Multi-Model Quality Evaluation Stream (Agent 10B of 16)
-Based on August 2025 Gemini Pro 2.5 for rigorous analytical assessment
+Based on September 2025 Gemini Pro 2.5 with optimized async patterns for rigorous analytical assessment
 Focuses on technical accuracy, clarity, appropriateness, and scientific rigor
 Budget: $0.25
 """

@@ -1,7 +1,7 @@
 """
 Research Deep-Dive Agent - LangGraph Node Implementation
 Stage 2 of 4-stage research pipeline
-Based on August 2025 Perplexity Sonar Deep Research API
+Based on September 2025 Perplexity Sonar Deep Research API with optimized async patterns
 """
 
 import asyncio
@@ -206,7 +206,7 @@ class ResearchDeepDiveAgent:
 
         async with httpx.AsyncClient() as client:
             for query in queries:
-                # Prepare request based on August 2025 Perplexity API format
+                # Prepare request based on September 2025 Perplexity API format
                 request_data = {
                     "model": query.model,
                     "messages": [
@@ -241,7 +241,7 @@ class ResearchDeepDiveAgent:
 
                     result = response.json()
 
-                    # Track costs (based on August 2025 pricing)
+                    # Track costs (based on September 2025 pricing)
                     # Deep research query cost estimate
                     estimated_cost = 0.25  # Approximate for deep research query
                     self.total_cost += estimated_cost

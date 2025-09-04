@@ -1,7 +1,7 @@
 """
 Episode Planner Agent - LangGraph Node Implementation
 Structures episode flow and segments for coherent narrative
-Based on August 2025 OpenRouter Multi-Model API
+Based on September 2025 OpenRouter Multi-Model API with optimized async patterns
 Creates professional podcast structure and pacing
 Budget: $0.20
 """

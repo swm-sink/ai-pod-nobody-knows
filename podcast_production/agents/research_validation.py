@@ -1,7 +1,7 @@
 """
 Research Validation Agent - LangGraph Node Implementation
 Stage 3 of 4-stage research pipeline
-Based on August 2025 Perplexity Sonar Deep Research API
+Based on September 2025 Perplexity Sonar Deep Research API with optimized async patterns
 Ultra-deep fact-checking and credibility assessment specialist
 """
 

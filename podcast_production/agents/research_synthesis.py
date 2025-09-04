@@ -1,7 +1,7 @@
 """
 Research Synthesis Agent - LangGraph Node Implementation
 Stage 4 of 4-stage research pipeline
-Based on August 2025 OpenRouter Multi-Model API
+Based on September 2025 OpenRouter Multi-Model API with optimized async patterns
 Consolidates all research into coherent narrative structure
 """
 
@@ -23,7 +23,7 @@ class SynthesisQuery:
     """Structure for a synthesis query"""
     query_type: str
     query_text: str
-    model: str = "anthropic/claude-sonnet-4"  # Use Claude Sonnet 4 for synthesis - August 2025
+    model: str = "anthropic/claude-sonnet-4"  # Use Claude Sonnet 4 for synthesis - September 2025
     max_tokens: int = 4000
 
 

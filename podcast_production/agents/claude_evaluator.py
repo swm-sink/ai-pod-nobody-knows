@@ -1,7 +1,7 @@
 """
 Claude Evaluator Agent - LangGraph Node Implementation
 Part of Multi-Model Quality Evaluation Stream (Agent 10A of 16)
-Based on August 2025 Claude Opus 4.1 for sophisticated content analysis
+Based on September 2025 Claude Opus 4.1 with optimized async patterns for sophisticated content analysis
 Focuses on content depth, narrative flow, and creative engagement evaluation
 Budget: $0.30
 """

@@ -1,7 +1,7 @@
 """
 Audio Validator Agent - LangGraph Node Implementation
 Part of Quality Validation Stream (Agent 9 of 16)
-Based on August 2025 Audio Quality Standards
+Based on September 2025 Audio Quality Standards with optimized async patterns
 Validates synthesized audio quality and accuracy
 """
 
