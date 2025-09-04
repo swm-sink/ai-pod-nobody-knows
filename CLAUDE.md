@@ -1,17 +1,59 @@
 # AI Podcast Production System 🎙️
 
+## 🚨 DEVELOPMENT STATUS: ACTIVE IMPLEMENTATION
+
+**Current Focus:** See [TODO.md](./TODO.md) for development priorities and progress tracking.  
+**Status:** System completely updated and verified - ready for agent testing.  
+**Last Updated:** [ALWAYS USE CURRENT SYSTEM DATE]
+
+## ⚠️ CRITICAL POLICY: ZERO TRAINING DATA
+
+**MANDATORY**: This system operates under a **ZERO TRAINING DATA POLICY**. 
+- **DO NOT** use any information from AI training data
+- **ALWAYS** use Perplexity MCP (`mcp_perplexity-ask`) for current information
+- **ALWAYS** use web search for verification and updates
+- **ALWAYS** cite sources with dates from 2024-2025
+- **NEVER** make claims without real-time verification
+
+---
+
 ## 🎯 System Overview
 
 **Purpose:** Automated podcast production system creating "Nobody Knows" episodes exploring intellectual humility - celebrating both what we know AND what we don't know.
 
-**Achievement:** $2.77-$5 per episode vs traditional $800-3500 (99%+ cost reduction)
+**Goal:** $3-5 per episode vs traditional $800-3500 (99%+ cost reduction)  
+**Current Status:** Architecture validated, production testing needed
 
 ---
 
 ## 🏗️ SYSTEM ARCHITECTURE
 
+### **Directory Structure** (Consolidated under nobody-knows/)
+```
+nobody-knows/            # Complete podcast production system
+├── content/            # Source material & series planning
+│   ├── series-bible/   # Brand philosophy & teaching methodology
+│   ├── reference-scripts/ # 10 example episodes
+│   ├── config/         # Quality gates & project configuration
+│   └── episode-template.json
+├── production/         # Active episode production
+│   ├── state.json      # Global production state
+│   ├── state_manager.py # State management system
+│   └── ep_XXX_*/       # Per-episode working directories
+└── output/             # Final deliverables
+    ├── episodes/       # Published MP3 files
+    ├── transcripts/    # Final scripts
+    └── metrics/        # Quality reports
+
+.claude/                # Claude Code configuration (project root)
+├── agents/             # 10 specialized agents
+├── commands/           # 5 production workflows
+├── config/             # Voice & MCP settings
+└── context/            # Operational knowledge
+```
+
 ### **Core Components**
-- **Agents**: `.claude/agents/simplified/` - 10 specialized AI workers
+- **Agents**: `.claude/agents/` - 10 specialized AI workers
 - **Commands**: `.claude/commands/` - 5 production workflows  
 - **Config**: `.claude/config/` - Essential settings (voice + MCP)
 - **Context**: `.claude/context/` - Operational knowledge base
@@ -29,10 +71,11 @@
 
 **Master Command**: `/podcast-workflow "Your Topic"`
 
-**Phase 1: Research (`/research-workflow`)**
+**Phase 1: Research (`/research-workflow`)** - ZERO TRAINING DATA
 - **Agent**: researcher → fact-checker → synthesizer
-- **Function**: Comprehensive topic investigation using Perplexity
-- **Output**: Validated research package with expert sources
+- **Function**: Comprehensive topic investigation using Perplexity MCP ONLY
+- **Sources**: MUST be 2024-2025, verified via web search
+- **Output**: Validated research package with dated expert sources
 - **Cost**: ~$1-2, **Time**: 5-10 minutes
 
 **Phase 2: Script Production (`/production-workflow`)**  
@@ -53,10 +96,10 @@
 
 ## 🤖 AGENT SYSTEM
 
-### **Research Team**
-- **researcher**: Multi-query Perplexity investigation with expert discovery
-- **fact-checker**: Source triangulation and accuracy verification  
-- **synthesizer**: Knowledge packaging for script production
+### **Research Team** (ZERO TRAINING DATA POLICY)
+- **researcher**: Multi-query Perplexity MCP investigation (2024-2025 sources ONLY)
+- **fact-checker**: Web search verification and source date validation  
+- **synthesizer**: Knowledge packaging with current information only
 
 ### **Production Team**
 - **writer**: Episode script creation with intellectual humility theme
@@ -119,6 +162,14 @@ perplexity_role: fact_verification
 
 ## 📚 ESSENTIAL CONTEXT
 
+### **CRITICAL: Zero Training Data Policy**
+**MANDATORY FOR ALL WORK:**
+- NO information from AI training data
+- ALL facts must come from Perplexity MCP or web search
+- ALL sources must be dated 2024-2025
+- ALWAYS verify current information before use
+- NEVER assume or recall - always research fresh
+
 ### **For Voice Synthesis Work**
 Load: `@.claude/context/elevenlabs.md`
 - Amelia voice optimization settings
@@ -126,12 +177,12 @@ Load: `@.claude/context/elevenlabs.md`
 - SSML markup and pronunciation guides
 - Cost efficiency patterns
 
-### **For Research Work**  
+### **For Research Work** (ZERO TRAINING DATA) 
 Load: `@.claude/context/perplexity.md`
-- 5-query research methodology
-- Source validation protocols
-- Expert discovery strategies
-- Fact-checking procedures
+- 5-query research methodology using Perplexity MCP
+- Source validation via web search
+- Current expert discovery (2024-2025)
+- Real-time fact-checking procedures
 
 ### **For Agent Orchestration**
 Load: `@.claude/context/claude-code.md`
@@ -187,34 +238,30 @@ Every concept explained three ways:
 - `./validate-config.sh` - Check configuration consistency
 - `./setup-mcp.sh` - One-command MCP server setup
 
-**Directory Structure:**
-```
-.claude/
-├── agents/simplified/    # 10 working agents
-├── commands/            # 5 production workflows
-├── config/             # 2 essential configs (voice + MCP)
-├── context/            # 4 operational knowledge files
-├── hooks/              # 1 simple cost tracker
-└── logs/               # Cost tracking output
-```
+
 
 ---
 
-## 💡 PROVEN RESULTS
+## 💡 CURRENT STATUS
 
-**Episode Examples** (Before deletion):
-- Episode 2: Modern Stoicism (95/100 quality, $22.10 cost)
-- Episode 3: CRISPR Gene Editing (complete production cycle)  
-- Episode 4: Fall of Rome (multi-evaluator consensus)
+**Development Phase:** Active implementation per TODO.md
 
-**Performance Metrics:**
-- Cost efficiency: $2.77-$7 per 28-minute episode
-- Quality scores: 90%+ consensus across evaluators
+**Target Metrics:**
+- Cost target: $3-5 per 28-minute episode
+- Quality target: 90%+ consensus across evaluators
 - Production time: 15-30 minutes end-to-end
-- Word accuracy: 94.89% (speech synthesis)
+- Word accuracy: >90% (speech synthesis)
+
+**Testing Status:**
+- Architecture: ✅ Complete and validated
+- Agent Design: ✅ 10 specialized agents ready and updated
+- Integration: ✅ All file paths and references corrected
+- Directory Structure: ✅ Consolidated under nobody-knows/ 
+- State Management: ✅ Functional and tested
+- Ready for Testing: ✅ MCP tools + agent workflows
 
 ---
 
-**The system works. It's now organized properly with essential context preserved and complexity minimized.**
+**Next Steps:** Follow TODO.md for systematic implementation and validation of all system components.
 
-*Version: 2.1.0 Enhanced | Updated: 2025-09-01 | Focus: Usability + Essential Knowledge*
+*Version: 3.0.0 | Updated: [USE CURRENT SYSTEM DATE] | Status: Active Development*

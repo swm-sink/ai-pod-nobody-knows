@@ -159,11 +159,12 @@ ai-podcasts-nobody-knows/
 │   ├── mcp-servers/              # 2 MCP setup files
 │   └── shared/                   # 5 essential templates
 │
-├── projects/nobody-knows/         # Project outputs
-│   ├── config/                   # Project configuration
-│   └── output/                   # Generated episodes and research
+├── nobody-knows/                  # Complete podcast production system
+│   ├── content/                  # Source material & series planning
+│   ├── production/              # Active episode production
+│   └── output/                   # Final deliverables
 │
-├── sessions/                      # Session tracking (moved from .claude/)
+├── nobody-knows/                  # Complete podcast production system
 └── scripts/                      # Pre-commit validation scripts
 ```
 
@@ -309,7 +310,7 @@ All agents are in `.claude/agents/` (14 agents total):
 
 ### Season Structure
 5 seasons × 25 episodes = 125 episodes total
-(See projects/nobody-knows/series_plan/episodes_master.json for complete episode list)
+(See nobody-knows/content/series-bible/episodes_master.json for complete episode list)
 
 ---
 
@@ -327,8 +328,8 @@ All agents are in `.claude/agents/` (14 agents total):
 - `.claude/config/mcp-config.json` - MCP server config
 
 ### Project Config
-- `projects/nobody-knows/config/project_config.json`
-- `projects/nobody-knows/config/quality_gates.json`
+- `nobody-knows/content/config/project_config.json`
+- `nobody-knows/content/config/quality_gates.json`
 
 ---
 
@@ -401,7 +402,7 @@ All agents are in `.claude/agents/` (14 agents total):
 
 - `CLAUDE.md` - Master system prompt with educational requirements
 - `.claude/README.md` - Technical details and structure
-- `.claude/sessions/` - Project status and handovers
+- `nobody-knows/production/` - Episode production and state tracking
 - `.claude/context/foundation/` - Core concepts and phases
 
 ---

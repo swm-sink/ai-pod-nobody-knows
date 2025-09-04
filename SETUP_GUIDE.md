@@ -150,7 +150,7 @@ The system will automatically:
 
 ### Your Episode is Ready! 🎉
 Find your completed episode in:
-- **Audio**: `episodes/completed/episode-XXX/`
+- **Audio**: `nobody-knows/output/episodes/episode-XXX.mp3`
 - **Script**: Same directory with full production notes
 - **Metrics**: Quality scores and cost breakdown
 

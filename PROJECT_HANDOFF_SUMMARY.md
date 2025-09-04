@@ -35,10 +35,11 @@ AI-powered podcast production system creating "Nobody Knows" episodes exploring 
 │   ├── context/               # 4 operational knowledge files
 │   ├── hooks/                 # 1 simple cost tracker (25 lines)
 │   └── logs/                  # Cost tracking output
-├── episodes/                   # Episode management (RESTORED)
-├── projects/nobody-knows/      # Project content (RESTORED)
-├── src/                       # Python utilities (RESTORED)
-├── sessions/                  # Session tracking
+├── nobody-knows/              # Complete podcast production system (REORGANIZED)
+│   ├── content/               # Source material & series planning
+│   ├── production/            # Active episode production  
+│   ├── output/                # Final deliverables
+│   └── src/                   # Python utilities
 ├── CLAUDE.md                  # Enhanced system guide (220 lines)
 ├── SETUP_GUIDE.md             # User setup instructions
 └── README.md                  # Project overview
