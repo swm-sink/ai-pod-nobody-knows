@@ -276,16 +276,101 @@ npm run dashboard  # WebSocket monitoring
 - Error rates and recovery
 - Production timeline
 
+## 🤖 AGENT IMPLEMENTATION PATTERNS
+
+### Base Agent Interface (September 2025)
+```python
+class BaseAgent:
+    """Standard agent pattern with cost tracking"""
+    
+    async def execute(self, state: PodcastState) -> PodcastState:
+        """Main execution with retry and cost tracking"""
+        try:
+            await self.cost_tracker.start_operation(self.__class__.__name__)
+            result = await self.retry_handler.execute(
+                self._perform_operation, state
+            )
+            cost = await self.cost_tracker.end_operation(result)
+            return {
+                **state,
+                **result,
+                "cost_tracking": {
+                    **state.get("cost_tracking", {}),
+                    self.__class__.__name__: cost
+                }
+            }
+        except Exception as e:
+            return {...state, "error_state": {"agent": self.__class__.__name__, "error": str(e)}}
+```
+
+### Concurrent Research Pattern
+```python
+async def execute_concurrent_queries(queries: List[Query]) -> List[Response]:
+    """Optimized concurrent execution with httpx"""
+    timeout = httpx.Timeout(30.0, connect=10.0)
+    limits = httpx.Limits(max_keepalive_connections=5, max_connections=10)
+    
+    async with httpx.AsyncClient(timeout=timeout, limits=limits) as client:
+        tasks = [execute_single_query(client, q) for q in queries]
+        responses = await asyncio.gather(*tasks, return_exceptions=True)
+        return [r if not isinstance(r, Exception) else fallback for r in responses]
+```
+
+## 🔒 CONFIGURATION GOVERNANCE
+
+### Protected Voice Configuration
+```json
+{
+  "voice_id": "ZF6FPAbjXT4488VcRRnw",
+  "voice_name": "Amelia",
+  "provider": "elevenlabs",
+  "validated": "2025-09-01",
+  "episodes_produced": 125,
+  "lock": true
+}
+```
+**RULE**: Changes require explicit user permission
+
+### Quality Gates
+```yaml
+quality_gates:
+  brand_threshold: 0.85
+  consensus_minimum: 8.0
+  audio_duration: [1560, 1680]  # 26-28 minutes
+  script_length: [33000, 37000]  # characters
+```
+
+### Cost Limits
+```yaml
+cost_limits:
+  research: 0.60
+  script: 1.50
+  evaluation: 1.00
+  audio: 3.00
+  total_max: 6.00
+```
+
+## 🔀 CONDITIONAL ROUTING PATTERNS
+
+### Dynamic Path Selection
+```python
+def intelligent_router(state: PodcastState) -> str:
+    """Context-aware routing decisions"""
+    if state["cost_tracking"]["total"] > state["budget"] * 0.9:
+        return "budget_optimization"
+    if state.get("quality_scores", {}).get("average", 0) < 7.0:
+        return "quality_revision"
+    if not all([state.get("research_data"), state.get("script")]):
+        return "completion_check"
+    return "success"
+```
+
 ## 🔄 INHERITANCE
 
 **Inherits From**: `/CLAUDE.md` (Project Root)
-**Child Contexts**:
-- `@agents/CLAUDE.md` - Agent-specific patterns
-- `@workflows/CLAUDE.md` - Workflow details
-- `@config/CLAUDE.md` - Configuration rules
-
-**Loading Priority**: Production tasks load this + relevant children
+**Consolidated**: Contains all production patterns (agents, workflows, config)
+**Loading**: Single file for all production context needs
 
 ---
 
-**Quick Ref**: Token Budget: 5K | Focus: LangGraph patterns | Status: Production-ready
+**Quick Ref**: Token Budget: 7K | Focus: Complete production context | Status: Consolidated
