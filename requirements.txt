@@ -3,7 +3,7 @@
 
 # Core dependencies (from original requirements.txt)
 python-dotenv==1.0.1    # Load .env file
-requests==2.32.3        # API testing
+requests==2.32.4        # API testing
 
 # Development dependencies (from dev-requirements.txt)
 pre-commit==3.7.1       # Pre-commit hooks
