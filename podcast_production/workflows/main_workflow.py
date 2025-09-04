@@ -1,34 +1,56 @@
-# TODO: Consider wrapping critical async calls with self.retry_handler.execute_with_retry()
+# Retry handler integrated for all critical async operations (September 2025)
+# LangFuse observability integrated for comprehensive tracing (September 2025)
 """
-Main workflow orchestration using LangGraph.
+Main workflow orchestration using LangGraph with LangFuse observability.
 
 This module defines the complete podcast production workflow as a LangGraph
-StateGraph, coordinating all agents and handling conditional routing.
+StateGraph, coordinating all agents with comprehensive observability, cost
+tracking, and quality evaluation through LangFuse integration.
 
-Version: 1.0.0
-Date: August 2025
+Updated for September 2025 LangFuse 3.x/4.x patterns.
+
+Version: 3.0.0
+Date: September 2025
 """
 
 from config.voice_config import get_production_voice_id
 from core.retry_handler import RetryHandler, RetryConfig, CircuitBreakerState
+from core.observability import get_observability, observe_agent, PodcastObservability
 
 import logging
 import os
 from typing import Dict, Any, Literal, List, Optional, Union
 from pathlib import Path
 import json
+from datetime import datetime
+
+# LangFuse imports for production observability (September 2025 patterns)
+try:
+    from langfuse.langchain import CallbackHandler  # No longer LangfuseCallbackHandler
+    from langfuse import Langfuse
+    from langfuse.client import get_client  # September 2025: Singleton pattern
+    # Note: RunnablePassthrough pattern no longer needed in September 2025
+    LANGFUSE_AVAILABLE = True
+except ImportError:
+    logging.warning("LangFuse not available - observability features limited")
+    LANGFUSE_AVAILABLE = False
+    CallbackHandler = None
+    Langfuse = None
+    get_client = lambda: None
 
 try:
     from langgraph.graph import StateGraph, END
-    from langgraph.checkpoint.memory import MemorySaver
-    # Simplified: Using SQLite/Memory only (PostgreSQL archived)
+    from langgraph.checkpoint.sqlite import SqliteSaver  # September 2025 production standard
+    from langgraph.checkpoint.memory import MemorySaver  # Fallback only
     from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+    import sqlite3
     CompiledGraph = object  # Type hint fallback
     CHECKPOINTER_AVAILABLE = True
 except ImportError:
     # Fallback for environments without LangGraph
     print("Warning: LangGraph not installed. Using mock implementations.")
     CHECKPOINTER_AVAILABLE = False
+    sqlite3 = None
 
     class StateGraph:
         def __init__(self, state_type): pass
@@ -41,6 +63,7 @@ except ImportError:
     class MockCompiledGraph:
         async def ainvoke(self, state, config=None): return state
 
+    class SqliteSaver: pass
     class MemorySaver: pass
     class JsonPlusSerializer: pass
     CompiledGraph = object  # Type hint
@@ -75,16 +98,48 @@ class PodcastWorkflow:
 
     def __init__(self, config: Dict[str, Any] = None):
         """
-        Initialize podcast workflow.
+        Initialize podcast workflow with comprehensive observability.
 
         Args:
             config: Optional configuration dictionary
         """
         self.config = config or {}
         self.checkpointer = self._create_production_checkpointer()
-        self.cost_tracker_manager = get_cost_tracker_manager()  # August 2025 - outside state
+        self.cost_tracker_manager = get_cost_tracker_manager()  # September 2025 - outside state
         self.cost_tracker = None  # Will be managed by cost_tracker_manager
         self.checkpoint_manager = get_checkpoint_manager()  # For workflow resumption
+        
+        # Initialize retry handler for resilient operations (September 2025)
+        self.retry_handler = RetryHandler(
+            RetryConfig(
+                max_attempts=3,
+                base_delay=1.0,
+                max_delay=60.0,
+                backoff_multiplier=2.0,
+                failure_threshold=5,
+                recovery_timeout=300.0
+            )
+        )
+        
+        # Initialize observability (September 2025)
+        self.observability = get_observability(config.get("observability", {}))
+        self.langfuse_handler = None
+        self.langfuse_client = None
+        
+        if LANGFUSE_AVAILABLE and self.observability.enabled:
+            try:
+                # September 2025: Use singleton client pattern
+                self.langfuse_client = get_client()
+                
+                # September 2025: Create callback handler without constructor args
+                self.langfuse_handler = CallbackHandler()
+                
+                logger.info("✅ LangFuse observability initialized (September 2025)")
+                logger.info("   Using singleton client pattern")
+                logger.info("   CallbackHandler created without constructor args")
+            except Exception as e:
+                logger.warning(f"Failed to initialize LangFuse: {e}")
+        
         self.graph = self._build_graph()
 
         # Initialize all migrated agents
@@ -97,36 +152,52 @@ class PodcastWorkflow:
         self.script_writer = ScriptWriterAgent()
         self.brand_validator = BrandValidatorAgent()
 
-        logger.info("Podcast workflow initialized")
+        logger.info("Podcast workflow initialized with observability")
 
     def _create_production_checkpointer(self):
         """
-        Create simplified checkpointer for personal production use.
+        Create production-grade SQLite checkpointer (September 2025 standard).
 
-        Simplified August 2025 (PostgreSQL archived):
-        - Use MemorySaver with enhanced serialization for all cases
-        - SQLite database via DATABASE_URL for persistent storage (simpler than PostgreSQL)
+        September 2025 Production Standards:
+        - Primary: SqliteSaver for persistent disk-backed storage
+        - Fallback: MemorySaver for development/testing only
         - JsonPlusSerializer with pickle fallback for complex objects
+        - Database file: ./checkpoints.sqlite (gitignored)
 
         Returns:
-            Configured MemorySaver checkpointer instance
+            Configured SqliteSaver or MemorySaver checkpointer instance
         """
-        logger.info("🧠 Initializing simplified checkpointer (PostgreSQL archived)")
+        logger.info("🗄️ Initializing production SQLite checkpointer (September 2025 standard)")
 
-        # Use MemorySaver with enhanced serialization if available
-        if CHECKPOINTER_AVAILABLE:
+        if CHECKPOINTER_AVAILABLE and sqlite3:
             try:
-                # Create JsonPlusSerializer with pickle fallback (August 2025 best practice)
+                # Create SQLite database for persistent checkpointing
+                db_path = "./checkpoints.sqlite"
+                conn = sqlite3.connect(db_path, check_same_thread=False)
+                
+                # Create JsonPlusSerializer with pickle fallback (September 2025 best practice)
                 serializer = JsonPlusSerializer(pickle_fallback=True)
-                checkpointer = MemorySaver(serde=serializer)
-                logger.info("✅ Enhanced MemorySaver initialized with JsonPlusSerializer")
+                checkpointer = SqliteSaver(conn, serde=serializer)
+                
+                logger.info(f"✅ Production SqliteSaver initialized: {db_path}")
+                logger.info("✅ Persistent checkpointing enabled with JsonPlusSerializer")
                 return checkpointer
+                
             except Exception as e:
-                logger.warning(f"Failed to create enhanced MemorySaver: {e}")
-                logger.info("🔄 Using basic MemorySaver")
+                logger.warning(f"Failed to create SqliteSaver: {e}")
+                logger.info("🔄 Falling back to MemorySaver (development only)")
+                
+                try:
+                    # Fallback to enhanced MemorySaver
+                    serializer = JsonPlusSerializer(pickle_fallback=True)
+                    checkpointer = MemorySaver(serde=serializer)
+                    logger.info("✅ Enhanced MemorySaver initialized as fallback")
+                    return checkpointer
+                except Exception as e2:
+                    logger.warning(f"Failed to create enhanced MemorySaver: {e2}")
 
         # Final fallback to basic MemorySaver
-        logger.info("🧠 Using basic MemorySaver checkpointer")
+        logger.info("🧠 Using basic MemorySaver checkpointer (non-persistent)")
         return MemorySaver()
 
     def _build_graph(self):
@@ -188,12 +259,21 @@ class PodcastWorkflow:
         workflow.add_edge("quality_check", END)
         workflow.add_edge("error_handler", END)
 
-        # Compile with checkpointer
-        return workflow.compile(checkpointer=self.checkpointer)
+        # August 2025: Compile with checkpointer and callbacks
+        compiled_graph = workflow.compile(checkpointer=self.checkpointer)
+        
+        # August 2025: Attach callbacks at compile time if available
+        if self.langfuse_handler and LANGFUSE_AVAILABLE:
+            compiled_graph = compiled_graph.with_config({
+                "callbacks": [self.langfuse_handler]
+            })
+            logger.info("✅ LangFuse callbacks attached at graph compile time")
+        
+        return compiled_graph
 
     async def execute(self, initial_state: PodcastState) -> PodcastState:
         """
-        Execute the complete podcast production workflow.
+        Execute the complete podcast production workflow with comprehensive observability.
 
         Args:
             initial_state: Initial state with topic and configuration
@@ -201,14 +281,39 @@ class PodcastWorkflow:
         Returns:
             Final state with all results
         """
+        episode_id = initial_state.get('episode_id')
+        topic = initial_state.get('topic')
+        workflow_trace = None
+        
         try:
-            logger.info(f"Starting podcast workflow for topic: {initial_state['topic']}")
+            logger.info(f"Starting podcast workflow for topic: {topic}")
+
+            # Initialize LangFuse tracing for this workflow (August 2025 patterns)
+            if self.observability.enabled and self.langfuse_handler:
+                # Create root trace with comprehensive metadata
+                trace_metadata = {
+                    "episode_id": episode_id,
+                    "topic": topic,
+                    "workflow_version": "3.0.0",
+                    "budget_limit": initial_state.get('budget_limit', 5.51),
+                    "dry_run": initial_state.get('dry_run', False),
+                    "timestamp": datetime.now().isoformat(),
+                    "environment": os.getenv("ENVIRONMENT", "production"),
+                    "deployment_version": os.getenv("DEPLOYMENT_VERSION", "unknown"),
+                    "observation_types_enabled": True  # August 2025 feature
+                }
+                
+                # Create workflow trace
+                workflow_trace = self.observability.trace_workflow(
+                    episode_id=episode_id,
+                    topic=topic,
+                    metadata=trace_metadata
+                )
+                
+                logger.info(f"📊 LangFuse tracing initialized for episode: {episode_id}")
 
             # Get or create cost tracker using manager (August 2025 pattern)
-            episode_id = initial_state.get('episode_id')
             budget_limit = initial_state.get('budget_limit', 5.51)
-
-            # Restore from state if available, or create new
             cost_data = initial_state.get('cost_data', {})
             self.cost_tracker = self.cost_tracker_manager.get_or_create_tracker(
                 episode_id=episode_id,
@@ -220,7 +325,7 @@ class PodcastWorkflow:
             initial_state['cost_data'] = self.cost_tracker.to_dict()
 
             # Create initial checkpoint for resumption capability
-            thread_id = initial_state["episode_id"]
+            thread_id = episode_id
             await create_workflow_checkpoint(
                 thread_id=thread_id,
                 state=initial_state,
@@ -228,12 +333,32 @@ class PodcastWorkflow:
                 progress=0.0
             )
 
-            # Execute workflow with checkpointing support
-            try:
-                final_state = await self.graph.ainvoke(
-                    initial_state,
-                    config={"configurable": {"thread_id": thread_id}}
+            # Track workflow start event
+            if self.observability.enabled:
+                self.observability.langfuse.event(
+                    name="workflow_started",
+                    metadata={
+                        "episode_id": episode_id,
+                        "checkpoint_created": True,
+                        "budget_limit": budget_limit
+                    }
                 )
+
+            # Execute workflow with observability and checkpointing
+            try:
+                # August 2025: Simplified execution - callbacks already attached at compile time
+                config = {
+                    "configurable": {"thread_id": thread_id},
+                    # August 2025: Metadata can be passed directly in config
+                    "metadata": {
+                        "episode_id": episode_id,
+                        "workflow_run": datetime.now().isoformat(),
+                        "budget_limit": budget_limit
+                    }
+                }
+                
+                # Execute graph - callbacks are already configured
+                final_state = await self.graph.ainvoke(initial_state, config)
 
                 # Create completion checkpoint
                 await create_workflow_checkpoint(
@@ -242,8 +367,23 @@ class PodcastWorkflow:
                     current_node="completed",
                     progress=1.0
                 )
+                
+                # Track workflow completion
+                if self.observability.enabled:
+                    self.observability.langfuse.event(
+                        name="workflow_completed",
+                        metadata={
+                            "episode_id": episode_id,
+                            "total_cost": final_state.get('total_cost', 0),
+                            "duration_seconds": (datetime.now() - datetime.fromisoformat(initial_state['timestamp'])).total_seconds()
+                        }
+                    )
 
             except Exception as e:
+                # Track workflow failure
+                if self.observability.enabled:
+                    self.observability.track_error(e, "workflow_execution", initial_state)
+                
                 # Mark workflow as interrupted for potential resumption
                 self.checkpoint_manager.mark_interrupted(thread_id, str(e))
                 logger.error(f"❌ Workflow interrupted: {e}")
@@ -251,16 +391,23 @@ class PodcastWorkflow:
 
             # Generate final cost report and update state
             cost_breakdown = self.cost_tracker.get_cost_breakdown()
-            final_state['cost_data'] = self.cost_tracker.to_dict()  # Serialized for state
+            final_state['cost_data'] = self.cost_tracker.to_dict()
             final_state['total_cost'] = cost_breakdown['total_cost']
+
+            # Track final cost metrics
+            if self.observability.enabled:
+                self.observability.track_cost("workflow_total", cost_breakdown['total_cost'])
+                
+                # Track cost by component
+                for component, cost in cost_breakdown.get('by_agent', {}).items():
+                    self.observability.track_cost(component, cost)
 
             # Save cost report
             try:
-                from pathlib import Path
                 output_dir = Path(initial_state.get("output_directory", "./output"))
                 output_dir.mkdir(parents=True, exist_ok=True)
 
-                cost_report_path = output_dir / f"{initial_state['episode_id']}_cost_report.json"
+                cost_report_path = output_dir / f"{episode_id}_cost_report.json"
                 with open(cost_report_path, 'w') as f:
                     json.dump(cost_breakdown, f, indent=2, default=str)
 
@@ -268,15 +415,62 @@ class PodcastWorkflow:
             except Exception as e:
                 logger.warning(f"Failed to save cost report: {e}")
 
+            # Evaluate quality scores if available
+            if final_state.get('quality_scores') and self.observability.enabled:
+                quality_scores = final_state['quality_scores']
+                
+                # August 2025: Get trace_id if available from callback handler
+                trace_id = None
+                if hasattr(self.langfuse_handler, 'trace_id'):
+                    trace_id = self.langfuse_handler.trace_id
+                
+                # Track brand alignment
+                if 'brand_alignment' in quality_scores:
+                    self.observability.evaluate_quality(
+                        episode_id=episode_id,
+                        evaluation_type="brand_alignment",
+                        scores={
+                            "overall": quality_scores['brand_alignment'],
+                            "intellectual_humility": quality_scores.get('intellectual_humility_score', 0),
+                            "question_ratio": quality_scores.get('question_ratio_score', 0)
+                        },
+                        trace_id=trace_id
+                    )
+                
+                # Track technical accuracy
+                if 'technical_accuracy' in quality_scores:
+                    self.observability.evaluate_quality(
+                        episode_id=episode_id,
+                        evaluation_type="technical_accuracy",
+                        scores={"overall": quality_scores['technical_accuracy']},
+                        trace_id=trace_id
+                    )
+
             logger.info(f"Workflow completed. Total cost: ${final_state.get('total_cost', 0):.4f}")
+            
+            # Ensure all observations are flushed
+            if self.observability.enabled:
+                self.observability.flush()
+            
             return final_state
 
         except BudgetExceededException as e:
             logger.error(f"Budget exceeded during workflow: {e}")
+            if self.observability.enabled:
+                self.observability.track_error(e, "budget_exceeded", initial_state)
             return add_error(initial_state, str(e), "budget")
         except Exception as e:
             logger.error(f"Workflow execution failed: {e}")
+            if self.observability.enabled:
+                self.observability.track_error(e, "workflow_failed", initial_state)
             return add_error(initial_state, f"Workflow execution failed: {e}", "workflow")
+        finally:
+            # Ensure trace context is properly closed
+            if workflow_trace:
+                try:
+                    await workflow_trace.__aexit__(None, None, None)
+                except:
+                    pass
 
     async def resume_from_checkpoint(self, thread_id: str) -> PodcastState:
         """
@@ -332,19 +526,59 @@ class PodcastWorkflow:
             for metadata in recoverable
         ]
 
-    # Node implementations
+    # Node implementations with observability
+    @observe_agent("research_discovery", "Agent")  # August 2025: Using semantic observation type
     async def _discovery_node(self, state: PodcastState) -> PodcastState:
-        """Execute research discovery stage."""
+        """Execute research discovery stage with comprehensive observability."""
         logger.info("Executing discovery stage")
         state = update_stage(state, "discovery")
+        
+        # Track node start
+        start_time = datetime.now()
+        if self.observability.enabled:
+            self.observability.langfuse.event(
+                name="node_started",
+                metadata={
+                    "node": "discovery",
+                    "episode_id": state.get("episode_id"),
+                    "budget_remaining": state.get("budget_limit", 5.51) - state.get("total_cost", 0)
+                }
+            )
 
         try:
             if not state.get("dry_run"):
                 # Check budget before expensive operations
                 if self.cost_tracker and not self.cost_tracker.can_afford('perplexity', 'llama-3.1-sonar-large-128k-online', 1000, 1000):
                     logger.warning("Insufficient budget for discovery stage, using cheaper model")
+                    if self.observability.enabled:
+                        self.observability.langfuse.event(
+                            name="budget_adjustment",
+                            metadata={
+                                "node": "discovery",
+                                "reason": "insufficient_budget",
+                                "action": "using_cheaper_model"
+                            }
+                        )
 
-                updated_state = await self.research_discovery.execute(state)
+                # Execute with retry handler for resilience
+                updated_state = await self.retry_handler.execute_with_retry(
+                    self.research_discovery.execute,
+                    state,
+                    context="research_discovery"
+                )
+                
+                # Track execution metrics
+                execution_time = (datetime.now() - start_time).total_seconds()
+                if self.observability.enabled:
+                    self.observability.track_performance_metric(
+                        "discovery_execution_time",
+                        execution_time,
+                        metadata={
+                            "episode_id": state.get("episode_id"),
+                            "sources_found": len(updated_state.get("research_sources", []))
+                        }
+                    )
+                
                 return updated_state
             else:
                 # Mock execution for dry run
@@ -367,9 +601,13 @@ class PodcastWorkflow:
 
         except BudgetExceededException as e:
             logger.error(f"Discovery stage budget exceeded: {e}")
+            if self.observability.enabled:
+                self.observability.track_error(e, "discovery_budget_exceeded", state)
             return add_error(state, str(e), "discovery")
         except Exception as e:
             logger.error(f"Discovery stage failed: {e}")
+            if self.observability.enabled:
+                self.observability.track_error(e, "discovery_failed", state)
             return add_error(state, f"Discovery failed: {e}", "discovery")
 
     async def _deep_dive_node(self, state: PodcastState) -> PodcastState:
@@ -471,14 +709,57 @@ class PodcastWorkflow:
             logger.error(f"Planning stage failed: {e}")
             return add_error(state, f"Planning failed: {e}", "planning")
 
+    @observe_agent("script_writer", "Agent")  # August 2025: Using semantic observation type
     async def _writing_node(self, state: PodcastState) -> PodcastState:
-        """Execute script writing stage."""
+        """Execute script writing stage with observability."""
         logger.info("Executing writing stage")
         state = update_stage(state, "writing")
+        
+        start_time = datetime.now()
+        script_metadata = {
+            "episode_id": state.get("episode_id"),
+            "has_research": bool(state.get("research_synthesis")),
+            "has_questions": bool(state.get("research_questions")),
+            "has_plan": bool(state.get("episode_plan"))
+        }
+        
+        if self.observability.enabled:
+            self.observability.langfuse.event(
+                name="script_writing_started",
+                metadata=script_metadata
+            )
 
         try:
             if self.script_writer and not state.get("dry_run"):
-                updated_state = await self.script_writer.execute(state)
+                # Execute with retry handler for critical writing operations
+                updated_state = await self.retry_handler.execute_with_retry(
+                    self.script_writer.execute,
+                    state,
+                    context="script_writing"
+                )
+                
+                # Track script metrics
+                if self.observability.enabled and updated_state.get("script_raw"):
+                    script = updated_state["script_raw"]
+                    script_metrics = {
+                        "word_count": len(script.split()),
+                        "paragraph_count": len([p for p in script.split('\n\n') if p.strip()]),
+                        "execution_time": (datetime.now() - start_time).total_seconds(),
+                        "estimated_duration_minutes": len(script.split()) / 150  # ~150 words/minute
+                    }
+                    
+                    self.observability.langfuse.event(
+                        name="script_generated",
+                        metadata=script_metrics
+                    )
+                    
+                    # Track performance
+                    self.observability.track_performance_metric(
+                        "script_generation_time",
+                        script_metrics["execution_time"],
+                        metadata={"word_count": script_metrics["word_count"]}
+                    )
+                
                 return updated_state
             else:
                 # Mock writing for dry run
@@ -504,6 +785,8 @@ Thank you for joining us today!
 
         except Exception as e:
             logger.error(f"Writing stage failed: {e}")
+            if self.observability.enabled:
+                self.observability.track_error(e, "script_writing_failed", state, script_metadata)
             return add_error(state, f"Writing failed: {e}", "writing")
 
     async def _polishing_node(self, state: PodcastState) -> PodcastState:
@@ -513,10 +796,14 @@ Thank you for joining us today!
 
         try:
             if self.brand_validator and not state.get("dry_run"):
-                # Use brand validator to polish the script
-                updated_state = await self.brand_validator.execute(state)
+                # Use brand validator to polish the script with retry protection (August 2025)
+                updated_state = await self.retry_handler.execute_with_retry(
+                    self.brand_validator.execute,
+                    state,
+                    context="brand_validation"
+                )
                 # Copy the validated script as the polished version
-                state["script_polished"] = state.get("script_raw", "")
+                updated_state["script_polished"] = updated_state.get("script_raw", "")
                 return updated_state
             else:
                 # Mock polishing for dry run
