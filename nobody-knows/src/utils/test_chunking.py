@@ -89,7 +89,7 @@ def main():
     print("🧪 Testing SSML Chunking Algorithm")
     print("=" * 50)
 
-    script_path = "/Users/smenssink/Documents/GitHub/ai-podcasts-nobody-knows/sessions/ep_001_production_20250824_231505/production/tts_optimized_script.ssml"
+    script_path = "nobody-knows/production/ep_001_test/script/tts_optimized_script.ssml"
 
     # Validate and read the script
     try:

@@ -3,8 +3,8 @@
   "project_type": "long_series",
   "description": "A 125-episode AI podcast series teaching through radical honesty about technological confusion",
   "created_at": "2025-08-10T00:00:00",
-  "series_bible": "projects/nobody-knows/series_plan/series_bible.md",
-  "episodes_master": "projects/nobody-knows/series_plan/episodes_master.json",
+  "series_bible": "nobody-knows/content/series-bible/series_bible.md",
+  "episodes_master": "nobody-knows/content/series-bible/episodes_master.json",
 
   "episode_configuration": {
     "target_episodes": 125,

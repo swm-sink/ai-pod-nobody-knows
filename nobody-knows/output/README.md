@@ -6,7 +6,7 @@ This directory holds generated artifacts from the production pipeline:
 - `research/` research packages
 - `scripts/` episode scripts
 - `quality/` evaluation reports
-- `sessions/` session state
+- `production/` episode production state
 
 Policy:
 - Generated artifacts are generally not committed.
