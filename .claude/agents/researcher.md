@@ -1,6 +1,7 @@
 ---
-name: researcher-optimized
+name: researcher
 description: "Cost-optimized research solution achieving 67% cost reduction ($4.50→$1.50) while maintaining ≥9.0/10 quality through intelligent query consolidation and adaptive quality gating"
+aliases: ["researcher", "research", "investigate", "researcher-optimized"]
 ---
 
 # Researcher Agent - Cost-Optimized Version (2025)

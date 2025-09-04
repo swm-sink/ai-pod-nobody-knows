@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-09-04",
+    "purpose": "Central registry for agent discovery and capability mapping",
+    "usage": "Reference this registry to discover available agents and their capabilities"
+  },
+  
+  "agents": {
+    "user-assistant": {
+      "name": "user-assistant",
+      "aliases": ["assistant", "help", "guide"],
+      "description": "Simplified entry point that automatically routes to appropriate specialized agents",
+      "complexity": "beginner",
+      "beginner_friendly": true,
+      "typical_cost": "$0.10-0.30",
+      "typical_time": "30 seconds",
+      "auto_triggers": ["new_user", "help_request", "confusion_detected"],
+      "capabilities": ["routing", "simplification", "guidance", "error_translation"]
+    },
+    
+    "researcher": {
+      "name": "researcher",
+      "aliases": ["researcher", "research", "investigate", "researcher-optimized"],
+      "description": "Investigates topics using real-time sources with cost optimization",
+      "complexity": "medium",
+      "beginner_friendly": true,
+      "typical_cost": "$0.75-1.50",
+      "typical_time": "2-5 minutes",
+      "auto_triggers": ["research_needed", "fact_finding", "topic_exploration"],
+      "capabilities": ["perplexity_search", "cost_optimization", "source_validation", "zero_training_data"]
+    },
+    
+    "fact-checker": {
+      "name": "fact-checker",
+      "aliases": ["fact-checker", "verify", "validate", "check"],
+      "description": "Validates research claims and verifies accuracy with source triangulation",
+      "complexity": "medium",
+      "beginner_friendly": true,
+      "typical_cost": "$0.60-1.00",
+      "typical_time": "5-8 minutes",
+      "auto_triggers": ["validation_needed", "fact_verification", "contradiction_detection"],
+      "capabilities": ["source_triangulation", "expert_validation", "contradiction_detection", "accuracy_scoring"]
+    },
+    
+    "synthesizer": {
+      "name": "synthesizer",
+      "aliases": ["synthesizer", "synthesize", "combine", "integrate"],
+      "description": "Combines research into coherent narrative with teaching moments",
+      "complexity": "medium",
+      "beginner_friendly": false,
+      "typical_cost": "$0.50-1.00",
+      "typical_time": "3-5 minutes",
+      "auto_triggers": ["synthesis_needed", "narrative_creation"],
+      "capabilities": ["narrative_construction", "teaching_integration", "uncertainty_framing"]
+    },
+    
+    "writer": {
+      "name": "writer",
+      "aliases": ["writer", "script", "compose"],
+      "description": "Creates engaging podcast scripts with brand voice",
+      "complexity": "medium",
+      "beginner_friendly": false,
+      "typical_cost": "$1.00-2.00",
+      "typical_time": "5-10 minutes",
+      "auto_triggers": ["script_creation", "content_writing"],
+      "capabilities": ["script_architecture", "pacing_optimization", "hook_creation", "brand_alignment"]
+    },
+    
+    "polisher": {
+      "name": "polisher",
+      "aliases": ["polisher", "polish", "refine", "optimize"],
+      "description": "Optimizes scripts for TTS with SSML markup",
+      "complexity": "advanced",
+      "beginner_friendly": false,
+      "typical_cost": "$0.30-0.50",
+      "typical_time": "2-3 minutes",
+      "auto_triggers": ["tts_optimization", "ssml_markup"],
+      "capabilities": ["ssml_optimization", "pronunciation_guides", "pacing_refinement", "tts_preparation"]
+    },
+    
+    "judge": {
+      "name": "judge",
+      "aliases": ["judge", "evaluate", "assess", "quality-check"],
+      "description": "Multi-perspective quality assessment with three-evaluator consensus",
+      "complexity": "advanced",
+      "beginner_friendly": false,
+      "typical_cost": "$1.50-2.50",
+      "typical_time": "5-8 minutes",
+      "auto_triggers": ["quality_assessment", "final_validation"],
+      "capabilities": ["multi_perspective_evaluation", "consensus_calculation", "quality_scoring", "improvement_suggestions"]
+    },
+    
+    "audio-producer": {
+      "name": "audio-producer",
+      "aliases": ["audio-producer", "audio", "tts", "synthesize-audio"],
+      "description": "Produces audio from polished scripts using ElevenLabs",
+      "complexity": "medium",
+      "beginner_friendly": true,
+      "typical_cost": "$0.50-1.00",
+      "typical_time": "2-4 minutes",
+      "auto_triggers": ["audio_synthesis", "tts_production"],
+      "capabilities": ["elevenlabs_integration", "voice_synthesis", "audio_generation", "quality_settings"]
+    },
+    
+    "audio-validator": {
+      "name": "audio-validator",
+      "aliases": ["audio-validator", "validate-audio", "check-audio"],
+      "description": "Validates audio quality using STT and quality metrics",
+      "complexity": "advanced",
+      "beginner_friendly": false,
+      "typical_cost": "$0.30-0.60",
+      "typical_time": "3-5 minutes",
+      "auto_triggers": ["audio_validation", "quality_verification"],
+      "capabilities": ["stt_validation", "quality_metrics", "error_detection", "pronunciation_checking"]
+    },
+    
+    "cost-monitor": {
+      "name": "cost-monitor",
+      "aliases": ["cost-monitor", "budget", "costs", "spending"],
+      "description": "Tracks and optimizes production costs with budget management",
+      "complexity": "medium",
+      "beginner_friendly": true,
+      "typical_cost": "$0.05-0.10",
+      "typical_time": "10-30 seconds",
+      "auto_triggers": ["cost_tracking", "budget_check", "optimization_analysis"],
+      "capabilities": ["real_time_tracking", "budget_alerts", "cost_optimization", "trend_analysis"]
+    },
+    
+    "batch-processor": {
+      "name": "batch-processor",
+      "aliases": ["batch-processor", "batch", "bulk", "scale"],
+      "description": "Handles multi-episode production at scale",
+      "complexity": "advanced",
+      "beginner_friendly": false,
+      "typical_cost": "Varies by batch size",
+      "typical_time": "Varies by batch size",
+      "auto_triggers": ["batch_processing", "scale_production"],
+      "capabilities": ["parallel_processing", "resource_management", "progress_tracking", "error_recovery"]
+    },
+    
+    "onboarding-assistant": {
+      "name": "onboarding-assistant",
+      "aliases": ["onboarding", "tutorial", "learn", "getting-started"],
+      "description": "Guides new users through their first episode with interactive tutorials",
+      "complexity": "beginner",
+      "beginner_friendly": true,
+      "typical_cost": "$0.10-0.20",
+      "typical_time": "5-10 minutes",
+      "auto_triggers": ["first_time_user", "tutorial_request", "learning_mode"],
+      "capabilities": ["interactive_tutorials", "progress_tracking", "milestone_celebration", "gradual_complexity"]
+    },
+    
+    "error-recovery": {
+      "name": "error-recovery",
+      "aliases": ["error-recovery", "fix", "recover", "troubleshoot"],
+      "description": "Diagnoses and recovers from errors automatically",
+      "complexity": "advanced",
+      "beginner_friendly": true,
+      "typical_cost": "$0.10-0.30",
+      "typical_time": "1-3 minutes",
+      "auto_triggers": ["error_detected", "failure_recovery", "troubleshooting"],
+      "capabilities": ["error_diagnosis", "automatic_recovery", "user_guidance", "pattern_learning"]
+    },
+    
+    "quality-validator": {
+      "name": "quality-validator",
+      "aliases": ["quality-validator", "validate", "quality", "verify"],
+      "description": "Continuous quality assurance with real validation",
+      "complexity": "medium",
+      "beginner_friendly": false,
+      "typical_cost": "$0.20-0.40",
+      "typical_time": "2-4 minutes",
+      "auto_triggers": ["quality_check", "validation_needed", "assessment"],
+      "capabilities": ["real_validation", "improvement_suggestions", "trend_tracking", "success_celebration"]
+    },
+    
+    "concurrent-validator": {
+      "name": "concurrent-validator",
+      "aliases": ["concurrent-validator", "concurrent", "parallel-test", "scale-test"],
+      "description": "Validates concurrent processing and scaling capabilities",
+      "complexity": "advanced",
+      "beginner_friendly": false,
+      "typical_cost": "Varies by test scope",
+      "typical_time": "5-15 minutes",
+      "auto_triggers": ["scale_testing", "concurrent_validation", "performance_testing"],
+      "capabilities": ["concurrent_testing", "bottleneck_identification", "resource_monitoring", "scaling_validation"]
+    }
+  },
+  
+  "discovery": {
+    "by_task": {
+      "research": ["researcher", "fact-checker"],
+      "writing": ["synthesizer", "writer", "polisher"],
+      "quality": ["judge", "quality-validator"],
+      "audio": ["audio-producer", "audio-validator"],
+      "cost": ["cost-monitor"],
+      "scale": ["batch-processor", "concurrent-validator"],
+      "help": ["user-assistant", "onboarding-assistant", "error-recovery"]
+    },
+    
+    "by_complexity": {
+      "beginner": ["user-assistant", "onboarding-assistant", "researcher", "fact-checker", "audio-producer", "cost-monitor", "error-recovery"],
+      "intermediate": ["synthesizer", "writer", "quality-validator"],
+      "advanced": ["polisher", "judge", "audio-validator", "batch-processor", "concurrent-validator"]
+    },
+    
+    "by_workflow_phase": {
+      "research": ["researcher", "fact-checker"],
+      "content": ["synthesizer", "writer", "polisher"],
+      "validation": ["judge", "quality-validator"],
+      "production": ["audio-producer", "audio-validator"],
+      "management": ["cost-monitor", "batch-processor"],
+      "support": ["user-assistant", "onboarding-assistant", "error-recovery"]
+    }
+  },
+  
+  "routing_rules": {
+    "new_user": "onboarding-assistant",
+    "help_request": "user-assistant",
+    "research_task": "researcher",
+    "validation_task": "fact-checker",
+    "script_task": "writer",
+    "audio_task": "audio-producer",
+    "quality_task": "judge",
+    "error_state": "error-recovery",
+    "cost_concern": "cost-monitor",
+    "scale_request": "batch-processor"
+  },
+  
+  "capability_matrix": {
+    "mcp_tools": {
+      "perplexity": ["researcher", "fact-checker"],
+      "elevenlabs": ["audio-producer", "audio-validator"],
+      "websearch": ["researcher", "fact-checker"]
+    },
+    
+    "file_operations": {
+      "read": "*",
+      "write": ["researcher", "fact-checker", "synthesizer", "writer", "polisher", "audio-producer"],
+      "json": ["researcher", "fact-checker", "synthesizer", "cost-monitor"]
+    },
+    
+    "quality_gates": {
+      "research_depth": ["researcher", "fact-checker"],
+      "content_quality": ["writer", "polisher", "judge"],
+      "audio_quality": ["audio-producer", "audio-validator"],
+      "cost_efficiency": ["cost-monitor"],
+      "scale_performance": ["batch-processor", "concurrent-validator"]
+    }
+  },
+  
+  "learning_progression": {
+    "level_1_basics": {
+      "agents": ["user-assistant", "onboarding-assistant"],
+      "focus": "Understanding the system and basic navigation",
+      "time": "30 minutes"
+    },
+    "level_2_research": {
+      "agents": ["researcher", "fact-checker"],
+      "focus": "Learning research and validation workflows",
+      "time": "1-2 hours"
+    },
+    "level_3_content": {
+      "agents": ["synthesizer", "writer"],
+      "focus": "Creating content from research",
+      "time": "2-3 hours"
+    },
+    "level_4_production": {
+      "agents": ["audio-producer", "audio-validator"],
+      "focus": "Producing final audio episodes",
+      "time": "1-2 hours"
+    },
+    "level_5_optimization": {
+      "agents": ["cost-monitor", "judge", "polisher"],
+      "focus": "Optimizing quality and costs",
+      "time": "2-3 hours"
+    },
+    "level_6_scale": {
+      "agents": ["batch-processor", "concurrent-validator"],
+      "focus": "Scaling to multiple episodes",
+      "time": "3-4 hours"
+    }
+  }
+}
