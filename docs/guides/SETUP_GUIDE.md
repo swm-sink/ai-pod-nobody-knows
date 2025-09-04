@@ -64,7 +64,7 @@ DAILY_COST_LIMIT=20.00
 ### Verify Configuration
 ```bash
 # Run the configuration validator
-./validate-config.sh
+./scripts/validate-config.sh
 ```
 
 If all checks pass ✅, you're ready for the next step!
@@ -239,7 +239,7 @@ After your first successful episode:
 
 ## 📞 Getting Help
 
-**Configuration Issues**: Run `./validate-config.sh` for comprehensive diagnosis  
+**Configuration Issues**: Run `./scripts/validate-config.sh` for comprehensive diagnosis  
 **Connection Problems**: Run `./scripts/test-mcp-connections.sh` to test everything  
 **System Status**: Use `/status` command in Claude Code  
 **Cost Monitoring**: Check `.claude/logs/cost-tracking.log`  

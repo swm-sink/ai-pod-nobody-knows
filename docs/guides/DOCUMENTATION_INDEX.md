@@ -7,13 +7,13 @@
 ## 📚 Primary Documentation
 
 ### 1. **System Navigation Hub**
-- **File**: [CLAUDE.md](./CLAUDE.md) 
+- **File**: [CLAUDE.md](../../CLAUDE.md) 
 - **Purpose**: Main navigation and quick start guide
 - **Status**: ✅ Updated with 2025 optimization achievements
 - **Key Updates**: Cost targets ($3.42), optimization resources, context navigation
 
 ### 2. **Comprehensive Modernization Playbook** ⭐ **PRIMARY REFERENCE**
-- **File**: [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
+- **File**: [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](../playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
 - **Purpose**: Complete methodology for AI system optimization
 - **Status**: ✅ Production-validated patterns documented
 - **Contents**:
@@ -27,7 +27,7 @@
   - Future Enhancement Roadmap
 
 ### 3. **Learning Outcomes and Context Enhancement**
-- **File**: [.claude/context/modernization_learning_outcomes.md](./.claude/context/modernization_learning_outcomes.md)
+- **File**: [.claude/context/modernization_learning_outcomes.md](../../.claude/context/modernization_learning_outcomes.md)
 - **Purpose**: Transferable patterns and optimization strategies
 - **Status**: ✅ Integrated into context system
 - **Contents**:
@@ -38,7 +38,7 @@
   - Future Enhancement Opportunities
 
 ### 4. **Implementation Summary and Metrics**
-- **File**: [OPTIMIZATION_IMPLEMENTATION_SUMMARY.md](./OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)
+- **File**: [OPTIMIZATION_IMPLEMENTATION_SUMMARY.md](../playbooks/OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)
 - **Purpose**: Detailed achievement metrics and validation results
 - **Status**: ✅ Production results validated
 - **Key Metrics**:
@@ -110,17 +110,17 @@
 ### By User Type
 
 **New Users:**
-1. Start with [CLAUDE.md](./CLAUDE.md) for navigation
+1. Start with [CLAUDE.md](../../CLAUDE.md) for navigation
 2. Review [SETUP_GUIDE.md](./SETUP_GUIDE.md) for system setup
-3. Reference [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md) for methodology
+3. Reference [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](../playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md) for methodology
 
 **Optimization Engineers:**
-1. Primary reference: [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
-2. Implementation patterns: [modernization_learning_outcomes.md](./.claude/context/modernization_learning_outcomes.md)
+1. Primary reference: [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](../playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
+2. Implementation patterns: [modernization_learning_outcomes.md](../../.claude/context/modernization_learning_outcomes.md)
 3. Technical systems: Production implementation files listed above
 
 **System Administrators:**
-1. Production metrics: [OPTIMIZATION_IMPLEMENTATION_SUMMARY.md](./OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)
+1. Production metrics: [OPTIMIZATION_IMPLEMENTATION_SUMMARY.md](../playbooks/OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)
 2. Monitoring setup: Performance and rate limiting system files
 3. Deployment guides: Feature flag and testing framework documentation
 
@@ -165,8 +165,8 @@ quality_validation:
 ### Usage Guidelines
 
 **For Future Projects:**
-1. Use [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md) as primary reference
-2. Adapt patterns from [modernization_learning_outcomes.md](./.claude/context/modernization_learning_outcomes.md)
+1. Use [AI_PODCAST_MODERNIZATION_PLAYBOOK.md](../playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md) as primary reference
+2. Adapt patterns from [modernization_learning_outcomes.md](../../.claude/context/modernization_learning_outcomes.md)
 3. Implement core systems using production files as templates
 4. Follow TDD methodology with comprehensive test coverage
 

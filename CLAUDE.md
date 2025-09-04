@@ -8,7 +8,7 @@
 **Cost Achievement:** $3.42/episode ✅ (67% reduction achieved, within $3-5 target)  
 **Quality Score:** 91% average ✅ (maintained ≥90% during optimization)  
 **Architecture:** 10+ agents | 5 workflows | 2025 Optimized Claude Code patterns
-**Optimization Status:** ✅ **COMPLETE** - See: [Modernization Playbook](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
+**Optimization Status:** ✅ **COMPLETE** - See: [Modernization Playbook](./docs/playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md)
 
 ## ⚡ QUICK START
 
@@ -148,7 +148,7 @@ total_optimal: 20000      # Performance sweet spot
 - `/status` - System state
 
 **Development:**
-- `./validate-config.sh` - Check configuration
+- `./scripts/validate-config.sh` - Check configuration
 - `./scripts/test-mcp-connections.sh` - Test MCP servers
 - See: @.claude/commands/meta-chain.md for advanced
 
@@ -169,12 +169,12 @@ total_optimal: 20000      # Performance sweet spot
 ### Support Resources
 - [SETUP_GUIDE.md](./docs/guides/SETUP_GUIDE.md) - Detailed setup
 - [ARCHITECTURE.md](./docs/architecture/ARCHITECTURE.md) - System design
-- [PROJECT_HANDOFF_SUMMARY.md](./PROJECT_HANDOFF_SUMMARY.md) - Complete overview
+- [PROJECT_HANDOFF_SUMMARY.md](./docs/playbooks/PROJECT_HANDOFF_SUMMARY.md) - Complete overview
 
 ### 2025 Optimization Resources ✅ **NEW**
-- **[Modernization Playbook](./AI_PODCAST_MODERNIZATION_PLAYBOOK.md)** - Complete optimization methodology
+- **[Modernization Playbook](./docs/playbooks/AI_PODCAST_MODERNIZATION_PLAYBOOK.md)** - Complete optimization methodology
 - **[Learning Outcomes](./.claude/context/modernization_learning_outcomes.md)** - Validated patterns and strategies
-- **[Optimization Summary](./OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)** - Achievement metrics and results
+- **[Optimization Summary](./docs/playbooks/OPTIMIZATION_IMPLEMENTATION_SUMMARY.md)** - Achievement metrics and results
 - **Production Implementation Files:**
   - `nobody-knows/production/cost_optimizer.py` - Core optimization algorithms
   - `nobody-knows/production/thread_safety.py` - Concurrent processing framework
