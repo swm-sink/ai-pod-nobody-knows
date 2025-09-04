@@ -1,0 +1,29 @@
+{
+  "flags": {
+    "cost_optimization": {
+      "enabled": true,
+      "description": "Default cost_optimization configuration",
+      "created_at": "2025-09-03T23:56:25.584869",
+      "updated_at": "2025-09-03T23:56:25.584869"
+    },
+    "shadow_mode_testing": {
+      "enabled": false,
+      "description": "Default shadow_mode_testing configuration",
+      "created_at": "2025-09-03T23:56:25.584871",
+      "updated_at": "2025-09-03T23:56:25.584871"
+    },
+    "experimental_features": {
+      "enabled": false,
+      "description": "Default experimental_features configuration",
+      "created_at": "2025-09-03T23:56:25.584872",
+      "updated_at": "2025-09-03T23:56:25.584872"
+    },
+    "basic_cost_optimization": {
+      "enabled": true,
+      "description": "",
+      "created_at": "2025-09-03T23:56:25.585179",
+      "updated_at": "2025-09-03T23:56:25.585179"
+    }
+  },
+  "last_updated": "2025-09-03T23:56:25.585184"
+}

@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "summary": {
+    "start_time": "2025-09-03 23:56:25.583664",
+    "tests_completed": 4,
+    "tests_passed": 3,
+    "stress_results": {
+      "concurrent_episodes": {
+        "num_concurrent": 5,
+        "successes": 0,
+        "failures": 5,
+        "success_rate": 0.0,
+        "total_time": 0.007974863052368164,
+        "avg_processing_time": 0.006091451644897461,
+        "concurrent_efficiency": 626.9700140512422
+      },
+      "voice_protection": {
+        "total_operations": 100,
+        "voice_corruptions": 0,
+        "protection_success_rate": 100.0,
+        "processing_time": 0.022596120834350586,
+        "operations_per_second": 4425.538380374572
+      },
+      "memory_performance": {
+        "num_managers": 50,
+        "creation_time": 0.013541221618652344,
+        "total_operations": 1000,
+        "operation_time": 8.392333984375e-05,
+        "operations_per_second": 11915636.363636363,
+        "managers_created_per_second": 3692.4290442988945
+      },
+      "rollback_stress": {
+        "total_failures_reported": 20,
+        "auto_rollback_triggered": true,
+        "rollback_time": 0.006040096282958984,
+        "total_test_time": 0.030890941619873047,
+        "emergency_kill_time": 4.291534423828125e-06,
+        "failures_per_second": 647.4389886235587
+      }
+    },
+    "end_time": "2025-09-03 23:56:25.661520",
+    "duration": 0.077856,
+    "success_rate": 75.0
+  }
+}

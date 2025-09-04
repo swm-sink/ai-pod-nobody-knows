@@ -1,0 +1,44 @@
+{
+  "cost_limits": {
+    "research_max": 1.50,
+    "script_max": 2.30,
+    "audio_max": 2.80,
+    "total_max": 5.00,
+    "optimization_targets": {
+      "research_optimized": 1.50,
+      "research_legacy": 4.50,
+      "cost_reduction_target": 0.67
+    }
+  },
+  "budget_enforcement": {
+    "hard_limits": true,
+    "warning_threshold": 0.80,
+    "stop_threshold": 1.0,
+    "emergency_stop": true
+  },
+  "cost_tracking": {
+    "granularity": "per_query",
+    "attribution": "per_agent",
+    "reporting": "real_time",
+    "validation": "automatic"
+  },
+  "optimization_settings": {
+    "enable_cost_optimization": true,
+    "adaptive_quality_gating": true,
+    "query_consolidation": true,
+    "semantic_deduplication": true
+  },
+  "performance_targets": {
+    "cost_per_episode": 5.00,
+    "research_phase_max": 1.50,
+    "script_phase_max": 2.30,
+    "audio_phase_max": 2.80,
+    "total_processing_time_max": 30
+  },
+  "regression_thresholds": {
+    "cost_increase_alert": 1.20,
+    "cost_increase_block": 1.50,
+    "performance_degradation_alert": 1.20,
+    "performance_degradation_block": 1.50
+  }
+}

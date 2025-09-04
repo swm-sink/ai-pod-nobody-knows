@@ -137,5 +137,35 @@
     "include_recommendations": true,
     "track_improvement_over_time": true,
     "alert_on_consistent_failures": true
+  },
+
+  "regression_testing": {
+    "research_quality_gates": {
+      "research_depth_min": 9.0,
+      "source_authority_min": 0.90,
+      "expert_diversity_min": 10,
+      "fact_accuracy_min": 1.0,
+      "brand_alignment_min": 0.90,
+      "currency_requirement": "2024-2025_sources_only",
+      "zero_training_data_enforcement": true
+    },
+    "cost_optimization_gates": {
+      "research_cost_max": 1.50,
+      "total_episode_cost_max": 5.00,
+      "cost_reduction_validation": 0.67,
+      "budget_enforcement": true
+    },
+    "performance_gates": {
+      "agent_response_time_max": 480,
+      "total_workflow_time_max": 1800,
+      "memory_usage_max": "2GB",
+      "concurrent_episode_capacity": 3
+    },
+    "integration_gates": {
+      "mcp_connection_required": ["perplexity-ask", "elevenlabs"],
+      "agent_coordination_validated": true,
+      "state_management_integrity": true,
+      "quality_enforcement_active": true
+    }
   }
 }
