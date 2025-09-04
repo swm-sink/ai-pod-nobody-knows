@@ -26,6 +26,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from core.health import HealthChecker, HealthStatus
+from config.api_key_validator import APIKeyValidator
+from config.google_auth_setup import GoogleAuthManager
 
 
 def setup_logging(verbose: bool = False) -> None:
@@ -148,6 +150,60 @@ Examples:
     return parser.parse_args()
 
 
+def run_api_key_validation(verbose: bool = False) -> Dict[str, Any]:
+    """Run API key validation and return results."""
+    print("🔐 Validating API Key Configuration...")
+    
+    validator = APIKeyValidator()
+    results = validator.validate_all()
+    
+    if verbose:
+        validator.print_validation_report(results)
+    else:
+        # Print summary
+        status_emoji = "✅" if results["all_valid"] else "❌"
+        prod_emoji = "🚀" if results["ready_for_production"] else "⚠️"
+        print(f"   {status_emoji} Required Keys: {results['all_valid']}")
+        print(f"   {prod_emoji} Production Ready: {results['ready_for_production']}")
+        print(f"   📊 Valid: {results['valid_keys']}/{results['total_keys']}")
+        
+        if not results["all_valid"]:
+            print("   🚨 Issues found - run with --verbose for details")
+    
+    return results
+
+
+def run_google_auth_check(verbose: bool = False) -> Dict[str, Any]:
+    """Check Google OAuth 2.0 authentication status."""
+    print("🔍 Checking Google Authentication...")
+    
+    try:
+        auth_manager = GoogleAuthManager()
+        is_authenticated = auth_manager.is_authenticated()
+        service_info = auth_manager.get_service_account_info()
+        
+        if is_authenticated:
+            print("   ✅ Google OAuth 2.0: Authenticated")
+            if verbose:
+                print(f"   📧 Service Account: {service_info.get('email', 'Unknown')}")
+                print(f"   🏗️ Project: {service_info.get('project_id', 'Unknown')}")
+        else:
+            print("   ❌ Google OAuth 2.0: Not configured")
+            print("   💡 Run: python -m config.google_auth_setup --setup-guide")
+        
+        return {
+            "authenticated": is_authenticated,
+            "service_info": service_info
+        }
+    
+    except Exception as e:
+        print(f"   ❌ Google auth error: {e}")
+        return {
+            "authenticated": False,
+            "error": str(e)
+        }
+
+
 def main() -> None:
     """Main health check entry point."""
     args = parse_arguments()
@@ -157,7 +213,19 @@ def main() -> None:
     logger = logging.getLogger(__name__)
     
     try:
-        # Initialize health checker
+        print("🏥 AI Podcast Production System - Health Check")
+        print("=" * 60)
+        
+        # Step 1: API Key validation
+        api_validation = run_api_key_validation(args.verbose)
+        print()
+        
+        # Step 2: Google auth check
+        google_auth = run_google_auth_check(args.verbose)
+        print()
+        
+        # Step 3: System health check
+        print("🔧 Running System Health Check...")
         health_checker = HealthChecker()
         logger.info("Starting comprehensive health check...")
         
@@ -167,21 +235,54 @@ def main() -> None:
         # Display results
         if args.quiet:
             status_emoji = "✅" if health_status.status == "healthy" else "❌"
-            print(f"{status_emoji} {health_status.status.upper()} ({health_status.score:.1f}/100)")
+            api_emoji = "✅" if api_validation["all_valid"] else "❌"
+            print(f"{api_emoji} API Keys: {'Valid' if api_validation['all_valid'] else 'Issues'}")
+            print(f"{status_emoji} System: {health_status.status.upper()} ({health_status.score:.1f}/100)")
         else:
             report = format_health_report(health_status, args.verbose)
             print(report)
         
+        # Enhanced report with API validation
+        enhanced_report = {
+            "api_validation": api_validation,
+            "google_authentication": google_auth,
+            "system_health": {
+                "overall_status": health_status.status,
+                "health_score": health_status.score,
+                "check_timestamp": health_status.timestamp,
+                "component_health": getattr(health_status, 'component_health', {}),
+                "warnings": getattr(health_status, 'warnings', []),
+                "critical_issues": getattr(health_status, 'critical_issues', []),
+                "recommendations": getattr(health_status, 'recommendations', [])
+            }
+        }
+        
         # Save to file if requested
         if args.output_file:
-            save_health_report(health_status, args.output_file)
+            # Save enhanced report
+            output_path = args.output_file
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(output_path, 'w') as f:
+                json.dump(enhanced_report, f, indent=2)
+            
+            print(f"📄 Enhanced health report saved to: {output_path}")
         
-        # Exit with appropriate code
-        if health_status.status == "healthy":
+        # Determine exit code based on overall health
+        overall_healthy = (
+            api_validation["all_valid"] and
+            health_status.status == "healthy"
+        )
+        
+        if overall_healthy:
+            print("\n🎉 System is healthy and ready for production!")
             sys.exit(0)
-        elif health_status.status == "warning":
+        elif api_validation["all_valid"]:  # API keys OK but system has warnings
+            print("\n⚠️ System functional but has warnings")
             sys.exit(1)
-        else:
+        else:  # API key issues
+            print("\n❌ Configuration issues found - see details above")
+            print("💡 Quick fix: python -m config.api_key_validator")
             sys.exit(2)
     
     except KeyboardInterrupt:

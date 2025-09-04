@@ -1,6 +1,4 @@
 # TODO_prod.yaml - Production Task Tracking  
-
-from config.voice_config import get_production_voice_id
 # Purpose: Track episode production planning and execution via LangGraph
 # Version: 2.0.0
 # Updated: 2025-09-01
@@ -16,21 +14,21 @@ metadata:
 
 # Production System Status
 system_status:
-  readiness_level: "development"  # development | testing | production
-  langgraph_migration: 75  # 12/16 agents complete
-  system_health: "stable_with_limitations"
-  last_health_check: "2025-09-01T10:00:00Z"
+  readiness_level: "testing"  # development | testing | production
+  langgraph_migration: 100  # 16/16 agents complete
+  system_health: "stable_pending_api_keys"
+  last_health_check: "2025-09-03T00:00:00Z"
   
   operational_components:
-    research_pipeline: "operational"     # 4/4 agents migrated
-    audio_pipeline: "operational"       # 3/3 agents migrated  
-    quality_pipeline: "operational"     # 3/3 agents migrated
-    production_pipeline: "partial"      # 2/4 agents migrated
+    research_pipeline: "operational"     # 4/4 agents migrated ✅
+    audio_pipeline: "operational"       # 4/4 agents migrated ✅  
+    quality_pipeline: "operational"     # 3/3 agents migrated ✅
+    production_pipeline: "operational"  # 5/5 agents migrated ✅
     
-  blocked_components:
-    script_generation: "blocked"        # script-writer not migrated
-    brand_validation: "blocked"         # brand-validator not migrated
-    episode_planning: "blocked"         # episode-planner not migrated
+  pending_configuration:
+    api_key_setup: "required"           # Primary blocker for production
+    environment_validation: "required"   # API connectivity testing needed
+    cost_tracking_validation: "required" # Budget enforcement testing
 
 # Production Modes
 execution_modes:
@@ -43,7 +41,7 @@ execution_modes:
   claude_orchestrated:
     command: "/prod-episode 'Topic'"
     description: "Claude Code orchestrating LangGraph subprocess"
-    status: "development"
+    status: "testing"
     use_case: "Interactive production, monitoring, debugging"
     
   hybrid_mode:
@@ -66,16 +64,14 @@ production_pipeline:
       agents: ["question-generator", "episode-planner"]
       budget_allocation: 0.30
       estimated_duration: "2-3 minutes"
-      status: "blocked"  # episode-planner not migrated
-      blocker: "episode-planner agent migration required"
+      status: "operational"  # agents migrated, pending API key testing
       
     scripting:
       name: "Script Generation & Validation"
       agents: ["script-writer", "brand-validator"]
       budget_allocation: 2.00
       estimated_duration: "10-15 minutes"
-      status: "blocked"  # script-writer not migrated
-      blocker: "script-writer agent migration required"
+      status: "operational"  # agents migrated, pending API key testing
       
     audio:
       name: "Audio Synthesis & Validation"
@@ -148,20 +144,22 @@ episode_queue:
       current_cost: 0.15
       notes: "Development testing only, not for publication"
 
-  blocked_pending_migration:
-    - id: "ep-blocked-001"
+  ready_pending_api_keys:
+    - id: "ep-ready-001"
       topic: "AI Safety Misconceptions"
-      status: "blocked"
-      blocker: "script-writer agent not migrated"
+      status: "ready"
+      blocker: "API key configuration needed"
       estimated_cost: 5.35
       priority: "high"
+      notes: "Agent migration complete, pending API setup"
       
-    - id: "ep-blocked-002"
+    - id: "ep-ready-002"
       topic: "The Unknowns of Genetic Engineering"
-      status: "blocked"
-      blocker: "episode-planner agent not migrated"
+      status: "ready"
+      blocker: "API key configuration needed"
       estimated_cost: 5.25
       priority: "medium"
+      notes: "Agent migration complete, pending API setup"
 
 # Production History & Analytics
 production_history:
@@ -204,7 +202,7 @@ quality_standards:
     emotional_connection: "curiosity_and_wonder"
     
   audio_quality:
-    voice_consistency: get_production_voice_id()  # Production voice
+    voice_consistency: "ZF6FPAbjXT4488VcRRnw"  # Production voice (Amelia)
     audio_clarity: "minimum_95%"
     pacing_naturalness: "conversational"
     ssml_optimization: "required"
@@ -236,7 +234,7 @@ workflows:
     stages: ["research", "planning", "scripting", "audio", "quality"]
     estimated_duration: "25-35 minutes"
     estimated_cost: 5.51
-    prerequisites: ["All agents migrated", "System health check passed"]
+    prerequisites: ["API keys configured", "Environment validation passed"]
     
   research_only:
     name: "Research Pipeline Only"
@@ -253,7 +251,7 @@ workflows:
     stages: ["planning", "scripting"] 
     estimated_duration: "12-18 minutes"
     estimated_cost: 2.30
-    status: "blocked"  # Requires script-writer migration
+    status: "testing"  # Agents migrated, pending API validation
     
   audio_production:
     name: "Audio Synthesis Workflow"
@@ -285,7 +283,7 @@ monitoring:
 # Production Environment
 environment:
   voice_configuration:
-    production_voice_id: get_production_voice_id()  # Amelia
+    production_voice_id: "ZF6FPAbjXT4488VcRRnw"  # Amelia (validated production voice)
     voice_stability: 0.75
     voice_clarity: 0.85
     voice_enhancement: true
@@ -331,10 +329,10 @@ series_strategy:
 risks:
   production:
     high:
-      - risk: "LangGraph migration incomplete blocks production"
+      - risk: "Missing API keys block production testing and deployment"
         probability: "high"
         impact: "critical"
-        mitigation: "Prioritize critical agent migrations"
+        mitigation: "Configure API keys and validate environment connectivity"
         
       - risk: "Cost overruns during production episodes"
         probability: "medium"
@@ -379,37 +377,41 @@ success_metrics:
 # Next Actions (Production Readiness)
 next_actions:
   immediate:
-    - action: "Complete script-writer agent migration"
+    - action: "Configure required API keys (ElevenLabs, OpenAI, Anthropic)"
       priority: "critical"
-      deadline: "2025-09-05"
-      blocker_for: ["script development", "full episode production"]
+      deadline: "2025-09-07"
+      blocker_for: ["production testing", "full episode production"]
+      details: "Set up .env file with required API keys for agent execution"
       
-    - action: "Complete brand-validator agent migration" 
+    - action: "Validate API connectivity and authentication"
       priority: "critical"
-      deadline: "2025-09-06"
-      blocker_for: ["brand consistency", "quality validation"]
+      deadline: "2025-09-08"
+      prerequisites: ["API keys configured"]
+      validates: ["ElevenLabs TTS", "Perplexity research", "LLM agent execution"]
       
   short_term:
-    - action: "Complete episode-planner agent migration"
+    - action: "Execute dry-run episode production test"
       priority: "high"
-      deadline: "2025-09-07"
-      enables: ["structured episode planning", "content optimization"]
+      deadline: "2025-09-10"
+      prerequisites: ["API connectivity validated"]
+      purpose: "Validate complete pipeline functionality and cost tracking"
       
-    - action: "Validate full production pipeline end-to-end"
+    - action: "Validate cost tracking accuracy and budget enforcement"
       priority: "high"
-      deadline: "2025-09-09"
-      prerequisites: ["All agent migrations complete"]
+      deadline: "2025-09-11"
+      validates: ["$5.51 budget compliance", "real-time cost monitoring"]
       
   medium_term:
-    - action: "Produce first post-migration validation episode"
+    - action: "Produce first full production episode"
       priority: "medium"
       deadline: "2025-09-12"
-      topic: "Testing Episode - System Validation"
+      topic: "AI Safety Misconceptions"
+      prerequisites: ["Cost tracking validation passed"]
       
-    - action: "Launch regular production schedule"
+    - action: "Launch regular production schedule (2 episodes/week)"
       priority: "medium"
       deadline: "2025-09-15"
-      prerequisites: ["Validation episode successful"]
+      prerequisites: ["First production episode successful", "Quality metrics ≥8.0"]
 
 ---
 # File Metadata  

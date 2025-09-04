@@ -37,7 +37,22 @@ class VoiceConfigManager:
 
     def __init__(self):
         """Initialize voice configuration manager."""
-        self.config_file = Path("config/production-voice.json")
+        # Try multiple possible locations for the config file
+        possible_paths = [
+            Path("config/production-voice.json"),
+            Path(".claude/config/production-voice.json"),
+            Path("../config/production-voice.json")
+        ]
+        
+        self.config_file = None
+        for path in possible_paths:
+            if path.exists():
+                self.config_file = path
+                break
+        
+        # If no existing file found, use the default location
+        if self.config_file is None:
+            self.config_file = Path("config/production-voice.json")
         self._voice_cache = {}
         self._load_config()
 
@@ -91,7 +106,13 @@ class VoiceConfigManager:
         Returns:
             Production voice ID string
         """
-        voice_id = self._voice_cache.get("production_voice_id", self._get_default_voice_id())
+        logger.debug(f"Voice cache keys: {list(self._voice_cache.keys())}")
+        logger.debug(f"Voice cache contents: {self._voice_cache}")
+        
+        voice_id = self._voice_cache.get("production_voice_id")
+        if voice_id is None:
+            logger.warning("Voice ID not found in cache, using default")
+            voice_id = self._get_default_voice_id()
 
         # Governance logging
         logger.debug(f"Voice ID requested: {voice_id} (source: {self._voice_cache.get('source', 'unknown')})")
